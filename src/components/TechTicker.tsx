@@ -1,96 +1,48 @@
-import React from "react";
-import { GitBranch, Cloud, Cpu, Server, Terminal, Shield } from "lucide-react";
+import { HeartPulse, Landmark, Building2, Factory, ShoppingBag, Cpu } from "lucide-react";
 
-// Customized high-fidelity tech items matching the user's reference styling
-const TECH_ITEMS = [
-  {
-    label: "Terraform",
-    icon: () => (
-      <div className="w-3 h-3 rotate-45 bg-blue-500 shadow-sm shrink-0 animate-pulse" />
-    )
-  },
-  {
-    label: "Ansible",
-    icon: () => (
-      <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-amber-500/50 bg-amber-500/10 text-[0.65rem] font-black text-amber-500">
-        A
-      </div>
-    )
-  },
-  {
-    label: "Git",
-    icon: () => (
-      <GitBranch className="w-4 h-4 text-amber-400 shrink-0" strokeWidth={2.5} />
-    )
-  },
-  {
-    label: "AWS",
-    icon: () => (
-      <Cloud className="w-4 h-4 text-blue-400 shrink-0" strokeWidth={2.5} />
-    )
-  },
-  {
-    label: "Docker",
-    icon: () => (
-      <div className="w-3.5 h-3.5 bg-sky-400 rounded-sm shrink-0 flex items-center justify-center text-[0.6rem] font-bold text-slate-900 leading-none">
-        D
-      </div>
-    )
-  },
-  {
-    label: "Kubernetes",
-    icon: () => (
-      <Cpu className="w-4 h-4 text-blue-400 shrink-0 animate-spin-slow" strokeWidth={2.5} />
-    )
-  },
-  {
-    label: "Python",
-    icon: () => (
-      <Terminal className="w-4 h-4 text-amber-400 shrink-0" strokeWidth={2.5} />
-    )
-  },
-  {
-    label: "Jenkins",
-    icon: () => (
-      <Server className="w-4 h-4 text-blue-400 shrink-0" strokeWidth={2.5} />
-    )
-  },
-  {
-    label: "Security",
-    icon: () => (
-      <Shield className="w-4 h-4 text-amber-400 shrink-0" strokeWidth={2.5} />
-    )
-  }
+// "Trusted by Organizations Driving Innovation" — enterprise sectors ConfigUSA supports.
+const SECTORS = [
+  { label: "Healthcare", icon: HeartPulse },
+  { label: "Financial Services", icon: Landmark },
+  { label: "Government", icon: Building2 },
+  { label: "Manufacturing", icon: Factory },
+  { label: "Retail", icon: ShoppingBag },
+  { label: "Technology", icon: Cpu },
 ];
 
 export function TechTicker() {
-  const loop = [...TECH_ITEMS, ...TECH_ITEMS, ...TECH_ITEMS];
+  const loop = [...SECTORS, ...SECTORS, ...SECTORS];
 
   return (
-    <section className="bg-[#051124] py-6 overflow-hidden border-y border-white/5">
-      <div className="relative flex">
-        {/* Left fade */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#051124] to-transparent z-10" />
-        {/* Right fade */}
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#051124] to-transparent z-10" />
+    <section className="bg-white border-y border-border/60 py-10">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        <p className="text-center text-xs font-bold uppercase tracking-[0.28em] text-brand mb-6">
+          Trusted by Organizations Driving Innovation
+        </p>
 
-        <div className="flex gap-14 animate-ticker w-max hover:[animation-play-state:paused] items-center">
-          {loop.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={idx}
-                className="flex items-center gap-3 shrink-0 px-2"
-              >
-                <Icon />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/85 whitespace-nowrap">
-                  {item.label}
+        <div className="relative flex overflow-hidden">
+          {/* Edge fades */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
+
+          <div className="flex gap-12 animate-ticker w-max items-center hover:[animation-play-state:paused]">
+            {loop.map((s, idx) => (
+              <div key={idx} className="flex items-center gap-2.5 shrink-0 text-ink/50">
+                <s.icon className="h-5 w-5 text-brand/70 shrink-0" strokeWidth={2} />
+                <span className="text-sm font-bold uppercase tracking-[0.14em] whitespace-nowrap">
+                  {s.label}
                 </span>
-                <span className="ml-8 text-white/10 text-xs select-none">◆</span>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
+
+        <p className="mt-8 text-center text-sm md:text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          Supporting enterprise organizations across{" "}
+          <span className="font-semibold text-ink">
+            Healthcare, Financial Services, Government, Manufacturing, Retail, and Technology.
+          </span>
+        </p>
       </div>
     </section>
   );

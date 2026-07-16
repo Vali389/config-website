@@ -1,20 +1,36 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { Target, Eye, Heart, Award, Users, Lightbulb, HandshakeIcon, ShieldCheck } from "lucide-react";
-import aboutHero from "@/assets/about-hero-new.png";
+import {
+  Target,
+  Eye,
+  Heart,
+  Award,
+  Users,
+  Lightbulb,
+  ShieldCheck,
+  HandshakeIcon,
+  CheckCircle2,
+  Search,
+  UserCheck,
+  Rocket,
+  LineChart,
+  ArrowRight,
+} from "lucide-react";
+import aboutHeroBg from "@/assets/about-hero-bg.jpg";
+import aboutApproach from "@/assets/about-approach.jpg";
+import ctaAboutBg from "@/assets/cta-about-bg.png";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { StatsBar } from "@/components/StatsBar";
 import { CTASection } from "@/components/CTASection";
-import ctaAboutBg from "@/assets/cta-about-bg.png";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About ConfigUSA — Building Solutions, Creating Value" },
-      { name: "description", content: "Since 2013, ConfigUSA has helped 500+ businesses accelerate through world-class IT staffing, software, and SAP solutions." },
+      { title: "About ConfigUSA — A Technology Growth Partner" },
+      { name: "description", content: "Since 2013, ConfigUSA has helped organizations transform ideas into business outcomes through AI, digital engineering, enterprise technology, and world-class talent." },
       { property: "og:title", content: "About ConfigUSA" },
-      { property: "og:description", content: "Meet the team building the future of IT talent and transformation." },
+      { property: "og:description", content: "More than a staffing company — a technology growth partner." },
     ],
   }),
   component: AboutPage,
@@ -23,9 +39,16 @@ export const Route = createFileRoute("/about")({
 const VALUES = [
   { icon: ShieldCheck, title: "Integrity", text: "We do the right thing — always — even when no one is watching." },
   { icon: Award, title: "Excellence", text: "We hold ourselves to the highest standards in everything we deliver." },
-  { icon: Users, title: "Collaboration", text: "Our best work happens when we work together — with clients and each other." },
+  { icon: Users, title: "Collaboration", text: "Our best work happens together — with clients and with each other." },
   { icon: Lightbulb, title: "Innovation", text: "We embrace new ideas and technologies to solve tomorrow's challenges." },
   { icon: HandshakeIcon, title: "Accountability", text: "We own our commitments and deliver on our promises." },
+];
+
+const APPROACH = [
+  { icon: Search, title: "Understand", text: "We start with your business objectives — not just a job description — to align talent and technology to real outcomes." },
+  { icon: UserCheck, title: "Match & Vet", text: "Rigorous, quality-driven screening surfaces specialists who fit your technical needs and your culture." },
+  { icon: Rocket, title: "Deliver", text: "Fast onboarding and dedicated teams get people productive from day one, wherever you operate." },
+  { icon: LineChart, title: "Grow", text: "Ongoing communication, accountability, and long-term partnership keep initiatives moving forward." },
 ];
 
 function AboutPage() {
@@ -33,35 +56,67 @@ function AboutPage() {
     <>
       <PageHero
         eyebrow="About Us"
-        title={<>Building Solutions.<br /><span className="text-gradient-brand">Creating Value.</span></>}
-        subtitle="A decade of engineering trust — connecting the world's most ambitious companies with the talent and technology to grow."
-        image={aboutHero}
+        title={<>More Than a Staffing Company.<br /><span className="text-gradient-brand">A Technology Growth Partner.</span></>}
+        subtitle="A decade of engineering trust — connecting ambitious organizations with the talent and technology to turn strategic initiatives into measurable results."
+        image={aboutHeroBg}
       />
       <div className="pb-12"><StatsBar /></div>
 
       {/* Story */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-4xl px-4 lg:px-8 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand mb-3">Our Story</p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ink leading-tight">
-            A Decade of <span className="text-gradient-brand">Trusted Partnerships.</span>
-          </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Founded in 2013, ConfigUSA started with a simple mission — help ambitious businesses hire faster, build smarter, and grow further. Today we serve 500+ clients across three continents with the same founding principles: integrity, excellence, and relentless customer focus.
-          </p>
-          <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-            Our 10,000+ consultants and specialists have delivered thousands of engagements across BFSI, healthcare, retail, telecom, and beyond — earning a 98% client retention rate that speaks for itself.
-          </p>
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative"
+          >
+            <div className="absolute -inset-3 rounded-[2rem] bg-gradient-brand opacity-10 blur-2xl" />
+            <img
+              src={aboutApproach}
+              alt="ConfigUSA team collaborating"
+              className="relative rounded-3xl shadow-elegant border border-border/60 w-full object-cover aspect-[4/3]"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-brand mb-3">Our Story</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-ink leading-tight tracking-tight">
+              A Decade of <span className="text-gradient-brand">Trusted Partnerships.</span>
+            </h2>
+            <p className="mt-6 text-muted-foreground leading-relaxed">
+              Founded in 2013, ConfigUSA started with a simple mission — help ambitious businesses innovate faster,
+              scale smarter, and stay ahead. Today we help organizations achieve technology outcomes through AI,
+              digital engineering, enterprise platforms, and world-class talent solutions.
+            </p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Our 10,000+ consultants and specialists have delivered thousands of engagements across healthcare,
+              financial services, government, manufacturing, retail, and technology — earning a 98% client retention
+              rate that speaks for itself.
+            </p>
+            <Link
+              to="/contact"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3.5 text-sm font-semibold text-white shadow-glow hover:scale-105 transition-transform"
+            >
+              Partner With Us <ArrowRight className="h-4 w-4" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
-      {/* Mission / Vision */}
-      <section className="py-24 bg-soft">
+      {/* Mission / Vision / Promise */}
+      <section className="py-24 bg-soft border-y border-border/40">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 grid md:grid-cols-3 gap-6">
           {[
-            { icon: Target, title: "Our Mission", text: "To empower businesses worldwide with the right talent, technology, and transformation strategies to unlock their full potential." },
-            { icon: Eye, title: "Our Vision", text: "To be the world's most trusted IT partner — recognized for excellence, innovation, and client-first delivery." },
-            { icon: Heart, title: "Our Promise", text: "Every engagement, every hire, every project — we bring premium quality, on-time delivery, and unwavering commitment." },
+            { icon: Target, title: "Our Mission", text: "To empower organizations with the right talent, technology, and transformation strategies to unlock their full potential." },
+            { icon: Eye, title: "Our Vision", text: "To be the most trusted technology growth partner — recognized for excellence, innovation, and client-first delivery." },
+            { icon: Heart, title: "Our Promise", text: "Every engagement, every hire, every project — premium quality, on-time delivery, and unwavering commitment." },
           ].map((m, i) => (
             <motion.div
               key={m.title}
@@ -71,9 +126,7 @@ function AboutPage() {
               transition={{ duration: 0.6, delay: i * 0.12 }}
               className="rounded-2xl bg-white p-8 shadow-card border border-border/50 hover:shadow-[0_20px_40px_rgba(29,78,216,0.12)] hover:-translate-y-1.5 hover:border-brand/30 transition-all duration-300 relative overflow-hidden group"
             >
-              {/* Shine Top Edge Bar */}
               <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
               <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-glow group-hover:scale-105 transition-transform">
                 <m.icon className="h-6 w-6" />
               </span>
@@ -84,8 +137,86 @@ function AboutPage() {
         </div>
       </section>
 
+      {/* Our Approach */}
+      <section className="py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <SectionHeading
+            eyebrow="How We Work"
+            title="An Approach Built Around Your Outcomes"
+            subtitle="We become an extension of your organization — bringing expertise, responsiveness, and a commitment to your long-term success."
+          />
+          <div className="mt-16 relative">
+            <div className="hidden lg:block absolute top-[28px] left-[12%] right-[12%] h-[2px] border-t border-dashed border-slate-200 z-0" />
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 relative z-10">
+              {APPROACH.map((a, i) => (
+                <motion.div
+                  key={a.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="flex flex-col items-center text-center group"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white border-2 border-slate-200 text-brand shadow-sm group-hover:bg-brand group-hover:border-brand group-hover:text-white group-hover:scale-105 transition-all duration-300 z-10">
+                    <a.icon className="h-6 w-6" />
+                  </div>
+                  <div className="mt-6 rounded-2xl bg-white p-7 border border-border/50 shadow-card hover:shadow-[0_20px_40px_rgba(29,78,216,0.12)] hover:-translate-y-1 transition-all duration-300">
+                    <h3 className="text-base font-bold text-ink group-hover:text-brand transition-colors">{a.title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{a.text}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why partners choose us */}
+      <section className="py-24 bg-[#051124] text-white relative overflow-hidden">
+        <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-brand-glow/10 blur-3xl" />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-glow mb-4">Why Organizations Choose Us</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight tracking-tight">
+              Delivering Business Value Beyond Talent
+            </h2>
+            <p className="mt-5 text-white/70 leading-relaxed max-w-md">
+              Instead of simply supplying professionals, we bring expertise, accountability, and a long-term commitment
+              to every relationship we build.
+            </p>
+          </motion.div>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              "Enterprise-focused delivery",
+              "Global recruiting capabilities",
+              "Experienced technology specialists",
+              "Flexible engagement models",
+              "Quality-driven hiring processes",
+              "Long-term client relationships",
+            ].map((s, i) => (
+              <motion.div
+                key={s}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: i * 0.07 }}
+                className="flex items-start gap-3 rounded-xl bg-white/5 border border-white/10 p-4 hover:bg-white/10 hover:border-brand-glow/50 transition-all"
+              >
+                <CheckCircle2 className="h-5 w-5 shrink-0 text-brand-glow mt-0.5" />
+                <span className="text-sm font-medium text-white/85 leading-snug">{s}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Values */}
-      <section className="py-24">
+      <section className="py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading eyebrow="Our Values" title="The Principles That Guide Us" subtitle="Five values, one culture — the foundation of everything we build and every relationship we grow." />
           <div className="mt-14 grid grid-cols-2 md:grid-cols-5 gap-6">

@@ -1,15 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "motion/react";
-import { CheckCircle2 } from "lucide-react";
-import { PageHero } from "@/components/PageHero";
-import { CTASection } from "@/components/CTASection";
+import { Code2, Brain, Users, Video, BarChart3, ShieldCheck, Settings2, ClipboardList, LineChart, CheckCircle2 } from "lucide-react";
+import { ServiceDetail } from "@/components/ServiceDetail";
 import img from "@/assets/service-assessment.jpg";
+import ctaAssessment from "@/assets/cta-assessment.jpg";
 
 export const Route = createFileRoute("/services/assessment")({
   head: () => ({
     meta: [
-      { title: "Digital Assessment — ConfigUSA" },
-      { name: "description", content: "Hire smarter with data-driven candidate evaluation." },
+      { title: "Digital Assessment for Hiring — ConfigUSA" },
+      { name: "description", content: "AI-driven assessments that evaluate skills, aptitude, and cultural fit — cutting hiring time in half with better outcomes." },
       { property: "og:title", content: "Digital Assessment" },
       { property: "og:description", content: "Hire smarter with data-driven candidate evaluation." },
     ],
@@ -17,37 +16,54 @@ export const Route = createFileRoute("/services/assessment")({
   component: Page,
 });
 
-const POINTS = [
-  "Certified experts with 10+ years experience",
-  "Proven delivery frameworks and methodologies",
-  "24/7 global support across time zones",
-  "Transparent pricing with measurable outcomes",
-  "Scalable from pilot to enterprise-wide rollout",
-  "Post-deployment optimization and support",
-];
-
 function Page() {
   return (
-    <>
-      <PageHero eyebrow="AI-Powered Screening" title={<>Digital Assessment</>} subtitle="AI-driven assessments that evaluate skills, aptitude, and cultural fit — cutting hiring time in half." image={img} />
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
-          <motion.img src={img} alt="" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="rounded-3xl shadow-elegant" />
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand mb-3">What We Deliver</p>
-            <h2 className="text-4xl font-bold text-ink">Hire smarter with data-driven candidate evaluation.</h2>
-            <ul className="mt-6 space-y-3">
-              {POINTS.map((b) => (
-                <li key={b} className="flex gap-3 items-start">
-                  <CheckCircle2 className="h-5 w-5 text-brand mt-0.5 shrink-0" />
-                  <span className="text-ink/80">{b}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-      <CTASection />
-    </>
+    <ServiceDetail
+      eyebrow="AI-Powered Screening"
+      title={<>Hire Smarter With <span className="text-gradient-brand">Digital Assessment.</span></>}
+      subtitle="AI-driven assessments that evaluate skills, aptitude, and cultural fit — cutting hiring time in half with better outcomes."
+      heroImage={img}
+      ctaImage={ctaAssessment}
+      stats={[
+        { value: "50%", label: "Faster Hiring" },
+        { value: "AI", label: "Powered Scoring" },
+        { value: "1000+", label: "Skill Tests" },
+        { value: "98%", label: "Accuracy" },
+      ]}
+      overviewLabel="What We Deliver"
+      overviewHeading="Data-Driven Candidate Evaluation"
+      overviewParas={[
+        "Our AI-powered assessment platform evaluates real skills, aptitude, and culture fit — so you make confident, objective hiring decisions.",
+        "Reduce bias, shorten time-to-hire, and build a future-ready workforce with measurable, defensible results.",
+      ]}
+      overviewImage={img}
+      benefits={[
+        "AI-scored, objective evaluations",
+        "Role-specific skill libraries",
+        "Automated shortlisting",
+        "Reduced hiring bias",
+        "Rich analytics and reporting",
+        "Seamless ATS integration",
+      ]}
+      capabilitiesHeading="A Complete Assessment Toolkit"
+      capabilitiesSub="Everything you need to screen, evaluate, and select the right candidates."
+      capabilities={[
+        { icon: Code2, title: "Coding Challenges", text: "Real-world coding tasks with automated, plagiarism-aware scoring." },
+        { icon: Brain, title: "Aptitude Tests", text: "Cognitive and role-specific aptitude evaluations." },
+        { icon: Users, title: "Behavioral & Culture Fit", text: "Structured assessments for soft skills and team fit." },
+        { icon: Video, title: "Video Interviews", text: "Async and live video screening with structured rubrics." },
+        { icon: BarChart3, title: "Analytics & Reports", text: "Actionable dashboards to compare and rank candidates." },
+        { icon: ShieldCheck, title: "Proctoring & Integrity", text: "Secure, monitored testing to ensure trustworthy results." },
+      ]}
+      processHeading="From Screening to Selection"
+      process={[
+        { icon: Settings2, title: "Define", text: "Configure role-based assessments and success criteria." },
+        { icon: ClipboardList, title: "Assess", text: "Candidates complete skill, aptitude, and fit evaluations." },
+        { icon: LineChart, title: "Analyze", text: "AI scores and ranks candidates with clear insights." },
+        { icon: CheckCircle2, title: "Decide", text: "Shortlist and select the best fit with confidence." },
+      ]}
+      techHeading="Assessment Coverage"
+      tech={["Coding", "Aptitude", "Behavioral", "Video", "Proctoring", "Role Simulations", "ATS Integration", "Analytics"]}
+    />
   );
 }

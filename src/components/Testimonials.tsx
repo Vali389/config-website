@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Star, Quote } from "lucide-react";
 
 const T = [
+  { name: "HR Director", role: "Global Technology Company", quote: "ConfigUSA consistently delivers quality candidates faster than expected. Their professionalism and responsiveness have made them a trusted hiring partner." },
   { name: "Sarah Mitchell", role: "CTO, FinLedger", quote: "ConfigUSA transformed our entire tech backbone. Their consultants integrated seamlessly and delivered measurable outcomes within the first quarter." },
   { name: "Rajiv Menon", role: "VP Engineering, HealthPulse", quote: "The staffing quality is unmatched. Every candidate we've hired through ConfigUSA has stayed and grown with us." },
   { name: "Emily Zhang", role: "Head of HR, RetailNova", quote: "Their AI-powered assessments cut our hiring time in half while raising the bar on quality. Truly a strategic partner." },

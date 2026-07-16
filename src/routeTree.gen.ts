@@ -9,20 +9,37 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SubmitResumeRouteImport } from './routes/submit-resume'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as RequestTalentRouteImport } from './routes/request-talent'
+import { Route as ProcessRouteImport } from './routes/process'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CareersRouteImport } from './routes/careers'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as CareersIndexRouteImport } from './routes/careers/index'
 import { Route as ServicesStaffingRouteImport } from './routes/services.staffing'
 import { Route as ServicesSoftwareRouteImport } from './routes/services.software'
 import { Route as ServicesSapRouteImport } from './routes/services.sap'
 import { Route as ServicesAssessmentRouteImport } from './routes/services.assessment'
+import { Route as CareersJobJobIdRouteImport } from './routes/careers/job/$jobId'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubmitResumeRoute = SubmitResumeRouteImport.update({
+  id: '/submit-resume',
+  path: '/submit-resume',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -38,19 +55,34 @@ const ResourcesRoute = ResourcesRouteImport.update({
   path: '/resources',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RequestTalentRoute = RequestTalentRouteImport.update({
+  id: '/request-talent',
+  path: '/request-talent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProcessRoute = ProcessRouteImport.update({
+  id: '/process',
+  path: '/process',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndustriesRoute = IndustriesRouteImport.update({
   id: '/industries',
   path: '/industries',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CareersRoute = CareersRouteImport.update({
-  id: '/careers',
-  path: '/careers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -67,6 +99,11 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ServicesRoute,
+} as any)
+const CareersIndexRoute = CareersIndexRouteImport.update({
+  id: '/careers/',
+  path: '/careers/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesStaffingRoute = ServicesStaffingRouteImport.update({
   id: '/staffing',
@@ -88,112 +125,180 @@ const ServicesAssessmentRoute = ServicesAssessmentRouteImport.update({
   path: '/assessment',
   getParentRoute: () => ServicesRoute,
 } as any)
+const CareersJobJobIdRoute = CareersJobJobIdRouteImport.update({
+  id: '/careers/job/$jobId',
+  path: '/careers/job/$jobId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRoute
+  '/privacy': typeof PrivacyRoute
+  '/process': typeof ProcessRoute
+  '/request-talent': typeof RequestTalentRoute
   '/resources': typeof ResourcesRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/submit-resume': typeof SubmitResumeRoute
+  '/terms': typeof TermsRoute
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
+  '/careers/': typeof CareersIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/careers/job/$jobId': typeof CareersJobJobIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRoute
+  '/privacy': typeof PrivacyRoute
+  '/process': typeof ProcessRoute
+  '/request-talent': typeof RequestTalentRoute
   '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/submit-resume': typeof SubmitResumeRoute
+  '/terms': typeof TermsRoute
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
+  '/careers': typeof CareersIndexRoute
   '/services': typeof ServicesIndexRoute
+  '/careers/job/$jobId': typeof CareersJobJobIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRoute
+  '/privacy': typeof PrivacyRoute
+  '/process': typeof ProcessRoute
+  '/request-talent': typeof RequestTalentRoute
   '/resources': typeof ResourcesRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/submit-resume': typeof SubmitResumeRoute
+  '/terms': typeof TermsRoute
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
+  '/careers/': typeof CareersIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/careers/job/$jobId': typeof CareersJobJobIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
-    | '/careers'
     | '/contact'
+    | '/faq'
     | '/industries'
+    | '/privacy'
+    | '/process'
+    | '/request-talent'
     | '/resources'
     | '/services'
     | '/sitemap.xml'
+    | '/submit-resume'
+    | '/terms'
     | '/services/assessment'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
+    | '/careers/'
     | '/services/'
+    | '/careers/job/$jobId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/careers'
     | '/contact'
+    | '/faq'
     | '/industries'
+    | '/privacy'
+    | '/process'
+    | '/request-talent'
     | '/resources'
     | '/sitemap.xml'
+    | '/submit-resume'
+    | '/terms'
     | '/services/assessment'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
+    | '/careers'
     | '/services'
+    | '/careers/job/$jobId'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/careers'
     | '/contact'
+    | '/faq'
     | '/industries'
+    | '/privacy'
+    | '/process'
+    | '/request-talent'
     | '/resources'
     | '/services'
     | '/sitemap.xml'
+    | '/submit-resume'
+    | '/terms'
     | '/services/assessment'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
+    | '/careers/'
     | '/services/'
+    | '/careers/job/$jobId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
   IndustriesRoute: typeof IndustriesRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ProcessRoute: typeof ProcessRoute
+  RequestTalentRoute: typeof RequestTalentRoute
   ResourcesRoute: typeof ResourcesRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SubmitResumeRoute: typeof SubmitResumeRoute
+  TermsRoute: typeof TermsRoute
+  CareersIndexRoute: typeof CareersIndexRoute
+  CareersJobJobIdRoute: typeof CareersJobJobIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/submit-resume': {
+      id: '/submit-resume'
+      path: '/submit-resume'
+      fullPath: '/submit-resume'
+      preLoaderRoute: typeof SubmitResumeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -215,6 +320,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/request-talent': {
+      id: '/request-talent'
+      path: '/request-talent'
+      fullPath: '/request-talent'
+      preLoaderRoute: typeof RequestTalentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/process': {
+      id: '/process'
+      path: '/process'
+      fullPath: '/process'
+      preLoaderRoute: typeof ProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/industries': {
       id: '/industries'
       path: '/industries'
@@ -222,18 +348,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/careers': {
-      id: '/careers'
-      path: '/careers'
-      fullPath: '/careers'
-      preLoaderRoute: typeof CareersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -256,6 +382,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/services/'
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof ServicesRoute
+    }
+    '/careers/': {
+      id: '/careers/'
+      path: '/careers'
+      fullPath: '/careers/'
+      preLoaderRoute: typeof CareersIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/services/staffing': {
       id: '/services/staffing'
@@ -285,6 +418,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesAssessmentRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/careers/job/$jobId': {
+      id: '/careers/job/$jobId'
+      path: '/careers/job/$jobId'
+      fullPath: '/careers/job/$jobId'
+      preLoaderRoute: typeof CareersJobJobIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -311,12 +451,19 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
   IndustriesRoute: IndustriesRoute,
+  PrivacyRoute: PrivacyRoute,
+  ProcessRoute: ProcessRoute,
+  RequestTalentRoute: RequestTalentRoute,
   ResourcesRoute: ResourcesRoute,
   ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SubmitResumeRoute: SubmitResumeRoute,
+  TermsRoute: TermsRoute,
+  CareersIndexRoute: CareersIndexRoute,
+  CareersJobJobIdRoute: CareersJobJobIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

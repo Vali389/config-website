@@ -35,8 +35,8 @@
   --color-brand-glow: var(--brand-glow);
   --color-ink: var(--ink);
   --color-soft: var(--soft);
-  --font-display: "Space Grotesk", "Poppins", sans-serif;
-  --font-sans: "Inter", "Poppins", sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-sans: "Inter", "Plus Jakarta Sans", sans-serif;
 }
 
 :root {
@@ -88,6 +88,7 @@
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  html { scroll-behavior: smooth; }
 }
 
 @utility bg-gradient-hero { background-image: var(--gradient-hero); }
@@ -105,9 +106,9 @@
 
 @keyframes kenburns {
   0% { transform: scale(1) translate(0, 0); }
-  100% { transform: scale(1.15) translate(-1%, -1%); }
+  100% { transform: scale(1.07) translate(-0.5%, -0.5%); }
 }
-@utility animate-kenburns { animation: kenburns 18s ease-in-out infinite alternate; }
+@utility animate-kenburns { animation: kenburns 22s ease-in-out infinite alternate; }
 
 @keyframes marquee {
   0% { transform: translateX(0); }
