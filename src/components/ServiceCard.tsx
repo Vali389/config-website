@@ -22,11 +22,8 @@ export function ServiceCard({ image, title, eyebrow, description, to, popular, d
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.6, delay, ease: "easeOut" }}
         whileHover={{ y: -6 }}
-        className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-border/60 shadow-card hover:shadow-[0_20px_40px_rgba(29,78,216,0.1)] hover:border-brand/20 transition-all duration-400 relative"
+        className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-border/50 shadow-card hover:shadow-[0_24px_48px_rgba(29,78,216,0.14)] hover:border-brand/20 transition-all duration-300 relative"
       >
-        {/* Shine Top Edge Bar */}
-        <div className="absolute top-0 inset-x-0 h-1 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
-        
         {/* Image wrapper with dark gradient overlay and heading text overlay */}
         <div className="relative h-56 overflow-hidden shrink-0">
           <img
@@ -53,7 +50,7 @@ export function ServiceCard({ image, title, eyebrow, description, to, popular, d
         </div>
 
         {/* Content */}
-        <div className="flex flex-col flex-1 p-6 pt-5">
+        <div className="flex flex-col flex-1 p-6 pt-5 pb-8">
           {/* Eyebrow — colored accent */}
           <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-brand mb-3 leading-tight">
             {eyebrow}
@@ -70,6 +67,9 @@ export function ServiceCard({ image, title, eyebrow, description, to, popular, d
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </div>
         </div>
+
+        {/* Shine Bottom Edge Bar */}
+        <div className="absolute bottom-0 inset-x-0 h-1.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
       </motion.div>
     </Link>
   );

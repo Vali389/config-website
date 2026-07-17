@@ -165,95 +165,51 @@ const INSIGHTS = [
 
 /* ────────────────────────── Hero ────────────────────────── */
 
-function HeroCarousel() {
-  const [i, setI] = useState(0);
-  useEffect(() => {
-    const t = setInterval(() => setI((v) => (v + 1) % SLIDES.length), 7000);
-    return () => clearInterval(t);
-  }, []);
-
-  const next = () => setI((v) => (v + 1) % SLIDES.length);
-  const prev = () => setI((v) => (v - 1 + SLIDES.length) % SLIDES.length);
-
+function Hero() {
   return (
-    <section className="relative h-[80vh] min-h-[560px] overflow-hidden flex items-center bg-[#051124]">
+    <section className="relative h-[85vh] min-h-[600px] overflow-hidden flex items-center bg-[#051124]">
       <div className="absolute inset-0 bg-[#051124] z-0" />
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.98 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="absolute inset-0 z-10"
-        >
-          <img src={SLIDES[i].image} alt="" className="h-full w-full object-cover animate-kenburns" />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/95 via-navy-deep/80 to-navy-deep/40" />
-          <div className="absolute inset-0 bg-navy-deep/25" />
-        </motion.div>
-      </AnimatePresence>
-
-      <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 w-full py-24">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-3xl text-left"
-          >
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.3em] text-brand-glow mb-5">
-              {SLIDES[i].eyebrow}
-            </span>
-            <h1 className="font-display text-[1.85rem] sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.1] tracking-tight">
-              {SLIDES[i].title}
-            </h1>
-            <p className="mt-5 text-sm md:text-base text-white/75 max-w-xl leading-relaxed">
-              {SLIDES[i].subtitle}
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-white shadow-glow hover:scale-105 transition-transform"
-              >
-                Talk to an Expert <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 backdrop-blur px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
-              >
-                Request Technology Talent
-              </Link>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+      <div className="absolute inset-0 z-10 overflow-hidden">
+        <img src={heroGlobe} alt="" className="h-full w-full object-cover opacity-35 scale-105 animate-kenburns" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/95 via-navy-deep/80 to-navy-deep/40" />
+        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-brand/20 rounded-full blur-3xl opacity-30 animate-pulse-ring" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-glow/20 rounded-full blur-3xl opacity-20" />
       </div>
 
-      <button
-        onClick={prev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 hover:border-brand-glow transition-all"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="h-5 w-5" />
-      </button>
-      <button
-        onClick={next}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 hover:border-brand-glow transition-all"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="h-5 w-5" />
-      </button>
-
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-2.5">
-        {SLIDES.map((_, s) => (
-          <button
-            key={s}
-            onClick={() => setI(s)}
-            aria-label={`Slide ${s + 1}`}
-            className={`h-1.5 rounded-full transition-all duration-300 ${s === i ? "w-8 bg-brand-glow" : "w-2.5 bg-white/30 hover:bg-white/50"}`}
-          />
-        ))}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 w-full py-24">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-3.5xl text-left"
+        >
+          <span className="inline-block text-xs font-bold uppercase tracking-[0.3em] text-brand-glow mb-5">
+            Technology. Talent. Transformation.
+          </span>
+          <h1 className="font-display text-[2.2rem] sm:text-4xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight">
+            Building the Workforce Behind{" "}
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">
+              Tomorrow's Digital Enterprises
+            </span>
+          </h1>
+          <p className="mt-6 text-base md:text-lg text-white/75 max-w-2xl leading-relaxed">
+            ConfigUSA empowers organizations with AI, Digital Engineering, Cloud, Enterprise Applications, and Technology Workforce Solutions—helping businesses innovate faster, scale smarter, and stay ahead in a rapidly changing world.
+          </p>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-8 py-4 text-sm font-semibold text-white shadow-glow hover:scale-[1.03] active:scale-[0.98] transition-transform"
+            >
+              Talk to an Expert <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-8 py-4 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/40 active:scale-[0.98] transition-all"
+            >
+              Request Technology Talent
+            </Link>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -265,10 +221,7 @@ function HomePage() {
   return (
     <>
       {/* ── Hero ── */}
-      <HeroCarousel />
-
-      {/* ── Stats ── */}
-      <StatsBar />
+      <Hero />
 
       {/* ── Trusted by Organizations ── */}
       <TechTicker />
@@ -341,10 +294,8 @@ function HomePage() {
               >
                 <Link
                   to={c.to as any}
-                  className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-border/60 shadow-card hover:shadow-[0_20px_40px_rgba(29,78,216,0.12)] hover:border-brand/20 transition-all duration-300 relative"
+                  className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-border/50 shadow-card hover:shadow-[0_24px_48px_rgba(29,78,216,0.14)] hover:border-brand/20 transition-all duration-300 relative"
                 >
-                  <div className="absolute top-0 inset-x-0 h-1 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
-
                   {/* Image with title overlay */}
                   <div className="relative h-52 overflow-hidden shrink-0">
                     <img
@@ -365,7 +316,7 @@ function HomePage() {
                   </div>
 
                   {/* Content */}
-                  <div className="flex flex-col flex-1 p-6 pt-5">
+                  <div className="flex flex-col flex-1 p-6 pt-5 pb-8">
                     <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-brand mb-3 leading-tight">
                       {c.eyebrow}
                     </p>
@@ -374,6 +325,9 @@ function HomePage() {
                       Learn More <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
                   </div>
+
+                  {/* Shine Bottom Edge Bar */}
+                  <div className="absolute bottom-0 inset-x-0 h-1.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
                 </Link>
               </motion.div>
             ))}

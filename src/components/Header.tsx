@@ -17,8 +17,18 @@ const NAV = [
       { to: "/services/assessment", label: "Digital Assessment" },
     ],
   },
-  { to: "/industries", label: "Industries" },
-  { to: "/process", label: "Process" },
+  {
+    to: "/industries",
+    label: "Industries",
+    children: [
+      { to: "/industries/healthcare", label: "Healthcare & Life Sciences" },
+      { to: "/industries/financial", label: "Financial Services" },
+      { to: "/industries/government", label: "Government & Public Sector" },
+      { to: "/industries/manufacturing", label: "Manufacturing" },
+      { to: "/industries/retail", label: "Retail & E-commerce" },
+      { to: "/industries/technology", label: "Technology & SaaS" },
+    ],
+  },
   { to: "/careers", label: "Careers" },
   { to: "/resources", label: "Resources" },
   { to: "/contact", label: "Contact" },
@@ -35,7 +45,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-lg shadow-lg" : "bg-white/80 backdrop-blur-md"}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 bg-white ${scrolled ? "shadow-md" : "border-b border-slate-100"}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
         <Logo />
         <nav className="hidden lg:flex items-center gap-0.5">
@@ -43,9 +53,9 @@ export function Header() {
             <div key={item.to} className="relative group">
               <Link
                 to={item.to as any}
-                className="relative flex items-center gap-1 px-4 py-2.5 text-sm rounded-lg transition-colors after:absolute after:left-4 after:right-4 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-gradient-brand after:transition-transform after:duration-300"
-                activeProps={{ className: "text-brand font-semibold bg-brand/5 after:scale-x-100" }}
-                inactiveProps={{ className: "text-ink/70 font-medium hover:text-brand hover:bg-soft after:scale-x-0" }}
+                className="relative flex items-center gap-1 px-4 py-2 text-sm rounded-lg border border-transparent transition-colors"
+                activeProps={{ className: "text-blue-600 font-semibold bg-white border-slate-200 shadow-sm" }}
+                inactiveProps={{ className: "text-ink/70 font-medium hover:text-blue-600 hover:bg-slate-50" }}
                 activeOptions={{ exact: item.to === "/" }}
               >
                 {item.label}
@@ -66,13 +76,14 @@ export function Header() {
                   >
                     {item.children.map((c, idx) => (
                       <motion.div
-                        key={c.to}
+                        key={c.label}
                         initial={{ opacity: 0, x: -5 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: idx * 0.05 }}
                       >
                         <Link
                           to={c.to as any}
+                          hash={"hash" in c ? c.hash : undefined}
                           className="block rounded-lg px-4 py-3 text-sm transition-all font-medium"
                           activeProps={{ className: "bg-brand/5 text-brand" }}
                           inactiveProps={{ className: "text-ink/70 hover:bg-brand/5 hover:text-brand" }}
@@ -131,8 +142,9 @@ export function Header() {
                   <div className="ml-4 mt-1 space-y-1">
                     {item.children.map((c) => (
                       <Link
-                        key={c.to}
+                        key={c.label}
                         to={c.to as any}
+                        hash={"hash" in c ? c.hash : undefined}
                         onClick={() => setOpen(false)}
                         className="block rounded-md px-3 py-2 text-sm transition-colors"
                         activeProps={{ className: "bg-brand/5 text-brand font-semibold" }}

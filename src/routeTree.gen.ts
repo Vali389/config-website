@@ -23,11 +23,13 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as CareersIndexRouteImport } from './routes/careers/index'
 import { Route as ServicesStaffingRouteImport } from './routes/services.staffing'
 import { Route as ServicesSoftwareRouteImport } from './routes/services.software'
 import { Route as ServicesSapRouteImport } from './routes/services.sap'
 import { Route as ServicesAssessmentRouteImport } from './routes/services.assessment'
+import { Route as IndustriesIndustryIdRouteImport } from './routes/industries.$industryId'
 import { Route as CareersJobJobIdRouteImport } from './routes/careers/job/$jobId'
 
 const TermsRoute = TermsRouteImport.update({
@@ -100,6 +102,11 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ServicesRoute,
 } as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => IndustriesRoute,
+} as any)
 const CareersIndexRoute = CareersIndexRouteImport.update({
   id: '/careers/',
   path: '/careers/',
@@ -125,6 +132,11 @@ const ServicesAssessmentRoute = ServicesAssessmentRouteImport.update({
   path: '/assessment',
   getParentRoute: () => ServicesRoute,
 } as any)
+const IndustriesIndustryIdRoute = IndustriesIndustryIdRouteImport.update({
+  id: '/$industryId',
+  path: '/$industryId',
+  getParentRoute: () => IndustriesRoute,
+} as any)
 const CareersJobJobIdRoute = CareersJobJobIdRouteImport.update({
   id: '/careers/job/$jobId',
   path: '/careers/job/$jobId',
@@ -136,7 +148,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
-  '/industries': typeof IndustriesRoute
+  '/industries': typeof IndustriesRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
@@ -145,11 +157,13 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
+  '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
   '/careers/': typeof CareersIndexRoute
+  '/industries/': typeof IndustriesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/careers/job/$jobId': typeof CareersJobJobIdRoute
 }
@@ -158,7 +172,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
-  '/industries': typeof IndustriesRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
@@ -166,11 +179,13 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
+  '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
   '/careers': typeof CareersIndexRoute
+  '/industries': typeof IndustriesIndexRoute
   '/services': typeof ServicesIndexRoute
   '/careers/job/$jobId': typeof CareersJobJobIdRoute
 }
@@ -180,7 +195,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
-  '/industries': typeof IndustriesRoute
+  '/industries': typeof IndustriesRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
@@ -189,11 +204,13 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
+  '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
   '/careers/': typeof CareersIndexRoute
+  '/industries/': typeof IndustriesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/careers/job/$jobId': typeof CareersJobJobIdRoute
 }
@@ -213,11 +230,13 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/submit-resume'
     | '/terms'
+    | '/industries/$industryId'
     | '/services/assessment'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
     | '/careers/'
+    | '/industries/'
     | '/services/'
     | '/careers/job/$jobId'
   fileRoutesByTo: FileRoutesByTo
@@ -226,7 +245,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/faq'
-    | '/industries'
     | '/privacy'
     | '/process'
     | '/request-talent'
@@ -234,11 +252,13 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/submit-resume'
     | '/terms'
+    | '/industries/$industryId'
     | '/services/assessment'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
     | '/careers'
+    | '/industries'
     | '/services'
     | '/careers/job/$jobId'
   id:
@@ -256,11 +276,13 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/submit-resume'
     | '/terms'
+    | '/industries/$industryId'
     | '/services/assessment'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
     | '/careers/'
+    | '/industries/'
     | '/services/'
     | '/careers/job/$jobId'
   fileRoutesById: FileRoutesById
@@ -270,7 +292,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
-  IndustriesRoute: typeof IndustriesRoute
+  IndustriesRoute: typeof IndustriesRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
   ProcessRoute: typeof ProcessRoute
   RequestTalentRoute: typeof RequestTalentRoute
@@ -383,6 +405,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/industries/': {
+      id: '/industries/'
+      path: '/'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
     '/careers/': {
       id: '/careers/'
       path: '/careers'
@@ -418,6 +447,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesAssessmentRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/industries/$industryId': {
+      id: '/industries/$industryId'
+      path: '/$industryId'
+      fullPath: '/industries/$industryId'
+      preLoaderRoute: typeof IndustriesIndustryIdRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
     '/careers/job/$jobId': {
       id: '/careers/job/$jobId'
       path: '/careers/job/$jobId'
@@ -427,6 +463,20 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface IndustriesRouteChildren {
+  IndustriesIndustryIdRoute: typeof IndustriesIndustryIdRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
+}
+
+const IndustriesRouteChildren: IndustriesRouteChildren = {
+  IndustriesIndustryIdRoute: IndustriesIndustryIdRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
+}
+
+const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
+  IndustriesRouteChildren,
+)
 
 interface ServicesRouteChildren {
   ServicesAssessmentRoute: typeof ServicesAssessmentRoute
@@ -453,7 +503,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
-  IndustriesRoute: IndustriesRoute,
+  IndustriesRoute: IndustriesRouteWithChildren,
   PrivacyRoute: PrivacyRoute,
   ProcessRoute: ProcessRoute,
   RequestTalentRoute: RequestTalentRoute,
