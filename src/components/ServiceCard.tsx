@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { CardParticles } from "./CardParticles";
 
 interface Props {
   image: string;
@@ -67,6 +68,13 @@ export function ServiceCard({ image, title, eyebrow, description, to, popular, d
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </div>
         </div>
+
+        {/* Diagonal light sweep on hover */}
+        <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden rounded-2xl">
+          <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-white/25 to-transparent group-hover:animate-shine" />
+        </div>
+
+        <CardParticles />
 
         {/* Shine Bottom Edge Bar */}
         <div className="absolute bottom-0 inset-x-0 h-1.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />

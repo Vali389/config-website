@@ -36,6 +36,9 @@ import {
   MapPin,
   Briefcase,
   Search,
+  PhoneCall,
+  Rocket,
+  Handshake,
 } from "lucide-react";
 
 import heroGlobe from "@/assets/hero-globe.jpg";
@@ -60,6 +63,11 @@ import certEverify from "@/assets/cert-everify.png";
 
 import { StatsBar } from "@/components/StatsBar";
 import { SectionHeading } from "@/components/SectionHeading";
+import { CardParticles } from "@/components/CardParticles";
+import { RainParticles } from "@/components/RainParticles";
+import { Bubbles } from "@/components/Bubbles";
+import { DriftParticles } from "@/components/DriftParticles";
+import { SplitText } from "@/components/SplitText";
 import { TechTicker } from "@/components/TechTicker";
 import { Testimonials } from "@/components/Testimonials";
 
@@ -135,6 +143,16 @@ const STRENGTHS = [
   "Long-term client relationships",
 ];
 
+const WHY_ORBIT = [
+  { icon: Building2, label: "Enterprise Delivery" },
+  { icon: Globe2, label: "Global Recruiting" },
+  { icon: Users, label: "Expert Specialists" },
+  { icon: Layers, label: "Flexible Models" },
+  { icon: BadgeCheck, label: "Quality Hiring" },
+  { icon: Workflow, label: "Clear Communication" },
+  { icon: Handshake, label: "Long-Term Partners" },
+];
+
 const INDUSTRIES = [
   { icon: HeartPulse, name: "Healthcare", text: "Supporting digital health, clinical systems, infrastructure modernization, and patient-centered innovation." },
   { icon: Landmark, name: "Financial Services", text: "Enabling secure, compliant, and scalable digital banking and financial technology initiatives." },
@@ -146,9 +164,9 @@ const INDUSTRIES = [
 
 const AI_FOCUS = [
   { icon: Sparkles, label: "Generative AI" },
-  { icon: Bot, label: "AI Agents & Automation" },
+  { icon: Bot, label: "AI Agents" },
   { icon: Brain, label: "Machine Learning" },
-  { icon: Database, label: "AI Data Platforms" },
+  { icon: Database, label: "Data Platforms" },
   { icon: GitBranch, label: "MLOps" },
   { icon: ShieldCheck, label: "Responsible AI" },
   { icon: Workflow, label: "AI Integration" },
@@ -172,6 +190,14 @@ const ENGAGEMENT = [
   { icon: Repeat, title: "Contract-to-Hire", text: "Evaluate talent on live work before converting to permanent roles, dramatically reducing hiring risk." },
   { icon: UserPlus, title: "Direct Placement", text: "Permanent hires sourced, screened, and matched to your culture and long-term technical needs." },
   { icon: Boxes, title: "Managed Delivery", text: "Dedicated onshore & offshore squads that own outcomes end-to-end, from build to ongoing support." },
+];
+
+const JOURNEY = [
+  { icon: PhoneCall, title: "Discovery Call", text: "We start by understanding your goals, tech stack, timeline, and team culture — not just a job description." },
+  { icon: Search, title: "Talent Match", text: "Our specialists source and rigorously vet candidates matched to your exact technical and cultural needs." },
+  { icon: Rocket, title: "Rapid Onboarding", text: "Selected talent is onboarded fast and productive from day one — onshore, offshore, or blended." },
+  { icon: ShieldCheck, title: "Delivery & Support", text: "Dedicated teams deliver with ongoing communication, quality checks, and full accountability." },
+  { icon: Handshake, title: "Long-Term Partnership", text: "We scale with you — growing teams and evolving support as your business and priorities grow." },
 ];
 
 const LOCATIONS = [
@@ -209,8 +235,26 @@ function Hero() {
       <div className="absolute inset-0 z-10 overflow-hidden">
         <img src={heroGlobe} alt="" className="h-full w-full object-cover opacity-35 scale-105 animate-kenburns" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/95 via-navy-deep/80 to-navy-deep/40" />
-        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-brand/20 rounded-full blur-3xl opacity-30 animate-pulse-ring" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-glow/20 rounded-full blur-3xl opacity-20" />
+        {/* Panning grid */}
+        <div
+          className="absolute inset-0 opacity-[0.12] animate-grid-pan"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(96,165,250,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(96,165,250,0.5) 1px, transparent 1px)",
+            backgroundSize: "44px 44px",
+            maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+            WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+          }}
+        />
+        {/* Drifting aurora blobs */}
+        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-brand/25 rounded-full blur-3xl opacity-40 animate-drift" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-glow/20 rounded-full blur-3xl opacity-30 animate-drift-slow" />
+        <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl opacity-25 animate-float" />
+        {/* Floating geometric shapes */}
+        <div className="absolute top-20 right-[12%] h-16 w-16 rounded-2xl border border-brand-glow/25 rotate-12 animate-float-shape" />
+        <div className="absolute bottom-28 left-[8%] h-10 w-10 rounded-full border-2 border-brand/25 animate-float-shape [animation-delay:1.5s]" />
+        <div className="absolute top-1/3 right-[28%] h-2.5 w-2.5 rounded-full bg-brand-glow/50 animate-float [animation-delay:0.8s]" />
+        <div className="absolute bottom-1/3 left-[22%] h-2 w-2 rounded-full bg-white/40 animate-float-shape" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 w-full py-24">
@@ -225,7 +269,10 @@ function Hero() {
           </span>
           <h1 className="font-display text-[2.2rem] sm:text-4xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight">
             Building the Workforce Behind{" "}
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">
+            <span
+              className="block text-transparent bg-clip-text animate-text-shimmer"
+              style={{ backgroundImage: "linear-gradient(90deg,#60a5fa,#a5b4fc 30%,#c4b5fd 50%,#a5b4fc 70%,#60a5fa)" }}
+            >
               Tomorrow's Digital Enterprises
             </span>
           </h1>
@@ -292,8 +339,8 @@ function HomePage() {
           >
             <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-brand mb-4">Who We Are</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-ink leading-tight tracking-tight">
-              More Than a Staffing Company.{" "}
-              <span className="text-gradient-brand">A Technology Growth Partner.</span>
+              <SplitText text="More Than a Staffing Company. " />
+              <SplitText text="A Technology Growth Partner." className="text-gradient-brand" delay={1.05} />
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
               Technology transformation depends on people. At ConfigUSA, we connect organizations with exceptional
@@ -345,8 +392,9 @@ function HomePage() {
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent z-10" />
-                    <span className="absolute top-3 left-3 z-20 flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 backdrop-blur border border-white/25 text-white">
-                      <c.icon className="h-5 w-5" />
+                    <span className="absolute top-3 left-3 z-20 flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 backdrop-blur border border-white/25 text-white group-hover:scale-110 group-hover:bg-white/25 transition-all duration-300">
+                      <c.icon className="h-5 w-5 transition-transform duration-300 group-hover:rotate-6" />
+                      <span className="pointer-events-none absolute inset-0 rounded-xl ring-2 ring-white/50 opacity-0 group-hover:opacity-100 group-hover:animate-ripple" />
                     </span>
                     <div className="absolute bottom-4 left-4 right-4 z-10">
                       <h3 className="font-display text-lg md:text-xl font-bold text-white leading-snug group-hover:text-[#60a5fa] transition-colors">
@@ -366,11 +414,71 @@ function HomePage() {
                     </span>
                   </div>
 
+                  {/* Diagonal light sweep on hover */}
+                  <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden rounded-2xl">
+                    <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-white/25 to-transparent group-hover:animate-shine" />
+                  </div>
+
+                  {/* Rising particles on hover */}
+                  <CardParticles />
+
                   {/* Shine Bottom Edge Bar */}
                   <div className="absolute bottom-0 inset-x-0 h-1.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
                 </Link>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Your Journey (vertical chain) ── */}
+      <section className="py-24 bg-gradient-to-b from-soft to-white">
+        <div className="mx-auto max-w-3xl px-4 lg:px-8">
+          <SectionHeading
+            eyebrow="How We Partner"
+            title="Your Journey With ConfigUSA"
+            subtitle="From first conversation to long-term partnership — here's how we help you move forward with confidence."
+          />
+          <div className="mt-16 relative">
+            {/* Animated vertical chain line */}
+            <motion.div
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.4, ease: "easeOut" }}
+              className="absolute left-6 -translate-x-1/2 top-4 bottom-4 w-[2px] origin-top bg-gradient-to-b from-brand via-brand-glow to-brand/10 z-0"
+            />
+            <div className="space-y-8">
+              {JOURNEY.map((j, i) => (
+                <motion.div
+                  key={j.title}
+                  initial={{ opacity: 0, x: 24 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="group relative flex gap-5 md:gap-7"
+                >
+                  {/* Node on the line */}
+                  <div className="relative z-10 shrink-0">
+                    <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-gradient-brand text-white shadow-glow group-hover:scale-110 group-hover:animate-glow-pulse transition-transform duration-300">
+                      <j.icon className="h-5 w-5" />
+                      <span className="pointer-events-none absolute inset-0 rounded-full ring-2 ring-brand/40 opacity-0 group-hover:opacity-100 group-hover:animate-ripple" />
+                    </span>
+                  </div>
+                  {/* Content card */}
+                  <div className="relative overflow-hidden flex-1 rounded-2xl bg-white p-6 border border-border/50 shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all duration-300">
+                    <span className="text-[0.62rem] font-black uppercase tracking-[0.18em] text-brand">Step 0{i + 1}</span>
+                    <h3 className="mt-1 text-lg font-bold text-ink group-hover:text-brand transition-colors">{j.title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{j.text}</p>
+                    {/* Diagonal light sweep on hover */}
+                    <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                      <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-brand/10 to-transparent group-hover:animate-shine" />
+                    </div>
+                    <CardParticles />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -403,6 +511,11 @@ function HomePage() {
                 <h3 className="relative mt-5 text-lg font-bold text-ink group-hover:text-brand transition-colors">{e.title}</h3>
                 <p className="relative mt-2.5 text-sm text-muted-foreground leading-relaxed flex-1">{e.text}</p>
                 <div className="relative mt-6 h-1 w-10 rounded-full bg-gradient-brand opacity-40 group-hover:w-full group-hover:opacity-100 transition-all duration-500" />
+                {/* Diagonal light sweep on hover */}
+                <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
+                  <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-brand/10 to-transparent group-hover:animate-shine" />
+                </div>
+                <CardParticles variant="rain" />
               </motion.div>
             ))}
           </div>
@@ -411,6 +524,9 @@ function HomePage() {
 
       {/* ── Why ConfigUSA ── */}
       <section className="py-24 bg-[#051124] text-white relative overflow-hidden">
+        {/* Continuous ambient rain + rising bubbles & tiny particles */}
+        <RainParticles />
+        <Bubbles />
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full lg:w-1/2 opacity-25 pointer-events-none select-none z-0">
           <svg viewBox="0 0 1000 500" className="w-full h-auto text-blue-500" fill="currentColor">
             <circle cx="100" cy="150" r="3" />
@@ -457,27 +573,73 @@ function HomePage() {
             </Link>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 gap-4 relative z-10">
-            {STRENGTHS.map((s, i) => (
-              <motion.div
-                key={s}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.07 }}
-                className="flex items-start gap-3 rounded-xl bg-white/5 border border-white/10 p-4 hover:bg-white/10 hover:border-brand-glow/50 transition-all"
-              >
-                <CheckCircle2 className="h-5 w-5 shrink-0 text-brand-glow mt-0.5" />
-                <span className="text-sm font-medium text-white/85 leading-snug">{s}</span>
-              </motion.div>
-            ))}
+          <div className="relative z-10">
+            {/* Rotating orbit — lg and up */}
+            <div className="relative mx-auto hidden lg:block w-[420px] h-[420px]">
+              {/* Rotating conic ring */}
+              <div
+                className="absolute inset-6 rounded-full animate-ring"
+                style={{
+                  background: "conic-gradient(from 0deg, transparent 0deg, rgba(96,165,250,0.6) 90deg, transparent 210deg)",
+                  maskImage: "radial-gradient(closest-side, transparent 73%, #000 75%)",
+                  WebkitMaskImage: "radial-gradient(closest-side, transparent 73%, #000 75%)",
+                }}
+              />
+              {/* Static dashed guide ring */}
+              <div className="absolute inset-6 rounded-full border border-dashed border-white/15" />
+              {/* Center hub */}
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-24 w-24 flex-col items-center justify-center rounded-full bg-gradient-brand text-white shadow-glow animate-glow-pulse">
+                <Target className="h-6 w-6" />
+                <span className="mt-1 text-[0.6rem] font-bold uppercase tracking-wider">Why Us</span>
+              </div>
+              {/* Orbiting strengths (counter-rotating so text stays upright) */}
+              <div className="absolute inset-0 animate-orbit-rev">
+                {WHY_ORBIT.map((w, i) => {
+                  const angle = (360 / WHY_ORBIT.length) * i;
+                  return (
+                    <div
+                      key={w.label}
+                      className="absolute left-1/2 top-1/2"
+                      style={{ transform: `rotate(${angle}deg) translateY(-172px) rotate(-${angle}deg)` }}
+                    >
+                      <div className="animate-orbit">
+                        <div className="-translate-x-1/2 -translate-y-1/2">
+                          <div className="flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-3.5 py-2 backdrop-blur shadow-lg hover:bg-white/20 hover:border-brand-glow transition-colors">
+                            <w.icon className="h-4 w-4 text-brand-glow shrink-0" />
+                            <span className="text-xs font-semibold text-white/90 whitespace-nowrap">{w.label}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Strengths list — below lg */}
+            <div className="grid sm:grid-cols-2 gap-4 lg:hidden">
+              {STRENGTHS.map((s, i) => (
+                <motion.div
+                  key={s}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: i * 0.07 }}
+                  className="flex items-start gap-3 rounded-xl bg-white/5 border border-white/10 p-4 hover:bg-white/10 hover:border-brand-glow/50 transition-all"
+                >
+                  <CheckCircle2 className="h-5 w-5 shrink-0 text-brand-glow mt-0.5" />
+                  <span className="text-sm font-medium text-white/85 leading-snug">{s}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── Industries ── */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <section className="relative py-24 bg-white overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-plus-grid opacity-60" />
+        <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Industries"
             title="Deep Expertise Across the Sectors You Serve"
@@ -491,15 +653,22 @@ function HomePage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.07 }}
-                className="group flex items-start gap-4 rounded-2xl bg-soft/70 p-6 border-l-4 border-l-transparent border border-border/50 hover:border-l-brand hover:bg-white hover:shadow-card transition-all duration-300"
+                whileHover={{ y: -6, scale: 1.02 }}
+                className="group relative overflow-hidden flex items-start gap-4 rounded-2xl bg-white/70 backdrop-blur p-6 border-l-4 border-l-transparent border border-border/50 hover:border-l-brand hover:bg-white hover:shadow-[0_16px_36px_-10px_rgba(29,78,216,0.28)] transition-shadow duration-500"
               >
-                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand/10 to-brand-glow/10 text-brand group-hover:from-brand group-hover:to-brand-glow group-hover:text-white transition-all duration-300">
-                  <n.icon className="h-6 w-6" />
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand/10 to-brand-glow/10 text-brand group-hover:from-brand group-hover:to-brand-glow group-hover:text-white group-hover:scale-110 group-hover:animate-glow-pulse transition-all duration-300">
+                  <n.icon className="h-6 w-6 transition-transform duration-300 group-hover:rotate-6" />
                 </span>
                 <div>
                   <h3 className="text-lg font-bold text-ink group-hover:text-brand transition-colors">{n.name}</h3>
                   <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{n.text}</p>
                 </div>
+                {/* Diagonal light sweep on hover */}
+                <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                  <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-brand/12 to-transparent group-hover:animate-shine" />
+                </div>
+                {/* Rain particles on hover */}
+                <CardParticles variant="rain" />
               </motion.div>
             ))}
           </div>
@@ -520,6 +689,10 @@ function HomePage() {
           <img src={heroDataNew} alt="" className="h-full w-full object-cover opacity-30 animate-kenburns" />
           <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/90 to-navy-deep/60" />
         </div>
+        {/* Ambient particles: rain + falling bubbles + right-to-left drift */}
+        <RainParticles />
+        <Bubbles direction="down" />
+        <DriftParticles />
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -543,20 +716,65 @@ function HomePage() {
             </Link>
           </motion.div>
 
-          <div className="flex flex-wrap gap-3">
-            {AI_FOCUS.map((a, i) => (
-              <motion.div
-                key={a.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="flex items-center gap-2.5 rounded-full bg-white/5 border border-white/15 px-5 py-3 backdrop-blur hover:bg-white/10 hover:border-brand-glow transition-all"
-              >
-                <a.icon className="h-4 w-4 text-brand-glow shrink-0" />
-                <span className="text-sm font-semibold text-white/90 whitespace-nowrap">{a.label}</span>
-              </motion.div>
-            ))}
+          <div className="relative">
+            {/* Rotating orbital circle — lg and up */}
+            <div className="relative mx-auto hidden lg:block w-[420px] h-[420px]">
+              {/* Rotating conic ring */}
+              <div
+                className="absolute inset-6 rounded-full animate-ring"
+                style={{
+                  background: "conic-gradient(from 0deg, transparent 0deg, rgba(96,165,250,0.65) 90deg, transparent 210deg)",
+                  maskImage: "radial-gradient(closest-side, transparent 73%, #000 75%)",
+                  WebkitMaskImage: "radial-gradient(closest-side, transparent 73%, #000 75%)",
+                }}
+              />
+              {/* Static dashed guide ring */}
+              <div className="absolute inset-6 rounded-full border border-dashed border-white/15" />
+              {/* Center hub */}
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-24 w-24 flex-col items-center justify-center rounded-full bg-gradient-brand text-white shadow-glow animate-glow-pulse">
+                <Sparkles className="h-6 w-6" />
+                <span className="mt-1 text-[0.6rem] font-bold uppercase tracking-wider">AI Ready</span>
+              </div>
+              {/* Orbiting capability pills */}
+              <div className="absolute inset-0 animate-orbit">
+                {AI_FOCUS.map((a, i) => {
+                  const angle = (360 / AI_FOCUS.length) * i;
+                  return (
+                    <div
+                      key={a.label}
+                      className="absolute left-1/2 top-1/2"
+                      style={{ transform: `rotate(${angle}deg) translateY(-172px) rotate(-${angle}deg)` }}
+                    >
+                      <div className="animate-orbit-rev">
+                        <div className="-translate-x-1/2 -translate-y-1/2">
+                          <div className="flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-3.5 py-2 backdrop-blur shadow-lg hover:bg-white/20 hover:border-brand-glow transition-colors">
+                            <a.icon className="h-4 w-4 text-brand-glow shrink-0" />
+                            <span className="text-xs font-semibold text-white/90 whitespace-nowrap">{a.label}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Wrapped pills — below lg */}
+            <div className="flex flex-wrap gap-3 lg:hidden">
+              {AI_FOCUS.map((a, i) => (
+                <motion.div
+                  key={a.label}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.06 }}
+                  className="flex items-center gap-2.5 rounded-full bg-white/5 border border-white/15 px-5 py-3 backdrop-blur hover:bg-white/10 hover:border-brand-glow transition-all"
+                >
+                  <a.icon className="h-4 w-4 text-brand-glow shrink-0" />
+                  <span className="text-sm font-semibold text-white/90 whitespace-nowrap">{a.label}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -579,7 +797,7 @@ function HomePage() {
             {[...STORIES, ...STORIES].map((s, idx) => (
               <article
                 key={idx}
-                className="group w-[320px] md:w-[380px] shrink-0 flex flex-col rounded-2xl bg-white border border-border/50 shadow-card hover:shadow-[0_20px_40px_rgba(29,78,216,0.12)] transition-all duration-300 overflow-hidden"
+                className="group relative w-[320px] md:w-[380px] shrink-0 flex flex-col rounded-2xl bg-white border border-border/50 shadow-card hover:shadow-[0_20px_40px_rgba(29,78,216,0.12)] transition-all duration-300 overflow-hidden"
               >
                 <div className="relative h-44 overflow-hidden">
                   <img src={s.image} alt={s.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -595,6 +813,7 @@ function HomePage() {
                   <h3 className="text-lg font-bold text-ink group-hover:text-brand transition-colors">{s.title}</h3>
                   <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed flex-1">{s.text}</p>
                 </div>
+                <CardParticles />
               </article>
             ))}
           </div>
@@ -603,6 +822,10 @@ function HomePage() {
 
       {/* ── Global Delivery Footprint ── */}
       <section className="relative py-24 bg-[#051124] text-white overflow-hidden">
+        {/* Ambient particles: rain + falling bubbles + right-to-left drift */}
+        <RainParticles />
+        <Bubbles direction="down" />
+        <DriftParticles />
         <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-brand/20 blur-3xl opacity-40" />
         <div className="pointer-events-none absolute -bottom-24 -right-16 h-96 w-96 rounded-full bg-brand-glow/20 blur-3xl opacity-30" />
         <div className="pointer-events-none absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle, #60a5fa 1px, transparent 1px)", backgroundSize: "26px 26px" }} />
@@ -670,23 +893,33 @@ function HomePage() {
             eyebrow="Why Companies Stay"
             title="Why Companies Continue to Work with Us"
           />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {PILLARS.map((p, i) => (
-              <motion.div
-                key={p.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="text-center group"
-              >
-                <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-brand/10 to-brand-glow/10 group-hover:from-brand group-hover:to-brand-glow transition-all">
-                  <p.icon className="h-7 w-7 text-brand group-hover:text-white transition-colors" />
-                </span>
-                <h3 className="mt-5 text-lg font-bold text-ink">{p.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.text}</p>
-              </motion.div>
-            ))}
+          <div className="mt-16 relative">
+            {/* Animated connecting line (chain) */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.3, ease: "easeInOut" }}
+              className="hidden lg:block absolute top-8 left-[12.5%] right-[12.5%] h-0.5 origin-left bg-gradient-to-r from-brand/0 via-brand to-brand/0 z-0"
+            />
+            <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 relative z-10">
+              {PILLARS.map((p, i) => (
+                <motion.div
+                  key={p.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 + i * 0.15 }}
+                  className="text-center group flex flex-col items-center"
+                >
+                  <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white ring-4 ring-white border border-border shadow-card text-brand group-hover:bg-gradient-brand group-hover:text-white group-hover:border-transparent group-hover:scale-110 group-hover:shadow-glow transition-all duration-300">
+                    <p.icon className="h-7 w-7" />
+                  </span>
+                  <h3 className="mt-5 text-lg font-bold text-ink group-hover:text-brand transition-colors">{p.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.text}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -708,7 +941,7 @@ function HomePage() {
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6, delay: i * 0.08 }}
                 whileHover={{ y: -6 }}
-                className="group rounded-2xl bg-white border border-border/50 shadow-card hover:shadow-elegant transition-all overflow-hidden"
+                className="group relative rounded-2xl bg-white border border-border/50 shadow-card hover:shadow-elegant transition-all overflow-hidden"
               >
                 <div className="relative h-44 overflow-hidden bg-gradient-hero flex items-center justify-center">
                   <p.icon className="h-14 w-14 text-white/40" />
@@ -727,6 +960,7 @@ function HomePage() {
                     Read more <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
+                <CardParticles />
               </motion.article>
             ))}
           </div>
@@ -759,18 +993,23 @@ function HomePage() {
             {[...CERTIFICATIONS, ...CERTIFICATIONS].map((c, idx) => (
               <div
                 key={idx}
-                className="group w-[260px] md:w-[300px] shrink-0 flex flex-col items-center text-center rounded-2xl bg-soft/60 border border-border/50 p-8 hover:bg-white hover:shadow-card hover:border-brand/20 transition-all duration-300"
+                className="group relative overflow-hidden w-[260px] md:w-[300px] shrink-0 flex flex-col items-center text-center rounded-2xl bg-soft/60 border border-border/50 p-8 hover:bg-white hover:shadow-card hover:border-brand/20 hover:-translate-y-1.5 transition-all duration-300"
               >
                 <div className="flex h-28 w-full items-center justify-center">
                   <img
                     src={c.image}
                     alt={`${c.name} certification`}
                     loading="lazy"
-                    className="max-h-28 max-w-[80%] object-contain transition-transform duration-300 group-hover:scale-105"
+                    className="max-h-28 max-w-[80%] object-contain transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
                 <h3 className="mt-6 text-base font-bold text-ink group-hover:text-brand transition-colors">{c.name}</h3>
                 <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{c.label}</p>
+                {/* Diagonal light sweep on hover */}
+                <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
+                  <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-brand/10 to-transparent group-hover:animate-shine" />
+                </div>
+                <CardParticles />
               </div>
             ))}
           </div>
@@ -809,6 +1048,7 @@ function HomePage() {
               >
                 Request Talent <ArrowRight className="h-4 w-4" />
               </Link>
+              <CardParticles />
             </motion.div>
 
             {/* Job Seekers */}
@@ -834,6 +1074,7 @@ function HomePage() {
               >
                 Explore Careers <ArrowRight className="h-4 w-4" />
               </Link>
+              <CardParticles />
             </motion.div>
           </div>
         </div>

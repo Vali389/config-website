@@ -29,6 +29,7 @@ import certSam from "@/assets/cert-sam.jpg";
 import certEverify from "@/assets/cert-everify.png";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
+import { SplitText } from "@/components/SplitText";
 import { StatsBar } from "@/components/StatsBar";
 import { CTASection } from "@/components/CTASection";
 
@@ -63,7 +64,8 @@ const LEADERS: { initials: string; name: string; title: string; bio: string; pho
 ];
 
 const OFFICES = [
-  { city: "United States", tag: "Global Headquarters", lines: ["[ Street Address ]", "[ City, State ZIP ]"], phone: "[ +1 (000) 000-0000 ]" },
+  { city: "United States", tag: "Global Headquarters", lines: ["1001 Woodbridge Center Dr", "Woodbridge, NJ 07095"], phone: "+1 (732) 220-2921" },
+  // TODO: replace with the real India delivery-center address & phone.
   { city: "India", tag: "Delivery & Engineering Center", lines: ["[ Street Address ]", "[ City, State PIN ]"], phone: "[ +91 00000 00000 ]" },
 ];
 
@@ -86,7 +88,13 @@ function AboutPage() {
     <>
       <PageHero
         eyebrow="About Us"
-        title={<>More Than a Staffing Company.<br /><span className="text-gradient-brand">A Technology Growth Partner.</span></>}
+        title={
+          <>
+            <SplitText text="More Than a Staffing Company." />
+            <br />
+            <SplitText text="A Technology Growth Partner." className="text-gradient-brand" delay={1.05} />
+          </>
+        }
         subtitle="A decade of engineering trust — connecting ambitious organizations with the talent and technology to turn strategic initiatives into measurable results."
         image={aboutHeroBg}
       />
@@ -364,13 +372,17 @@ function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group flex flex-col items-center text-center rounded-2xl bg-soft/60 border border-border/50 p-8 hover:bg-white hover:shadow-card hover:border-brand/20 transition-all duration-300"
+                className="group relative overflow-hidden flex flex-col items-center text-center rounded-2xl bg-soft/60 border border-border/50 p-8 hover:bg-white hover:shadow-card hover:border-brand/20 hover:-translate-y-1.5 transition-all duration-300"
               >
                 <div className="flex h-28 w-full items-center justify-center">
-                  <img src={c.image} alt={`${c.name} certification`} loading="lazy" className="max-h-28 max-w-[80%] object-contain transition-transform duration-300 group-hover:scale-105" />
+                  <img src={c.image} alt={`${c.name} certification`} loading="lazy" className="max-h-28 max-w-[80%] object-contain transition-transform duration-300 group-hover:scale-110" />
                 </div>
                 <h3 className="mt-6 text-base font-bold text-ink group-hover:text-brand transition-colors">{c.name}</h3>
                 <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{c.label}</p>
+                {/* Diagonal light sweep on hover */}
+                <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
+                  <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-brand/10 to-transparent group-hover:animate-shine" />
+                </div>
               </motion.div>
             ))}
           </div>

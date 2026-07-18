@@ -133,3 +133,161 @@
   100% { box-shadow: 0 0 0 20px oklch(0.6 0.22 145 / 0); }
 }
 @utility animate-pulse-ring { animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+/* ── Premium motion primitives ── */
+
+/* Shimmering gradient text / borders */
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@utility animate-gradient-x {
+  background-size: 200% auto;
+  animation: gradient-x 5s ease infinite;
+}
+
+/* Slow drifting aurora blobs */
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -30px) scale(1.1); }
+  66% { transform: translate(-30px, 25px) scale(0.95); }
+}
+@utility animate-drift { animation: drift 20s ease-in-out infinite; }
+@utility animate-drift-slow { animation: drift 30s ease-in-out infinite reverse; }
+
+/* Panning grid overlay */
+@keyframes grid-pan {
+  0% { background-position: 0 0; }
+  100% { background-position: 44px 44px; }
+}
+@utility animate-grid-pan { animation: grid-pan 6s linear infinite; }
+
+/* Diagonal light sweep across cards on hover */
+@keyframes shine {
+  0% { transform: translateX(-120%) skewX(-15deg); opacity: 0; }
+  25% { opacity: 1; }
+  100% { transform: translateX(320%) skewX(-15deg); opacity: 0; }
+}
+@utility animate-shine { animation: shine 1s ease-out; }
+
+/* Moving sheen across gradient text (hero heading) */
+@keyframes text-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@utility animate-text-shimmer {
+  background-size: 200% auto;
+  animation: text-shimmer 3.5s linear infinite;
+}
+
+/* Every page-hero heading: sheen sweeps left-to-right across the gradient text.
+   Unlayered so it overrides the static text-gradient-brand utility. */
+.hero-shimmer .text-gradient-brand,
+.hero-shimmer.text-gradient-brand {
+  background-image: linear-gradient(90deg, #60a5fa, #a5b4fc 30%, #c4b5fd 50%, #a5b4fc 70%, #60a5fa);
+  background-size: 200% auto;
+  animation: text-shimmer 3.5s linear infinite;
+}
+
+/* Pulsing glow around an icon badge */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+  50% { box-shadow: 0 0 22px 5px rgba(59, 130, 246, 0.45); }
+}
+@utility animate-glow-pulse { animation: glow-pulse 2.4s ease-in-out infinite; }
+
+/* Expanding ripple ring emitted from an icon */
+@keyframes ripple {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+@utility animate-ripple { animation: ripple 1.1s ease-out infinite; }
+
+/* Particles that rise and fade from a card on hover */
+@keyframes particle-float {
+  0% { transform: translateY(0) translateX(0) scale(0); opacity: 0; }
+  30% { opacity: 1; transform: translateY(-10px) translateX(5px) scale(1); }
+  100% { transform: translateY(-40px) translateX(-5px) scale(0); opacity: 0; }
+}
+@utility animate-particle { animation: particle-float 1.6s ease-out infinite; }
+
+/* Particles that fall like rain from the top of a card on hover */
+@keyframes particle-rain {
+  0% { transform: translateY(-26px) translateX(0) scale(0); opacity: 0; }
+  25% { opacity: 1; transform: translateY(0) translateX(4px) scale(1); }
+  100% { transform: translateY(46px) translateX(-4px) scale(0); opacity: 0; }
+}
+@utility animate-particle-rain { animation: particle-rain 1.9s linear infinite; }
+
+/* Continuous ambient rain streaks falling down a section */
+@keyframes rain-drop {
+  0% { top: -12%; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { top: 112%; opacity: 0; }
+}
+@utility animate-rain-drop { animation: rain-drop 3s linear infinite backwards; }
+
+/* Bubbles / tiny particles rising up a section */
+@keyframes bubble-rise {
+  0% { bottom: -12%; opacity: 0; transform: translateX(0) scale(0.7); }
+  12% { opacity: 0.7; }
+  88% { opacity: 0.7; }
+  100% { bottom: 112%; opacity: 0; transform: translateX(14px) scale(1.05); }
+}
+@utility animate-bubble { animation: bubble-rise 9s ease-in infinite backwards; }
+
+/* Bubbles / tiny particles falling down a section (top → bottom) */
+@keyframes bubble-fall {
+  0% { top: -12%; opacity: 0; transform: translateX(0) scale(0.7); }
+  12% { opacity: 0.7; }
+  88% { opacity: 0.7; }
+  100% { top: 112%; opacity: 0; transform: translateX(14px) scale(1.05); }
+}
+@utility animate-bubble-fall { animation: bubble-fall 9s ease-in infinite backwards; }
+
+/* Particles drifting right-to-left across a section */
+@keyframes drift-lr {
+  0% { right: -6%; opacity: 0; transform: translateY(0); }
+  10% { opacity: 0.75; }
+  90% { opacity: 0.75; }
+  100% { right: 106%; opacity: 0; transform: translateY(-14px); }
+}
+@utility animate-drift-lr { animation: drift-lr 11s linear infinite backwards; }
+
+/* Floating decorative shapes (drift + gentle rotate) */
+@keyframes float-shape {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(6deg); }
+}
+@utility animate-float-shape { animation: float-shape 7s ease-in-out infinite; }
+
+/* Orbital rotation — reverse variant keeps orbiting items upright */
+@keyframes orbit-rotate { to { transform: rotate(360deg); } }
+@utility animate-orbit { animation: orbit-rotate 44s linear infinite; }
+@utility animate-orbit-rev { animation: orbit-rotate 44s linear infinite reverse; }
+
+/* Rotating conic-gradient ring */
+@keyframes ring-rotate { to { transform: rotate(360deg); } }
+@utility animate-ring { animation: ring-rotate 16s linear infinite; }
+
+/* Subtle "+" plus-grid section background */
+@utility bg-plus-grid {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Animated underline for footer links */
+@layer components {
+  .footer-link { position: relative; }
+  .footer-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 0;
+    background: var(--brand-glow);
+    transition: width 0.3s ease;
+  }
+  .footer-link:hover::after { width: 100%; }
+}
