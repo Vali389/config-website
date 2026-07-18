@@ -10,7 +10,7 @@ import serviceSoftware from "@/assets/service-software.jpg";
 import serviceSap from "@/assets/service-sap.jpg";
 import serviceAssessment from "@/assets/service-assessment.jpg";
 import { motion } from "motion/react";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Rocket, ShieldCheck, Globe2, Users } from "lucide-react";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
@@ -36,6 +36,13 @@ const MODELS = [
   { title: "Contract-to-Hire", text: "Evaluate top talent on the job before making a long-term commitment." },
   { title: "Permanent Placement", text: "Vetted, culture-fit hires who grow with your organization." },
   { title: "RPO / MSP Solutions", text: "Managed recruitment and vendor solutions at enterprise scale." },
+];
+
+const WHY = [
+  { icon: Rocket, title: "Speed to Value", text: "Vetted specialists deployed to your project in as little as 48 hours." },
+  { icon: ShieldCheck, title: "Quality Assured", text: "Rigorous, multi-stage screening behind every placement and delivery." },
+  { icon: Globe2, title: "Global Reach", text: "Onshore and offshore delivery capabilities across the US and India." },
+  { icon: Users, title: "True Partnership", text: "Dedicated account management and long-term accountability, always." },
 ];
 
 function ServicesLayout() {
@@ -76,6 +83,30 @@ function ServicesLayout() {
                 <CheckCircle2 className="h-8 w-8 text-brand" />
                 <h3 className="mt-4 text-lg font-bold text-ink">{m.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{m.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <SectionHeading eyebrow="Why ConfigUSA" title="Why Organizations Choose Us" subtitle="More than a vendor — a technology partner invested in your outcomes at every step." />
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {WHY.map((w, i) => (
+              <motion.div
+                key={w.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group text-center rounded-2xl bg-soft p-8 border border-border/50 hover:bg-white hover:shadow-card hover:-translate-y-1.5 transition-all duration-300"
+              >
+                <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand/10 to-brand-glow/10 text-brand group-hover:from-brand group-hover:to-brand-glow group-hover:text-white transition-all">
+                  <w.icon className="h-6 w-6" />
+                </span>
+                <h3 className="mt-5 text-lg font-bold text-ink group-hover:text-brand transition-colors">{w.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{w.text}</p>
               </motion.div>
             ))}
           </div>

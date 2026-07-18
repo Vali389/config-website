@@ -12,6 +12,7 @@ import {
   Search,
   ArrowRight,
   Building2,
+  Quote,
 } from "lucide-react";
 import heroCareers from "@/assets/hero-careers.jpg";
 import ctaCareers from "@/assets/cta-careers.jpg";
@@ -37,6 +38,13 @@ const PERKS = [
   { icon: Users, title: "Great Culture", text: "Diverse, collaborative teams that celebrate wins together." },
   { icon: GraduationCap, title: "Learning", text: "Certifications, courses, and mentorship — fully funded." },
   { icon: Award, title: "Opportunity", text: "Work on premium global brands and cutting-edge tech." },
+];
+
+// TODO: replace with real employee quotes & names when available.
+const VOICES = [
+  { initials: "CE", role: "Senior Cloud Engineer", tenure: "ConfigUSA since 2021", quote: "The projects are challenging and the support is real. I've grown more here in two years than anywhere else in my career." },
+  { initials: "SC", role: "SAP Functional Consultant", tenure: "ConfigUSA since 2019", quote: "Great clients, clear expectations, and a team that genuinely has your back. It feels like a partnership, not just a placement." },
+  { initials: "TL", role: "Talent Acquisition Lead", tenure: "ConfigUSA since 2020", quote: "We're trusted to do our best work and given the tools to do it. The culture of accountability makes all the difference." },
 ];
 
 function CareersPage() {
@@ -213,6 +221,37 @@ function CareersPage() {
                 </button>
               </div>
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* Employee voices */}
+      <section className="py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <SectionHeading eyebrow="Life at ConfigUSA" title="Hear From Our Team" subtitle="Real perspectives from the people who make ConfigUSA what it is." />
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {VOICES.map((v, i) => (
+              <motion.figure
+                key={v.role}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group relative flex flex-col rounded-2xl bg-soft p-8 border border-border/50 hover:bg-white hover:shadow-elegant hover:-translate-y-1.5 transition-all duration-300"
+              >
+                <Quote className="h-9 w-9 text-brand/20 group-hover:text-brand/40 transition-colors" />
+                <blockquote className="mt-4 text-sm text-ink/85 leading-relaxed flex-1">"{v.quote}"</blockquote>
+                <figcaption className="mt-6 flex items-center gap-3 pt-5 border-t border-border/60">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-white text-sm font-black shadow-glow">
+                    {v.initials}
+                  </span>
+                  <div>
+                    <div className="text-sm font-bold text-ink">{v.role}</div>
+                    <div className="text-xs text-muted-foreground">{v.tenure}</div>
+                  </div>
+                </figcaption>
+              </motion.figure>
+            ))}
           </div>
         </div>
       </section>

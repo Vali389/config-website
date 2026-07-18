@@ -15,10 +15,18 @@ import {
   Rocket,
   LineChart,
   ArrowRight,
+  MapPin,
+  Building2,
+  Phone,
+  Linkedin,
 } from "lucide-react";
 import aboutHeroBg from "@/assets/about-hero-bg.jpg";
 import aboutApproach from "@/assets/about-approach.jpg";
 import ctaAboutBg from "@/assets/cta-about-bg.png";
+import certMwbe from "@/assets/cert-mwbe.jpg";
+import certSbe from "@/assets/cert-sbe.jpg";
+import certSam from "@/assets/cert-sam.jpg";
+import certEverify from "@/assets/cert-everify.png";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { StatsBar } from "@/components/StatsBar";
@@ -42,6 +50,28 @@ const VALUES = [
   { icon: Users, title: "Collaboration", text: "Our best work happens together — with clients and with each other." },
   { icon: Lightbulb, title: "Innovation", text: "We embrace new ideas and technologies to solve tomorrow's challenges." },
   { icon: HandshakeIcon, title: "Accountability", text: "We own our commitments and deliver on our promises." },
+];
+
+// TODO: replace placeholder names with real leadership. To add a headshot,
+// import it (e.g. `import ceoPhoto from "@/assets/leader-ceo.jpg"`) and set
+// `photo: ceoPhoto` on the person below — the card shows it automatically.
+const LEADERS: { initials: string; name: string; title: string; bio: string; photo?: string }[] = [
+  { initials: "CE", name: "Full Name", title: "Chief Executive Officer", bio: "Sets the vision and strategy driving ConfigUSA's growth as a trusted technology partner." },
+  { initials: "CT", name: "Full Name", title: "Chief Technology Officer", bio: "Leads technology strategy, AI, and engineering delivery excellence across the firm." },
+  { initials: "VD", name: "Full Name", title: "VP, Global Delivery", bio: "Oversees onshore and offshore delivery, quality, and long-term client success." },
+  { initials: "VT", name: "Full Name", title: "VP, Talent Solutions", bio: "Heads recruiting, vetting, and workforce solutions across global markets." },
+];
+
+const OFFICES = [
+  { city: "United States", tag: "Global Headquarters", lines: ["[ Street Address ]", "[ City, State ZIP ]"], phone: "[ +1 (000) 000-0000 ]" },
+  { city: "India", tag: "Delivery & Engineering Center", lines: ["[ Street Address ]", "[ City, State PIN ]"], phone: "[ +91 00000 00000 ]" },
+];
+
+const CERTIFICATIONS = [
+  { image: certMwbe, name: "M/WBE", label: "Minority/Woman-Owned Business Enterprise" },
+  { image: certSbe, name: "SBE", label: "Small Business Enterprise Certified" },
+  { image: certSam, name: "SAM", label: "SAM Registered — FedBiz Access" },
+  { image: certEverify, name: "E-Verify", label: "E-Verify Employer" },
 ];
 
 const APPROACH = [
@@ -234,6 +264,113 @@ function AboutPage() {
                 </span>
                 <h3 className="mt-4 font-semibold text-ink">{v.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{v.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership */}
+      <section className="py-24 bg-soft border-y border-border/40">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <SectionHeading eyebrow="Leadership" title="Meet the People Behind ConfigUSA" subtitle="An experienced team dedicated to your success across technology, delivery, and talent." />
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {LEADERS.map((l, i) => (
+              <motion.div
+                key={l.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group text-center rounded-2xl bg-white p-8 border border-border/50 shadow-card hover:shadow-elegant hover:-translate-y-1.5 transition-all duration-300"
+              >
+                {l.photo ? (
+                  <img
+                    src={l.photo}
+                    alt={l.name}
+                    className="mx-auto h-24 w-24 rounded-full object-cover shadow-glow ring-2 ring-brand/20 group-hover:scale-105 transition-transform"
+                  />
+                ) : (
+                  <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-gradient-brand text-white text-2xl font-black shadow-glow group-hover:scale-105 transition-transform">
+                    {l.initials}
+                  </div>
+                )}
+                <h3 className="mt-5 text-lg font-bold text-ink">{l.name}</h3>
+                <p className="text-sm font-semibold text-brand">{l.title}</p>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{l.bio}</p>
+                <span className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft text-muted-foreground group-hover:bg-brand group-hover:text-white transition-all">
+                  <Linkedin className="h-4 w-4" />
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Global Offices */}
+      <section className="relative py-24 bg-[#051124] text-white overflow-hidden">
+        <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-brand/20 blur-3xl opacity-40" />
+        <div className="pointer-events-none absolute -bottom-24 -right-16 h-96 w-96 rounded-full bg-brand-glow/20 blur-3xl opacity-30" />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle, #60a5fa 1px, transparent 1px)", backgroundSize: "26px 26px" }} />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-glow mb-4">Global Presence</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight">
+              Local Partnership,{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">Global Scale</span>
+            </h2>
+            <p className="mt-5 text-white/70 leading-relaxed">
+              With teams across North America and India, we pair onshore client partnership with round-the-clock offshore delivery.
+            </p>
+          </div>
+          <div className="mt-12 grid md:grid-cols-2 gap-6">
+            {OFFICES.map((o, i) => (
+              <motion.div
+                key={o.city}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="rounded-2xl bg-white/5 border border-white/10 p-8 backdrop-blur hover:bg-white/[0.08] hover:border-brand-glow/40 transition-all duration-300"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-glow">
+                    <Building2 className="h-6 w-6" />
+                  </span>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">{o.city}</h3>
+                    <p className="text-[0.7rem] font-bold uppercase tracking-[0.14em] text-brand-glow">{o.tag}</p>
+                  </div>
+                </div>
+                <div className="mt-6 space-y-2 text-sm text-white/80">
+                  <p className="flex items-start gap-3"><MapPin className="h-4 w-4 shrink-0 text-brand-glow mt-0.5" /> <span>{o.lines.join(", ")}</span></p>
+                  <p className="flex items-center gap-3"><Phone className="h-4 w-4 shrink-0 text-brand-glow" /> <span>{o.phone}</span></p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications */}
+      <section className="py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <SectionHeading eyebrow="Certifications & Credentials" title="Certified, Compliant & Trusted" subtitle="The certifications and registrations that let organizations engage us with confidence across commercial and public-sector programs." />
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {CERTIFICATIONS.map((c, i) => (
+              <motion.div
+                key={c.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="group flex flex-col items-center text-center rounded-2xl bg-soft/60 border border-border/50 p-8 hover:bg-white hover:shadow-card hover:border-brand/20 transition-all duration-300"
+              >
+                <div className="flex h-28 w-full items-center justify-center">
+                  <img src={c.image} alt={`${c.name} certification`} loading="lazy" className="max-h-28 max-w-[80%] object-contain transition-transform duration-300 group-hover:scale-105" />
+                </div>
+                <h3 className="mt-6 text-base font-bold text-ink group-hover:text-brand transition-colors">{c.name}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{c.label}</p>
               </motion.div>
             ))}
           </div>

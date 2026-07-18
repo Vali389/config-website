@@ -46,7 +46,7 @@ export function Header() {
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 bg-white ${scrolled ? "shadow-md" : "border-b border-slate-100"}`}>
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 lg:px-8">
         <Logo />
         <nav className="hidden lg:flex items-center gap-0.5">
           {NAV.map((item) => (
@@ -83,7 +83,6 @@ export function Header() {
                       >
                         <Link
                           to={c.to as any}
-                          hash={"hash" in c ? c.hash : undefined}
                           className="block rounded-lg px-4 py-3 text-sm transition-all font-medium"
                           activeProps={{ className: "bg-brand/5 text-brand" }}
                           inactiveProps={{ className: "text-ink/70 hover:bg-brand/5 hover:text-brand" }}
@@ -144,7 +143,6 @@ export function Header() {
                       <Link
                         key={c.label}
                         to={c.to as any}
-                        hash={"hash" in c ? c.hash : undefined}
                         onClick={() => setOpen(false)}
                         className="block rounded-md px-3 py-2 text-sm transition-colors"
                         activeProps={{ className: "bg-brand/5 text-brand font-semibold" }}

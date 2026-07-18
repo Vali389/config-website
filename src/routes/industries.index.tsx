@@ -96,7 +96,7 @@ function Page() {
                 whileHover={{ y: -6 }}
                 className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-border/50 shadow-card hover:shadow-[0_24px_48px_rgba(29,78,216,0.14)] hover:border-brand/20 transition-all duration-300 scroll-mt-28 relative"
               >
-                <Link to={`/industries/${c.id}`} className="block h-full flex flex-col">
+                <Link to="/industries/$industryId" params={{ industryId: c.id }} className="block h-full flex flex-col">
                   <div className="relative h-48 overflow-hidden">
                     <img src={c.image} alt={c.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />

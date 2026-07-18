@@ -30,6 +30,12 @@ import {
   ChevronLeft,
   ChevronRight,
   Calendar,
+  FileText,
+  Repeat,
+  UserPlus,
+  MapPin,
+  Briefcase,
+  Search,
 } from "lucide-react";
 
 import heroGlobe from "@/assets/hero-globe.jpg";
@@ -47,6 +53,10 @@ import ctaHome from "@/assets/cta-home.jpg";
 import storyHealthcare from "@/assets/story-healthcare.jpg";
 import storyCloud from "@/assets/story-cloud.jpg";
 import storyGov from "@/assets/story-gov.jpg";
+import certMwbe from "@/assets/cert-mwbe.jpg";
+import certSbe from "@/assets/cert-sbe.jpg";
+import certSam from "@/assets/cert-sam.jpg";
+import certEverify from "@/assets/cert-everify.png";
 
 import { StatsBar } from "@/components/StatsBar";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -157,6 +167,33 @@ const PILLARS = [
   { icon: Globe2, title: "Global Reach", text: "Talent and delivery capabilities across North America and India." },
 ];
 
+const ENGAGEMENT = [
+  { icon: FileText, title: "Contract Staffing", text: "Skilled professionals deployed on flexible contract terms—scale your teams up or down as project demands shift." },
+  { icon: Repeat, title: "Contract-to-Hire", text: "Evaluate talent on live work before converting to permanent roles, dramatically reducing hiring risk." },
+  { icon: UserPlus, title: "Direct Placement", text: "Permanent hires sourced, screened, and matched to your culture and long-term technical needs." },
+  { icon: Boxes, title: "Managed Delivery", text: "Dedicated onshore & offshore squads that own outcomes end-to-end, from build to ongoing support." },
+];
+
+const LOCATIONS = [
+  {
+    region: "North America",
+    role: "Client Partnership & Onshore Delivery",
+    points: ["Account management & consulting", "Onshore technology talent", "Time-zone-aligned, rapid support"],
+  },
+  {
+    region: "India",
+    role: "Global Delivery & Engineering Center",
+    points: ["Offshore delivery pods", "Round-the-clock engineering & support", "Cost-efficient scale"],
+  },
+];
+
+const CERTIFICATIONS = [
+  { image: certMwbe, name: "M/WBE", label: "Minority/Woman-Owned Business Enterprise" },
+  { image: certSbe, name: "SBE", label: "Small Business Enterprise Certified" },
+  { image: certSam, name: "SAM", label: "SAM Registered — FedBiz Access" },
+  { image: certEverify, name: "E-Verify", label: "E-Verify Employer" },
+];
+
 const INSIGHTS = [
   { tag: "AI", title: "The Future of AI in the Enterprise", date: "Jan 12, 2026", icon: BrainCircuit },
   { tag: "Cloud", title: "Cloud Modernization: A Practical Roadmap", date: "Dec 04, 2025", icon: Cloud },
@@ -222,6 +259,9 @@ function HomePage() {
     <>
       {/* ── Hero ── */}
       <Hero />
+
+      {/* ── Impact Stats ── */}
+      <StatsBar />
 
       {/* ── Trusted by Organizations ── */}
       <TechTicker />
@@ -329,6 +369,40 @@ function HomePage() {
                   {/* Shine Bottom Edge Bar */}
                   <div className="absolute bottom-0 inset-x-0 h-1.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
                 </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Engagement Models ── */}
+      <section className="py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <SectionHeading
+            eyebrow="Engagement Models"
+            title="Flexible Ways to Work With Us"
+            subtitle="From a single specialist to a fully managed delivery team, choose the engagement that fits your goals and timeline."
+          />
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {ENGAGEMENT.map((e, i) => (
+              <motion.div
+                key={e.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, delay: i * 0.08, ease: "easeOut" }}
+                whileHover={{ y: -6 }}
+                className="group relative flex flex-col overflow-hidden rounded-2xl bg-white border border-border/50 p-7 shadow-card hover:shadow-[0_24px_48px_rgba(29,78,216,0.14)] hover:border-brand/20 transition-all duration-300"
+              >
+                <span className="pointer-events-none absolute -top-5 -right-1 text-7xl font-black text-brand/[0.06] select-none leading-none">
+                  0{i + 1}
+                </span>
+                <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand/10 to-brand-glow/10 text-brand group-hover:from-brand group-hover:to-brand-glow group-hover:text-white transition-all duration-300">
+                  <e.icon className="h-6 w-6" />
+                </span>
+                <h3 className="relative mt-5 text-lg font-bold text-ink group-hover:text-brand transition-colors">{e.title}</h3>
+                <p className="relative mt-2.5 text-sm text-muted-foreground leading-relaxed flex-1">{e.text}</p>
+                <div className="relative mt-6 h-1 w-10 rounded-full bg-gradient-brand opacity-40 group-hover:w-full group-hover:opacity-100 transition-all duration-500" />
               </motion.div>
             ))}
           </div>
@@ -527,6 +601,68 @@ function HomePage() {
         </div>
       </section>
 
+      {/* ── Global Delivery Footprint ── */}
+      <section className="relative py-24 bg-[#051124] text-white overflow-hidden">
+        <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-brand/20 blur-3xl opacity-40" />
+        <div className="pointer-events-none absolute -bottom-24 -right-16 h-96 w-96 rounded-full bg-brand-glow/20 blur-3xl opacity-30" />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle, #60a5fa 1px, transparent 1px)", backgroundSize: "26px 26px" }} />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="max-w-2xl"
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-glow mb-4 flex items-center gap-2">
+              <Globe2 className="h-4 w-4" /> Global Delivery
+            </p>
+            <h2 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight">
+              A Delivery Model That Spans{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">
+                Onshore & Offshore
+              </span>
+            </h2>
+            <p className="mt-5 text-white/70 leading-relaxed">
+              Talent and delivery capabilities across North America and India—pairing local partnership with global
+              scale and round-the-clock momentum on your most important initiatives.
+            </p>
+          </motion.div>
+
+          <div className="mt-12 grid md:grid-cols-2 gap-6">
+            {LOCATIONS.map((l, i) => (
+              <motion.div
+                key={l.region}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="group rounded-2xl bg-white/5 border border-white/10 p-8 backdrop-blur hover:bg-white/[0.08] hover:border-brand-glow/40 transition-all duration-300"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-glow">
+                    <MapPin className="h-6 w-6" />
+                  </span>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">{l.region}</h3>
+                    <p className="text-[0.7rem] font-bold uppercase tracking-[0.14em] text-brand-glow">{l.role}</p>
+                  </div>
+                </div>
+                <ul className="mt-6 space-y-3">
+                  {l.points.map((p) => (
+                    <li key={p} className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 shrink-0 text-brand-glow mt-0.5" />
+                      <span className="text-sm text-white/85 leading-snug">{p}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Why Companies Continue ── */}
       <section className="py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -601,6 +737,104 @@ function HomePage() {
             >
               View All Insights <ArrowRight className="h-4 w-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Certifications ── */}
+      <section className="py-24 bg-white border-t border-border/40 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <SectionHeading
+            eyebrow="Certifications & Credentials"
+            title="Certified, Compliant & Trusted"
+            subtitle="ConfigUSA holds the certifications and registrations that let organizations engage us with confidence across commercial and public-sector programs."
+          />
+        </div>
+
+        <div className="mt-14 relative">
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-white to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-white to-transparent z-10" />
+
+          <div className="flex gap-6 w-max animate-marquee hover:[animation-play-state:paused] px-3">
+            {[...CERTIFICATIONS, ...CERTIFICATIONS].map((c, idx) => (
+              <div
+                key={idx}
+                className="group w-[260px] md:w-[300px] shrink-0 flex flex-col items-center text-center rounded-2xl bg-soft/60 border border-border/50 p-8 hover:bg-white hover:shadow-card hover:border-brand/20 transition-all duration-300"
+              >
+                <div className="flex h-28 w-full items-center justify-center">
+                  <img
+                    src={c.image}
+                    alt={`${c.name} certification`}
+                    loading="lazy"
+                    className="max-h-28 max-w-[80%] object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <h3 className="mt-6 text-base font-bold text-ink group-hover:text-brand transition-colors">{c.name}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{c.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── For Employers / For Job Seekers ── */}
+      <section className="py-24 bg-soft border-y border-border/40">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <SectionHeading
+            eyebrow="Get Started"
+            title="Whether You're Hiring or Growing Your Career"
+            subtitle="ConfigUSA is the bridge between forward-thinking organizations and exceptional technology talent."
+          />
+          <div className="mt-14 grid md:grid-cols-2 gap-6">
+            {/* Employers */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6 }}
+              className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand to-brand-glow p-10 text-white shadow-elegant"
+            >
+              <div className="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
+              <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 backdrop-blur border border-white/25">
+                <Briefcase className="h-7 w-7" />
+              </span>
+              <h3 className="relative mt-6 text-2xl font-extrabold tracking-tight">For Employers</h3>
+              <p className="relative mt-3 text-white/85 leading-relaxed max-w-md">
+                Access experienced technology professionals and specialized delivery teams—matched to your goals and
+                delivered with speed and quality.
+              </p>
+              <Link
+                to="/request-talent"
+                className="relative mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-brand shadow-lg hover:scale-105 transition-transform"
+              >
+                Request Talent <ArrowRight className="h-4 w-4" />
+              </Link>
+            </motion.div>
+
+            {/* Job Seekers */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6 }}
+              className="group relative overflow-hidden rounded-3xl bg-[#051124] p-10 text-white shadow-elegant border border-white/10"
+            >
+              <div className="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-brand-glow/20 blur-2xl" />
+              <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 backdrop-blur border border-white/15 text-brand-glow">
+                <Search className="h-7 w-7" />
+              </span>
+              <h3 className="relative mt-6 text-2xl font-extrabold tracking-tight">For Job Seekers</h3>
+              <p className="relative mt-3 text-white/70 leading-relaxed max-w-md">
+                Build your career on meaningful work with leading organizations. Explore roles across AI, cloud,
+                enterprise platforms, and engineering.
+              </p>
+              <Link
+                to="/careers"
+                className="relative mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-bold text-white shadow-glow hover:scale-105 transition-transform"
+              >
+                Explore Careers <ArrowRight className="h-4 w-4" />
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>

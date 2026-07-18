@@ -244,8 +244,9 @@ const DATA: Record<string, any> = {
 };
 
 function Page() {
-  const { industryId } = Route.useLoaderData();
+  const { industryId } = Route.useParams();
   const info = DATA[industryId];
+  if (!info) throw notFound();
 
   return (
     <IndustryDetail
