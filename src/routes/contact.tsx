@@ -112,7 +112,7 @@ function Page() {
           <h1 className="mt-5 font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-ink leading-[1.12] tracking-tight [text-shadow:0_1px_22px_rgba(255,255,255,0.9)]">
             Let's Start a <span className="text-gradient-brand">Conversation.</span>
           </h1>
-          <p className="mt-5 text-base md:text-lg text-ink/70 max-w-2xl mx-auto leading-relaxed [text-shadow:0_1px_14px_rgba(255,255,255,0.85)]">
+          <p className="mt-5 text-base md:text-lg text-ink/70 max-w-2xl mx-auto leading-relaxed text-justify [text-shadow:0_1px_14px_rgba(255,255,255,0.85)]">
             Whether you're hiring top talent or looking for your next opportunity, our team is here to help — and we respond within one business day.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -283,7 +283,7 @@ function Page() {
                     <h3 className="text-lg font-bold text-ink">{o.city}</h3>
                   </div>
                 </div>
-                <p className="mt-5 text-sm text-muted-foreground leading-relaxed flex gap-2">
+                <p className="mt-5 text-sm text-muted-foreground leading-relaxed text-justify flex gap-2">
                   <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-brand" />
                   {o.addr}
                 </p>

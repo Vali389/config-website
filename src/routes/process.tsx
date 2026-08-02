@@ -94,7 +94,7 @@ function Page() {
                         <div className="text-xs font-black text-brand">STEP {String(i + 1).padStart(2, "0")}</div>
                       </div>
                       <h3 className="mt-2 text-lg font-bold text-ink group-hover:text-brand transition-colors">{s.title}</h3>
-                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.text}</p>
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify">{s.text}</p>
                     </div>
                   </motion.div>
                 </div>

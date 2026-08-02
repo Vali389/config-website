@@ -296,7 +296,7 @@ function KeyFeatures() {
                   <h3 className="text-sm font-bold text-blue-950 group-hover:text-blue-700 transition-colors leading-snug">
                     {f.label}
                   </h3>
-                  <p className="mt-1 text-xs text-slate-500 leading-relaxed">{f.text}</p>
+                  <p className="mt-1 text-xs text-slate-500 leading-relaxed text-justify">{f.text}</p>
                 </div>
               </motion.div>
             ))}
@@ -421,7 +421,7 @@ function KeyFeatures() {
                   <h3 className="text-sm font-bold text-blue-950 group-hover:text-blue-700 transition-colors leading-snug">
                     {f.label}
                   </h3>
-                  <p className="mt-1 text-xs text-slate-500 leading-relaxed">{f.text}</p>
+                  <p className="mt-1 text-xs text-slate-500 leading-relaxed text-justify">{f.text}</p>
                 </div>
               </motion.div>
             ))}
@@ -486,7 +486,7 @@ function KeyFeatures() {
                 </span>
                 <div>
                   <h3 className="text-sm font-bold text-blue-950 group-hover:text-blue-700 transition-colors">{f.label}</h3>
-                  <p className="mt-1 text-xs text-slate-500 leading-relaxed">{f.text}</p>
+                  <p className="mt-1 text-xs text-slate-500 leading-relaxed text-justify">{f.text}</p>
                 </div>
               </motion.div>
             ))}
@@ -689,11 +689,11 @@ function SuccessStoriesSection() {
           {[...STORIES, ...STORIES].map((s, idx) => (
             <article
               key={idx}
-              className="group relative w-[320px] md:w-[380px] shrink-0 flex flex-col rounded-3xl bg-gradient-to-br from-[#0b172a] via-[#091325] to-[#040a17] text-white border border-blue-500/20 shadow-card hover:shadow-[0_20px_45px_rgba(59,130,246,0.2)] transition-all duration-300 overflow-hidden"
+              className="group relative w-[320px] md:w-[380px] shrink-0 flex flex-col rounded-3xl bg-white text-ink border border-blue-100/80 shadow-card hover:shadow-elegant hover:border-blue-300/60 transition-all duration-300 overflow-hidden"
             >
               <div className="relative h-44 overflow-hidden">
                 <img src={s.image} alt={s.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0b172a] via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <span className="absolute top-3 left-3 rounded-full bg-blue-600 text-white px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider shadow-md">
                   {s.tag}
                 </span>
@@ -702,10 +702,9 @@ function SuccessStoriesSection() {
                 </span>
               </div>
               <div className="flex flex-col flex-1 p-6">
-                <h3 className="text-lg font-bold text-white group-hover:text-blue-300 transition-colors">{s.title}</h3>
-                <p className="mt-2.5 text-sm text-white/80 leading-relaxed flex-1">{s.text}</p>
+                <h3 className="text-lg font-bold text-blue-950 group-hover:text-blue-600 transition-colors">{s.title}</h3>
+                <p className="mt-2.5 text-sm text-slate-600 leading-relaxed text-justify flex-1">{s.text}</p>
               </div>
-              <CardParticles />
             </article>
           ))}
         </div>
@@ -908,7 +907,7 @@ function HomePage() {
                     <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-blue-600 mb-3 leading-tight">
                       {c.eyebrow}
                     </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed flex-1 text-justify">{c.text}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed text-justify flex-1 text-justify">{c.text}</p>
                     <span className="mt-5 inline-flex items-center gap-1 text-sm font-bold text-brand group-hover:text-[#60a5fa] transition-colors">
                       Learn More <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
@@ -968,7 +967,7 @@ function HomePage() {
                       </div>
 
                       {/* Description - left aligned for clean typography, decreased vertical height */}
-                      <p className="text-xs sm:text-[13px] text-white/90 leading-relaxed text-left">
+                      <p className="text-xs sm:text-[13px] text-white/90 leading-relaxed text-justify text-left">
                         {j.text}
                       </p>
                     </div>
@@ -1017,7 +1016,7 @@ function HomePage() {
                   </span>
                   <h3 className="text-xl font-bold text-ink group-hover:text-blue-700 transition-colors duration-500">{e.title}</h3>
                 </div>
-                <p className="mt-5 text-base text-slate-600 leading-relaxed flex-1 text-justify transition-colors duration-500">{e.text}</p>
+                <p className="mt-5 text-base text-slate-600 leading-relaxed text-justify flex-1 text-justify transition-colors duration-500">{e.text}</p>
                 <div className="mt-6 h-1 w-12 rounded-full bg-gradient-brand opacity-30 transition-all duration-500 group-hover:w-full group-hover:opacity-100" />
                 {/* Diagonal light sweep on hover */}
                 <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[2rem]">
@@ -1068,7 +1067,7 @@ function HomePage() {
             <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight tracking-tight">
               Delivering Business Value Beyond Talent
             </h2>
-            <p className="mt-5 text-white/70 leading-relaxed max-w-md">
+            <p className="mt-5 text-white/70 leading-relaxed text-justify max-w-md">
               Instead of simply supplying professionals, we become an extension of your organization—bringing expertise,
               responsiveness, and a commitment to your long-term success.
             </p>
@@ -1239,7 +1238,7 @@ function HomePage() {
             <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight tracking-tight">
               Helping Organizations Succeed in the AI Era
             </h2>
-            <p className="mt-5 text-white/70 leading-relaxed max-w-md">
+            <p className="mt-5 text-white/70 leading-relaxed text-justify max-w-md">
               Artificial Intelligence is changing every industry. ConfigUSA helps organizations build AI-ready teams by
               providing expertise across strategy, engineering, data, governance, and implementation.
             </p>
@@ -1329,7 +1328,7 @@ function HomePage() {
                 Onshore & Offshore
               </span>
             </h2>
-            <p className="mt-4 text-white/70 leading-relaxed text-sm max-w-2xl mx-auto">
+            <p className="mt-4 text-white/70 leading-relaxed text-justify text-sm max-w-2xl mx-auto">
               Our operational centers in the United States and India power round-the-clock momentum, pairing local client partnership with offshore engineering scale.
             </p>
           </div>
@@ -1371,7 +1370,7 @@ function HomePage() {
                     <p.icon className="h-7 w-7" />
                   </span>
                   <h3 className="mt-5 text-lg font-bold text-ink group-hover:text-brand transition-colors">{p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.text}</p>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify">{p.text}</p>
                 </motion.div>
               ))}
             </div>
@@ -1459,7 +1458,7 @@ function HomePage() {
                   />
                 </div>
                 <h3 className="mt-6 text-base font-bold text-ink group-hover:text-brand transition-colors">{c.name}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{c.label}</p>
+                <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed text-justify">{c.label}</p>
                 {/* Diagonal light sweep on hover */}
                 <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
                   <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-brand/10 to-transparent group-hover:animate-shine" />
@@ -1493,7 +1492,7 @@ function HomePage() {
                 <Briefcase className="h-7 w-7" />
               </span>
               <h3 className="relative mt-6 text-2xl font-extrabold tracking-tight">For Employers</h3>
-              <p className="relative mt-3 text-white/85 leading-relaxed max-w-md">
+              <p className="relative mt-3 text-white/85 leading-relaxed text-justify max-w-md">
                 Access experienced technology professionals and specialized delivery teams—matched to your goals and
                 delivered with speed and quality.
               </p>
@@ -1519,7 +1518,7 @@ function HomePage() {
                 <Search className="h-7 w-7" />
               </span>
               <h3 className="relative mt-6 text-2xl font-extrabold tracking-tight">For Job Seekers</h3>
-              <p className="relative mt-3 text-white/70 leading-relaxed max-w-md">
+              <p className="relative mt-3 text-white/70 leading-relaxed text-justify max-w-md">
                 Build your career on meaningful work with leading organizations. Explore roles across AI, cloud,
                 enterprise platforms, and engineering.
               </p>
@@ -1555,7 +1554,7 @@ function HomePage() {
             <h2 className="font-display text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-tight tracking-tight max-w-3xl">
               Let's Build the <span className="text-brand-glow">Future Together</span>
             </h2>
-            <p className="mt-5 text-white/75 text-base md:text-lg max-w-2xl leading-relaxed">
+            <p className="mt-5 text-white/75 text-base md:text-lg max-w-2xl leading-relaxed text-justify">
               Whether you're scaling engineering teams, implementing enterprise platforms, or advancing your AI strategy,
               ConfigUSA is ready to help.
             </p>

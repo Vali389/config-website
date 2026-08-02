@@ -72,7 +72,7 @@ function Page() {
                 </span>
                 <div>
                   <div className="font-bold text-ink text-sm">{p.title}</div>
-                  <div className="text-xs text-muted-foreground leading-relaxed">{p.text}</div>
+                  <div className="text-xs text-muted-foreground leading-relaxed text-justify">{p.text}</div>
                 </div>
               </motion.div>
             ))}

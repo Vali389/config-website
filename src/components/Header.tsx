@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Users, Code, Database, ClipboardCheck, Heart, Landmark, Building2, Factory, ShoppingCart, Cpu } from "lucide-react";
 import { motion } from "motion/react";
 import { Logo } from "./Logo";
 
@@ -11,22 +11,22 @@ const NAV = [
     to: "/services",
     label: "Services",
     children: [
-      { to: "/services/staffing", label: "IT Staffing & Augmentation" },
-      { to: "/services/software", label: "Software Development" },
-      { to: "/services/sap", label: "SAP Solutions" },
-      { to: "/services/assessment", label: "Digital Assessment" },
+      { to: "/services/staffing", label: "IT Staffing & Augmentation", desc: "Top IT talent on demand", icon: Users },
+      { to: "/services/software", label: "Software Development", desc: "Custom enterprise solutions", icon: Code },
+      { to: "/services/sap", label: "SAP Solutions", desc: "End-to-end SAP services", icon: Database },
+      { to: "/services/assessment", label: "Digital Assessment", desc: "Technology readiness audits", icon: ClipboardCheck },
     ],
   },
   {
     to: "/industries",
     label: "Industries",
     children: [
-      { to: "/industries/healthcare", label: "Healthcare & Life Sciences" },
-      { to: "/industries/financial", label: "Financial Services" },
-      { to: "/industries/government", label: "Government & Public Sector" },
-      { to: "/industries/manufacturing", label: "Manufacturing" },
-      { to: "/industries/retail", label: "Retail & E-commerce" },
-      { to: "/industries/technology", label: "Technology & SaaS" },
+      { to: "/industries/healthcare", label: "Healthcare & Life Sciences", desc: "HIPAA-compliant solutions", icon: Heart },
+      { to: "/industries/financial", label: "Financial Services", desc: "Secure fintech platforms", icon: Landmark },
+      { to: "/industries/government", label: "Government & Public Sector", desc: "FedRAMP & compliance", icon: Building2 },
+      { to: "/industries/manufacturing", label: "Manufacturing", desc: "Industry 4.0 digital ops", icon: Factory },
+      { to: "/industries/retail", label: "Retail & E-commerce", desc: "Scalable commerce platforms", icon: ShoppingCart },
+      { to: "/industries/technology", label: "Technology & SaaS", desc: "Cloud-native engineering", icon: Cpu },
     ],
   },
   { to: "/careers", label: "Careers" },
@@ -54,22 +54,22 @@ export function Header() {
               <Link
                 to={item.to as any}
                 className="relative flex items-center gap-1 px-4 py-2 text-sm rounded-lg border border-transparent transition-colors"
-                activeProps={{ className: "text-blue-600 font-semibold bg-white border-slate-200 shadow-sm" }}
+                activeProps={{ className: "text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 font-semibold border-blue-100 shadow-sm bg-white" }}
                 inactiveProps={{ className: "text-ink/70 font-medium hover:text-blue-600 hover:bg-slate-50" }}
                 activeOptions={{ exact: item.to === "/" }}
               >
                 {item.label}
-                {"children" in item && item.children && <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />}
+                {"children" in item && item.children && <ChevronDown className="h-3.5 w-3.5 text-ink/50 transition-transform group-hover:rotate-180" />}
               </Link>
               {"children" in item && item.children && (
                 <motion.div
-                  className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
+                  className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
                   initial={{ opacity: 0, y: -10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
                   <motion.div
-                    className="w-72 rounded-xl bg-white shadow-elegant border border-border p-3 backdrop-blur-sm"
+                    className={`rounded-xl bg-white shadow-elegant border border-border p-4 backdrop-blur-sm ${item.children.length > 4 ? "w-[520px] grid grid-cols-2 gap-1" : "w-80 flex flex-col gap-1"}`}
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.2 }}
@@ -79,15 +79,21 @@ export function Header() {
                         key={c.label}
                         initial={{ opacity: 0, x: -5 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: idx * 0.05 }}
+                        transition={{ delay: idx * 0.04 }}
                       >
                         <Link
                           to={c.to as any}
-                          className="block rounded-lg px-4 py-3 text-sm transition-all font-medium"
-                          activeProps={{ className: "bg-brand/5 text-brand" }}
-                          inactiveProps={{ className: "text-ink/70 hover:bg-brand/5 hover:text-brand" }}
+                          className="flex items-start gap-3 rounded-lg px-3.5 py-3 text-sm transition-all group/item"
+                          activeProps={{ className: "bg-blue-50 text-blue-700" }}
+                          inactiveProps={{ className: "text-ink/70 hover:bg-blue-50/60 hover:text-blue-700" }}
                         >
-                          {c.label}
+                          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover/item:bg-blue-100 group-hover/item:text-blue-700 transition-colors mt-0.5">
+                            <c.icon className="h-4.5 w-4.5" />
+                          </span>
+                          <div>
+                            <span className="font-semibold text-sm block leading-tight">{c.label}</span>
+                            <span className="text-xs text-slate-500 leading-snug block mt-0.5">{c.desc}</span>
+                          </div>
                         </Link>
                       </motion.div>
                     ))}
@@ -144,10 +150,11 @@ export function Header() {
                         key={c.label}
                         to={c.to as any}
                         onClick={() => setOpen(false)}
-                        className="block rounded-md px-3 py-2 text-sm transition-colors"
+                        className="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm transition-colors"
                         activeProps={{ className: "bg-brand/5 text-brand font-semibold" }}
                         inactiveProps={{ className: "text-ink/70 hover:bg-soft" }}
                       >
+                        <c.icon className="h-4 w-4 text-blue-500" />
                         {c.label}
                       </Link>
                     ))}

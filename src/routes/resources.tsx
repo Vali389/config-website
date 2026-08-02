@@ -74,7 +74,7 @@ function Page() {
                 <Calendar className="h-3.5 w-3.5" /> {featured.date}
               </div>
               <h2 className="mt-3 text-2xl md:text-3xl font-extrabold text-ink leading-tight group-hover:text-brand transition-colors">{featured.title}</h2>
-              <p className="mt-4 text-muted-foreground leading-relaxed">{featured.excerpt}</p>
+              <p className="mt-4 text-muted-foreground leading-relaxed text-justify">{featured.excerpt}</p>
               <a href="#" className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-brand">
                 Read the full story <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
@@ -123,7 +123,7 @@ function Page() {
                     <Calendar className="h-3.5 w-3.5" /> {p.date}
                   </div>
                   <h3 className="mt-3 text-lg font-bold text-ink group-hover:text-brand transition-colors leading-tight">{p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-2">{p.excerpt}</p>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify line-clamp-2">{p.excerpt}</p>
                   <a href="#" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand">
                     Read more <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </a>

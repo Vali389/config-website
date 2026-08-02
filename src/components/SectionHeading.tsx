@@ -35,7 +35,7 @@ export function SectionHeading({
         {title}
       </h2>
       {subtitle && (
-        <p className={`mt-4 text-base md:text-lg leading-relaxed ${align === "center" ? "text-center" : "text-justify"} ${light ? "text-white/80" : "text-muted-foreground"}`}>
+        <p className={`mt-4 text-base md:text-lg leading-relaxed text-justify ${align === "center" ? "text-center" : "text-justify"} ${light ? "text-white/80" : "text-muted-foreground"}`}>
           {subtitle}
         </p>
       )}

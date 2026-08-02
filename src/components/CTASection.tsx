@@ -45,7 +45,7 @@ export function CTASection({ image }: CTASectionProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-5 text-white/75 text-base md:text-lg max-w-xl leading-relaxed"
+            className="mt-5 text-white/75 text-base md:text-lg max-w-xl leading-relaxed text-justify"
           >
             From talent to transformation — partner with ConfigUSA and unlock
             world-class IT solutions tailored to your goals.

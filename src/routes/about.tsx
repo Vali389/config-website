@@ -129,12 +129,12 @@ function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-extrabold text-ink leading-tight tracking-tight">
               A Decade of <span className="text-gradient-brand">Trusted Partnerships.</span>
             </h2>
-            <p className="mt-6 text-muted-foreground leading-relaxed">
+            <p className="mt-6 text-muted-foreground leading-relaxed text-justify">
               Founded in 2013, ConfigUSA started with a simple mission — help ambitious businesses innovate faster,
               scale smarter, and stay ahead. Today we help organizations achieve technology outcomes through AI,
               digital engineering, enterprise platforms, and world-class talent solutions.
             </p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
+            <p className="mt-4 text-muted-foreground leading-relaxed text-justify">
               Our 10,000+ consultants and specialists have delivered thousands of engagements across healthcare,
               financial services, government, manufacturing, retail, and technology — earning a 98% client retention
               rate that speaks for itself.
@@ -170,7 +170,7 @@ function AboutPage() {
                 <m.icon className="h-6 w-6" />
               </span>
               <h3 className="mt-5 text-2xl font-bold text-ink">{m.title}</h3>
-              <p className="mt-3 text-muted-foreground leading-relaxed">{m.text}</p>
+              <p className="mt-3 text-muted-foreground leading-relaxed text-justify">{m.text}</p>
             </motion.div>
           ))}
         </div>
@@ -201,7 +201,7 @@ function AboutPage() {
                   </div>
                   <div className="mt-6 rounded-2xl bg-white p-7 border border-border/50 shadow-card hover:shadow-[0_20px_40px_rgba(29,78,216,0.12)] hover:-translate-y-1 transition-all duration-300">
                     <h3 className="text-base font-bold text-ink group-hover:text-brand transition-colors">{a.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{a.text}</p>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify">{a.text}</p>
                   </div>
                 </motion.div>
               ))}
@@ -224,7 +224,7 @@ function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight tracking-tight">
               Delivering Business Value Beyond Talent
             </h2>
-            <p className="mt-5 text-white/70 leading-relaxed max-w-md">
+            <p className="mt-5 text-white/70 leading-relaxed text-justify max-w-md">
               Instead of simply supplying professionals, we bring expertise, accountability, and a long-term commitment
               to every relationship we build.
             </p>
@@ -272,7 +272,7 @@ function AboutPage() {
                   <v.icon className="h-7 w-7 text-brand group-hover:text-white transition-colors" />
                 </span>
                 <h3 className="mt-4 font-semibold text-ink">{v.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{v.text}</p>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify">{v.text}</p>
               </motion.div>
             ))}
           </div>
@@ -306,7 +306,7 @@ function AboutPage() {
                 )}
                 <h3 className="mt-5 text-lg font-bold text-ink">{l.name}</h3>
                 <p className="text-sm font-semibold text-brand">{l.title}</p>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{l.bio}</p>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed text-justify">{l.bio}</p>
                 <span className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft text-muted-foreground group-hover:bg-brand group-hover:text-white transition-all">
                   <Linkedin className="h-4 w-4" />
                 </span>
@@ -328,7 +328,7 @@ function AboutPage() {
               Local Partnership,{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">Global Scale</span>
             </h2>
-            <p className="mt-5 text-white/70 leading-relaxed">
+            <p className="mt-5 text-white/70 leading-relaxed text-justify">
               With teams across North America and India, we pair onshore client partnership with round-the-clock offshore delivery.
             </p>
           </div>
@@ -379,7 +379,7 @@ function AboutPage() {
                   <img src={c.image} alt={`${c.name} certification`} loading="lazy" className="max-h-28 max-w-[80%] object-contain transition-transform duration-300 group-hover:scale-110" />
                 </div>
                 <h3 className="mt-6 text-base font-bold text-ink group-hover:text-brand transition-colors">{c.name}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{c.label}</p>
+                <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed text-justify">{c.label}</p>
                 {/* Diagonal light sweep on hover */}
                 <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
                   <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-brand/10 to-transparent group-hover:animate-shine" />

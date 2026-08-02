@@ -56,7 +56,7 @@ export function LightHero({ eyebrow, title, subtitle, image, children }: Props) 
           {title}
         </h1>
         {subtitle && (
-          <p className="mt-5 text-base md:text-lg text-ink/70 max-w-2xl mx-auto leading-relaxed [text-shadow:0_1px_14px_rgba(255,255,255,0.85)]">
+          <p className="mt-5 text-base md:text-lg text-ink/70 max-w-2xl mx-auto leading-relaxed text-justify [text-shadow:0_1px_14px_rgba(255,255,255,0.85)]">
             {subtitle}
           </p>
         )}

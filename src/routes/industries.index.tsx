@@ -108,7 +108,7 @@ function Page() {
                     </h3>
                   </div>
                   <div className="flex flex-col flex-1 p-6 pb-8 text-left">
-                    <p className="text-sm text-white/90 leading-relaxed">{c.text}</p>
+                    <p className="text-sm text-white/90 leading-relaxed text-justify">{c.text}</p>
                     <ul className="mt-4 grid grid-cols-1 gap-2">
                       {c.solutions.map((s) => (
                         <li key={s} className="flex items-center gap-2 text-sm text-white/80">
@@ -171,7 +171,7 @@ function Page() {
                   <m.icon className="h-5 w-5" />
                 </div>
                 <h3 className="text-base font-bold text-ink text-left">{m.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-left">{m.text}</p>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify text-left">{m.text}</p>
               </motion.div>
             ))}
           </div>

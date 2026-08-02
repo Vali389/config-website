@@ -11,7 +11,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-6">
           <div className="lg:col-span-2">
             <Logo variant="light" />
-            <p className="mt-4 text-sm text-white/70 leading-relaxed">
+            <p className="mt-4 text-sm text-white/70 leading-relaxed text-justify">
               ConfigUSA delivers innovative IT solutions and staffing services that help businesses accelerate growth, optimize operations, and build a future-ready workforce.
             </p>
             <div className="mt-6 flex gap-3">

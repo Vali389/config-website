@@ -102,7 +102,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
             <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-brand mb-3">{p.overviewLabel}</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-ink leading-tight tracking-tight">{p.overviewHeading}</h2>
             {p.overviewParas.map((para, i) => (
-              <p key={i} className="mt-4 text-muted-foreground leading-relaxed">{para}</p>
+              <p key={i} className="mt-4 text-muted-foreground leading-relaxed text-justify">{para}</p>
             ))}
             <ul className="mt-6 grid sm:grid-cols-2 gap-x-6 gap-y-3">
               {p.benefits.map((b) => (
@@ -135,7 +135,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
                   <c.icon className="h-6 w-6" />
                 </span>
                 <h3 className="mt-5 text-lg font-bold text-ink group-hover:text-brand transition-colors">{c.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{c.text}</p>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify">{c.text}</p>
               </motion.div>
             ))}
           </div>
@@ -164,7 +164,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
                   <div className="mt-6 rounded-2xl bg-white p-7 border border-border/50 shadow-card hover:shadow-[0_20px_40px_rgba(29,78,216,0.12)] hover:-translate-y-1 transition-all duration-300">
                     <div className="text-xs font-bold text-brand">STEP {String(i + 1).padStart(2, "0")}</div>
                     <h3 className="mt-1 text-base font-bold text-ink group-hover:text-brand transition-colors">{h.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{h.text}</p>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify">{h.text}</p>
                   </div>
                 </motion.div>
               ))}

@@ -108,7 +108,7 @@ export function Testimonials() {
                   </div>
                 </div>
 
-                <p className="text-sm md:text-base text-white/90 leading-relaxed font-normal">
+                <p className="text-sm md:text-base text-white/90 leading-relaxed text-justify font-normal">
                   "{t.quote}"
                 </p>
               </div>

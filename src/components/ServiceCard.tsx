@@ -58,7 +58,7 @@ export function ServiceCard({ image, title, eyebrow, description, to, popular, d
           </p>
 
           {/* Description */}
-          <p className="text-sm text-muted-foreground leading-relaxed flex-1 line-clamp-3">
+          <p className="text-sm text-muted-foreground leading-relaxed text-justify flex-1 line-clamp-3">
             {description}
           </p>
 

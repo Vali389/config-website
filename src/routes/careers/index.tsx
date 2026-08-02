@@ -101,7 +101,7 @@ function CareersPage() {
                   <p.icon className="h-5 w-5" />
                 </span>
                 <h3 className="mt-5 text-lg font-bold text-ink">{p.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.text}</p>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify">{p.text}</p>
               </motion.div>
             ))}
           </div>
@@ -191,7 +191,7 @@ function CareersPage() {
                     <Building2 className="h-3.5 w-3.5" /> {j.department}
                   </div>
 
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-2 flex-1">{j.summary}</p>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed text-justify line-clamp-2 flex-1">{j.summary}</p>
 
                   <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted-foreground">
                     <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 text-brand/70" /> {j.location}</span>
@@ -240,7 +240,7 @@ function CareersPage() {
                 className="group relative flex flex-col rounded-2xl bg-soft p-8 border border-border/50 hover:bg-white hover:shadow-elegant hover:-translate-y-1.5 transition-all duration-300"
               >
                 <Quote className="h-9 w-9 text-brand/20 group-hover:text-brand/40 transition-colors" />
-                <blockquote className="mt-4 text-sm text-ink/85 leading-relaxed flex-1">"{v.quote}"</blockquote>
+                <blockquote className="mt-4 text-sm text-ink/85 leading-relaxed text-justify flex-1">"{v.quote}"</blockquote>
                 <figcaption className="mt-6 flex items-center gap-3 pt-5 border-t border-border/60">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-white text-sm font-black shadow-glow">
                     {v.initials}

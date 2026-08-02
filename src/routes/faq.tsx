@@ -77,7 +77,7 @@ function Accordion({ items }: { items: { q: string; a: string }[] }) {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
-                  <p className="px-6 pb-6 pl-[4.5rem] text-muted-foreground leading-relaxed">{item.a}</p>
+                  <p className="px-6 pb-6 pl-[4.5rem] text-muted-foreground leading-relaxed text-justify">{item.a}</p>
                 </motion.div>
               )}
             </AnimatePresence>

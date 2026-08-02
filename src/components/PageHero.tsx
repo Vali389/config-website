@@ -66,7 +66,7 @@ export function PageHero({ eyebrow, title, subtitle, image, align = "center", ch
         {subtitle && (
           <motion.p
             variants={fadeUp}
-            className={`mt-5 text-base md:text-lg text-white/80 max-w-2xl leading-relaxed ${
+            className={`mt-5 text-base md:text-lg text-white/80 max-w-2xl leading-relaxed text-justify ${
               align === "center" ? "mx-auto text-center" : "text-left"
             }`}
           >

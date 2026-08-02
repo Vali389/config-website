@@ -348,7 +348,7 @@ export function InteractiveWorldMap() {
                   {selectedLoc.points.map((pt, idx) => (
                     <div key={idx} className="flex items-start gap-2.5">
                       <CheckCircle2 className="h-4.5 w-4.5 text-emerald-400 shrink-0 mt-0.5" />
-                      <span className="text-xs text-white/90 leading-relaxed">{pt}</span>
+                      <span className="text-xs text-white/90 leading-relaxed text-justify">{pt}</span>
                     </div>
                   ))}
                 </div>

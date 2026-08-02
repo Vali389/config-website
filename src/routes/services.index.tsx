@@ -82,7 +82,7 @@ function ServicesLayout() {
               >
                 <CheckCircle2 className="h-8 w-8 text-brand" />
                 <h3 className="mt-4 text-lg font-bold text-ink">{m.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{m.text}</p>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify">{m.text}</p>
               </motion.div>
             ))}
           </div>
@@ -106,7 +106,7 @@ function ServicesLayout() {
                   <w.icon className="h-6 w-6" />
                 </span>
                 <h3 className="mt-5 text-lg font-bold text-ink group-hover:text-brand transition-colors">{w.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{w.text}</p>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify">{w.text}</p>
               </motion.div>
             ))}
           </div>
