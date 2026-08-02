@@ -105,10 +105,17 @@
 }
 
 @keyframes kenburns {
-  0% { transform: scale(1) translate(0, 0); }
-  100% { transform: scale(1.07) translate(-0.5%, -0.5%); }
+  0% { transform: scale(1.0) translate(0, 0); }
+  100% { transform: scale(1.16) translate(-0.8%, -0.8%); }
 }
-@utility animate-kenburns { animation: kenburns 22s ease-in-out infinite alternate; }
+@utility animate-kenburns { animation: kenburns 18s ease-in-out infinite alternate; }
+
+@keyframes zoom-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+@utility animate-zoom-pulse { animation: zoom-pulse 14s ease-in-out infinite; }
+
 
 @keyframes marquee {
   0% { transform: translateX(0); }
@@ -120,7 +127,7 @@
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-@utility animate-ticker { animation: ticker 30s linear infinite; }
+@utility animate-ticker { animation: ticker 45s linear infinite; }
 
 @keyframes float-slow {
   0%, 100% { transform: translateY(0); }
@@ -262,14 +269,23 @@
 }
 @utility animate-float-shape { animation: float-shape 7s ease-in-out infinite; }
 
-/* Orbital rotation — reverse variant keeps orbiting items upright */
-@keyframes orbit-rotate { to { transform: rotate(360deg); } }
-@utility animate-orbit { animation: orbit-rotate 44s linear infinite; }
-@utility animate-orbit-rev { animation: orbit-rotate 44s linear infinite reverse; }
+/* Orbital rotation keeping items upright */
+@keyframes orbit {
+  from {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-172px) rotate(calc(-1 * var(--angle)));
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(calc(var(--angle) + 360deg)) translateY(-172px) rotate(calc(-1 * (var(--angle) + 360deg)));
+  }
+}
+@utility animate-orbit {
+  animation: orbit 44s linear infinite;
+}
 
 /* Rotating conic-gradient ring */
 @keyframes ring-rotate { to { transform: rotate(360deg); } }
 @utility animate-ring { animation: ring-rotate 16s linear infinite; }
+@utility animate-spin-slow { animation: ring-rotate 20s linear infinite; }
 
 /* Subtle "+" plus-grid section background */
 @utility bg-plus-grid {
@@ -290,4 +306,12 @@
     transition: width 0.3s ease;
   }
   .footer-link:hover::after { width: 100%; }
+}
+
+/* Animated dash stroke for connection map lines */
+@keyframes dash-scroll {
+  to { stroke-dashoffset: -20; }
+}
+@utility animate-dash {
+  animation: dash-scroll 1.5s linear infinite;
 }

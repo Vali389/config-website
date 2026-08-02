@@ -88,6 +88,7 @@ function AboutPage() {
     <>
       <PageHero
         eyebrow="About Us"
+        align="left"
         title={
           <>
             <SplitText text="More Than a Staffing Company." />

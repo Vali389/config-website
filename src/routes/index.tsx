@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, Fragment } from "react";
+
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -39,11 +40,20 @@ import {
   PhoneCall,
   Rocket,
   Handshake,
+  UserCheck,
+  BarChart3,
+  Bell,
+  Lock,
+  Activity,
+  Globe,
+  Headphones,
+  Zap,
 } from "lucide-react";
 
-import heroGlobe from "@/assets/hero-globe.jpg";
-import heroTeamNew from "@/assets/hero-team-new.png";
-import heroDataNew from "@/assets/hero-data-new.png";
+import heroPremiumSlide1 from "@/assets/hero_premium_slide1.png";
+import heroSlide2NoPeople from "@/assets/hero_slide2_no_people.png";
+import heroSlide3NoPeople from "@/assets/hero_slide3_no_people.png";
+import newHero1 from "@/assets/new-hero-1.jpg";
 
 import wdAi from "@/assets/wd-ai.jpg";
 import wdEngineering from "@/assets/wd-engineering.jpg";
@@ -70,6 +80,8 @@ import { DriftParticles } from "@/components/DriftParticles";
 import { SplitText } from "@/components/SplitText";
 import { TechTicker } from "@/components/TechTicker";
 import { Testimonials } from "@/components/Testimonials";
+import { InteractiveWorldMap } from "@/components/InteractiveWorldMap";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -85,42 +97,42 @@ export const Route = createFileRoute("/")({
 
 /* ────────────────────────── Data ────────────────────────── */
 
-const SLIDES = [
+const HERO_SLIDES = [
   {
-    image: heroGlobe,
-    eyebrow: "Technology. Talent. Transformation.",
+    image: newHero1,
+    eyebrow: "Technology · Talent · Transformation",
     title: (
       <>
-        Building the Workforce Behind{" "}
-        <span className="block text-[#60a5fa]">Tomorrow's Digital Enterprises</span>
+        Building the Workforce Behind <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-extrabold">Tomorrow's Digital Enterprises</span>
       </>
     ),
-    subtitle:
-      "ConfigUSA empowers organizations with AI, Digital Engineering, Cloud, Enterprise Applications, and Technology Workforce Solutions—helping businesses innovate faster, scale smarter, and stay ahead in a rapidly changing world.",
+    subtitle: "ConfigUSA empowers organizations with AI, Digital Engineering, Cloud, Enterprise Applications, and Technology Workforce Solutions—helping businesses innovate faster, scale smarter, and stay ahead in a rapidly changing world.",
+    primaryBtn: { text: "Talk to an Expert", to: "/contact" },
+    secondaryBtn: { text: "Request Technology Talent", to: "/contact" },
   },
   {
-    image: heroTeamNew,
-    eyebrow: "A Technology Growth Partner",
+    image: heroSlide2NoPeople,
+    eyebrow: "Engineering Excellence Sourced Dynamically",
     title: (
       <>
-        Turning Strategic Initiatives Into{" "}
-        <span className="block text-[#60a5fa]">Measurable Business Results</span>
+        Unlocking <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-extrabold">Engineering Excellence</span> with Our Talent Solutions
       </>
     ),
-    subtitle:
-      "We connect organizations with exceptional technology professionals and specialized delivery teams who help move enterprise initiatives forward with confidence.",
+    subtitle: "We connect organizations with exceptional technology professionals and specialized delivery teams who move enterprise initiatives forward with confidence.",
+    primaryBtn: { text: "Request Technology Talent", to: "/contact" },
+    secondaryBtn: { text: "Learn More", to: "/services" },
   },
   {
-    image: heroDataNew,
-    eyebrow: "Succeed in the AI Era",
+    image: heroSlide3NoPeople,
+    eyebrow: "Elevate Your Career Path",
     title: (
       <>
-        AI-Ready Teams for the{" "}
-        <span className="block text-[#60a5fa]">Next Wave of Innovation</span>
+        Elevate Your Career with Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-extrabold">Global IT Career Opportunities</span>
       </>
     ),
-    subtitle:
-      "From Generative AI and intelligent automation to data platforms and MLOps, we help you build the expertise to lead in an AI-driven world.",
+    subtitle: "Join a culture built around innovation, growth, and continuous learning. We source niche tech talent globally to connect passionate professionals with transformative enterprise initiatives and world-class software environments.",
+    primaryBtn: { text: "Explore Careers", to: "/careers" },
+    secondaryBtn: { text: "Join With Us", to: "/contact" },
   },
 ];
 
@@ -154,12 +166,12 @@ const WHY_ORBIT = [
 ];
 
 const INDUSTRIES = [
-  { icon: HeartPulse, name: "Healthcare", text: "Supporting digital health, clinical systems, infrastructure modernization, and patient-centered innovation." },
-  { icon: Landmark, name: "Financial Services", text: "Enabling secure, compliant, and scalable digital banking and financial technology initiatives." },
-  { icon: Building2, name: "Government", text: "Dependable technology professionals for public sector modernization and mission-critical projects." },
-  { icon: Factory, name: "Manufacturing", text: "Supporting ERP transformation, automation, smart factories, and digital supply chains." },
-  { icon: ShoppingBag, name: "Retail", text: "Enhancing customer experience, e-commerce platforms, and data-driven decision making." },
-  { icon: Cpu, name: "Technology", text: "Helping software companies scale engineering teams and accelerate product delivery." },
+  { slug: "healthcare", icon: HeartPulse, name: "Healthcare", text: "Supporting digital health, clinical systems, infrastructure modernization, and patient-centered innovation.", features: ["FHIR & HL7 Interoperability", "HIPAA & SOC 2 Compliance", "Clinical EHR Integrations"] },
+  { slug: "financial", icon: Landmark, name: "Financial Services", text: "Enabling secure, compliant, and scalable digital banking and financial technology initiatives.", features: ["PCI-DSS Compliance", "Core Transaction Engines", "Digital Banking Apps"] },
+  { slug: "government", icon: Building2, name: "Government", text: "Dependable technology professionals for public sector modernization and mission-critical projects.", features: ["FedBiz Access Platforms", "Agency Modernization", "E-Verify Integration"] },
+  { slug: "manufacturing", icon: Factory, name: "Manufacturing", text: "Supporting ERP transformation, automation, smart factories, and digital supply chains.", features: ["ERP Solutions (SAP/Oracle)", "Smart Factory Automation", "Supply Chain Optimization"] },
+  { slug: "retail", icon: ShoppingBag, name: "Retail", text: "Enhancing customer experience, e-commerce platforms, and data-driven decision making.", features: ["E-commerce Architectures", "Customer Analytics Platforms", "Omnichannel Engagement"] },
+  { slug: "technology", icon: Cpu, name: "Technology", text: "Helping software companies scale engineering teams and accelerate product delivery.", features: ["Engineering Team Scale-up", "Generative AI Integration", "SaaS DevOps Modernization"] },
 ];
 
 const AI_FOCUS = [
@@ -226,74 +238,477 @@ const INSIGHTS = [
   { tag: "Workforce", title: "Workforce Strategies for a Changing Market", date: "Nov 20, 2025", icon: Users },
 ];
 
+const KEY_FEATURES_LEFT = [
+  { icon: Bot, label: "AI Recruitment & Sourcing", text: "Generative AI engines screen, evaluate, and source top-tier technical candidates in record time." },
+  { icon: UserCheck, label: "AI-Powered Talent Matching", text: "Smart algorithms align candidates to your exact tech stack, culture, and delivery needs." },
+  { icon: Sparkles, label: "Automated AI Screening", text: "Comprehensive automated code testing and Generative AI technical interviews before submission." },
+  { icon: Zap, label: "Rapid Talent Deployment", text: "Pre-vetted talent pools enable onboarding in days, not weeks — keeping projects on schedule." },
+];
+
+const KEY_FEATURES_RIGHT = [
+  { icon: Globe, label: "Global Talent Reach", text: "Access to top-tier professionals across North America and India for 24/7 delivery coverage." },
+  { icon: ShieldCheck, label: "Compliance & Verification", text: "End-to-end background checks, E-Verify, and credential validation built into every hire." },
+  { icon: BarChart3, label: "Performance Analytics", text: "Real-time dashboards tracking team productivity, SLA adherence, and placement success." },
+  { icon: Lock, label: "Secure & Confidential", text: "Enterprise-grade data privacy, NDA-backed processes, and SOC-aligned information handling." },
+];
+
+
+/* ────────────────────────── Key Features ────────────────────────── */
+
+function KeyFeatures() {
+  const HUB_IMAGES = [whoWeAreImg, heroPremiumSlide1, heroSlide2NoPeople, heroSlide3NoPeople, ctaHome];
+  const [imgIndex, setImgIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setImgIndex((prev) => (prev + 1) % HUB_IMAGES.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="py-24 bg-white border-y border-border/40 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        <SectionHeading
+          eyebrow="Key Features"
+          title="Everything You Need to Scale With Confidence"
+          subtitle="ConfigUSA brings together intelligent technology, global reach, and people-first delivery — all in one trusted partnership."
+        />
+
+        {/* ── Desktop: Spoke Layout ── */}
+        <div className="mt-16 hidden lg:flex items-center justify-between gap-0 relative min-h-[460px]">
+
+          {/* Left features column */}
+          <div className="flex flex-col gap-8 w-[320px] shrink-0">
+            {KEY_FEATURES_LEFT.map((f, i) => (
+              <motion.div
+                key={f.label}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.55, delay: i * 0.1 }}
+                className="group flex items-start gap-3 rounded-2xl bg-blue-50/60 border border-blue-100 hover:border-blue-300 hover:bg-blue-50 hover:shadow-md transition-all duration-300 p-4"
+              >
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-sm group-hover:scale-110 transition-transform duration-300">
+                  <f.icon className="h-5 w-5" />
+                </span>
+                <div className="text-right flex-1">
+                  <h3 className="text-sm font-bold text-blue-950 group-hover:text-blue-700 transition-colors leading-snug">
+                    {f.label}
+                  </h3>
+                  <p className="mt-1 text-xs text-slate-500 leading-relaxed">{f.text}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Connecting lines left → center */}
+          <div className="flex-1 relative self-stretch mx-2 min-w-[40px]">
+            {[0, 1, 2, 3].map((i) => (
+              <motion.div
+                key={i}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 + i * 0.1 }}
+                className="absolute right-0 h-px bg-gradient-to-r from-blue-200 to-blue-500 origin-right"
+                style={{ top: `${12.5 + i * 25}%`, width: "100%" }}
+              />
+            ))}
+          </div>
+
+          {/* Center hub — circular image with Carousel Left & Right Arrow controls */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="shrink-0 relative flex items-center justify-center group/hub"
+            style={{ width: 360, height: 360 }}
+          >
+            {/* Outer ring */}
+            <div className="absolute rounded-full border-2 border-dashed border-blue-300/60 animate-spin-slow"
+              style={{ width: 340, height: 340 }}
+            />
+            {/* Inner ring */}
+            <div className="absolute rounded-full border border-blue-400/30"
+              style={{ width: 290, height: 290 }}
+            />
+            {/* Glowing conic sweep */}
+            <div
+              className="absolute rounded-full animate-ring"
+              style={{
+                width: 320, height: 320,
+                background: "conic-gradient(from 0deg, transparent 0deg, rgba(96,165,250,0.5) 90deg, transparent 210deg)",
+                maskImage: "radial-gradient(closest-side, transparent 73%, #000 75%)",
+                WebkitMaskImage: "radial-gradient(closest-side, transparent 73%, #000 75%)",
+              }}
+            />
+
+            {/* Left Carousel Arrow Button */}
+            <button
+              onClick={() => setImgIndex((prev) => (prev === 0 ? HUB_IMAGES.length - 1 : prev - 1))}
+              className="absolute left-2 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-blue-900 border border-blue-200 shadow-md hover:bg-blue-600 hover:text-white hover:scale-110 transition-all cursor-pointer"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+
+            {/* Right Carousel Arrow Button */}
+            <button
+              onClick={() => setImgIndex((prev) => (prev + 1) % HUB_IMAGES.length)}
+              className="absolute right-2 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-blue-900 border border-blue-200 shadow-md hover:bg-blue-600 hover:text-white hover:scale-110 transition-all cursor-pointer"
+              aria-label="Next image"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+
+            {/* Circular image with AnimatePresence image switching */}
+            <div className="relative z-10 rounded-full overflow-hidden border-4 border-white shadow-[0_0_40px_rgba(29,78,216,0.2)]"
+              style={{ width: 260, height: 260 }}
+            >
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={imgIndex}
+                  src={HUB_IMAGES[imgIndex]}
+                  alt="ConfigUSA platform capability"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.8 }}
+                />
+              </AnimatePresence>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-transparent z-20 pointer-events-none" />
+            </div>
+
+            {/* Center label badge */}
+            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-[0.65rem] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+              AI Recruitment 360°
+            </div>
+          </motion.div>
+
+          {/* Connecting lines center → right */}
+          <div className="flex-1 relative self-stretch mx-2 min-w-[40px]">
+            {[0, 1, 2, 3].map((i) => (
+              <motion.div
+                key={i}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 + i * 0.1 }}
+                className="absolute left-0 h-px bg-gradient-to-r from-blue-500 to-blue-200 origin-left"
+                style={{ top: `${12.5 + i * 25}%`, width: "100%" }}
+              />
+            ))}
+          </div>
+
+          {/* Right features column */}
+          <div className="flex flex-col gap-8 w-[320px] shrink-0">
+            {KEY_FEATURES_RIGHT.map((f, i) => (
+              <motion.div
+                key={f.label}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.55, delay: i * 0.1 }}
+                className="group flex items-start gap-3 rounded-2xl bg-blue-50/60 border border-blue-100 hover:border-blue-300 hover:bg-blue-50 hover:shadow-md transition-all duration-300 p-4"
+              >
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-sm group-hover:scale-110 transition-transform duration-300">
+                  <f.icon className="h-5 w-5" />
+                </span>
+                <div className="flex-1">
+                  <h3 className="text-sm font-bold text-blue-950 group-hover:text-blue-700 transition-colors leading-snug">
+                    {f.label}
+                  </h3>
+                  <p className="mt-1 text-xs text-slate-500 leading-relaxed">{f.text}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Mobile / Tablet: 2-column grid with top center hub ── */}
+        <div className="mt-12 lg:hidden flex flex-col items-center gap-10">
+          {/* Center Hub for Mobile */}
+          <div className="relative flex items-center justify-center" style={{ width: 280, height: 280 }}>
+            <div className="absolute rounded-full border border-dashed border-blue-300/60 animate-spin-slow" style={{ width: 260, height: 260 }} />
+            <div className="absolute rounded-full border border-blue-400/20" style={{ width: 230, height: 230 }} />
+
+            {/* Mobile Left Arrow */}
+            <button
+              onClick={() => setImgIndex((prev) => (prev === 0 ? HUB_IMAGES.length - 1 : prev - 1))}
+              className="absolute left-1 z-30 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-blue-900 border border-blue-200 shadow-md cursor-pointer"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+
+            {/* Mobile Right Arrow */}
+            <button
+              onClick={() => setImgIndex((prev) => (prev + 1) % HUB_IMAGES.length)}
+              className="absolute right-1 z-30 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-blue-900 border border-blue-200 shadow-md cursor-pointer"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+
+            <div className="relative z-10 rounded-full overflow-hidden border-4 border-white shadow-lg" style={{ width: 200, height: 200 }}>
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={imgIndex}
+                  src={HUB_IMAGES[imgIndex]}
+                  alt="ConfigUSA platform capability"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.8 }}
+                />
+              </AnimatePresence>
+            </div>
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-[0.6rem] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-md whitespace-nowrap">
+              AI Recruitment 360°
+            </div>
+          </div>
+
+
+          <div className="grid gap-5 sm:grid-cols-2 w-full">
+            {[...KEY_FEATURES_LEFT, ...KEY_FEATURES_RIGHT].map((f, i) => (
+              <motion.div
+                key={f.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.07 }}
+                className="group flex items-start gap-4 rounded-2xl bg-blue-50/60 border border-blue-100 hover:border-blue-300 hover:shadow-md transition-all duration-300 p-5"
+              >
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-sm group-hover:scale-110 transition-transform duration-300">
+                  <f.icon className="h-6 w-6" />
+                </span>
+                <div>
+                  <h3 className="text-sm font-bold text-blue-950 group-hover:text-blue-700 transition-colors">{f.label}</h3>
+                  <p className="mt-1 text-xs text-slate-500 leading-relaxed">{f.text}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ────────────────────────── Hero ────────────────────────── */
 
 function Hero() {
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (isHovered) return;
+    const interval = setInterval(() => {
+      setSlideIndex((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
+  const currentSlide = HERO_SLIDES[slideIndex];
+
   return (
-    <section className="relative h-[85vh] min-h-[600px] overflow-hidden flex items-center bg-[#051124]">
-      <div className="absolute inset-0 bg-[#051124] z-0" />
-      <div className="absolute inset-0 z-10 overflow-hidden">
-        <img src={heroGlobe} alt="" className="h-full w-full object-cover opacity-35 scale-105 animate-kenburns" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/95 via-navy-deep/80 to-navy-deep/40" />
-        {/* Panning grid */}
-        <div
-          className="absolute inset-0 opacity-[0.12] animate-grid-pan"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(96,165,250,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(96,165,250,0.5) 1px, transparent 1px)",
-            backgroundSize: "44px 44px",
-            maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-            WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-          }}
-        />
-        {/* Drifting aurora blobs */}
-        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-brand/25 rounded-full blur-3xl opacity-40 animate-drift" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-glow/20 rounded-full blur-3xl opacity-30 animate-drift-slow" />
-        <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl opacity-25 animate-float" />
-        {/* Floating geometric shapes */}
-        <div className="absolute top-20 right-[12%] h-16 w-16 rounded-2xl border border-brand-glow/25 rotate-12 animate-float-shape" />
-        <div className="absolute bottom-28 left-[8%] h-10 w-10 rounded-full border-2 border-brand/25 animate-float-shape [animation-delay:1.5s]" />
-        <div className="absolute top-1/3 right-[28%] h-2.5 w-2.5 rounded-full bg-brand-glow/50 animate-float [animation-delay:0.8s]" />
-        <div className="absolute bottom-1/3 left-[22%] h-2 w-2 rounded-full bg-white/40 animate-float-shape" />
+    <section 
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="relative h-[88vh] min-h-[650px] lg:h-[92vh] lg:min-h-[720px] overflow-hidden flex items-center bg-[#030a16] border-b border-blue-950/40"
+    >
+      {/* Background Image Carousel (Cross-Fade Transition) */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={slideIndex}
+            src={currentSlide.image}
+            alt="ConfigUSA Solutions"
+            className="absolute inset-0 h-full w-full object-cover opacity-95 animate-kenburns"
+            initial={{ opacity: 0, scale: 1.03 }}
+            animate={{ opacity: 0.90, scale: 1.07 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.1 }}
+          />
+        </AnimatePresence>
+
+        {/* Ambient Dark Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030a16]/85 via-[#030a16]/65 to-[#030a16]/15 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#030a16]/65 via-transparent to-transparent z-10" />
+
+        {/* Drifting premium aurora tech glow blobs */}
+        <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] opacity-40 animate-drift" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[120px] opacity-30 animate-drift-slow" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 w-full py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-3.5xl text-left"
+      {/* Hero Content (Animated on slide change) */}
+      <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full py-16 sm:py-24">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={slideIndex}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="max-w-3xl text-left"
+          >
+            {/* Eyebrow Reveal */}
+            <motion.span
+              variants={{
+                hidden: { opacity: 0, y: 15 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-block text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-blue-400 mb-5"
+            >
+              {currentSlide.eyebrow}
+            </motion.span>
+
+            {/* Title: Slide In Left + Fade In (Matches configusa.com animation) */}
+            <motion.h1
+              variants={{
+                hidden: { opacity: 0, x: -100 },
+                visible: { opacity: 1, x: 0 }
+              }}
+              transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="font-display text-[1.85rem] sm:text-[2.25rem] lg:text-[2.5rem] xl:text-[3rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-4xl"
+            >
+              {currentSlide.title}
+            </motion.h1>
+
+            {/* Subtitle: Slide In Up + Fade In (Matches configusa.com animation) */}
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-6 text-sm sm:text-base md:text-lg text-white/80 max-w-2xl leading-relaxed text-justify"
+            >
+              {currentSlide.subtitle}
+            </motion.p>
+
+            {/* Buttons: Slide In Up + Fade In (Matches configusa.com animation) */}
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-10 flex flex-wrap gap-4"
+            >
+              <Link
+                to={currentSlide.primaryBtn.to as any}
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-glow hover:scale-[1.03] active:scale-[0.98] transition-transform cursor-pointer"
+              >
+                {currentSlide.primaryBtn.text} <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to={currentSlide.secondaryBtn.to as any}
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-7 py-3.5 text-xs sm:text-sm font-bold text-white hover:bg-white/10 hover:border-white/40 active:scale-[0.98] transition-all cursor-pointer"
+              >
+                {currentSlide.secondaryBtn.text}
+              </Link>
+            </motion.div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Manual Slider Navigation Arrow Controls (Desktop/Tablet) */}
+      <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 z-30 hidden md:flex items-center justify-between pointer-events-none">
+        <button
+          onClick={() => setSlideIndex((prev) => (prev === 0 ? HERO_SLIDES.length - 1 : prev - 1))}
+          className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-950/40 border border-white/10 text-white/80 hover:text-white hover:bg-white/15 hover:border-blue-500/40 hover:scale-110 active:scale-95 transition-all pointer-events-auto cursor-pointer shadow-lg backdrop-blur-sm"
+          aria-label="Previous slide"
         >
-          <span className="inline-block text-xs font-bold uppercase tracking-[0.3em] text-brand-glow mb-5">
-            Technology. Talent. Transformation.
-          </span>
-          <h1 className="font-display text-[2.2rem] sm:text-4xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight">
-            Building the Workforce Behind{" "}
-            <span
-              className="block text-transparent bg-clip-text animate-text-shimmer"
-              style={{ backgroundImage: "linear-gradient(90deg,#60a5fa,#a5b4fc 30%,#c4b5fd 50%,#a5b4fc 70%,#60a5fa)" }}
+          <ChevronLeft className="h-6 w-6" />
+        </button>
+        <button
+          onClick={() => setSlideIndex((prev) => (prev + 1) % HERO_SLIDES.length)}
+          className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-950/40 border border-white/10 text-white/80 hover:text-white hover:bg-white/15 hover:border-blue-500/40 hover:scale-110 active:scale-95 transition-all pointer-events-auto cursor-pointer shadow-lg backdrop-blur-sm"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </button>
+      </div>
+
+      {/* Slider Indicator Dots (Bottom center navigation) */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5">
+        {HERO_SLIDES.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setSlideIndex(idx)}
+            className={`h-2 transition-all duration-300 rounded-full cursor-pointer ${
+              slideIndex === idx ? "w-8 bg-blue-500" : "w-2 bg-white/40 hover:bg-white/70"
+            }`}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ────────────────────────── Success Stories Section ────────────────────────── */
+
+function SuccessStoriesSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="py-24 bg-soft border-y border-border/40 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        <SectionHeading
+          eyebrow="Success Stories"
+          title="Real Outcomes for Real Organizations"
+          subtitle="Business results delivered through the right technology talent, at the right time."
+        />
+      </div>
+
+      <div className="mt-14 relative">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-soft to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-soft to-transparent z-10" />
+
+        <div className={`flex gap-6 w-max ${isInView ? "animate-marquee" : ""} hover:[animation-play-state:paused] px-3`}>
+          {[...STORIES, ...STORIES].map((s, idx) => (
+            <article
+              key={idx}
+              className="group relative w-[320px] md:w-[380px] shrink-0 flex flex-col rounded-3xl bg-gradient-to-br from-[#0b172a] via-[#091325] to-[#040a17] text-white border border-blue-500/20 shadow-card hover:shadow-[0_20px_45px_rgba(59,130,246,0.2)] transition-all duration-300 overflow-hidden"
             >
-              Tomorrow's Digital Enterprises
-            </span>
-          </h1>
-          <p className="mt-6 text-base md:text-lg text-white/75 max-w-2xl leading-relaxed">
-            ConfigUSA empowers organizations with AI, Digital Engineering, Cloud, Enterprise Applications, and Technology Workforce Solutions—helping businesses innovate faster, scale smarter, and stay ahead in a rapidly changing world.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-8 py-4 text-sm font-semibold text-white shadow-glow hover:scale-[1.03] active:scale-[0.98] transition-transform"
-            >
-              Talk to an Expert <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-8 py-4 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/40 active:scale-[0.98] transition-all"
-            >
-              Request Technology Talent
-            </Link>
-          </div>
-        </motion.div>
+              <div className="relative h-44 overflow-hidden">
+                <img src={s.image} alt={s.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0b172a] via-black/40 to-transparent" />
+                <span className="absolute top-3 left-3 rounded-full bg-blue-600 text-white px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider shadow-md">
+                  {s.tag}
+                </span>
+                <span className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-glow">
+                  <s.icon className="h-5 w-5" />
+                </span>
+              </div>
+              <div className="flex flex-col flex-1 p-6">
+                <h3 className="text-lg font-bold text-white group-hover:text-blue-300 transition-colors">{s.title}</h3>
+                <p className="mt-2.5 text-sm text-white/80 leading-relaxed flex-1">{s.text}</p>
+              </div>
+              <CardParticles />
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -314,8 +729,9 @@ function HomePage() {
       <TechTicker />
 
       {/* ── Who We Are ── */}
-      <section className="py-24 lg:py-28 bg-white overflow-hidden">
+      <section className="py-24 lg:py-28 bg-gradient-to-br from-blue-50 via-indigo-50/40 to-blue-50/80 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
+          {/* Left: Framed Image with Badge Overlays */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -323,37 +739,121 @@ function HomePage() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="absolute -inset-3 rounded-[2rem] bg-gradient-brand opacity-10 blur-2xl" />
-            <img
-              src={whoWeAreImg}
-              alt="ConfigUSA technology professionals collaborating"
-              className="relative rounded-3xl shadow-elegant border border-border/60 w-full object-cover aspect-[4/3]"
-            />
+            <div className="absolute -inset-3 rounded-[2rem] bg-gradient-brand opacity-15 blur-2xl" />
+
+            <div className="relative rounded-3xl border border-blue-200/80 bg-white p-2 sm:p-2.5 shadow-elegant overflow-hidden group cursor-pointer">
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] w-full">
+                {/* Default Image */}
+                <img
+                  src={heroPremiumSlide1}
+                  alt="ConfigUSA technology professionals collaborating"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Hover Image */}
+                <img
+                  src={heroSlide2NoPeople}
+                  alt="ConfigUSA engineering excellence dashboard"
+                  className="absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+                />
+
+                {/* Top-left SLA pill badge */}
+                <div className="absolute top-4 left-4 z-10 flex items-center gap-2 rounded-full bg-navy-deep/90 backdrop-blur-md px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-widest text-white border border-white/15 shadow-lg">
+                  <span className="h-2 w-2 rounded-full bg-blue-400 animate-pulse" />
+                  100% US-Based & Global Delivery
+                </div>
+
+                {/* Bottom stat overlay badge card */}
+                <div className="absolute bottom-4 inset-x-4 sm:inset-x-6 z-10 rounded-2xl bg-navy-deep/90 backdrop-blur-md p-4 sm:p-5 border border-white/15 shadow-2xl flex items-center gap-4 text-white">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-glow">
+                    <BadgeCheck className="h-6 w-6" />
+                  </span>
+                  <div>
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-2xl sm:text-3xl font-black tracking-tight text-white">98.4%</span>
+                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-blue-300">
+                        Client Retention
+                      </span>
+                    </div>
+                    <p className="text-xs text-white/80 mt-0.5 leading-snug">
+                      Long-term technology partnerships built on trust and delivery excellence.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
+          {/* Right: Heading + Intro Paragraph + 3 Stacked Feature Cards */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-brand mb-4">Who We Are</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-ink leading-tight tracking-tight">
-              <SplitText text="More Than a Staffing Company. " />
-              <SplitText text="A Technology Growth Partner." className="text-gradient-brand" delay={1.05} />
+            <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-blue-700 mb-4 flex items-center gap-2">
+              <span className="h-px w-8 bg-blue-700" />
+              Who We Are
+            </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-blue-950 leading-tight tracking-tight mb-4 text-left max-w-xl">
+              More Than a Staffing Company. <span className="text-gradient-brand">A Technology Growth Partner.</span>
             </h2>
-            <p className="mt-6 text-muted-foreground leading-relaxed">
-              Technology transformation depends on people. At ConfigUSA, we connect organizations with exceptional
-              technology professionals and specialized delivery teams who help turn strategic initiatives into
-              measurable business results.
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed text-justify mb-8">
+              Technology transformation depends on people. At ConfigUSA, we pair intelligent matching algorithms with
+              specialized delivery teams to deliver high-caliber technology professionals who turn strategic initiatives
+              into measurable business results.
             </p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Whether expanding engineering teams, implementing enterprise platforms, modernizing applications, or
-              launching AI initiatives, we deliver the expertise organizations need to move forward with confidence.
-            </p>
+
+            {/* 3 stacked horizontal feature cards */}
+            <div className="space-y-4">
+              <div className="group rounded-2xl bg-white p-5 sm:p-6 border border-blue-100 shadow-card hover:shadow-elegant hover:border-blue-300 transition-all duration-300 flex items-start gap-4">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-sm group-hover:scale-110 transition-transform duration-300">
+                  <BadgeCheck className="h-6 w-6" />
+                </span>
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold text-ink group-hover:text-blue-700 transition-colors">
+                    Skill-Graph & Technical Vetting
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed text-justify mt-1">
+                    Every professional is rigorously verified across technical competencies, architecture expertise, and
+                    delivery experience before submission.
+                  </p>
+                </div>
+              </div>
+
+              <div className="group rounded-2xl bg-white p-5 sm:p-6 border border-blue-100 shadow-card hover:shadow-elegant hover:border-blue-300 transition-all duration-300 flex items-start gap-4">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-sm group-hover:scale-110 transition-transform duration-300">
+                  <ShieldCheck className="h-6 w-6" />
+                </span>
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold text-ink group-hover:text-blue-700 transition-colors">
+                    Compliance & Dedicated Lead
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed text-justify mt-1">
+                    End-to-end compliance, background verification, and a dedicated engagement manager ensuring seamless
+                    onboarding and ongoing momentum.
+                  </p>
+                </div>
+              </div>
+
+              <div className="group rounded-2xl bg-white p-5 sm:p-6 border border-blue-100 shadow-card hover:shadow-elegant hover:border-blue-300 transition-all duration-300 flex items-start gap-4">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-sm group-hover:scale-110 transition-transform duration-300">
+                  <Target className="h-6 w-6" />
+                </span>
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold text-ink group-hover:text-blue-700 transition-colors">
+                    Specialist Teams Built for Speed
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed text-justify mt-1">
+                    Whether expanding engineering teams or implementing enterprise platforms, we assemble the exact
+                    talent you need in record time.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <Link
               to="/about"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3.5 text-sm font-semibold text-white shadow-glow hover:scale-105 transition-transform"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-4 text-sm font-bold text-white shadow-glow hover:scale-105 transition-transform"
             >
               More About ConfigUSA <ArrowRight className="h-4 w-4" />
             </Link>
@@ -362,7 +862,7 @@ function HomePage() {
       </section>
 
       {/* ── What We Do ── */}
-      <section className="py-24 bg-soft border-y border-border/40">
+      <section className="py-24 bg-white border-y border-border/40">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="What We Do"
@@ -405,10 +905,10 @@ function HomePage() {
 
                   {/* Content */}
                   <div className="flex flex-col flex-1 p-6 pt-5 pb-8">
-                    <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-brand mb-3 leading-tight">
+                    <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-blue-600 mb-3 leading-tight">
                       {c.eyebrow}
                     </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">{c.text}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed flex-1 text-justify">{c.text}</p>
                     <span className="mt-5 inline-flex items-center gap-1 text-sm font-bold text-brand group-hover:text-[#60a5fa] transition-colors">
                       Learn More <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
@@ -431,52 +931,62 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ── Your Journey (vertical chain) ── */}
-      <section className="py-24 bg-gradient-to-b from-soft to-white">
-        <div className="mx-auto max-w-3xl px-4 lg:px-8">
+      {/* ── Key Features ── */}
+      <KeyFeatures />
+
+      {/* ── Your Journey (horizontal stepper) ── */}
+      <section className="py-24 bg-gradient-to-br from-blue-50 via-indigo-50/40 to-blue-50/80 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="How We Partner"
             title="Your Journey With ConfigUSA"
             subtitle="From first conversation to long-term partnership — here's how we help you move forward with confidence."
+            maxWidth="max-w-6xl"
           />
-          <div className="mt-16 relative">
-            {/* Animated vertical chain line */}
-            <motion.div
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.4, ease: "easeOut" }}
-              className="absolute left-6 -translate-x-1/2 top-4 bottom-4 w-[2px] origin-top bg-gradient-to-b from-brand via-brand-glow to-brand/10 z-0"
-            />
-            <div className="space-y-8">
+          <div className="mt-16">
+            {/* Horizontal 5-column stepper grid matching the attached image exactly */}
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6 relative z-10 items-stretch">
               {JOURNEY.map((j, i) => (
-                <motion.div
-                  key={j.title}
-                  initial={{ opacity: 0, x: 24 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group relative flex gap-5 md:gap-7"
-                >
-                  {/* Node on the line */}
-                  <div className="relative z-10 shrink-0">
-                    <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-gradient-brand text-white shadow-glow group-hover:scale-110 group-hover:animate-glow-pulse transition-transform duration-300">
-                      <j.icon className="h-5 w-5" />
-                      <span className="pointer-events-none absolute inset-0 rounded-full ring-2 ring-brand/40 opacity-0 group-hover:opacity-100 group-hover:animate-ripple" />
-                    </span>
-                  </div>
-                  {/* Content card */}
-                  <div className="relative overflow-hidden flex-1 rounded-2xl bg-white p-6 border border-border/50 shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all duration-300">
-                    <span className="text-[0.62rem] font-black uppercase tracking-[0.18em] text-brand">Step 0{i + 1}</span>
-                    <h3 className="mt-1 text-lg font-bold text-ink group-hover:text-brand transition-colors">{j.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{j.text}</p>
+                <div key={j.title} className="relative flex flex-col">
+                  {/* Step Card matching color, shape, decreased height, and icon of the image */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.5, delay: i * 0.08 }}
+                    className="group relative flex-1 w-full flex flex-col justify-between rounded-[2rem] bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-900 border border-blue-500/20 p-5 sm:p-6 shadow-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-white"
+                  >
+                    <div>
+                      {/* Top Header: Inline Icon and Title */}
+                      <div className="flex items-center gap-3.5 mb-4">
+                        <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10 text-white border border-white/20 shadow-sm group-hover:scale-105 transition-transform duration-300">
+                          <j.icon className="h-5 w-5" />
+                        </span>
+                        <h3 className="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
+                          {j.title}
+                        </h3>
+                      </div>
+
+                      {/* Description - left aligned for clean typography, decreased vertical height */}
+                      <p className="text-xs sm:text-[13px] text-white/90 leading-relaxed text-left">
+                        {j.text}
+                      </p>
+                    </div>
+
                     {/* Diagonal light sweep on hover */}
-                    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                      <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-brand/10 to-transparent group-hover:animate-shine" />
+                    <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[2rem]">
+                      <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-white/15 to-transparent group-hover:animate-shine" />
                     </div>
                     <CardParticles />
-                  </div>
-                </motion.div>
+                  </motion.div>
+
+                  {/* Arrow after each step (except the last one) - exactly overlapping the right edge like the image */}
+                  {i < JOURNEY.length - 1 && (
+                    <div className="group/arrow hidden lg:flex absolute -right-4.5 top-1/2 -translate-y-1/2 z-20 h-9 w-9 items-center justify-center rounded-full bg-white text-blue-600 shadow-lg border border-slate-100/10 cursor-pointer transition-all duration-300 hover:scale-115 hover:bg-blue-50 active:scale-95">
+                      <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover/arrow:translate-x-0.5" />
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           </div>
@@ -488,34 +998,32 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Engagement Models"
-            title="Flexible Ways to Work With Us"
+            title={<span className="text-gradient-brand">Flexible Ways to Work With Us</span>}
             subtitle="From a single specialist to a fully managed delivery team, choose the engagement that fits your goals and timeline."
           />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 max-w-5xl mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
             {ENGAGEMENT.map((e, i) => (
               <motion.div
                 key={e.title}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: i * 0.08, ease: "easeOut" }}
-                whileHover={{ y: -6 }}
-                className="group relative flex flex-col overflow-hidden rounded-2xl bg-white border border-border/50 p-7 shadow-card hover:shadow-[0_24px_48px_rgba(29,78,216,0.14)] hover:border-brand/20 transition-all duration-300"
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="group relative flex flex-col overflow-hidden rounded-[2rem] bg-gradient-to-br from-white via-blue-50 to-blue-200/60 border border-blue-200/50 p-8 shadow-card hover:-translate-y-3 hover:scale-[1.015] hover:from-white hover:via-blue-100 hover:to-blue-300 hover:border-blue-400/60 hover:shadow-[0_20px_45px_rgba(59,130,246,0.15)] transition-all duration-500 cursor-pointer text-ink"
               >
-                <span className="pointer-events-none absolute -top-5 -right-1 text-7xl font-black text-brand/[0.06] select-none leading-none">
-                  0{i + 1}
-                </span>
-                <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand/10 to-brand-glow/10 text-brand group-hover:from-brand group-hover:to-brand-glow group-hover:text-white transition-all duration-300">
-                  <e.icon className="h-6 w-6" />
-                </span>
-                <h3 className="relative mt-5 text-lg font-bold text-ink group-hover:text-brand transition-colors">{e.title}</h3>
-                <p className="relative mt-2.5 text-sm text-muted-foreground leading-relaxed flex-1">{e.text}</p>
-                <div className="relative mt-6 h-1 w-10 rounded-full bg-gradient-brand opacity-40 group-hover:w-full group-hover:opacity-100 transition-all duration-500" />
+                <div className="flex items-center gap-4">
+                  <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700 shadow-sm transition-all duration-500 group-hover:bg-gradient-brand group-hover:text-white group-hover:scale-110">
+                    <e.icon className="h-6 w-6" />
+                  </span>
+                  <h3 className="text-xl font-bold text-ink group-hover:text-blue-700 transition-colors duration-500">{e.title}</h3>
+                </div>
+                <p className="mt-5 text-base text-slate-600 leading-relaxed flex-1 text-justify transition-colors duration-500">{e.text}</p>
+                <div className="mt-6 h-1 w-12 rounded-full bg-gradient-brand opacity-30 transition-all duration-500 group-hover:w-full group-hover:opacity-100" />
                 {/* Diagonal light sweep on hover */}
-                <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
+                <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[2rem]">
                   <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-brand/10 to-transparent group-hover:animate-shine" />
                 </div>
-                <CardParticles variant="rain" />
+                <CardParticles />
               </motion.div>
             ))}
           </div>
@@ -524,8 +1032,7 @@ function HomePage() {
 
       {/* ── Why ConfigUSA ── */}
       <section className="py-24 bg-[#051124] text-white relative overflow-hidden">
-        {/* Continuous ambient rain + rising bubbles & tiny particles */}
-        <RainParticles />
+        {/* Continuous ambient rising bubbles & tiny particles */}
         <Bubbles />
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full lg:w-1/2 opacity-25 pointer-events-none select-none z-0">
           <svg viewBox="0 0 1000 500" className="w-full h-auto text-blue-500" fill="currentColor">
@@ -593,27 +1100,22 @@ function HomePage() {
                 <span className="mt-1 text-[0.6rem] font-bold uppercase tracking-wider">Why Us</span>
               </div>
               {/* Orbiting strengths (counter-rotating so text stays upright) */}
-              <div className="absolute inset-0 animate-orbit-rev">
-                {WHY_ORBIT.map((w, i) => {
-                  const angle = (360 / WHY_ORBIT.length) * i;
-                  return (
-                    <div
-                      key={w.label}
-                      className="absolute left-1/2 top-1/2"
-                      style={{ transform: `rotate(${angle}deg) translateY(-172px) rotate(-${angle}deg)` }}
-                    >
-                      <div className="animate-orbit">
-                        <div className="-translate-x-1/2 -translate-y-1/2">
-                          <div className="flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-3.5 py-2 backdrop-blur shadow-lg hover:bg-white/20 hover:border-brand-glow transition-colors">
-                            <w.icon className="h-4 w-4 text-brand-glow shrink-0" />
-                            <span className="text-xs font-semibold text-white/90 whitespace-nowrap">{w.label}</span>
-                          </div>
-                        </div>
-                      </div>
+              {/* Orbiting strengths */}
+              {WHY_ORBIT.map((w, i) => {
+                const angle = (360 / WHY_ORBIT.length) * i;
+                return (
+                  <div
+                    key={w.label}
+                    className="absolute left-1/2 top-1/2 animate-orbit z-20"
+                    style={{ "--angle": `${angle}deg` } as React.CSSProperties}
+                  >
+                    <div className="flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-3.5 py-2 backdrop-blur shadow-lg hover:bg-white/20 hover:border-brand-glow transition-colors">
+                      <w.icon className="h-4 w-4 text-brand-glow shrink-0" />
+                      <span className="text-xs font-semibold text-white/90 whitespace-nowrap">{w.label}</span>
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+                );
+              })}
             </div>
 
             {/* Strengths list — below lg */}
@@ -653,22 +1155,56 @@ function HomePage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.07 }}
-                whileHover={{ y: -6, scale: 1.02 }}
-                className="group relative overflow-hidden flex items-start gap-4 rounded-2xl bg-white/70 backdrop-blur p-6 border-l-4 border-l-transparent border border-border/50 hover:border-l-brand hover:bg-white hover:shadow-[0_16px_36px_-10px_rgba(29,78,216,0.28)] transition-shadow duration-500"
               >
-                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand/10 to-brand-glow/10 text-brand group-hover:from-brand group-hover:to-brand-glow group-hover:text-white group-hover:scale-110 group-hover:animate-glow-pulse transition-all duration-300">
-                  <n.icon className="h-6 w-6 transition-transform duration-300 group-hover:rotate-6" />
-                </span>
-                <div>
-                  <h3 className="text-lg font-bold text-ink group-hover:text-brand transition-colors">{n.name}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{n.text}</p>
-                </div>
-                {/* Diagonal light sweep on hover */}
-                <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                  <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-brand/12 to-transparent group-hover:animate-shine" />
-                </div>
-                {/* Rain particles on hover */}
-                <CardParticles variant="rain" />
+                <Link
+                  to="/industries/$industryId"
+                  params={{ industryId: n.slug }}
+                  className="group relative overflow-hidden flex flex-col h-full gap-4 rounded-2xl bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-900 border border-blue-500/20 p-6 shadow-card hover:-translate-y-3 hover:scale-[1.015] hover:from-blue-500 hover:via-blue-600 hover:to-indigo-850 hover:border-blue-400/40 hover:shadow-[0_20px_45px_rgba(29,78,216,0.25)] transition-all duration-500 cursor-pointer text-white min-h-[220px]"
+                >
+                  <div className="flex items-center gap-4">
+                    <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-white border border-white/20 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20">
+                      <n.icon className="h-6 w-6" />
+                    </span>
+                    <div>
+                      <p className="text-[11px] font-bold text-blue-200 uppercase tracking-widest mb-1">Specialist Talent</p>
+                      <h3 className="text-xl font-bold text-white group-hover:text-blue-100 transition-colors">{n.name}</h3>
+                    </div>
+                  </div>
+                  <p className="text-sm text-white/80 leading-relaxed text-justify flex-1">{n.text}</p>
+                  
+                  {/* Hover Overlay Panel (covers card cleanly on hover) */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#0f2040] to-[#051124] p-6 flex flex-col justify-between opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-20 rounded-2xl border border-white/10 shadow-2xl">
+                    <div className="text-left">
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-blue-300 border border-white/10">
+                          <n.icon className="h-4.5 w-4.5" />
+                        </span>
+                        <h4 className="text-base font-bold text-white">{n.name} Solutions</h4>
+                      </div>
+                      <p className="text-[10px] text-blue-300 font-extrabold uppercase tracking-widest mb-2">Key Focus Areas</p>
+                      <ul className="space-y-1.5">
+                        {n.features.map((f) => (
+                          <li key={f} className="flex items-center gap-2 text-xs text-white/90">
+                            <CheckCircle2 className="h-3.5 w-3.5 text-blue-400 shrink-0" />
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="flex items-center justify-between mt-3 pt-2.5 border-t border-white/10">
+                      <span className="text-xs font-bold text-blue-300 group-hover:text-blue-400 flex items-center gap-1 transition-colors">
+                        Learn More <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Diagonal light sweep on hover */}
+                  <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                    <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:animate-shine" />
+                  </div>
+                  {/* Rain particles on hover */}
+                  <CardParticles variant="rain" />
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -686,11 +1222,10 @@ function HomePage() {
       {/* ── The AI Advantage ── */}
       <section className="relative py-24 overflow-hidden bg-[#051124]">
         <div className="absolute inset-0">
-          <img src={heroDataNew} alt="" className="h-full w-full object-cover opacity-30 animate-kenburns" />
+          <img src={heroSlide3NoPeople} alt="" className="h-full w-full object-cover opacity-30 animate-kenburns" />
           <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/90 to-navy-deep/60" />
         </div>
-        {/* Ambient particles: rain + falling bubbles + right-to-left drift */}
-        <RainParticles />
+        {/* Ambient particles: falling bubbles + right-to-left drift */}
         <Bubbles direction="down" />
         <DriftParticles />
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
@@ -736,27 +1271,21 @@ function HomePage() {
                 <span className="mt-1 text-[0.6rem] font-bold uppercase tracking-wider">AI Ready</span>
               </div>
               {/* Orbiting capability pills */}
-              <div className="absolute inset-0 animate-orbit">
-                {AI_FOCUS.map((a, i) => {
-                  const angle = (360 / AI_FOCUS.length) * i;
-                  return (
-                    <div
-                      key={a.label}
-                      className="absolute left-1/2 top-1/2"
-                      style={{ transform: `rotate(${angle}deg) translateY(-172px) rotate(-${angle}deg)` }}
-                    >
-                      <div className="animate-orbit-rev">
-                        <div className="-translate-x-1/2 -translate-y-1/2">
-                          <div className="flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-3.5 py-2 backdrop-blur shadow-lg hover:bg-white/20 hover:border-brand-glow transition-colors">
-                            <a.icon className="h-4 w-4 text-brand-glow shrink-0" />
-                            <span className="text-xs font-semibold text-white/90 whitespace-nowrap">{a.label}</span>
-                          </div>
-                        </div>
-                      </div>
+              {AI_FOCUS.map((a, i) => {
+                const angle = (360 / AI_FOCUS.length) * i;
+                return (
+                  <div
+                    key={a.label}
+                    className="absolute left-1/2 top-1/2 animate-orbit z-20"
+                    style={{ "--angle": `${angle}deg` } as React.CSSProperties}
+                  >
+                    <div className="flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-3.5 py-2 backdrop-blur shadow-lg hover:bg-white/20 hover:border-brand-glow transition-colors">
+                      <a.icon className="h-4 w-4 text-brand-glow shrink-0" />
+                      <span className="text-xs font-semibold text-white/90 whitespace-nowrap">{a.label}</span>
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+                );
+              })}
             </div>
 
             {/* Wrapped pills — below lg */}
@@ -780,66 +1309,19 @@ function HomePage() {
       </section>
 
       {/* ── Success Stories (auto-scroll) ── */}
-      <section className="py-24 bg-soft border-y border-border/40 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <SectionHeading
-            eyebrow="Success Stories"
-            title="Real Outcomes for Real Organizations"
-            subtitle="Business results delivered through the right technology talent, at the right time."
-          />
-        </div>
-
-        <div className="mt-14 relative">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-soft to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-soft to-transparent z-10" />
-
-          <div className="flex gap-6 w-max animate-marquee hover:[animation-play-state:paused] px-3">
-            {[...STORIES, ...STORIES].map((s, idx) => (
-              <article
-                key={idx}
-                className="group relative w-[320px] md:w-[380px] shrink-0 flex flex-col rounded-2xl bg-white border border-border/50 shadow-card hover:shadow-[0_20px_40px_rgba(29,78,216,0.12)] transition-all duration-300 overflow-hidden"
-              >
-                <div className="relative h-44 overflow-hidden">
-                  <img src={s.image} alt={s.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                  <span className="absolute top-3 left-3 rounded-full bg-white/95 backdrop-blur px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-brand">
-                    {s.tag}
-                  </span>
-                  <span className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-glow">
-                    <s.icon className="h-5 w-5" />
-                  </span>
-                </div>
-                <div className="flex flex-col flex-1 p-6">
-                  <h3 className="text-lg font-bold text-ink group-hover:text-brand transition-colors">{s.title}</h3>
-                  <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed flex-1">{s.text}</p>
-                </div>
-                <CardParticles />
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <SuccessStoriesSection />
 
       {/* ── Global Delivery Footprint ── */}
-      <section className="relative py-24 bg-[#051124] text-white overflow-hidden">
-        {/* Ambient particles: rain + falling bubbles + right-to-left drift */}
-        <RainParticles />
-        <Bubbles direction="down" />
-        <DriftParticles />
-        <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-brand/20 blur-3xl opacity-40" />
-        <div className="pointer-events-none absolute -bottom-24 -right-16 h-96 w-96 rounded-full bg-brand-glow/20 blur-3xl opacity-30" />
-        <div className="pointer-events-none absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle, #60a5fa 1px, transparent 1px)", backgroundSize: "26px 26px" }} />
+      <section className="relative py-20 bg-[#060e1e] text-white overflow-hidden">
+        {/* Subtle dot grid backdrop */}
+        <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle, #60a5fa 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="max-w-2xl"
-          >
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-glow mb-4 flex items-center gap-2">
-              <Globe2 className="h-4 w-4" /> Global Delivery
+          
+          {/* Centered Heading */}
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-glow mb-4 justify-center flex items-center gap-2">
+              <Globe2 className="h-4 w-4 animate-spin-slow" /> Global Delivery
             </p>
             <h2 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight">
               A Delivery Model That Spans{" "}
@@ -847,44 +1329,17 @@ function HomePage() {
                 Onshore & Offshore
               </span>
             </h2>
-            <p className="mt-5 text-white/70 leading-relaxed">
-              Talent and delivery capabilities across North America and India—pairing local partnership with global
-              scale and round-the-clock momentum on your most important initiatives.
+            <p className="mt-4 text-white/70 leading-relaxed text-sm max-w-2xl mx-auto">
+              Our operational centers in the United States and India power round-the-clock momentum, pairing local client partnership with offshore engineering scale.
             </p>
-          </motion.div>
-
-          <div className="mt-12 grid md:grid-cols-2 gap-6">
-            {LOCATIONS.map((l, i) => (
-              <motion.div
-                key={l.region}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="group rounded-2xl bg-white/5 border border-white/10 p-8 backdrop-blur hover:bg-white/[0.08] hover:border-brand-glow/40 transition-all duration-300"
-              >
-                <div className="flex items-center gap-4">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-glow">
-                    <MapPin className="h-6 w-6" />
-                  </span>
-                  <div>
-                    <h3 className="text-xl font-bold text-white">{l.region}</h3>
-                    <p className="text-[0.7rem] font-bold uppercase tracking-[0.14em] text-brand-glow">{l.role}</p>
-                  </div>
-                </div>
-                <ul className="mt-6 space-y-3">
-                  {l.points.map((p) => (
-                    <li key={p} className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 shrink-0 text-brand-glow mt-0.5" />
-                      <span className="text-sm text-white/85 leading-snug">{p}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
           </div>
+
+          {/* Interactive World Map Matching Reference Image */}
+          <InteractiveWorldMap />
+
         </div>
       </section>
+
 
       {/* ── Why Companies Continue ── */}
       <section className="py-24 bg-white">
@@ -912,7 +1367,7 @@ function HomePage() {
                   transition={{ duration: 0.5, delay: 0.3 + i * 0.15 }}
                   className="text-center group flex flex-col items-center"
                 >
-                  <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white ring-4 ring-white border border-border shadow-card text-brand group-hover:bg-gradient-brand group-hover:text-white group-hover:border-transparent group-hover:scale-110 group-hover:shadow-glow transition-all duration-300">
+                  <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-md ring-4 ring-blue-100/70 group-hover:scale-125 group-hover:shadow-glow transition-all duration-300">
                     <p.icon className="h-7 w-7" />
                   </span>
                   <h3 className="mt-5 text-lg font-bold text-ink group-hover:text-brand transition-colors">{p.title}</h3>
@@ -1092,7 +1547,7 @@ function HomePage() {
           transition={{ duration: 0.8 }}
           className="relative overflow-hidden rounded-3xl mx-auto max-w-6xl"
         >
-          <img src={ctaHome} alt="" className="absolute inset-0 h-full w-full object-cover" />
+          <img src={ctaHome} alt="Let's Build the Future Together background" className="absolute inset-0 h-full w-full object-cover animate-zoom-pulse" />
           <div className="absolute inset-0 bg-gradient-to-br from-navy-deep/95 via-navy-deep/85 to-navy/70" />
           <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-brand-glow/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-brand/20 blur-3xl" />

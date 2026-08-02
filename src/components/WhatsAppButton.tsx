@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
-import { X, ArrowRight, Briefcase, UserSearch, MessageSquare } from "lucide-react";
+import { X, ArrowRight, Briefcase, UserSearch, MessageSquare, ArrowUp } from "lucide-react";
 
 const WA_LINK = "https://wa.me/17322202921?text=Hi%20ConfigUSA%2C%20I%27d%20like%20to%20learn%20more.";
 
@@ -19,9 +19,32 @@ const REPLIES = [
 
 export function WhatsAppButton() {
   const [open, setOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Robust scrolling logic
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
+      setShowScrollTop(scrolled > 80);
+    };
+
+    // Run check once initially on mount
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleScrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-24 right-6 z-[9999] flex flex-col items-center gap-3">
+      {/* WhatsApp Action Drawer Panel */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -29,14 +52,14 @@ export function WhatsAppButton() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.92 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="w-[92vw] max-w-[360px] overflow-hidden rounded-3xl bg-white shadow-elegant ring-1 ring-black/5"
+            className="absolute bottom-16 right-0 w-[92vw] max-w-[360px] overflow-hidden rounded-3xl bg-white shadow-elegant ring-1 ring-black/5 text-left mb-2 z-50"
           >
             {/* Header */}
             <div className="relative bg-gradient-to-br from-[#128C7E] to-[#25D366] px-5 pt-5 pb-6 text-white">
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close chat"
-                className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+                className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors cursor-pointer"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -75,7 +98,7 @@ export function WhatsAppButton() {
                     <Link
                       to={r.to}
                       onClick={() => setOpen(false)}
-                      className="group inline-flex items-center gap-2 rounded-2xl rounded-tr-sm border border-[#25D366]/40 bg-white px-4 py-2.5 text-sm font-semibold text-[#128C7E] shadow-sm hover:bg-[#25D366] hover:text-white hover:border-transparent transition-colors"
+                      className="group inline-flex items-center gap-2 rounded-2xl rounded-tr-sm border border-[#25D366]/40 bg-white px-4 py-2.5 text-sm font-semibold text-[#128C7E] shadow-sm hover:bg-[#25D366] hover:text-white hover:border-transparent transition-colors cursor-pointer"
                     >
                       <r.icon className="h-4 w-4" /> {r.label}
                     </Link>
@@ -99,19 +122,33 @@ export function WhatsAppButton() {
         )}
       </AnimatePresence>
 
-      {/* Floating toggle button */}
+      {/* Floating WhatsApp Toggle Button (Matches green circle in reference) */}
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close chat" : "Open chat"}
-        className={`relative flex h-14 w-14 items-center justify-center rounded-full text-white shadow-elegant transition-transform hover:scale-110 ${open ? "bg-[#128C7E]" : "bg-[#25D366] animate-pulse-ring"}`}
+        className={`relative flex h-14 w-14 items-center justify-center rounded-full text-white shadow-elegant transition-transform hover:scale-110 cursor-pointer z-40 ${
+          open ? "bg-[#128C7E]" : "bg-[#25D366] animate-pulse-ring"
+        }`}
       >
         <AnimatePresence mode="wait" initial={false}>
           {open ? (
-            <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+            <motion.span
+              key="x"
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
               <X className="h-6 w-6" />
             </motion.span>
           ) : (
-            <motion.span key="wa" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+            <motion.span
+              key="wa"
+              initial={{ rotate: 90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: -90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
               <WhatsAppIcon className="h-7 w-7" />
             </motion.span>
           )}
@@ -122,6 +159,24 @@ export function WhatsAppButton() {
           </span>
         )}
       </button>
+
+      {/* Floating Scroll to Top Button (Matches teal circle in reference) */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            key="scroll-top"
+            initial={{ opacity: 0, scale: 0.5, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.5, y: 10 }}
+            transition={{ duration: 0.25 }}
+            onClick={handleScrollTop}
+            aria-label="Scroll to top"
+            className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-brand text-white shadow-glow hover:scale-110 hover:brightness-110 active:scale-95 transition-all cursor-pointer border border-blue-500/20 z-40"
+          >
+            <ArrowUp className="h-7 w-7 stroke-[3]" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

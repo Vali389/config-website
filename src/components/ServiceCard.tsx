@@ -53,7 +53,7 @@ export function ServiceCard({ image, title, eyebrow, description, to, popular, d
         {/* Content */}
         <div className="flex flex-col flex-1 p-6 pt-5 pb-8">
           {/* Eyebrow — colored accent */}
-          <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-brand mb-3 leading-tight">
+          <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-red-600 mb-3 leading-tight">
             {eyebrow}
           </p>
 

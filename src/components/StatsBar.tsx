@@ -11,25 +11,24 @@ const STATS = [
 ];
 
 function CountUp({ to, suffix, isYear }: { to: number; suffix: string; isYear: boolean }) {
-  const count = useMotionValue(isYear ? to - 5 : 0);
+  const count = useMotionValue(0);
   const rounded = useTransform(count, (v) => Math.round(v));
   const ref = useRef<HTMLSpanElement>(null);
-  const started = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
+        if (entry.isIntersecting) {
+          count.set(0);
           animate(count, to, {
-            duration: isYear ? 1.4 : 2,
+            duration: isYear ? 2.5 : 3.8,
             ease: isYear ? "easeOut" : [0.16, 1, 0.3, 1],
           });
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.65 }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -63,9 +62,9 @@ export function StatsBar() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: 0.1 + i * 0.08 }}
-              className="group flex flex-col items-center text-center gap-1.5 px-3 py-5"
+              className="group flex flex-col items-center text-center gap-1.5 px-3 py-3.5"
             >
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-50 text-brand ring-1 ring-blue-100 transition-all duration-300 group-hover:bg-gradient-brand group-hover:text-white group-hover:ring-transparent group-hover:shadow-glow">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-white shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-glow">
                 <s.icon className="h-4 w-4" />
               </span>
               <div className="text-xl md:text-2xl font-black tracking-tight leading-none tabular-nums text-gradient-brand">

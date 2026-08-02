@@ -45,7 +45,9 @@ export function PageHero({ eyebrow, title, subtitle, image, align = "center", ch
         variants={container}
         initial="hidden"
         animate="show"
-        className={`relative z-10 mx-auto max-w-4xl px-4 lg:px-8 ${align === "center" ? "text-center" : "text-left"}`}
+        className={`relative z-10 mx-auto w-full px-4 lg:px-8 ${
+          align === "center" ? "text-center max-w-4xl" : "text-left max-w-7xl"
+        }`}
       >
         {eyebrow && (
           <motion.span
@@ -62,7 +64,12 @@ export function PageHero({ eyebrow, title, subtitle, image, align = "center", ch
           {title}
         </motion.h1>
         {subtitle && (
-          <motion.p variants={fadeUp} className="mt-5 text-base md:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+          <motion.p
+            variants={fadeUp}
+            className={`mt-5 text-base md:text-lg text-white/80 max-w-2xl leading-relaxed ${
+              align === "center" ? "mx-auto text-center" : "text-left"
+            }`}
+          >
             {subtitle}
           </motion.p>
         )}

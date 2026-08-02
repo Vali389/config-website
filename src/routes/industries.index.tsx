@@ -81,7 +81,7 @@ function Page() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Sectors We Serve"
-            title="Industry-Specific Solutions That Drive Results"
+            title={<span className="text-3xl md:text-4xl lg:text-[3rem] font-black text-ink leading-tight">Industry-Specific Solutions That Drive Results</span>}
             subtitle="ConfigUSA brings specialized technical capability and domain knowledge to deliver maximum outcome value."
           />
           <div className="mt-14 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
@@ -93,8 +93,8 @@ function Page() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: i * 0.08 }}
-                whileHover={{ y: -6 }}
-                className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-border/50 shadow-card hover:shadow-[0_24px_48px_rgba(29,78,216,0.14)] hover:border-brand/20 transition-all duration-300 scroll-mt-28 relative"
+                whileHover={{ y: -8, scale: 1.015 }}
+                className="group flex flex-col bg-gradient-brand rounded-2xl overflow-hidden border border-white/10 shadow-card hover:shadow-[0_20px_45px_rgba(29,78,216,0.35)] transition-all duration-500 scroll-mt-28 relative text-white"
               >
                 <Link to="/industries/$industryId" params={{ industryId: c.id }} className="block h-full flex flex-col">
                   <div className="relative h-48 overflow-hidden">
@@ -103,26 +103,26 @@ function Page() {
                     <span className="absolute top-3 left-3 flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 backdrop-blur border border-white/25 text-white">
                       <c.icon className="h-5 w-5" />
                     </span>
-                    <h3 className="absolute bottom-4 left-4 right-4 font-display text-lg md:text-xl font-bold text-white leading-snug group-hover:text-[#60a5fa] transition-colors text-left">
+                    <h3 className="absolute bottom-4 left-4 right-4 font-display text-lg md:text-xl font-bold text-white leading-snug group-hover:text-blue-200 transition-colors text-left">
                       {c.name}
                     </h3>
                   </div>
                   <div className="flex flex-col flex-1 p-6 pb-8 text-left">
-                    <p className="text-sm text-muted-foreground leading-relaxed">{c.text}</p>
+                    <p className="text-sm text-white/90 leading-relaxed">{c.text}</p>
                     <ul className="mt-4 grid grid-cols-1 gap-2">
                       {c.solutions.map((s) => (
-                        <li key={s} className="flex items-center gap-2 text-sm text-ink/80">
-                          <CheckCircle2 className="h-4 w-4 shrink-0 text-brand" /> {s}
+                        <li key={s} className="flex items-center gap-2 text-sm text-white/80">
+                          <CheckCircle2 className="h-4 w-4 shrink-0 text-blue-200" /> {s}
                         </li>
                       ))}
                     </ul>
-                    <span className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-brand group-hover:text-[#60a5fa] transition-colors">
+                    <span className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-white group-hover:text-blue-200 transition-colors">
                       View Industry Details <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
                   </div>
                 </Link>
                 {/* Shine Bottom Edge Bar */}
-                <div className="absolute bottom-0 inset-x-0 h-1.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
+                <div className="absolute bottom-0 inset-x-0 h-1.5 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
               </motion.div>
             ))}
           </div>

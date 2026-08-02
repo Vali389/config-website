@@ -15,6 +15,8 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { TawkChat } from "../components/TawkChat";
 import { ScrollToTop } from "../components/ScrollToTop";
+import { WhatsAppButton } from "../components/WhatsAppButton";
+
 
 function NotFoundComponent() {
   return (
@@ -117,6 +119,7 @@ function RootComponent() {
       </main>
       <Footer />
       <TawkChat />
+      <WhatsAppButton />
     </QueryClientProvider>
   );
 }
