@@ -28,6 +28,7 @@ import { Route as CareersIndexRouteImport } from './routes/careers/index'
 import { Route as ServicesStaffingRouteImport } from './routes/services.staffing'
 import { Route as ServicesSoftwareRouteImport } from './routes/services.software'
 import { Route as ServicesSapRouteImport } from './routes/services.sap'
+import { Route as ServicesEnterpriseApplicationsRouteImport } from './routes/services.enterprise-applications'
 import { Route as ServicesAssessmentRouteImport } from './routes/services.assessment'
 import { Route as IndustriesIndustryIdRouteImport } from './routes/industries.$industryId'
 import { Route as CareersJobJobIdRouteImport } from './routes/careers/job/$jobId'
@@ -127,6 +128,12 @@ const ServicesSapRoute = ServicesSapRouteImport.update({
   path: '/sap',
   getParentRoute: () => ServicesRoute,
 } as any)
+const ServicesEnterpriseApplicationsRoute =
+  ServicesEnterpriseApplicationsRouteImport.update({
+    id: '/enterprise-applications',
+    path: '/enterprise-applications',
+    getParentRoute: () => ServicesRoute,
+  } as any)
 const ServicesAssessmentRoute = ServicesAssessmentRouteImport.update({
   id: '/assessment',
   path: '/assessment',
@@ -159,6 +166,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/services/assessment': typeof ServicesAssessmentRoute
+  '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
@@ -181,6 +189,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/services/assessment': typeof ServicesAssessmentRoute
+  '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
@@ -206,6 +215,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/services/assessment': typeof ServicesAssessmentRoute
+  '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
@@ -232,6 +242,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/industries/$industryId'
     | '/services/assessment'
+    | '/services/enterprise-applications'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
@@ -254,6 +265,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/industries/$industryId'
     | '/services/assessment'
+    | '/services/enterprise-applications'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
@@ -278,6 +290,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/industries/$industryId'
     | '/services/assessment'
+    | '/services/enterprise-applications'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
@@ -440,6 +453,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesSapRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/services/enterprise-applications': {
+      id: '/services/enterprise-applications'
+      path: '/enterprise-applications'
+      fullPath: '/services/enterprise-applications'
+      preLoaderRoute: typeof ServicesEnterpriseApplicationsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/assessment': {
       id: '/services/assessment'
       path: '/assessment'
@@ -480,6 +500,7 @@ const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
 
 interface ServicesRouteChildren {
   ServicesAssessmentRoute: typeof ServicesAssessmentRoute
+  ServicesEnterpriseApplicationsRoute: typeof ServicesEnterpriseApplicationsRoute
   ServicesSapRoute: typeof ServicesSapRoute
   ServicesSoftwareRoute: typeof ServicesSoftwareRoute
   ServicesStaffingRoute: typeof ServicesStaffingRoute
@@ -488,6 +509,7 @@ interface ServicesRouteChildren {
 
 const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesAssessmentRoute: ServicesAssessmentRoute,
+  ServicesEnterpriseApplicationsRoute: ServicesEnterpriseApplicationsRoute,
   ServicesSapRoute: ServicesSapRoute,
   ServicesSoftwareRoute: ServicesSoftwareRoute,
   ServicesStaffingRoute: ServicesStaffingRoute,

@@ -140,7 +140,7 @@ const WHAT_WE_DO = [
   { icon: BrainCircuit, image: wdAi, eyebrow: "Generative AI & Automation", title: "AI & Intelligent Solutions", text: "Helping organizations adopt Generative AI, intelligent automation, and AI-powered business solutions.", to: "/services" },
   { icon: Code2, image: wdEngineering, eyebrow: "Modern Apps & Platforms", title: "Digital Engineering", text: "Building modern applications, cloud-native platforms, APIs, and scalable digital experiences.", to: "/services/software" },
   { icon: Cloud, image: wdCloud, eyebrow: "Migration, DevOps & Platform", title: "Cloud & Infrastructure", text: "Supporting cloud migration, modernization, DevOps, platform engineering, and operational excellence.", to: "/services/software" },
-  { icon: Boxes, image: wdEnterprise, eyebrow: "SAP, Oracle, Salesforce, Workday", title: "Enterprise Applications", text: "Expertise across SAP, Oracle, Salesforce, Workday, and other enterprise business platforms.", to: "/services/sap" },
+  { icon: Boxes, image: wdEnterprise, eyebrow: "ERP, CRM, HCM & Business Platforms", title: "Enterprise Applications", text: "Helping organizations implement, integrate and modernize SAP, Oracle, Microsoft Dynamics, Workday, Salesforce and other enterprise platforms.", to: "/services/enterprise-applications" },
   { icon: Users, image: wdWorkforce, eyebrow: "Contract, Permanent & Managed", title: "Technology Workforce Solutions", text: "Contract, permanent, project-based, and managed workforce solutions tailored to business needs.", to: "/services/staffing" },
   { icon: LifeBuoy, image: wdManaged, eyebrow: "Dedicated & Offshore Teams", title: "Managed Delivery Services", text: "Dedicated teams, offshore delivery, project execution, and ongoing application support.", to: "/services" },
 ];
@@ -514,7 +514,7 @@ function Hero() {
   const currentSlide = HERO_SLIDES[slideIndex];
 
   return (
-    <section 
+    <section
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="relative h-[88vh] min-h-[650px] lg:h-[92vh] lg:min-h-[720px] overflow-hidden flex items-center bg-[#030a16] border-b border-blue-950/40"
@@ -639,9 +639,8 @@ function Hero() {
           <button
             key={idx}
             onClick={() => setSlideIndex(idx)}
-            className={`h-2 transition-all duration-300 rounded-full cursor-pointer ${
-              slideIndex === idx ? "w-8 bg-blue-500" : "w-2 bg-white/40 hover:bg-white/70"
-            }`}
+            className={`h-2 transition-all duration-300 rounded-full cursor-pointer ${slideIndex === idx ? "w-8 bg-blue-500" : "w-2 bg-white/40 hover:bg-white/70"
+              }`}
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}
@@ -953,7 +952,7 @@ function HomePage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-40px" }}
                     transition={{ duration: 0.5, delay: i * 0.08 }}
-                    className="group relative flex-1 w-full flex flex-col justify-between rounded-[2rem] bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-900 border border-blue-500/20 p-5 sm:p-6 shadow-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-white"
+                    className="group relative flex-1 w-full flex flex-col justify-between rounded-[2rem] bg-gradient-to-br from-blue-400 via-blue-500 to-indigo-500 border border-blue-300/30 p-5 sm:p-6 shadow-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-white"
                   >
                     <div>
                       {/* Top Header: Inline Icon and Title */}
@@ -1158,7 +1157,7 @@ function HomePage() {
                 <Link
                   to="/industries/$industryId"
                   params={{ industryId: n.slug }}
-                  className="group relative overflow-hidden flex flex-col h-full gap-4 rounded-2xl bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-900 border border-blue-500/20 p-6 shadow-card hover:-translate-y-3 hover:scale-[1.015] hover:from-blue-500 hover:via-blue-600 hover:to-indigo-850 hover:border-blue-400/40 hover:shadow-[0_20px_45px_rgba(29,78,216,0.25)] transition-all duration-500 cursor-pointer text-white min-h-[220px]"
+                  className="group relative overflow-hidden flex flex-col h-full gap-4 rounded-2xl bg-gradient-to-br from-blue-400 via-blue-500 to-indigo-500 border border-blue-300/30 p-6 shadow-card hover:-translate-y-3 hover:scale-[1.015] hover:from-blue-300 hover:via-blue-400 hover:to-indigo-400 hover:border-blue-200/50 hover:shadow-[0_20px_45px_rgba(59,130,246,0.35)] transition-all duration-500 cursor-pointer text-white min-h-[220px]"
                 >
                   <div className="flex items-center gap-4">
                     <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-white border border-white/20 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20">
@@ -1170,9 +1169,9 @@ function HomePage() {
                     </div>
                   </div>
                   <p className="text-sm text-white/80 leading-relaxed text-justify flex-1">{n.text}</p>
-                  
+
                   {/* Hover Overlay Panel (covers card cleanly on hover) */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#0f2040] to-[#051124] p-6 flex flex-col justify-between opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-20 rounded-2xl border border-white/10 shadow-2xl">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#1e40af] via-[#1d4ed8] to-[#3730a3] p-6 flex flex-col justify-between opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-20 rounded-2xl border border-white/20 shadow-2xl">
                     <div className="text-left">
                       <div className="flex items-center gap-3 mb-3">
                         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-blue-300 border border-white/10">
@@ -1311,24 +1310,24 @@ function HomePage() {
       <SuccessStoriesSection />
 
       {/* ── Global Delivery Footprint ── */}
-      <section className="relative py-20 bg-[#060e1e] text-white overflow-hidden">
+      <section className="relative py-20 bg-[#111c33] text-white overflow-hidden">
         {/* Subtle dot grid backdrop */}
         <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle, #60a5fa 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
-          
+
           {/* Centered Heading */}
-          <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="text-center max-w-4xl mx-auto mb-10">
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-glow mb-4 justify-center flex items-center gap-2">
               <Globe2 className="h-4 w-4 animate-spin-slow" /> Global Delivery
             </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight tracking-tight lg:whitespace-nowrap">
               A Delivery Model That Spans{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">
                 Onshore & Offshore
               </span>
             </h2>
-            <p className="mt-4 text-white/70 leading-relaxed text-justify text-sm max-w-2xl mx-auto">
+            <p className="mt-4 text-white/70 leading-relaxed text-center text-sm max-w-2xl mx-auto">
               Our operational centers in the United States and India power round-the-clock momentum, pairing local client partnership with offshore engineering scale.
             </p>
           </div>
@@ -1511,7 +1510,7 @@ function HomePage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6 }}
-              className="group relative overflow-hidden rounded-3xl bg-[#051124] p-10 text-white shadow-elegant border border-white/10"
+              className="group relative overflow-hidden rounded-3xl bg-[#162540] p-10 text-white shadow-elegant border border-white/10"
             >
               <div className="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-brand-glow/20 blur-2xl" />
               <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 backdrop-blur border border-white/15 text-brand-glow">

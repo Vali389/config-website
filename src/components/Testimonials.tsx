@@ -62,7 +62,7 @@ export function Testimonials() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 bg-[#050c18] text-white overflow-hidden border-t border-blue-900/30"
+      className="relative py-24 bg-[#0d1b33] text-white overflow-hidden border-t border-blue-900/30"
     >
       {/* Glow effect behind section header */}
       <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-blue-600/10 rounded-full blur-[120px]" />
@@ -82,44 +82,50 @@ export function Testimonials() {
       </div>
 
       <div className="relative">
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050c18] to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#050c18] to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0d1b33] to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0d1b33] to-transparent z-10" />
 
         {/* Marquee autoscrolls ONLY when section is in view */}
         <div
-          className={`flex gap-6 w-max ${
-            isInView ? "animate-marquee" : ""
-          } hover:[animation-play-state:paused] px-4`}
+          className={`flex gap-6 w-max ${isInView ? "animate-marquee" : ""
+            } hover:[animation-play-state:paused] px-4`}
         >
           {loop.map((t, i) => (
             <div
               key={i}
-              className="shrink-0 w-[360px] md:w-[400px] rounded-3xl bg-gradient-to-br from-[#0b172a] via-[#091325] to-[#040a17] p-7 border border-blue-500/20 shadow-[0_15px_35px_rgba(0,0,0,0.4)] hover:border-blue-400/50 hover:shadow-[0_20px_45px_rgba(59,130,246,0.2)] transition-all duration-300 flex flex-col justify-between"
+              className="relative shrink-0 w-[360px] md:w-[400px] group flex flex-col items-center mt-12 pb-6"
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 border border-blue-400/20 text-blue-400">
-                    <Quote className="h-5 w-5" />
-                  </span>
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, s) => (
-                      <Star key={s} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                    ))}
+              {/* Card body */}
+              <div className="relative bg-gradient-to-br from-[#1e325c] via-[#152545] to-[#0c162c] rounded-[2.5rem] rounded-tl-none rounded-br-none border border-blue-400/20 p-8 text-center shadow-[0_8px_30px_rgba(0,0,0,0.3)] group-hover:border-blue-400/50 group-hover:shadow-[0_16px_40px_rgba(59,130,246,0.25)] transition-all duration-300 z-10 w-full mb-6 flex flex-col justify-between min-h-[260px]">
+                {/* Floating Top Icon (Quote) */}
+                <div className="absolute -top-7 left-1/2 -translate-x-1/2">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 shadow-[0_0_24px_rgba(59,130,246,0.6)] group-hover:shadow-[0_0_36px_rgba(99,102,241,0.8)] group-hover:scale-110 transition-transform duration-300 border-4 border-[#0d1b33]">
+                    <Quote className="h-6 w-6 text-white" />
                   </div>
                 </div>
 
-                <p className="text-sm md:text-base text-white/90 leading-relaxed text-justify font-normal">
+                <div className="mt-2 flex justify-center gap-1 mb-5">
+                  {[...Array(5)].map((_, s) => (
+                    <Star key={s} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+
+                <p className="text-sm md:text-base text-white/90 leading-relaxed text-center font-normal flex-1 pb-4">
                   "{t.quote}"
                 </p>
+
+                {/* Downward pointing arrow using a rotated square to ensure visibility and matching border */}
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-[#0c162c] border-b border-r border-blue-400/20 rotate-45 z-0" />
               </div>
 
-              <div className="mt-6 pt-5 border-t border-white/10 flex items-center gap-3.5">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-white font-black text-base shadow-glow">
-                  {t.name.charAt(0)}
+              {/* Bottom Floating Avatar and Info */}
+              <div className="relative z-20 flex flex-col items-center group-hover:-translate-y-2 transition-all duration-300">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-[#0d1b33] shadow-[0_4px_20px_rgba(0,0,0,0.5)] overflow-hidden mb-3 bg-gradient-brand">
+                   <span className="relative z-10 text-white font-black text-xl">{t.name.charAt(0)}</span>
                 </div>
-                <div>
+                <div className="text-center">
                   <div className="font-extrabold text-sm text-white">{t.name}</div>
-                  <div className="text-xs text-blue-300 font-medium">{t.role}</div>
+                  <div className="text-xs text-blue-300 font-medium mt-1">{t.role}</div>
                 </div>
               </div>
             </div>

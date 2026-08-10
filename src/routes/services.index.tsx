@@ -27,7 +27,7 @@ export const Route = createFileRoute("/services/")({
 const SERVICES = [
   { image: serviceStaffing, title: "IT Staffing & Augmentation", eyebrow: "Skilled IT Professionals On-Demand", to: "/services/staffing", popular: true, description: "Skilled IT professionals for contract, contract-to-hire, and permanent roles across every major stack." },
   { image: serviceSoftware, title: "Software Development", eyebrow: "Custom Software Built to Scale", to: "/services/software", description: "Custom web, mobile, cloud, and AI-powered software engineered to scale your business." },
-  { image: serviceSap, title: "SAP Solutions", eyebrow: "Enterprise-Grade SAP Consulting", to: "/services/sap", description: "End-to-end SAP consulting, implementation, migration, support, and managed services." },
+  { image: serviceSap, title: "Enterprise Applications & ERP", eyebrow: "Modernize Business Platforms", to: "/services/enterprise-applications", description: "Helping organizations implement, integrate and modernize SAP, Oracle, Microsoft Dynamics, Workday, and Salesforce." },
   { image: serviceAssessment, title: "Digital Assessment for Hiring", eyebrow: "AI-Powered Screening & Assessment", to: "/services/assessment", description: "AI-driven assessments that evaluate skills, aptitude, and cultural fit." },
 ];
 

@@ -13,7 +13,7 @@ const NAV = [
     children: [
       { to: "/services/staffing", label: "IT Staffing & Augmentation", desc: "Top IT talent on demand", icon: Users },
       { to: "/services/software", label: "Software Development", desc: "Custom enterprise solutions", icon: Code },
-      { to: "/services/sap", label: "SAP Solutions", desc: "End-to-end SAP services", icon: Database },
+      { to: "/services/enterprise-applications", label: "Enterprise Applications & ERP", desc: "Modernize business platforms", icon: Database },
       { to: "/services/assessment", label: "Digital Assessment", desc: "Technology readiness audits", icon: ClipboardCheck },
     ],
   },
