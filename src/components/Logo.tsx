@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/new-logo-2.png";
+import logo from "@/assets/config-logo - Copy.jpeg";
 
 export function Logo({ variant = "dark" }: { variant?: "dark" | "light" }) {
   const isLight = variant === "light";

@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { CTASection } from "@/components/CTASection";
 import { motion } from "motion/react";
 import {
-  Server, Database, Cloud, Users, Briefcase, Boxes, ChartBar,
+  Server, Database, Cloud, Users, Briefcase, Boxes, BarChart3,
   Cpu, Zap, CheckCircle2, ArrowRight, Heart, Landmark,
   Building2, Factory, ShoppingCart, Activity, RefreshCw, Layers, Globe2
 } from "lucide-react";
@@ -65,7 +65,7 @@ const PLATFORMS = [
   { name: "Workday", desc: "Agile finance, HR, and planning platforms.", icon: Users },
   { name: "Salesforce", desc: "Customer 360, Sales Cloud, and Service Cloud.", icon: Briefcase },
   { name: "Infor", desc: "Industry-specific CloudSuite solutions.", icon: Boxes },
-  { name: "NetSuite", desc: "Cloud financials and unified business management.", icon: ChartBar },
+  { name: "NetSuite", desc: "Cloud financials and unified business management.", icon: BarChart3 },
   { name: "Other ERP Platforms", desc: "Odoo, ERPNext, Epicor, and legacy migrations.", icon: Layers },
 ];
 
@@ -669,7 +669,7 @@ function EnterpriseApplications() {
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.7 }} className="w-full flex justify-between gap-6">
               <div className="flex-1 bg-gradient-to-br from-[#162540] to-[#0f1a30] border border-cyan-500/30 p-6 rounded-2xl font-bold text-lg shadow-[0_0_30px_rgba(6,182,212,0.15)] group hover:border-cyan-400/60 hover:shadow-[0_0_40px_rgba(6,182,212,0.3)] transition-all flex items-center justify-center gap-3">
-                <ChartBar className="h-6 w-6 text-cyan-400 group-hover:scale-110 transition-transform" />
+                <BarChart3 className="h-6 w-6 text-cyan-400 group-hover:scale-110 transition-transform" />
                 <span>Analytics / AI</span>
               </div>
               <div className="flex-1 bg-gradient-to-br from-[#162540] to-[#0f1a30] border border-emerald-500/30 p-6 rounded-2xl font-bold text-lg shadow-[0_0_30px_rgba(16,185,129,0.15)] group hover:border-emerald-400/60 hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] transition-all flex items-center justify-center gap-3">

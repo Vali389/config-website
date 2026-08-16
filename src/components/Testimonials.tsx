@@ -1,48 +1,46 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Star, Quote } from "lucide-react";
 
-const T = [
+interface Testimonial {
+  name: string;
+  role: string;
+  quote: string;
+}
+
+const TESTIMONIALS: Testimonial[] = [
   {
-    name: "HR Director",
-    role: "Global Technology Company",
-    quote: "ConfigUSA consistently delivers quality candidates faster than expected. Their AI recruitment platform and responsiveness have made them a trusted hiring partner.",
+    name: "Enterprise VP of Engineering",
+    role: "Global Financial Services Firm",
+    quote: "ConfigUSA delivered 12 senior full-stack and cloud architects in under 3 weeks. Their rigorous technical screening saved us hundreds of interview hours.",
   },
   {
-    name: "Sarah Mitchell",
-    role: "CTO, FinLedger",
-    quote: "ConfigUSA transformed our entire tech backbone. Their consultants integrated seamlessly and delivered measurable outcomes within the first quarter.",
+    name: "Chief Information Officer",
+    role: "Healthcare Systems Provider",
+    quote: "The SAP S/4HANA migration team from ConfigUSA was exceptional. Zero downtime during cutover, and our operational reporting speed improved by 40%.",
   },
   {
-    name: "Rajiv Menon",
-    role: "VP Engineering, HealthPulse",
-    quote: "The staffing quality is unmatched. Every candidate we've hired through ConfigUSA's AI vetting has stayed and grown with us long-term.",
+    name: "Head of Digital Transformation",
+    role: "Supply Chain & Logistics Giant",
+    quote: "ConfigUSA's digital assessment identified operational bottlenecks we were completely blind to. Their recommendations delivered 3x ROI within 6 months.",
   },
   {
-    name: "Emily Zhang",
-    role: "Head of HR, RetailNova",
-    quote: "Their AI-powered assessments cut our hiring time in half while raising the bar on quality. Truly a strategic transformation partner.",
+    name: "Director of Product Development",
+    role: "SaaS Enterprise Platform",
+    quote: "Their offshore engineering squad integrated seamlessly with our US product leads. Round-the-clock development velocity doubled our feature output.",
   },
   {
-    name: "Marcus Reid",
-    role: "COO, LogiChain",
-    quote: "From SAP rollout to custom software builds, ConfigUSA has been our go-to for anything complex. Premium service, always.",
-  },
-  {
-    name: "Aisha Patel",
-    role: "Director of Digital, Astra Bank",
-    quote: "Reliable, responsive, and deeply technical. ConfigUSA feels like an extension of our own team.",
-  },
-  {
-    name: "David Kohler",
-    role: "CEO, VertexBuild",
-    quote: "We doubled our engineering capacity in 90 days with zero drop in quality using their AI talent matching. Exceptional.",
+    name: "VP of People & Workforce",
+    role: "Fintech Leader",
+    quote: "Finding high-caliber AI and machine learning engineers seemed impossible until we partnered with ConfigUSA. Their talent pool quality is unparalleled.",
   },
 ];
 
 export function Testimonials() {
-  const loop = [...T, ...T];
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const [isInView, setIsInView] = useState(false);
+
+  // Duplicate testimonials array for continuous smooth scrolling marquee loop
+  const loop = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -62,33 +60,34 @@ export function Testimonials() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 bg-[#0d1b33] text-white overflow-hidden border-t border-blue-900/30"
+      className="relative py-24 bg-white text-slate-900 overflow-hidden border-t border-slate-200/80"
     >
       {/* Glow effect behind section header */}
-      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-blue-600/10 rounded-full blur-[120px]" />
+      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-blue-100/60 rounded-full blur-[120px]" />
 
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-blue-400 mb-3">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-blue-600 mb-3">
             What Our Clients Say
           </p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
             Trusted by Leaders Across Industries
           </h2>
-          <p className="mt-4 text-white/70 text-sm md:text-base">
+          <p className="mt-4 text-slate-600 text-sm md:text-base font-medium">
             See how ConfigUSA helps enterprise leaders build high-performing engineering and AI teams.
           </p>
         </div>
       </div>
 
       <div className="relative">
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0d1b33] to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0d1b33] to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
 
         {/* Marquee autoscrolls ONLY when section is in view */}
         <div
-          className={`flex gap-6 w-max ${isInView ? "animate-marquee" : ""
-            } hover:[animation-play-state:paused] px-4`}
+          className={`flex gap-6 w-max ${
+            isInView ? "animate-marquee" : ""
+          } hover:[animation-play-state:paused] px-4`}
         >
           {loop.map((t, i) => (
             <div
@@ -96,10 +95,10 @@ export function Testimonials() {
               className="relative shrink-0 w-[360px] md:w-[400px] group flex flex-col items-center mt-12 pb-6"
             >
               {/* Card body */}
-              <div className="relative bg-gradient-to-br from-[#1e325c] via-[#152545] to-[#0c162c] rounded-[2.5rem] rounded-tl-none rounded-br-none border border-blue-400/20 p-8 text-center shadow-[0_8px_30px_rgba(0,0,0,0.3)] group-hover:border-blue-400/50 group-hover:shadow-[0_16px_40px_rgba(59,130,246,0.25)] transition-all duration-300 z-10 w-full mb-6 flex flex-col justify-between min-h-[260px]">
+              <div className="relative bg-slate-50/90 rounded-[2.5rem] rounded-tl-none rounded-br-none border border-slate-200 p-8 text-center shadow-md group-hover:border-blue-300 group-hover:bg-white group-hover:shadow-xl transition-all duration-300 z-10 w-full mb-6 flex flex-col justify-between min-h-[260px]">
                 {/* Floating Top Icon (Quote) */}
                 <div className="absolute -top-7 left-1/2 -translate-x-1/2">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 shadow-[0_0_24px_rgba(59,130,246,0.6)] group-hover:shadow-[0_0_36px_rgba(99,102,241,0.8)] group-hover:scale-110 transition-transform duration-300 border-4 border-[#0d1b33]">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-brand shadow-md shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300 border-4 border-white">
                     <Quote className="h-6 w-6 text-white" />
                   </div>
                 </div>
@@ -110,22 +109,22 @@ export function Testimonials() {
                   ))}
                 </div>
 
-                <p className="text-sm md:text-base text-white/90 leading-relaxed text-center font-normal flex-1 pb-4">
+                <p className="text-sm md:text-base text-slate-700 leading-relaxed text-center font-medium flex-1 pb-4">
                   "{t.quote}"
                 </p>
 
-                {/* Downward pointing arrow using a rotated square to ensure visibility and matching border */}
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-[#0c162c] border-b border-r border-blue-400/20 rotate-45 z-0" />
+                {/* Downward pointing arrow */}
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-slate-50 border-b border-r border-slate-200 rotate-45 z-0 group-hover:bg-white group-hover:border-blue-300 transition-colors" />
               </div>
 
               {/* Bottom Floating Avatar and Info */}
-              <div className="relative z-20 flex flex-col items-center group-hover:-translate-y-2 transition-all duration-300">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-[#0d1b33] shadow-[0_4px_20px_rgba(0,0,0,0.5)] overflow-hidden mb-3 bg-gradient-brand">
-                   <span className="relative z-10 text-white font-black text-xl">{t.name.charAt(0)}</span>
+              <div className="relative z-20 flex flex-col items-center group-hover:-translate-y-1 transition-all duration-300">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-white shadow-md overflow-hidden mb-3 bg-gradient-brand">
+                  <span className="relative z-10 text-white font-black text-xl">{t.name.charAt(0)}</span>
                 </div>
                 <div className="text-center">
-                  <div className="font-extrabold text-sm text-white">{t.name}</div>
-                  <div className="text-xs text-blue-300 font-medium mt-1">{t.role}</div>
+                  <div className="font-extrabold text-sm text-slate-900">{t.name}</div>
+                  <div className="text-xs text-blue-600 font-semibold mt-1">{t.role}</div>
                 </div>
               </div>
             </div>

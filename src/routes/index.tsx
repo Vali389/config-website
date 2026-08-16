@@ -50,10 +50,9 @@ import {
   Zap,
 } from "lucide-react";
 
-import heroPremiumSlide1 from "@/assets/hero_premium_slide1.png";
-import heroSlide2NoPeople from "@/assets/hero_slide2_no_people.png";
-import heroSlide3NoPeople from "@/assets/hero_slide3_no_people.png";
-import newHero1 from "@/assets/new-hero-1.jpg";
+import heroPeople1 from "@/assets/hero-people-1.png";
+import heroPeople2 from "@/assets/hero-nopeople-2.jpg";
+import heroPeople3 from "@/assets/hero-people-3.jpg";
 
 import wdAi from "@/assets/wd-ai.jpg";
 import wdEngineering from "@/assets/wd-engineering.jpg";
@@ -99,40 +98,47 @@ export const Route = createFileRoute("/")({
 
 const HERO_SLIDES = [
   {
-    image: newHero1,
-    eyebrow: "Technology · Talent · Transformation",
+    image: heroPeople1,
+    imagePosition: "object-center",
+    eyebrow: "Enterprise IT Staffing · Technology Talent Pods",
     title: (
       <>
-        Building the Workforce Behind <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-extrabold">Tomorrow's Digital Enterprises</span>
+        Connecting Enterprises with <br className="hidden sm:inline" />
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-extrabold">Niche Technology & Engineering Talent</span>
       </>
     ),
-    subtitle: "ConfigUSA empowers organizations with AI, Digital Engineering, Cloud, Enterprise Applications, and Technology Workforce Solutions—helping businesses innovate faster, scale smarter, and stay ahead in a rapidly changing world.",
-    primaryBtn: { text: "Talk to an Expert", to: "/contact" },
-    secondaryBtn: { text: "Request Technology Talent", to: "/contact" },
-  },
-  {
-    image: heroSlide2NoPeople,
-    eyebrow: "Engineering Excellence Sourced Dynamically",
-    title: (
-      <>
-        Unlocking <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-extrabold">Engineering Excellence</span> with Our Talent Solutions
-      </>
-    ),
-    subtitle: "We connect organizations with exceptional technology professionals and specialized delivery teams who move enterprise initiatives forward with confidence.",
+    subtitle: "ConfigUSA delivers premier IT staffing, contract engineering, direct placement, and dedicated delivery pods—deploying top-tier technology specialists who move enterprise initiatives forward with speed and precision.",
     primaryBtn: { text: "Request Technology Talent", to: "/contact" },
-    secondaryBtn: { text: "Learn More", to: "/services" },
+    secondaryBtn: { text: "Explore Staffing Solutions", to: "/services/staffing" },
   },
   {
-    image: heroSlide3NoPeople,
-    eyebrow: "Elevate Your Career Path",
+    image: heroPeople2,
+    imagePosition: "object-center",
+    eyebrow: "Contract, Permanent & Managed Workforce",
     title: (
       <>
-        Elevate Your Career with Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-extrabold">Global IT Career Opportunities</span>
+        Scalable Workforce Solutions <br className="hidden sm:inline" />
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-extrabold">Built for Modern Digital Transformation</span>
       </>
     ),
-    subtitle: "Join a culture built around innovation, growth, and continuous learning. We source niche tech talent globally to connect passionate professionals with transformative enterprise initiatives and world-class software environments.",
-    primaryBtn: { text: "Explore Careers", to: "/careers" },
-    secondaryBtn: { text: "Join With Us", to: "/contact" },
+    subtitle: "From cloud architects and AI specialists to SAP consultants and full-stack software squads, we deliver rigorously vetted technology professionals tailored to your exact tech stack, timeline, and company culture.",
+    primaryBtn: { text: "Talk to a Staffing Expert", to: "/contact" },
+    secondaryBtn: { text: "View Talent Capabilities", to: "/services" },
+  },
+  {
+    image: heroPeople3,
+    imagePosition: "object-center",
+    contentClass: "pt-8 sm:pt-14",
+    eyebrow: "Global IT Career Opportunities",
+    title: (
+      <>
+        Elevate Your Career with <br className="hidden sm:inline" />
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-extrabold">World-Class Tech Enterprise Projects</span>
+      </>
+    ),
+    subtitle: "Join a culture built around innovation, professional growth, and continuous learning. We source niche tech talent globally to connect passionate IT professionals with transformative enterprise initiatives and leading software environments.",
+    primaryBtn: { text: "Explore Open Roles", to: "/careers" },
+    secondaryBtn: { text: "Partner With Us", to: "/contact" },
   },
 ];
 
@@ -238,259 +244,239 @@ const INSIGHTS = [
   { tag: "Workforce", title: "Workforce Strategies for a Changing Market", date: "Nov 20, 2025", icon: Users },
 ];
 
-const KEY_FEATURES_LEFT = [
-  { icon: Bot, label: "AI Recruitment & Sourcing", text: "Generative AI engines screen, evaluate, and source top-tier technical candidates in record time." },
-  { icon: UserCheck, label: "AI-Powered Talent Matching", text: "Smart algorithms align candidates to your exact tech stack, culture, and delivery needs." },
-  { icon: Sparkles, label: "Automated AI Screening", text: "Comprehensive automated code testing and Generative AI technical interviews before submission." },
-  { icon: Zap, label: "Rapid Talent Deployment", text: "Pre-vetted talent pools enable onboarding in days, not weeks — keeping projects on schedule." },
-];
-
-const KEY_FEATURES_RIGHT = [
-  { icon: Globe, label: "Global Talent Reach", text: "Access to top-tier professionals across North America and India for 24/7 delivery coverage." },
-  { icon: ShieldCheck, label: "Compliance & Verification", text: "End-to-end background checks, E-Verify, and credential validation built into every hire." },
-  { icon: BarChart3, label: "Performance Analytics", text: "Real-time dashboards tracking team productivity, SLA adherence, and placement success." },
-  { icon: Lock, label: "Secure & Confidential", text: "Enterprise-grade data privacy, NDA-backed processes, and SOC-aligned information handling." },
-];
-
-
-/* ────────────────────────── Key Features ────────────────────────── */
+/* ────────────────────────── Key Features (1-to-1 Butterfly Hub) ────────────────────────── */
 
 function KeyFeatures() {
-  const HUB_IMAGES = [whoWeAreImg, heroPremiumSlide1, heroSlide2NoPeople, heroSlide3NoPeople, ctaHome];
-  const [imgIndex, setImgIndex] = useState(0);
+  const LEFT_ITEMS = [
+    "AI Recruitment & Sourcing",
+    "Automated Code Screening",
+    "Rapid Onboarding & Scale",
+  ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setImgIndex((prev) => (prev + 1) % HUB_IMAGES.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+  const RIGHT_ITEMS = [
+    "Global Talent Footprint",
+    "Rigorous Vetting & Compliance",
+    "Dedicated Account Support",
+  ];
 
   return (
-    <section className="py-24 bg-white border-y border-border/40 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+    <section className="py-24 bg-slate-50/60 relative overflow-hidden border-y border-slate-200/80">
+      {/* Background subtle grid pattern matching reference image */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.3]"
+        style={{
+          backgroundImage: "radial-gradient(circle, #cbd5e1 1.5px, transparent 1.5px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
         <SectionHeading
-          eyebrow="Key Features"
+          eyebrow="Why Choose Us"
           title="Everything You Need to Scale With Confidence"
           subtitle="ConfigUSA brings together intelligent technology, global reach, and people-first delivery — all in one trusted partnership."
         />
 
-        {/* ── Desktop: Spoke Layout ── */}
-        <div className="mt-16 hidden lg:flex items-center justify-between gap-0 relative min-h-[460px]">
+        {/* 3 Equal Columns (4-4-4 of 12) for Perfect Horizontal Alignment */}
+        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 items-center">
 
-          {/* Left features column */}
-          <div className="flex flex-col gap-8 w-[320px] shrink-0">
-            {KEY_FEATURES_LEFT.map((f, i) => (
-              <motion.div
-                key={f.label}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.55, delay: i * 0.1 }}
-                className="group flex items-start gap-3 rounded-2xl bg-blue-50/60 border border-blue-100 hover:border-blue-300 hover:bg-blue-50 hover:shadow-md transition-all duration-300 p-4"
-              >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-sm group-hover:scale-110 transition-transform duration-300">
-                  <f.icon className="h-5 w-5" />
-                </span>
-                <div className="text-right flex-1">
-                  <h3 className="text-sm font-bold text-blue-950 group-hover:text-blue-700 transition-colors leading-snug">
-                    {f.label}
-                  </h3>
-                  <p className="mt-1 text-xs text-slate-500 leading-relaxed text-justify">{f.text}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Connecting lines left → center */}
-          <div className="flex-1 relative self-stretch mx-2 min-w-[40px]">
-            {[0, 1, 2, 3].map((i) => (
-              <motion.div
-                key={i}
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 + i * 0.1 }}
-                className="absolute right-0 h-px bg-gradient-to-r from-blue-200 to-blue-500 origin-right"
-                style={{ top: `${12.5 + i * 25}%`, width: "100%" }}
-              />
-            ))}
-          </div>
-
-          {/* Center hub — circular image with Carousel Left & Right Arrow controls */}
+          {/* Left Card: Soft Blue Card with Bullet Dots on RIGHT */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="shrink-0 relative flex items-center justify-center group/hub"
-            style={{ width: 360, height: 360 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-4 flex flex-col justify-center rounded-2xl bg-gradient-to-br from-[#dbeafe]/90 via-[#eff6ff] to-[#bfdbfe]/80 border border-blue-200 p-6 sm:p-7 shadow-sm min-h-[260px]"
           >
-            {/* Outer ring */}
-            <div className="absolute rounded-full border-2 border-dashed border-blue-300/60 animate-spin-slow"
-              style={{ width: 340, height: 340 }}
-            />
-            {/* Inner ring */}
-            <div className="absolute rounded-full border border-blue-400/30"
-              style={{ width: 290, height: 290 }}
-            />
-            {/* Glowing conic sweep */}
-            <div
-              className="absolute rounded-full animate-ring"
-              style={{
-                width: 320, height: 320,
-                background: "conic-gradient(from 0deg, transparent 0deg, rgba(96,165,250,0.5) 90deg, transparent 210deg)",
-                maskImage: "radial-gradient(closest-side, transparent 73%, #000 75%)",
-                WebkitMaskImage: "radial-gradient(closest-side, transparent 73%, #000 75%)",
-              }}
-            />
-
-            {/* Left Carousel Arrow Button */}
-            <button
-              onClick={() => setImgIndex((prev) => (prev === 0 ? HUB_IMAGES.length - 1 : prev - 1))}
-              className="absolute left-2 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-blue-900 border border-blue-200 shadow-md hover:bg-blue-600 hover:text-white hover:scale-110 transition-all cursor-pointer"
-              aria-label="Previous image"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-
-            {/* Right Carousel Arrow Button */}
-            <button
-              onClick={() => setImgIndex((prev) => (prev + 1) % HUB_IMAGES.length)}
-              className="absolute right-2 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-blue-900 border border-blue-200 shadow-md hover:bg-blue-600 hover:text-white hover:scale-110 transition-all cursor-pointer"
-              aria-label="Next image"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-
-            {/* Circular image with AnimatePresence image switching */}
-            <div className="relative z-10 rounded-full overflow-hidden border-4 border-white shadow-[0_0_40px_rgba(29,78,216,0.2)]"
-              style={{ width: 260, height: 260 }}
-            >
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={imgIndex}
-                  src={HUB_IMAGES[imgIndex]}
-                  alt="ConfigUSA platform capability"
-                  className="absolute inset-0 h-full w-full object-cover"
-                  initial={{ opacity: 0, scale: 1.1 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.8 }}
-                />
-              </AnimatePresence>
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-transparent z-20 pointer-events-none" />
-            </div>
-
-            {/* Center label badge */}
-            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-[0.65rem] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap">
-              AI Recruitment 360°
+            <div className="space-y-4">
+              {LEFT_ITEMS.map((item, idx) => (
+                <div
+                  key={item}
+                  className={`flex items-center justify-between gap-3 ${
+                    idx < LEFT_ITEMS.length - 1 ? "pb-4 border-b border-dashed border-blue-300/80" : ""
+                  }`}
+                >
+                  <span className="text-sm sm:text-base font-bold text-slate-800 leading-snug">
+                    {item}
+                  </span>
+                  {/* Black bullet dot on right edge matching reference image */}
+                  <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-slate-900 shadow-xs" />
+                </div>
+              ))}
             </div>
           </motion.div>
 
-          {/* Connecting lines center → right */}
-          <div className="flex-1 relative self-stretch mx-2 min-w-[40px]">
-            {[0, 1, 2, 3].map((i) => (
-              <motion.div
-                key={i}
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 + i * 0.1 }}
-                className="absolute left-0 h-px bg-gradient-to-r from-blue-500 to-blue-200 origin-left"
-                style={{ top: `${12.5 + i * 25}%`, width: "100%" }}
-              />
-            ))}
-          </div>
-
-          {/* Right features column */}
-          <div className="flex flex-col gap-8 w-[320px] shrink-0">
-            {KEY_FEATURES_RIGHT.map((f, i) => (
-              <motion.div
-                key={f.label}
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.55, delay: i * 0.1 }}
-                className="group flex items-start gap-3 rounded-2xl bg-blue-50/60 border border-blue-100 hover:border-blue-300 hover:bg-blue-50 hover:shadow-md transition-all duration-300 p-4"
-              >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-sm group-hover:scale-110 transition-transform duration-300">
-                  <f.icon className="h-5 w-5" />
-                </span>
-                <div className="flex-1">
-                  <h3 className="text-sm font-bold text-blue-950 group-hover:text-blue-700 transition-colors leading-snug">
-                    {f.label}
-                  </h3>
-                  <p className="mt-1 text-xs text-slate-500 leading-relaxed text-justify">{f.text}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Mobile / Tablet: 2-column grid with top center hub ── */}
-        <div className="mt-12 lg:hidden flex flex-col items-center gap-10">
-          {/* Center Hub for Mobile */}
-          <div className="relative flex items-center justify-center" style={{ width: 280, height: 280 }}>
-            <div className="absolute rounded-full border border-dashed border-blue-300/60 animate-spin-slow" style={{ width: 260, height: 260 }} />
-            <div className="absolute rounded-full border border-blue-400/20" style={{ width: 230, height: 230 }} />
-
-            {/* Mobile Left Arrow */}
-            <button
-              onClick={() => setImgIndex((prev) => (prev === 0 ? HUB_IMAGES.length - 1 : prev - 1))}
-              className="absolute left-1 z-30 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-blue-900 border border-blue-200 shadow-md cursor-pointer"
+          {/* Center Graphic: Pure Organic Vector Butterfly Graphic 1-to-1 Match */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-4 flex flex-col items-center justify-center relative my-4 lg:my-0"
+          >
+            <motion.div
+              animate={{ y: [-5, 5, -5] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+              className="relative w-full max-w-[380px] aspect-[1.25/1] flex items-center justify-center"
+              style={{ perspective: 1000 }}
             >
-              <ChevronLeft className="h-4 w-4" />
-            </button>
+              {/* Soft ambient flight glow behind butterfly */}
+              <div className="absolute inset-4 rounded-full bg-cyan-400/20 blur-3xl animate-pulse pointer-events-none" />
 
-            {/* Mobile Right Arrow */}
-            <button
-              onClick={() => setImgIndex((prev) => (prev + 1) % HUB_IMAGES.length)}
-              className="absolute right-1 z-30 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-blue-900 border border-blue-200 shadow-md cursor-pointer"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </button>
+              {/* Master SVG Butterfly (Wings, Dividers, Antennae, Body & Text Overlays) */}
+              <svg viewBox="0 0 500 400" className="w-full h-full drop-shadow-2xl overflow-visible">
+                <defs>
+                  {/* Top Wing Brand Logo Navy-Blue Gradient */}
+                  <linearGradient id="topWingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#0f172a" />
+                    <stop offset="50%" stopColor="#1e3a8a" />
+                    <stop offset="100%" stopColor="#1d4ed8" />
+                  </linearGradient>
 
-            <div className="relative z-10 rounded-full overflow-hidden border-4 border-white shadow-lg" style={{ width: 200, height: 200 }}>
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={imgIndex}
-                  src={HUB_IMAGES[imgIndex]}
-                  alt="ConfigUSA platform capability"
-                  className="absolute inset-0 h-full w-full object-cover"
-                  initial={{ opacity: 0, scale: 1.1 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.8 }}
-                />
-              </AnimatePresence>
-            </div>
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-[0.6rem] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-md whitespace-nowrap">
-              AI Recruitment 360°
-            </div>
-          </div>
+                  {/* Bottom Wing Brand Logo Cyan Gradient */}
+                  <linearGradient id="bottomWingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1d4ed8" />
+                    <stop offset="50%" stopColor="#0284c7" />
+                    <stop offset="100%" stopColor="#00d2ff" />
+                  </linearGradient>
 
+                  {/* Body Gradient */}
+                  <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#00d2ff" />
+                    <stop offset="100%" stopColor="#1e3a8a" />
+                  </linearGradient>
 
-          <div className="grid gap-5 sm:grid-cols-2 w-full">
-            {[...KEY_FEATURES_LEFT, ...KEY_FEATURES_RIGHT].map((f, i) => (
-              <motion.div
-                key={f.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: i * 0.07 }}
-                className="group flex items-start gap-4 rounded-2xl bg-blue-50/60 border border-blue-100 hover:border-blue-300 hover:shadow-md transition-all duration-300 p-5"
-              >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-sm group-hover:scale-110 transition-transform duration-300">
-                  <f.icon className="h-6 w-6" />
-                </span>
-                <div>
-                  <h3 className="text-sm font-bold text-blue-950 group-hover:text-blue-700 transition-colors">{f.label}</h3>
-                  <p className="mt-1 text-xs text-slate-500 leading-relaxed text-justify">{f.text}</p>
+                  {/* Left Wing Flap Group Animation */}
+                  <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+                    <feDropShadow dx="0" dy="8" stdDeviation="6" floodColor="#0f172a" floodOpacity="0.3" />
+                  </filter>
+                </defs>
+
+                {/* ── LEFT WINGS GROUP (Continuous 3D Wing Flap) ── */}
+                <motion.g
+                  style={{ transformOrigin: "250px 200px" }}
+                  animate={{ rotateY: [0, 24, 0] }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  {/* Left Top Wing */}
+                  <path
+                    d="M 235,190 C 220,110 145,25 75,20 C 15,15 -10,75 25,145 C 55,205 170,200 235,190 Z"
+                    fill="url(#topWingGrad)"
+                    stroke="rgba(255,255,255,0.45)"
+                    strokeWidth="2.5"
+                    filter="url(#shadow)"
+                  />
+                  {/* Left Bottom Wing */}
+                  <path
+                    d="M 235,210 C 170,210 50,205 30,270 C 10,335 75,385 145,365 C 215,345 230,265 235,210 Z"
+                    fill="url(#bottomWingGrad)"
+                    stroke="rgba(255,255,255,0.45)"
+                    strokeWidth="2.5"
+                    filter="url(#shadow)"
+                  />
+                  {/* Left Wing White Dashed Divider Line */}
+                  <line x1="28" y1="198" x2="242" y2="198" stroke="#ffffff" strokeWidth="3" strokeDasharray="8 6" opacity="0.95" />
+
+                  {/* Left Top Stat Text */}
+                  <text x="135" y="105" textAnchor="middle" fill="#ffffff" fontSize="30" fontWeight="900" fontFamily="sans-serif">
+                    15+
+                  </text>
+                  <text x="135" y="127" textAnchor="middle" fill="#bfdbfe" fontSize="9.5" fontWeight="800" letterSpacing="1.2" fontFamily="sans-serif">
+                    YEARS OF EXPERIENCE
+                  </text>
+
+                  {/* Left Bottom Stat Text */}
+                  <text x="140" y="280" textAnchor="middle" fill="#ffffff" fontSize="30" fontWeight="900" fontFamily="sans-serif">
+                    500+
+                  </text>
+                  <text x="140" y="302" textAnchor="middle" fill="#e0f2fe" fontSize="9.5" fontWeight="800" letterSpacing="1.2" fontFamily="sans-serif">
+                    ENTERPRISE PROJECTS
+                  </text>
+                </motion.g>
+
+                {/* ── RIGHT WINGS GROUP (Continuous 3D Wing Flap) ── */}
+                <motion.g
+                  style={{ transformOrigin: "250px 200px" }}
+                  animate={{ rotateY: [0, -24, 0] }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  {/* Right Top Wing */}
+                  <path
+                    d="M 265,190 C 280,110 355,25 425,20 C 485,15 510,75 475,145 C 445,205 330,200 265,190 Z"
+                    fill="url(#topWingGrad)"
+                    stroke="rgba(255,255,255,0.45)"
+                    strokeWidth="2.5"
+                    filter="url(#shadow)"
+                  />
+                  {/* Right Bottom Wing */}
+                  <path
+                    d="M 265,210 C 330,210 450,205 470,270 C 490,335 425,385 355,365 C 285,345 270,265 265,210 Z"
+                    fill="url(#bottomWingGrad)"
+                    stroke="rgba(255,255,255,0.45)"
+                    strokeWidth="2.5"
+                    filter="url(#shadow)"
+                  />
+                  {/* Right Wing White Dashed Divider Line */}
+                  <line x1="258" y1="198" x2="472" y2="198" stroke="#ffffff" strokeWidth="3" strokeDasharray="8 6" opacity="0.95" />
+
+                  {/* Right Top Stat Text */}
+                  <text x="365" y="105" textAnchor="middle" fill="#ffffff" fontSize="30" fontWeight="900" fontFamily="sans-serif">
+                    98%
+                  </text>
+                  <text x="365" y="127" textAnchor="middle" fill="#bfdbfe" fontSize="9.5" fontWeight="800" letterSpacing="1.2" fontFamily="sans-serif">
+                    CLIENT RETENTION
+                  </text>
+
+                  {/* Right Bottom Stat Text */}
+                  <text x="360" y="280" textAnchor="middle" fill="#ffffff" fontSize="30" fontWeight="900" fontFamily="sans-serif">
+                    24/7
+                  </text>
+                  <text x="360" y="302" textAnchor="middle" fill="#e0f2fe" fontSize="9.5" fontWeight="800" letterSpacing="1.2" fontFamily="sans-serif">
+                    GLOBAL SUPPORT
+                  </text>
+                </motion.g>
+
+                {/* ── CENTER BODY & ANTENNAE ── */}
+                {/* Left Antenna */}
+                <path d="M 246,130 C 238,75 210,40 180,45" fill="none" stroke="#00d2ff" strokeWidth="4" strokeLinecap="round" />
+                <circle cx="178" cy="45" r="5" fill="#00d2ff" />
+
+                {/* Right Antenna */}
+                <path d="M 254,130 C 262,75 290,40 320,45" fill="none" stroke="#00d2ff" strokeWidth="4" strokeLinecap="round" />
+                <circle cx="322" cy="45" r="5" fill="#00d2ff" />
+
+                {/* Oval Body */}
+                <ellipse cx="250" cy="200" rx="15" ry="75" fill="url(#bodyGrad)" stroke="#ffffff" strokeWidth="3" filter="url(#shadow)" />
+              </svg>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Card: Soft Cyan Card with Bullet Dots on LEFT */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-4 flex flex-col justify-center rounded-2xl bg-gradient-to-br from-[#e0f2fe]/90 via-[#f0f9ff] to-[#bae6fd]/80 border border-blue-200 p-6 sm:p-7 shadow-sm min-h-[280px]"
+          >
+            <div className="space-y-4">
+              {RIGHT_ITEMS.map((item, idx) => (
+                <div
+                  key={item}
+                  className={`flex items-center justify-start gap-4 ${
+                    idx < RIGHT_ITEMS.length - 1 ? "pb-4 border-b border-dashed border-blue-300/80" : ""
+                  }`}
+                >
+                  {/* Black bullet dot on left edge matching reference image */}
+                  <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-slate-900 shadow-xs" />
+                  <span className="text-sm sm:text-base font-bold text-slate-800 leading-snug">
+                    {item}
+                  </span>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>
@@ -517,7 +503,7 @@ function Hero() {
     <section
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative h-[88vh] min-h-[650px] lg:h-[92vh] lg:min-h-[720px] overflow-hidden flex items-center bg-[#030a16] border-b border-blue-950/40"
+      className="relative h-[85vh] min-h-[620px] lg:h-[88vh] lg:min-h-[680px] overflow-hidden flex items-center bg-[#030a16] border-b border-blue-950/40"
     >
       {/* Background Image Carousel (Cross-Fade Transition) */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -526,7 +512,7 @@ function Hero() {
             key={slideIndex}
             src={currentSlide.image}
             alt="ConfigUSA Solutions"
-            className="absolute inset-0 h-full w-full object-cover opacity-95 animate-kenburns"
+            className={`absolute inset-0 h-full w-full object-cover opacity-95 animate-kenburns ${currentSlide.imagePosition || "object-center"}`}
             initial={{ opacity: 0, scale: 1.03 }}
             animate={{ opacity: 0.90, scale: 1.07 }}
             exit={{ opacity: 0 }}
@@ -535,8 +521,8 @@ function Hero() {
         </AnimatePresence>
 
         {/* Ambient Dark Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030a16]/85 via-[#030a16]/65 to-[#030a16]/15 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030a16]/65 via-transparent to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030a16]/75 via-[#030a16]/50 to-[#030a16]/20 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#030a16]/60 via-transparent to-transparent z-10" />
 
         {/* Drifting premium aurora tech glow blobs */}
         <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] opacity-40 animate-drift" />
@@ -551,7 +537,7 @@ function Hero() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="max-w-3xl text-left"
+            className={`max-w-3xl text-left ${currentSlide.contentClass || ""}`}
           >
             {/* Eyebrow Reveal */}
             <motion.span
@@ -743,13 +729,13 @@ function HomePage() {
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3] w-full">
                 {/* Default Image */}
                 <img
-                  src={heroPremiumSlide1}
+                  src={heroPeople1}
                   alt="ConfigUSA technology professionals collaborating"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 {/* Hover Image */}
                 <img
-                  src={heroSlide2NoPeople}
+                  src={heroPeople2}
                   alt="ConfigUSA engineering excellence dashboard"
                   className="absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
                 />
@@ -992,8 +978,8 @@ function HomePage() {
       </section>
 
       {/* ── Engagement Models ── */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <section className="py-24 bg-white text-slate-900 relative overflow-hidden border-y border-slate-200/80">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Engagement Models"
             title={<span className="text-gradient-brand">Flexible Ways to Work With Us</span>}
@@ -1007,19 +993,19 @@ function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group relative flex flex-col overflow-hidden rounded-[2rem] bg-gradient-to-br from-white via-blue-50 to-blue-200/60 border border-blue-200/50 p-8 shadow-card hover:-translate-y-3 hover:scale-[1.015] hover:from-white hover:via-blue-100 hover:to-blue-300 hover:border-blue-400/60 hover:shadow-[0_20px_45px_rgba(59,130,246,0.15)] transition-all duration-500 cursor-pointer text-ink"
+                className="group relative flex flex-col overflow-hidden rounded-[2rem] bg-[#f8fafc] border-2 border-slate-200/90 p-8 shadow-sm hover:-translate-y-2 hover:scale-[1.01] hover:bg-white hover:border-blue-500 hover:shadow-[0_20px_45px_rgba(59,130,246,0.14)] transition-all duration-500 cursor-pointer text-slate-900"
               >
                 <div className="flex items-center gap-4">
-                  <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700 shadow-sm transition-all duration-500 group-hover:bg-gradient-brand group-hover:text-white group-hover:scale-110">
+                  <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white border border-slate-200 text-blue-600 shadow-sm transition-all duration-500 group-hover:bg-gradient-brand group-hover:text-white group-hover:border-transparent group-hover:scale-110">
                     <e.icon className="h-6 w-6" />
                   </span>
-                  <h3 className="text-xl font-bold text-ink group-hover:text-blue-700 transition-colors duration-500">{e.title}</h3>
+                  <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors duration-500">{e.title}</h3>
                 </div>
-                <p className="mt-5 text-base text-slate-600 leading-relaxed text-justify flex-1 text-justify transition-colors duration-500">{e.text}</p>
-                <div className="mt-6 h-1 w-12 rounded-full bg-gradient-brand opacity-30 transition-all duration-500 group-hover:w-full group-hover:opacity-100" />
+                <p className="mt-5 text-base text-slate-600 leading-relaxed text-justify flex-1 font-medium transition-colors duration-500">{e.text}</p>
+                <div className="mt-6 h-1 w-12 rounded-full bg-gradient-brand opacity-40 transition-all duration-500 group-hover:w-full group-hover:opacity-100" />
                 {/* Diagonal light sweep on hover */}
                 <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[2rem]">
-                  <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-brand/10 to-transparent group-hover:animate-shine" />
+                  <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-blue-50/50 to-transparent group-hover:animate-shine" />
                 </div>
                 <CardParticles />
               </motion.div>
@@ -1029,31 +1015,9 @@ function HomePage() {
       </section>
 
       {/* ── Why ConfigUSA ── */}
-      <section className="py-24 bg-[#051124] text-white relative overflow-hidden">
-        {/* Continuous ambient rising bubbles & tiny particles */}
-        <Bubbles />
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full lg:w-1/2 opacity-25 pointer-events-none select-none z-0">
-          <svg viewBox="0 0 1000 500" className="w-full h-auto text-blue-500" fill="currentColor">
-            <circle cx="100" cy="150" r="3" />
-            <circle cx="150" cy="130" r="3" />
-            <circle cx="200" cy="180" r="3" />
-            <circle cx="250" cy="220" r="3" />
-            <circle cx="300" cy="140" r="3" />
-            <circle cx="350" cy="190" r="3" />
-            <circle cx="450" cy="120" r="3" />
-            <circle cx="500" cy="210" r="3" />
-            <circle cx="580" cy="180" r="3" />
-            <circle cx="640" cy="140" r="3" />
-            <circle cx="700" cy="220" r="3" />
-            <circle cx="800" cy="130" r="3" />
-            <circle cx="850" cy="180" r="3" />
-            <g className="text-blue-400">
-              <circle cx="580" cy="180" r="6" className="animate-ping" />
-              <circle cx="580" cy="180" r="4" />
-            </g>
-            <path d="M 50,150 Q 150,100 250,200 T 450,150 T 650,250 T 850,150" fill="none" stroke="currentColor" strokeWidth="1.5" strokeDasharray="6,12" className="opacity-30" />
-          </svg>
-        </div>
+      <section className="py-24 bg-gradient-to-br from-slate-100 via-blue-50/90 to-indigo-50/70 text-slate-900 relative overflow-hidden border-y border-blue-200/80">
+        {/* Soft background glow */}
+        <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-200/50 rounded-full blur-[140px]" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
           <motion.div
@@ -1062,17 +1026,17 @@ function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-glow mb-4">Why ConfigUSA</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight tracking-tight">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-blue-700 mb-4">Why ConfigUSA</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight tracking-tight">
               Delivering Business Value Beyond Talent
             </h2>
-            <p className="mt-5 text-white/70 leading-relaxed text-justify max-w-md">
+            <p className="mt-5 text-slate-700 leading-relaxed text-justify max-w-md font-medium">
               Instead of simply supplying professionals, we become an extension of your organization—bringing expertise,
               responsiveness, and a commitment to your long-term success.
             </p>
             <Link
               to="/about"
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-brand hover:bg-brand/90 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:scale-105 shadow-md"
+              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-gradient-brand hover:brightness-110 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:scale-105 shadow-md shadow-blue-600/30"
             >
               Discover Our Approach <ArrowRight className="h-4 w-4" />
             </Link>
@@ -1085,19 +1049,18 @@ function HomePage() {
               <div
                 className="absolute inset-6 rounded-full animate-ring"
                 style={{
-                  background: "conic-gradient(from 0deg, transparent 0deg, rgba(96,165,250,0.6) 90deg, transparent 210deg)",
+                  background: "conic-gradient(from 0deg, transparent 0deg, rgba(29,78,216,0.5) 90deg, transparent 210deg)",
                   maskImage: "radial-gradient(closest-side, transparent 73%, #000 75%)",
                   WebkitMaskImage: "radial-gradient(closest-side, transparent 73%, #000 75%)",
                 }}
               />
               {/* Static dashed guide ring */}
-              <div className="absolute inset-6 rounded-full border border-dashed border-white/15" />
+              <div className="absolute inset-6 rounded-full border border-dashed border-blue-300" />
               {/* Center hub */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-24 w-24 flex-col items-center justify-center rounded-full bg-gradient-brand text-white shadow-glow animate-glow-pulse">
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-24 w-24 flex-col items-center justify-center rounded-full bg-gradient-brand text-white shadow-lg shadow-blue-600/40 animate-glow-pulse">
                 <Target className="h-6 w-6" />
                 <span className="mt-1 text-[0.6rem] font-bold uppercase tracking-wider">Why Us</span>
               </div>
-              {/* Orbiting strengths (counter-rotating so text stays upright) */}
               {/* Orbiting strengths */}
               {WHY_ORBIT.map((w, i) => {
                 const angle = (360 / WHY_ORBIT.length) * i;
@@ -1107,9 +1070,9 @@ function HomePage() {
                     className="absolute left-1/2 top-1/2 animate-orbit z-20"
                     style={{ "--angle": `${angle}deg` } as React.CSSProperties}
                   >
-                    <div className="flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-3.5 py-2 backdrop-blur shadow-lg hover:bg-white/20 hover:border-brand-glow transition-colors">
-                      <w.icon className="h-4 w-4 text-brand-glow shrink-0" />
-                      <span className="text-xs font-semibold text-white/90 whitespace-nowrap">{w.label}</span>
+                    <div className="flex items-center gap-2 rounded-full bg-white border-2 border-blue-200 px-3.5 py-2 shadow-md hover:border-blue-500 hover:shadow-lg transition-colors">
+                      <w.icon className="h-4 w-4 text-blue-600 shrink-0" />
+                      <span className="text-xs font-bold text-slate-900 whitespace-nowrap">{w.label}</span>
                     </div>
                   </div>
                 );
@@ -1118,17 +1081,19 @@ function HomePage() {
 
             {/* Strengths list — below lg */}
             <div className="grid sm:grid-cols-2 gap-4 lg:hidden">
-              {STRENGTHS.map((s, i) => (
+              {WHY_ORBIT.map((w, i) => (
                 <motion.div
-                  key={s}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  key={w.label}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: i * 0.07 }}
-                  className="flex items-start gap-3 rounded-xl bg-white/5 border border-white/10 p-4 hover:bg-white/10 hover:border-brand-glow/50 transition-all"
+                  transition={{ duration: 0.4, delay: i * 0.06 }}
+                  className="flex items-center gap-3 rounded-2xl bg-white border border-slate-200 p-4 shadow-xs hover:border-blue-300 transition-all"
                 >
-                  <CheckCircle2 className="h-5 w-5 shrink-0 text-brand-glow mt-0.5" />
-                  <span className="text-sm font-medium text-white/85 leading-snug">{s}</span>
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 font-bold border border-blue-200">
+                    <w.icon className="h-5 w-5" />
+                  </span>
+                  <span className="text-sm font-semibold text-slate-800">{w.label}</span>
                 </motion.div>
               ))}
             </div>
@@ -1218,14 +1183,10 @@ function HomePage() {
       </section>
 
       {/* ── The AI Advantage ── */}
-      <section className="relative py-24 overflow-hidden bg-[#051124]">
-        <div className="absolute inset-0">
-          <img src={heroSlide3NoPeople} alt="" className="h-full w-full object-cover opacity-30 animate-kenburns" />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/90 to-navy-deep/60" />
-        </div>
-        {/* Ambient particles: falling bubbles + right-to-left drift */}
-        <Bubbles direction="down" />
-        <DriftParticles />
+      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-blue-50 via-indigo-50/70 to-slate-50 text-slate-900 border-y border-blue-200/80">
+        {/* Soft background glow */}
+        <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-indigo-200/50 rounded-full blur-[140px]" />
+
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -1233,17 +1194,17 @@ function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-glow mb-4">The AI Advantage</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight tracking-tight">
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-blue-700 mb-4">The AI Advantage</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight tracking-tight">
               Helping Organizations Succeed in the AI Era
             </h2>
-            <p className="mt-5 text-white/70 leading-relaxed text-justify max-w-md">
+            <p className="mt-5 text-slate-700 leading-relaxed text-justify max-w-md font-medium">
               Artificial Intelligence is changing every industry. ConfigUSA helps organizations build AI-ready teams by
               providing expertise across strategy, engineering, data, governance, and implementation.
             </p>
             <Link
               to="/services"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3.5 text-sm font-semibold text-white shadow-glow hover:scale-105 transition-transform"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-blue-600/30 hover:scale-105 transition-transform"
             >
               Build Your AI Team <ArrowRight className="h-4 w-4" />
             </Link>
@@ -1256,15 +1217,15 @@ function HomePage() {
               <div
                 className="absolute inset-6 rounded-full animate-ring"
                 style={{
-                  background: "conic-gradient(from 0deg, transparent 0deg, rgba(96,165,250,0.65) 90deg, transparent 210deg)",
+                  background: "conic-gradient(from 0deg, transparent 0deg, rgba(29,78,216,0.5) 90deg, transparent 210deg)",
                   maskImage: "radial-gradient(closest-side, transparent 73%, #000 75%)",
                   WebkitMaskImage: "radial-gradient(closest-side, transparent 73%, #000 75%)",
                 }}
               />
               {/* Static dashed guide ring */}
-              <div className="absolute inset-6 rounded-full border border-dashed border-white/15" />
+              <div className="absolute inset-6 rounded-full border border-dashed border-blue-300" />
               {/* Center hub */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-24 w-24 flex-col items-center justify-center rounded-full bg-gradient-brand text-white shadow-glow animate-glow-pulse">
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-24 w-24 flex-col items-center justify-center rounded-full bg-gradient-brand text-white shadow-lg shadow-blue-600/40 animate-glow-pulse">
                 <Sparkles className="h-6 w-6" />
                 <span className="mt-1 text-[0.6rem] font-bold uppercase tracking-wider">AI Ready</span>
               </div>
@@ -1277,9 +1238,9 @@ function HomePage() {
                     className="absolute left-1/2 top-1/2 animate-orbit z-20"
                     style={{ "--angle": `${angle}deg` } as React.CSSProperties}
                   >
-                    <div className="flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-3.5 py-2 backdrop-blur shadow-lg hover:bg-white/20 hover:border-brand-glow transition-colors">
-                      <a.icon className="h-4 w-4 text-brand-glow shrink-0" />
-                      <span className="text-xs font-semibold text-white/90 whitespace-nowrap">{a.label}</span>
+                    <div className="flex items-center gap-2 rounded-full bg-white border-2 border-blue-200 px-3.5 py-2 shadow-md hover:border-blue-500 hover:shadow-lg transition-colors">
+                      <a.icon className="h-4 w-4 text-blue-600 shrink-0" />
+                      <span className="text-xs font-bold text-slate-900 whitespace-nowrap">{a.label}</span>
                     </div>
                   </div>
                 );
@@ -1295,10 +1256,10 @@ function HomePage() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className="flex items-center gap-2.5 rounded-full bg-white/5 border border-white/15 px-5 py-3 backdrop-blur hover:bg-white/10 hover:border-brand-glow transition-all"
+                  className="flex items-center gap-2.5 rounded-full bg-white border border-slate-200 px-5 py-3 shadow-xs hover:border-blue-300 transition-all"
                 >
-                  <a.icon className="h-4 w-4 text-brand-glow shrink-0" />
-                  <span className="text-sm font-semibold text-white/90 whitespace-nowrap">{a.label}</span>
+                  <a.icon className="h-4 w-4 text-blue-600 shrink-0" />
+                  <span className="text-sm font-semibold text-slate-800 whitespace-nowrap">{a.label}</span>
                 </motion.div>
               ))}
             </div>
@@ -1310,24 +1271,24 @@ function HomePage() {
       <SuccessStoriesSection />
 
       {/* ── Global Delivery Footprint ── */}
-      <section className="relative py-20 bg-[#111c33] text-white overflow-hidden">
+      <section className="relative py-20 bg-slate-50 text-slate-900 overflow-hidden border-y border-slate-200/60">
         {/* Subtle dot grid backdrop */}
-        <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle, #60a5fa 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.4]" style={{ backgroundImage: "radial-gradient(circle, #cbd5e1 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
 
           {/* Centered Heading */}
           <div className="text-center max-w-4xl mx-auto mb-10">
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-glow mb-4 justify-center flex items-center gap-2">
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-blue-600 mb-4 justify-center flex items-center gap-2">
               <Globe2 className="h-4 w-4 animate-spin-slow" /> Global Delivery
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight tracking-tight lg:whitespace-nowrap">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight tracking-tight lg:whitespace-nowrap text-slate-900">
               A Delivery Model That Spans{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
                 Onshore & Offshore
               </span>
             </h2>
-            <p className="mt-4 text-white/70 leading-relaxed text-center text-sm max-w-2xl mx-auto">
+            <p className="mt-4 text-slate-600 leading-relaxed text-center text-sm max-w-2xl mx-auto font-medium">
               Our operational centers in the United States and India power round-the-clock momentum, pairing local client partnership with offshore engineering scale.
             </p>
           </div>
