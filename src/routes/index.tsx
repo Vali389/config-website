@@ -1338,7 +1338,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ── Insights ── */}
+      {/* ── Insights / Resources (Commented Out) ──
       <section className="py-24 bg-soft border-t border-border/40">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
@@ -1388,6 +1388,7 @@ function HomePage() {
           </div>
         </div>
       </section>
+      ── */}
 
       {/* ── Certifications ── */}
       <section className="py-24 bg-white border-t border-border/40 overflow-hidden">

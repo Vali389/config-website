@@ -42,7 +42,7 @@ export function Footer() {
               <li><Link to="/industries" className="footer-link hover:text-brand-glow">Industries</Link></li>
               <li><Link to="/careers" className="footer-link hover:text-brand-glow">Careers</Link></li>
               <li><Link to="/faq" className="footer-link hover:text-brand-glow">FAQ</Link></li>
-              <li><Link to="/resources" className="footer-link hover:text-brand-glow">Resources</Link></li>
+              {/* <li><Link to="/resources" className="footer-link hover:text-brand-glow">Resources</Link></li> */}
             </ul>
           </div>
           <div>
