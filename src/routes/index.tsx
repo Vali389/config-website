@@ -50,7 +50,7 @@ import {
   Zap,
 } from "lucide-react";
 
-import heroPeople1 from "@/assets/hero-people-1.png";
+import heroTalentNetwork from "@/assets/hero-talent-network.png";
 import heroPeople2 from "@/assets/hero-nopeople-2.jpg";
 import heroPeople3 from "@/assets/hero-people-3.jpg";
 
@@ -60,7 +60,7 @@ import wdCloud from "@/assets/wd-cloud.jpg";
 import wdEnterprise from "@/assets/wd-enterprise.jpg";
 import wdWorkforce from "@/assets/wd-workforce.jpg";
 import wdManaged from "@/assets/wd-managed.jpg";
-import whoWeAreImg from "@/assets/who-we-are.jpg";
+import whoWeAreImg from "@/assets/about-hero-new.png";
 import ctaHome from "@/assets/cta-home.jpg";
 import storyHealthcare from "@/assets/story-healthcare.jpg";
 import storyCloud from "@/assets/story-cloud.jpg";
@@ -98,7 +98,7 @@ export const Route = createFileRoute("/")({
 
 const HERO_SLIDES = [
   {
-    image: heroPeople1,
+    image: heroTalentNetwork,
     imagePosition: "object-center",
     eyebrow: "Enterprise IT Staffing · Technology Talent Pods",
     title: (
@@ -128,7 +128,7 @@ const HERO_SLIDES = [
   {
     image: heroPeople3,
     imagePosition: "object-center",
-    contentClass: "pt-8 sm:pt-14",
+    contentClass: "pt-4 sm:pt-6",
     eyebrow: "Global IT Career Opportunities",
     title: (
       <>
@@ -244,237 +244,242 @@ const INSIGHTS = [
   { tag: "Workforce", title: "Workforce Strategies for a Changing Market", date: "Nov 20, 2025", icon: Users },
 ];
 
-/* ────────────────────────── Key Features (1-to-1 Butterfly Hub) ────────────────────────── */
+/* ────────────────────────── Key Features (Enterprise Growth Matrix) ────────────────────────── */
 
 function KeyFeatures() {
-  const LEFT_ITEMS = [
-    "AI Recruitment & Sourcing",
-    "Automated Code Screening",
-    "Rapid Onboarding & Scale",
+  const AI_CAPABILITIES = [
+    {
+      icon: BrainCircuit,
+      title: "AI-Powered Talent Matching",
+      desc: "Deep skill-graph matching pairs exact enterprise needs with top 1% verified engineers.",
+      tag: "AI Sourcing",
+    },
+    {
+      icon: Code2,
+      title: "Automated Code & Arch Screening",
+      desc: "Rigorous technical vetting across system design, code quality, and domain competence.",
+      tag: "Verified Quality",
+    },
+    {
+      icon: Zap,
+      title: "Rapid Onboarding & Scale",
+      desc: "Accelerated deployment pipelines to spin up pods or specialists in as little as 48 hours.",
+      tag: "48h Deployment",
+    },
   ];
 
-  const RIGHT_ITEMS = [
-    "Global Talent Footprint",
-    "Rigorous Vetting & Compliance",
-    "Dedicated Account Support",
+  const ENTERPRISE_CAPABILITIES = [
+    {
+      icon: Globe2,
+      title: "Global Talent Footprint",
+      desc: "Strategic onshore & offshore engineering hubs spanning the United States and India.",
+      tag: "Global Reach",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Rigorous Vetting & Compliance",
+      desc: "End-to-end background checks, E-Verify, SAM registered, and enterprise governance.",
+      tag: "Full Compliance",
+    },
+    {
+      icon: Headphones,
+      title: "Dedicated Account Support",
+      desc: "Executive engagement leads and agile project delivery managers for sustained momentum.",
+      tag: "24/7 Dedicated",
+    },
+  ];
+
+  const CORE_STATS = [
+    { value: "15+", label: "Years Experience", subtext: "Industry Track Record", icon: Sparkles, color: "from-blue-500 to-cyan-400" },
+    { value: "98%", label: "Client Retention", subtext: "Long-Term Partnerships", icon: ShieldCheck, color: "from-emerald-400 to-teal-500" },
+    { value: "500+", label: "Enterprise Projects", subtext: "Delivered on Schedule", icon: Rocket, color: "from-indigo-400 to-blue-500" },
+    { value: "24/7", label: "Global Delivery", subtext: "Follow-The-Sun Pods", icon: Globe2, color: "from-cyan-400 to-blue-600" },
   ];
 
   return (
-    <section className="py-24 bg-slate-50/60 relative overflow-hidden border-y border-slate-200/80">
-      {/* Background subtle grid pattern matching reference image */}
+    <section className="py-24 bg-gradient-to-b from-slate-50 via-white to-blue-50/40 relative overflow-hidden border-y border-slate-200/80">
+      {/* Background ambient grid & glow effects */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.3]"
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
         style={{
-          backgroundImage: "radial-gradient(circle, #cbd5e1 1.5px, transparent 1.5px)",
-          backgroundSize: "24px 24px",
+          backgroundImage: "radial-gradient(circle, #94a3b8 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
         }}
       />
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[450px] bg-blue-400/10 rounded-full blur-[140px]" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Why Choose Us"
           title="Everything You Need to Scale With Confidence"
           subtitle="ConfigUSA brings together intelligent technology, global reach, and people-first delivery — all in one trusted partnership."
         />
 
-        {/* 3 Equal Columns (4-4-4 of 12) for Perfect Horizontal Alignment */}
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 items-center">
-
-          {/* Left Card: Soft Blue Card with Bullet Dots on RIGHT */}
+        {/* 3-Column Modern Enterprise Hub */}
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-6 items-stretch">
+          
+          {/* Left Column: AI & Engineering Acceleration */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-4 flex flex-col justify-center rounded-2xl bg-gradient-to-br from-[#dbeafe]/90 via-[#eff6ff] to-[#bfdbfe]/80 border border-blue-200 p-6 sm:p-7 shadow-sm min-h-[260px]"
+            className="lg:col-span-4 flex flex-col justify-between space-y-4"
           >
-            <div className="space-y-4">
-              {LEFT_ITEMS.map((item, idx) => (
-                <div
-                  key={item}
-                  className={`flex items-center justify-between gap-3 ${
-                    idx < LEFT_ITEMS.length - 1 ? "pb-4 border-b border-dashed border-blue-300/80" : ""
-                  }`}
-                >
-                  <span className="text-sm sm:text-base font-bold text-slate-800 leading-snug">
-                    {item}
-                  </span>
-                  {/* Black bullet dot on right edge matching reference image */}
-                  <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-slate-900 shadow-xs" />
-                </div>
-              ))}
+            <div className="px-2 pb-1">
+              <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-[0.2em] text-blue-700">
+                <BrainCircuit className="h-4 w-4" /> AI & Talent Velocity
+              </span>
             </div>
+
+            {AI_CAPABILITIES.map((item, idx) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 * idx }}
+                className="group relative overflow-hidden rounded-2xl bg-white p-5 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-400 hover:-translate-y-1 transition-all duration-300 flex-1 flex flex-col justify-center"
+              >
+                <div className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-200/70 shadow-xs group-hover:bg-gradient-brand group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                    <item.icon className="h-5 w-5" />
+                  </span>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                        {item.title}
+                      </h3>
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md shrink-0">
+                        {item.tag}
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed text-justify">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+                {/* Bottom accent hover indicator */}
+                <div className="absolute bottom-0 inset-x-0 h-0.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
           </motion.div>
 
-          {/* Center Graphic: Pure Organic Vector Butterfly Graphic 1-to-1 Match */}
+          {/* Centerpiece: The ConfigUSA Enterprise Core Command Hub */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-4 flex flex-col items-center justify-center relative my-4 lg:my-0"
+            className="lg:col-span-4 relative flex flex-col justify-between rounded-3xl bg-gradient-to-br from-[#061224] via-[#0d1e38] to-[#0f2952] text-white p-6 sm:p-7 shadow-2xl border border-blue-500/30 overflow-hidden min-h-[460px] group"
           >
-            <motion.div
-              animate={{ y: [-5, 5, -5] }}
-              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-full max-w-[380px] aspect-[1.25/1] flex items-center justify-center"
-              style={{ perspective: 1000 }}
-            >
-              {/* Soft ambient flight glow behind butterfly */}
-              <div className="absolute inset-4 rounded-full bg-cyan-400/20 blur-3xl animate-pulse pointer-events-none" />
+            {/* Ambient Background Glows & Conic Animation */}
+            <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl animate-pulse" />
+            <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-cyan-500/20 blur-3xl animate-pulse" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px] opacity-15" />
 
-              {/* Master SVG Butterfly (Wings, Dividers, Antennae, Body & Text Overlays) */}
-              <svg viewBox="0 0 500 400" className="w-full h-full drop-shadow-2xl overflow-visible">
-                <defs>
-                  {/* Top Wing Brand Logo Navy-Blue Gradient */}
-                  <linearGradient id="topWingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#0f172a" />
-                    <stop offset="50%" stopColor="#1e3a8a" />
-                    <stop offset="100%" stopColor="#1d4ed8" />
-                  </linearGradient>
+            {/* Top Hub Header */}
+            <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4">
+              <div className="flex items-center gap-2.5">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-cyan-500" />
+                </span>
+                <span className="text-[11px] font-extrabold uppercase tracking-widest text-cyan-300">
+                  ConfigUSA Scale Engine
+                </span>
+              </div>
+              <span className="text-[10px] font-bold uppercase tracking-wider bg-white/10 text-white/90 px-2.5 py-1 rounded-full border border-white/15 backdrop-blur-sm">
+                Enterprise Core
+              </span>
+            </div>
 
-                  {/* Bottom Wing Brand Logo Cyan Gradient */}
-                  <linearGradient id="bottomWingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#1d4ed8" />
-                    <stop offset="50%" stopColor="#0284c7" />
-                    <stop offset="100%" stopColor="#00d2ff" />
-                  </linearGradient>
-
-                  {/* Body Gradient */}
-                  <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#00d2ff" />
-                    <stop offset="100%" stopColor="#1e3a8a" />
-                  </linearGradient>
-
-                  {/* Left Wing Flap Group Animation */}
-                  <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-                    <feDropShadow dx="0" dy="8" stdDeviation="6" floodColor="#0f172a" floodOpacity="0.3" />
-                  </filter>
-                </defs>
-
-                {/* ── LEFT WINGS GROUP (Continuous 3D Wing Flap) ── */}
-                <motion.g
-                  style={{ transformOrigin: "250px 200px" }}
-                  animate={{ rotateY: [0, 24, 0] }}
-                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+            {/* 2x2 Metric Grid */}
+            <div className="relative z-10 grid grid-cols-2 gap-3.5 my-5">
+              {CORE_STATS.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="relative overflow-hidden rounded-2xl bg-white/[0.06] backdrop-blur-md p-4 border border-white/10 hover:border-cyan-400/50 hover:bg-white/[0.1] transition-all duration-300 group/tile flex flex-col justify-between"
                 >
-                  {/* Left Top Wing */}
-                  <path
-                    d="M 235,190 C 220,110 145,25 75,20 C 15,15 -10,75 25,145 C 55,205 170,200 235,190 Z"
-                    fill="url(#topWingGrad)"
-                    stroke="rgba(255,255,255,0.45)"
-                    strokeWidth="2.5"
-                    filter="url(#shadow)"
-                  />
-                  {/* Left Bottom Wing */}
-                  <path
-                    d="M 235,210 C 170,210 50,205 30,270 C 10,335 75,385 145,365 C 215,345 230,265 235,210 Z"
-                    fill="url(#bottomWingGrad)"
-                    stroke="rgba(255,255,255,0.45)"
-                    strokeWidth="2.5"
-                    filter="url(#shadow)"
-                  />
-                  {/* Left Wing White Dashed Divider Line */}
-                  <line x1="28" y1="198" x2="242" y2="198" stroke="#ffffff" strokeWidth="3" strokeDasharray="8 6" opacity="0.95" />
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-brand text-white shadow-sm group-hover/tile:scale-110 transition-transform">
+                      <stat.icon className="h-4 w-4" />
+                    </span>
+                    <span className="text-[9px] font-bold uppercase tracking-wider text-cyan-300/80">
+                      Verified
+                    </span>
+                  </div>
+                  <div>
+                    <div className="text-2xl sm:text-3xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-blue-200">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs font-bold text-white/95 leading-tight mt-0.5">
+                      {stat.label}
+                    </div>
+                    <div className="text-[10px] text-white/60 leading-tight mt-0.5">
+                      {stat.subtext}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
 
-                  {/* Left Top Stat Text */}
-                  <text x="135" y="105" textAnchor="middle" fill="#ffffff" fontSize="30" fontWeight="900" fontFamily="sans-serif">
-                    15+
-                  </text>
-                  <text x="135" y="127" textAnchor="middle" fill="#bfdbfe" fontSize="9.5" fontWeight="800" letterSpacing="1.2" fontFamily="sans-serif">
-                    YEARS OF EXPERIENCE
-                  </text>
-
-                  {/* Left Bottom Stat Text */}
-                  <text x="140" y="280" textAnchor="middle" fill="#ffffff" fontSize="30" fontWeight="900" fontFamily="sans-serif">
-                    500+
-                  </text>
-                  <text x="140" y="302" textAnchor="middle" fill="#e0f2fe" fontSize="9.5" fontWeight="800" letterSpacing="1.2" fontFamily="sans-serif">
-                    ENTERPRISE PROJECTS
-                  </text>
-                </motion.g>
-
-                {/* ── RIGHT WINGS GROUP (Continuous 3D Wing Flap) ── */}
-                <motion.g
-                  style={{ transformOrigin: "250px 200px" }}
-                  animate={{ rotateY: [0, -24, 0] }}
-                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  {/* Right Top Wing */}
-                  <path
-                    d="M 265,190 C 280,110 355,25 425,20 C 485,15 510,75 475,145 C 445,205 330,200 265,190 Z"
-                    fill="url(#topWingGrad)"
-                    stroke="rgba(255,255,255,0.45)"
-                    strokeWidth="2.5"
-                    filter="url(#shadow)"
-                  />
-                  {/* Right Bottom Wing */}
-                  <path
-                    d="M 265,210 C 330,210 450,205 470,270 C 490,335 425,385 355,365 C 285,345 270,265 265,210 Z"
-                    fill="url(#bottomWingGrad)"
-                    stroke="rgba(255,255,255,0.45)"
-                    strokeWidth="2.5"
-                    filter="url(#shadow)"
-                  />
-                  {/* Right Wing White Dashed Divider Line */}
-                  <line x1="258" y1="198" x2="472" y2="198" stroke="#ffffff" strokeWidth="3" strokeDasharray="8 6" opacity="0.95" />
-
-                  {/* Right Top Stat Text */}
-                  <text x="365" y="105" textAnchor="middle" fill="#ffffff" fontSize="30" fontWeight="900" fontFamily="sans-serif">
-                    98%
-                  </text>
-                  <text x="365" y="127" textAnchor="middle" fill="#bfdbfe" fontSize="9.5" fontWeight="800" letterSpacing="1.2" fontFamily="sans-serif">
-                    CLIENT RETENTION
-                  </text>
-
-                  {/* Right Bottom Stat Text */}
-                  <text x="360" y="280" textAnchor="middle" fill="#ffffff" fontSize="30" fontWeight="900" fontFamily="sans-serif">
-                    24/7
-                  </text>
-                  <text x="360" y="302" textAnchor="middle" fill="#e0f2fe" fontSize="9.5" fontWeight="800" letterSpacing="1.2" fontFamily="sans-serif">
-                    GLOBAL SUPPORT
-                  </text>
-                </motion.g>
-
-                {/* ── CENTER BODY & ANTENNAE ── */}
-                {/* Left Antenna */}
-                <path d="M 246,130 C 238,75 210,40 180,45" fill="none" stroke="#00d2ff" strokeWidth="4" strokeLinecap="round" />
-                <circle cx="178" cy="45" r="5" fill="#00d2ff" />
-
-                {/* Right Antenna */}
-                <path d="M 254,130 C 262,75 290,40 320,45" fill="none" stroke="#00d2ff" strokeWidth="4" strokeLinecap="round" />
-                <circle cx="322" cy="45" r="5" fill="#00d2ff" />
-
-                {/* Oval Body */}
-                <ellipse cx="250" cy="200" rx="15" ry="75" fill="url(#bodyGrad)" stroke="#ffffff" strokeWidth="3" filter="url(#shadow)" />
-              </svg>
-            </motion.div>
+            {/* Bottom Trust & Delivery Pods Footnote */}
+            <div className="relative z-10 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-white/75">
+              <span className="flex items-center gap-1.5 font-medium">
+                <CheckCircle2 className="h-3.5 w-3.5 text-cyan-400" /> SLA Guaranteed
+              </span>
+              <span className="text-cyan-300 font-bold">
+                US + Global Pods
+              </span>
+            </div>
           </motion.div>
 
-          {/* Right Card: Soft Cyan Card with Bullet Dots on LEFT */}
+          {/* Right Column: Global Reach & Rigorous Compliance */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-4 flex flex-col justify-center rounded-2xl bg-gradient-to-br from-[#e0f2fe]/90 via-[#f0f9ff] to-[#bae6fd]/80 border border-blue-200 p-6 sm:p-7 shadow-sm min-h-[280px]"
+            className="lg:col-span-4 flex flex-col justify-between space-y-4"
           >
-            <div className="space-y-4">
-              {RIGHT_ITEMS.map((item, idx) => (
-                <div
-                  key={item}
-                  className={`flex items-center justify-start gap-4 ${
-                    idx < RIGHT_ITEMS.length - 1 ? "pb-4 border-b border-dashed border-blue-300/80" : ""
-                  }`}
-                >
-                  {/* Black bullet dot on left edge matching reference image */}
-                  <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-slate-900 shadow-xs" />
-                  <span className="text-sm sm:text-base font-bold text-slate-800 leading-snug">
-                    {item}
-                  </span>
-                </div>
-              ))}
+            <div className="px-2 pb-1">
+              <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-[0.2em] text-blue-700">
+                <ShieldCheck className="h-4 w-4" /> Enterprise Trust & Scale
+              </span>
             </div>
+
+            {ENTERPRISE_CAPABILITIES.map((item, idx) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 * idx }}
+                className="group relative overflow-hidden rounded-2xl bg-white p-5 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-400 hover:-translate-y-1 transition-all duration-300 flex-1 flex flex-col justify-center"
+              >
+                <div className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-200/70 shadow-xs group-hover:bg-gradient-brand group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                    <item.icon className="h-5 w-5" />
+                  </span>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                        {item.title}
+                      </h3>
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md shrink-0">
+                        {item.tag}
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed text-justify">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+                {/* Bottom accent hover indicator */}
+                <div className="absolute bottom-0 inset-x-0 h-0.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
           </motion.div>
 
         </div>
@@ -503,7 +508,7 @@ function Hero() {
     <section
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative h-[85vh] min-h-[620px] lg:h-[88vh] lg:min-h-[680px] overflow-hidden flex items-center bg-[#030a16] border-b border-blue-950/40"
+      className="relative min-h-screen lg:h-screen lg:max-h-[1080px] flex flex-col justify-between pt-20 sm:pt-24 pb-3 sm:pb-5 overflow-hidden bg-[#030a16] border-b border-blue-950/40"
     >
       {/* Background Image Carousel (Cross-Fade Transition) */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -512,25 +517,21 @@ function Hero() {
             key={slideIndex}
             src={currentSlide.image}
             alt="ConfigUSA Solutions"
-            className={`absolute inset-0 h-full w-full object-cover opacity-95 animate-kenburns ${currentSlide.imagePosition || "object-center"}`}
-            initial={{ opacity: 0, scale: 1.03 }}
-            animate={{ opacity: 0.90, scale: 1.07 }}
+            className={`absolute inset-0 h-full w-full object-cover opacity-95 ${currentSlide.imagePosition || "object-center"}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.95 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.1 }}
+            transition={{ duration: 0.7 }}
           />
         </AnimatePresence>
 
-        {/* Ambient Dark Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030a16]/75 via-[#030a16]/50 to-[#030a16]/20 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030a16]/60 via-transparent to-transparent z-10" />
-
-        {/* Drifting premium aurora tech glow blobs */}
-        <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] opacity-40 animate-drift" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[120px] opacity-30 animate-drift-slow" />
+        {/* Crisp directional gradient overlay to ensure text contrast while keeping image sharp */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030a16]/90 via-[#030a16]/50 to-black/20 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#030a16] via-transparent to-transparent z-10" />
       </div>
 
-      {/* Hero Content (Animated on slide change) */}
-      <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full py-16 sm:py-24">
+      {/* Hero Content (Flex middle area) */}
+      <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center py-2 sm:py-4">
         <AnimatePresence mode="wait">
           <motion.div
             key={slideIndex}
@@ -546,90 +547,96 @@ function Hero() {
                 visible: { opacity: 1, y: 0 }
               }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-block text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-blue-400 mb-5"
+              className="inline-block text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-blue-400 mb-3 sm:mb-4"
             >
               {currentSlide.eyebrow}
             </motion.span>
 
-            {/* Title: Slide In Left + Fade In (Matches configusa.com animation) */}
+            {/* Title: Responsive font sizing to fit viewport */}
             <motion.h1
               variants={{
-                hidden: { opacity: 0, x: -100 },
+                hidden: { opacity: 0, x: -60 },
                 visible: { opacity: 1, x: 0 }
               }}
-              transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display text-[1.85rem] sm:text-[2.25rem] lg:text-[2.5rem] xl:text-[3rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-4xl"
+              transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="font-display text-[1.75rem] sm:text-[2.2rem] md:text-[2.6rem] lg:text-[3rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-4xl"
             >
               {currentSlide.title}
             </motion.h1>
 
-            {/* Subtitle: Slide In Up + Fade In (Matches configusa.com animation) */}
+            {/* Subtitle: Responsive line height & text */}
             <motion.p
               variants={{
-                hidden: { opacity: 0, y: 40 },
+                hidden: { opacity: 0, y: 30 },
                 visible: { opacity: 1, y: 0 }
               }}
-              transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-6 text-sm sm:text-base md:text-lg text-white/80 max-w-2xl leading-relaxed text-justify"
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-3.5 sm:mt-5 text-sm sm:text-base md:text-lg text-white/80 max-w-2xl leading-relaxed text-justify"
             >
               {currentSlide.subtitle}
             </motion.p>
 
-            {/* Buttons: Slide In Up + Fade In (Matches configusa.com animation) */}
+            {/* Buttons & Slide Indicators Row */}
             <motion.div
               variants={{
-                hidden: { opacity: 0, y: 40 },
+                hidden: { opacity: 0, y: 30 },
                 visible: { opacity: 1, y: 0 }
               }}
-              transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-10 flex flex-wrap gap-4"
+              transition={{ duration: 0.8, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-6 sm:mt-8 flex flex-wrap items-center gap-4"
             >
               <Link
                 to={currentSlide.primaryBtn.to as any}
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-glow hover:scale-[1.03] active:scale-[0.98] transition-transform cursor-pointer"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 sm:px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-glow hover:scale-[1.03] active:scale-[0.98] transition-transform cursor-pointer"
               >
                 {currentSlide.primaryBtn.text} <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to={currentSlide.secondaryBtn.to as any}
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-7 py-3.5 text-xs sm:text-sm font-bold text-white hover:bg-white/10 hover:border-white/40 active:scale-[0.98] transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-6 sm:px-7 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/10 hover:border-white/40 active:scale-[0.98] transition-all cursor-pointer"
               >
                 {currentSlide.secondaryBtn.text}
               </Link>
+
+              {/* Slider Indicator Dots Embedded Cleanly beside buttons */}
+              <div className="flex items-center gap-2 bg-slate-950/60 backdrop-blur-md px-3.5 py-2 rounded-full border border-white/15 ml-0 sm:ml-2 shadow-md">
+                {HERO_SLIDES.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSlideIndex(idx)}
+                    className={`h-2 transition-all duration-300 rounded-full cursor-pointer ${
+                      slideIndex === idx ? "w-6 bg-blue-500 shadow-glow" : "w-2 bg-white/40 hover:bg-white/70"
+                    }`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
             </motion.div>
           </motion.div>
         </AnimatePresence>
       </div>
 
       {/* Manual Slider Navigation Arrow Controls (Desktop/Tablet) */}
-      <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 z-30 hidden md:flex items-center justify-between pointer-events-none">
+      <div className="absolute inset-x-4 top-[40%] -translate-y-1/2 z-30 hidden md:flex items-center justify-between pointer-events-none">
         <button
           onClick={() => setSlideIndex((prev) => (prev === 0 ? HERO_SLIDES.length - 1 : prev - 1))}
-          className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-950/40 border border-white/10 text-white/80 hover:text-white hover:bg-white/15 hover:border-blue-500/40 hover:scale-110 active:scale-95 transition-all pointer-events-auto cursor-pointer shadow-lg backdrop-blur-sm"
+          className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-950/50 border border-white/15 text-white/80 hover:text-white hover:bg-white/20 hover:border-blue-500/50 hover:scale-110 active:scale-95 transition-all pointer-events-auto cursor-pointer shadow-lg backdrop-blur-sm"
           aria-label="Previous slide"
         >
           <ChevronLeft className="h-6 w-6" />
         </button>
         <button
           onClick={() => setSlideIndex((prev) => (prev + 1) % HERO_SLIDES.length)}
-          className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-950/40 border border-white/10 text-white/80 hover:text-white hover:bg-white/15 hover:border-blue-500/40 hover:scale-110 active:scale-95 transition-all pointer-events-auto cursor-pointer shadow-lg backdrop-blur-sm"
+          className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-950/50 border border-white/15 text-white/80 hover:text-white hover:bg-white/20 hover:border-blue-500/50 hover:scale-110 active:scale-95 transition-all pointer-events-auto cursor-pointer shadow-lg backdrop-blur-sm"
           aria-label="Next slide"
         >
           <ChevronRight className="h-6 w-6" />
         </button>
       </div>
 
-      {/* Slider Indicator Dots (Bottom center navigation) */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5">
-        {HERO_SLIDES.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setSlideIndex(idx)}
-            className={`h-2 transition-all duration-300 rounded-full cursor-pointer ${slideIndex === idx ? "w-8 bg-blue-500" : "w-2 bg-white/40 hover:bg-white/70"
-              }`}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
+      {/* StatsBar nestled inside the 100vh viewport frame - 100% visible with zero scrolling! */}
+      <div className="relative z-30 w-full px-4 sm:px-6 lg:px-8 mt-auto">
+        <StatsBar className="relative z-20 mx-auto max-w-5xl w-full" />
       </div>
     </section>
   );
@@ -703,11 +710,8 @@ function SuccessStoriesSection() {
 function HomePage() {
   return (
     <>
-      {/* ── Hero ── */}
+      {/* ── Hero with Viewport-contained StatsBar ── */}
       <Hero />
-
-      {/* ── Impact Stats ── */}
-      <StatsBar />
 
       {/* ── Trusted by Organizations ── */}
       <TechTicker />
@@ -729,7 +733,7 @@ function HomePage() {
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3] w-full">
                 {/* Default Image */}
                 <img
-                  src={heroPeople1}
+                  src={whoWeAreImg}
                   alt="ConfigUSA technology professionals collaborating"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />

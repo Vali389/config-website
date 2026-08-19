@@ -66,7 +66,7 @@ export function TechTicker() {
                 <h3 className="text-sm font-bold text-ink whitespace-nowrap">
                   {s.label}
                 </h3>
-                <p className="mt-1.5 text-xs font-medium text-red-600 leading-tight">
+                <p className="mt-1.5 text-xs font-medium text-slate-500 leading-tight">
                   {s.desc}
                 </p>
               </div>

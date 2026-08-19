@@ -42,9 +42,9 @@ function CountUp({ to, suffix, isYear }: { to: number; suffix: string; isYear: b
   );
 }
 
-export function StatsBar() {
+export function StatsBar({ className = "relative -mt-12 z-20 mx-auto max-w-4xl px-4 lg:px-8" }: { className?: string } = {}) {
   return (
-    <div className="relative -mt-12 z-20 mx-auto max-w-4xl px-4 lg:px-8">
+    <div className={className}>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
