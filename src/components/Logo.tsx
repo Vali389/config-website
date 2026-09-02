@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/config-logo - Copy.jpeg";
+import logo from "@/assets/config-logo-official.png";
 
 export function Logo({ variant = "dark" }: { variant?: "dark" | "light" }) {
   const isLight = variant === "light";
@@ -11,18 +11,18 @@ export function Logo({ variant = "dark" }: { variant?: "dark" | "light" }) {
       aria-label="ConfigUSA — Your Intelligent IT Partner"
     >
       {isLight ? (
-        <span className="inline-flex items-center rounded-lg bg-white px-3 py-2 shadow-sm border border-transparent transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] group-hover:border-blue-100">
+        <span className="inline-flex items-center rounded-xl bg-white/95 backdrop-blur-md px-3.5 py-2 shadow-md border border-white/20 transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-glow">
           <img
             src={logo}
             alt="ConfigUSA — Your Intelligent IT Partner"
-            className="h-12 md:h-14 w-auto transition-transform duration-300"
+            className="h-10 md:h-12 w-auto object-contain transition-transform duration-300"
           />
         </span>
       ) : (
         <img
           src={logo}
           alt="ConfigUSA — Your Intelligent IT Partner"
-          className="h-14 md:h-18 w-auto transition-all duration-300 group-hover:scale-[1.03] group-hover:drop-shadow-[0_4px_12px_rgba(29,78,216,0.18)] group-hover:brightness-[1.05]"
+          className="h-12 md:h-15 w-auto object-contain transition-all duration-300 group-hover:scale-[1.03] group-hover:drop-shadow-[0_4px_12px_rgba(29,78,216,0.18)]"
         />
       )}
     </Link>

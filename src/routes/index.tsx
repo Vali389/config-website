@@ -50,6 +50,7 @@ import {
   Zap,
 } from "lucide-react";
 
+import heroImageNew from "@/assets/hero-image-new.jpg";
 import heroTalentNetwork from "@/assets/hero-talent-network.png";
 import heroPeople2 from "@/assets/hero-nopeople-2.jpg";
 import heroPeople3 from "@/assets/hero-people-3.jpg";
@@ -80,6 +81,7 @@ import { SplitText } from "@/components/SplitText";
 import { TechTicker } from "@/components/TechTicker";
 import { Testimonials } from "@/components/Testimonials";
 import { InteractiveWorldMap } from "@/components/InteractiveWorldMap";
+import { HeroParticleCanvas } from "@/components/HeroParticleCanvas";
 
 
 export const Route = createFileRoute("/")({
@@ -98,7 +100,7 @@ export const Route = createFileRoute("/")({
 
 const HERO_SLIDES = [
   {
-    image: heroTalentNetwork,
+    image: heroImageNew,
     imagePosition: "object-center",
     eyebrow: "Enterprise IT Staffing · Technology Talent Pods",
     title: (
@@ -317,7 +319,7 @@ function KeyFeatures() {
 
         {/* 3-Column Modern Enterprise Hub */}
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-6 items-stretch">
-          
+
           {/* Left Column: AI & Engineering Acceleration */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -490,151 +492,139 @@ function KeyFeatures() {
 
 /* ────────────────────────── Hero ────────────────────────── */
 
+const TEXT_SLIDES = [
+  {
+    eyebrow: "Enterprise IT Staffing",
+    title: "Niche Technology &\nEngineering Talent",
+    subtitle: "From cloud architects to AI engineers — rigorously vetted talent matched to your exact tech stack.",
+    primaryBtn: { text: "Request Talent", to: "/contact" },
+  },
+  {
+    eyebrow: "Digital Transformation",
+    title: "Scalable Workforce\nfor Modern Enterprises",
+    subtitle: "Contract, permanent & managed talent deployed fast — aligned to your timeline and culture.",
+    primaryBtn: { text: "View Solutions", to: "/services" },
+  },
+  {
+    eyebrow: "Global Delivery",
+    title: "Managed Technology\nDelivery Pods",
+    subtitle: "Dedicated onshore & offshore squads — owning outcomes from build to ongoing support.",
+    primaryBtn: { text: "Explore Delivery", to: "/services" },
+  },
+];
+
 function Hero() {
-  const [slideIndex, setSlideIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+  const [idx, setIdx] = useState(0);
+  const [dir, setDir] = useState(1); // 1 = forward, -1 = backward
 
+  const goTo = (next: number, direction: number) => {
+    setDir(direction);
+    setIdx(next);
+  };
+  const prev = () => goTo(idx === 0 ? TEXT_SLIDES.length - 1 : idx - 1, -1);
+  const next = () => goTo((idx + 1) % TEXT_SLIDES.length, 1);
+
+  // Auto-advance
   useEffect(() => {
-    if (isHovered) return;
-    const interval = setInterval(() => {
-      setSlideIndex((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, [isHovered]);
+    const t = setInterval(() => goTo((idx + 1) % TEXT_SLIDES.length, 1), 6000);
+    return () => clearInterval(t);
+  }, [idx]);
 
-  const currentSlide = HERO_SLIDES[slideIndex];
+  const slide = TEXT_SLIDES[idx];
 
   return (
-    <section
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="relative min-h-screen lg:h-screen lg:max-h-[1080px] flex flex-col justify-between pt-20 sm:pt-24 pb-3 sm:pb-5 overflow-hidden bg-[#030a16] border-b border-blue-950/40"
-    >
-      {/* Background Image Carousel (Cross-Fade Transition) */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={slideIndex}
-            src={currentSlide.image}
-            alt="ConfigUSA Solutions"
-            className={`absolute inset-0 h-full w-full object-cover opacity-95 ${currentSlide.imagePosition || "object-center"}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.95 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.7 }}
-          />
-        </AnimatePresence>
+    <section className="relative min-h-screen lg:h-screen lg:max-h-[1080px] flex flex-col justify-between pt-20 sm:pt-24 pb-3 sm:pb-5 overflow-hidden bg-[#030a16] border-b border-blue-950/40">
 
-        {/* Crisp directional gradient overlay to ensure text contrast while keeping image sharp */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030a16]/90 via-[#030a16]/50 to-black/20 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030a16] via-transparent to-transparent z-10" />
+      {/* ── Fixed particle background — NEVER changes on slide ── */}
+      <div className="absolute inset-0 z-0 overflow-hidden bg-[#030a16]">
+        <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-blue-700/20 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-cyan-500/10 blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-indigo-900/20 blur-[140px] pointer-events-none" />
+        <HeroParticleCanvas />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#030a16] via-transparent to-transparent z-10 pointer-events-none" />
       </div>
 
-      {/* Hero Content (Flex middle area) */}
-      <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center py-2 sm:py-4">
-        <AnimatePresence mode="wait">
+      {/* ── Left arrow ── */}
+      <button
+        onClick={prev}
+        aria-label="Previous slide"
+        className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 backdrop-blur-sm text-white/60 hover:text-white hover:border-white/40 hover:bg-white/10 transition-all duration-200 cursor-pointer"
+      >
+        <ChevronLeft className="h-5 w-5" />
+      </button>
+
+      {/* ── Right arrow ── */}
+      <button
+        onClick={next}
+        aria-label="Next slide"
+        className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 backdrop-blur-sm text-white/60 hover:text-white hover:border-white/40 hover:bg-white/10 transition-all duration-200 cursor-pointer"
+      >
+        <ChevronRight className="h-5 w-5" />
+      </button>
+
+      {/* ── Text content — only this slides ── */}
+      <div className="relative z-20 flex-1 flex flex-col items-center justify-center text-center px-16 sm:px-20 lg:px-24 overflow-hidden">
+        <AnimatePresence mode="wait" custom={dir}>
           <motion.div
-            key={slideIndex}
-            initial="hidden"
-            animate="visible"
+            key={idx}
+            custom={dir}
+            variants={{
+              enter: (d: number) => ({ opacity: 0, x: d * 80 }),
+              center: { opacity: 1, x: 0 },
+              exit: (d: number) => ({ opacity: 0, x: d * -80 }),
+            }}
+            initial="enter"
+            animate="center"
             exit="exit"
-            className={`max-w-3xl text-left ${currentSlide.contentClass || ""}`}
+            transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+            className="flex flex-col items-center"
           >
-            {/* Eyebrow Reveal */}
-            <motion.span
-              variants={{
-                hidden: { opacity: 0, y: 15 },
-                visible: { opacity: 1, y: 0 }
-              }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-block text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-blue-400 mb-3 sm:mb-4"
-            >
-              {currentSlide.eyebrow}
-            </motion.span>
+            {/* Eyebrow */}
+            <span className="inline-flex items-center gap-2 mb-5 rounded-full border border-blue-500/35 bg-blue-500/10 backdrop-blur-sm px-4 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-blue-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              {slide.eyebrow}
+            </span>
 
-            {/* Title: Responsive font sizing to fit viewport */}
-            <motion.h1
-              variants={{
-                hidden: { opacity: 0, x: -60 },
-                visible: { opacity: 1, x: 0 }
-              }}
-              transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display text-[1.75rem] sm:text-[2.2rem] md:text-[2.6rem] lg:text-[3rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-4xl"
-            >
-              {currentSlide.title}
-            </motion.h1>
+            {/* Heading — single line */}
+            <h1 className="font-display text-[2rem] sm:text-[2.6rem] md:text-[3rem] lg:text-[3.5rem] font-extrabold text-white leading-[1.1] tracking-tight whitespace-pre-line">
+              {slide.title.split("\n")[0]}{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
+                {slide.title.split("\n")[1]}
+              </span>
+            </h1>
 
-            {/* Subtitle: Responsive line height & text */}
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 }
-              }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-3.5 sm:mt-5 text-sm sm:text-base md:text-lg text-white/80 max-w-2xl leading-relaxed text-justify"
-            >
-              {currentSlide.subtitle}
-            </motion.p>
+            {/* Subtitle */}
+            <p className="mt-5 text-base sm:text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed">
+              {slide.subtitle}
+            </p>
 
-            {/* Buttons & Slide Indicators Row */}
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 }
-              }}
-              transition={{ duration: 0.8, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-6 sm:mt-8 flex flex-wrap items-center gap-4"
+            {/* Single CTA */}
+            <Link
+              to={slide.primaryBtn.to as any}
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-8 py-3.5 text-sm font-bold text-white shadow-glow hover:scale-[1.04] active:scale-[0.97] transition-transform cursor-pointer"
             >
-              <Link
-                to={currentSlide.primaryBtn.to as any}
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 sm:px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-glow hover:scale-[1.03] active:scale-[0.98] transition-transform cursor-pointer"
-              >
-                {currentSlide.primaryBtn.text} <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                to={currentSlide.secondaryBtn.to as any}
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-6 sm:px-7 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/10 hover:border-white/40 active:scale-[0.98] transition-all cursor-pointer"
-              >
-                {currentSlide.secondaryBtn.text}
-              </Link>
-
-              {/* Slider Indicator Dots Embedded Cleanly beside buttons */}
-              <div className="flex items-center gap-2 bg-slate-950/60 backdrop-blur-md px-3.5 py-2 rounded-full border border-white/15 ml-0 sm:ml-2 shadow-md">
-                {HERO_SLIDES.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setSlideIndex(idx)}
-                    className={`h-2 transition-all duration-300 rounded-full cursor-pointer ${
-                      slideIndex === idx ? "w-6 bg-blue-500 shadow-glow" : "w-2 bg-white/40 hover:bg-white/70"
-                    }`}
-                    aria-label={`Go to slide ${idx + 1}`}
-                  />
-                ))}
-              </div>
-            </motion.div>
+              {slide.primaryBtn.text} <ArrowRight className="h-4 w-4" />
+            </Link>
           </motion.div>
         </AnimatePresence>
+
+        {/* Dash indicators — SPIN style */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2">
+          {TEXT_SLIDES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i, i > idx ? 1 : -1)}
+              aria-label={`Slide ${i + 1}`}
+              className={`h-[3px] rounded-full transition-all duration-300 cursor-pointer ${i === idx ? "w-8 bg-cyan-400" : "w-4 bg-white/25 hover:bg-white/50"
+                }`}
+            />
+          ))}
+        </div>
+
+
       </div>
 
-      {/* Manual Slider Navigation Arrow Controls (Desktop/Tablet) */}
-      <div className="absolute inset-x-4 top-[40%] -translate-y-1/2 z-30 hidden md:flex items-center justify-between pointer-events-none">
-        <button
-          onClick={() => setSlideIndex((prev) => (prev === 0 ? HERO_SLIDES.length - 1 : prev - 1))}
-          className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-950/50 border border-white/15 text-white/80 hover:text-white hover:bg-white/20 hover:border-blue-500/50 hover:scale-110 active:scale-95 transition-all pointer-events-auto cursor-pointer shadow-lg backdrop-blur-sm"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </button>
-        <button
-          onClick={() => setSlideIndex((prev) => (prev + 1) % HERO_SLIDES.length)}
-          className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-950/50 border border-white/15 text-white/80 hover:text-white hover:bg-white/20 hover:border-blue-500/50 hover:scale-110 active:scale-95 transition-all pointer-events-auto cursor-pointer shadow-lg backdrop-blur-sm"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="h-6 w-6" />
-        </button>
-      </div>
-
-      {/* StatsBar nestled inside the 100vh viewport frame - 100% visible with zero scrolling! */}
+      {/* StatsBar */}
       <div className="relative z-30 w-full px-4 sm:px-6 lg:px-8 mt-auto">
         <StatsBar className="relative z-20 mx-auto max-w-5xl w-full" />
       </div>
@@ -643,6 +633,7 @@ function Hero() {
 }
 
 /* ────────────────────────── Success Stories Section ────────────────────────── */
+
 
 function SuccessStoriesSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -716,54 +707,57 @@ function HomePage() {
       {/* ── Trusted by Organizations ── */}
       <TechTicker />
 
-      {/* ── Who We Are ── */}
-      <section className="py-24 lg:py-28 bg-gradient-to-br from-blue-50 via-indigo-50/40 to-blue-50/80 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
-          {/* Left: Framed Image with Badge Overlays */}
+      {/* ── Who We Are (Redesigned Modern Section) ── */}
+      <section className="py-24 lg:py-28 bg-gradient-to-b from-slate-50 via-blue-50/30 to-white relative overflow-hidden">
+        {/* Subtle background ambient mesh glow */}
+        <div className="pointer-events-none absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-blue-400/10 blur-[130px]" />
+        <div className="pointer-events-none absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-cyan-400/10 blur-[120px]" />
+
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+
+          {/* Left Column (5 cols): Interactive Framed Visual & Stats Card */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -35 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 relative"
           >
-            <div className="absolute -inset-3 rounded-[2rem] bg-gradient-brand opacity-15 blur-2xl" />
+            <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-brand opacity-15 blur-2xl pointer-events-none" />
 
-            <div className="relative rounded-3xl border border-blue-200/80 bg-white p-2 sm:p-2.5 shadow-elegant overflow-hidden group cursor-pointer">
+            <div className="relative rounded-3xl border border-blue-200/80 bg-white p-3 shadow-elegant overflow-hidden group">
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3] w-full">
-                {/* Default Image */}
                 <img
                   src={whoWeAreImg}
                   alt="ConfigUSA technology professionals collaborating"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                {/* Hover Image */}
                 <img
                   src={heroPeople2}
-                  alt="ConfigUSA engineering excellence dashboard"
+                  alt="ConfigUSA engineering excellence"
                   className="absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
                 />
 
-                {/* Top-left SLA pill badge */}
-                <div className="absolute top-4 left-4 z-10 flex items-center gap-2 rounded-full bg-navy-deep/90 backdrop-blur-md px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-widest text-white border border-white/15 shadow-lg">
-                  <span className="h-2 w-2 rounded-full bg-blue-400 animate-pulse" />
-                  100% US-Based & Global Delivery
+                {/* Top SLA Badge */}
+                <div className="absolute top-4 left-4 z-10 flex items-center gap-2 rounded-full bg-slate-950/80 backdrop-blur-md px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-widest text-white border border-white/15 shadow-lg">
+                  <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
+                  100% US-Based &amp; Global Delivery
                 </div>
 
-                {/* Bottom stat overlay badge card */}
-                <div className="absolute bottom-4 inset-x-4 sm:inset-x-6 z-10 rounded-2xl bg-navy-deep/90 backdrop-blur-md p-4 sm:p-5 border border-white/15 shadow-2xl flex items-center gap-4 text-white">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-glow">
-                    <BadgeCheck className="h-6 w-6" />
+                {/* Overlay Floating Stat Card */}
+                <div className="absolute bottom-4 inset-x-4 sm:inset-x-5 z-10 rounded-2xl bg-slate-950/85 backdrop-blur-md p-4 border border-white/15 shadow-2xl flex items-center gap-4 text-white">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-glow">
+                    <BadgeCheck className="h-5 w-5" />
                   </span>
                   <div>
                     <div className="flex items-baseline gap-1.5">
-                      <span className="text-2xl sm:text-3xl font-black tracking-tight text-white">98.4%</span>
-                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-blue-300">
+                      <span className="text-2xl font-black tracking-tight text-white">98.4%</span>
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-300">
                         Client Retention
                       </span>
                     </div>
-                    <p className="text-xs text-white/80 mt-0.5 leading-snug">
-                      Long-term technology partnerships built on trust and delivery excellence.
+                    <p className="text-xs text-white/75 mt-0.5 leading-snug">
+                      Long-term enterprise partnerships built on trust and SLA delivery.
                     </p>
                   </div>
                 </div>
@@ -771,80 +765,88 @@ function HomePage() {
             </div>
           </motion.div>
 
-          {/* Right: Heading + Intro Paragraph + 3 Stacked Feature Cards */}
+          {/* Right Column (7 cols): Content & Redesigned Skill Cards */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 35 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 flex flex-col justify-center"
           >
-            <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-blue-700 mb-4 flex items-center gap-2">
-              <span className="h-px w-8 bg-blue-700" />
-              Who We Are
-            </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-blue-950 leading-tight tracking-tight mb-4 text-left max-w-xl">
-              More Than a Staffing Company. <span className="text-gradient-brand">A Technology Growth Partner.</span>
+            <div className="mb-4">
+              <span className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.28em] text-blue-700 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200/60">
+                <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+                Who We Are
+              </span>
+            </div>
+
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-[1.35rem] xl:text-[1.55rem] font-black text-slate-900 leading-snug tracking-tight mb-4 whitespace-nowrap">
+              More Than a Staffing Company.{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+                A Technology Growth Partner.
+              </span>
             </h2>
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed text-justify mb-8">
-              Technology transformation depends on people. At ConfigUSA, we pair intelligent matching algorithms with
-              specialized delivery teams to deliver high-caliber technology professionals who turn strategic initiatives
-              into measurable business results.
+
+            <p className="text-slate-600 text-base leading-relaxed mb-6">
+              At ConfigUSA, we pair intelligent matching algorithms with specialized engineering pods to deploy high-caliber technology talent that moves enterprise initiatives forward with speed and precision.
             </p>
 
-            {/* 3 stacked horizontal feature cards */}
-            <div className="space-y-4">
-              <div className="group rounded-2xl bg-white p-5 sm:p-6 border border-blue-100 shadow-card hover:shadow-elegant hover:border-blue-300 transition-all duration-300 flex items-start gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-sm group-hover:scale-110 transition-transform duration-300">
-                  <BadgeCheck className="h-6 w-6" />
+            {/* 3 Redesigned Glassmorphic Skill Cards */}
+            <div className="space-y-3.5">
+              <div className="group relative overflow-hidden rounded-2xl bg-white p-4 sm:p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-blue-400 hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-200/70 group-hover:bg-gradient-brand group-hover:text-white transition-all duration-300 shadow-xs">
+                  <BadgeCheck className="h-5 w-5" />
                 </span>
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-ink group-hover:text-blue-700 transition-colors">
-                    Skill-Graph & Technical Vetting
+                  <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    Skill-Graph &amp; Technical Vetting
                   </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed text-justify mt-1">
-                    Every professional is rigorously verified across technical competencies, architecture expertise, and
-                    delivery experience before submission.
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1">
+                    Multi-level technical screening, code verification, and architectural assessment before submission.
                   </p>
                 </div>
+                <div className="absolute bottom-0 inset-x-0 h-0.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
-              <div className="group rounded-2xl bg-white p-5 sm:p-6 border border-blue-100 shadow-card hover:shadow-elegant hover:border-blue-300 transition-all duration-300 flex items-start gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-sm group-hover:scale-110 transition-transform duration-300">
-                  <ShieldCheck className="h-6 w-6" />
+              <div className="group relative overflow-hidden rounded-2xl bg-white p-4 sm:p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-blue-400 hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-200/70 group-hover:bg-gradient-brand group-hover:text-white transition-all duration-300 shadow-xs">
+                  <ShieldCheck className="h-5 w-5" />
                 </span>
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-ink group-hover:text-blue-700 transition-colors">
-                    Compliance & Dedicated Lead
+                  <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    Compliance &amp; Dedicated Engagement Manager
                   </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed text-justify mt-1">
-                    End-to-end compliance, background verification, and a dedicated engagement manager ensuring seamless
-                    onboarding and ongoing momentum.
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1">
+                    100% compliant background screening, E-Verify, SAM registered, and dedicated SLA management.
                   </p>
                 </div>
+                <div className="absolute bottom-0 inset-x-0 h-0.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
-              <div className="group rounded-2xl bg-white p-5 sm:p-6 border border-blue-100 shadow-card hover:shadow-elegant hover:border-blue-300 transition-all duration-300 flex items-start gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-sm group-hover:scale-110 transition-transform duration-300">
-                  <Target className="h-6 w-6" />
+              <div className="group relative overflow-hidden rounded-2xl bg-white p-4 sm:p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-blue-400 hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-200/70 group-hover:bg-gradient-brand group-hover:text-white transition-all duration-300 shadow-xs">
+                  <Target className="h-5 w-5" />
                 </span>
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-ink group-hover:text-blue-700 transition-colors">
-                    Specialist Teams Built for Speed
+                  <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    Rapid Talent Pod Deployment
                   </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed text-justify mt-1">
-                    Whether expanding engineering teams or implementing enterprise platforms, we assemble the exact
-                    talent you need in record time.
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1">
+                    Deploy contract specialists, full-stack software squads, or cloud architects within 48 to 72 hours.
                   </p>
                 </div>
+                <div className="absolute bottom-0 inset-x-0 h-0.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
 
-            <Link
-              to="/about"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-4 text-sm font-bold text-white shadow-glow hover:scale-105 transition-transform"
-            >
-              More About ConfigUSA <ArrowRight className="h-4 w-4" />
-            </Link>
+            <div className="mt-7 flex items-center gap-4">
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-bold text-white shadow-glow hover:scale-[1.03] active:scale-[0.98] transition-transform cursor-pointer"
+              >
+                More About ConfigUSA <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -1018,92 +1020,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ── Why ConfigUSA ── */}
-      <section className="py-24 bg-gradient-to-br from-slate-100 via-blue-50/90 to-indigo-50/70 text-slate-900 relative overflow-hidden border-y border-blue-200/80">
-        {/* Soft background glow */}
-        <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-200/50 rounded-full blur-[140px]" />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-blue-700 mb-4">Why ConfigUSA</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight tracking-tight">
-              Delivering Business Value Beyond Talent
-            </h2>
-            <p className="mt-5 text-slate-700 leading-relaxed text-justify max-w-md font-medium">
-              Instead of simply supplying professionals, we become an extension of your organization—bringing expertise,
-              responsiveness, and a commitment to your long-term success.
-            </p>
-            <Link
-              to="/about"
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-gradient-brand hover:brightness-110 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:scale-105 shadow-md shadow-blue-600/30"
-            >
-              Discover Our Approach <ArrowRight className="h-4 w-4" />
-            </Link>
-          </motion.div>
-
-          <div className="relative z-10">
-            {/* Rotating orbit — lg and up */}
-            <div className="relative mx-auto hidden lg:block w-[420px] h-[420px]">
-              {/* Rotating conic ring */}
-              <div
-                className="absolute inset-6 rounded-full animate-ring"
-                style={{
-                  background: "conic-gradient(from 0deg, transparent 0deg, rgba(29,78,216,0.5) 90deg, transparent 210deg)",
-                  maskImage: "radial-gradient(closest-side, transparent 73%, #000 75%)",
-                  WebkitMaskImage: "radial-gradient(closest-side, transparent 73%, #000 75%)",
-                }}
-              />
-              {/* Static dashed guide ring */}
-              <div className="absolute inset-6 rounded-full border border-dashed border-blue-300" />
-              {/* Center hub */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-24 w-24 flex-col items-center justify-center rounded-full bg-gradient-brand text-white shadow-lg shadow-blue-600/40 animate-glow-pulse">
-                <Target className="h-6 w-6" />
-                <span className="mt-1 text-[0.6rem] font-bold uppercase tracking-wider">Why Us</span>
-              </div>
-              {/* Orbiting strengths */}
-              {WHY_ORBIT.map((w, i) => {
-                const angle = (360 / WHY_ORBIT.length) * i;
-                return (
-                  <div
-                    key={w.label}
-                    className="absolute left-1/2 top-1/2 animate-orbit z-20"
-                    style={{ "--angle": `${angle}deg` } as React.CSSProperties}
-                  >
-                    <div className="flex items-center gap-2 rounded-full bg-white border-2 border-blue-200 px-3.5 py-2 shadow-md hover:border-blue-500 hover:shadow-lg transition-colors">
-                      <w.icon className="h-4 w-4 text-blue-600 shrink-0" />
-                      <span className="text-xs font-bold text-slate-900 whitespace-nowrap">{w.label}</span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Strengths list — below lg */}
-            <div className="grid sm:grid-cols-2 gap-4 lg:hidden">
-              {WHY_ORBIT.map((w, i) => (
-                <motion.div
-                  key={w.label}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className="flex items-center gap-3 rounded-2xl bg-white border border-slate-200 p-4 shadow-xs hover:border-blue-300 transition-all"
-                >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 font-bold border border-blue-200">
-                    <w.icon className="h-5 w-5" />
-                  </span>
-                  <span className="text-sm font-semibold text-slate-800">{w.label}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── Industries ── */}
       <section className="relative py-24 bg-white overflow-hidden">
