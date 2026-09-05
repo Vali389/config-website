@@ -536,7 +536,7 @@ function Hero() {
     <section className="relative min-h-screen lg:h-screen lg:max-h-[1080px] flex flex-col justify-between pt-20 sm:pt-24 pb-3 sm:pb-5 overflow-hidden bg-[#030a16] border-b border-blue-950/40">
 
       {/* ── Fixed particle background — NEVER changes on slide ── */}
-      <div className="absolute inset-0 z-0 overflow-hidden bg-[#030a16]">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-blue-700/20 blur-[120px] pointer-events-none" />
         <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-cyan-500/10 blur-[100px] pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-indigo-900/20 blur-[140px] pointer-events-none" />
@@ -1116,7 +1116,7 @@ function HomePage() {
             transition={{ duration: 0.7 }}
           >
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-blue-700 mb-4">The AI Advantage</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight tracking-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-slate-900 leading-tight tracking-tight">
               Helping Organizations Succeed in the AI Era
             </h2>
             <p className="mt-5 text-slate-700 leading-relaxed text-justify max-w-md font-medium">
@@ -1203,7 +1203,7 @@ function HomePage() {
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-blue-600 mb-4 justify-center flex items-center gap-2">
               <Globe2 className="h-4 w-4 animate-spin-slow" /> Global Delivery
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight tracking-tight lg:whitespace-nowrap text-slate-900">
+            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold leading-tight tracking-tight lg:whitespace-nowrap text-slate-900">
               A Delivery Model That Spans{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
                 Onshore & Offshore
