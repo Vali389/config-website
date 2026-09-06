@@ -66,14 +66,17 @@ export function Testimonials() {
       <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-blue-100/60 rounded-full blur-[120px]" />
 
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="text-center max-w-4xl mx-auto mb-14">
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-blue-600 mb-3">
             What Our Clients Say
           </p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Trusted by Leaders Across Industries
+          <h2 className="text-base sm:text-lg md:text-xl lg:text-[1.35rem] xl:text-[1.55rem] font-black text-slate-900 leading-snug tracking-tight">
+            Trusted by Leaders{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+              Across Industries
+            </span>
           </h2>
-          <p className="mt-4 text-slate-600 text-sm md:text-base font-medium">
+          <p className="mt-3 text-slate-600 text-xs sm:text-sm md:text-base font-medium sm:whitespace-nowrap">
             See how ConfigUSA helps enterprise leaders build high-performing engineering and AI teams.
           </p>
         </div>

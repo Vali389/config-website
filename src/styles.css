@@ -198,7 +198,7 @@
 }
 
 @utility animate-ticker {
-  animation: ticker 70s linear infinite;
+  animation: ticker 130s linear infinite;
 }
 
 @keyframes float-slow {

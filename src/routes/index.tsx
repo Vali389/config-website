@@ -313,7 +313,14 @@ function KeyFeatures() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Why Choose Us"
-          title="Everything You Need to Scale With Confidence"
+          title={
+            <>
+              Everything You Need to{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+                Scale With Confidence
+              </span>
+            </>
+          }
           subtitle="ConfigUSA brings together intelligent technology, global reach, and people-first delivery — all in one trusted partnership."
         />
 
@@ -659,7 +666,14 @@ function SuccessStoriesSection() {
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <SectionHeading
           eyebrow="Success Stories"
-          title="Real Outcomes for Real Organizations"
+          title={
+            <>
+              Real Outcomes for{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+                Real Organizations
+              </span>
+            </>
+          }
           subtitle="Business results delivered through the right technology talent, at the right time."
         />
       </div>
@@ -787,7 +801,7 @@ function HomePage() {
               </span>
             </h2>
 
-            <p className="text-slate-600 text-base leading-relaxed mb-6">
+            <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed mb-6 font-medium">
               At ConfigUSA, we pair intelligent matching algorithms with specialized engineering pods to deploy high-caliber technology talent that moves enterprise initiatives forward with speed and precision.
             </p>
 
@@ -856,7 +870,14 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="What We Do"
-            title="End-to-End Capabilities That Drive Outcomes"
+            title={
+              <>
+                End-to-End Capabilities That{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+                  Drive Outcomes
+                </span>
+              </>
+            }
             subtitle="From AI to enterprise platforms and world-class talent, we help organizations achieve their most important technology goals."
           />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -929,7 +950,14 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="How We Partner"
-            title="Your Journey With ConfigUSA"
+            title={
+              <>
+                Your Journey With{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+                  ConfigUSA
+                </span>
+              </>
+            }
             subtitle="From first conversation to long-term partnership — here's how we help you move forward with confidence."
             maxWidth="max-w-6xl"
           />
@@ -988,7 +1016,14 @@ function HomePage() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Engagement Models"
-            title={<span className="text-gradient-brand">Flexible Ways to Work With Us</span>}
+            title={
+              <>
+                Flexible Ways to{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+                  Work With Us
+                </span>
+              </>
+            }
             subtitle="From a single specialist to a fully managed delivery team, choose the engagement that fits your goals and timeline."
           />
           <div className="mt-14 max-w-5xl mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
@@ -1028,7 +1063,14 @@ function HomePage() {
         <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Industries"
-            title="Deep Expertise Across the Sectors You Serve"
+            title={
+              <>
+                Deep Expertise Across the{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+                  Sectors You Serve
+                </span>
+              </>
+            }
             subtitle="We bring specialized knowledge and proven delivery to the industries driving digital transformation."
           />
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -1116,10 +1158,13 @@ function HomePage() {
             transition={{ duration: 0.7 }}
           >
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-blue-700 mb-4">The AI Advantage</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-slate-900 leading-tight tracking-tight">
-              Helping Organizations Succeed in the AI Era
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-[1.35rem] xl:text-[1.55rem] font-black text-slate-900 leading-snug tracking-tight">
+              Helping Organizations Succeed in the{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+                AI Era
+              </span>
             </h2>
-            <p className="mt-5 text-slate-700 leading-relaxed text-justify max-w-md font-medium">
+            <p className="mt-3.5 text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed text-justify max-w-md font-medium">
               Artificial Intelligence is changing every industry. ConfigUSA helps organizations build AI-ready teams by
               providing expertise across strategy, engineering, data, governance, and implementation.
             </p>
@@ -1203,14 +1248,14 @@ function HomePage() {
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-blue-600 mb-4 justify-center flex items-center gap-2">
               <Globe2 className="h-4 w-4 animate-spin-slow" /> Global Delivery
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold leading-tight tracking-tight lg:whitespace-nowrap text-slate-900">
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-[1.35rem] xl:text-[1.55rem] font-black leading-snug tracking-tight text-slate-900">
               A Delivery Model That Spans{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-                Onshore & Offshore
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+                Onshore &amp; Offshore
               </span>
             </h2>
-            <p className="mt-4 text-slate-600 leading-relaxed text-center text-sm max-w-2xl mx-auto font-medium">
-              Our operational centers in the United States and India power round-the-clock momentum, pairing local client partnership with offshore engineering scale.
+            <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed text-center max-w-4xl mx-auto font-medium sm:whitespace-nowrap">
+              Our operational centers in the United States and India power round-the-clock momentum.
             </p>
           </div>
 
@@ -1226,7 +1271,14 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Why Companies Stay"
-            title="Why Companies Continue to Work with Us"
+            title={
+              <>
+                Why Companies Continue to{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+                  Work with Us
+                </span>
+              </>
+            }
           />
           <div className="mt-16 relative">
             {/* Animated connecting line (chain) */}
@@ -1264,7 +1316,14 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Insights"
-            title="Ideas Shaping the Future of Technology"
+            title={
+              <>
+                Ideas Shaping the{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+                  Future of Technology
+                </span>
+              </>
+            }
             subtitle="Perspectives on AI, digital transformation, workforce strategy, and technology leadership."
           />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -1315,7 +1374,14 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Certifications & Credentials"
-            title="Certified, Compliant & Trusted"
+            title={
+              <>
+                Certified, Compliant &amp;{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+                  Trusted
+                </span>
+              </>
+            }
             subtitle="ConfigUSA holds the certifications and registrations that let organizations engage us with confidence across commercial and public-sector programs."
           />
         </div>
@@ -1356,7 +1422,14 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Get Started"
-            title="Whether You're Hiring or Growing Your Career"
+            title={
+              <>
+                Whether You're Hiring or{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+                  Growing Your Career
+                </span>
+              </>
+            }
             subtitle="ConfigUSA is the bridge between forward-thinking organizations and exceptional technology talent."
           />
           <div className="mt-14 grid md:grid-cols-2 gap-6">
@@ -1432,10 +1505,10 @@ function HomePage() {
           <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-brand-glow/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-brand/20 blur-3xl" />
           <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-20">
-            <h2 className="font-display text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-tight tracking-tight max-w-3xl">
-              Let's Build the <span className="text-brand-glow">Future Together</span>
+            <h2 className="font-display text-base sm:text-lg md:text-xl lg:text-[1.35rem] xl:text-[1.55rem] font-black text-white leading-snug tracking-tight max-w-3xl">
+              Let's Build the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Future Together</span>
             </h2>
-            <p className="mt-5 text-white/75 text-base md:text-lg max-w-2xl leading-relaxed text-justify">
+            <p className="mt-4 text-white/75 text-xs sm:text-sm md:text-base max-w-2xl leading-relaxed text-justify">
               Whether you're scaling engineering teams, implementing enterprise platforms, or advancing your AI strategy,
               ConfigUSA is ready to help.
             </p>

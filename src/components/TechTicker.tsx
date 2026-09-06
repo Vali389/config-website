@@ -76,9 +76,8 @@ export function TechTicker({
           <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-slate-50/90 via-slate-50/60 to-transparent z-10" />
 
           <div
-            className={`flex gap-5 sm:gap-6 animate-ticker w-max items-center py-2 hover:[animation-play-state:paused] ${
-              inView ? "[animation-play-state:running]" : "[animation-play-state:paused]"
-            }`}
+            className={`flex gap-5 sm:gap-6 w-max items-center py-2 hover:[animation-play-state:paused] ${inView ? "animate-ticker" : ""
+              }`}
           >
             {loop.map((logo, idx) => (
               <div
