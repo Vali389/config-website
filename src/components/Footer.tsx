@@ -4,10 +4,11 @@ import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-navy-deep text-white/80">
-      <div className="absolute top-0 inset-x-0 h-0.5 bg-gradient-brand animate-gradient-x z-10" />
-      <div className="absolute inset-0 bg-gradient-hero opacity-90" />
-      <div className="relative mx-auto max-w-7xl px-4 py-16 lg:px-8">
+    <footer className="relative overflow-hidden bg-[#040914] text-white/80 border-t border-blue-900/30">
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#061122] via-[#040914] to-[#02050b]" />
+      <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-64 w-[600px] bg-blue-600/10 blur-[130px]" />
+      <div className="relative mx-auto max-w-7xl px-4 py-16 lg:px-8 z-10">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-6">
           <div className="lg:col-span-2">
             <Logo variant="light" />

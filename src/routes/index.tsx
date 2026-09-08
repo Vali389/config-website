@@ -299,24 +299,25 @@ function KeyFeatures() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-slate-50 via-white to-blue-50/40 relative overflow-hidden border-y border-slate-200/80">
-      {/* Background ambient grid & glow effects */}
+    <section className="py-24 bg-gradient-to-b from-[#071326] via-[#0d2246] to-[#091730] relative overflow-hidden border-y border-blue-900/40 text-white">
+      {/* Background ambient circuit & network grid & glow effects */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        className="pointer-events-none absolute inset-0 opacity-20"
         style={{
-          backgroundImage: "radial-gradient(circle, #94a3b8 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, #38bdf8 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[450px] bg-blue-400/10 rounded-full blur-[140px]" />
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[500px] bg-blue-600/15 rounded-full blur-[140px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Why Choose Us"
+          light={true}
           title={
             <>
               Everything You Need to{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
                 Scale With Confidence
               </span>
             </>
@@ -336,7 +337,7 @@ function KeyFeatures() {
             className="lg:col-span-4 flex flex-col justify-between space-y-4"
           >
             <div className="px-2 pb-1">
-              <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-[0.2em] text-blue-700">
+              <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-[0.2em] text-cyan-300">
                 <BrainCircuit className="h-4 w-4" /> AI & Talent Velocity
               </span>
             </div>
@@ -453,7 +454,7 @@ function KeyFeatures() {
             className="lg:col-span-4 flex flex-col justify-between space-y-4"
           >
             <div className="px-2 pb-1">
-              <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-[0.2em] text-blue-700">
+              <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-[0.2em] text-cyan-300">
                 <ShieldCheck className="h-4 w-4" /> Enterprise Trust & Scale
               </span>
             </div>
@@ -662,8 +663,9 @@ function SuccessStoriesSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-soft border-y border-border/40 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+    <section ref={sectionRef} className="py-24 bg-gradient-to-b from-[#f5f9fe] via-[#edf4fc] to-[#f5f9fe] border-y border-blue-100/70 relative overflow-hidden">
+      <div className="pointer-events-none absolute -top-24 left-1/3 w-80 h-80 bg-blue-300/10 rounded-full blur-[110px]" />
+      <div className="mx-auto max-w-7xl px-4 lg:px-8 relative z-10">
         <SectionHeading
           eyebrow="Success Stories"
           title={
@@ -679,8 +681,8 @@ function SuccessStoriesSection() {
       </div>
 
       <div className="mt-14 relative">
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-soft to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-soft to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-[#f5f9fe] to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-[#f5f9fe] to-transparent z-10" />
 
         <div className={`flex gap-6 w-max ${isInView ? "animate-marquee" : ""} hover:[animation-play-state:paused] px-3`}>
           {[...STORIES, ...STORIES].map((s, idx) => (
@@ -722,10 +724,10 @@ function HomePage() {
       <TechTicker />
 
       {/* ── Who We Are (Redesigned Modern Section) ── */}
-      <section className="py-24 lg:py-28 bg-gradient-to-b from-slate-50 via-blue-50/30 to-white relative overflow-hidden">
-        {/* Subtle background ambient mesh glow */}
-        <div className="pointer-events-none absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-blue-400/10 blur-[130px]" />
-        <div className="pointer-events-none absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-cyan-400/10 blur-[120px]" />
+      <section className="py-24 lg:py-28 bg-gradient-to-b from-white via-[#f0f6fe] to-[#e6f1fc] relative overflow-hidden border-b border-blue-100/50">
+        {/* Very subtle light-blue ambient glow behind image and content */}
+        <div className="pointer-events-none absolute -top-32 -left-32 h-[520px] w-[520px] rounded-full bg-blue-400/12 blur-[130px]" />
+        <div className="pointer-events-none absolute bottom-0 right-0 h-[450px] w-[450px] rounded-full bg-cyan-400/10 blur-[130px]" />
 
         <div className="mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
 
@@ -866,8 +868,18 @@ function HomePage() {
       </section>
 
       {/* ── What We Do ── */}
-      <section className="py-24 bg-white border-y border-border/40">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <section className="py-24 bg-gradient-to-b from-[#edf4fc] via-[#f1f6fc] to-[#e4eef9] border-y border-blue-200/50 relative overflow-hidden">
+        {/* Very soft background curves & large blurred blobs strictly BEHIND content */}
+        <div className="pointer-events-none absolute -top-36 left-1/4 h-96 w-96 rounded-full bg-blue-300/15 blur-[120px]" />
+        <div className="pointer-events-none absolute -bottom-36 right-1/4 h-96 w-96 rounded-full bg-cyan-300/15 blur-[120px]" />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.25] overflow-hidden">
+          <svg className="w-full h-full" viewBox="0 0 1440 600" fill="none" preserveAspectRatio="none">
+            <path d="M-100 250 C 300 450, 700 50, 1100 300 C 1300 420, 1500 200, 1600 250" stroke="#3b82f6" strokeWidth="1.5" strokeOpacity="0.15" fill="none" />
+            <path d="M-100 350 C 250 150, 650 500, 1050 200 C 1250 80, 1450 350, 1600 300" stroke="#0ea5e9" strokeWidth="1.5" strokeOpacity="0.12" fill="none" />
+          </svg>
+        </div>
+
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 relative z-10">
           <SectionHeading
             eyebrow="What We Do"
             title={
@@ -946,8 +958,13 @@ function HomePage() {
       <KeyFeatures />
 
       {/* ── Your Journey (horizontal stepper) ── */}
-      <section className="py-24 bg-gradient-to-br from-blue-50 via-indigo-50/40 to-blue-50/80 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <section className="py-24 bg-gradient-to-b from-[#e8f1fc] via-[#e3eefb] to-[#edf4fc] relative overflow-hidden border-y border-blue-200/50">
+        {/* Subtle horizontal process flow glow behind cards */}
+        <div className="pointer-events-none absolute top-1/2 left-0 right-0 h-48 -translate-y-1/2 bg-gradient-to-r from-blue-400/5 via-cyan-400/10 to-indigo-400/5 blur-2xl" />
+        <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-blue-300/10 blur-[120px]" />
+        <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-cyan-300/10 blur-[120px]" />
+
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 relative z-10">
           <SectionHeading
             eyebrow="How We Partner"
             title={
@@ -1012,7 +1029,12 @@ function HomePage() {
       </section>
 
       {/* ── Engagement Models ── */}
-      <section className="py-24 bg-white text-slate-900 relative overflow-hidden border-y border-slate-200/80">
+      <section className="py-24 bg-gradient-to-b from-white via-[#f4f8fe] to-[#edf4fd] text-slate-900 relative overflow-hidden border-y border-blue-100/70">
+        {/* Soft blurred blue blobs & organic ambient shapes */}
+        <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-blue-400/10 blur-[120px]" />
+        <div className="pointer-events-none absolute top-1/2 -right-24 h-[450px] w-[450px] rounded-full bg-cyan-300/12 blur-[130px]" />
+        <div className="pointer-events-none absolute -bottom-24 left-1/3 h-80 w-80 rounded-full bg-indigo-300/10 blur-[110px]" />
+
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Engagement Models"
@@ -1058,8 +1080,10 @@ function HomePage() {
 
 
       {/* ── Industries ── */}
-      <section className="relative py-24 bg-white overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-plus-grid opacity-60" />
+      <section className="relative py-24 bg-gradient-to-b from-[#edf3fa] via-[#f3f7fc] to-[#eaf1f8] overflow-hidden border-y border-slate-200/60">
+        <div className="pointer-events-none absolute inset-0 bg-plus-grid opacity-35" />
+        <div className="pointer-events-none absolute -top-32 right-1/4 h-80 w-80 rounded-full bg-slate-400/10 blur-[100px]" />
+        <div className="pointer-events-none absolute bottom-0 left-1/4 h-96 w-96 rounded-full bg-blue-300/10 blur-[120px]" />
         <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Industries"
@@ -1146,9 +1170,10 @@ function HomePage() {
       </section>
 
       {/* ── The AI Advantage ── */}
-      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-blue-50 via-indigo-50/70 to-slate-50 text-slate-900 border-y border-blue-200/80">
-        {/* Soft background glow */}
-        <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-indigo-200/50 rounded-full blur-[140px]" />
+      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-[#f0f5fc] via-[#e8f1fc] to-[#f2f7fd] text-slate-900 border-y border-blue-200/70">
+        {/* Soft technology background ambient glows */}
+        <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[750px] h-[380px] bg-blue-300/25 rounded-full blur-[140px]" />
+        <div className="pointer-events-none absolute -bottom-24 right-10 w-[400px] h-[400px] bg-cyan-300/15 rounded-full blur-[130px]" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
           <motion.div
@@ -1237,9 +1262,11 @@ function HomePage() {
       <SuccessStoriesSection />
 
       {/* ── Global Delivery Footprint ── */}
-      <section className="relative py-20 bg-slate-50 text-slate-900 overflow-hidden border-y border-slate-200/60">
-        {/* Subtle dot grid backdrop */}
-        <div className="pointer-events-none absolute inset-0 opacity-[0.4]" style={{ backgroundImage: "radial-gradient(circle, #cbd5e1 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+      <section className="relative py-20 bg-gradient-to-b from-[#edf4fc] via-[#e2eefb] to-[#edf4fc] text-slate-900 overflow-hidden border-y border-blue-200/60">
+        {/* Subtle technology dot grid, coordinate lines & soft glow */}
+        <div className="pointer-events-none absolute inset-0 opacity-[0.35]" style={{ backgroundImage: "radial-gradient(circle, #3b82f6 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+        <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-blue-400/15 rounded-full blur-[140px]" />
+        <div className="pointer-events-none absolute bottom-0 right-10 w-[450px] h-[250px] bg-cyan-400/10 blur-[120px]" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
 
@@ -1267,8 +1294,15 @@ function HomePage() {
 
 
       {/* ── Why Companies Continue ── */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <section className="py-24 bg-gradient-to-b from-[#f2f7fd] via-[#eaf2fb] to-[#f4f9fe] relative overflow-hidden border-y border-blue-100/60">
+        {/* Subtle brand watermark effect & soft ambient glow */}
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none text-[13vw] font-black text-blue-600/[0.025] tracking-widest uppercase whitespace-nowrap z-0">
+          CONFIGUSA
+        </div>
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-blue-400/10 rounded-full blur-[130px]" />
+        <div className="pointer-events-none absolute -bottom-24 right-1/4 w-80 h-80 bg-cyan-300/10 rounded-full blur-[110px]" />
+
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 relative z-10">
           <SectionHeading
             eyebrow="Why Companies Stay"
             title={
@@ -1312,8 +1346,9 @@ function HomePage() {
       </section>
 
       {/* ── Insights ── */}
-      <section className="py-24 bg-soft border-t border-border/40">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <section className="py-24 bg-gradient-to-b from-[#f8fafc] via-[#f1f6fc] to-[#eaf2fb] relative overflow-hidden border-t border-blue-100/70">
+        <div className="pointer-events-none absolute -top-24 left-1/4 w-80 h-80 bg-blue-300/10 rounded-full blur-[110px]" />
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 relative z-10">
           <SectionHeading
             eyebrow="Insights"
             title={
@@ -1370,7 +1405,7 @@ function HomePage() {
       </section>
 
       {/* ── Certifications ── */}
-      <section className="py-24 bg-white border-t border-border/40 overflow-hidden">
+      <section className="py-24 bg-gradient-to-b from-[#eaf2fb] via-[#f4f8fe] to-white border-t border-blue-100/60 overflow-hidden relative">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Certifications & Credentials"
@@ -1387,8 +1422,8 @@ function HomePage() {
         </div>
 
         <div className="mt-14 relative">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-white to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-white to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-[#eaf2fb] to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-[#eaf2fb] to-transparent z-10" />
 
           <div className="flex gap-6 w-max animate-marquee hover:[animation-play-state:paused] px-3">
             {[...CERTIFICATIONS, ...CERTIFICATIONS].map((c, idx) => (
@@ -1418,8 +1453,9 @@ function HomePage() {
       </section>
 
       {/* ── For Employers / For Job Seekers ── */}
-      <section className="py-24 bg-soft border-y border-border/40">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <section className="py-24 bg-gradient-to-b from-white via-[#f1f6fc] to-[#eaf2fb] border-y border-blue-100/60 relative overflow-hidden">
+        <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-300/10 rounded-full blur-[130px]" />
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 relative z-10">
           <SectionHeading
             eyebrow="Get Started"
             title={
@@ -1492,18 +1528,20 @@ function HomePage() {
       <Testimonials />
 
       {/* ── Final CTA ── */}
-      <section className="py-16 px-4 lg:px-8 bg-white">
+      <section className="py-20 px-4 lg:px-8 bg-gradient-to-b from-[#edf4fb] via-[#f1f6fc] to-[#040914] relative overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative overflow-hidden rounded-3xl mx-auto max-w-6xl"
+          className="relative overflow-hidden rounded-3xl mx-auto max-w-6xl shadow-2xl border border-blue-500/25"
         >
-          <img src={ctaHome} alt="Let's Build the Future Together background" className="absolute inset-0 h-full w-full object-cover animate-zoom-pulse" />
-          <div className="absolute inset-0 bg-gradient-to-br from-navy-deep/95 via-navy-deep/85 to-navy/70" />
-          <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-brand-glow/20 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-brand/20 blur-3xl" />
+          <img src={ctaHome} alt="Let's Build the Future Together background" className="absolute inset-0 h-full w-full object-cover animate-zoom-pulse opacity-25" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#061124] via-[#0b2046] to-[#144287]" />
+          {/* Subtle technology grid and electric blue glows */}
+          <div className="pointer-events-none absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle, #38bdf8 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
+          <div className="pointer-events-none absolute -top-20 -right-20 h-96 w-96 rounded-full bg-blue-500/25 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-20 -left-20 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
           <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-20">
             <h2 className="font-display text-base sm:text-lg md:text-xl lg:text-[1.35rem] xl:text-[1.55rem] font-black text-white leading-snug tracking-tight max-w-3xl">
               Let's Build the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Future Together</span>

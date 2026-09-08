@@ -60,12 +60,13 @@ export function Testimonials() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 bg-white text-slate-900 overflow-hidden border-t border-slate-200/80"
+      className="relative py-24 bg-gradient-to-b from-white via-[#f6f9fc] to-[#edf4fb] text-slate-900 overflow-hidden border-t border-blue-100/70"
     >
-      {/* Glow effect behind section header */}
-      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-blue-100/60 rounded-full blur-[120px]" />
+      {/* Subtle calm decorative glow */}
+      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-blue-100/40 rounded-full blur-[130px]" />
+      <div className="pointer-events-none absolute bottom-0 right-1/4 w-[400px] h-[250px] bg-cyan-100/30 rounded-full blur-[120px]" />
 
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8 relative z-10">
         <div className="text-center max-w-4xl mx-auto mb-14">
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-blue-600 mb-3">
             What Our Clients Say
@@ -82,9 +83,9 @@ export function Testimonials() {
         </div>
       </div>
 
-      <div className="relative">
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
+      <div className="relative z-10">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white via-[#f6f9fc]/80 to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white via-[#f6f9fc]/80 to-transparent z-10" />
 
         {/* Marquee autoscrolls ONLY when section is in view */}
         <div

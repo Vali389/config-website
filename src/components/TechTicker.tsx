@@ -57,7 +57,7 @@ export function TechTicker({
   }, []);
 
   return (
-    <section className={`bg-slate-50/60 border-y border-slate-200/80 py-8 sm:py-10 overflow-hidden ${className}`}>
+    <section className={`bg-gradient-to-r from-[#f8fafc] via-[#edf4fc] to-[#f8fafc] border-y border-blue-100/80 py-8 sm:py-10 overflow-hidden ${className}`}>
       <motion.div
         ref={sectionRef}
         initial={{ opacity: 0, y: 15 }}
@@ -72,8 +72,8 @@ export function TechTicker({
 
         <div className="relative flex overflow-hidden">
           {/* Edge fade overlays */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-slate-50/90 via-slate-50/60 to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-slate-50/90 via-slate-50/60 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-[#f8fafc] via-[#edf4fc]/80 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-[#f8fafc] via-[#edf4fc]/80 to-transparent z-10" />
 
           <div
             className={`flex gap-5 sm:gap-6 w-max items-center py-2 hover:[animation-play-state:paused] ${inView ? "animate-ticker" : ""
