@@ -541,15 +541,20 @@ function Hero() {
   const slide = TEXT_SLIDES[idx];
 
   return (
-    <section className="relative min-h-screen lg:h-screen lg:max-h-[1080px] flex flex-col justify-between pt-20 sm:pt-24 pb-3 sm:pb-5 overflow-hidden bg-[#030a16] border-b border-blue-950/40">
+    <section className="relative min-h-screen lg:h-screen lg:max-h-[1080px] flex flex-col justify-between pt-20 sm:pt-24 pb-3 sm:pb-5 overflow-hidden bg-[#06152F] border-b border-blue-900/40">
 
-      {/* ── Fixed particle background — NEVER changes on slide ── */}
+      {/* ── Fixed particle background matching #06152F → #003BB2 → #0EA5E9 ── */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-blue-700/20 blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-cyan-500/10 blur-[100px] pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-indigo-900/20 blur-[140px] pointer-events-none" />
+        {/* Deep blue gradient base */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#06152F] via-[#081e42] to-[#002f8a] opacity-90 pointer-events-none" />
+        {/* Technology blue bloom #003BB2 */}
+        <div className="absolute top-1/4 right-[10%] w-[700px] h-[700px] rounded-full bg-[#003BB2]/35 blur-[140px] pointer-events-none" />
+        {/* Electric sky cyan glow #0EA5E9 */}
+        <div className="absolute top-1/3 right-[18%] w-[500px] h-[500px] rounded-full bg-[#0EA5E9]/20 blur-[110px] pointer-events-none" />
+        {/* Ambient top-left diffuse glow */}
+        <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-[#003BB2]/20 blur-[130px] pointer-events-none" />
         <HeroParticleCanvas />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030a16] via-transparent to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#06152F] via-transparent to-transparent z-10 pointer-events-none" />
       </div>
 
       {/* ── Left arrow ── */}
