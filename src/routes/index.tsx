@@ -1533,7 +1533,7 @@ function HomePage() {
       <Testimonials />
 
       {/* ── Final CTA ── */}
-      <section className="py-20 px-4 lg:px-8 bg-gradient-to-b from-[#edf4fb] via-[#f1f6fc] to-[#040914] relative overflow-hidden">
+      <section className="py-20 px-4 lg:px-8 bg-white relative overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
