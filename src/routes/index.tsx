@@ -82,6 +82,13 @@ import { TechTicker } from "@/components/TechTicker";
 import { Testimonials } from "@/components/Testimonials";
 import { InteractiveWorldMap } from "@/components/InteractiveWorldMap";
 import { HeroParticleCanvas } from "@/components/HeroParticleCanvas";
+import { WhoWeAreBackground } from "@/components/WhoWeAreBackground";
+import { WhatWeDoBackground } from "@/components/WhatWeDoBackground";
+import { HowWePartnerBackground } from "@/components/HowWePartnerBackground";
+import { EngagementModelsBackground } from "@/components/EngagementModelsBackground";
+import { IndustriesBackground } from "@/components/IndustriesBackground";
+import { AIAdvantageBackground } from "@/components/AIAdvantageBackground";
+
 
 
 export const Route = createFileRoute("/")({
@@ -729,10 +736,8 @@ function HomePage() {
       <TechTicker />
 
       {/* ── Who We Are (Redesigned Modern Section) ── */}
-      <section className="py-24 lg:py-28 bg-gradient-to-b from-white via-[#f0f6fe] to-[#e6f1fc] relative overflow-hidden border-b border-blue-100/50">
-        {/* Very subtle light-blue ambient glow behind image and content */}
-        <div className="pointer-events-none absolute -top-32 -left-32 h-[520px] w-[520px] rounded-full bg-blue-400/12 blur-[130px]" />
-        <div className="pointer-events-none absolute bottom-0 right-0 h-[450px] w-[450px] rounded-full bg-cyan-400/10 blur-[130px]" />
+      <section className="py-24 lg:py-28 relative overflow-hidden">
+        <WhoWeAreBackground />
 
         <div className="mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
 
@@ -873,16 +878,8 @@ function HomePage() {
       </section>
 
       {/* ── What We Do ── */}
-      <section className="py-24 bg-gradient-to-b from-[#edf4fc] via-[#f1f6fc] to-[#e4eef9] border-y border-blue-200/50 relative overflow-hidden">
-        {/* Very soft background curves & large blurred blobs strictly BEHIND content */}
-        <div className="pointer-events-none absolute -top-36 left-1/4 h-96 w-96 rounded-full bg-blue-300/15 blur-[120px]" />
-        <div className="pointer-events-none absolute -bottom-36 right-1/4 h-96 w-96 rounded-full bg-cyan-300/15 blur-[120px]" />
-        <div className="pointer-events-none absolute inset-0 opacity-[0.25] overflow-hidden">
-          <svg className="w-full h-full" viewBox="0 0 1440 600" fill="none" preserveAspectRatio="none">
-            <path d="M-100 250 C 300 450, 700 50, 1100 300 C 1300 420, 1500 200, 1600 250" stroke="#3b82f6" strokeWidth="1.5" strokeOpacity="0.15" fill="none" />
-            <path d="M-100 350 C 250 150, 650 500, 1050 200 C 1250 80, 1450 350, 1600 300" stroke="#0ea5e9" strokeWidth="1.5" strokeOpacity="0.12" fill="none" />
-          </svg>
-        </div>
+      <section className="py-24 relative overflow-hidden border-b border-blue-200/50">
+        <WhatWeDoBackground />
 
         <div className="mx-auto max-w-7xl px-4 lg:px-8 relative z-10">
           <SectionHeading
@@ -963,11 +960,8 @@ function HomePage() {
       <KeyFeatures />
 
       {/* ── Your Journey (horizontal stepper) ── */}
-      <section className="py-24 bg-gradient-to-b from-[#e8f1fc] via-[#e3eefb] to-[#edf4fc] relative overflow-hidden border-y border-blue-200/50">
-        {/* Subtle horizontal process flow glow behind cards */}
-        <div className="pointer-events-none absolute top-1/2 left-0 right-0 h-48 -translate-y-1/2 bg-gradient-to-r from-blue-400/5 via-cyan-400/10 to-indigo-400/5 blur-2xl" />
-        <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-blue-300/10 blur-[120px]" />
-        <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-cyan-300/10 blur-[120px]" />
+      <section className="py-24 relative overflow-hidden border-y border-blue-200/50">
+        <HowWePartnerBackground />
 
         <div className="mx-auto max-w-7xl px-4 lg:px-8 relative z-10">
           <SectionHeading
@@ -1034,11 +1028,8 @@ function HomePage() {
       </section>
 
       {/* ── Engagement Models ── */}
-      <section className="py-24 bg-gradient-to-b from-white via-[#f4f8fe] to-[#edf4fd] text-slate-900 relative overflow-hidden border-y border-blue-100/70">
-        {/* Soft blurred blue blobs & organic ambient shapes */}
-        <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-blue-400/10 blur-[120px]" />
-        <div className="pointer-events-none absolute top-1/2 -right-24 h-[450px] w-[450px] rounded-full bg-cyan-300/12 blur-[130px]" />
-        <div className="pointer-events-none absolute -bottom-24 left-1/3 h-80 w-80 rounded-full bg-indigo-300/10 blur-[110px]" />
+      <section className="py-24 text-slate-900 relative overflow-hidden border-y border-blue-100/70">
+        <EngagementModelsBackground />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
@@ -1085,10 +1076,8 @@ function HomePage() {
 
 
       {/* ── Industries ── */}
-      <section className="relative py-24 bg-gradient-to-b from-[#edf3fa] via-[#f3f7fc] to-[#eaf1f8] overflow-hidden border-y border-slate-200/60">
-        <div className="pointer-events-none absolute inset-0 bg-plus-grid opacity-35" />
-        <div className="pointer-events-none absolute -top-32 right-1/4 h-80 w-80 rounded-full bg-slate-400/10 blur-[100px]" />
-        <div className="pointer-events-none absolute bottom-0 left-1/4 h-96 w-96 rounded-full bg-blue-300/10 blur-[120px]" />
+      <section className="relative py-24 overflow-hidden border-y border-slate-200/60">
+        <IndustriesBackground />
         <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Industries"
@@ -1175,10 +1164,8 @@ function HomePage() {
       </section>
 
       {/* ── The AI Advantage ── */}
-      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-[#f0f5fc] via-[#e8f1fc] to-[#f2f7fd] text-slate-900 border-y border-blue-200/70">
-        {/* Soft technology background ambient glows */}
-        <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[750px] h-[380px] bg-blue-300/25 rounded-full blur-[140px]" />
-        <div className="pointer-events-none absolute -bottom-24 right-10 w-[400px] h-[400px] bg-cyan-300/15 rounded-full blur-[130px]" />
+      <section className="relative py-24 overflow-hidden text-white border-y border-blue-900/40">
+        <AIAdvantageBackground />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
           <motion.div
@@ -1187,14 +1174,14 @@ function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-blue-700 mb-4">The AI Advantage</p>
-            <h2 className="text-base sm:text-lg md:text-xl lg:text-[1.35rem] xl:text-[1.55rem] font-black text-slate-900 leading-snug tracking-tight">
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-cyan-400 mb-4">The AI Advantage</p>
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-[1.35rem] xl:text-[1.55rem] font-black text-white leading-snug tracking-tight">
               Helping Organizations Succeed in the{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-200">
                 AI Era
               </span>
             </h2>
-            <p className="mt-3.5 text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed text-justify max-w-md font-medium">
+            <p className="mt-3.5 text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed text-justify max-w-md font-medium">
               Artificial Intelligence is changing every industry. ConfigUSA helps organizations build AI-ready teams by
               providing expertise across strategy, engineering, data, governance, and implementation.
             </p>
