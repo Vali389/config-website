@@ -3,11 +3,11 @@ import { useEffect, useRef } from "react";
 import { UserCheck, Users, Layers, ShieldCheck, Clock } from "lucide-react";
 
 const STATS = [
-  { icon: UserCheck,   value: 10,  suffix: "K+", label: "Professionals Placed", isYear: false },
-  { icon: Users,       value: 500, suffix: "+",  label: "Happy Clients",        isYear: false },
-  { icon: Layers,      value: 15,  suffix: "+",  label: "Industries Served",    isYear: false },
-  { icon: ShieldCheck, value: 95,  suffix: "%",  label: "Client Retention",     isYear: false },
-  { icon: Clock,       value: 48,  suffix: "h",  label: "Avg. Delivery",        isYear: false },
+  { icon: UserCheck, value: 10, suffix: "K+", label: "Professionals Placed", isYear: false },
+  { icon: Users, value: 500, suffix: "+", label: "Happy Clients", isYear: false },
+  { icon: Layers, value: 15, suffix: "+", label: "Industries Served", isYear: false },
+  { icon: ShieldCheck, value: 95, suffix: "%", label: "Client Retention", isYear: false },
+  { icon: Clock, value: 48, suffix: "h", label: "Avg. Delivery", isYear: false },
 ];
 
 function CountUp({ to, suffix, isYear }: { to: number; suffix: string; isYear: boolean }) {

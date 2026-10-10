@@ -605,3 +605,17 @@
 @utility animate-dash {
   animation: dash-scroll 1.5s linear infinite;
 }
+
+/* Suppress intrusive third-party attention grabbers & popups */
+#tawk-bubble-container,
+[id^="tawk-bubble"],
+.tawk-bubble-container,
+.tawk-min-container .tawk-bubble,
+div[class*="tawk-bubble"],
+iframe[title*="chat bubble"],
+iframe[title*="bubble"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

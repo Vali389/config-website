@@ -43,7 +43,7 @@ export function WhatsAppButton() {
   };
 
   return (
-    <div className="fixed bottom-24 right-6 z-[9999] flex flex-col items-center gap-3">
+    <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-center gap-3">
       {/* WhatsApp Action Drawer Panel */}
       <AnimatePresence>
         {open && (
@@ -52,82 +52,89 @@ export function WhatsAppButton() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.92 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute bottom-16 right-0 w-[92vw] max-w-[360px] overflow-hidden rounded-3xl bg-white shadow-elegant ring-1 ring-black/5 text-left mb-2 z-50"
+            className="absolute bottom-14 right-0 w-[92vw] max-w-[340px] overflow-hidden rounded-2xl bg-white shadow-elegant ring-1 ring-black/5 text-left mb-2 z-50"
           >
             {/* Header */}
-            <div className="relative bg-gradient-to-br from-[#128C7E] to-[#25D366] px-5 pt-5 pb-6 text-white">
+            <div className="relative bg-[#0a1628] px-5 pt-4 pb-5 text-white">
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close chat"
-                className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors cursor-pointer"
+                className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/15 hover:bg-white/25 transition-colors cursor-pointer"
               >
-                <X className="h-4 w-4" />
+                <X className="h-3.5 w-3.5" />
               </button>
               <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/20 backdrop-blur">
-                  <WhatsAppIcon className="h-6 w-6" />
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/15 backdrop-blur">
+                  <MessageSquare className="h-4.5 w-4.5" />
                 </span>
                 <div>
-                  <div className="font-bold leading-tight">ConfigUSA Support</div>
-                  <div className="flex items-center gap-1.5 text-xs text-white/85">
-                    <span className="h-2 w-2 rounded-full bg-green-300 animate-pulse" /> Online — replies in minutes
+                  <div className="font-semibold text-sm leading-tight">ConfigUSA</div>
+                  <div className="flex items-center gap-1.5 text-xs text-white/70">
+                    <span className="h-1.5 w-1.5 rounded-full bg-green-400" /> Online
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Body */}
-            <div className="px-5 py-5 bg-slate-50/70">
-              <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="max-w-[85%] rounded-2xl rounded-tl-sm bg-white px-4 py-3 text-sm text-ink shadow-sm"
-              >
-                👋 Hi! How can we help? Pick an option below or message us on WhatsApp.
-              </motion.div>
+            <div className="px-5 py-4 bg-slate-50/70">
+              <div className="max-w-[85%] rounded-xl rounded-tl-sm bg-white px-3.5 py-2.5 text-sm text-slate-700 shadow-sm">
+                👋 Hi! How can we help?
+              </div>
 
-              <div className="mt-4 flex flex-col items-end gap-2.5">
+              <div className="mt-3 flex flex-col items-end gap-2">
                 {REPLIES.map((r, i) => (
-                  <motion.div
+                  <Link
                     key={r.label}
-                    initial={{ opacity: 0, x: 12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.18 + i * 0.07 }}
+                    to={r.to}
+                    onClick={() => setOpen(false)}
+                    className="group inline-flex items-center gap-2 rounded-xl rounded-tr-sm border border-blue-200 bg-white px-3.5 py-2 text-sm font-medium text-blue-700 shadow-sm hover:bg-blue-600 hover:text-white hover:border-transparent transition-colors cursor-pointer"
                   >
-                    <Link
-                      to={r.to}
-                      onClick={() => setOpen(false)}
-                      className="group inline-flex items-center gap-2 rounded-2xl rounded-tr-sm border border-[#25D366]/40 bg-white px-4 py-2.5 text-sm font-semibold text-[#128C7E] shadow-sm hover:bg-[#25D366] hover:text-white hover:border-transparent transition-colors cursor-pointer"
-                    >
-                      <r.icon className="h-4 w-4" /> {r.label}
-                    </Link>
-                  </motion.div>
+                    <r.icon className="h-3.5 w-3.5" /> {r.label}
+                  </Link>
                 ))}
               </div>
             </div>
 
             {/* Footer CTA */}
-            <div className="border-t border-border/60 bg-white p-4">
+            <div className="border-t border-slate-200/60 bg-white p-3">
               <a
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-bold text-white shadow-md hover:bg-[#1ebe5a] transition-colors"
+                className="flex items-center justify-center gap-2 rounded-lg bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#1ebe5a] transition-colors"
               >
-                <WhatsAppIcon className="h-5 w-5" /> Start WhatsApp Chat <ArrowRight className="h-4 w-4" />
+                <WhatsAppIcon className="h-4 w-4" /> WhatsApp Chat <ArrowRight className="h-3.5 w-3.5" />
               </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Floating WhatsApp Toggle Button (Matches green circle in reference) */}
+      {/* Scroll to Top Button */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            key="scroll-top"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.2 }}
+            onClick={handleScrollTop}
+            aria-label="Scroll to top"
+            className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800 text-white shadow-sm hover:bg-slate-700 transition-colors cursor-pointer"
+          >
+            <ArrowUp className="h-4 w-4" />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      {/* Small floating assistant button */}
       <button
         onClick={() => setOpen((v) => !v)}
-        aria-label={open ? "Close chat" : "Open chat"}
-        className={`relative flex h-14 w-14 items-center justify-center rounded-full text-white shadow-elegant transition-transform hover:scale-110 cursor-pointer z-40 ${
-          open ? "bg-[#128C7E]" : "bg-[#25D366] animate-pulse-ring"
+        aria-label={open ? "Close assistant" : "Open assistant"}
+        className={`relative flex h-11 w-11 items-center justify-center rounded-lg text-white shadow-md transition-all hover:scale-105 cursor-pointer z-40 ${
+          open ? "bg-slate-700" : "bg-[#1d4ed8]"
         }`}
       >
         <AnimatePresence mode="wait" initial={false}>
@@ -137,46 +144,23 @@ export function WhatsAppButton() {
               initial={{ rotate: -90, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.15 }}
             >
-              <X className="h-6 w-6" />
+              <X className="h-4.5 w-4.5" />
             </motion.span>
           ) : (
             <motion.span
-              key="wa"
+              key="chat"
               initial={{ rotate: 90, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: -90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.15 }}
             >
-              <WhatsAppIcon className="h-7 w-7" />
+              <MessageSquare className="h-4.5 w-4.5" />
             </motion.span>
           )}
         </AnimatePresence>
-        {!open && (
-          <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-[0.65rem] font-black text-white ring-2 ring-white">
-            1
-          </span>
-        )}
       </button>
-
-      {/* Floating Scroll to Top Button (Matches teal circle in reference) */}
-      <AnimatePresence>
-        {showScrollTop && (
-          <motion.button
-            key="scroll-top"
-            initial={{ opacity: 0, scale: 0.5, y: 15 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.5, y: 10 }}
-            transition={{ duration: 0.25 }}
-            onClick={handleScrollTop}
-            aria-label="Scroll to top"
-            className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-brand text-white shadow-glow hover:scale-110 hover:brightness-110 active:scale-95 transition-all cursor-pointer border border-blue-500/20 z-40"
-          >
-            <ArrowUp className="h-7 w-7 stroke-[3]" />
-          </motion.button>
-        )}
-      </AnimatePresence>
     </div>
   );
 }

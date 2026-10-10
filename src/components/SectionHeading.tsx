@@ -6,7 +6,7 @@ export function SectionHeading({
   subtitle,
   align = "center",
   light = false,
-  maxWidth = "max-w-6xl",
+  maxWidth = "max-w-3xl",
   eyebrowColor,
 }: {
   eyebrow?: string;
@@ -26,16 +26,16 @@ export function SectionHeading({
       className={`${maxWidth} ${align === "center" ? "mx-auto text-center" : ""}`}
     >
       {eyebrow && (
-        <p className={`text-[0.75rem] font-extrabold uppercase tracking-[0.3em] mb-4 flex items-center gap-2 ${align === "center" ? "justify-center" : ""} ${eyebrowColor ? eyebrowColor : (light ? "text-blue-300" : "text-brand")}`}>
-          <span className={`h-px w-6 ${eyebrowColor ? eyebrowColor.replace("text-", "bg-") : (light ? "bg-blue-300" : "bg-brand")}`} />
+        <p className={`text-xs font-bold uppercase tracking-[0.25em] mb-3 flex items-center gap-2 ${align === "center" ? "justify-center" : ""} ${eyebrowColor ? eyebrowColor : (light ? "text-blue-300" : "text-blue-600")}`}>
+          <span className={`h-px w-6 ${eyebrowColor ? eyebrowColor.replace("text-", "bg-") : (light ? "bg-blue-300" : "bg-blue-600")}`} />
           {eyebrow}
         </p>
       )}
-      <h2 className={`text-base sm:text-lg md:text-xl lg:text-[1.35rem] xl:text-[1.55rem] font-black leading-snug tracking-tight ${light ? "text-white" : "text-slate-900"}`}>
+      <h2 className={`text-2xl sm:text-3xl font-extrabold leading-snug tracking-tight ${light ? "text-white" : "text-slate-900"}`}>
         {title}
       </h2>
       {subtitle && (
-        <p className={`mt-3 text-xs sm:text-sm md:text-base leading-relaxed ${align === "center" ? "text-center" : "text-justify"} ${light ? "text-white/80" : "text-slate-600 font-medium"}`}>
+        <p className={`mt-3 text-sm sm:text-base leading-relaxed ${align === "center" ? "text-center" : ""} ${light ? "text-white/70" : "text-slate-500"}`}>
           {subtitle}
         </p>
       )}

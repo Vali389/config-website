@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
-// Client logos extracted from Slide 11 of ConfigUSA Merged Deck 2.0
+// Existing client logos extracted from ConfigUSA Merged Deck 2.0
 import logo1 from "@/assets/clients/processed/client_logo_1.png";
 import logo2 from "@/assets/clients/processed/client_logo_2.png";
 import logo3 from "@/assets/clients/processed/client_logo_3.png";
@@ -23,10 +23,14 @@ import logo18 from "@/assets/clients/processed/client_logo_18.png";
 import logo19 from "@/assets/clients/processed/client_logo_19.png";
 import logo20 from "@/assets/clients/processed/client_logo_20.png";
 import logo21 from "@/assets/clients/processed/client_logo_21.png";
+import logo22 from "@/assets/clients/processed/client_logo_22.png";
+import logo23 from "@/assets/clients/processed/client_logo_23.png";
+import logo24 from "@/assets/clients/processed/client_logo_24.png";
 
 const CLIENT_LOGOS = [
   logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, logo10,
-  logo11, logo12, logo13, logo14, logo15, logo16, logo17, logo18, logo19, logo20, logo21
+  logo11, logo12, logo13, logo14, logo15, logo16, logo17, logo18, logo19, logo20,
+  logo21, logo22, logo23, logo24,
 ];
 
 interface TechTickerProps {
@@ -35,7 +39,7 @@ interface TechTickerProps {
 }
 
 export function TechTicker({
-  title = "OUR CLIENTS — TRUSTED BY GOVERNMENT & ENTERPRISE",
+  title = "TRUSTED BY ENTERPRISE & PUBLIC-SECTOR ORGANIZATIONS",
   className = "",
 }: TechTickerProps) {
   // 4x duplication ensures translateX(-50%) loops exactly 2 full sets with zero whitespace gap
@@ -50,45 +54,46 @@ export function TechTicker({
       ([entry]) => {
         setInView(entry.isIntersecting);
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section className={`bg-gradient-to-r from-[#f8fafc] via-[#edf4fc] to-[#f8fafc] border-y border-blue-100/80 py-8 sm:py-10 overflow-hidden ${className}`}>
+    <section className={`bg-white border-y border-slate-100 py-8 sm:py-10 overflow-hidden ${className}`}>
       <motion.div
         ref={sectionRef}
-        initial={{ opacity: 0, y: 15 }}
+        initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.5 }}
         className="mx-auto max-w-7xl px-4 lg:px-8"
       >
-        <p className="text-center text-xs sm:text-sm font-extrabold uppercase tracking-[0.28em] text-blue-700 mb-6 sm:mb-8">
+        <p className="text-center text-xs sm:text-[13px] font-bold uppercase tracking-[0.22em] text-[#1b365d] mb-6 sm:mb-8">
           {title}
         </p>
 
         <div className="relative flex overflow-hidden">
           {/* Edge fade overlays */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-[#f8fafc] via-[#edf4fc]/80 to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-[#f8fafc] via-[#edf4fc]/80 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-28 bg-gradient-to-r from-white via-white/80 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-28 bg-gradient-to-l from-white via-white/80 to-transparent z-10" />
 
           <div
-            className={`flex gap-5 sm:gap-6 w-max items-center py-2 hover:[animation-play-state:paused] ${inView ? "animate-ticker" : ""
-              }`}
+            className={`flex gap-6 sm:gap-8 w-max items-center py-2 hover:[animation-play-state:paused] ${
+              inView ? "animate-ticker" : ""
+            }`}
           >
             {loop.map((logo, idx) => (
               <div
                 key={idx}
-                className="group flex items-center justify-center shrink-0 w-48 sm:w-56 h-24 sm:h-28 rounded-2xl sm:rounded-3xl bg-white border border-blue-200/80 shadow-card hover:shadow-elegant hover:border-blue-400 hover:-translate-y-1 transition-all duration-300 px-5 py-4 cursor-pointer overflow-hidden"
+                className="flex items-center justify-center shrink-0 h-12 sm:h-14 px-5 sm:px-7 hover:scale-105 transition-transform duration-200"
               >
                 <img
                   src={logo}
                   alt="ConfigUSA Client Partner"
                   loading="lazy"
-                  className="max-h-14 sm:max-h-16 max-w-[150px] sm:max-w-[180px] object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="max-h-9 sm:max-h-11 max-w-[130px] sm:max-w-[160px] object-contain"
                 />
               </div>
             ))}
