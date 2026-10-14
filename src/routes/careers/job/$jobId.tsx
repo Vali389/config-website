@@ -33,16 +33,16 @@ function JobDetailPage() {
 
   if (!job) {
     return (
-      <div className="flex min-h-[70vh] items-center justify-center px-4 pt-24">
+      <div className="flex min-h-[70vh] items-center justify-center px-4 pt-24 bg-white">
         <div className="text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand mb-3">Careers</p>
-          <h1 className="text-3xl font-extrabold text-ink">This role isn't available</h1>
-          <p className="mt-3 text-muted-foreground">The position may have been filled or moved.</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-2">Careers</p>
+          <h1 className="text-3xl font-bold text-[#071326]">Position Not Available</h1>
+          <p className="mt-3 text-slate-500 text-sm">This role may have been filled or the link has changed.</p>
           <Link
             to="/careers"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3 text-sm font-semibold text-white shadow-glow hover:scale-105 transition-transform"
+            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#071326] px-6 py-3 text-sm font-bold text-white hover:bg-blue-900 transition-colors shadow-sm"
           >
-            <ArrowLeft className="h-4 w-4" /> Back to all roles
+            <ArrowLeft className="h-4 w-4" /> Back to all open roles
           </Link>
         </div>
       </div>
@@ -63,37 +63,45 @@ function JobDetailPage() {
   return (
     <>
       {/* Hero band */}
-      <section className="relative overflow-hidden bg-[#051124] pt-32 pb-16">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-hero opacity-95" />
-        <div className="pointer-events-none absolute -top-24 right-0 h-80 w-80 rounded-full bg-brand-glow/15 blur-3xl" />
+      <section className="relative overflow-hidden bg-[#071326] pt-32 pb-16 text-white border-b border-slate-800">
+        <div className="pointer-events-none absolute -top-24 right-0 h-80 w-80 rounded-full bg-[#f5a623]/10 blur-3xl" />
         <div className="relative z-10 mx-auto max-w-5xl px-4 lg:px-8">
           <Link
             to="/careers"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-white/70 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-300 hover:text-[#f5a623] transition-colors"
           >
-            <ArrowLeft className="h-4 w-4" /> All Open Roles
+            <ArrowLeft className="h-4 w-4" /> All Open Positions
           </Link>
+
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="mt-6"
           >
             <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded-full bg-brand/20 border border-brand-glow/30 px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand-glow">
+              <span className="rounded-md bg-[#f5a623] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#071326]">
                 {job.department}
               </span>
-              <span className="rounded-full bg-white/10 border border-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white/80">
+              <span className="rounded-md bg-white/10 border border-white/20 px-3 py-1 text-xs font-semibold text-white/90">
                 {job.type}
               </span>
             </div>
-            <h1 className="mt-4 font-display text-3xl md:text-5xl font-extrabold text-white leading-tight tracking-tight">
+
+            <h1 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
               {job.title}
             </h1>
-            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/75">
-              <span className="flex items-center gap-1.5"><MapPin className="h-4 w-4 text-brand-glow" /> {job.location}</span>
-              <span className="flex items-center gap-1.5"><Clock className="h-4 w-4 text-brand-glow" /> {job.workMode}</span>
-              <span className="flex items-center gap-1.5"><BadgeDollarSign className="h-4 w-4 text-brand-glow" /> {job.salary}</span>
+
+            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-300">
+              <span className="flex items-center gap-1.5">
+                <MapPin className="h-4 w-4 text-[#f5a623]" /> {job.location}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Clock className="h-4 w-4 text-[#f5a623]" /> {job.workMode}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <BadgeDollarSign className="h-4 w-4 text-[#f5a623]" /> {job.salary}
+              </span>
             </div>
           </motion.div>
         </div>
@@ -102,55 +110,70 @@ function JobDetailPage() {
       {/* Body */}
       <section className="py-16 lg:py-20 bg-white">
         <div className="mx-auto max-w-5xl px-4 lg:px-8 grid lg:grid-cols-3 gap-10">
-          {/* Main */}
+          {/* Main content */}
           <div className="lg:col-span-2 space-y-10">
             <div>
-              <h2 className="text-xl font-bold text-ink">About the Role</h2>
-              <p className="mt-3 text-muted-foreground leading-relaxed text-justify">{job.summary}</p>
+              <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-3">
+                <h2 className="text-xl font-bold text-[#071326]">About the Role</h2>
+              </div>
+              <p className="mt-3 text-sm text-slate-600 leading-relaxed">{job.summary}</p>
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-ink">What You'll Do</h2>
+              <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-3">
+                <h2 className="text-xl font-bold text-[#071326]">What You'll Do</h2>
+              </div>
               <ul className="mt-4 space-y-3">
                 {job.responsibilities.map((r) => (
                   <li key={r} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-brand mt-0.5" />
-                    <span className="text-muted-foreground leading-relaxed text-justify">{r}</span>
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[#f5a623] mt-0.5" />
+                    <span className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">{r}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-ink">What We're Looking For</h2>
+              <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-3">
+                <h2 className="text-xl font-bold text-[#071326]">Requirements & Competencies</h2>
+              </div>
               <ul className="mt-4 space-y-3">
                 {job.requirements.map((r) => (
                   <li key={r} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-brand mt-0.5" />
-                    <span className="text-muted-foreground leading-relaxed text-justify">{r}</span>
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[#f5a623] mt-0.5" />
+                    <span className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">{r}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div>
-              <h2 className="text-xl font-bold text-ink">Nice to Have</h2>
-              <div className="mt-4 flex flex-wrap gap-2.5">
-                {job.niceToHave.map((n) => (
-                  <span key={n} className="inline-flex items-center gap-1.5 rounded-full bg-soft border border-border px-4 py-2 text-sm font-medium text-ink">
-                    <Sparkles className="h-3.5 w-3.5 text-brand" /> {n}
-                  </span>
-                ))}
+            {job.niceToHave && job.niceToHave.length > 0 && (
+              <div>
+                <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-3">
+                  <h2 className="text-xl font-bold text-[#071326]">Nice to Have</h2>
+                </div>
+                <div className="mt-4 flex flex-wrap gap-2.5">
+                  {job.niceToHave.map((n) => (
+                    <span
+                      key={n}
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-blue-50 border border-blue-100 px-3.5 py-1.5 text-xs font-semibold text-blue-700"
+                    >
+                      <Sparkles className="h-3.5 w-3.5 text-[#f5a623]" /> {n}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
-            <div className="rounded-2xl bg-gradient-hero p-8 text-center relative overflow-hidden">
-              <div className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-brand-glow/20 blur-3xl" />
-              <h3 className="relative text-xl font-bold text-white">Ready to make your move?</h3>
-              <p className="relative mt-2 text-sm text-white/75">Tell us about yourself — our team will be in touch.</p>
+            <div className="rounded-xl bg-[#071326] p-8 sm:p-10 text-center relative overflow-hidden border border-slate-800">
+              <div className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-[#f5a623]/10 blur-3xl" />
+              <h3 className="relative text-xl sm:text-2xl font-bold text-white">Ready to join our team?</h3>
+              <p className="relative mt-2 text-xs sm:text-sm text-slate-300 max-w-md mx-auto">
+                Submit your profile and connect with our talent team within one business day.
+              </p>
               <Link
                 to="/contact"
-                className="relative mt-6 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-brand hover:scale-105 transition-transform shadow-lg"
+                className="relative mt-6 inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
               >
                 Apply for this Role <ArrowRight className="h-4 w-4" />
               </Link>
@@ -160,43 +183,47 @@ function JobDetailPage() {
           {/* Sidebar */}
           <aside className="lg:col-span-1">
             <div className="lg:sticky lg:top-28 space-y-6">
-              <div className="rounded-2xl bg-white border border-border/60 shadow-card p-6">
-                <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-brand">Job Overview</h3>
+              <div className="rounded-xl bg-white border border-slate-200/90 shadow-sm p-6">
+                <div className="border-l-[3px] border-[#f5a623] pl-3 mb-4">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#071326]">Role Overview</h3>
+                </div>
                 <ul className="mt-4 space-y-4">
                   {overview.map((o) => (
                     <li key={o.label} className="flex items-start gap-3">
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-brand">
-                        <o.icon className="h-4 w-4" />
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 border border-blue-100">
+                        <o.icon className="h-4 w-4 stroke-[1.75]" />
                       </span>
                       <div>
-                        <div className="text-[0.7rem] font-bold uppercase tracking-wide text-muted-foreground">{o.label}</div>
-                        <div className="text-sm font-semibold text-ink">{o.value}</div>
+                        <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">{o.label}</div>
+                        <div className="text-sm font-bold text-[#071326]">{o.value}</div>
                       </div>
                     </li>
                   ))}
                 </ul>
                 <Link
                   to="/contact"
-                  className="mt-6 flex items-center justify-center gap-2 rounded-full bg-gradient-brand px-5 py-3 text-sm font-bold text-white shadow-glow hover:scale-105 transition-transform"
+                  className="mt-6 flex items-center justify-center gap-2 rounded-lg bg-[#f5a623] px-5 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm w-full"
                 >
                   Apply Now <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
 
               {related.length > 0 && (
-                <div className="rounded-2xl bg-soft border border-border/60 p-6">
-                  <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-brand">Similar Roles</h3>
-                  <ul className="mt-4 space-y-3">
+                <div className="rounded-xl bg-slate-50 border border-slate-200/80 p-6">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#071326] mb-3">Similar Roles</h3>
+                  <ul className="space-y-3">
                     {related.map((r) => (
                       <li key={r.id}>
                         <Link
                           to="/careers/job/$jobId"
                           params={{ jobId: r.id }}
-                          className="group block rounded-xl bg-white border border-border/60 p-4 hover:border-brand hover:shadow-card transition-all"
+                          className="group block rounded-lg bg-white border border-slate-200/90 p-4 hover:border-blue-400 hover:shadow-sm transition-all"
                         >
-                          <div className="font-semibold text-sm text-ink group-hover:text-brand transition-colors">{r.title}</div>
-                          <div className="mt-1 flex items-center gap-1 text-xs text-muted-foreground">
-                            <MapPin className="h-3 w-3" /> {r.location}
+                          <div className="font-bold text-xs sm:text-sm text-[#071326] group-hover:text-blue-700 transition-colors">
+                            {r.title}
+                          </div>
+                          <div className="mt-1 flex items-center gap-1 text-xs text-slate-500">
+                            <MapPin className="h-3 w-3 text-blue-600" /> {r.location}
                           </div>
                         </Link>
                       </li>

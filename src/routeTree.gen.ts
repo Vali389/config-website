@@ -9,83 +9,35 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TermsRouteImport } from './routes/terms'
-import { Route as SubmitResumeRouteImport } from './routes/submit-resume'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as ResourcesRouteImport } from './routes/resources'
-import { Route as RequestTalentRouteImport } from './routes/request-talent'
-import { Route as ProcessRouteImport } from './routes/process'
-import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as IndustriesRouteImport } from './routes/industries'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ServicesIndexRouteImport } from './routes/services.index'
-import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ProcessRouteImport } from './routes/process'
+import { Route as RequestTalentRouteImport } from './routes/request-talent'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SubmitResumeRouteImport } from './routes/submit-resume'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as CareersIndexRouteImport } from './routes/careers/index'
-import { Route as ServicesStaffingRouteImport } from './routes/services.staffing'
-import { Route as ServicesSoftwareRouteImport } from './routes/services.software'
-import { Route as ServicesSapRouteImport } from './routes/services.sap'
-import { Route as ServicesEnterpriseApplicationsRouteImport } from './routes/services.enterprise-applications'
-import { Route as ServicesAssessmentRouteImport } from './routes/services.assessment'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as IndustriesIndustryIdRouteImport } from './routes/industries.$industryId'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesAssessmentRouteImport } from './routes/services.assessment'
+import { Route as ServicesCloudRouteImport } from './routes/services.cloud'
+import { Route as ServicesEnterpriseApplicationsRouteImport } from './routes/services.enterprise-applications'
+import { Route as ServicesManagedDeliveryRouteImport } from './routes/services.managed-delivery'
+import { Route as ServicesSapRouteImport } from './routes/services.sap'
+import { Route as ServicesSoftwareRouteImport } from './routes/services.software'
+import { Route as ServicesStaffingRouteImport } from './routes/services.staffing'
 import { Route as CareersJobJobIdRouteImport } from './routes/careers/job/$jobId'
 
-const TermsRoute = TermsRouteImport.update({
-  id: '/terms',
-  path: '/terms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SubmitResumeRoute = SubmitResumeRouteImport.update({
-  id: '/submit-resume',
-  path: '/submit-resume',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ResourcesRoute = ResourcesRouteImport.update({
-  id: '/resources',
-  path: '/resources',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RequestTalentRoute = RequestTalentRouteImport.update({
-  id: '/request-talent',
-  path: '/request-talent',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProcessRoute = ProcessRouteImport.update({
-  id: '/process',
-  path: '/process',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyRoute = PrivacyRouteImport.update({
-  id: '/privacy',
-  path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesRoute = IndustriesRouteImport.update({
-  id: '/industries',
-  path: '/industries',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -93,39 +45,89 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesIndexRoute = ServicesIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => ServicesRoute,
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => IndustriesRoute,
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProcessRoute = ProcessRouteImport.update({
+  id: '/process',
+  path: '/process',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RequestTalentRoute = RequestTalentRouteImport.update({
+  id: '/request-talent',
+  path: '/request-talent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubmitResumeRoute = SubmitResumeRouteImport.update({
+  id: '/submit-resume',
+  path: '/submit-resume',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CareersIndexRoute = CareersIndexRouteImport.update({
   id: '/careers/',
   path: '/careers/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesStaffingRoute = ServicesStaffingRouteImport.update({
-  id: '/staffing',
-  path: '/staffing',
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesIndustryIdRoute = IndustriesIndustryIdRouteImport.update({
+  id: '/$industryId',
+  path: '/$industryId',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => ServicesRoute,
 } as any)
-const ServicesSoftwareRoute = ServicesSoftwareRouteImport.update({
-  id: '/software',
-  path: '/software',
+const ServicesAssessmentRoute = ServicesAssessmentRouteImport.update({
+  id: '/assessment',
+  path: '/assessment',
   getParentRoute: () => ServicesRoute,
 } as any)
-const ServicesSapRoute = ServicesSapRouteImport.update({
-  id: '/sap',
-  path: '/sap',
+const ServicesCloudRoute = ServicesCloudRouteImport.update({
+  id: '/cloud',
+  path: '/cloud',
   getParentRoute: () => ServicesRoute,
 } as any)
 const ServicesEnterpriseApplicationsRoute =
@@ -134,15 +136,25 @@ const ServicesEnterpriseApplicationsRoute =
     path: '/enterprise-applications',
     getParentRoute: () => ServicesRoute,
   } as any)
-const ServicesAssessmentRoute = ServicesAssessmentRouteImport.update({
-  id: '/assessment',
-  path: '/assessment',
+const ServicesManagedDeliveryRoute = ServicesManagedDeliveryRouteImport.update({
+  id: '/managed-delivery',
+  path: '/managed-delivery',
   getParentRoute: () => ServicesRoute,
 } as any)
-const IndustriesIndustryIdRoute = IndustriesIndustryIdRouteImport.update({
-  id: '/$industryId',
-  path: '/$industryId',
-  getParentRoute: () => IndustriesRoute,
+const ServicesSapRoute = ServicesSapRouteImport.update({
+  id: '/sap',
+  path: '/sap',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesSoftwareRoute = ServicesSoftwareRouteImport.update({
+  id: '/software',
+  path: '/software',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesStaffingRoute = ServicesStaffingRouteImport.update({
+  id: '/staffing',
+  path: '/staffing',
+  getParentRoute: () => ServicesRoute,
 } as any)
 const CareersJobJobIdRoute = CareersJobJobIdRouteImport.update({
   id: '/careers/job/$jobId',
@@ -166,7 +178,9 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/services/assessment': typeof ServicesAssessmentRoute
+  '/services/cloud': typeof ServicesCloudRoute
   '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
+  '/services/managed-delivery': typeof ServicesManagedDeliveryRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
@@ -189,7 +203,9 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/services/assessment': typeof ServicesAssessmentRoute
+  '/services/cloud': typeof ServicesCloudRoute
   '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
+  '/services/managed-delivery': typeof ServicesManagedDeliveryRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
@@ -215,7 +231,9 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/services/assessment': typeof ServicesAssessmentRoute
+  '/services/cloud': typeof ServicesCloudRoute
   '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
+  '/services/managed-delivery': typeof ServicesManagedDeliveryRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
@@ -242,7 +260,9 @@ export interface FileRouteTypes {
     | '/terms'
     | '/industries/$industryId'
     | '/services/assessment'
+    | '/services/cloud'
     | '/services/enterprise-applications'
+    | '/services/managed-delivery'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
@@ -265,7 +285,9 @@ export interface FileRouteTypes {
     | '/terms'
     | '/industries/$industryId'
     | '/services/assessment'
+    | '/services/cloud'
     | '/services/enterprise-applications'
+    | '/services/managed-delivery'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
@@ -290,7 +312,9 @@ export interface FileRouteTypes {
     | '/terms'
     | '/industries/$industryId'
     | '/services/assessment'
+    | '/services/cloud'
     | '/services/enterprise-applications'
+    | '/services/managed-delivery'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
@@ -320,81 +344,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/terms': {
-      id: '/terms'
-      path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof TermsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/submit-resume': {
-      id: '/submit-resume'
-      path: '/submit-resume'
-      fullPath: '/submit-resume'
-      preLoaderRoute: typeof SubmitResumeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/resources': {
-      id: '/resources'
-      path: '/resources'
-      fullPath: '/resources'
-      preLoaderRoute: typeof ResourcesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/request-talent': {
-      id: '/request-talent'
-      path: '/request-talent'
-      fullPath: '/request-talent'
-      preLoaderRoute: typeof RequestTalentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/process': {
-      id: '/process'
-      path: '/process'
-      fullPath: '/process'
-      preLoaderRoute: typeof ProcessRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy': {
-      id: '/privacy'
-      path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof PrivacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries': {
-      id: '/industries'
-      path: '/industries'
-      fullPath: '/industries'
-      preLoaderRoute: typeof IndustriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -404,26 +358,82 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/': {
-      id: '/services/'
-      path: '/'
-      fullPath: '/services/'
-      preLoaderRoute: typeof ServicesIndexRouteImport
-      parentRoute: typeof ServicesRoute
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/industries/': {
-      id: '/industries/'
-      path: '/'
-      fullPath: '/industries/'
-      preLoaderRoute: typeof IndustriesIndexRouteImport
-      parentRoute: typeof IndustriesRoute
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/process': {
+      id: '/process'
+      path: '/process'
+      fullPath: '/process'
+      preLoaderRoute: typeof ProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/request-talent': {
+      id: '/request-talent'
+      path: '/request-talent'
+      fullPath: '/request-talent'
+      preLoaderRoute: typeof RequestTalentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/submit-resume': {
+      id: '/submit-resume'
+      path: '/submit-resume'
+      fullPath: '/submit-resume'
+      preLoaderRoute: typeof SubmitResumeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/careers/': {
       id: '/careers/'
@@ -432,32 +442,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CareersIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/staffing': {
-      id: '/services/staffing'
-      path: '/staffing'
-      fullPath: '/services/staffing'
-      preLoaderRoute: typeof ServicesStaffingRouteImport
-      parentRoute: typeof ServicesRoute
+    '/industries/': {
+      id: '/industries/'
+      path: '/'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof IndustriesRoute
     }
-    '/services/software': {
-      id: '/services/software'
-      path: '/software'
-      fullPath: '/services/software'
-      preLoaderRoute: typeof ServicesSoftwareRouteImport
-      parentRoute: typeof ServicesRoute
+    '/industries/$industryId': {
+      id: '/industries/$industryId'
+      path: '/$industryId'
+      fullPath: '/industries/$industryId'
+      preLoaderRoute: typeof IndustriesIndustryIdRouteImport
+      parentRoute: typeof IndustriesRoute
     }
-    '/services/sap': {
-      id: '/services/sap'
-      path: '/sap'
-      fullPath: '/services/sap'
-      preLoaderRoute: typeof ServicesSapRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/enterprise-applications': {
-      id: '/services/enterprise-applications'
-      path: '/enterprise-applications'
-      fullPath: '/services/enterprise-applications'
-      preLoaderRoute: typeof ServicesEnterpriseApplicationsRouteImport
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof ServicesRoute
     }
     '/services/assessment': {
@@ -467,12 +470,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesAssessmentRouteImport
       parentRoute: typeof ServicesRoute
     }
-    '/industries/$industryId': {
-      id: '/industries/$industryId'
-      path: '/$industryId'
-      fullPath: '/industries/$industryId'
-      preLoaderRoute: typeof IndustriesIndustryIdRouteImport
-      parentRoute: typeof IndustriesRoute
+    '/services/cloud': {
+      id: '/services/cloud'
+      path: '/cloud'
+      fullPath: '/services/cloud'
+      preLoaderRoute: typeof ServicesCloudRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/enterprise-applications': {
+      id: '/services/enterprise-applications'
+      path: '/enterprise-applications'
+      fullPath: '/services/enterprise-applications'
+      preLoaderRoute: typeof ServicesEnterpriseApplicationsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/managed-delivery': {
+      id: '/services/managed-delivery'
+      path: '/managed-delivery'
+      fullPath: '/services/managed-delivery'
+      preLoaderRoute: typeof ServicesManagedDeliveryRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/sap': {
+      id: '/services/sap'
+      path: '/sap'
+      fullPath: '/services/sap'
+      preLoaderRoute: typeof ServicesSapRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/software': {
+      id: '/services/software'
+      path: '/software'
+      fullPath: '/services/software'
+      preLoaderRoute: typeof ServicesSoftwareRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/staffing': {
+      id: '/services/staffing'
+      path: '/staffing'
+      fullPath: '/services/staffing'
+      preLoaderRoute: typeof ServicesStaffingRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/careers/job/$jobId': {
       id: '/careers/job/$jobId'
@@ -500,7 +538,9 @@ const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
 
 interface ServicesRouteChildren {
   ServicesAssessmentRoute: typeof ServicesAssessmentRoute
+  ServicesCloudRoute: typeof ServicesCloudRoute
   ServicesEnterpriseApplicationsRoute: typeof ServicesEnterpriseApplicationsRoute
+  ServicesManagedDeliveryRoute: typeof ServicesManagedDeliveryRoute
   ServicesSapRoute: typeof ServicesSapRoute
   ServicesSoftwareRoute: typeof ServicesSoftwareRoute
   ServicesStaffingRoute: typeof ServicesStaffingRoute
@@ -509,7 +549,9 @@ interface ServicesRouteChildren {
 
 const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesAssessmentRoute: ServicesAssessmentRoute,
+  ServicesCloudRoute: ServicesCloudRoute,
   ServicesEnterpriseApplicationsRoute: ServicesEnterpriseApplicationsRoute,
+  ServicesManagedDeliveryRoute: ServicesManagedDeliveryRoute,
   ServicesSapRoute: ServicesSapRoute,
   ServicesSoftwareRoute: ServicesSoftwareRoute,
   ServicesStaffingRoute: ServicesStaffingRoute,

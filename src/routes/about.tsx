@@ -93,16 +93,31 @@ function AboutPage() {
           <>
             <SplitText text="More Than a Staffing Company." />
             <br />
-            <SplitText text="A Technology Growth Partner." className="text-gradient-brand" delay={1.05} />
+            <span className="text-[#f5a623] font-extrabold">A Technology Growth Partner.</span>
           </>
         }
         subtitle="A decade of engineering trust — connecting ambitious organizations with the talent and technology to turn strategic initiatives into measurable results."
         image={aboutHeroBg}
-      />
+      >
+        <div className="flex flex-wrap items-center gap-4 mt-6">
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
+          >
+            Partner With Us <ArrowRight className="h-4 w-4" />
+          </Link>
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur hover:bg-white/20 transition-all"
+          >
+            Explore Capabilities
+          </Link>
+        </div>
+      </PageHero>
       <div className="pb-12"><StatsBar /></div>
 
       {/* Story */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-24 bg-white overflow-hidden border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -111,12 +126,13 @@ function AboutPage() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="absolute -inset-3 rounded-[2rem] bg-gradient-brand opacity-10 blur-2xl" />
-            <img
-              src={aboutApproach}
-              alt="ConfigUSA team collaborating"
-              className="relative rounded-3xl shadow-elegant border border-border/60 w-full object-cover aspect-[4/3]"
-            />
+            <div className="relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-card">
+              <img
+                src={aboutApproach}
+                alt="ConfigUSA team collaborating"
+                className="w-full object-cover aspect-[4/3]"
+              />
+            </div>
           </motion.div>
 
           <motion.div
@@ -125,23 +141,25 @@ function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-brand mb-3">Our Story</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-ink leading-tight tracking-tight">
-              A Decade of <span className="text-gradient-brand">Trusted Partnerships.</span>
-            </h2>
-            <p className="mt-6 text-muted-foreground leading-relaxed text-justify">
-              Founded in 2013, ConfigUSA started with a simple mission — help ambitious businesses innovate faster,
+            <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-4">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">Our Story</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] leading-tight tracking-tight">
+                A Decade of <span className="text-[#f5a623]">Trusted Partnerships.</span>
+              </h2>
+            </div>
+            <p className="mt-5 text-slate-600 leading-relaxed text-sm sm:text-base">
+              Founded in 2013, ConfigUSA started with a clear mission — help ambitious businesses innovate faster,
               scale smarter, and stay ahead. Today we help organizations achieve technology outcomes through AI,
               digital engineering, enterprise platforms, and world-class talent solutions.
             </p>
-            <p className="mt-4 text-muted-foreground leading-relaxed text-justify">
+            <p className="mt-4 text-slate-600 leading-relaxed text-sm sm:text-base">
               Our 10,000+ consultants and specialists have delivered thousands of engagements across healthcare,
               financial services, government, manufacturing, retail, and technology — earning a 98% client retention
               rate that speaks for itself.
             </p>
             <Link
               to="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3.5 text-sm font-semibold text-white shadow-glow hover:scale-105 transition-transform"
+              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#0a1628] px-7 py-3.5 text-sm font-bold text-white hover:bg-[#071326] transition-colors shadow-sm"
             >
               Partner With Us <ArrowRight className="h-4 w-4" />
             </Link>
@@ -150,7 +168,7 @@ function AboutPage() {
       </section>
 
       {/* Mission / Vision / Promise */}
-      <section className="py-24 bg-soft border-y border-border/40">
+      <section className="py-24 bg-slate-50 border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 grid md:grid-cols-3 gap-6">
           {[
             { icon: Target, title: "Our Mission", text: "To empower organizations with the right talent, technology, and transformation strategies to unlock their full potential." },
@@ -163,21 +181,20 @@ function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.12 }}
-              className="rounded-2xl bg-white p-8 shadow-card border border-border/50 hover:shadow-[0_20px_40px_rgba(29,78,216,0.12)] hover:-translate-y-1.5 hover:border-brand/30 transition-all duration-300 relative overflow-hidden group"
+              className="rounded-xl bg-white p-7 sm:p-8 shadow-sm border border-slate-200/90 hover:border-blue-400 hover:shadow-md transition-all duration-300 group"
             >
-              <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-glow group-hover:scale-105 transition-transform">
-                <m.icon className="h-6 w-6" />
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100 group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-colors duration-200">
+                <m.icon className="h-6 w-6 stroke-[1.75]" />
               </span>
-              <h3 className="mt-5 text-2xl font-bold text-ink">{m.title}</h3>
-              <p className="mt-3 text-muted-foreground leading-relaxed text-justify">{m.text}</p>
+              <h3 className="mt-5 text-xl font-bold text-[#071326]">{m.title}</h3>
+              <p className="mt-2.5 text-sm text-slate-600 leading-relaxed">{m.text}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* Our Approach */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="How We Work"
@@ -196,12 +213,13 @@ function AboutPage() {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="flex flex-col items-center text-center group"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white border-2 border-slate-200 text-brand shadow-sm group-hover:bg-brand group-hover:border-brand group-hover:text-white group-hover:scale-105 transition-all duration-300 z-10">
-                    <a.icon className="h-6 w-6" />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white border-2 border-slate-200 text-blue-600 shadow-sm group-hover:bg-[#071326] group-hover:border-[#071326] group-hover:text-[#f5a623] transition-all duration-300 z-10">
+                    <a.icon className="h-6 w-6 stroke-[1.75]" />
                   </div>
-                  <div className="mt-6 rounded-2xl bg-white p-7 border border-border/50 shadow-card hover:shadow-[0_20px_40px_rgba(29,78,216,0.12)] hover:-translate-y-1 transition-all duration-300">
-                    <h3 className="text-base font-bold text-ink group-hover:text-brand transition-colors">{a.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify">{a.text}</p>
+                  <div className="mt-6 rounded-xl bg-slate-50 p-6 border border-slate-200/80 hover:bg-white hover:border-blue-400 hover:shadow-md transition-all duration-300 w-full">
+                    <div className="text-xs font-bold text-[#f5a623]">STEP {String(i + 1).padStart(2, "0")}</div>
+                    <h3 className="mt-1 text-base font-bold text-[#071326] group-hover:text-blue-700 transition-colors">{a.title}</h3>
+                    <p className="mt-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed">{a.text}</p>
                   </div>
                 </motion.div>
               ))}
@@ -211,8 +229,7 @@ function AboutPage() {
       </section>
 
       {/* Why partners choose us */}
-      <section className="py-24 bg-[#051124] text-white relative overflow-hidden">
-        <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-brand-glow/10 blur-3xl" />
+      <section className="py-24 bg-[#071326] text-white relative overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -220,11 +237,13 @@ function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-glow mb-4">Why Organizations Choose Us</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight tracking-tight">
-              Delivering Business Value Beyond Talent
-            </h2>
-            <p className="mt-5 text-white/70 leading-relaxed text-justify max-w-md">
+            <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-4">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">Why Organizations Choose Us</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-white leading-tight tracking-tight">
+                Delivering Business Value Beyond Talent
+              </h2>
+            </div>
+            <p className="mt-5 text-slate-300 leading-relaxed max-w-md text-sm sm:text-base">
               Instead of simply supplying professionals, we bring expertise, accountability, and a long-term commitment
               to every relationship we build.
             </p>
@@ -244,10 +263,10 @@ function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.07 }}
-                className="flex items-start gap-3 rounded-xl bg-white/5 border border-white/10 p-4 hover:bg-white/10 hover:border-brand-glow/50 transition-all"
+                className="flex items-start gap-3 rounded-xl bg-[#0a182f]/80 border border-white/10 p-4 hover:border-[#f5a623]/40 transition-all"
               >
-                <CheckCircle2 className="h-5 w-5 shrink-0 text-brand-glow mt-0.5" />
-                <span className="text-sm font-medium text-white/85 leading-snug">{s}</span>
+                <CheckCircle2 className="h-5 w-5 shrink-0 text-[#f5a623] mt-0.5" />
+                <span className="text-sm font-medium text-slate-200 leading-snug">{s}</span>
               </motion.div>
             ))}
           </div>
@@ -255,24 +274,24 @@ function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-slate-50 border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading eyebrow="Our Values" title="The Principles That Guide Us" subtitle="Five values, one culture — the foundation of everything we build and every relationship we grow." />
           <div className="mt-14 grid grid-cols-2 md:grid-cols-5 gap-6">
             {VALUES.map((v, i) => (
               <motion.div
                 key={v.title}
-                initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="text-center group"
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                className="p-6 rounded-xl bg-white border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md text-center group transition-all"
               >
-                <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-brand/10 to-brand-glow/10 group-hover:from-brand group-hover:to-brand-glow transition-all">
-                  <v.icon className="h-7 w-7 text-brand group-hover:text-white transition-colors" />
+                <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100 group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-colors">
+                  <v.icon className="h-6 w-6 stroke-[1.75]" />
                 </span>
-                <h3 className="mt-4 font-semibold text-ink">{v.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify">{v.text}</p>
+                <h3 className="mt-4 font-bold text-sm sm:text-base text-[#071326]">{v.title}</h3>
+                <p className="mt-1.5 text-xs text-slate-600 leading-relaxed">{v.text}</p>
               </motion.div>
             ))}
           </div>
@@ -280,7 +299,7 @@ function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <section className="py-24 bg-soft border-y border-border/40">
+      <section className="py-24 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading eyebrow="Leadership" title="Meet the People Behind ConfigUSA" subtitle="An experienced team dedicated to your success across technology, delivery, and talent." />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -291,23 +310,23 @@ function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group text-center rounded-2xl bg-white p-8 border border-border/50 shadow-card hover:shadow-elegant hover:-translate-y-1.5 transition-all duration-300"
+                className="group text-center rounded-xl bg-white p-7 border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300"
               >
                 {l.photo ? (
                   <img
                     src={l.photo}
                     alt={l.name}
-                    className="mx-auto h-24 w-24 rounded-full object-cover shadow-glow ring-2 ring-brand/20 group-hover:scale-105 transition-transform"
+                    className="mx-auto h-20 w-20 rounded-full object-cover ring-2 ring-slate-200 group-hover:scale-105 transition-transform"
                   />
                 ) : (
-                  <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-gradient-brand text-white text-2xl font-black shadow-glow group-hover:scale-105 transition-transform">
+                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#071326] text-[#f5a623] border border-[#f5a623]/30 text-xl font-black group-hover:scale-105 transition-transform">
                     {l.initials}
                   </div>
                 )}
-                <h3 className="mt-5 text-lg font-bold text-ink">{l.name}</h3>
-                <p className="text-sm font-semibold text-brand">{l.title}</p>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed text-justify">{l.bio}</p>
-                <span className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft text-muted-foreground group-hover:bg-brand group-hover:text-white transition-all">
+                <h3 className="mt-4 text-base font-bold text-[#071326]">{l.name}</h3>
+                <p className="text-xs font-semibold text-[#f5a623] uppercase tracking-wider mt-0.5">{l.title}</p>
+                <p className="mt-2.5 text-xs text-slate-600 leading-relaxed">{l.bio}</p>
+                <span className="mt-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-500 group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-all">
                   <Linkedin className="h-4 w-4" />
                 </span>
               </motion.div>
@@ -317,18 +336,16 @@ function AboutPage() {
       </section>
 
       {/* Global Offices */}
-      <section className="relative py-24 bg-[#051124] text-white overflow-hidden">
-        <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-brand/20 blur-3xl opacity-40" />
-        <div className="pointer-events-none absolute -bottom-24 -right-16 h-96 w-96 rounded-full bg-brand-glow/20 blur-3xl opacity-30" />
-        <div className="pointer-events-none absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle, #60a5fa 1px, transparent 1px)", backgroundSize: "26px 26px" }} />
+      <section className="relative py-24 bg-[#071326] text-white overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
           <div className="max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-glow mb-4">Global Presence</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight">
-              Local Partnership,{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">Global Scale</span>
-            </h2>
-            <p className="mt-5 text-white/70 leading-relaxed text-justify">
+            <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-4">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">Global Presence</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-white leading-tight tracking-tight">
+                Local Partnership, <span className="text-[#f5a623]">Global Scale</span>
+              </h2>
+            </div>
+            <p className="mt-4 text-slate-300 leading-relaxed text-sm sm:text-base">
               With teams across North America and India, we pair onshore client partnership with round-the-clock offshore delivery.
             </p>
           </div>
@@ -340,20 +357,20 @@ function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="rounded-2xl bg-white/5 border border-white/10 p-8 backdrop-blur hover:bg-white/[0.08] hover:border-brand-glow/40 transition-all duration-300"
+                className="rounded-xl bg-[#0a182f]/80 border border-white/10 p-7 hover:border-[#f5a623]/40 transition-all duration-300"
               >
                 <div className="flex items-center gap-4">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-glow">
-                    <Building2 className="h-6 w-6" />
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f5a623]/15 text-[#f5a623]">
+                    <Building2 className="h-5 w-5" />
                   </span>
                   <div>
-                    <h3 className="text-xl font-bold text-white">{o.city}</h3>
-                    <p className="text-[0.7rem] font-bold uppercase tracking-[0.14em] text-brand-glow">{o.tag}</p>
+                    <h3 className="text-lg font-bold text-white">{o.city}</h3>
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-[#f5a623]">{o.tag}</p>
                   </div>
                 </div>
-                <div className="mt-6 space-y-2 text-sm text-white/80">
-                  <p className="flex items-start gap-3"><MapPin className="h-4 w-4 shrink-0 text-brand-glow mt-0.5" /> <span>{o.lines.join(", ")}</span></p>
-                  <p className="flex items-center gap-3"><Phone className="h-4 w-4 shrink-0 text-brand-glow" /> <span>{o.phone}</span></p>
+                <div className="mt-5 space-y-1.5 text-xs sm:text-sm text-slate-300">
+                  <p className="flex items-start gap-2.5"><MapPin className="h-4 w-4 shrink-0 text-[#f5a623] mt-0.5" /> <span>{o.lines.join(", ")}</span></p>
+                  <p className="flex items-center gap-2.5"><Phone className="h-4 w-4 shrink-0 text-[#f5a623]" /> <span>{o.phone}</span></p>
                 </div>
               </motion.div>
             ))}
@@ -362,28 +379,24 @@ function AboutPage() {
       </section>
 
       {/* Certifications */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-slate-50 border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading eyebrow="Certifications & Credentials" title="Certified, Compliant & Trusted" subtitle="The certifications and registrations that let organizations engage us with confidence across commercial and public-sector programs." />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {CERTIFICATIONS.map((c, i) => (
               <motion.div
                 key={c.name}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group relative overflow-hidden flex flex-col items-center text-center rounded-2xl bg-soft/60 border border-border/50 p-8 hover:bg-white hover:shadow-card hover:border-brand/20 hover:-translate-y-1.5 transition-all duration-300"
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                className="group flex flex-col items-center text-center rounded-xl bg-white border border-slate-200/90 p-7 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300"
               >
-                <div className="flex h-28 w-full items-center justify-center">
-                  <img src={c.image} alt={`${c.name} certification`} loading="lazy" className="max-h-28 max-w-[80%] object-contain transition-transform duration-300 group-hover:scale-110" />
+                <div className="flex h-24 w-full items-center justify-center mb-4">
+                  <img src={c.image} alt={`${c.name} certification`} loading="lazy" className="max-h-20 max-w-[80%] object-contain" />
                 </div>
-                <h3 className="mt-6 text-base font-bold text-ink group-hover:text-brand transition-colors">{c.name}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed text-justify">{c.label}</p>
-                {/* Diagonal light sweep on hover */}
-                <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
-                  <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-brand/10 to-transparent group-hover:animate-shine" />
-                </div>
+                <h3 className="text-base font-bold text-[#071326] group-hover:text-blue-700 transition-colors">{c.name}</h3>
+                <p className="mt-1 text-xs text-slate-500 leading-relaxed">{c.label}</p>
               </motion.div>
             ))}
           </div>

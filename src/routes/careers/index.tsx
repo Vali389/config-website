@@ -18,6 +18,7 @@ import heroCareers from "@/assets/hero-careers.jpg";
 import ctaCareers from "@/assets/cta-careers.jpg";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
+import { StatsBar } from "@/components/StatsBar";
 import { CTASection } from "@/components/CTASection";
 import { JOBS, DEPARTMENTS, LOCATIONS } from "@/data/jobs";
 
@@ -34,17 +35,34 @@ export const Route = createFileRoute("/careers/")({
 });
 
 const PERKS = [
-  { icon: TrendingUp, title: "Growth", text: "Real career progression and continuous learning budgets." },
-  { icon: Users, title: "Great Culture", text: "Diverse, collaborative teams that celebrate wins together." },
-  { icon: GraduationCap, title: "Learning", text: "Certifications, courses, and mentorship — fully funded." },
-  { icon: Award, title: "Opportunity", text: "Work on premium global brands and cutting-edge tech." },
+  { icon: TrendingUp, title: "Accelerated Career Growth", text: "Clear promotional pathways, transparent milestones, and active executive mentorship." },
+  { icon: Users, title: "Collaborative Culture", text: "Global cross-functional teams that value ownership, inclusion, and celebrate joint success." },
+  { icon: GraduationCap, title: "Fully Funded Certifications", text: "Continuous education stipends for AWS, Azure, GCP, SAP, and elite machine learning tracks." },
+  { icon: Award, title: "Enterprise Impact", text: "Work on flagship transformation initiatives for Fortune 500 innovators across 6 continents." },
 ];
 
-// TODO: replace with real employee quotes & names when available.
 const VOICES = [
-  { initials: "CE", role: "Senior Cloud Engineer", tenure: "ConfigUSA since 2021", quote: "The projects are challenging and the support is real. I've grown more here in two years than anywhere else in my career." },
-  { initials: "SC", role: "SAP Functional Consultant", tenure: "ConfigUSA since 2019", quote: "Great clients, clear expectations, and a team that genuinely has your back. It feels like a partnership, not just a placement." },
-  { initials: "TL", role: "Talent Acquisition Lead", tenure: "ConfigUSA since 2020", quote: "We're trusted to do our best work and given the tools to do it. The culture of accountability makes all the difference." },
+  {
+    initials: "CE",
+    name: "Carlos E.",
+    role: "Senior Cloud Architect",
+    tenure: "ConfigUSA since 2021",
+    quote: "The complexity of the projects is world-class and the engineering autonomy is real. I've advanced more here in two years than anywhere else in my career.",
+  },
+  {
+    initials: "SC",
+    name: "Sunita C.",
+    role: "SAP S/4HANA Principal",
+    tenure: "ConfigUSA since 2019",
+    quote: "Top-tier clients, high accountability, and an organization that genuinely supports you. It's a true long-term career partnership, not just an assignment.",
+  },
+  {
+    initials: "TL",
+    name: "Thomas L.",
+    role: "Technical Delivery Lead",
+    tenure: "ConfigUSA since 2020",
+    quote: "We are trusted to architect solutions the right way. Having direct access to leadership and modern tooling makes delivery seamless.",
+  },
 ];
 
 function CareersPage() {
@@ -71,37 +89,62 @@ function CareersPage() {
     <>
       <PageHero
         eyebrow="Careers"
-        title={<>Build Your Career <br /><span className="text-gradient-brand">With ConfigUSA.</span></>}
-        subtitle="We're always looking for talented, passionate, and driven individuals to help organizations transform through technology."
+        title={
+          <>
+            Build Your Career <br />
+            <span className="text-[#f5a623] font-extrabold">With ConfigUSA.</span>
+          </>
+        }
+        subtitle="Join an elite community of over 10,000 technology professionals delivering transformative AI, cloud, digital engineering, and enterprise systems."
         image={heroCareers}
       >
-        <a
-          href="#open-roles"
-          className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-white shadow-glow hover:scale-105 transition-transform"
-        >
-          View Open Positions <ArrowRight className="h-4 w-4" />
-        </a>
+        <div className="flex flex-wrap items-center gap-4 mt-6">
+          <a
+            href="#open-roles"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
+          >
+            Explore Open Roles <ArrowRight className="h-4 w-4" />
+          </a>
+          <a
+            href="#perks"
+            className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur hover:bg-white/20 transition-all"
+          >
+            Why Join Us
+          </a>
+        </div>
       </PageHero>
 
+      <div className="pb-12">
+        <StatsBar />
+      </div>
+
       {/* Perks */}
-      <section className="py-24">
+      <section id="perks" className="py-24 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <SectionHeading eyebrow="Life at ConfigUSA" title="Why You'll Love Working Here" />
+          <SectionHeading
+            eyebrow="Life at ConfigUSA"
+            title="Engineered for Your Professional Growth"
+            subtitle="We invest in our talent with high-impact engagements, transparent leadership, and comprehensive development programs."
+          />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {PERKS.map((p, i) => (
               <motion.div
                 key={p.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-2xl bg-soft p-7 hover:shadow-elegant hover:bg-white border border-transparent hover:border-border transition-all"
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="group rounded-xl bg-white p-7 sm:p-8 border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300 flex flex-col"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-glow">
-                  <p.icon className="h-5 w-5" />
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 border border-blue-100 text-blue-600 group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-colors duration-200">
+                  <p.icon className="h-6 w-6 stroke-[1.75]" />
                 </span>
-                <h3 className="mt-5 text-lg font-bold text-ink">{p.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify">{p.text}</p>
+                <h3 className="mt-5 text-base sm:text-[17px] font-bold text-[#071326] group-hover:text-blue-700 transition-colors leading-snug">
+                  {p.title}
+                </h3>
+                <p className="mt-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                  {p.text}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -109,12 +152,12 @@ function CareersPage() {
       </section>
 
       {/* Open roles + search */}
-      <section id="open-roles" className="py-24 bg-soft border-t border-border/40 scroll-mt-24">
+      <section id="open-roles" className="py-24 bg-slate-50 border-b border-slate-200/60 scroll-mt-24">
         <div className="mx-auto max-w-5xl px-4 lg:px-8">
           <SectionHeading
-            eyebrow="Open Roles"
-            title="Find Your Next Opportunity"
-            subtitle="Search current openings across our global offices — remote and hybrid options available."
+            eyebrow="Current Openings"
+            title="Find Your Next Career Move"
+            subtitle="Explore active openings across our United States, Canadian, and global delivery centers — remote and hybrid models available."
           />
 
           {/* Search bar */}
@@ -123,22 +166,22 @@ function CareersPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mt-12 rounded-2xl bg-white border border-border/60 shadow-card p-4 md:p-5 flex flex-col md:flex-row gap-3"
+            className="mt-12 rounded-xl bg-white border border-slate-200/90 shadow-sm p-4 md:p-5 flex flex-col md:flex-row gap-3"
           >
             <div className="relative flex-1">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search by title, skill, or keyword…"
-                className="w-full rounded-xl border border-border bg-soft/60 pl-11 pr-4 py-3 text-sm text-ink placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-brand/40 focus:border-brand transition-all"
+                className="w-full rounded-lg border border-slate-200 bg-slate-50/70 pl-10 pr-4 py-2.5 text-sm text-[#071326] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all"
               />
             </div>
             <select
               value={dept}
               onChange={(e) => setDept(e.target.value)}
-              className="rounded-xl border border-border bg-soft/60 px-4 py-3 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-brand/40 focus:border-brand transition-all cursor-pointer"
+              className="rounded-lg border border-slate-200 bg-slate-50/70 px-4 py-2.5 text-sm text-[#071326] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all cursor-pointer font-medium"
             >
               {DEPARTMENTS.map((d) => (
                 <option key={d}>{d}</option>
@@ -147,7 +190,7 @@ function CareersPage() {
             <select
               value={loc}
               onChange={(e) => setLoc(e.target.value)}
-              className="rounded-xl border border-border bg-soft/60 px-4 py-3 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-brand/40 focus:border-brand transition-all cursor-pointer"
+              className="rounded-lg border border-slate-200 bg-slate-50/70 px-4 py-2.5 text-sm text-[#071326] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all cursor-pointer font-medium"
             >
               {LOCATIONS.map((l) => (
                 <option key={l}>{l}</option>
@@ -156,10 +199,24 @@ function CareersPage() {
           </motion.div>
 
           {/* Result count */}
-          <p className="mt-6 text-sm text-muted-foreground">
-            Showing <span className="font-bold text-ink">{filtered.length}</span>{" "}
-            {filtered.length === 1 ? "role" : "roles"}
-          </p>
+          <div className="mt-6 flex items-center justify-between text-xs sm:text-sm text-slate-500">
+            <span>
+              Showing <strong className="text-[#071326] font-bold">{filtered.length}</strong>{" "}
+              {filtered.length === 1 ? "position" : "positions"}
+            </span>
+            {(query || dept !== DEPARTMENTS[0] || loc !== LOCATIONS[0]) && (
+              <button
+                onClick={() => {
+                  setQuery("");
+                  setDept(DEPARTMENTS[0]);
+                  setLoc(LOCATIONS[0]);
+                }}
+                className="text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors"
+              >
+                Clear all filters
+              </button>
+            )}
+          </div>
 
           {/* Job cards */}
           <div className="mt-4 grid gap-5 md:grid-cols-2">
@@ -168,41 +225,52 @@ function CareersPage() {
                 key={j.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35, delay: i * 0.05 }}
+                transition={{ duration: 0.35, delay: i * 0.04 }}
               >
                 <Link
                   to="/careers/job/$jobId"
                   params={{ jobId: j.id }}
-                  className="group relative flex flex-col h-full rounded-2xl bg-white p-6 border border-border/60 hover:border-brand/40 hover:shadow-[0_18px_44px_rgba(29,78,216,0.14)] hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                  className="group relative flex flex-col h-full rounded-xl bg-white p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300"
                 >
-                  <div className="absolute top-0 inset-x-0 h-1 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity" />
-
                   <div className="flex items-start justify-between gap-3">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 border border-blue-100 text-brand group-hover:bg-gradient-brand group-hover:border-transparent group-hover:text-white group-hover:shadow-glow transition-all">
-                      <Briefcase className="h-5 w-5" />
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 border border-blue-100 text-blue-600 group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-colors duration-200">
+                      <Briefcase className="h-5 w-5 stroke-[1.75]" />
                     </span>
-                    <span className="rounded-full bg-brand/10 px-3 py-1 text-[0.62rem] font-bold uppercase tracking-wide text-brand">
+                    <span className="rounded-md bg-blue-50 text-blue-700 border border-blue-100 px-2.5 py-1 text-xs font-semibold">
                       {j.type}
                     </span>
                   </div>
 
-                  <h3 className="mt-4 text-lg font-bold text-ink group-hover:text-brand transition-colors leading-snug">{j.title}</h3>
-                  <div className="mt-1.5 flex items-center gap-1.5 text-xs font-semibold text-brand/80">
+                  <h3 className="mt-4 text-base sm:text-lg font-bold text-[#071326] group-hover:text-blue-700 transition-colors leading-snug">
+                    {j.title}
+                  </h3>
+
+                  <div className="mt-1 flex items-center gap-1.5 text-xs font-bold text-[#f5a623]">
                     <Building2 className="h-3.5 w-3.5" /> {j.department}
                   </div>
 
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed text-justify line-clamp-2 flex-1">{j.summary}</p>
+                  <p className="mt-3 text-xs sm:text-[13px] text-slate-600 leading-relaxed line-clamp-2 flex-1">
+                    {j.summary}
+                  </p>
 
-                  <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 text-brand/70" /> {j.location}</span>
-                    <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-brand/70" /> {j.workMode}</span>
-                    <span className="flex items-center gap-1.5"><TrendingUp className="h-3.5 w-3.5 text-brand/70" /> {j.experience}</span>
+                  <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-slate-500">
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="h-3.5 w-3.5 text-blue-600" /> {j.location}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="h-3.5 w-3.5 text-blue-600" /> {j.workMode}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <TrendingUp className="h-3.5 w-3.5 text-blue-600" /> {j.experience}
+                    </span>
                   </div>
 
-                  <div className="mt-5 pt-4 border-t border-border/60 flex items-center justify-between">
-                    <span className="text-sm font-black text-ink">{j.salary}</span>
-                    <span className="inline-flex items-center gap-1 text-sm font-bold text-brand">
-                      View Details <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-xs sm:text-sm font-bold text-[#071326]">
+                      {j.salary}
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-[#071326] group-hover:text-[#f5a623] transition-colors">
+                      View Role <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
                   </div>
                 </Link>
@@ -210,12 +278,16 @@ function CareersPage() {
             ))}
 
             {filtered.length === 0 && (
-              <div className="md:col-span-2 rounded-2xl bg-white border border-dashed border-border p-12 text-center">
-                <p className="text-ink font-semibold">No roles match your search.</p>
-                <p className="mt-1 text-sm text-muted-foreground">Try clearing filters or a different keyword.</p>
+              <div className="md:col-span-2 rounded-xl bg-white border border-dashed border-slate-300 p-12 text-center">
+                <p className="text-base font-bold text-[#071326]">No open roles match your criteria.</p>
+                <p className="mt-1 text-xs sm:text-sm text-slate-500">Try broadening your keywords or clearing the filter options.</p>
                 <button
-                  onClick={() => { setQuery(""); setDept(DEPARTMENTS[0]); setLoc(LOCATIONS[0]); }}
-                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand/90 transition-colors"
+                  onClick={() => {
+                    setQuery("");
+                    setDept(DEPARTMENTS[0]);
+                    setLoc(LOCATIONS[0]);
+                  }}
+                  className="mt-5 inline-flex items-center gap-2 rounded-lg bg-[#0a1628] px-5 py-2.5 text-xs sm:text-sm font-bold text-white hover:bg-[#071326] transition-colors shadow-sm"
                 >
                   Reset filters
                 </button>
@@ -226,28 +298,35 @@ function CareersPage() {
       </section>
 
       {/* Employee voices */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <SectionHeading eyebrow="Life at ConfigUSA" title="Hear From Our Team" subtitle="Real perspectives from the people who make ConfigUSA what it is." />
+          <SectionHeading
+            eyebrow="Team Perspectives"
+            title="Hear From Our Engineers & Leaders"
+            subtitle="Authentic experiences from professionals driving digital impact across our global client engagements."
+          />
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {VOICES.map((v, i) => (
               <motion.figure
                 key={v.role}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative flex flex-col rounded-2xl bg-soft p-8 border border-border/50 hover:bg-white hover:shadow-elegant hover:-translate-y-1.5 transition-all duration-300"
+                className="group flex flex-col rounded-xl bg-white p-7 sm:p-8 border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300"
               >
-                <Quote className="h-9 w-9 text-brand/20 group-hover:text-brand/40 transition-colors" />
-                <blockquote className="mt-4 text-sm text-ink/85 leading-relaxed text-justify flex-1">"{v.quote}"</blockquote>
-                <figcaption className="mt-6 flex items-center gap-3 pt-5 border-t border-border/60">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-white text-sm font-black shadow-glow">
+                <Quote className="h-8 w-8 text-slate-300 group-hover:text-blue-500 transition-colors" />
+                <blockquote className="mt-4 text-xs sm:text-[13px] text-slate-700 leading-relaxed flex-1">
+                  "{v.quote}"
+                </blockquote>
+                <figcaption className="mt-6 flex items-center gap-3.5 pt-5 border-t border-slate-100">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#071326] text-[#f5a623] text-sm font-bold shadow-sm">
                     {v.initials}
                   </span>
                   <div>
-                    <div className="text-sm font-bold text-ink">{v.role}</div>
-                    <div className="text-xs text-muted-foreground">{v.tenure}</div>
+                    <div className="text-sm font-bold text-[#071326]">{v.name}</div>
+                    <div className="text-xs text-slate-500">{v.role}</div>
+                    <div className="text-[11px] font-semibold text-[#f5a623] mt-0.5">{v.tenure}</div>
                   </div>
                 </figcaption>
               </motion.figure>

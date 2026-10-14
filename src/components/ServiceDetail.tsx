@@ -47,15 +47,15 @@ export function ServiceDetail(p: ServiceDetailProps) {
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-white shadow-glow hover:scale-105 transition-transform"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
           >
             Talk to an Expert <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             to="/services"
-            className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 backdrop-blur px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/5 backdrop-blur px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
           >
-            All Services
+            All Capabilities
           </Link>
         </div>
       </PageHero>
@@ -68,12 +68,12 @@ export function ServiceDetail(p: ServiceDetailProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-3xl bg-white shadow-elegant border border-border/60 grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-border/60 overflow-hidden"
+            className="rounded-2xl bg-white shadow-card border border-slate-200/90 grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-slate-100 overflow-hidden"
           >
             {p.stats.map((s) => (
               <div key={s.label} className="px-4 py-7 text-center">
-                <div className="text-2xl md:text-3xl font-black text-brand tracking-tight">{s.value}</div>
-                <div className="mt-1.5 text-[0.65rem] font-bold uppercase tracking-[0.16em] text-muted-foreground">{s.label}</div>
+                <div className="text-2xl md:text-3xl font-extrabold text-[#071326] tracking-tight">{s.value}</div>
+                <div className="mt-1.5 text-xs font-semibold uppercase tracking-wider text-slate-500">{s.label}</div>
               </div>
             ))}
           </motion.div>
@@ -81,7 +81,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
       )}
 
       {/* Overview */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-24 bg-white overflow-hidden border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -91,7 +91,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
             className="relative"
           >
             <div className="absolute -inset-3 rounded-[2rem] bg-gradient-brand opacity-10 blur-2xl" />
-            <img src={p.overviewImage} alt="" className="relative rounded-3xl shadow-elegant border border-border/60 w-full object-cover aspect-[4/3]" />
+            <img src={p.overviewImage} alt="" className="relative rounded-2xl shadow-card border border-slate-200/80 w-full object-cover aspect-[4/3]" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 30 }}
@@ -99,16 +99,18 @@ export function ServiceDetail(p: ServiceDetailProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-brand mb-3">{p.overviewLabel}</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-ink leading-tight tracking-tight">{p.overviewHeading}</h2>
+            <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-4">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">{p.overviewLabel}</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-bold text-[#071326] leading-tight tracking-tight">{p.overviewHeading}</h2>
+            </div>
             {p.overviewParas.map((para, i) => (
-              <p key={i} className="mt-4 text-muted-foreground leading-relaxed text-justify">{para}</p>
+              <p key={i} className="mt-4 text-slate-600 leading-relaxed">{para}</p>
             ))}
             <ul className="mt-6 grid sm:grid-cols-2 gap-x-6 gap-y-3">
               {p.benefits.map((b) => (
                 <li key={b} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="h-5 w-5 shrink-0 text-brand mt-0.5" />
-                  <span className="text-sm text-ink/80 leading-snug">{b}</span>
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-[#f5a623] mt-1" />
+                  <span className="text-xs sm:text-[13px] text-slate-700 font-medium leading-snug">{b}</span>
                 </li>
               ))}
             </ul>
@@ -117,7 +119,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
       </section>
 
       {/* Capabilities */}
-      <section className="py-24 bg-soft border-y border-border/40">
+      <section className="py-24 bg-slate-50 border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading eyebrow="What We Deliver" title={p.capabilitiesHeading} subtitle={p.capabilitiesSub} />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -128,14 +130,13 @@ export function ServiceDetail(p: ServiceDetailProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.07 }}
-                className="group rounded-2xl bg-white p-8 border border-border/50 shadow-card hover:shadow-[0_20px_40px_rgba(29,78,216,0.12)] hover:-translate-y-1.5 hover:border-brand/30 transition-all duration-300 relative overflow-hidden"
+                className="group rounded-xl bg-white p-7 sm:p-8 border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300 relative overflow-hidden"
               >
-                <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 border border-blue-100 text-brand group-hover:bg-gradient-brand group-hover:border-transparent group-hover:text-white group-hover:shadow-glow transition-all duration-300">
-                  <c.icon className="h-6 w-6" />
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 border border-blue-100 text-blue-600 group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-colors duration-200">
+                  <c.icon className="h-6 w-6 stroke-[1.75]" />
                 </span>
-                <h3 className="mt-5 text-lg font-bold text-ink group-hover:text-brand transition-colors">{c.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify">{c.text}</p>
+                <h3 className="mt-5 text-base sm:text-[17px] font-bold text-[#071326] group-hover:text-blue-700 transition-colors leading-snug">{c.title}</h3>
+                <p className="mt-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed">{c.text}</p>
               </motion.div>
             ))}
           </div>
@@ -143,7 +144,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
       </section>
 
       {/* Process */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading eyebrow="How It Works" title={p.processHeading} subtitle={p.processSub} />
           <div className="mt-16 relative">
@@ -158,13 +159,13 @@ export function ServiceDetail(p: ServiceDetailProps) {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="flex flex-col items-center text-center group"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white border-2 border-slate-200 text-brand shadow-sm group-hover:bg-brand group-hover:border-brand group-hover:text-white group-hover:scale-105 transition-all duration-300 z-10">
-                    <h.icon className="h-6 w-6" />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white border-2 border-slate-200 text-blue-600 shadow-sm group-hover:bg-[#071326] group-hover:border-[#071326] group-hover:text-[#f5a623] transition-all duration-300 z-10">
+                    <h.icon className="h-6 w-6 stroke-[1.75]" />
                   </div>
-                  <div className="mt-6 rounded-2xl bg-white p-7 border border-border/50 shadow-card hover:shadow-[0_20px_40px_rgba(29,78,216,0.12)] hover:-translate-y-1 transition-all duration-300">
-                    <div className="text-xs font-bold text-brand">STEP {String(i + 1).padStart(2, "0")}</div>
-                    <h3 className="mt-1 text-base font-bold text-ink group-hover:text-brand transition-colors">{h.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-justify">{h.text}</p>
+                  <div className="mt-6 rounded-xl bg-slate-50 p-6 border border-slate-200/80 hover:bg-white hover:border-blue-400 hover:shadow-md transition-all duration-300 w-full">
+                    <div className="text-xs font-bold text-[#f5a623]">STEP {String(i + 1).padStart(2, "0")}</div>
+                    <h3 className="mt-1 text-base font-bold text-[#071326] group-hover:text-blue-700 transition-colors">{h.title}</h3>
+                    <p className="mt-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed">{h.text}</p>
                   </div>
                 </motion.div>
               ))}

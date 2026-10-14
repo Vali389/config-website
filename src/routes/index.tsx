@@ -46,12 +46,6 @@ import {
 
 import heroExecutives from "@/assets/hero_enterprise_executives.jpg";
 import whoWeAreReferenceMeeting from "@/assets/who_we_are_reference_meeting.jpg";
-import wdAi from "@/assets/wd-ai.jpg";
-import wdEngineering from "@/assets/wd-engineering.jpg";
-import wdCloud from "@/assets/wd-cloud.jpg";
-import wdEnterprise from "@/assets/wd-enterprise.jpg";
-import wdWorkforce from "@/assets/wd-workforce.jpg";
-import wdManaged from "@/assets/wd-managed.jpg";
 import whoWeAreImg from "@/assets/about-hero-new.png";
 import ctaHome from "@/assets/cta-home.jpg";
 import storyCloud from "@/assets/story-cloud.jpg";
@@ -118,7 +112,7 @@ const CAPABILITIES = [
     title: "Cloud & Infrastructure",
     subtitle: "Migration, DevOps & Platform",
     description: "Supporting cloud migration, modernization, DevOps, platform engineering, and operational excellence.",
-    to: "/services/software",
+    to: "/services/cloud",
   },
   {
     icon: Boxes,
@@ -139,7 +133,7 @@ const CAPABILITIES = [
     title: "Managed Delivery Services",
     subtitle: "Dedicated Engineering Pods",
     description: "End-to-end delivery teams that own outcomes from build to ongoing support.",
-    to: "/services",
+    to: "/services/managed-delivery",
   },
 ];
 
@@ -372,7 +366,7 @@ function Hero() {
           className="h-full w-full object-cover object-right lg:object-center"
         />
         {/* Restrained corporate gradient: Left side dark navy for sharp editorial legibility, right side cleanly reveals executives & sunset skyline */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/85 via-50% to-[#071326]/15 lg:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/85 via-45% to-transparent to-60% pointer-events-none" />
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#071326] via-[#071326]/60 to-transparent pointer-events-none" />
       </div>
 
@@ -432,36 +426,6 @@ function Hero() {
             </Link>
           </motion.div>
         </div>
-
-        {/* Three Clear Service Pathways */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          className="mt-12 max-w-4xl"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4">
-            {SERVICE_PATHWAYS.map((pathway) => (
-              <Link
-                key={pathway.title}
-                to={pathway.to as any}
-                className="group relative flex flex-col justify-between p-4 sm:p-5 rounded-lg border border-white/15 bg-[#0a182f]/60 backdrop-blur-md hover:bg-[#0f2344]/80 hover:border-amber-400/40 transition-all duration-200"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-1.5">
-                    <h3 className="font-bold text-sm sm:text-[15px] text-white group-hover:text-[#f5a623] transition-colors">
-                      {pathway.title}
-                    </h3>
-                    <ArrowRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#f5a623] group-hover:translate-x-1 transition-transform" />
-                  </div>
-                  <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                    {pathway.desc}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </motion.div>
       </div>
 
       {/* Horizontal Stats Bar Across the Bottom of the Hero */}

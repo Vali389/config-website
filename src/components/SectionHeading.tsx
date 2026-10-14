@@ -23,19 +23,44 @@ export function SectionHeading({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6 }}
-      className={`${maxWidth} ${align === "center" ? "mx-auto text-center" : ""}`}
+      className={`${maxWidth} ${align === "center" ? "mx-auto text-center" : "border-l-[3px] border-[#f5a623] pl-3.5"}`}
     >
       {eyebrow && (
-        <p className={`text-xs font-bold uppercase tracking-[0.25em] mb-3 flex items-center gap-2 ${align === "center" ? "justify-center" : ""} ${eyebrowColor ? eyebrowColor : (light ? "text-blue-300" : "text-blue-600")}`}>
-          <span className={`h-px w-6 ${eyebrowColor ? eyebrowColor.replace("text-", "bg-") : (light ? "bg-blue-300" : "bg-blue-600")}`} />
+        <p
+          className={`text-xs font-bold uppercase tracking-widest mb-1.5 flex items-center gap-2 ${
+            align === "center" ? "justify-center" : ""
+          } ${eyebrowColor ? eyebrowColor : "text-[#f5a623]"}`}
+        >
+          {align === "center" && (
+            <span
+              className={`h-px w-6 ${
+                eyebrowColor ? eyebrowColor.replace("text-", "bg-") : "bg-[#f5a623]"
+              }`}
+            />
+          )}
           {eyebrow}
+          {align === "center" && (
+            <span
+              className={`h-px w-6 ${
+                eyebrowColor ? eyebrowColor.replace("text-", "bg-") : "bg-[#f5a623]"
+              }`}
+            />
+          )}
         </p>
       )}
-      <h2 className={`text-2xl sm:text-3xl font-extrabold leading-snug tracking-tight ${light ? "text-white" : "text-slate-900"}`}>
+      <h2
+        className={`text-2xl sm:text-3xl lg:text-[2.35rem] font-bold leading-tight tracking-tight ${
+          light ? "text-white" : "text-[#071326]"
+        }`}
+      >
         {title}
       </h2>
       {subtitle && (
-        <p className={`mt-3 text-sm sm:text-base leading-relaxed ${align === "center" ? "text-center" : ""} ${light ? "text-white/70" : "text-slate-500"}`}>
+        <p
+          className={`mt-2.5 text-sm sm:text-base leading-relaxed ${
+            align === "center" ? "text-center" : ""
+          } ${light ? "text-slate-300" : "text-slate-500"}`}
+        >
           {subtitle}
         </p>
       )}

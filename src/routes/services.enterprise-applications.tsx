@@ -1,14 +1,28 @@
+import React from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PageHero } from "@/components/PageHero";
-import { SectionHeading } from "@/components/SectionHeading";
-import { CTASection } from "@/components/CTASection";
 import { motion } from "motion/react";
 import {
-  Server, Database, Cloud, Users, Briefcase, Boxes, BarChart3,
-  Cpu, Zap, CheckCircle2, ArrowRight, Heart, Landmark,
-  Building2, Factory, ShoppingCart, Activity, RefreshCw, Layers, Globe2
+  Server,
+  Database,
+  Cloud,
+  Users,
+  Briefcase,
+  Boxes,
+  BarChart3,
+  Cpu,
+  Zap,
+  CheckCircle2,
+  ArrowRight,
+  Heart,
+  Landmark,
+  Building2,
+  Factory,
+  ShoppingCart,
+  Activity,
+  RefreshCw,
+  Layers,
+  Globe2,
 } from "lucide-react";
-import erpHeroBg from "@/assets/erp-hero-bg.png";
 import enterpriseHeroImg from "@/assets/enterprise_hero_img.png";
 import heroCarousel1 from "@/assets/hero_carousel_1.jpg";
 import heroCarousel2 from "@/assets/hero_carousel_2.jpg";
@@ -25,9 +39,18 @@ import erpSupportImg from "@/assets/erp_support_img.png";
 export const Route = createFileRoute("/services/enterprise-applications")({
   head: () => ({
     meta: [
-      { title: "Enterprise Applications & ERP | ConfigUSA" },
-      { name: "description", content: "Implement, modernize and integrate SAP, Oracle, Workday, Salesforce and Microsoft Dynamics with ConfigUSA's Enterprise Applications consulting." },
+      { title: "Enterprise Applications & ERP Solutions | ConfigUSA" },
+      {
+        name: "description",
+        content:
+          "Implement, modernize and integrate SAP, Oracle, Workday, Salesforce and Microsoft Dynamics with ConfigUSA's Enterprise Applications consulting.",
+      },
       { property: "og:title", content: "Enterprise Applications & ERP Solutions" },
+      {
+        property: "og:description",
+        content:
+          "Mission-critical enterprise software implementation, migration, and ongoing managed support.",
+      },
     ],
   }),
   component: EnterpriseApplications,
@@ -35,259 +58,407 @@ export const Route = createFileRoute("/services/enterprise-applications")({
 
 /* ────────────────────────── DATA ────────────────────────── */
 
+const ENTERPRISE_METRICS = [
+  { value: "100+", label: "Enterprise Rollouts" },
+  { value: "S/4HANA", label: "Migration Certified" },
+  { value: "10+ Yrs", label: "Avg. Consultant Experience" },
+  { value: "24/7", label: "Managed AMS Support" },
+];
+
 const ECOSYSTEM = [
   {
     category: "ERP & Business Management",
-    technologies: ["SAP S/4HANA", "SAP ECC", "Oracle Fusion Cloud ERP", "Oracle E-Business Suite", "Microsoft Dynamics 365 Finance", "Microsoft Dynamics 365 Business Central", "Infor CloudSuite", "NetSuite", "Odoo", "ERPNext", "IFS Cloud", "Epicor"]
+    technologies: [
+      "SAP S/4HANA",
+      "SAP ECC",
+      "Oracle Fusion Cloud",
+      "Oracle E-Business",
+      "Dynamics 365 Finance",
+      "Dynamics Business Central",
+      "Infor CloudSuite",
+      "NetSuite",
+      "Epicor",
+    ],
   },
   {
-    category: "HCM & Workforce",
-    technologies: ["Workday HCM", "Workday Financial Management", "SAP SuccessFactors", "Oracle HCM Cloud", "Microsoft Dynamics 365 Human Resources"]
+    category: "HCM & Workforce Platforms",
+    technologies: [
+      "Workday HCM",
+      "Workday Financials",
+      "SAP SuccessFactors",
+      "Oracle HCM Cloud",
+      "Dynamics 365 HR",
+      "Payroll & Talent Suites",
+    ],
   },
   {
-    category: "CRM & Customer Platforms",
-    technologies: ["Salesforce", "Salesforce Sales Cloud", "Salesforce Service Cloud", "Microsoft Dynamics 365 Sales", "Microsoft Dynamics 365 Customer Service"]
+    category: "CRM & Customer Experience",
+    technologies: [
+      "Salesforce Sales Cloud",
+      "Salesforce Service Cloud",
+      "Dynamics 365 Sales",
+      "Dynamics Customer Service",
+      "HubSpot Enterprise",
+      "Customer 360",
+    ],
   },
   {
-    category: "Supply Chain & Operations",
-    technologies: ["SAP MM", "SAP SD", "SAP PP", "SAP SCM", "Oracle SCM", "Microsoft Dynamics 365 Supply Chain Management", "Infor SCM"]
+    category: "Supply Chain & Manufacturing",
+    technologies: [
+      "SAP MM / SD / PP",
+      "SAP SCM & IBP",
+      "Oracle SCM Cloud",
+      "Dynamics 365 Supply Chain",
+      "Warehouse Management (WMS)",
+      "Smart Factory IoT",
+    ],
   },
   {
-    category: "Analytics & Integration",
-    technologies: ["SAP BTP", "SAP Analytics Cloud", "Microsoft Power BI", "Microsoft Power Platform", "MuleSoft", "Oracle Cloud Infrastructure", "Enterprise APIs", "Data Integration"]
-  }
+    category: "Integration & Enterprise APIs",
+    technologies: [
+      "SAP BTP Integration",
+      "MuleSoft Anypoint",
+      "Oracle OIC",
+      "Azure Logic Apps",
+      "Dell Boomi",
+      "Enterprise REST/Event APIs",
+    ],
+  },
+  {
+    category: "Analytics & Business Intelligence",
+    technologies: [
+      "SAP Analytics Cloud",
+      "Microsoft Power BI",
+      "Tableau Enterprise",
+      "Snowflake Data Cloud",
+      "Databricks Lakehouse",
+      "Real-Time Executive Dashboards",
+    ],
+  },
 ];
 
 const PLATFORMS = [
-  { name: "SAP", desc: "Transform your business with S/4HANA, ECC, and cloud solutions.", icon: Database },
-  { name: "Oracle", desc: "Cloud ERP, HCM, and Supply Chain modernization.", icon: Cloud },
-  { name: "Microsoft Dynamics 365", desc: "Unified CRM and ERP capabilities.", icon: Server },
-  { name: "Workday", desc: "Agile finance, HR, and planning platforms.", icon: Users },
-  { name: "Salesforce", desc: "Customer 360, Sales Cloud, and Service Cloud.", icon: Briefcase },
-  { name: "Infor", desc: "Industry-specific CloudSuite solutions.", icon: Boxes },
-  { name: "NetSuite", desc: "Cloud financials and unified business management.", icon: BarChart3 },
-  { name: "Other ERP Platforms", desc: "Odoo, ERPNext, Epicor, and legacy migrations.", icon: Layers },
+  { name: "SAP Solutions", desc: "Transform your core business with certified S/4HANA, ECC, BTP, and cloud architecture.", icon: Database },
+  { name: "Oracle Cloud ERP", desc: "Modernize financials, human capital, procurement, and global supply chain operations.", icon: Cloud },
+  { name: "Microsoft Dynamics 365", desc: "Unified CRM, Finance, Operations, and Business Central platforms.", icon: Server },
+  { name: "Workday Enterprise", desc: "Agile cloud finance, human capital management, and workforce analytics.", icon: Users },
+  { name: "Salesforce 360", desc: "Sales Cloud, Service Cloud, Experience Cloud, and customized CRM ecosystems.", icon: Briefcase },
+  { name: "Infor CloudSuite", desc: "Industry-tailored manufacturing, distribution, and ERP CloudSuites.", icon: Boxes },
+  { name: "NetSuite Cloud ERP", desc: "Unified cloud accounting, inventory, and automated commerce for scale.", icon: BarChart3 },
+  { name: "Legacy & Niche Migrations", desc: "Decommissioning legacy AS400, mainframe, and on-premise systems smoothly.", icon: Layers },
 ];
 
 const ERP_SERVICES = [
-  { title: "ERP Consulting", desc: "Strategic advisory for platform selection and roadmap design." },
-  { title: "ERP Implementation", desc: "End-to-end deployment of cloud and on-premise platforms." },
-  { title: "ERP Integration", desc: "Connecting enterprise systems across your IT landscape." },
-  { title: "ERP Migration", desc: "Seamless transition to cloud or next-gen platforms." },
-  { title: "ERP Modernization", desc: "Upgrading legacy systems for agility and scale." },
-  { title: "ERP Customization", desc: "Tailoring out-of-the-box platforms to your unique workflows." },
-  { title: "ERP Data Migration", desc: "Secure extraction, transformation, and loading of business data." },
-  { title: "Cloud ERP Transformation", desc: "Shifting on-premise ERP workloads to resilient cloud environments." },
-  { title: "ERP Testing & QA", desc: "Rigorous validation for performance, security, and compliance." },
-  { title: "ERP Support & Maintenance", desc: "24/7 managed services and continuous platform optimization." },
-  { title: "ERP Security", desc: "Hardening business applications against internal and external threats." },
-  { title: "ERP Analytics & Reporting", desc: "Unlocking real-time intelligence from your business data." },
-];
-
-const PLATFORM_SERVICES = [
-  "Enterprise Application Consulting",
-  "Platform Implementation",
-  "Application Modernization",
-  "Legacy System Migration",
-  "API Integration",
-  "Third-Party Integration",
-  "Data Migration",
-  "Business Process Automation",
-  "Enterprise Reporting",
-  "Application Support",
-  "Managed Services"
+  { title: "ERP Advisory & Strategy", desc: "Platform selection, total cost of ownership analysis, and modernization roadmaps." },
+  { title: "Full-Cycle Implementation", desc: "End-to-end blueprinting, configuration, testing, and production go-live." },
+  { title: "Enterprise Integration", desc: "Connecting ERP with CRM, banking, supply chain, and third-party API ecosystems." },
+  { title: "Cloud ERP Migration", desc: "Low-risk transition from on-premise legacy systems to modern cloud editions." },
+  { title: "S/4HANA Modernization", desc: "Technical and functional migrations from SAP ECC to SAP S/4HANA." },
+  { title: "Custom Workflow Engineering", desc: "Tailoring platform extensions and automations to your unique operational rules." },
+  { title: "Data Migration & Cleansing", desc: "Secure extraction, validation, and reconciliation of mission-critical historical data." },
+  { title: "Managed Services (AMS)", desc: "24/7 level 2/3 operational maintenance, ticket resolution, and release upgrades." },
+  { title: "Quality Assurance & Testing", desc: "Automated regression testing, performance validation, and compliance checks." },
+  { title: "Security & Role Governance", desc: "SoD matrix validation, audit compliance, and identity role design." },
+  { title: "ERP Analytics & BI", desc: "Unlocking real-time operational reporting and financial visibility." },
+  { title: "Change Management & Training", desc: "User adoption programs, train-the-trainer workshops, and documentation." },
 ];
 
 const ERP_AI = [
-  "Intelligent document processing",
-  "AI-powered business insights",
-  "Predictive analytics",
-  "Demand forecasting",
-  "Financial forecasting",
-  "Intelligent automation",
-  "AI assistants",
-  "Fraud detection",
-  "Process optimization",
-  "Automated reporting"
+  "Intelligent Invoice & Document Processing",
+  "AI-Powered Demand & Inventory Forecasting",
+  "Automated Financial Reconciliation",
+  "Autonomous Agentic Customer Service Workflows",
+  "Predictive Equipment Maintenance in SCM",
+  "Anomaly & Fraud Detection in Transactions",
+  "Cognitive ERP Assistant & Natural Language Queries",
+  "Automated Executive Reporting & Variance Alerts",
 ];
 
 const INDUSTRIES = [
-  { icon: Heart, title: "Healthcare", desc: "Secure systems for patient data, supply chain, and compliance." },
-  { icon: Landmark, title: "Financial Services", desc: "Robust platforms for risk, reporting, and core banking." },
-  { icon: Building2, title: "Government & Public Sector", desc: "Compliant solutions for public administration and resources." },
-  { icon: Factory, title: "Manufacturing", desc: "SAP, Oracle and Microsoft Dynamics solutions for production planning, supply chain, inventory, procurement and smart manufacturing." },
-  { icon: ShoppingCart, title: "Retail & E-commerce", desc: "Omnichannel inventory, CRM, and supply chain visibility." },
-  { icon: Cpu, title: "Technology & SaaS", desc: "Scalable back-office operations for high-growth tech firms." },
+  { icon: Heart, title: "Healthcare & Life Sciences", desc: "HIPAA-compliant platforms for clinical supply chains, patient records, and operational finance." },
+  { icon: Landmark, title: "Financial Services", desc: "High-security regulatory reporting, risk governance, and core banking integrations." },
+  { icon: Building2, title: "Government & Public Sector", desc: "Compliant ERP modernizations aligned with strict procurement, transparency, and audit standards." },
+  { icon: Factory, title: "Manufacturing & Automotive", desc: "Integrated production planning, shop-floor IoT, procurement, and smart factory supply chains." },
+  { icon: ShoppingCart, title: "Retail & Consumer Goods", desc: "Omnichannel inventory accuracy, CRM personalization, and real-time replenishment." },
+  { icon: Cpu, title: "Technology & High-Growth SaaS", desc: "Scalable revenue operations, subscription billing, and international entity consolidation." },
 ];
 
-const JOURNEY = [
-  { title: "Discover", text: "Business requirements and current-state assessment." },
-  { title: "Strategy", text: "Platform selection and transformation roadmap." },
-  { title: "Implement", text: "Configuration, customization and development." },
-  { title: "Integrate", text: "APIs, data and third-party systems." },
-  { title: "Migrate", text: "Secure legacy data migration and validation." },
-  { title: "Optimize", text: "Analytics, automation, AI and continuous improvement." },
-  { title: "Support", text: "Ongoing managed services and platform support." },
+const DEEP_DIVE_STEPS = [
+  {
+    step: "01",
+    icon: Briefcase,
+    title: "ERP Strategy & Architecture Blueprint",
+    desc: "We analyze current business processes, system bottlenecks, and compliance requirements. Our certified architects establish a vendor-agnostic modernization roadmap that aligns stakeholders and mitigates implementation risks.",
+    tags: ["Platform Evaluation", "TCO Analysis", "Process Mapping", "Roadmap Blueprint"],
+    image: erpStrategyImg,
+  },
+  {
+    step: "02",
+    icon: Server,
+    title: "Configuration & Agile Implementation",
+    desc: "End-to-end deployment across SAP, Oracle, Microsoft Dynamics, or Workday. Our teams configure modules to match your unique operational rules while maintaining core standard practices for simple future upgrades.",
+    tags: ["Core Configuration", "Custom Workflows", "Integration Setup", "Security Modeling"],
+    image: erpImplementationImg,
+  },
+  {
+    step: "03",
+    icon: RefreshCw,
+    title: "Enterprise System & API Integration",
+    desc: "Unifying your enterprise data fabric by integrating ERP with CRM, supply chain, banking gateways, and external partner APIs using MuleSoft, SAP BTP, and modern event-driven messaging.",
+    tags: ["MuleSoft / Boomi", "SAP BTP", "Secure Webhooks", "Real-Time Sync"],
+    image: erpIntegrationImg,
+  },
+  {
+    step: "04",
+    icon: Cloud,
+    title: "Zero-Downtime Data & Cloud Migration",
+    desc: "Migrating from aging on-premise hardware to resilient cloud environments. We execute dry-run data rehearsals, automated integrity validation, and weekend cutovers with zero operational disruption.",
+    tags: ["Data Cleansing", "S/4HANA Move", "Rehearsal Cutovers", "Reconciliation"],
+    image: erpMigrationImg,
+  },
+  {
+    step: "05",
+    icon: Zap,
+    title: "Modernization & Continuous AI Uplift",
+    desc: "Upgrade legacy instances to unlock modern cloud advantages: embedded predictive analytics, automated invoice recognition, cognitive workflow assistants, and intelligent reporting.",
+    tags: ["ECC to S/4HANA", "Oracle Fusion", "AI Automation", "Process Mining"],
+    image: erpModernizationImg,
+  },
+  {
+    step: "06",
+    icon: Activity,
+    title: "24/7 Managed Services & Optimization",
+    desc: "Post-go-live, our global AMS squads provide round-the-clock level 2 and level 3 support, continuous minor enhancements, performance tuning, and guaranteed SLA response times.",
+    tags: ["24/7 AMS Support", "SLA Accountability", "Quarterly Upgrades", "Cost Tuning"],
+    image: erpSupportImg,
+  },
 ];
+
+/* ────────────────────────── COMPONENT ────────────────────────── */
 
 function EnterpriseApplications() {
   return (
-    <>
-      <PageHero
-        align="left"
-        eyebrow="Enterprise Applications & ERP"
-        title={<>Powering Modern Enterprises with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-500 font-extrabold">Intelligent Business Platforms</span></>}
-        subtitle="From ERP and CRM to HCM, supply chain and enterprise integration, ConfigUSA helps organizations implement, modernize, integrate and support the platforms that run their businesses."
-        images={[heroCarousel1, heroCarousel2, enterpriseHeroImg]}
-        minHeight="min-h-screen"
-      >
-        <div className="flex flex-wrap items-center gap-4 mt-2">
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg hover:scale-105 hover:shadow-[0_0_40px_rgba(59,130,246,0.45)] transition-all"
-          >
-            Talk to an Enterprise Applications Expert <ArrowRight className="h-4 w-4" />
-          </Link>
-          <a
-            href="#ecosystem"
-            className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur hover:bg-white/20 transition-all"
-          >
-            Explore Our Capabilities
-          </a>
+    <div className="min-h-screen bg-white">
+      {/* ────────────────────────── HERO SECTION ────────────────────────── */}
+      <section className="relative min-h-[64vh] flex items-center overflow-hidden pt-28 pb-16 bg-[#071326]">
+        {/* Background Photography with Navy Gradient */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={wdEnterprise}
+            alt="Enterprise Applications"
+            className="h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/90 via-55% to-[#071326]/40 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#071326] via-[#071326]/70 to-transparent pointer-events-none" />
         </div>
-      </PageHero>
 
-      {/* ── Enterprise Strategy & Execution (GatherHub Style Image-Over-Image) ── */}
-      <section className="py-24 lg:py-28 bg-gradient-to-br from-blue-50 via-indigo-50/40 to-blue-50/80 overflow-hidden border-b border-border/40">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
-          {/* Left: Main Image with Floating Circular Image Overlay (GatherHub Style) */}
-          <motion.div
-            initial={{ opacity: 0, x: -150 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut", type: "spring", bounce: 0.25 }}
-            className="relative pr-8 pb-8" // Add padding to make room for the overlapping circle
-          >
-            {/* Background Blob/Glow */}
-            <div className="absolute -inset-1 rounded-[2rem] bg-gradient-brand opacity-15 blur-2xl" />
-
-            {/* Main Large Image */}
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/3] w-full border border-blue-200/80 shadow-elegant">
-              <img
-                src={wdEnterprise}
-                alt="Enterprise Architecture"
-                className="h-full w-full object-cover"
-              />
-            </div>
-
-            {/* Overlapping Circular Image with Continuous Floating Animation */}
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full my-auto py-8">
+          <div className="max-w-3xl">
+            {/* Amber Eyebrow Badge */}
             <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute -bottom-4 -right-4 z-20"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f5a623]/15 border border-[#f5a623]/30 text-[#f5a623] text-xs font-bold uppercase tracking-wider mb-4"
             >
-              <div className="h-40 w-40 sm:h-48 sm:w-48 rounded-full overflow-hidden border-8 border-white shadow-2xl bg-white">
-                <img
-                  src={serviceSap}
-                  alt="ERP Implementation Focus"
-                  className="h-full w-full object-cover"
-                />
-              </div>
+              <Boxes className="h-3.5 w-3.5" />
+              <span>Enterprise Applications & ERP Modernization</span>
             </motion.div>
 
-            {/* Optional Small Floating Icon/Badge on Top Left */}
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut", delay: 1 }}
-              className="absolute top-8 -left-6 z-20 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-xl border-4 border-white"
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.1 }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight"
             >
-              <CheckCircle2 className="h-7 w-7" />
+              Powering Modern Enterprises with{" "}
+              <span className="text-[#f5a623]">Intelligent Business Platforms.</span>
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.2 }}
+              className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl"
+            >
+              From SAP, Oracle, and Microsoft Dynamics to Workday and Salesforce, ConfigUSA helps organizations implement, modernize, integrate, and support the platforms that run their operations.
+            </motion.p>
+
+            {/* Action Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.3 }}
+              className="mt-8 flex flex-wrap gap-4"
+            >
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
+              >
+                Talk to an Enterprise Expert <ArrowRight className="h-4 w-4" />
+              </Link>
+              <a
+                href="#ecosystem"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/5 backdrop-blur-sm px-7 py-3.5 text-sm font-medium text-white hover:bg-white/10 transition-colors"
+              >
+                Explore Capabilities <ArrowRight className="h-4 w-4" />
+              </a>
             </motion.div>
-          </motion.div>
+          </div>
 
-          {/* Right: Heading + Content */}
+          {/* Stats Bar */}
           <motion.div
-            initial={{ opacity: 0, x: 150 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut", type: "spring", bounce: 0.25 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-12 pt-7 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-6"
           >
-            <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-blue-700 mb-4 flex items-center gap-2">
-              <span className="h-px w-8 bg-blue-700" />
-              Enterprise Strategy
-            </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-blue-950 leading-tight tracking-tight mb-4 text-left max-w-xl">
-              Aligning Complex Systems with <span className="text-gradient-brand">Business Velocity.</span>
-            </h2>
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed text-justify mb-8">
-              Legacy platforms slow down innovation. At ConfigUSA, we use intelligent methodologies to seamlessly implement, upgrade, and integrate your core enterprise applications, ensuring they act as accelerators—not bottlenecks.
-            </p>
-
-            {/* 2 stacked horizontal feature cards */}
-            <div className="space-y-4">
-              <div className="group rounded-2xl bg-white p-5 sm:p-6 border border-blue-100 shadow-card hover:shadow-elegant hover:border-blue-300 transition-all duration-300 flex items-start gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-sm group-hover:scale-110 transition-transform duration-300">
-                  <Layers className="h-6 w-6" />
-                </span>
-                <div>
-                  <h3 className="text-base sm:text-lg font-bold text-ink group-hover:text-blue-700 transition-colors">
-                    End-to-End Modernization
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed text-justify mt-1">
-                    From legacy ERP extraction to cloud-native platform deployment, we handle the entire lifecycle with dedicated architecture pods.
-                  </p>
-                </div>
+            {ENTERPRISE_METRICS.map((metric) => (
+              <div key={metric.label}>
+                <p className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                  {metric.value}
+                </p>
+                <p className="text-xs sm:text-[13px] text-slate-400 font-medium mt-1">
+                  {metric.label}
+                </p>
               </div>
-
-              <div className="group rounded-2xl bg-white p-5 sm:p-6 border border-blue-100 shadow-card hover:shadow-elegant hover:border-blue-300 transition-all duration-300 flex items-start gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-sm group-hover:scale-110 transition-transform duration-300">
-                  <Globe2 className="h-6 w-6" />
-                </span>
-                <div>
-                  <h3 className="text-base sm:text-lg font-bold text-ink group-hover:text-blue-700 transition-colors">
-                    Global Delivery Model
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed text-justify mt-1">
-                    Round-the-clock configuration, testing, and support using integrated onshore and offshore delivery teams.
-                  </p>
-                </div>
-              </div>
-            </div>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* ── Section 1: Ecosystem ── */}
-      <section id="ecosystem" className="py-24 bg-white">
+      {/* ────────────────────────── STRATEGY & EXECUTION ────────────────────────── */}
+      <section className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <SectionHeading eyebrow="Technology Ecosystem" title="Comprehensive Enterprise Coverage" subtitle="Our consultants hold deep expertise across the complete enterprise technology landscape." />
-          <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            {/* Visual Left */}
+            <motion.div
+              initial={{ opacity: 0, x: -25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-5 relative"
+            >
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-card">
+                <img
+                  src={enterpriseHeroImg}
+                  alt="Enterprise Architecture Modernization"
+                  className="w-full aspect-[4/3] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071326]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 text-white">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#f5a623] text-[#071326] text-xs font-bold mb-2">
+                    Enterprise Velocity
+                  </div>
+                  <p className="text-sm font-semibold">
+                    Turn complex core business platforms into agile growth engines.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Content Right */}
+            <motion.div
+              initial={{ opacity: 0, x: 25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-7"
+            >
+              {/* Homepage Heading Structure with Left Gold Bar */}
+              <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-6">
+                <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+                  ENTERPRISE STRATEGY
+                </p>
+                <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+                  Aligning Core Business Platforms with <span className="text-[#f5a623]">Modern Velocity</span>
+                </h2>
+                <p className="mt-2 text-sm sm:text-base text-slate-500 font-normal">
+                  Legacy ERP, CRM, and HCM installations often slow organizations down. ConfigUSA delivers structured methodologies to upgrade, integrate, and optimize your systems with zero operational disruption.
+                </p>
+              </div>
+
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+                From full-scale SAP S/4HANA migrations to Salesforce Customer 360 rollouts and Workday integrations, our certified functional and technical consultants ensure your software architecture accelerates business outcomes.
+              </p>
+
+              {/* 2 stacked feature cards */}
+              <div className="space-y-3.5 pt-4 border-t border-slate-100">
+                <div className="p-4 sm:p-5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3.5 hover:bg-white hover:border-blue-400 hover:shadow-sm transition-all">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100">
+                    <Layers className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <h3 className="text-sm sm:text-base font-bold text-[#071326]">
+                      Full-Lifecycle Modernization
+                    </h3>
+                    <p className="text-xs sm:text-[13px] text-slate-600 mt-1 leading-relaxed">
+                      From legacy extraction to cloud-native platform cutovers, dedicated architecture pods manage every phase.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-4 sm:p-5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3.5 hover:bg-white hover:border-blue-400 hover:shadow-sm transition-all">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100">
+                    <Globe2 className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <h3 className="text-sm sm:text-base font-bold text-[#071326]">
+                      Global Delivery Scale
+                    </h3>
+                    <p className="text-xs sm:text-[13px] text-slate-600 mt-1 leading-relaxed">
+                      Onshore advisory leads coupled with high-efficiency global delivery centers ensure around-the-clock progress.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ────────────────────────── TECHNOLOGY ECOSYSTEM (WHITE CARDS) ────────────────────────── */}
+      <section id="ecosystem" className="py-20 lg:py-24 bg-slate-50 border-b border-slate-200/60">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-12">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+              TECHNOLOGY ECOSYSTEM
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+              Comprehensive Enterprise Platform Coverage
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-500 max-w-2xl font-normal">
+              Our consultants hold deep functional and technical mastery across the leading enterprise technology ecosystems.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {ECOSYSTEM.map((eco, i) => (
               <motion.div
                 key={eco.category}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: i * 0.1 }}
-                className="group relative flex flex-col rounded-3xl border border-blue-100 bg-white shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-blue-300 transition-all duration-400 overflow-hidden"
+                transition={{ duration: 0.4, delay: i * 0.05 }}
               >
-                {/* Top accent bar */}
-                <div className="h-1.5 w-full bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-600" />
-                <div className="p-7 flex flex-col flex-1">
-                  {/* Header */}
-                  <div className="flex items-center gap-3 mb-5">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-md group-hover:scale-110 transition-transform">
-                      <CheckCircle2 className="h-5 w-5" />
-                    </span>
-                    <h3 className="text-lg font-extrabold text-ink group-hover:text-blue-700 transition-colors leading-tight">{eco.category}</h3>
-                  </div>
-                  {/* Technologies as pills - inline, auto-width */}
-                  <div className="mt-1">
-                    <div className="flex flex-wrap gap-2">
-                      {eco.technologies.map(tech => (
+                <div className="group flex flex-col justify-between h-full bg-white rounded-xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300">
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100 group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-colors">
+                        <CheckCircle2 className="h-5 w-5" />
+                      </span>
+                      <h3 className="text-base sm:text-[17px] font-bold text-[#071326] group-hover:text-blue-700 transition-colors">
+                        {eco.category}
+                      </h3>
+                    </div>
+
+                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+                      {eco.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full bg-slate-50 text-slate-700 border border-slate-200 group-hover:bg-blue-50 group-hover:border-blue-200 group-hover:text-blue-700 transition-colors whitespace-nowrap"
+                          className="text-[11px] font-medium text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200/70"
                         >
                           {tech}
                         </span>
@@ -295,35 +466,55 @@ function EnterpriseApplications() {
                     </div>
                   </div>
                 </div>
-                {/* Hover glow overlay */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/0 to-indigo-500/0 group-hover:from-blue-500/3 group-hover:to-indigo-500/5 transition-all duration-400 pointer-events-none" />
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Section 2: Platform Expertise ── */}
-      <section className="py-24 bg-soft border-y border-border/40">
+      {/* ────────────────────────── PLATFORM MASTERY (WHITE CARDS) ────────────────────────── */}
+      <section className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <SectionHeading eyebrow="Platform Expertise" title="Mastery Across Leading Technologies" />
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-12">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+              PLATFORM MASTERY
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+              Deep Specialization in Tier-1 Enterprise Software
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-500 max-w-2xl font-normal">
+              Proven implementation, integration, and modernization capabilities across the world's most critical business platforms.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {PLATFORMS.map((p, i) => (
               <motion.div
                 key={p.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
-                className="group relative flex flex-col rounded-2xl bg-gradient-to-br from-blue-400 via-blue-500 to-indigo-500 border border-blue-300/30 p-6 shadow-card hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+                transition={{ duration: 0.4, delay: i * 0.04 }}
+                className="group flex flex-col justify-between rounded-xl bg-white p-6 border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-blue-600 shadow-sm mb-5 group-hover:scale-110 transition-transform">
-                  <p.icon className="h-6 w-6" />
-                </span>
-                <h3 className="text-xl font-bold text-white mb-2">{p.name}</h3>
-                <p className="text-sm text-white/90 mb-6 flex-1 leading-relaxed text-justify">{p.desc}</p>
-                <Link to="/contact" className="inline-flex items-center gap-1.5 text-sm font-semibold text-white/90 hover:text-white transition-colors">
-                  Explore Platform <ArrowRight className="h-4 w-4" />
+                <div>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100 mb-4 group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-colors">
+                    <p.icon className="h-6 w-6 stroke-[1.75]" />
+                  </div>
+                  <h3 className="text-base font-bold text-[#071326] mb-2 group-hover:text-blue-700 transition-colors">
+                    {p.name}
+                  </h3>
+                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mb-4">
+                    {p.desc}
+                  </p>
+                </div>
+
+                <Link
+                  to="/contact"
+                  className="pt-3 border-t border-slate-100 inline-flex items-center gap-1 text-xs font-semibold text-blue-600 group-hover:text-blue-800 transition-colors"
+                >
+                  <span>Explore Practice</span>
+                  <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>
             ))}
@@ -331,446 +522,422 @@ function EnterpriseApplications() {
         </div>
       </section>
 
-      {/* ── Section 3: SAP Integration ── */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8 text-center relative z-10">
-          <SectionHeading eyebrow="Dedicated SAP Practice" title="Deep SAP Solutions Expertise" subtitle="As a core pillar of our Enterprise Applications practice, we deliver specialized end-to-end SAP consulting." />
+      {/* ────────────────────────── DEDICATED SAP PRACTICE ────────────────────────── */}
+      <section className="py-20 lg:py-24 bg-slate-50 border-b border-slate-200/60">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 text-center">
+          <div className="max-w-3xl mx-auto mb-8">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-2">
+              DEDICATED SAP PRACTICE
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+              Certified SAP Transformation & S/4HANA Migration
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-500 font-normal">
+              As a core pillar of our enterprise practice, ConfigUSA provides specialized end-to-end consulting, migration blueprints, and managed services for SAP customers.
+            </p>
+          </div>
 
-          <div className="mt-12 flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-            {["SAP S/4HANA", "SAP ECC", "SAP FICO", "SAP MM", "SAP SD", "SAP PP", "SAP HCM", "SAP ABAP", "SAP BTP", "SAP SuccessFactors", "SAP Ariba", "SAP Analytics Cloud"].map((sap, i) => (
-              <motion.span
+          <div className="flex flex-wrap justify-center gap-2.5 max-w-4xl mx-auto mb-10">
+            {[
+              "SAP S/4HANA",
+              "SAP ECC 6.0",
+              "SAP FICO",
+              "SAP MM & SD",
+              "SAP PP & QM",
+              "SAP BTP Integration",
+              "SAP SuccessFactors",
+              "SAP Ariba",
+              "SAP Analytics Cloud",
+              "ABAP & Fiori Modernization",
+            ].map((sap, i) => (
+              <span
                 key={sap}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.03, type: "spring", stiffness: 200 }}
-                className="px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 text-sm font-extrabold tracking-wide border border-blue-200 shadow-sm hover:shadow-md hover:scale-105 hover:-translate-y-1 hover:border-blue-400 hover:from-blue-100 hover:to-indigo-100 transition-all cursor-default"
+                className="px-4 py-2 rounded-lg bg-white text-[#071326] text-xs sm:text-sm font-semibold border border-slate-200/90 shadow-sm hover:border-[#f5a623] hover:text-[#f5a623] transition-colors"
               >
                 {sap}
-              </motion.span>
+              </span>
             ))}
           </div>
 
-          <div className="mt-12">
-            <Link to="/services/sap" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-3.5 text-sm font-semibold text-white shadow-lg hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] hover:scale-105 transition-all">
-              Explore SAP Solutions <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
+          <Link
+            to="/services/sap"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#0a1628] px-8 py-3.5 text-sm font-bold text-white hover:bg-[#071326] transition-colors shadow-sm"
+          >
+            Explore Dedicated SAP Solutions <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
 
-      {/* ── Section 4 & 5: ERP Services ── */}
-      <section className="py-24 bg-[#111c33] text-white">
+      {/* ────────────────────────── ENTERPRISE SERVICES (DEEP NAVY) ────────────────────────── */}
+      <section className="py-20 lg:py-24 bg-[#071326] text-white">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <SectionHeading eyebrow="Our Services" title="End-to-End Enterprise Capabilities" light />
+          <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-12">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+              OUR CAPABILITIES
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-white tracking-tight">
+              End-to-End Enterprise Applications Services
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-400 max-w-2xl font-normal">
+              Structured consulting and technical services covering the entire life cycle of enterprise platforms.
+            </p>
+          </div>
 
-          <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {ERP_SERVICES.map((srv, i) => (
               <motion.div
                 key={srv.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="group relative rounded-[2rem] p-8 border border-white/10 bg-white/5 backdrop-blur-md shadow-lg hover:shadow-[0_0_40px_rgba(59,130,246,0.25)] hover:-translate-y-2 transition-all duration-500 overflow-hidden isolate"
+                transition={{ duration: 0.4, delay: i * 0.04 }}
+                className="p-6 rounded-xl bg-[#0a182f]/80 border border-white/10 hover:border-[#f5a623]/40 transition-colors flex flex-col justify-between"
               >
-                {/* Animated gradient background on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-indigo-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-
-                {/* Glowing border effect */}
-                <div className="absolute inset-0 rounded-[2rem] border-2 border-transparent group-hover:border-blue-400/30 transition-colors duration-500 pointer-events-none" />
-
-                <div className="relative z-10">
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 border border-blue-400/20 text-blue-400 group-hover:from-blue-500 group-hover:to-indigo-600 group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-sm">
-                    {/* Using a generic dynamic icon or just a nice dot matrix */}
-                    <div className="grid grid-cols-2 gap-1.5 p-1 group-hover:rotate-90 transition-transform duration-500">
-                      <div className="w-2 h-2 rounded-full bg-current" />
-                      <div className="w-2 h-2 rounded-full bg-current opacity-70" />
-                      <div className="w-2 h-2 rounded-full bg-current opacity-50" />
-                      <div className="w-2 h-2 rounded-full bg-current opacity-90" />
-                    </div>
+                <div>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#f5a623]/15 text-[#f5a623] mb-4">
+                    <Boxes className="h-5 w-5" />
                   </div>
-
-                  <h4 className="text-xl font-extrabold text-white mb-3 group-hover:text-blue-300 transition-colors">
+                  <h4 className="text-base font-bold text-white mb-2">
                     {srv.title}
                   </h4>
-                  <p className="text-sm text-blue-100/70 leading-relaxed group-hover:text-blue-50 transition-colors">
+                  <p className="text-xs sm:text-[13px] text-slate-300 leading-relaxed">
                     {srv.desc}
                   </p>
                 </div>
               </motion.div>
             ))}
           </div>
-
-          <div className="mt-20 pt-12 border-t border-blue-900/50">
-            <h3 className="text-xl font-bold mb-8 text-center text-blue-200">Additional Platform Services</h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              {PLATFORM_SERVICES.map(ps => (
-                <span key={ps} className="px-4 py-2 rounded-full bg-blue-900/30 text-blue-100 text-xs font-semibold border border-blue-800/50">
-                  {ps}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* ── Section 6: ERP + AI ── */}
-      <section className="py-24 bg-white relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent pointer-events-none" />
-        <div className="mx-auto max-w-7xl px-4 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-600 mb-4 flex items-center gap-2">
-                <Zap className="h-4 w-4 text-blue-500" /> ERP + AI
+      {/* ────────────────────────── ERP + AI SECTION ────────────────────────── */}
+      <section className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-5">
+              <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-6">
+                <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+                  ENTERPRISE AI INTEGRATION
+                </p>
+                <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+                  Make Your Enterprise Platforms <span className="text-[#f5a623]">Intelligent</span>
+                </h2>
+                <p className="mt-2 text-sm sm:text-base text-slate-500 font-normal">
+                  ConfigUSA integrates Artificial Intelligence directly into ERP, CRM, and HCM systems—turning transactional databases into predictive, automated engines.
+                </p>
+              </div>
+
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+                Reduce manual reporting time by 70%, eliminate invoice errors, and empower executives with real-time generative conversational queries over enterprise data.
               </p>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-ink leading-tight mb-6">
-                Make Your Enterprise Applications <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Intelligent</span>
-              </h2>
-              <p className="text-lg text-slate-600 leading-relaxed text-justify mb-8">
-                ConfigUSA integrates advanced Artificial Intelligence directly into your ERP, CRM, and HCM platforms—turning static systems into predictive, autonomous engines that drive real business outcomes.
-              </p>
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-blue-700 transition-colors">
-                Explore AI Integration <ArrowRight className="h-4 w-4" />
+
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
+              >
+                Schedule AI Assessment <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+
+            <div className="lg:col-span-7 grid sm:grid-cols-2 gap-3.5">
               {ERP_AI.map((ai, i) => (
-                <div key={ai} className="flex items-center gap-3 p-4 rounded-xl bg-white border border-slate-100 shadow-sm">
-                  <Cpu className="h-5 w-5 text-blue-500 shrink-0" />
-                  <span className="text-sm font-semibold text-ink leading-tight">{ai}</span>
+                <div
+                  key={ai}
+                  className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 shadow-sm flex items-center gap-3 hover:bg-white hover:border-blue-400 transition-all"
+                >
+                  <Cpu className="h-5 w-5 text-[#f5a623] shrink-0" />
+                  <span className="text-xs sm:text-[13px] font-semibold text-[#071326] leading-snug">
+                    {ai}
+                  </span>
                 </div>
               ))}
             </div>
           </div>
         </div>
       </section>
-      {/* ── What Sets Us Apart: Overlapping Icon Cards ── */}
-      <section className="py-28 bg-[#0d1b33] text-white relative overflow-hidden">
-        {/* Subtle dot grid */}
-        <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle, #60a5fa 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-        <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-blue-600/10 rounded-full blur-[120px]" />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
-          <SectionHeading
-            eyebrow="What Sets Us Apart"
-            title="Enterprise Excellence, Delivered"
-            subtitle="ConfigUSA combines certified expertise, cloud-first thinking, and a global delivery model to deliver ERP and enterprise transformation that lasts."
-            light
-          />
-
-          <div className="mt-24 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: Database, label: "Certified Experts", desc: "SAP, Oracle, Microsoft and Workday certified consultants with 10+ years average experience across complex enterprise landscapes." },
-              { icon: Cloud, label: "Cloud-First", desc: "Every engagement is designed for cloud scalability — from Azure to AWS, SAP BTP to Oracle Cloud Infrastructure." },
-              { icon: Globe2, label: "Global Delivery", desc: "Onshore and offshore delivery centers working in sync to keep your programs moving 24/7 across time zones." },
-              { icon: Layers, label: "Vendor-Agnostic", desc: "We select the right platform for your business — not the one that benefits us. Pure advisory. Pure outcome focus." },
-            ].map((card, i) => (
-              <motion.div
-                key={card.label}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: i * 0.1 }}
-                className="relative group flex flex-col items-center mt-12"
-              >
-                {/* Card body */}
-                <div className="relative bg-gradient-to-br from-[#1e325c] via-[#152545] to-[#0c162c] rounded-[2.5rem] rounded-tl-none rounded-br-none border border-blue-400/20 p-8 text-center shadow-[0_8px_30px_rgba(0,0,0,0.3)] group-hover:border-blue-400/50 group-hover:shadow-[0_16px_40px_rgba(59,130,246,0.25)] transition-all duration-300 z-10 w-full mb-6">
-                  {/* Floating Top Icon */}
-                  <div className="absolute -top-7 left-1/2 -translate-x-1/2">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      <card.icon className="h-6 w-6 text-white" />
-                    </div>
-                  </div>
-
-                  <h3 className="text-xl font-extrabold text-white mt-6 mb-4 group-hover:text-blue-300 transition-colors">{card.label}</h3>
-                  <p className="text-sm text-white/70 leading-relaxed pb-4">{card.desc}</p>
-
-                  {/* Downward pointing arrow using a rotated square to ensure visibility and matching border */}
-                  <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-[#0c162c] border-b border-r border-blue-400/20 rotate-45 z-0" />
-                </div>
-
-                {/* Bottom Floating Avatar/Icon */}
-                <div className="relative z-20 flex h-20 w-20 items-center justify-center rounded-full bg-[#111c33] border-4 border-[#0d1b33] shadow-[0_4px_20px_rgba(0,0,0,0.5)] group-hover:-translate-y-2 group-hover:shadow-[0_8px_25px_rgba(59,130,246,0.4)] transition-all duration-300 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent pointer-events-none" />
-                  <card.icon className="h-8 w-8 text-blue-400 group-hover:rotate-[360deg] transition-transform duration-500" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Section 7: Industries ── */}
-      <section className="py-24 bg-soft border-t border-border/40">
+      {/* ────────────────────────── WHAT SETS US APART (NAVY) ────────────────────────── */}
+      <section className="py-20 lg:py-24 bg-[#071326] text-white">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <SectionHeading eyebrow="Industry Focus" title="Enterprise Solutions Tailored for Your Sector" />
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {INDUSTRIES.map((ind, i) => (
-              <motion.div key={ind.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="group bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/50 p-8 rounded-3xl border border-blue-100 shadow-sm hover:shadow-lg hover:-translate-y-1.5 hover:border-blue-300 transition-all duration-300">
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-100 to-indigo-100 text-blue-600 mb-5 group-hover:scale-110 group-hover:from-blue-500 group-hover:to-indigo-500 group-hover:text-white transition-all shadow-sm">
-                  <ind.icon className="h-6 w-6" />
-                </span>
-                <h3 className="text-xl font-bold text-ink mb-3 group-hover:text-blue-700 transition-colors">{ind.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed text-justify">{ind.desc}</p>
-              </motion.div>
-            ))}
+          <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-12">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+              WHAT SETS US APART
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-white tracking-tight">
+              Enterprise Excellence, Delivered
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-400 max-w-2xl font-normal">
+              Certified expertise, cloud-first thinking, and a global delivery model built for business continuity.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* ── ERP Solutions Deep Dive ── */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <SectionHeading
-            eyebrow="ERP Solutions"
-            title="Comprehensive ERP Services"
-            subtitle="From first discovery to long-term managed support — we deliver the full ERP lifecycle."
-          />
-          <div className="mt-20 flex flex-col gap-24 lg:gap-32">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                icon: Briefcase,
-                title: "ERP Strategy & Consulting",
-                desc: "We start by understanding your business goals, current-state architecture, and process maturity. Our consultants design a platform-agnostic roadmap that balances speed, cost, and long-term scalability.",
-                tags: ["Platform Selection", "ROI Analysis", "Roadmap Design", "Business Case"],
-                image: erpStrategyImg
-              },
-              {
-                icon: Server,
-                title: "ERP Implementation",
-                desc: "End-to-end deployment of SAP, Oracle, Microsoft Dynamics, Workday and more. We configure, customize, and deliver enterprise platforms that align to your unique workflows and compliance requirements.",
-                tags: ["Configuration", "Customization", "Go-Live", "Change Management"],
-                image: erpImplementationImg
-              },
-              {
-                icon: RefreshCw,
-                title: "ERP Integration",
-                desc: "We connect your ERP platform to CRM, HCM, supply chain, banking systems, e-commerce, and third-party APIs — building a seamless, real-time digital backbone across your enterprise.",
-                tags: ["APIs", "MuleSoft", "SAP BTP", "Third-Party Systems"],
-                image: erpIntegrationImg
+                icon: Database,
+                label: "Certified Experts",
+                desc: "Certified consultants with 10+ years average experience across SAP, Oracle, Microsoft, and Workday landscapes.",
               },
               {
                 icon: Cloud,
-                title: "Cloud ERP Migration",
-                desc: "Migrate from legacy on-premise ERP to modern cloud platforms. We handle data extraction, transformation, validation, and cutover — with zero-downtime strategies for mission-critical environments.",
-                tags: ["S/4HANA Move", "Oracle Cloud", "Azure", "Data Validation"],
-                image: erpMigrationImg
+                label: "Cloud-First Architecture",
+                desc: "Every deployment is designed for elastic cloud scale across AWS, Azure, Google Cloud, and SAP BTP.",
               },
               {
-                icon: Zap,
-                title: "ERP Modernization",
-                desc: "Upgrade aging ERP systems — from SAP ECC to S/4HANA, Oracle EBS to Fusion Cloud, or legacy Dynamics to D365. We minimize disruption while unlocking modern capabilities like AI, real-time analytics, and automation.",
-                tags: ["S/4HANA Upgrade", "Oracle Fusion", "Dynamics 365", "AI Readiness"],
-                image: erpModernizationImg
+                icon: Globe2,
+                label: "Global Delivery Scale",
+                desc: "Onshore guidance and offshore delivery centers operating in synchronization for 24/7 momentum.",
               },
               {
-                icon: Activity,
-                title: "ERP Support & Optimization",
-                desc: "Post-go-live, our managed services teams provide 24/7 support, continuous optimization, security hardening, and analytics uplift — ensuring your platforms evolve with your business.",
-                tags: ["24/7 Support", "Managed Services", "Security", "Performance Tuning"],
-                image: erpSupportImg
+                icon: Layers,
+                label: "Vendor-Agnostic Advisory",
+                desc: "We select the platform that fits your business requirements, providing objective guidance and clear ROI.",
               },
-            ].map((item, i) => (
-              <div key={item.title} className={`flex flex-col ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 lg:gap-20`}>
+            ].map((card, i) => (
+              <motion.div
+                key={card.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                className="p-6 rounded-xl bg-[#0a182f]/80 border border-white/10 hover:border-[#f5a623]/40 transition-colors"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f5a623]/15 text-[#f5a623] mb-4">
+                  <card.icon className="h-6 w-6 stroke-[1.75]" />
+                </div>
+                <h3 className="text-base font-bold text-white mb-2">
+                  {card.label}
+                </h3>
+                <p className="text-xs sm:text-[13px] text-slate-300 leading-relaxed">
+                  {card.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                {/* Image Side */}
+      {/* ────────────────────────── INDUSTRY FOCUS (WHITE CARDS) ────────────────────────── */}
+      <section className="py-20 lg:py-24 bg-slate-50 border-b border-slate-200/60">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-12">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+              INDUSTRY SOLUTIONS
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+              Enterprise Platforms Tailored by Sector
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-500 max-w-2xl font-normal">
+              Pre-built accelerators and compliance templates addressing industry-specific workflows.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {INDUSTRIES.map((ind, i) => (
+              <motion.div
+                key={ind.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+              >
+                <div className="group flex flex-col justify-between h-full bg-white rounded-xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300">
+                  <div>
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100 group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-colors mb-4">
+                      <ind.icon className="h-6 w-6 stroke-[1.75]" />
+                    </div>
+                    <h3 className="text-base sm:text-[17px] font-bold text-[#071326] group-hover:text-blue-700 transition-colors mb-2">
+                      {ind.title}
+                    </h3>
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                      {ind.desc}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ────────────────────────── ERP SOLUTIONS DEEP DIVE (ALTERNATING) ────────────────────────── */}
+      <section className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-16">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+              EXECUTION BLUEPRINT
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+              Comprehensive Lifecycle Services
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-500 max-w-2xl font-normal">
+              A structured, low-risk roadmap from initial requirements gathering to multi-year managed optimization.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-16 lg:gap-24">
+            {DEEP_DIVE_STEPS.map((item, i) => (
+              <div
+                key={item.title}
+                className={`flex flex-col ${i % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-10 lg:gap-16`}
+              >
+                {/* Visual */}
                 <motion.div
-                  initial={{ opacity: 0, x: i % 2 === 1 ? 50 : -50 }}
+                  initial={{ opacity: 0, x: i % 2 === 1 ? 40 : -40 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="w-full lg:w-1/2 relative group"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="w-full lg:w-1/2"
                 >
-                  <div className="absolute -inset-4 bg-gradient-to-tr from-blue-100 to-indigo-50 rounded-[3rem] transform group-hover:scale-105 transition-transform duration-700 -z-10" />
-                  <div className="relative rounded-[2.5rem] overflow-hidden aspect-[4/3] shadow-[0_10px_40px_rgba(0,0,0,0.1)] border border-blue-50/50">
+                  <div className="rounded-2xl overflow-hidden border border-slate-200/80 shadow-card aspect-[4/3]">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000"
+                      className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0c162c]/30 via-transparent to-transparent opacity-60" />
                   </div>
                 </motion.div>
 
-                {/* Content Side */}
+                {/* Content */}
                 <motion.div
-                  initial={{ opacity: 0, x: i % 2 === 1 ? -50 : 50 }}
+                  initial={{ opacity: 0, x: i % 2 === 1 ? -40 : 40 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
                   className="w-full lg:w-1/2"
                 >
-                  <div className="flex items-center gap-4 mb-6">
-                    <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-[0_8px_20px_rgba(59,130,246,0.3)]">
-                      <item.icon className="h-7 w-7" />
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-2xl font-black text-[#f5a623]">
+                      {item.step}
                     </span>
-                    <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-blue-600">Step {(i + 1).toString().padStart(2, '0')}</p>
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#f5a623]">
+                      Stage
+                    </span>
                   </div>
 
-                  <h3 className="text-3xl sm:text-4xl font-extrabold text-ink leading-tight mb-6">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#071326] mb-4">
                     {item.title}
                   </h3>
 
-                  <p className="text-lg text-slate-600 leading-relaxed text-justify mb-8">
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
                     {item.desc}
                   </p>
 
-                  <div className="flex flex-wrap gap-3">
-                    {item.tags.map(tag => (
-                      <span key={tag} className="px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full bg-slate-50 text-slate-600 border border-slate-200">
+                  <div className="flex flex-wrap gap-2">
+                    {item.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 text-xs font-medium rounded-md bg-slate-100 text-slate-700 border border-slate-200/70"
+                      >
                         {tag}
                       </span>
                     ))}
                   </div>
                 </motion.div>
-
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Section 9: Enterprise Integration ── */}
-      <section className="py-24 bg-[#0d1b33] text-white overflow-hidden text-center">
-        <div className="mx-auto max-w-4xl px-4 lg:px-8">
-          <SectionHeading eyebrow="Connected Ecosystem" title="Enterprise Integration Architecture" light />
+      {/* ────────────────────────── ENTERPRISE INTEGRATION ARCHITECTURE (NAVY) ────────────────────────── */}
+      <section className="py-20 lg:py-24 bg-[#071326] text-white">
+        <div className="mx-auto max-w-4xl px-4 lg:px-8 text-center">
+          <div className="max-w-2xl mx-auto mb-14">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-2">
+              CONNECTED ECOSYSTEM
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-white tracking-tight">
+              Enterprise Integration Architecture
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-400 font-normal">
+              Connecting core ERP with front-office CRM, HCM, data lakes, and third-party partner portals.
+            </p>
+          </div>
 
-          <div className="mt-20 flex flex-col items-center relative max-w-2xl mx-auto">
-            {/* Animated vertical connecting line */}
-            <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-0.5 bg-gradient-to-b from-blue-500/50 via-indigo-500/50 to-purple-500/50 -z-10" />
+          <div className="flex flex-col items-center relative max-w-2xl mx-auto">
+            {/* Box 1: Core ERP */}
+            <div className="w-full bg-[#0a182f]/90 border border-white/15 p-5 rounded-xl font-bold text-base sm:text-lg mb-6 flex items-center justify-center gap-3">
+              <Server className="h-5 w-5 text-[#f5a623]" />
+              <span>Core ERP System (SAP / Oracle / Microsoft Dynamics)</span>
+            </div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="w-full bg-gradient-to-br from-[#162540] to-[#0f1a30] border border-blue-500/30 p-6 rounded-2xl font-bold text-lg mb-8 shadow-[0_0_30px_rgba(59,130,246,0.15)] group hover:border-blue-400/60 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] transition-all flex items-center justify-center gap-4">
-              <Server className="h-6 w-6 text-blue-400 group-hover:scale-110 transition-transform" />
-              <span>ERP (Core)</span>
-            </motion.div>
+            <div className="mb-6 p-2 rounded-full bg-[#0a182f] border border-white/10 text-[#f5a623]">
+              <Activity className="h-5 w-5 animate-pulse" />
+            </div>
 
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="mb-8 bg-[#0d1b33] p-2 rounded-full border border-blue-900/50 z-10 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-              <Activity className="h-6 w-6 text-blue-400 animate-pulse" />
-            </motion.div>
+            {/* Box 2: Enterprise Business Platforms */}
+            <div className="w-[95%] bg-[#0a182f]/90 border border-white/15 p-5 rounded-xl font-bold text-base sm:text-lg mb-6 flex items-center justify-center gap-3">
+              <Users className="h-5 w-5 text-[#f5a623]" />
+              <span>CRM • HCM • Supply Chain Management</span>
+            </div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="w-[95%] bg-gradient-to-br from-[#162540] to-[#0f1a30] border border-indigo-500/30 p-6 rounded-2xl font-bold text-lg mb-8 shadow-[0_0_30px_rgba(99,102,241,0.15)] group hover:border-indigo-400/60 hover:shadow-[0_0_40px_rgba(99,102,241,0.3)] transition-all flex items-center justify-center gap-4">
-              <Users className="h-6 w-6 text-indigo-400 group-hover:scale-110 transition-transform" />
-              <span>CRM | HCM | SCM</span>
-            </motion.div>
+            <div className="mb-6 p-2 rounded-full bg-[#0a182f] border border-white/10 text-[#f5a623]">
+              <RefreshCw className="h-5 w-5" />
+            </div>
 
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="mb-8 bg-[#0d1b33] p-2 rounded-full border border-indigo-900/50 z-10 shadow-[0_0_15px_rgba(99,102,241,0.3)]">
-              <RefreshCw className="h-6 w-6 text-indigo-400 animate-spin-slow" />
-            </motion.div>
+            {/* Box 3: API & Event Layer */}
+            <div className="w-[90%] bg-[#0a182f]/90 border border-white/15 p-5 rounded-xl font-bold text-base sm:text-lg mb-6 flex items-center justify-center gap-3">
+              <Cloud className="h-5 w-5 text-[#f5a623]" />
+              <span>Integration Fabric (MuleSoft / SAP BTP / Kafka)</span>
+            </div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="w-[90%] bg-gradient-to-br from-[#162540] to-[#0f1a30] border border-purple-500/30 p-6 rounded-2xl font-bold text-lg tracking-widest uppercase text-sm mb-8 shadow-[0_0_30px_rgba(168,85,247,0.15)] group hover:border-purple-400/60 hover:shadow-[0_0_40px_rgba(168,85,247,0.3)] transition-all flex items-center justify-center gap-4">
-              <Cloud className="h-6 w-6 text-purple-400 group-hover:scale-110 transition-transform" />
-              <span>APIs / Integration Layer</span>
-            </motion.div>
+            <div className="mb-6 p-2 rounded-full bg-[#0a182f] border border-white/10 text-[#f5a623]">
+              <Database className="h-5 w-5 animate-pulse" />
+            </div>
 
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.6 }} className="mb-8 bg-[#0d1b33] p-2 rounded-full border border-purple-900/50 z-10 shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-              <Database className="h-6 w-6 text-purple-400 animate-pulse" />
-            </motion.div>
-
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.7 }} className="w-full flex justify-between gap-6">
-              <div className="flex-1 bg-gradient-to-br from-[#162540] to-[#0f1a30] border border-cyan-500/30 p-6 rounded-2xl font-bold text-lg shadow-[0_0_30px_rgba(6,182,212,0.15)] group hover:border-cyan-400/60 hover:shadow-[0_0_40px_rgba(6,182,212,0.3)] transition-all flex items-center justify-center gap-3">
-                <BarChart3 className="h-6 w-6 text-cyan-400 group-hover:scale-110 transition-transform" />
-                <span>Analytics / AI</span>
+            {/* Box 4: Analytics & Business Users */}
+            <div className="w-full grid sm:grid-cols-2 gap-4">
+              <div className="bg-[#0a182f]/90 border border-white/15 p-5 rounded-xl font-bold text-sm sm:text-base flex items-center justify-center gap-2">
+                <BarChart3 className="h-5 w-5 text-[#f5a623]" />
+                <span>Analytics & AI Models</span>
               </div>
-              <div className="flex-1 bg-gradient-to-br from-[#162540] to-[#0f1a30] border border-emerald-500/30 p-6 rounded-2xl font-bold text-lg shadow-[0_0_30px_rgba(16,185,129,0.15)] group hover:border-emerald-400/60 hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] transition-all flex items-center justify-center gap-3">
-                <Briefcase className="h-6 w-6 text-emerald-400 group-hover:scale-110 transition-transform" />
-                <span>Business Users</span>
+              <div className="bg-[#0a182f]/90 border border-white/15 p-5 rounded-xl font-bold text-sm sm:text-base flex items-center justify-center gap-2">
+                <Briefcase className="h-5 w-5 text-[#f5a623]" />
+                <span>Business Users & Mobile Apps</span>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Why ConfigUSA: Full-Screen Content Over Image ── */}
-      <section className="relative min-h-screen flex items-center py-32 overflow-hidden">
-        {/* Parallax Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
-          style={{ backgroundImage: `url(${erpStrategyImg})` }}
-        />
-        {/* Dark overlays for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030a16]/97 via-[#030a16]/85 to-[#030a16]/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030a16]/90 via-transparent to-[#030a16]/70" />
-        {/* Subtle grid */}
-        <div
-          className="absolute inset-0 opacity-[0.04] z-10 pointer-events-none"
-          style={{
-            backgroundImage: "linear-gradient(rgba(96,165,250,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(96,165,250,0.5) 1px, transparent 1px)",
-            backgroundSize: "44px 44px",
-          }}
-        />
-        {/* Aurora glow */}
-        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[160px] z-0" />
+      {/* ────────────────────────── CTA BANNER ────────────────────────── */}
+      <section className="relative py-20 bg-[#071326] text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={ctaServicesBg}
+            alt="ConfigUSA Enterprise Applications"
+            className="h-full w-full object-cover opacity-15"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/95 to-[#071326]/80" />
+        </div>
 
-        <div className="relative z-20 mx-auto max-w-7xl px-4 lg:px-8 w-full">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left: Heading + CTA */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+        <div className="relative z-10 mx-auto max-w-5xl px-4 text-center">
+          <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-3">
+            MODERNIZE YOUR BUSINESS PLATFORMS
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Ready to Modernize Your Enterprise Applications?
+          </h2>
+          <p className="mt-4 text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Schedule a technical discovery session with our senior enterprise architects to assess your landscape, evaluate migration options, and design a transformation roadmap.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-8 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors"
             >
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 mb-6">
-                <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-                <span className="text-xs font-bold uppercase tracking-widest text-blue-400">Why ConfigUSA</span>
-              </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-                Trusted by Enterprises{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
-                  Across Every Industry
-                </span>
-              </h2>
-              <p className="text-lg text-white/65 leading-relaxed mb-10 max-w-xl">
-                We combine deep platform expertise with a proven delivery model to modernize, migrate, and manage enterprise systems — on time and within budget.
-              </p>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-8 py-4 text-sm font-bold text-white shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:scale-105 hover:shadow-[0_0_50px_rgba(59,130,246,0.5)] transition-all duration-300"
-              >
-                Start Your ERP Journey <ArrowRight className="h-4 w-4" />
-              </Link>
-            </motion.div>
-
-            {/* Right: Feature grid */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+              Schedule Enterprise Discovery <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
             >
-              {[
-                { icon: CheckCircle2, title: "Zero-Downtime Migrations", desc: "Mission-critical cutovers with no business disruption." },
-                { icon: Globe2, title: "Global Delivery Model", desc: "Onshore + offshore teams across multiple time zones." },
-                { icon: Layers, title: "End-to-End Ownership", desc: "Strategy through go-live and beyond." },
-                { icon: Zap, title: "Accelerated Timelines", desc: "Pre-built accelerators cut deployment time by 40%." },
-                { icon: Server, title: "Platform Agnostic", desc: "SAP, Oracle, Dynamics, Workday and more — we do it all." },
-                { icon: Activity, title: "24/7 Managed Support", desc: "Round-the-clock operations and continuous optimization." },
-              ].map((feat, i) => (
-                <motion.div
-                  key={feat.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  className="flex gap-4 bg-white/[0.04] backdrop-blur-sm border border-white/10 rounded-2xl p-5 hover:bg-white/[0.09] hover:border-blue-400/40 transition-all duration-300 group"
-                >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-500/20 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
-                    <feat.icon className="h-5 w-5" />
-                  </span>
-                  <div>
-                    <h4 className="text-sm font-bold text-white mb-1">{feat.title}</h4>
-                    <p className="text-xs text-white/50 leading-relaxed">{feat.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+              Explore All Services
+            </Link>
           </div>
         </div>
       </section>
-
-      <CTASection image={ctaServicesBg} />
-    </>
+    </div>
   );
 }
