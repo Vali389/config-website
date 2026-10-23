@@ -250,6 +250,7 @@ const STATS_TODAY = [
 
 const INSIGHTS = [
   {
+    id: "talent-landscape-2026",
     tag: "Workforce Intelligence",
     tab: "workforce",
     title: "The 2026 IT Talent Landscape: AI & Workforce Transformation",
@@ -257,6 +258,7 @@ const INSIGHTS = [
     image: insightsTeam,
   },
   {
+    id: "elastic-squad-model-playbook",
     tag: "Perspectives",
     tab: "perspectives",
     title: "Building High-Performance Engineering Squads",
@@ -264,6 +266,7 @@ const INSIGHTS = [
     image: storyGov,
   },
   {
+    id: "fortune-500-bank-hiring",
     tag: "Case Study",
     tab: "case-studies",
     title: "Technology Modernization in Financial Services",
@@ -1291,7 +1294,11 @@ function InsightsSection() {
               transition={{ duration: 0.4, delay: i * 0.08 }}
               className="group flex flex-col bg-[#f8fafc] rounded-xl overflow-hidden border border-slate-200/90 hover:border-blue-300 hover:shadow-lg transition-all duration-300"
             >
-              <div className="relative h-48 overflow-hidden">
+              <Link
+                to="/resources/$articleId"
+                params={{ articleId: article.id }}
+                className="block relative h-48 overflow-hidden bg-slate-900"
+              >
                 <img
                   src={article.image}
                   alt={article.title}
@@ -1301,22 +1308,27 @@ function InsightsSection() {
                 <div className="absolute top-3 left-3 bg-[#071326]/85 backdrop-blur-sm text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded">
                   {article.tag}
                 </div>
-              </div>
+              </Link>
 
               <div className="p-5 flex flex-col flex-1">
-                <h3 className="text-base font-bold text-[#071326] group-hover:text-blue-700 transition-colors leading-snug">
-                  {article.title}
-                </h3>
+                <Link
+                  to="/resources/$articleId"
+                  params={{ articleId: article.id }}
+                  className="block"
+                >
+                  <h3 className="text-base font-bold text-[#071326] group-hover:text-blue-700 transition-colors leading-snug">
+                    {article.title}
+                  </h3>
+                </Link>
                 <p className="mt-2 text-xs sm:text-[13px] text-slate-500 leading-relaxed flex-1">
                   {article.desc}
                 </p>
                 <Link
-                  to="/resources"
-                  search={{ tab: article.tab }}
-                  hash={article.tab}
+                  to="/resources/$articleId"
+                  params={{ articleId: article.id }}
                   className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-blue-600 group-hover:text-blue-800"
                 >
-                  Read More →
+                  Read Article →
                 </Link>
               </div>
             </motion.article>
