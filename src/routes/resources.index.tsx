@@ -4,24 +4,16 @@ import { motion } from "motion/react";
 import {
   ArrowRight,
   Calendar,
-  Mail,
-  Send,
   CheckCircle2,
   Search,
   X,
   FileText,
   Clock,
   Sparkles,
-  Building2,
-  ShieldCheck,
-  Check,
-  ExternalLink,
-  Zap,
 } from "lucide-react";
 
 import heroResources from "@/assets/hero-resources.jpg";
 import ctaResources from "@/assets/cta-resources.jpg";
-import aboutApproach from "@/assets/about-approach.jpg";
 
 import { PageHero } from "@/components/PageHero";
 import { StatsBar } from "@/components/StatsBar";
@@ -30,7 +22,6 @@ import { CTASection } from "@/components/CTASection";
 import {
   ARTICLES,
   CATEGORIES,
-  WORKFORCE_DELIVERY_PILLARS,
   ResourceArticle,
 } from "@/data/resourcesData";
 
@@ -69,8 +60,6 @@ function ResourcesIndexPage() {
 
   // Search input state
   const [searchQuery, setSearchQuery] = useState("");
-  // Newsletter subscription status
-  const [subscribed, setSubscribed] = useState(false);
 
   // Derive active tab from URL query param ?tab=... or hash
   const activeTabId = useMemo(() => {
@@ -173,60 +162,67 @@ function ResourcesIndexPage() {
     []
   );
 
-  const stats = [
-    { value: "500+", label: "Enterprise Insights Published" },
-    { value: "48 Hrs", label: "Average Squad Deployment" },
-    { value: "98.2%", label: "Candidate Vetting Accuracy" },
-    { value: "94%", label: "2-Year Post-Conversion Retention" },
-  ];
-
   const renderArticleCard = (article: ResourceArticle) => (
     <motion.article
       key={article.id}
       layout
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.35 }}
-      className="group flex flex-col bg-white rounded-xl overflow-hidden border border-slate-200/90 hover:border-blue-300 hover:shadow-xl transition-all duration-300"
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.3 }}
+      className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-200/90 hover:border-blue-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
     >
       <Link
         to="/resources/$articleId"
         params={{ articleId: article.id }}
-        className="block relative h-52 overflow-hidden bg-slate-900"
+        className="block relative aspect-[16/10] overflow-hidden bg-slate-950"
       >
         <img
           src={article.image}
           alt={article.title}
           loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute top-3 left-3 bg-[#071326]/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-sm">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071326]/60 via-transparent to-transparent pointer-events-none" />
+
+        {/* Category Tag Badge */}
+        <div className="absolute top-3 left-3 bg-[#071326]/90 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-sm border border-white/10">
           {article.tag}
         </div>
+
+        {/* Primary Metric Badge for case studies */}
+        {article.metrics?.primary && (
+          <div className="absolute top-3 right-3 bg-blue-600/95 backdrop-blur-md text-white text-[11px] font-black px-2.5 py-0.5 rounded shadow-sm">
+            {article.metrics.primary}
+          </div>
+        )}
+
+        {/* Format Pill */}
         {article.format && (
-          <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-[10px] font-semibold px-2 py-0.5 rounded border border-white/10">
+          <div className="absolute bottom-2.5 left-3 bg-black/60 backdrop-blur-md text-white/90 text-[10px] font-semibold px-2 py-0.5 rounded border border-white/15">
             {article.format}
           </div>
         )}
       </Link>
 
-      <div className="p-5 sm:p-6 flex flex-col flex-1">
+      <div className="p-5 flex flex-col flex-1">
         <div className="flex-1">
-          <div className="flex items-center gap-2 text-xs text-slate-500">
-            <span className="flex items-center gap-1">
+          <div className="flex items-center gap-2 text-xs text-slate-500 mb-2">
+            <span className="flex items-center gap-1 font-medium">
               <Calendar className="h-3 w-3 text-blue-600" /> {article.date}
             </span>
             <span>•</span>
-            <span>{article.readTime}</span>
+            <span className="flex items-center gap-1">
+              <Clock className="h-3 w-3 text-slate-400" /> {article.readTime}
+            </span>
           </div>
 
           <Link
             to="/resources/$articleId"
             params={{ articleId: article.id }}
-            className="block mt-3"
+            className="block"
           >
-            <h3 className="text-base sm:text-[17px] font-bold text-[#071326] group-hover:text-blue-700 transition-colors leading-snug line-clamp-2">
+            <h3 className="text-[16px] sm:text-[17px] font-bold text-[#071326] group-hover:text-blue-700 transition-colors leading-snug line-clamp-2">
               {article.title}
             </h3>
           </Link>
@@ -236,18 +232,22 @@ function ResourcesIndexPage() {
           </p>
         </div>
 
-        <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-          <span className="text-[11px] font-medium text-slate-400 truncate max-w-[150px]">
+        {/* Card Footer: clean, non-wrapping action CTA link and truncated author */}
+        <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+          <span
+            className="text-[11px] font-medium text-slate-500 truncate min-w-0"
+            title={article.author.name}
+          >
             {article.author.name}
           </span>
 
           <Link
             to="/resources/$articleId"
             params={{ articleId: article.id }}
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#071326] group-hover:text-blue-700 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 group-hover:text-blue-900 transition-colors cursor-pointer shrink-0 whitespace-nowrap"
           >
-            {article.category === "case-studies" ? "View Case Study" : "Read Article"}{" "}
-            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+            <span>{article.category === "case-studies" ? "View Case Study" : "Read Article"}</span>
+            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1 shrink-0" />
           </Link>
         </div>
       </div>
@@ -288,7 +288,7 @@ function ResourcesIndexPage() {
       </PageHero>
 
       {/* Stats Bar */}
-      <StatsBar stats={stats} />
+      <StatsBar />
 
       {/* Featured Executive Briefing Banner */}
       <section className="py-14 bg-white border-b border-slate-200/60">
@@ -638,149 +638,8 @@ function ResourcesIndexPage() {
           </div>
 
           {/* Workforce Articles Grid */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-16">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {workforceArticles.map(renderArticleCard)}
-          </div>
-
-          {/* Simple, Clear-Cut 4-Stage Technical Talent Delivery Model */}
-          <div className="mt-12 rounded-2xl bg-white p-8 sm:p-10 border border-slate-200/90 shadow-sm">
-            <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-8">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
-                How We Deliver
-              </p>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#071326] tracking-tight">
-                Our 4-Stage Talent Delivery & Governance Model
-              </h3>
-              <p className="mt-1 text-xs sm:text-sm text-slate-500">
-                A simple, predictable process designed to deliver elite enterprise engineers with zero mis-hire risk.
-              </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {WORKFORCE_DELIVERY_PILLARS.map((pillar) => {
-                const Icon = pillar.icon;
-                return (
-                  <div
-                    key={pillar.step}
-                    className="flex flex-col justify-between rounded-xl border border-slate-200/80 bg-slate-50/60 p-6 hover:border-blue-300 hover:bg-white transition-all shadow-xs"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-xs font-black tracking-widest text-slate-400">
-                          STAGE {pillar.step}
-                        </span>
-                        <span
-                          className={`inline-flex items-center rounded-md border px-2 py-0.5 text-[10px] font-bold ${pillar.badgeColor}`}
-                        >
-                          {pillar.highlight}
-                        </span>
-                      </div>
-
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#071326] text-white">
-                          <Icon className="h-4 w-4" />
-                        </span>
-                        <h4 className="text-base font-bold text-[#071326] leading-snug">
-                          {pillar.title}
-                        </h4>
-                      </div>
-
-                      <p className="text-[11px] font-semibold text-blue-700 mb-3">
-                        {pillar.subtitle}
-                      </p>
-
-                      <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                        {pillar.description}
-                      </p>
-                    </div>
-
-                    <ul className="space-y-2 border-t border-slate-200/70 pt-3">
-                      {pillar.keyPoints.map((point, idx) => (
-                        <li key={idx} className="flex items-start gap-1.5 text-[11px] text-slate-600">
-                          <Check className="h-3 w-3 text-emerald-600 shrink-0 mt-0.5" />
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Delivery Model Benefits Strip */}
-            <div className="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
-              <div className="flex flex-wrap items-center gap-4">
-                <span className="flex items-center gap-1.5 font-semibold text-[#071326]">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600" /> Transparent SLA Agreements
-                </span>
-                <span className="flex items-center gap-1.5 font-semibold text-[#071326]">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600" /> Dedicated Technical Account Lead
-                </span>
-                <span className="flex items-center gap-1.5 font-semibold text-[#071326]">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600" /> Zero Full-Time Conversion Penalties
-                </span>
-              </div>
-
-              <Link
-                to="/request-talent"
-                className="inline-flex items-center gap-1.5 font-bold text-blue-700 hover:text-blue-900"
-              >
-                Request Vetted Talent <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Executive Digest */}
-      <section className="py-24 bg-white border-b border-slate-200/60">
-        <div className="mx-auto max-w-5xl px-4 lg:px-8">
-          <div className="relative overflow-hidden rounded-2xl bg-[#071326] p-10 md:p-14 text-center border border-slate-800 shadow-md">
-            <div className="pointer-events-none absolute -top-24 right-0 h-64 w-64 rounded-full bg-[#f5a623]/10 blur-3xl" />
-
-            <span className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-white/10 border border-white/20 text-[#f5a623]">
-              <Mail className="h-6 w-6 stroke-[1.75]" />
-            </span>
-
-            <div className="relative border-l-[3px] border-[#f5a623] pl-3.5 max-w-md mx-auto mt-6 text-left">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
-                Executive Digest
-              </p>
-              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-                Get Technology Insights in Your Inbox
-              </h2>
-            </div>
-
-            <p className="relative mt-3 text-slate-300 text-sm max-w-lg mx-auto">
-              Join over 25,000 engineering and talent executives receiving our monthly synthesis of enterprise AI, infrastructure, and hiring benchmarks.
-            </p>
-
-            {subscribed ? (
-              <div className="relative mt-8 inline-flex items-center gap-2 rounded-lg bg-emerald-500/20 border border-emerald-500/40 px-6 py-3 text-sm font-semibold text-emerald-300">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400" /> Thank you for subscribing! We'll be in touch.
-              </div>
-            ) : (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSubscribed(true);
-                }}
-                className="relative mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-              >
-                <input
-                  type="email"
-                  required
-                  placeholder="executive@company.com"
-                  className="flex-1 rounded-lg bg-white/95 px-4 py-3.5 text-sm text-[#071326] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#f5a623]"
-                />
-                <button
-                  type="submit"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#f5a623] px-6 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
-                >
-                  Subscribe <Send className="h-4 w-4" />
-                </button>
-              </form>
-            )}
           </div>
         </div>
       </section>

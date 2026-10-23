@@ -14,8 +14,6 @@ import {
   Building2,
   Check,
   FileText,
-  Mail,
-  Send,
   Sparkles,
   Zap,
   ShieldAlert,
@@ -59,7 +57,7 @@ export const Route = createFileRoute("/resources/$articleId")({
 });
 
 function ArticleDetailPage() {
-  const { articleId } = Route.useLoaderData();
+  const { articleId } = Route.useParams();
   const article = getArticleById(articleId);
 
   if (!article) {
@@ -71,7 +69,6 @@ function ArticleDetailPage() {
 
   const [copied, setCopied] = useState(false);
   const [downloadNotice, setDownloadNotice] = useState<string | null>(null);
-  const [subscribed, setSubscribed] = useState(false);
 
   const handleShare = async () => {
     try {
@@ -93,7 +90,7 @@ function ArticleDetailPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-[68px] md:pt-[76px]">
       {/* Toast Notification */}
       <AnimatePresence>
         {(copied || downloadNotice) && (
@@ -109,9 +106,9 @@ function ArticleDetailPage() {
         )}
       </AnimatePresence>
 
-      {/* Top Breadcrumb & Return Bar */}
-      <div className="border-b border-slate-200/80 bg-slate-50/70 sticky top-16 z-30 backdrop-blur-md">
-        <div className="mx-auto max-w-5xl px-4 lg:px-8 py-3.5 flex items-center justify-between gap-4 text-xs">
+      {/* Top Breadcrumb & Return Bar - sits flush against header navbar with zero floating gap */}
+      <div className="border-b border-slate-200/90 bg-slate-50/95 backdrop-blur-sm sticky top-[68px] md:top-[76px] z-30 shadow-xs">
+        <div className="mx-auto max-w-5xl px-4 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-1.5 text-slate-500 truncate">
             <Link to="/" className="hover:text-blue-700 transition-colors">
               Home
@@ -143,8 +140,8 @@ function ArticleDetailPage() {
         </div>
       </div>
 
-      {/* Article Header & Hero */}
-      <header className="relative pt-12 pb-10 bg-gradient-to-b from-slate-50 via-white to-white border-b border-slate-100">
+      {/* Article Header & Hero - tight, professional spacing below ribbon */}
+      <header className="relative pt-6 pb-8 bg-gradient-to-b from-slate-50/60 via-white to-white border-b border-slate-100">
         <div className="mx-auto max-w-4xl px-4 lg:px-8">
           {/* Metadata Badges */}
           <div className="flex flex-wrap items-center gap-2.5 mb-6">
@@ -505,67 +502,14 @@ function ArticleDetailPage() {
                     <Link
                       to="/resources/$articleId"
                       params={{ articleId: rel.id }}
-                      className="inline-flex items-center gap-1 text-xs font-bold text-blue-600 group-hover:text-blue-800"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-blue-900 shrink-0 whitespace-nowrap"
                     >
-                      Read Article <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+                      Read Article <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform shrink-0" />
                     </Link>
                   </div>
                 </div>
               </motion.article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Executive Digest */}
-      <section className="py-20 bg-white border-t border-b border-slate-200/80">
-        <div className="mx-auto max-w-5xl px-4 lg:px-8">
-          <div className="relative overflow-hidden rounded-2xl bg-[#071326] p-10 md:p-14 text-center border border-slate-800 shadow-md">
-            <div className="pointer-events-none absolute -top-24 right-0 h-64 w-64 rounded-full bg-[#f5a623]/10 blur-3xl" />
-
-            <span className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-white/10 border border-white/20 text-[#f5a623]">
-              <Mail className="h-6 w-6 stroke-[1.75]" />
-            </span>
-
-            <div className="relative border-l-[3px] border-[#f5a623] pl-3.5 max-w-md mx-auto mt-6 text-left">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
-                Executive Digest
-              </p>
-              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-                Get Technology Insights in Your Inbox
-              </h2>
-            </div>
-
-            <p className="relative mt-3 text-slate-300 text-sm max-w-lg mx-auto">
-              Join over 25,000 engineering and talent executives receiving our monthly synthesis of enterprise AI, infrastructure, and hiring benchmarks.
-            </p>
-
-            {subscribed ? (
-              <div className="relative mt-8 inline-flex items-center gap-2 rounded-lg bg-emerald-500/20 border border-emerald-500/40 px-6 py-3 text-sm font-semibold text-emerald-300">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400" /> Thank you for subscribing! We'll be in touch.
-              </div>
-            ) : (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSubscribed(true);
-                }}
-                className="relative mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-              >
-                <input
-                  type="email"
-                  required
-                  placeholder="executive@company.com"
-                  className="flex-1 rounded-lg bg-white/95 px-4 py-3.5 text-sm text-[#071326] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#f5a623]"
-                />
-                <button
-                  type="submit"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#f5a623] px-6 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
-                >
-                  Subscribe <Send className="h-4 w-4" />
-                </button>
-              </form>
-            )}
           </div>
         </div>
       </section>

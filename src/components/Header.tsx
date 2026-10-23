@@ -130,8 +130,8 @@ export function Header() {
   };
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 bg-white ${scrolled ? "shadow-md" : "border-b border-slate-100"}`}>
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 lg:px-8">
+    <header className={`fixed inset-x-0 top-0 z-50 h-[68px] md:h-[76px] flex items-center transition-all duration-300 bg-white ${scrolled ? "shadow-md" : "border-b border-slate-100"}`}>
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 lg:px-8">
         <Logo />
         <nav className="hidden lg:flex items-center gap-1">
           {NAV.map((item) => {
