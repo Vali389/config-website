@@ -55,10 +55,10 @@ const NAV = [
     to: "/resources",
     label: "Insights",
     children: [
-      { to: "/resources", label: "Perspectives", desc: "Expert viewpoints on technology", icon: Lightbulb },
-      { to: "/resources", label: "Case Studies", desc: "Real outcomes for real organizations", icon: FileText },
-      { to: "/resources", label: "Research", desc: "Data-driven industry analysis", icon: BarChart3 },
-      { to: "/resources", label: "Workforce Intelligence", desc: "Talent trends & market insights", icon: BookOpen },
+      { to: "/resources", search: { tab: "perspectives" }, label: "Perspectives", desc: "Expert viewpoints on technology", icon: Lightbulb },
+      { to: "/resources", search: { tab: "case-studies" }, label: "Case Studies", desc: "Real outcomes for real organizations", icon: FileText },
+      { to: "/resources", search: { tab: "research" }, label: "Research", desc: "Data-driven industry analysis", icon: BarChart3 },
+      { to: "/resources", search: { tab: "workforce" }, label: "Workforce Intelligence", desc: "Talent trends & market insights", icon: BookOpen },
     ],
   },
   { to: "/about", label: "About" },
@@ -115,6 +115,16 @@ export function Header() {
       if (childLabel === "Managed Delivery") {
         return pathname === "/services/managed-delivery";
       }
+    }
+    if (parentTo === "/resources") {
+      if (!pathname.startsWith("/resources")) return false;
+      const searchParams = new URLSearchParams(location.search);
+      const activeTab = searchParams.get("tab");
+      if (childLabel === "Perspectives") return activeTab === "perspectives";
+      if (childLabel === "Case Studies") return activeTab === "case-studies";
+      if (childLabel === "Research") return activeTab === "research";
+      if (childLabel === "Workforce Intelligence") return activeTab === "workforce";
+      return false;
     }
     return pathname === childTo;
   };
@@ -184,6 +194,7 @@ export function Header() {
                           <Link
                             key={c.label}
                             to={c.to as any}
+                            search={"search" in c ? (c as any).search : undefined}
                             onClick={() => setOpenDropdown(null)}
                             className={`flex items-start gap-3 rounded-lg px-3 py-2.5 text-sm transition-all duration-150 group/item ${
                               childActive
@@ -274,6 +285,7 @@ export function Header() {
                             <Link
                               key={c.label}
                               to={c.to as any}
+                              search={"search" in c ? (c as any).search : undefined}
                               onClick={() => setOpen(false)}
                               className={`flex items-center gap-2.5 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                                 childActive ? "bg-[#0a1628] text-white font-semibold" : "text-slate-600 hover:bg-slate-50"

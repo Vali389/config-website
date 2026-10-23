@@ -250,21 +250,24 @@ const STATS_TODAY = [
 
 const INSIGHTS = [
   {
-    tag: "AI",
-    title: "The Enterprise AI Workforce",
-    desc: "Why AI transformation is becoming a talent and operating-model challenge.",
+    tag: "Workforce Intelligence",
+    tab: "workforce",
+    title: "The 2026 IT Talent Landscape: AI & Workforce Transformation",
+    desc: "Why enterprise AI adoption is fundamentally an operating-model and technical capability challenge.",
     image: insightsTeam,
   },
   {
-    tag: "WORKFORCE STRATEGY",
-    title: "Building High-Performance Technology Teams",
-    desc: "Key strategies for scaling enterprise engineering talent.",
+    tag: "Perspectives",
+    tab: "perspectives",
+    title: "Building High-Performance Engineering Squads",
+    desc: "Key frameworks for scaling enterprise engineering capacity safely with elastic burst models.",
     image: storyGov,
   },
   {
-    tag: "INDUSTRY",
+    tag: "Case Study",
+    tab: "case-studies",
     title: "Technology Modernization in Financial Services",
-    desc: "How enterprises are modernizing platforms with specialized talent.",
+    desc: "How a premier US commercial bank cut hiring cycle times by 60% and accelerated regulatory delivery.",
     image: storyCloud,
   },
 ];
@@ -1306,6 +1309,7 @@ function InsightsSection() {
                 </p>
                 <Link
                   to="/resources"
+                  search={{ tab: article.tab }}
                   className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-blue-600 group-hover:text-blue-800"
                 >
                   Read More →
