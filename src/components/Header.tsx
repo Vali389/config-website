@@ -55,10 +55,10 @@ const NAV = [
     to: "/resources",
     label: "Insights",
     children: [
-      { to: "/resources", search: { tab: "perspectives" }, label: "Perspectives", desc: "Expert viewpoints on technology", icon: Lightbulb },
-      { to: "/resources", search: { tab: "case-studies" }, label: "Case Studies", desc: "Real outcomes for real organizations", icon: FileText },
-      { to: "/resources", search: { tab: "research" }, label: "Research", desc: "Data-driven industry analysis", icon: BarChart3 },
-      { to: "/resources", search: { tab: "workforce" }, label: "Workforce Intelligence", desc: "Talent trends & market insights", icon: BookOpen },
+      { to: "/resources", search: { tab: "perspectives" }, hash: "perspectives", label: "Perspectives", desc: "Expert viewpoints on technology", icon: Lightbulb },
+      { to: "/resources", search: { tab: "case-studies" }, hash: "case-studies", label: "Case Studies", desc: "Real outcomes for real organizations", icon: FileText },
+      { to: "/resources", search: { tab: "research" }, hash: "research", label: "Research", desc: "Data-driven industry analysis", icon: BarChart3 },
+      { to: "/resources", search: { tab: "workforce" }, hash: "workforce", label: "Workforce Intelligence", desc: "Talent trends & market insights", icon: BookOpen },
     ],
   },
   { to: "/about", label: "About" },
@@ -195,6 +195,7 @@ export function Header() {
                             key={c.label}
                             to={c.to as any}
                             search={"search" in c ? (c as any).search : undefined}
+                            hash={"hash" in c ? (c as any).hash : undefined}
                             onClick={() => setOpenDropdown(null)}
                             className={`flex items-start gap-3 rounded-lg px-3 py-2.5 text-sm transition-all duration-150 group/item ${
                               childActive
@@ -286,6 +287,7 @@ export function Header() {
                               key={c.label}
                               to={c.to as any}
                               search={"search" in c ? (c as any).search : undefined}
+                              hash={"hash" in c ? (c as any).hash : undefined}
                               onClick={() => setOpen(false)}
                               className={`flex items-center gap-2.5 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                                 childActive ? "bg-[#0a1628] text-white font-semibold" : "text-slate-600 hover:bg-slate-50"

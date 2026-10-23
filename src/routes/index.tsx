@@ -1045,6 +1045,8 @@ function CaseStudySection() {
           </div>
           <Link
             to="/resources"
+            search={{ tab: "case-studies" }}
+            hash="case-studies"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 hover:text-blue-800 shrink-0 self-start sm:self-end"
           >
             View All Case Studies <ArrowRight className="h-4 w-4" />
@@ -1256,7 +1258,7 @@ function CredentialsSection() {
 
 function InsightsSection() {
   return (
-    <section className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
+    <section id="insights" className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div className="border-l-[3px] border-[#f5a623] pl-3.5">
@@ -1272,6 +1274,7 @@ function InsightsSection() {
           </div>
           <Link
             to="/resources"
+            hash="content-hub"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 hover:text-blue-800 shrink-0 self-start sm:self-end"
           >
             View All Insights <ArrowRight className="h-4 w-4" />
@@ -1310,6 +1313,7 @@ function InsightsSection() {
                 <Link
                   to="/resources"
                   search={{ tab: article.tab }}
+                  hash={article.tab}
                   className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-blue-600 group-hover:text-blue-800"
                 >
                   Read More →
