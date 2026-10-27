@@ -21,7 +21,6 @@ import {
   Layers,
 } from "lucide-react";
 import wdAi from "@/assets/wd-ai.jpg";
-import heroServicesAi from "@/assets/hero_services_ai.jpg";
 import wdEngineering from "@/assets/wd-engineering.jpg";
 import wdCloud from "@/assets/wd-cloud.jpg";
 import wdEnterprise from "@/assets/wd-enterprise.jpg";
@@ -167,9 +166,9 @@ function ServicesIndexPage() {
         {/* Background Photography with Navy Gradient */}
         <div className="absolute inset-0 z-0">
           <img
-            src={heroServicesAi}
+            src={wdAi}
             alt="AI & Digital Capabilities"
-            className="h-full w-full object-cover object-right lg:object-center"
+            className="h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/90 via-55% to-[#071326]/40 pointer-events-none" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#071326] via-[#071326]/70 to-transparent pointer-events-none" />

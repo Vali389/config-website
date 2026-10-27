@@ -28,7 +28,6 @@ import heroCarousel1 from "@/assets/hero_carousel_1.jpg";
 import heroCarousel2 from "@/assets/hero_carousel_2.jpg";
 import ctaServicesBg from "@/assets/cta-services-bg.png";
 import wdEnterprise from "@/assets/wd-enterprise.jpg";
-import heroServicesEnterprise from "@/assets/hero_services_enterprise.jpg";
 import serviceSap from "@/assets/service-sap.jpg";
 import erpStrategyImg from "@/assets/erp_strategy_img.png";
 import erpImplementationImg from "@/assets/erp_implementation_img.png";
@@ -245,9 +244,9 @@ function EnterpriseApplications() {
         {/* Background Photography with Navy Gradient */}
         <div className="absolute inset-0 z-0">
           <img
-            src={heroServicesEnterprise}
+            src={wdEnterprise}
             alt="Enterprise Applications"
-            className="h-full w-full object-cover object-right lg:object-center"
+            className="h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/90 via-55% to-[#071326]/40 pointer-events-none" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#071326] via-[#071326]/70 to-transparent pointer-events-none" />

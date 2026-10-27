@@ -25,8 +25,6 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as CareersIndexRouteImport } from './routes/careers/index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as IndustriesIndustryIdRouteImport } from './routes/industries.$industryId'
-import { Route as ResourcesIndexRouteImport } from './routes/resources.index'
-import { Route as ResourcesArticleIdRouteImport } from './routes/resources.$articleId'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesAssessmentRouteImport } from './routes/services.assessment'
 import { Route as ServicesCloudRouteImport } from './routes/services.cloud'
@@ -117,16 +115,6 @@ const IndustriesIndustryIdRoute = IndustriesIndustryIdRouteImport.update({
   path: '/$industryId',
   getParentRoute: () => IndustriesRoute,
 } as any)
-const ResourcesIndexRoute = ResourcesIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => ResourcesRoute,
-} as any)
-const ResourcesArticleIdRoute = ResourcesArticleIdRouteImport.update({
-  id: '/$articleId',
-  path: '/$articleId',
-  getParentRoute: () => ResourcesRoute,
-} as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -183,13 +171,12 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
-  '/resources': typeof ResourcesRouteWithChildren
+  '/resources': typeof ResourcesRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
-  '/resources/$articleId': typeof ResourcesArticleIdRoute
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/cloud': typeof ServicesCloudRoute
   '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
@@ -199,7 +186,6 @@ export interface FileRoutesByFullPath {
   '/services/staffing': typeof ServicesStaffingRoute
   '/careers/': typeof CareersIndexRoute
   '/industries/': typeof IndustriesIndexRoute
-  '/resources/': typeof ResourcesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/careers/job/$jobId': typeof CareersJobJobIdRoute
 }
@@ -211,11 +197,11 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
+  '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
-  '/resources/$articleId': typeof ResourcesArticleIdRoute
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/cloud': typeof ServicesCloudRoute
   '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
@@ -225,7 +211,6 @@ export interface FileRoutesByTo {
   '/services/staffing': typeof ServicesStaffingRoute
   '/careers': typeof CareersIndexRoute
   '/industries': typeof IndustriesIndexRoute
-  '/resources': typeof ResourcesIndexRoute
   '/services': typeof ServicesIndexRoute
   '/careers/job/$jobId': typeof CareersJobJobIdRoute
 }
@@ -239,13 +224,12 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
-  '/resources': typeof ResourcesRouteWithChildren
+  '/resources': typeof ResourcesRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
-  '/resources/$articleId': typeof ResourcesArticleIdRoute
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/cloud': typeof ServicesCloudRoute
   '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
@@ -255,7 +239,6 @@ export interface FileRoutesById {
   '/services/staffing': typeof ServicesStaffingRoute
   '/careers/': typeof CareersIndexRoute
   '/industries/': typeof IndustriesIndexRoute
-  '/resources/': typeof ResourcesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/careers/job/$jobId': typeof CareersJobJobIdRoute
 }
@@ -276,7 +259,6 @@ export interface FileRouteTypes {
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
-    | '/resources/$articleId'
     | '/services/assessment'
     | '/services/cloud'
     | '/services/enterprise-applications'
@@ -286,7 +268,6 @@ export interface FileRouteTypes {
     | '/services/staffing'
     | '/careers/'
     | '/industries/'
-    | '/resources/'
     | '/services/'
     | '/careers/job/$jobId'
   fileRoutesByTo: FileRoutesByTo
@@ -298,11 +279,11 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/process'
     | '/request-talent'
+    | '/resources'
     | '/sitemap.xml'
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
-    | '/resources/$articleId'
     | '/services/assessment'
     | '/services/cloud'
     | '/services/enterprise-applications'
@@ -312,7 +293,6 @@ export interface FileRouteTypes {
     | '/services/staffing'
     | '/careers'
     | '/industries'
-    | '/resources'
     | '/services'
     | '/careers/job/$jobId'
   id:
@@ -331,7 +311,6 @@ export interface FileRouteTypes {
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
-    | '/resources/$articleId'
     | '/services/assessment'
     | '/services/cloud'
     | '/services/enterprise-applications'
@@ -341,7 +320,6 @@ export interface FileRouteTypes {
     | '/services/staffing'
     | '/careers/'
     | '/industries/'
-    | '/resources/'
     | '/services/'
     | '/careers/job/$jobId'
   fileRoutesById: FileRoutesById
@@ -355,7 +333,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ProcessRoute: typeof ProcessRoute
   RequestTalentRoute: typeof RequestTalentRoute
-  ResourcesRoute: typeof ResourcesRouteWithChildren
+  ResourcesRoute: typeof ResourcesRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SubmitResumeRoute: typeof SubmitResumeRoute
@@ -478,20 +456,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesIndustryIdRouteImport
       parentRoute: typeof IndustriesRoute
     }
-    '/resources/': {
-      id: '/resources/'
-      path: '/'
-      fullPath: '/resources/'
-      preLoaderRoute: typeof ResourcesIndexRouteImport
-      parentRoute: typeof ResourcesRoute
-    }
-    '/resources/$articleId': {
-      id: '/resources/$articleId'
-      path: '/$articleId'
-      fullPath: '/resources/$articleId'
-      preLoaderRoute: typeof ResourcesArticleIdRouteImport
-      parentRoute: typeof ResourcesRoute
-    }
     '/services/': {
       id: '/services/'
       path: '/'
@@ -572,20 +536,6 @@ const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
   IndustriesRouteChildren,
 )
 
-interface ResourcesRouteChildren {
-  ResourcesArticleIdRoute: typeof ResourcesArticleIdRoute
-  ResourcesIndexRoute: typeof ResourcesIndexRoute
-}
-
-const ResourcesRouteChildren: ResourcesRouteChildren = {
-  ResourcesArticleIdRoute: ResourcesArticleIdRoute,
-  ResourcesIndexRoute: ResourcesIndexRoute,
-}
-
-const ResourcesRouteWithChildren = ResourcesRoute._addFileChildren(
-  ResourcesRouteChildren,
-)
-
 interface ServicesRouteChildren {
   ServicesAssessmentRoute: typeof ServicesAssessmentRoute
   ServicesCloudRoute: typeof ServicesCloudRoute
@@ -621,7 +571,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ProcessRoute: ProcessRoute,
   RequestTalentRoute: RequestTalentRoute,
-  ResourcesRoute: ResourcesRouteWithChildren,
+  ResourcesRoute: ResourcesRoute,
   ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SubmitResumeRoute: SubmitResumeRoute,

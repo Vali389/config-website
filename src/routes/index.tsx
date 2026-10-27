@@ -250,27 +250,21 @@ const STATS_TODAY = [
 
 const INSIGHTS = [
   {
-    id: "talent-landscape-2026",
-    tag: "Workforce Intelligence",
-    tab: "workforce",
-    title: "The 2026 IT Talent Landscape: AI & Workforce Transformation",
-    desc: "Why enterprise AI adoption is fundamentally an operating-model and technical capability challenge.",
+    tag: "AI",
+    title: "The Enterprise AI Workforce",
+    desc: "Why AI transformation is becoming a talent and operating-model challenge.",
     image: insightsTeam,
   },
   {
-    id: "elastic-squad-model-playbook",
-    tag: "Perspectives",
-    tab: "perspectives",
-    title: "Building High-Performance Engineering Squads",
-    desc: "Key frameworks for scaling enterprise engineering capacity safely with elastic burst models.",
+    tag: "WORKFORCE STRATEGY",
+    title: "Building High-Performance Technology Teams",
+    desc: "Key strategies for scaling enterprise engineering talent.",
     image: storyGov,
   },
   {
-    id: "fortune-500-bank-hiring",
-    tag: "Case Study",
-    tab: "case-studies",
+    tag: "INDUSTRY",
     title: "Technology Modernization in Financial Services",
-    desc: "How a premier US commercial bank cut hiring cycle times by 60% and accelerated regulatory delivery.",
+    desc: "How enterprises are modernizing platforms with specialized talent.",
     image: storyCloud,
   },
 ];
@@ -1048,8 +1042,6 @@ function CaseStudySection() {
           </div>
           <Link
             to="/resources"
-            search={{ tab: "case-studies" }}
-            hash="case-studies"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 hover:text-blue-800 shrink-0 self-start sm:self-end"
           >
             View All Case Studies <ArrowRight className="h-4 w-4" />
@@ -1261,7 +1253,7 @@ function CredentialsSection() {
 
 function InsightsSection() {
   return (
-    <section id="insights" className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
+    <section className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div className="border-l-[3px] border-[#f5a623] pl-3.5">
@@ -1277,7 +1269,6 @@ function InsightsSection() {
           </div>
           <Link
             to="/resources"
-            hash="content-hub"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 hover:text-blue-800 shrink-0 self-start sm:self-end"
           >
             View All Insights <ArrowRight className="h-4 w-4" />
@@ -1294,11 +1285,7 @@ function InsightsSection() {
               transition={{ duration: 0.4, delay: i * 0.08 }}
               className="group flex flex-col bg-[#f8fafc] rounded-xl overflow-hidden border border-slate-200/90 hover:border-blue-300 hover:shadow-lg transition-all duration-300"
             >
-              <Link
-                to="/resources/$articleId"
-                params={{ articleId: article.id }}
-                className="block relative h-48 overflow-hidden bg-slate-900"
-              >
+              <div className="relative h-48 overflow-hidden">
                 <img
                   src={article.image}
                   alt={article.title}
@@ -1308,27 +1295,20 @@ function InsightsSection() {
                 <div className="absolute top-3 left-3 bg-[#071326]/85 backdrop-blur-sm text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded">
                   {article.tag}
                 </div>
-              </Link>
+              </div>
 
               <div className="p-5 flex flex-col flex-1">
-                <Link
-                  to="/resources/$articleId"
-                  params={{ articleId: article.id }}
-                  className="block"
-                >
-                  <h3 className="text-base font-bold text-[#071326] group-hover:text-blue-700 transition-colors leading-snug">
-                    {article.title}
-                  </h3>
-                </Link>
+                <h3 className="text-base font-bold text-[#071326] group-hover:text-blue-700 transition-colors leading-snug">
+                  {article.title}
+                </h3>
                 <p className="mt-2 text-xs sm:text-[13px] text-slate-500 leading-relaxed flex-1">
                   {article.desc}
                 </p>
                 <Link
-                  to="/resources/$articleId"
-                  params={{ articleId: article.id }}
+                  to="/resources"
                   className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-blue-600 group-hover:text-blue-800"
                 >
-                  Read Article →
+                  Read More →
                 </Link>
               </div>
             </motion.article>

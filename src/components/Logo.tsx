@@ -22,7 +22,7 @@ export function Logo({ variant = "dark" }: { variant?: "dark" | "light" }) {
         <img
           src={logo}
           alt="ConfigUSA — Your Intelligent IT Partner"
-          className="h-11 md:h-14 w-auto object-contain transition-all duration-300 group-hover:scale-[1.03] group-hover:drop-shadow-[0_4px_12px_rgba(29,78,216,0.18)]"
+          className="h-12 md:h-15 w-auto object-contain transition-all duration-300 group-hover:scale-[1.03] group-hover:drop-shadow-[0_4px_12px_rgba(29,78,216,0.18)]"
         />
       )}
     </Link>

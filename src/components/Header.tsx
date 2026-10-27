@@ -55,10 +55,10 @@ const NAV = [
     to: "/resources",
     label: "Insights",
     children: [
-      { to: "/resources", search: { tab: "perspectives" }, hash: "perspectives", label: "Perspectives", desc: "Expert viewpoints on technology", icon: Lightbulb },
-      { to: "/resources", search: { tab: "case-studies" }, hash: "case-studies", label: "Case Studies", desc: "Real outcomes for real organizations", icon: FileText },
-      { to: "/resources", search: { tab: "research" }, hash: "research", label: "Research", desc: "Data-driven industry analysis", icon: BarChart3 },
-      { to: "/resources", search: { tab: "workforce" }, hash: "workforce", label: "Workforce Intelligence", desc: "Talent trends & market insights", icon: BookOpen },
+      { to: "/resources", label: "Perspectives", desc: "Expert viewpoints on technology", icon: Lightbulb },
+      { to: "/resources", label: "Case Studies", desc: "Real outcomes for real organizations", icon: FileText },
+      { to: "/resources", label: "Research", desc: "Data-driven industry analysis", icon: BarChart3 },
+      { to: "/resources", label: "Workforce Intelligence", desc: "Talent trends & market insights", icon: BookOpen },
     ],
   },
   { to: "/about", label: "About" },
@@ -116,22 +116,12 @@ export function Header() {
         return pathname === "/services/managed-delivery";
       }
     }
-    if (parentTo === "/resources") {
-      if (!pathname.startsWith("/resources")) return false;
-      const searchParams = new URLSearchParams(location.search);
-      const activeTab = searchParams.get("tab");
-      if (childLabel === "Perspectives") return activeTab === "perspectives";
-      if (childLabel === "Case Studies") return activeTab === "case-studies";
-      if (childLabel === "Research") return activeTab === "research";
-      if (childLabel === "Workforce Intelligence") return activeTab === "workforce";
-      return false;
-    }
     return pathname === childTo;
   };
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 h-[68px] md:h-[76px] flex items-center transition-all duration-300 bg-white ${scrolled ? "shadow-md" : "border-b border-slate-100"}`}>
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 lg:px-8">
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 bg-white ${scrolled ? "shadow-md" : "border-b border-slate-100"}`}>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 lg:px-8">
         <Logo />
         <nav className="hidden lg:flex items-center gap-1">
           {NAV.map((item) => {
@@ -194,8 +184,6 @@ export function Header() {
                           <Link
                             key={c.label}
                             to={c.to as any}
-                            search={"search" in c ? (c as any).search : undefined}
-                            hash={"hash" in c ? (c as any).hash : undefined}
                             onClick={() => setOpenDropdown(null)}
                             className={`flex items-start gap-3 rounded-lg px-3 py-2.5 text-sm transition-all duration-150 group/item ${
                               childActive
@@ -286,8 +274,6 @@ export function Header() {
                             <Link
                               key={c.label}
                               to={c.to as any}
-                              search={"search" in c ? (c as any).search : undefined}
-                              hash={"hash" in c ? (c as any).hash : undefined}
                               onClick={() => setOpen(false)}
                               className={`flex items-center gap-2.5 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                                 childActive ? "bg-[#0a1628] text-white font-semibold" : "text-slate-600 hover:bg-slate-50"
