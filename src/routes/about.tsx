@@ -298,7 +298,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership */}
+      {/* Leadership - commented out
       <section className="py-24 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading eyebrow="Leadership" title="Meet the People Behind ConfigUSA" subtitle="An experienced team dedicated to your success across technology, delivery, and talent." />
@@ -334,6 +334,7 @@ function AboutPage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Global Offices */}
       <section className="relative py-24 bg-[#071326] text-white overflow-hidden">
