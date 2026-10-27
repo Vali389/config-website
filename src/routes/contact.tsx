@@ -29,7 +29,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact ConfigUSA — Let's Start a Conversation" },
-      { name: "description", content: "Get in touch with ConfigUSA. Offices in USA, Canada, and India. Whether you're hiring talent or looking for your next role, we're here to help." },
+      { name: "description", content: "Get in touch with ConfigUSA. Offices in USA and India. Whether you're hiring talent or looking for your next role, we're here to help." },
       { property: "og:title", content: "Contact ConfigUSA" },
       { property: "og:description", content: "Talk to our team about staffing, technology, and workforce solutions." },
     ],
@@ -39,7 +39,6 @@ export const Route = createFileRoute("/contact")({
 
 const OFFICES = [
   { code: "US", country: "United States", city: "Plainsboro, New Jersey", tag: "Global Headquarters", addr: "666 Plainsboro Road, Suite 1237, Plainsboro, NJ 08536", phone: "+1 (732) 220-2921" },
-  { code: "CA", country: "Canada", city: "Toronto, Ontario", tag: "North America Hub", addr: "100 King St W, Toronto, ON M5X 1A9", phone: "+1 (732) 220-2921" },
   { code: "IN", country: "India", city: "Hyderabad, Telangana", tag: "Delivery & Tech Center", addr: "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081", phone: "+91 40 6600 8800" },
 ];
 
@@ -318,10 +317,10 @@ function Page() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Global Presence"
-            title="Offices Across Three Continents"
-            subtitle="Strategic corporate headquarters and delivery centers positioned across the United States, Canada, and India."
+            title="Strategic Office Locations"
+            subtitle="Strategic corporate headquarters and delivery centers positioned across the United States and India."
           />
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <div className="mt-14 grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
             {OFFICES.map((o, i) => (
               <motion.div
                 key={o.country}
