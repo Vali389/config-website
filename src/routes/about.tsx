@@ -64,8 +64,9 @@ const LEADERS: { initials: string; name: string; title: string; bio: string; pho
 ];
 
 const OFFICES = [
-  { city: "United States", tag: "Global Headquarters", lines: ["666 Plainsboro Road, Suite 1237", "Plainsboro, NJ 08536"], phone: "+1 (732) 220-2921" },
-  { city: "India", tag: "Delivery & Engineering Center", lines: ["Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2", "Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081"], phone: "+91 40 6600 8800" },
+  { city: "United States", tag: "Global Headquarters", lines: ["1001 Woodbridge Center Dr", "Woodbridge, NJ 07095"], phone: "+1 (732) 220-2921" },
+  // TODO: replace with the real India delivery-center address & phone.
+  { city: "India", tag: "Delivery & Engineering Center", lines: ["[ Street Address ]", "[ City, State PIN ]"], phone: "[ +91 00000 00000 ]" },
 ];
 
 const CERTIFICATIONS = [

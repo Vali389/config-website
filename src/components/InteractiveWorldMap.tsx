@@ -31,13 +31,13 @@ const LOCATIONS_DATA: LocationDetail[] = [
     region: "North America (HQ)",
     badge: "Headquarters & Onshore Lead",
     role: "Client Partnership & Onshore Delivery",
-    address: "666 Plainsboro Road, Suite 1237, Plainsboro, NJ 08536, USA",
+    address: "1001 Woodbridge Center Dr, Woodbridge, NJ 07095, USA",
     phone: "+1 (732) 220-2921",
     email: "usa@configusa.com",
     embedUrl:
-      "https://maps.google.com/maps?q=666+Plainsboro+Road,+Suite+1237,+Plainsboro,+NJ+08536&t=&z=14&ie=UTF8&iwloc=&output=embed",
+      "https://maps.google.com/maps?q=1001+Woodbridge+Center+Dr,+Woodbridge,+NJ+07095&t=&z=14&ie=UTF8&iwloc=&output=embed",
     mapUrl:
-      "https://maps.google.com/?q=666+Plainsboro+Road,+Suite+1237,+Plainsboro,+NJ+08536",
+      "https://maps.google.com/?q=1001+Woodbridge+Center+Dr,+Woodbridge,+NJ+07095",
     teamSize: "150+ Onshore Experts",
     timeZone: "EST (UTC-5)",
     flag: "🇺🇸",
@@ -47,14 +47,13 @@ const LOCATIONS_DATA: LocationDetail[] = [
     region: "India (Global Delivery Center)",
     badge: "Offshore Engineering Hub",
     role: "Global Delivery & Engineering Center",
-    address:
-      "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081, India",
+    address: "HITEC City, Hyderabad, Telangana 500081, India",
     phone: "+91 40 6600 8800",
     email: "india@configusa.com",
     embedUrl:
-      "https://maps.google.com/maps?q=Trendz+Sapphire,+Vittal+Rao+Nagar,+Madhapur,+Hitech+City,+Hyderabad+500081&t=&z=14&ie=UTF8&iwloc=&output=embed",
+      "https://maps.google.com/maps?q=HITEC+City,+Hyderabad,+Telangana+500081,+India&t=&z=14&ie=UTF8&iwloc=&output=embed",
     mapUrl:
-      "https://maps.google.com/?q=Trendz+Sapphire,+Vittal+Rao+Nagar,+Madhapur,+Hitech+City,+Hyderabad+500081",
+      "https://maps.google.com/?q=HITEC+City,+Hyderabad,+Telangana,+India",
     teamSize: "350+ Global Engineers",
     timeZone: "IST (UTC+5:30)",
     flag: "🇮🇳",
