@@ -38,9 +38,9 @@ export const Route = createFileRoute("/contact")({
 });
 
 const OFFICES = [
-  { code: "US", country: "United States", city: "Woodbridge, New Jersey", tag: "Global Headquarters", addr: "1001 Woodbridge Center Dr, Woodbridge, NJ 07095", phone: "+1 (732) 220-2921" },
+  { code: "US", country: "United States", city: "Plainsboro, New Jersey", tag: "Global Headquarters", addr: "666 Plainsboro Road, Suite 1237, Plainsboro, NJ 08536", phone: "+1 (732) 220-2921" },
   { code: "CA", country: "Canada", city: "Toronto, Ontario", tag: "North America Hub", addr: "100 King St W, Toronto, ON M5X 1A9", phone: "+1 (732) 220-2921" },
-  { code: "IN", country: "India", city: "Hyderabad, Telangana", tag: "Delivery & Tech Center", addr: "3rd Floor, Trendz Sapphire, HITEC City, Hyderabad, TS 500081", phone: "+91 40 0000 0000" },
+  { code: "IN", country: "India", city: "Hyderabad, Telangana", tag: "Delivery & Tech Center", addr: "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081", phone: "+91 40 6600 8800" },
 ];
 
 const CONTACTS = [
