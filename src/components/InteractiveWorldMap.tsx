@@ -19,7 +19,7 @@ interface LocationDetail {
   role: string;
   address: string;
   phone: string;
-  email: string;
+  email?: string;
   embedUrl: string;
   mapUrl: string;
   teamSize: string;
@@ -52,8 +52,7 @@ const LOCATIONS_DATA: LocationDetail[] = [
     badge: "North America Hub",
     role: "Regional Delivery & Technology Solutions",
     address: "1585 Markham Road, Suite # 309, Toronto, ON M1B 2W1, Canada",
-    phone: "+1 (609) 934-3184",
-    email: "canada@configusa.com",
+    phone: "+1 (647) 557-6968",
     embedUrl:
       "https://maps.google.com/maps?q=1585+Markham+Road,+Suite+309,+Toronto,+ON+M1B+2W1&t=&z=14&ie=UTF8&iwloc=&output=embed",
     mapUrl:
@@ -70,7 +69,7 @@ const LOCATIONS_DATA: LocationDetail[] = [
     role: "Global Delivery & Innovation Center",
     address:
       "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081, India",
-    phone: "+91 98409 60300",
+    phone: "+91 80746 83380",
     email: "india@configusa.com",
     embedUrl:
       "https://maps.google.com/maps?q=Trendz+Sapphire,+Vittal+Rao+Nagar,+Madhapur,+Hitech+City,+Hyderabad+500081&t=&z=14&ie=UTF8&iwloc=&output=embed",
@@ -206,18 +205,22 @@ export function InteractiveWorldMap() {
                     <div className="pt-3 border-t border-slate-200/70 grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
                       <a
                         href={`tel:${loc.phone.replace(/[^\d+]/g, "")}`}
-                        className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200/80 hover:border-blue-400 hover:text-blue-600 text-slate-700 transition-colors font-medium shadow-xs"
+                        className={`flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200/80 hover:border-blue-400 hover:text-blue-600 text-slate-700 transition-colors font-medium shadow-xs ${
+                          !loc.email ? "sm:col-span-2" : ""
+                        }`}
                       >
                         <Phone className="h-4 w-4 text-[#e89218] shrink-0" />
                         <span className="truncate">{loc.phone}</span>
                       </a>
-                      <a
-                        href={`mailto:${loc.email}`}
-                        className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200/80 hover:border-blue-400 hover:text-blue-600 text-slate-700 transition-colors font-medium shadow-xs"
-                      >
-                        <Mail className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span className="truncate">{loc.email}</span>
-                      </a>
+                      {loc.email && (
+                        <a
+                          href={`mailto:${loc.email}`}
+                          className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200/80 hover:border-blue-400 hover:text-blue-600 text-slate-700 transition-colors font-medium shadow-xs"
+                        >
+                          <Mail className="h-4 w-4 text-blue-600 shrink-0" />
+                          <span className="truncate">{loc.email}</span>
+                        </a>
+                      )}
                     </div>
                   </div>
 

@@ -40,12 +40,14 @@ export const Route = createFileRoute("/contact")({
 
 const OFFICES = [
   { code: "US", country: "United States", city: "Plainsboro, New Jersey", tag: "Global Headquarters", addr: "666 Plainsboro Road, Suite 1237, Plainsboro, NJ 08536", phone: "+1 (609) 934-3184" },
-  { code: "CA", country: "Canada", city: "Toronto, Ontario", tag: "North America Hub", addr: "1585 Markham Road, Suite # 309, Toronto, ON M1B 2W1", phone: "+1 (609) 934-3184" },
-  { code: "IN", country: "India", city: "Hyderabad, Telangana", tag: "Delivery & Tech Center", addr: "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081", phone: "+91 98409 60300" },
+  { code: "CA", country: "Canada", city: "Toronto, Ontario", tag: "North America Hub", addr: "1585 Markham Road, Suite # 309, Toronto, ON M1B 2W1", phone: "+1 (647) 557-6968" },
+  { code: "IN", country: "India", city: "Hyderabad, Telangana", tag: "Delivery & Tech Center", addr: "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081", phone: "+91 80746 83380" },
 ];
 
 const CONTACTS = [
-  { icon: Phone, label: "Direct Phone", value: "+1 (609) 934-3184", href: "tel:+16099343184" },
+  { icon: Phone, label: "USA Direct Phone", value: "+1 (609) 934-3184", href: "tel:+16099343184" },
+  { icon: Phone, label: "Canada Direct Phone", value: "+1 (647) 557-6968", href: "tel:+16475576968" },
+  { icon: Phone, label: "India Direct Phone", value: "+91 80746 83380", href: "tel:+918074683380" },
   { icon: Mail, label: "General Inquiries", value: "info@configusa.com", href: "mailto:info@configusa.com" },
   { icon: MessageSquare, label: "Talent Desk", value: "careers@configusa.com", href: "mailto:careers@configusa.com" },
 ];
