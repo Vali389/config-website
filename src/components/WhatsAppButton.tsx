@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { X, ArrowRight, Briefcase, UserSearch, MessageSquare, ArrowUp } from "lucide-react";
 
-const WA_LINK = "https://wa.me/17322202921?text=Hi%20ConfigUSA%2C%20I%27d%20like%20to%20learn%20more.";
+const WA_LINK = "https://wa.me/16099343184?text=Hi%20ConfigUSA%2C%20I%27d%20like%20to%20learn%20more.";
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 32 32" className={className} fill="currentColor" aria-hidden="true">

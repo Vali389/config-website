@@ -27,7 +27,7 @@ declare global {
   }
 }
 
-const WA_LINK = "https://wa.me/17322202921?text=Hi%20ConfigUSA%2C%20I%27d%20like%20to%20learn%20more.";
+const WA_LINK = "https://wa.me/16099343184?text=Hi%20ConfigUSA%2C%20I%27d%20like%20to%20learn%20more.";
 
 export function TawkChat() {
   const [open, setOpen] = useState(false);

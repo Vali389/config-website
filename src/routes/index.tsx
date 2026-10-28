@@ -941,6 +941,20 @@ function GlobalDeliverySection() {
 
               <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10 max-w-lg">
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-500/20 text-[#f5a623]">
+                  <Building2 className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-white uppercase tracking-wider">
+                    Canada
+                  </h3>
+                  <p className="text-xs text-slate-300 mt-0.5">
+                    Regional Delivery & Technology Solutions · Toronto
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10 max-w-lg">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-500/20 text-[#f5a623]">
                   <Globe className="h-5 w-5" />
                 </div>
                 <div>

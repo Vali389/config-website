@@ -28,32 +28,49 @@ interface LocationDetail {
 const LOCATIONS_DATA: LocationDetail[] = [
   {
     id: "north-america",
-    region: "North America (HQ)",
-    badge: "Headquarters & Onshore Lead",
-    role: "Client Partnership & Onshore Delivery",
-    address: "1001 Woodbridge Center Dr, Woodbridge, NJ 07095, USA",
-    phone: "+1 (732) 220-2921",
+    region: "United States (HQ)",
+    badge: "Global Headquarters",
+    role: "Client Partnership & Executive Delivery",
+    address: "666 Plainsboro Road, Suite 1237, Plainsboro, NJ 08536, USA",
+    phone: "+1 (609) 934-3184",
     email: "usa@configusa.com",
     embedUrl:
-      "https://maps.google.com/maps?q=1001+Woodbridge+Center+Dr,+Woodbridge,+NJ+07095&t=&z=14&ie=UTF8&iwloc=&output=embed",
+      "https://maps.google.com/maps?q=666+Plainsboro+Road,+Suite+1237,+Plainsboro,+NJ+08536&t=&z=14&ie=UTF8&iwloc=&output=embed",
     mapUrl:
-      "https://maps.google.com/?q=1001+Woodbridge+Center+Dr,+Woodbridge,+NJ+07095",
+      "https://maps.google.com/?q=666+Plainsboro+Road,+Suite+1237,+Plainsboro,+NJ+08536",
     teamSize: "150+ Onshore Experts",
     timeZone: "EST (UTC-5)",
     flag: "🇺🇸",
   },
   {
+    id: "canada",
+    region: "Canada (Toronto Hub)",
+    badge: "North America Hub",
+    role: "Regional Delivery & Technology Solutions",
+    address: "1585 Markham Road, Suite # 309, Toronto, ON M1B 2W1, Canada",
+    phone: "+1 (609) 934-3184",
+    email: "canada@configusa.com",
+    embedUrl:
+      "https://maps.google.com/maps?q=1585+Markham+Road,+Suite+309,+Toronto,+ON+M1B+2W1&t=&z=14&ie=UTF8&iwloc=&output=embed",
+    mapUrl:
+      "https://maps.google.com/?q=1585+Markham+Road,+Suite+309,+Toronto,+ON+M1B+2W1",
+    teamSize: "50+ Technology Consultants",
+    timeZone: "EST (UTC-5)",
+    flag: "🇨🇦",
+  },
+  {
     id: "india",
     region: "India (Global Delivery Center)",
     badge: "Offshore Engineering Hub",
-    role: "Global Delivery & Engineering Center",
-    address: "HITEC City, Hyderabad, Telangana 500081, India",
-    phone: "+91 40 6600 8800",
+    role: "Global Delivery & Innovation Center",
+    address:
+      "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081, India",
+    phone: "+91 98409 60300",
     email: "india@configusa.com",
     embedUrl:
-      "https://maps.google.com/maps?q=HITEC+City,+Hyderabad,+Telangana+500081,+India&t=&z=14&ie=UTF8&iwloc=&output=embed",
+      "https://maps.google.com/maps?q=Trendz+Sapphire,+Vittal+Rao+Nagar,+Madhapur,+Hitech+City,+Hyderabad+500081&t=&z=14&ie=UTF8&iwloc=&output=embed",
     mapUrl:
-      "https://maps.google.com/?q=HITEC+City,+Hyderabad,+Telangana,+India",
+      "https://maps.google.com/?q=Trendz+Sapphire,+Vittal+Rao+Nagar,+Madhapur,+Hitech+City,+Hyderabad+500081",
     teamSize: "350+ Global Engineers",
     timeZone: "IST (UTC+5:30)",
     flag: "🇮🇳",
@@ -63,8 +80,8 @@ const LOCATIONS_DATA: LocationDetail[] = [
 export function InteractiveWorldMap() {
   return (
     <div className="relative w-full">
-      {/* 2 Maps Side-by-Side Grid Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+      {/* 3 Maps Side-by-Side Grid Row */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
         {LOCATIONS_DATA.map((loc) => (
           <div
             key={loc.id}

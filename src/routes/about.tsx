@@ -64,9 +64,9 @@ const LEADERS: { initials: string; name: string; title: string; bio: string; pho
 ];
 
 const OFFICES = [
-  { city: "United States", tag: "Global Headquarters", lines: ["1001 Woodbridge Center Dr", "Woodbridge, NJ 07095"], phone: "+1 (732) 220-2921" },
-  // TODO: replace with the real India delivery-center address & phone.
-  { city: "India", tag: "Delivery & Engineering Center", lines: ["[ Street Address ]", "[ City, State PIN ]"], phone: "[ +91 00000 00000 ]" },
+  { city: "United States", tag: "Global Headquarters", lines: ["666 Plainsboro Road, Suite 1237", "Plainsboro, NJ 08536"], phone: "+1 (609) 934-3184" },
+  { city: "Canada", tag: "North America Hub", lines: ["1585 Markham Road, Suite # 309", "Toronto, ON M1B 2W1"], phone: "+1 (609) 934-3184" },
+  { city: "India", tag: "Delivery & Engineering Center", lines: ["Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2", "Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081"], phone: "+91 98409 60300" },
 ];
 
 const CERTIFICATIONS = [
@@ -349,7 +349,7 @@ function AboutPage() {
               With teams across North America and India, we pair onshore client partnership with round-the-clock offshore delivery.
             </p>
           </div>
-          <div className="mt-12 grid md:grid-cols-2 gap-6">
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
             {OFFICES.map((o, i) => (
               <motion.div
                 key={o.city}

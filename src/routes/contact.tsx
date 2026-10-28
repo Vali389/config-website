@@ -24,6 +24,7 @@ import contactBg from "@/assets/contact-bg.jpg";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { StatsBar } from "@/components/StatsBar";
+import { InteractiveWorldMap } from "@/components/InteractiveWorldMap";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -38,13 +39,13 @@ export const Route = createFileRoute("/contact")({
 });
 
 const OFFICES = [
-  { code: "US", country: "United States", city: "Woodbridge, New Jersey", tag: "Global Headquarters", addr: "1001 Woodbridge Center Dr, Woodbridge, NJ 07095", phone: "+1 (732) 220-2921" },
-  { code: "CA", country: "Canada", city: "Toronto, Ontario", tag: "North America Hub", addr: "100 King St W, Toronto, ON M5X 1A9", phone: "+1 (732) 220-2921" },
-  { code: "IN", country: "India", city: "Hyderabad, Telangana", tag: "Delivery & Tech Center", addr: "3rd Floor, Trendz Sapphire, HITEC City, Hyderabad, TS 500081", phone: "+91 40 0000 0000" },
+  { code: "US", country: "United States", city: "Plainsboro, New Jersey", tag: "Global Headquarters", addr: "666 Plainsboro Road, Suite 1237, Plainsboro, NJ 08536", phone: "+1 (609) 934-3184" },
+  { code: "CA", country: "Canada", city: "Toronto, Ontario", tag: "North America Hub", addr: "1585 Markham Road, Suite # 309, Toronto, ON M1B 2W1", phone: "+1 (609) 934-3184" },
+  { code: "IN", country: "India", city: "Hyderabad, Telangana", tag: "Delivery & Tech Center", addr: "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081", phone: "+91 98409 60300" },
 ];
 
 const CONTACTS = [
-  { icon: Phone, label: "Direct Phone", value: "+1 (732) 220-2921", href: "tel:+17322202921" },
+  { icon: Phone, label: "Direct Phone", value: "+1 (609) 934-3184", href: "tel:+16099343184" },
   { icon: Mail, label: "General Inquiries", value: "info@configusa.com", href: "mailto:info@configusa.com" },
   { icon: MessageSquare, label: "Talent Desk", value: "careers@configusa.com", href: "mailto:careers@configusa.com" },
 ];
@@ -264,7 +265,7 @@ function Page() {
                   </label>
                   <label className="block">
                     <span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-slate-700">Phone Number</span>
-                    <input {...register("phone")} className={cls("phone")} placeholder="+1 (732) 000-0000" />
+                    <input {...register("phone")} className={cls("phone")} placeholder="+1 (609) 000-0000" />
                     <Err field="phone" />
                   </label>
                   <label className="block">
@@ -313,49 +314,16 @@ function Page() {
         </div>
       </section>
 
-      {/* Offices */}
+      {/* Offices & Locations with Maps */}
       <section id="offices" className="py-24 bg-slate-50 border-b border-slate-200/60 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Global Presence"
             title="Offices Across Three Continents"
-            subtitle="Strategic corporate headquarters and delivery centers positioned across the United States, Canada, and India."
+            subtitle="Strategic corporate headquarters and delivery centers positioned across the United States, Canada, and India with interactive maps and directions."
           />
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {OFFICES.map((o, i) => (
-              <motion.div
-                key={o.country}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group rounded-xl bg-white p-7 sm:p-8 border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300 flex flex-col"
-              >
-                <div className="flex items-center gap-3.5">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 border border-blue-100 text-blue-600 text-sm font-bold group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-colors duration-200">
-                    {o.code}
-                  </span>
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-[#f5a623]">{o.country}</div>
-                    <h3 className="text-base font-bold text-[#071326]">{o.city}</h3>
-                  </div>
-                </div>
-
-                <div className="mt-4 inline-block text-[11px] font-semibold text-slate-500 bg-slate-100 rounded px-2 py-0.5 w-fit">
-                  {o.tag}
-                </div>
-
-                <p className="mt-4 text-xs sm:text-[13px] text-slate-600 leading-relaxed flex gap-2">
-                  <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-blue-600" />
-                  <span>{o.addr}</span>
-                </p>
-
-                <div className="mt-auto pt-5 border-t border-slate-100 text-xs font-semibold text-slate-500 flex items-center gap-2">
-                  <Phone className="h-3.5 w-3.5 text-[#f5a623]" />
-                  <span>{o.phone}</span>
-                </div>
-              </motion.div>
-            ))}
+          <div className="mt-14">
+            <InteractiveWorldMap />
           </div>
         </div>
       </section>
