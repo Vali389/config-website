@@ -21,10 +21,20 @@ import {
   Clock,
   ExternalLink,
   MessageSquare,
+  Landmark,
+  Bot,
+  Workflow,
+  AlertTriangle,
+  BookOpen,
+  FileText,
 } from "lucide-react";
-import fdeSquadCommand from "@/assets/fde-squad-command.jpg";
-import wdEngineering from "@/assets/wd-engineering.jpg";
+import fdeHeroRight from "@/assets/fde-hero-right.jpg";
+import fdeBesideBusiness from "@/assets/fde-beside-business.jpg";
 import ctaServicesBg from "@/assets/cta-services-bg.png";
+import indFinancial from "@/assets/ind-financial.jpg";
+import indManufacturing from "@/assets/ind-manufacturing.jpg";
+import wdEnterprise from "@/assets/wd-enterprise.jpg";
+import wdAi from "@/assets/wd-ai.jpg";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { StatsBar } from "@/components/StatsBar";
@@ -187,35 +197,51 @@ const ENGAGEMENT_MODELS = [
 const REAL_WORLD_USE_CASES = [
   {
     sector: "Banking & Financial Services",
+    icon: Landmark,
+    image: indFinancial,
     challenge: "Early Loan Default Detection",
+    metric: "45% Faster Default Detection",
     context:
-      "Predictive models alone fail when siloed from credit officers. An effective solution requires ingesting real-time transaction signals, ledger entries, and regulatory rules into a decision-support portal.",
+      "Predictive models alone fail when siloed from credit officers. An effective solution requires ingesting real-time transaction signals, ledger entries, and regulatory rules into a live decision-support portal.",
     solution:
-      "ConfigUSA FDEs engineered an operational risk dashboard embedded in credit workflows, cutting default recognition lag by 45%.",
+      "ConfigUSA FDEs engineered an operational risk dashboard embedded in credit workflows, cutting default recognition lag by 45% and eliminating unmonitored exposure.",
+    tags: ["Credit Portals", "PySpark", "Risk Scoring"],
   },
   {
     sector: "Finance & Cash-Flow Management",
+    icon: TrendingUp,
+    image: wdEnterprise,
     challenge: "Enterprise Liquidity Forecasting",
+    metric: "100% Real-Time Cash Visibility",
     context:
-      "Financial data scattered across multiple ERP instances, global bank portals, invoices, and AR ledgers creates blind spots for Treasury leadership.",
+      "Financial data scattered across multiple ERP instances, global bank portals, invoices, and AR ledgers creates critical blind spots for Treasury leadership during liquidity crunches.",
     solution:
-      "Forward-deployed data pipelines integrated disparate ledgers into an automated cash-position forecast with proactive exception alerts.",
+      "Forward-deployed data pipelines integrated disparate ledgers into an automated cash-position forecast with proactive exception alerts and ERP reconciliation.",
+    tags: ["Treasury Ops", "Multi-ERP Sync", "Automated AR"],
   },
   {
     sector: "Customer Experience & Support",
-    challenge: "Accurate Autonomous Agent Workflows",
+    icon: Bot,
+    image: wdAi,
+    challenge: "Autonomous AI Agent Workflows",
+    metric: "65% Autonomous Inquiries Resolved",
     context:
-      "Language models without strict business rules hallucinate or violate policy. The solution requires enterprise knowledge grounding, escalation logic, and guardrails.",
+      "Language models without strict business rules hallucinate or violate policy. An enterprise solution requires contextual enterprise grounding, escalation guardrails, and compliance controls.",
     solution:
-      "FDEs deployed grounded multi-agent assistants that resolve 65% of Tier-1 inquiries with 99.4% accuracy under strict enterprise compliance.",
+      "FDEs deployed grounded multi-agent assistants that resolve 65% of Tier-1 inquiries with 99.4% accuracy under strict enterprise compliance and human-in-the-loop fallback.",
+    tags: ["Agentic AI", "Knowledge Retrieval", "Guardrails"],
   },
   {
     sector: "Supply Chain & Manufacturing",
-    challenge: "Disruption Anticipation & Inventory Balancing",
+    icon: Workflow,
+    image: indManufacturing,
+    challenge: "Disruption Anticipation & Balancing",
+    metric: "Zero Stockouts in 14 Distribution Centers",
     context:
-      "Disjointed logistics records delay reaction to vendor bottlenecks. Cross-functional teams need visibility across suppliers, transit, and warehousing.",
+      "Disjointed logistics records delay reaction to vendor bottlenecks. Cross-functional procurement and warehouse teams lack real-time visibility across transit and inventory.",
     solution:
-      "Unified operational telemetry into an intelligent inventory balancing engine, mitigating supply stockouts across 14 distribution centers.",
+      "Unified operational telemetry into an intelligent inventory balancing engine, anticipating shipping delays and mitigating stockouts across 14 distribution centers.",
+    tags: ["Inventory Mesh", "Telemetry Sync", "Logistics AI"],
   },
 ];
 
@@ -223,6 +249,7 @@ function ForwardDeployedEngineeringPage() {
   return (
     <>
       <PageHero
+        align="left"
         eyebrow="Capabilities / Forward Deployed Engineering"
         title={
           <>
@@ -233,7 +260,7 @@ function ForwardDeployedEngineeringPage() {
           </>
         }
         subtitle="ConfigUSA helps enterprises bridge the gap between business strategy and technology execution through Forward Deployed Engineering. Our engineers work alongside your teams, operational workflows, and enterprise data to design, build, integrate, and deploy solutions that deliver measurable business outcomes."
-        image={fdeSquadCommand}
+        image={fdeHeroRight}
       >
         <div className="flex flex-wrap items-center gap-4 mt-8">
           <Link
@@ -318,7 +345,7 @@ function ForwardDeployedEngineeringPage() {
             >
               <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-slate-100">
                 <img
-                  src={wdEngineering}
+                  src={fdeBesideBusiness}
                   alt="ConfigUSA Forward Deployed Engineers collaborating with enterprise leadership"
                   className="w-full object-cover aspect-[4/3]"
                 />
@@ -397,7 +424,7 @@ function ForwardDeployedEngineeringPage() {
       </section>
 
       {/* Real-World Use Case Scenarios */}
-      <section className="py-24 bg-white border-b border-slate-200/60">
+      <section className="py-24 bg-slate-50/80 border-b border-slate-200/70 relative">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Industry Impact"
@@ -405,30 +432,102 @@ function ForwardDeployedEngineeringPage() {
             subtitle="Explore how our FDE squads tackle high-stakes operational challenges across leading enterprise domains."
           />
 
-          <div className="mt-16 grid gap-8 md:grid-cols-2">
-            {REAL_WORLD_USE_CASES.map((uc, i) => (
-              <motion.div
-                key={uc.sector}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="p-8 rounded-2xl bg-slate-50 border border-slate-200/90 hover:border-blue-400/80 hover:bg-white hover:shadow-lg transition-all duration-300"
-              >
-                <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-2">
-                  <TrendingUp className="h-4 w-4" /> {uc.sector}
-                </div>
-                <h3 className="text-xl font-bold text-[#071326]">{uc.challenge}</h3>
-                <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-                  <strong className="text-slate-800">The Friction: </strong>
-                  {uc.context}
-                </p>
-                <div className="mt-4 p-4 rounded-xl bg-blue-50/70 border border-blue-100 text-xs sm:text-sm text-blue-950 font-medium">
-                  <strong className="text-blue-700">ConfigUSA FDE Delivery: </strong>
-                  {uc.solution}
-                </div>
-              </motion.div>
-            ))}
+          <div className="mt-16 grid gap-8 lg:grid-cols-2">
+            {REAL_WORLD_USE_CASES.map((uc, i) => {
+              const SectorIcon = uc.icon || TrendingUp;
+              return (
+                <motion.div
+                  key={uc.sector}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="group rounded-3xl bg-white border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div>
+                    {/* Visual Media Header with Sector & Metric Badges */}
+                    <div className="relative h-52 sm:h-60 w-full overflow-hidden bg-slate-900">
+                      <img
+                        src={uc.image}
+                        alt={uc.challenge}
+                        className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/40 to-transparent" />
+
+                      {/* Top Badges */}
+                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-3">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#071326]/85 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider text-white border border-white/15">
+                          <SectorIcon className="h-3.5 w-3.5 text-[#f5a623]" />
+                          <span>{uc.sector}</span>
+                        </span>
+                        <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#f5a623] text-[11px] font-bold text-[#071326] shadow-sm">
+                          <Sparkles className="h-3 w-3" />
+                          <span>{uc.metric}</span>
+                        </span>
+                      </div>
+
+                      {/* Bottom Title on Image */}
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug drop-shadow-sm">
+                          {uc.challenge}
+                        </h3>
+                      </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="p-6 sm:p-7 space-y-4">
+                      {/* Tech Tags */}
+                      <div className="flex flex-wrap gap-2">
+                        {uc.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700 border border-slate-200/60"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Problem (The Friction) */}
+                      <div className="rounded-xl p-4 bg-amber-500/10 border border-amber-500/25">
+                        <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-900 mb-1.5">
+                          <AlertTriangle className="h-4 w-4 text-amber-600 shrink-0" />
+                          <span>The Operational Friction</span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                          {uc.context}
+                        </p>
+                      </div>
+
+                      {/* Solution (ConfigUSA FDE Delivery) */}
+                      <div className="rounded-xl p-4 bg-gradient-to-br from-[#071326] to-[#0e2448] border border-blue-900/50 text-white shadow-sm">
+                        <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#f5a623] mb-1.5">
+                          <CheckCircle2 className="h-4 w-4 text-[#f5a623] shrink-0" />
+                          <span>ConfigUSA FDE Delivery & Impact</span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                          {uc.solution}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card Bottom Action */}
+                  <div className="px-6 pb-6 pt-2 sm:px-7 sm:pb-7 flex items-center justify-between border-t border-slate-100 mt-2">
+                    <span className="text-xs font-medium text-slate-500">
+                      Forward-deployed pod ready
+                    </span>
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors group/btn"
+                    >
+                      <span>Deploy for this use case</span>
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-1" />
+                    </Link>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -489,26 +588,119 @@ function ForwardDeployedEngineeringPage() {
       </section>
 
       {/* Cross-Link to Featured Thought Leadership */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200/60">
-        <div className="mx-auto max-w-5xl px-4 lg:px-8">
-          <div className="rounded-2xl bg-white border border-slate-200/90 p-8 sm:p-12 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="max-w-xl">
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
-                Recommended Executive Briefing
-              </span>
-              <h3 className="mt-2 text-xl sm:text-2xl font-bold text-[#071326] leading-snug">
-                The Missing Link Between Artificial Intelligence, Enterprise Transformation, and Measurable Business Outcomes
-              </h3>
-              <p className="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Read our in-depth analysis on why organizations struggle to turn accessible AI models into bottom-line impact, and how forward-deployed engineering closes the adoption gap.
-              </p>
+      <section className="py-24 bg-gradient-to-b from-white via-slate-50/80 to-white border-b border-slate-200/60 relative overflow-hidden">
+        <div className="mx-auto max-w-6xl px-4 lg:px-8">
+          <div className="relative rounded-3xl bg-gradient-to-br from-[#071326] via-[#0b1c36] to-[#040c18] border border-white/10 p-8 sm:p-12 lg:p-14 text-white shadow-2xl overflow-hidden">
+            {/* Ambient Background Glow Orbs */}
+            <div className="absolute -top-32 -right-32 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-[#f5a623]/15 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 grid gap-10 lg:grid-cols-12 items-center">
+              {/* Left Column: Executive Summary & Takeaways */}
+              <div className="lg:col-span-7">
+                {/* Eyebrow & Badges */}
+                <div className="flex flex-wrap items-center gap-2.5 mb-4">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5a623]/15 border border-[#f5a623]/30 text-[11px] font-bold uppercase tracking-wider text-[#f5a623]">
+                    <Sparkles className="h-3 w-3" />
+                    Recommended Executive Briefing
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-[11px] font-medium text-slate-300 border border-white/10">
+                    <Clock className="h-3 w-3 text-slate-400" />
+                    8-Min Strategic Read
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-2xl sm:text-3xl lg:text-[2.2rem] font-bold text-white leading-tight tracking-tight">
+                  The Missing Link Between Artificial Intelligence, Enterprise Transformation, and Measurable Business Outcomes
+                </h3>
+
+                {/* Subtitle */}
+                <p className="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+                  Read our in-depth analysis on why organizations struggle to turn accessible AI models into bottom-line impact, and how forward-deployed engineering closes the adoption gap across business, tech, and people.
+                </p>
+
+                {/* 3 Core Pillar Badges */}
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-[#f5a623]">Pillar 01</div>
+                    <div className="text-xs font-semibold text-white mt-0.5">Business Defines the Friction</div>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-[#f5a623]">Pillar 02</div>
+                    <div className="text-xs font-semibold text-white mt-0.5">Technology Enables Solution</div>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-[#f5a623]">Pillar 03</div>
+                    <div className="text-xs font-semibold text-white mt-0.5">People Sustain Transformation</div>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <Link
+                    to="/resources"
+                    className="inline-flex items-center gap-2.5 rounded-xl bg-[#f5a623] px-6 py-3.5 text-xs sm:text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-all duration-300 shadow-lg shadow-amber-500/20"
+                  >
+                    <BookOpen className="h-4 w-4" />
+                    <span>Read Executive Article</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/15 px-5 py-3.5 text-xs sm:text-sm font-semibold text-white border border-white/15 transition-all duration-300"
+                  >
+                    <span>Discuss Your FDE Requirements</span>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Column: Publication Dossier Preview Card */}
+              <div className="lg:col-span-5 flex justify-center">
+                <div className="relative w-full max-w-sm rounded-2xl bg-gradient-to-b from-[#0f2444] to-[#071326] p-6 border border-white/15 shadow-2xl backdrop-blur-md group hover:border-[#f5a623]/40 transition-all duration-500">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+                    <div className="flex items-center gap-2">
+                      <div className="h-2 w-2 rounded-full bg-[#f5a623] animate-pulse" />
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300">
+                        ConfigUSA Perspectives
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono text-slate-400">Vol. 2026 // Q1</span>
+                  </div>
+
+                  <div className="space-y-3">
+                    <div className="inline-block px-2 py-0.5 rounded bg-blue-500/20 text-[10px] font-bold text-blue-300 uppercase tracking-wider">
+                      Strategic Whitepaper
+                    </div>
+                    <h4 className="text-base font-bold text-white leading-snug">
+                      Bridging the Enterprise AI Adoption Gap with Embedded Pods
+                    </h4>
+                    <p className="text-xs text-slate-400 italic leading-relaxed border-l-2 border-[#f5a623] pl-3 py-0.5">
+                      "A powerful AI model alone cannot solve enterprise friction. Value emerges when engineers sit directly with operational leaders."
+                    </p>
+                  </div>
+
+                  <div className="mt-5 pt-4 border-t border-white/10 space-y-2">
+                    <div className="flex items-center justify-between text-xs text-slate-300">
+                      <span className="text-slate-400">Target Audience</span>
+                      <span className="font-semibold text-white">CTO, CIO, CDO & VP Eng</span>
+                    </div>
+                    <div className="flex items-center justify-between text-xs text-slate-300">
+                      <span className="text-slate-400">Core Focus</span>
+                      <span className="font-semibold text-[#f5a623]">Forward-Deployed Engineering</span>
+                    </div>
+                  </div>
+
+                  <Link
+                    to="/resources"
+                    className="mt-5 flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-bold text-white transition-colors border border-white/10"
+                  >
+                    <span>Access Full Briefing</span>
+                    <ExternalLink className="h-3.5 w-3.5 text-[#f5a623]" />
+                  </Link>
+                </div>
+              </div>
             </div>
-            <Link
-              to="/resources"
-              className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#071326] px-6 py-3.5 text-xs sm:text-sm font-bold text-white hover:bg-blue-900 transition-colors"
-            >
-              Read Whitepaper <ExternalLink className="h-4 w-4 text-[#f5a623]" />
-            </Link>
           </div>
         </div>
       </section>

@@ -162,6 +162,7 @@ function PalantirServicesPage() {
   return (
     <>
       <PageHero
+        align="left"
         eyebrow="Capabilities / Palantir Services"
         title={
           <>

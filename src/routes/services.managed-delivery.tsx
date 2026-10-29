@@ -19,7 +19,7 @@ import {
   Briefcase,
   Search,
 } from "lucide-react";
-import wdManaged from "@/assets/wd-managed.jpg";
+import managedDeliveryHero from "@/assets/managed-delivery-hero.jpg";
 import whoWeAreImg from "@/assets/about-hero-new.png";
 import ctaHome from "@/assets/cta-home.jpg";
 
@@ -169,15 +169,15 @@ function ManagedDeliveryPage() {
     <div className="min-h-screen bg-white">
       {/* ────────────────────────── HERO SECTION ────────────────────────── */}
       <section className="relative min-h-[64vh] flex items-center overflow-hidden pt-28 pb-16 bg-[#071326]">
-        {/* Background Photography with Navy Gradient */}
+        {/* Background Photography with Crystal-Clear Right Side */}
         <div className="absolute inset-0 z-0">
           <img
-            src={wdManaged}
+            src={managedDeliveryHero}
             alt="Managed Delivery Services"
             className="h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/90 via-55% to-[#071326]/40 pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#071326] via-[#071326]/70 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/85 via-45% to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#071326]/50 to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full my-auto py-8">

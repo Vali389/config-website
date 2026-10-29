@@ -42,22 +42,18 @@ export function PageHero({ eyebrow, title, subtitle, image, images, align = "cen
               key={currentIndex}
               src={imageList[currentIndex]}
               alt=""
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 0.95, scale: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1 }}
-              className="absolute inset-0 h-full w-full object-cover animate-kenburns"
+              transition={{ duration: 0.6 }}
+              className="absolute inset-0 h-full w-full object-cover"
             />
           )}
         </AnimatePresence>
 
-        {/* Lightened ambient overlays for high image clarity */}
-        <div className={`absolute inset-0 ${align === 'center' ? 'bg-gradient-to-t from-[#030a16]/80 via-[#030a16]/40 to-transparent' : 'bg-gradient-to-r from-[#030a16]/85 via-[#030a16]/50 to-transparent'} z-10`} />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030a16]/60 via-transparent to-transparent z-10" />
-
-        {/* Drifting premium aurora tech glow blobs */}
-        <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] opacity-40 animate-drift z-10" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[120px] opacity-30 animate-drift-slow z-10" />
+        {/* Crisp gradient: Solid dark navy on the left for text contrast, completely transparent on the right so the image is razor-sharp */}
+        <div className={`absolute inset-0 ${align === 'center' ? 'bg-gradient-to-t from-[#030a16]/80 via-[#030a16]/40 to-transparent' : 'bg-gradient-to-r from-[#030a16] via-[#030a16]/85 via-45% to-transparent'} z-10 pointer-events-none`} />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#030a16]/50 to-transparent z-10 pointer-events-none" />
       </div>
 
       <div
@@ -82,7 +78,7 @@ export function PageHero({ eyebrow, title, subtitle, image, images, align = "cen
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className={`font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold text-white leading-[1.12] tracking-tight ${align === 'center' ? 'mx-auto' : ''}`}
+          className={`font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold text-white leading-[1.12] tracking-tight ${align === 'center' ? 'mx-auto' : 'max-w-4xl'}`}
         >
           {title}
         </motion.h1>
@@ -93,7 +89,7 @@ export function PageHero({ eyebrow, title, subtitle, image, images, align = "cen
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className={`mt-6 text-sm sm:text-base md:text-lg text-white/80 max-w-2xl leading-relaxed text-justify ${
+            className={`mt-6 text-sm sm:text-base md:text-lg text-white/85 max-w-2xl leading-relaxed ${
               align === "center" ? "mx-auto text-center" : "text-left"
             }`}
           >
@@ -107,7 +103,7 @@ export function PageHero({ eyebrow, title, subtitle, image, images, align = "cen
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className={`mt-10 ${align === 'center' ? 'flex justify-center' : ''}`}
+            className={`mt-10 ${align === 'center' ? 'flex justify-center' : 'flex justify-start'}`}
           >
             {children}
           </motion.div>

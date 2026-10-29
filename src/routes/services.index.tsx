@@ -20,7 +20,7 @@ import {
   BarChart3,
   Layers,
 } from "lucide-react";
-import wdAi from "@/assets/wd-ai.jpg";
+import aiEnterpriseHero from "@/assets/ai-enterprise-hero.jpg";
 import wdEngineering from "@/assets/wd-engineering.jpg";
 import wdCloud from "@/assets/wd-cloud.jpg";
 import wdEnterprise from "@/assets/wd-enterprise.jpg";
@@ -181,15 +181,15 @@ function ServicesIndexPage() {
     <div className="min-h-screen bg-white">
       {/* ────────────────────────── HERO SECTION ────────────────────────── */}
       <section className="relative min-h-[64vh] flex items-center overflow-hidden pt-28 pb-16 bg-[#071326]">
-        {/* Background Photography with Navy Gradient */}
+        {/* Background Photography with Crystal-Clear Right Side */}
         <div className="absolute inset-0 z-0">
           <img
-            src={wdAi}
-            alt="AI & Digital Capabilities"
+            src={aiEnterpriseHero}
+            alt="AI & Enterprise Capabilities"
             className="h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/90 via-55% to-[#071326]/40 pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#071326] via-[#071326]/70 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/85 via-45% to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#071326]/50 to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full my-auto py-8">
@@ -237,7 +237,7 @@ function ServicesIndexPage() {
                 to="/contact"
                 className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
               >
-                Talk to an Expert <ArrowRight className="h-4 w-4" />
+                Explore a Partnership <ArrowRight className="h-4 w-4" />
               </Link>
               <a
                 href="#all-capabilities"
