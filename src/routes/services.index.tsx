@@ -61,11 +61,29 @@ const ALL_CAPABILITIES = [
   {
     icon: BrainCircuit,
     title: "AI & Intelligent Solutions",
-    subtitle: "Generative AI & Automation",
+    subtitle: "Generative AI & Agentic Workflows",
     description:
       "Helping organizations adopt Generative AI, intelligent automation, agentic workflows, and predictive data solutions.",
     to: "/services",
     tags: ["GenAI & LLMs", "Intelligent Automation", "Predictive Analytics"],
+  },
+  {
+    icon: Rocket,
+    title: "Forward Deployed Engineering",
+    subtitle: "Embedded Engineering Squads",
+    description:
+      "Bringing engineering expertise directly to business problems to design, build, integrate, and deploy production-grade solutions.",
+    to: "/services/forward-deployed-engineering",
+    tags: ["Embedded FDEs", "Agentic Engineering", "Rapid Prototyping"],
+  },
+  {
+    icon: Database,
+    title: "Palantir Services",
+    subtitle: "Foundry & AIP Implementation",
+    description:
+      "Turn enterprise data into operational intelligence with Palantir Foundry, AIP integration, ontology modeling, and specialized talent.",
+    to: "/services/palantir",
+    tags: ["Palantir Foundry", "Palantir AIP", "Ontology Engineering"],
   },
   {
     icon: Code2,
@@ -90,9 +108,9 @@ const ALL_CAPABILITIES = [
     title: "Enterprise Applications",
     subtitle: "ERP, CRM & Business Platforms",
     description:
-      "Implementing, integrating, and modernizing mission-critical platforms across SAP, Oracle, Microsoft Dynamics, and Salesforce.",
+      "Implementing, integrating, and modernizing mission-critical platforms across Workday, SAP, MuleSoft, and Salesforce.",
     to: "/services/enterprise-applications",
-    tags: ["SAP S/4HANA", "Salesforce", "Microsoft Dynamics 365"],
+    tags: ["Workday", "SAP S/4HANA", "MuleSoft", "Salesforce"],
   },
   {
     icon: Users,
@@ -300,7 +318,7 @@ function ServicesIndexPage() {
                 OUR COMPLETE PORTFOLIO
               </p>
               <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
-                Six Pillars of Enterprise Technology Excellence
+                Specialized Pillars of Enterprise Technology Excellence
               </h2>
               <p className="mt-2 text-sm sm:text-base text-slate-500 max-w-2xl font-normal">
                 Click into any capability below to explore specialized methodologies, technologies, and delivery frameworks.

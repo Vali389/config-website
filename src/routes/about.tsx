@@ -91,7 +91,7 @@ function AboutPage() {
         align="left"
         title={
           <>
-            <span className="block text-white">Engineering Trust.</span>
+            <span className="block text-white">A Decade of Engineering Trust.</span>
             <span className="block text-[#f5a623] font-extrabold">Accelerating Enterprise Growth.</span>
           </>
         }
@@ -103,7 +103,7 @@ function AboutPage() {
             to="/contact"
             className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
           >
-            Partner With Us <ArrowRight className="h-4 w-4" />
+            Explore a Partnership <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             to="/services"
@@ -160,7 +160,7 @@ function AboutPage() {
               to="/contact"
               className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#0a1628] px-7 py-3.5 text-sm font-bold text-white hover:bg-[#071326] transition-colors shadow-sm"
             >
-              Partner With Us <ArrowRight className="h-4 w-4" />
+              Explore a Partnership <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>
         </div>

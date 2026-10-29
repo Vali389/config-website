@@ -4,7 +4,6 @@ import {
   Menu,
   X,
   ChevronDown,
-  ArrowRight,
   Users,
   Code,
   Landmark,
@@ -22,6 +21,8 @@ import {
   BookOpen,
   Search,
   Heart,
+  Rocket,
+  Database,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Logo } from "./Logo";
@@ -31,14 +32,15 @@ const NAV = [
     to: "/services",
     label: "Capabilities",
     children: [
-      { to: "/services", label: "AI & Data", desc: "Generative AI & intelligent automation", icon: BrainCircuit },
+      { to: "/services", label: "AI & Intelligent Solutions", desc: "Generative AI, agentic workflows & automation", icon: BrainCircuit },
+      { to: "/services/forward-deployed-engineering", label: "Forward Deployed Engineering", desc: "Embedded squads solving operational challenges", icon: Rocket },
+      { to: "/services/palantir", label: "Palantir Services", desc: "Foundry & AIP engineering, ontology & talent", icon: Database },
       { to: "/services/software", label: "Digital Engineering", desc: "Modern apps & cloud-native platforms", icon: Code },
-      { to: "/services/cloud", label: "Cloud & Infrastructure", desc: "Migration, DevOps & platform engineering", icon: Cloud },
-      { to: "/services/enterprise-applications", label: "Enterprise Applications", desc: "SAP, Oracle, Salesforce & more", icon: Boxes },
-      { to: "/services/staffing", label: "Workforce Solutions", desc: "Contract, permanent & managed talent", icon: Users },
-      { to: "/services/managed-delivery", label: "Managed Delivery", desc: "Dedicated onshore & offshore teams", icon: LifeBuoy },
+      { to: "/services/cloud", label: "Cloud & Enterprise Platforms", desc: "Migration, DevOps & platform engineering", icon: Cloud },
+      { to: "/services/managed-delivery", label: "Managed Delivery Services", desc: "Dedicated onshore & offshore teams", icon: LifeBuoy },
     ],
   },
+  { to: "/services/staffing", label: "Technology Workforce Solutions" },
   {
     to: "/industries",
     label: "Industries",
@@ -61,9 +63,9 @@ const NAV = [
       { to: "/resources", label: "Workforce Intelligence", desc: "Talent trends & market insights", icon: BookOpen },
     ],
   },
-  { to: "/about", label: "About" },
+  { to: "/about", label: "About Us" },
   { to: "/careers", label: "Careers" },
-  { to: "/contact", label: "Contact" },
+  { to: "/contact", label: "Contact Us" },
 ] as const;
 
 export function Header() {
@@ -85,7 +87,8 @@ export function Header() {
   // Clear active tab completely on home page / logo click; otherwise match routes
   const isItemActive = (to: string) => {
     if (isHome) return false;
-    if (to === "/services") return pathname.startsWith("/services");
+    if (to === "/services") return pathname === "/services" || pathname === "/services/";
+    if (to === "/services/staffing") return pathname.startsWith("/services/staffing");
     if (to === "/industries") return pathname.startsWith("/industries");
     if (to === "/resources") return pathname.startsWith("/resources");
     if (to === "/about") return pathname === "/about";
@@ -97,22 +100,22 @@ export function Header() {
   const isChildActive = (parentTo: string, childTo: string, childLabel: string) => {
     if (isHome) return false;
     if (parentTo === "/services") {
-      if (childLabel === "AI & Data") {
+      if (childLabel === "AI & Intelligent Solutions" || childLabel === "AI & Data") {
         return pathname === "/services" || pathname === "/services/";
+      }
+      if (childLabel === "Forward Deployed Engineering") {
+        return pathname === "/services/forward-deployed-engineering";
+      }
+      if (childLabel === "Palantir Services") {
+        return pathname === "/services/palantir";
       }
       if (childLabel === "Digital Engineering") {
         return pathname === "/services/software";
       }
-      if (childLabel === "Cloud & Infrastructure") {
+      if (childLabel === "Cloud & Enterprise Platforms" || childLabel === "Cloud & Infrastructure") {
         return pathname === "/services/cloud";
       }
-      if (childLabel === "Enterprise Applications") {
-        return pathname.startsWith("/services/enterprise-applications") || pathname.startsWith("/services/sap");
-      }
-      if (childLabel === "Workforce Solutions") {
-        return pathname.startsWith("/services/staffing");
-      }
-      if (childLabel === "Managed Delivery") {
+      if (childLabel === "Managed Delivery Services" || childLabel === "Managed Delivery") {
         return pathname === "/services/managed-delivery";
       }
     }
@@ -226,14 +229,6 @@ export function Header() {
             );
           })}
         </nav>
-        <div className="hidden lg:flex items-center gap-3">
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-[#0a1628] px-5 py-2.5 text-[13px] font-bold text-white shadow-sm hover:bg-[#152a4d] transition-colors"
-          >
-            Talk to an Expert <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-        </div>
         <button
           onClick={() => setOpen((v) => !v)}
           className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg text-ink hover:bg-soft transition-colors"
@@ -289,13 +284,6 @@ export function Header() {
                   </div>
                 );
               })}
-              <Link
-                to="/contact"
-                onClick={() => setOpen(false)}
-                className="mt-3 flex items-center justify-center gap-2 rounded-lg bg-[#1d4ed8] px-5 py-3 text-sm font-bold text-white shadow-sm"
-              >
-                Talk to an Expert <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
           </motion.div>
         )}

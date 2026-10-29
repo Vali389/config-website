@@ -19,7 +19,7 @@ import {
   Clock,
   Sparkles,
 } from "lucide-react";
-import wdWorkforce from "@/assets/wd-workforce.jpg";
+import workforceSolutionsHero from "@/assets/workforce-solutions-hero.jpg";
 import whoWeAreMeeting from "@/assets/who_we_are_reference_meeting.jpg";
 import ctaHome from "@/assets/cta-home.jpg";
 
@@ -168,7 +168,7 @@ function StaffingPage() {
         {/* Background Photography with Navy Gradient */}
         <div className="absolute inset-0 z-0">
           <img
-            src={wdWorkforce}
+            src={workforceSolutionsHero}
             alt="Technology Workforce Solutions"
             className="h-full w-full object-cover object-center"
           />

@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import enterpriseHeroImg from "@/assets/enterprise_hero_img.png";
 import heroCarousel1 from "@/assets/hero_carousel_1.jpg";
-import heroCarousel2 from "@/assets/hero_carousel_2.jpg";
+import enterprisePlatformsMesh from "@/assets/enterprise-platforms-mesh.jpg";
 import ctaServicesBg from "@/assets/cta-services-bg.png";
 import wdEnterprise from "@/assets/wd-enterprise.jpg";
 import serviceSap from "@/assets/service-sap.jpg";
@@ -244,8 +244,8 @@ function EnterpriseApplications() {
         {/* Background Photography with Navy Gradient */}
         <div className="absolute inset-0 z-0">
           <img
-            src={wdEnterprise}
-            alt="Enterprise Applications"
+            src={enterprisePlatformsMesh}
+            alt="Enterprise Applications & ERP Modernization"
             className="h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/90 via-55% to-[#071326]/40 pointer-events-none" />

@@ -29,7 +29,9 @@ import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesAssessmentRouteImport } from './routes/services.assessment'
 import { Route as ServicesCloudRouteImport } from './routes/services.cloud'
 import { Route as ServicesEnterpriseApplicationsRouteImport } from './routes/services.enterprise-applications'
+import { Route as ServicesForwardDeployedEngineeringRouteImport } from './routes/services.forward-deployed-engineering'
 import { Route as ServicesManagedDeliveryRouteImport } from './routes/services.managed-delivery'
+import { Route as ServicesPalantirRouteImport } from './routes/services.palantir'
 import { Route as ServicesSapRouteImport } from './routes/services.sap'
 import { Route as ServicesSoftwareRouteImport } from './routes/services.software'
 import { Route as ServicesStaffingRouteImport } from './routes/services.staffing'
@@ -136,9 +138,20 @@ const ServicesEnterpriseApplicationsRoute =
     path: '/enterprise-applications',
     getParentRoute: () => ServicesRoute,
   } as any)
+const ServicesForwardDeployedEngineeringRoute =
+  ServicesForwardDeployedEngineeringRouteImport.update({
+    id: '/forward-deployed-engineering',
+    path: '/forward-deployed-engineering',
+    getParentRoute: () => ServicesRoute,
+  } as any)
 const ServicesManagedDeliveryRoute = ServicesManagedDeliveryRouteImport.update({
   id: '/managed-delivery',
   path: '/managed-delivery',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesPalantirRoute = ServicesPalantirRouteImport.update({
+  id: '/palantir',
+  path: '/palantir',
   getParentRoute: () => ServicesRoute,
 } as any)
 const ServicesSapRoute = ServicesSapRouteImport.update({
@@ -180,7 +193,9 @@ export interface FileRoutesByFullPath {
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/cloud': typeof ServicesCloudRoute
   '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
+  '/services/forward-deployed-engineering': typeof ServicesForwardDeployedEngineeringRoute
   '/services/managed-delivery': typeof ServicesManagedDeliveryRoute
+  '/services/palantir': typeof ServicesPalantirRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
@@ -205,7 +220,9 @@ export interface FileRoutesByTo {
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/cloud': typeof ServicesCloudRoute
   '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
+  '/services/forward-deployed-engineering': typeof ServicesForwardDeployedEngineeringRoute
   '/services/managed-delivery': typeof ServicesManagedDeliveryRoute
+  '/services/palantir': typeof ServicesPalantirRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
@@ -233,7 +250,9 @@ export interface FileRoutesById {
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/cloud': typeof ServicesCloudRoute
   '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
+  '/services/forward-deployed-engineering': typeof ServicesForwardDeployedEngineeringRoute
   '/services/managed-delivery': typeof ServicesManagedDeliveryRoute
+  '/services/palantir': typeof ServicesPalantirRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
@@ -262,7 +281,9 @@ export interface FileRouteTypes {
     | '/services/assessment'
     | '/services/cloud'
     | '/services/enterprise-applications'
+    | '/services/forward-deployed-engineering'
     | '/services/managed-delivery'
+    | '/services/palantir'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
@@ -287,7 +308,9 @@ export interface FileRouteTypes {
     | '/services/assessment'
     | '/services/cloud'
     | '/services/enterprise-applications'
+    | '/services/forward-deployed-engineering'
     | '/services/managed-delivery'
+    | '/services/palantir'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
@@ -314,7 +337,9 @@ export interface FileRouteTypes {
     | '/services/assessment'
     | '/services/cloud'
     | '/services/enterprise-applications'
+    | '/services/forward-deployed-engineering'
     | '/services/managed-delivery'
+    | '/services/palantir'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
@@ -484,11 +509,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesEnterpriseApplicationsRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/services/forward-deployed-engineering': {
+      id: '/services/forward-deployed-engineering'
+      path: '/forward-deployed-engineering'
+      fullPath: '/services/forward-deployed-engineering'
+      preLoaderRoute: typeof ServicesForwardDeployedEngineeringRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/managed-delivery': {
       id: '/services/managed-delivery'
       path: '/managed-delivery'
       fullPath: '/services/managed-delivery'
       preLoaderRoute: typeof ServicesManagedDeliveryRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/palantir': {
+      id: '/services/palantir'
+      path: '/palantir'
+      fullPath: '/services/palantir'
+      preLoaderRoute: typeof ServicesPalantirRouteImport
       parentRoute: typeof ServicesRoute
     }
     '/services/sap': {
@@ -540,7 +579,9 @@ interface ServicesRouteChildren {
   ServicesAssessmentRoute: typeof ServicesAssessmentRoute
   ServicesCloudRoute: typeof ServicesCloudRoute
   ServicesEnterpriseApplicationsRoute: typeof ServicesEnterpriseApplicationsRoute
+  ServicesForwardDeployedEngineeringRoute: typeof ServicesForwardDeployedEngineeringRoute
   ServicesManagedDeliveryRoute: typeof ServicesManagedDeliveryRoute
+  ServicesPalantirRoute: typeof ServicesPalantirRoute
   ServicesSapRoute: typeof ServicesSapRoute
   ServicesSoftwareRoute: typeof ServicesSoftwareRoute
   ServicesStaffingRoute: typeof ServicesStaffingRoute
@@ -551,7 +592,10 @@ const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesAssessmentRoute: ServicesAssessmentRoute,
   ServicesCloudRoute: ServicesCloudRoute,
   ServicesEnterpriseApplicationsRoute: ServicesEnterpriseApplicationsRoute,
+  ServicesForwardDeployedEngineeringRoute:
+    ServicesForwardDeployedEngineeringRoute,
   ServicesManagedDeliveryRoute: ServicesManagedDeliveryRoute,
+  ServicesPalantirRoute: ServicesPalantirRoute,
   ServicesSapRoute: ServicesSapRoute,
   ServicesSoftwareRoute: ServicesSoftwareRoute,
   ServicesStaffingRoute: ServicesStaffingRoute,

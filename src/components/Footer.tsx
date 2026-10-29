@@ -11,7 +11,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Logo variant="dark" />
             <p className="mt-3 text-xs text-slate-500 leading-relaxed max-w-xs">
-              A Technology Growth Partner. Helping enterprises build, scale and transform their technology organizations.
+              The Right Talent. The Right Engineering. Real Business Outcomes. Translating technology priorities into measurable enterprise results.
             </p>
           </div>
 
@@ -20,11 +20,12 @@ export function Footer() {
             <h4 className="text-[#071326] font-bold text-xs uppercase tracking-wider mb-3">Capabilities</h4>
             <ul className="space-y-2 text-xs">
               <li><Link to="/services" className="hover:text-blue-600 transition-colors">AI & Intelligent Solutions</Link></li>
+              <li><Link to="/services/forward-deployed-engineering" className="hover:text-blue-600 transition-colors">Forward Deployed Engineering</Link></li>
+              <li><Link to="/services/palantir" className="hover:text-blue-600 transition-colors">Palantir Services</Link></li>
               <li><Link to="/services/software" className="hover:text-blue-600 transition-colors">Digital Engineering</Link></li>
-              <li><Link to="/services/software" className="hover:text-blue-600 transition-colors">Cloud & Infrastructure</Link></li>
-              <li><Link to="/services/enterprise-applications" className="hover:text-blue-600 transition-colors">Enterprise Applications</Link></li>
+              <li><Link to="/services/cloud" className="hover:text-blue-600 transition-colors">Cloud & Enterprise Platforms</Link></li>
               <li><Link to="/services/staffing" className="hover:text-blue-600 transition-colors">Workforce Solutions</Link></li>
-              <li><Link to="/services" className="hover:text-blue-600 transition-colors">Managed Delivery</Link></li>
+              <li><Link to="/services/managed-delivery" className="hover:text-blue-600 transition-colors">Managed Delivery</Link></li>
             </ul>
           </div>
 
@@ -66,6 +67,15 @@ export function Footer() {
                 className="flex h-8 w-8 items-center justify-center rounded bg-[#0A66C2] text-white hover:opacity-90 transition-opacity"
               >
                 <Linkedin className="h-4 w-4" />
+              </a>
+              <a
+                href="https://twitter.com/configusa"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter / X"
+                className="flex h-8 w-8 items-center justify-center rounded bg-black text-white hover:opacity-90 transition-opacity"
+              >
+                <Twitter className="h-4 w-4" />
               </a>
               <a
                 href="https://youtube.com"

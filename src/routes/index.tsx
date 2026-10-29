@@ -8,6 +8,7 @@ import {
   Cloud,
   Boxes,
   Users,
+  Database,
   LifeBuoy,
   HeartPulse,
   Landmark,
@@ -56,6 +57,13 @@ import certSam from "@/assets/cert-sam.jpg";
 import certEverify from "@/assets/cert-everify.png";
 import caseStudyTeam from "@/assets/case_study_team.jpg";
 import insightsTeam from "@/assets/insights_workforce_team.jpg";
+import fdeSquadCommand from "@/assets/fde-squad-command.jpg";
+import enterprisePlatformsMesh from "@/assets/enterprise-platforms-mesh.jpg";
+import palantirFoundryAipHero from "@/assets/palantir-foundry-aip-hero.jpg";
+import workforceSolutionsHero from "@/assets/workforce-solutions-hero.jpg";
+import wdAi from "@/assets/wd-ai.jpg";
+import wdEngineering from "@/assets/wd-engineering.jpg";
+import wdEnterprise from "@/assets/wd-enterprise.jpg";
 
 import indFinancial from "@/assets/ind-financial.jpg";
 import indHealthcare from "@/assets/ind-healthcare.jpg";
@@ -96,44 +104,56 @@ const CAPABILITIES = [
   {
     icon: BrainCircuit,
     title: "AI & Intelligent Solutions",
-    subtitle: "Generative AI & Automation",
-    description: "Helping organizations adopt Generative AI, intelligent automation, and AI-powered business solutions.",
+    subtitle: "Generative AI & Agentic Workflows",
+    description: "Generative AI, agentic workflows, intelligent automation, and predictive analytics.",
     to: "/services",
+    image: wdAi,
+    tags: ["LLMs", "AI Agents", "Predictive ML"],
+  },
+  {
+    icon: Rocket,
+    title: "Forward Deployed Engineering",
+    subtitle: "Embedded Engineering Squads",
+    description: "Embedded engineering teams that work close to business challenges and deliver production-ready solutions.",
+    to: "/services/forward-deployed-engineering",
+    image: fdeSquadCommand,
+    tags: ["Embedded Pods", "Prototype to Prod", "Workflows"],
+  },
+  {
+    icon: Database,
+    title: "Palantir Services",
+    subtitle: "Foundry & AIP Implementation",
+    description: "Foundry and AIP engineering, enterprise data integration, AI-enabled applications, and specialist talent.",
+    to: "/services/palantir",
+    image: palantirFoundryAipHero,
+    tags: ["Foundry", "Palantir AIP", "Ontology"],
   },
   {
     icon: Code2,
     title: "Digital Engineering",
-    subtitle: "Modern Apps & Platforms",
-    description: "Building modern applications, cloud-native platforms, APIs, and scalable digital experiences.",
+    subtitle: "Modern Apps & APIs",
+    description: "Modern application development, APIs, systems integration, and software modernization.",
     to: "/services/software",
+    image: wdEngineering,
+    tags: ["Microservices", "REST & GraphQL", "Modern Cloud"],
   },
   {
     icon: Cloud,
-    title: "Cloud & Infrastructure",
-    subtitle: "Migration, DevOps & Platform",
-    description: "Supporting cloud migration, modernization, DevOps, platform engineering, and operational excellence.",
+    title: "Cloud & Enterprise Platforms",
+    subtitle: "Infrastructure & Platform Integration",
+    description: "Cloud engineering, infrastructure, Workday, SAP, MuleSoft, and Salesforce enterprise platform integration.",
     to: "/services/cloud",
-  },
-  {
-    icon: Boxes,
-    title: "Enterprise Applications",
-    subtitle: "ERP, CRM, HCM & Business Platforms",
-    description: "Implement, integrate and modernize SAP, Oracle, Microsoft Dynamics, Workday, Salesforce and other enterprise platforms.",
-    to: "/services/enterprise-applications",
+    image: wdEnterprise,
+    tags: ["Workday", "SAP", "MuleSoft", "Salesforce"],
   },
   {
     icon: Users,
     title: "Technology Workforce Solutions",
-    subtitle: "Contract, Permanent & Project Staffing",
-    description: "Access highly skilled technology professionals for contract, full-time and project-based roles.",
+    subtitle: "Specialized Talent Delivery",
+    description: "Specialized technology recruitment, contract staffing, dedicated teams, and managed talent delivery.",
     to: "/services/staffing",
-  },
-  {
-    icon: LifeBuoy,
-    title: "Managed Delivery Services",
-    subtitle: "Dedicated Engineering Pods",
-    description: "End-to-end delivery teams that own outcomes from build to ongoing support.",
-    to: "/services/managed-delivery",
+    image: workforceSolutionsHero,
+    tags: ["Specialist Vetting", "Contract-to-Hire", "Direct Placement"],
   },
 ];
 
@@ -380,7 +400,7 @@ function Hero() {
             transition={{ duration: 0.5 }}
             className="text-xs sm:text-[13px] font-bold uppercase tracking-[0.22em] text-[#f5a623] mb-4"
           >
-            ENTERPRISE TECHNOLOGY & WORKFORCE SOLUTIONS
+            AI • FORWARD-DEPLOYED ENGINEERING • PALANTIR SERVICES
           </motion.p>
 
           {/* Main Headline */}
@@ -402,8 +422,38 @@ function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6 text-base sm:text-lg lg:text-[19px] text-slate-200 max-w-2xl leading-relaxed font-normal"
           >
-            Building the capabilities enterprises need to transform, scale and compete.
+            The Right Talent. The Right Engineering. Real Business Outcomes. Helping enterprises translate technology priorities into measurable results through Forward-Deployed Engineering (FDE), Palantir Foundry & AIP implementation, and specialized workforce solutions.
           </motion.p>
+
+          {/* FDE & Palantir Left-Side Feature Badges */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="mt-5 flex flex-wrap gap-2.5"
+          >
+            <Link
+              to="/services/forward-deployed-engineering"
+              className="inline-flex items-center gap-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-white/20 hover:border-[#f5a623]/60 transition-all shadow-sm"
+            >
+              <Rocket className="h-3.5 w-3.5 text-[#f5a623]" />
+              <span>Forward-Deployed Engineering (FDE)</span>
+            </Link>
+            <Link
+              to="/services/palantir"
+              className="inline-flex items-center gap-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-white/20 hover:border-[#f5a623]/60 transition-all shadow-sm"
+            >
+              <Database className="h-3.5 w-3.5 text-[#f5a623]" />
+              <span>Palantir Foundry & AIP Services</span>
+            </Link>
+            <Link
+              to="/services/cloud"
+              className="inline-flex items-center gap-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-white/20 hover:border-[#f5a623]/60 transition-all shadow-sm"
+            >
+              <Boxes className="h-3.5 w-3.5 text-[#f5a623]" />
+              <span>Workday • SAP • MuleSoft • Salesforce</span>
+            </Link>
+          </motion.div>
 
           {/* Action Buttons */}
           <motion.div
@@ -416,7 +466,7 @@ function Hero() {
               to="/contact"
               className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] shadow-md hover:bg-[#e09612] transition-colors"
             >
-              Talk to an Expert <ArrowRight className="h-4 w-4" />
+              Explore a Partnership <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/services"
@@ -612,6 +662,8 @@ function WhoWeAre() {
 
 /* ────────────────────────── Capabilities ────────────────────────── */
 
+/* ────────────────────────── Capabilities ────────────────────────── */
+
 function CapabilitiesSection() {
   return (
     <section className="py-20 lg:py-24 bg-[#f8fafc] border-y border-slate-200/60">
@@ -619,13 +671,13 @@ function CapabilitiesSection() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div className="border-l-[3px] border-[#f5a623] pl-3.5">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1.5">
-              OUR CAPABILITIES
+              SPECIALIZED CAPABILITIES
             </p>
             <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
-              End-to-End Technology Workforce Solutions
+              Specialized Engineering for Enterprise Transformation
             </h2>
-            <p className="mt-2 text-sm sm:text-base text-slate-500 max-w-2xl font-normal">
-              From AI to enterprise platforms and world-class talent, we help organizations achieve their most important technology goals.
+            <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-2xl font-normal">
+              ConfigUSA combines AI, data, software engineering, and specialized technology talent to help enterprises solve complex problems and accelerate transformation.
             </p>
           </div>
           <Link
@@ -636,7 +688,7 @@ function CapabilitiesSection() {
           </Link>
         </div>
 
-        {/* 6 Capabilities Cards in 3x2 Grid matching Reference */}
+        {/* 6 Capabilities Cards in 3x2 Grid matching Previous Style */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {CAPABILITIES.map((c, i) => (
             <motion.div
@@ -677,6 +729,338 @@ function CapabilitiesSection() {
               </Link>
             </motion.div>
           ))}
+        </div>
+
+        {/* Action CTAs below Capabilities Grid */}
+        <div className="mt-12 pt-8 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-4">
+          <p className="text-xs sm:text-sm text-slate-600 font-medium">
+            Need custom architecture, forward-deployed engineers, or Palantir expertise?
+          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-6 py-3 text-xs sm:text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
+            >
+              Explore a Partnership <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3 text-xs sm:text-sm font-semibold text-slate-800 hover:bg-slate-50 transition-colors shadow-xs"
+            >
+              Explore Our Capabilities
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ────────────────────────── Forward Deployed Engineering Showcase ────────────────────────── */
+
+function FDESpotlightSection() {
+  return (
+    <section className="py-20 lg:py-28 bg-white border-b border-slate-200/80 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          {/* Left Column: Context & Capabilities */}
+          <div className="lg:col-span-6">
+            <div className="border-l-[3px] border-[#f5a623] pl-4 mb-4">
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#e89218] mb-1.5">
+                FORWARD DEPLOYED ENGINEERING (FDE)
+              </p>
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-extrabold text-[#071326] tracking-tight leading-tight">
+                From Business Challenges to Production-Ready Solutions
+              </h2>
+            </div>
+
+            <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+              A powerful AI model alone cannot transform an enterprise. The real challenge starts when AI must operate within complex legacy architectures, fragmented data sources, regulatory constraints, and human workflows.
+            </p>
+
+            <p className="mt-3 text-sm sm:text-base text-slate-700 font-medium leading-relaxed">
+              ConfigUSA's Forward-Deployed Engineers work directly alongside your business teams and operational users to design, build, and productionize practical, high-impact AI and data systems.
+            </p>
+
+            {/* 4 Feature Rows */}
+            <div className="mt-8 space-y-4">
+              <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-blue-400 transition-colors">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
+                  <Search className="h-4 w-4" />
+                </span>
+                <div>
+                  <h4 className="text-sm font-bold text-[#071326]">Business Problem Discovery</h4>
+                  <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
+                    We start by diagnosing operational bottlenecks and unit economics—determining exactly what should be built to deliver measurable ROI.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-blue-400 transition-colors">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 text-[#d98218]">
+                  <BrainCircuit className="h-4 w-4" />
+                </span>
+                <div>
+                  <h4 className="text-sm font-bold text-[#071326]">AI & Agentic Engineering</h4>
+                  <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
+                    Deploying custom LLMs, autonomous agents, and RAG pipelines grounded in enterprise data and business guardrails.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-blue-400 transition-colors">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700">
+                  <Layers className="h-4 w-4" />
+                </span>
+                <div>
+                  <h4 className="text-sm font-bold text-[#071326]">Data Pipelines & System Integration</h4>
+                  <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
+                    Integrating legacy ERPs, CRMs, APIs, Palantir Foundry, and data warehouses into cohesive operational intelligence.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-blue-400 transition-colors">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-purple-50 text-purple-700">
+                  <Rocket className="h-4 w-4" />
+                </span>
+                <div>
+                  <h4 className="text-sm font-bold text-[#071326]">Prototype-to-Production Delivery</h4>
+                  <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
+                    Iterative delivery pods that take working prototypes to secure, monitored enterprise production in weeks.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div className="mt-8 flex flex-wrap items-center gap-3.5">
+              <Link
+                to="/services/forward-deployed-engineering"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#071326] px-6 py-3.5 text-sm font-bold text-[#f5a623] hover:bg-slate-900 transition-colors shadow-sm"
+              >
+                Explore FDE Services <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 hover:bg-slate-50 transition-colors"
+              >
+                Discuss FDE Requirements
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column: Visual Command Center Showcase */}
+          <div className="lg:col-span-6 relative">
+            <div className="relative rounded-2xl overflow-hidden border border-slate-200/90 shadow-2xl bg-[#071326]">
+              <img
+                src={fdeSquadCommand}
+                alt="ConfigUSA Forward-Deployed Engineering Squad Command Room"
+                className="w-full h-[460px] sm:h-[520px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/30 to-transparent" />
+
+              {/* Floating Top Pill */}
+              <div className="absolute top-4 left-4 flex items-center gap-2">
+                <span className="flex items-center gap-1.5 rounded-md bg-[#071326]/85 backdrop-blur border border-white/20 px-3 py-1 text-xs font-bold text-white shadow-sm">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                  Embedded Engineering Pods
+                </span>
+              </div>
+
+              {/* Floating Bottom Card */}
+              <div className="absolute bottom-4 left-4 right-4 p-5 rounded-xl bg-[#071326]/90 backdrop-blur-md border border-white/15 text-white">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#f5a623]">
+                    Enterprise Impact Benchmark
+                  </p>
+                  <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-500/20 px-2 py-0.5 rounded">
+                    Field-Proven
+                  </span>
+                </div>
+                <div className="grid grid-cols-3 gap-3 text-center border-t border-white/10 pt-3">
+                  <div>
+                    <p className="text-xl sm:text-2xl font-extrabold text-white">60%</p>
+                    <p className="text-[10px] text-slate-300 uppercase tracking-wider mt-0.5">Faster Time to Value</p>
+                  </div>
+                  <div>
+                    <p className="text-xl sm:text-2xl font-extrabold text-[#f5a623]">98%</p>
+                    <p className="text-[10px] text-slate-300 uppercase tracking-wider mt-0.5">Workflow Adoption</p>
+                  </div>
+                  <div>
+                    <p className="text-xl sm:text-2xl font-extrabold text-white">Zero</p>
+                    <p className="text-[10px] text-slate-300 uppercase tracking-wider mt-0.5">Disruption to Ops</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ────────────────────────── Enterprise Platforms Showcase (Workday, SAP, MuleSoft, Salesforce) ────────────────────────── */
+
+function EnterprisePlatformsSection() {
+  const PLATFORMS_DATA = [
+    {
+      name: "Workday",
+      badge: "HCM & Financials",
+      icon: Users,
+      color: "from-blue-600/20 to-sky-600/10",
+      accent: "text-sky-400",
+      description:
+        "Full-lifecycle implementation, Prism Analytics, custom Studio integrations, payroll optimization, and ongoing release support for enterprise Workday HCM and Financials.",
+      bullets: ["Workday HCM & Financial Management", "Workday Studio & EIB Integrations", "Adaptive Planning & Prism Analytics", "Bi-Annual Release & AMS Support"],
+      to: "/services/enterprise-applications",
+    },
+    {
+      name: "SAP",
+      badge: "S/4HANA & BTP",
+      icon: Boxes,
+      color: "from-amber-600/20 to-orange-600/10",
+      accent: "text-[#f5a623]",
+      description:
+        "Certified architectural guidance for S/4HANA greenfield & brownfield migrations, ECC modernization, SAP Business Technology Platform (BTP), and 24/7 mission-critical AMS.",
+      bullets: ["SAP S/4HANA Cloud & On-Premise", "SAP BTP Extension & Integration Suite", "Supply Chain (MM/SD/PP) & Finance", "ECC to S/4HANA Migration Factory"],
+      to: "/services/enterprise-applications",
+    },
+    {
+      name: "MuleSoft",
+      badge: "API-Led Connectivity",
+      icon: Layers,
+      color: "from-cyan-600/20 to-blue-600/10",
+      accent: "text-cyan-400",
+      description:
+        "Design and scale reusable API ecosystems with MuleSoft Anypoint Platform. Seamlessly connect legacy databases, enterprise ERPs, and third-party SaaS into unified event streams.",
+      bullets: ["MuleSoft Anypoint Platform Architecture", "System, Process & Experience APIs", "Real-Time Event Streams & Kafka Sync", "Legacy ESB to Modern API Mesh"],
+      to: "/services/enterprise-applications",
+    },
+    {
+      name: "Salesforce",
+      badge: "CRM & Agentforce AI",
+      icon: Sparkles,
+      color: "from-indigo-600/20 to-purple-600/10",
+      accent: "text-indigo-400",
+      description:
+        "Enterprise CRM transformation across Sales Cloud, Service Cloud, Data Cloud, and autonomous Agentforce AI workflows grounded in company knowledge and security rules.",
+      bullets: ["Salesforce Sales & Service Cloud", "Data Cloud & Customer 360", "Autonomous Agentforce AI Agents", "CPQ, Billing & Omnichannel Support"],
+      to: "/services/enterprise-applications",
+    },
+  ];
+
+  return (
+    <section className="relative py-20 lg:py-28 bg-[#091527] text-white overflow-hidden border-b border-slate-800">
+      {/* Background graphic */}
+      <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
+        <img
+          src={enterprisePlatformsMesh}
+          alt="Enterprise cloud fabric"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#091527] via-transparent to-[#091527]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-6">
+          <div className="border-l-[3px] border-[#f5a623] pl-4">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#f5a623] mb-2">
+              ENTERPRISE PLATFORMS & INTEGRATIONS
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-extrabold text-white tracking-tight leading-tight">
+              Workday • SAP • MuleSoft • Salesforce
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-slate-300 max-w-2xl font-normal leading-relaxed">
+              ConfigUSA provides deep architectural engineering, certified squads, and integration frameworks across the four foundational platforms driving modern global business.
+            </p>
+          </div>
+          <Link
+            to="/services/enterprise-applications"
+            className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 backdrop-blur px-5 py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-white/10 hover:border-[#f5a623]/60 transition-all shrink-0 self-start sm:self-end"
+          >
+            Explore Enterprise Applications <ArrowRight className="h-4 w-4 text-[#f5a623]" />
+          </Link>
+        </div>
+
+        {/* 4 Cards Grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {PLATFORMS_DATA.map((p, i) => (
+            <motion.div
+              key={p.name}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: i * 0.08 }}
+              className="flex flex-col justify-between rounded-2xl bg-[#0d1d36]/90 border border-slate-800/90 hover:border-[#f5a623]/60 hover:shadow-xl transition-all duration-300 p-6 sm:p-7 relative overflow-hidden group"
+            >
+              <div className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-br ${p.color} rounded-bl-full pointer-events-none blur-xl group-hover:scale-125 transition-transform`} />
+
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-5">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 border border-white/10 text-white shadow-sm group-hover:bg-[#f5a623] group-hover:text-[#071326] transition-colors">
+                    <p.icon className="h-5 w-5" />
+                  </span>
+                  <span className={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-white/5 border border-white/10 ${p.accent}`}>
+                    {p.badge}
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-extrabold text-white tracking-tight group-hover:text-[#f5a623] transition-colors">
+                  {p.name}
+                </h3>
+
+                <p className="mt-3 text-xs sm:text-[13px] text-slate-300 leading-relaxed">
+                  {p.description}
+                </p>
+
+                <div className="mt-5 space-y-2 pt-4 border-t border-slate-800">
+                  {p.bullets.map((bullet) => (
+                    <div key={bullet} className="flex items-start gap-2 text-xs text-slate-300">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[#f5a623] shrink-0 mt-0.5" />
+                      <span>{bullet}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative z-10 mt-6 pt-4 border-t border-slate-800/80">
+                <Link
+                  to="/services/enterprise-applications"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#f5a623] group-hover:text-white transition-colors"
+                >
+                  View {p.name} Capabilities <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Platform Integration Banner */}
+        <div className="mt-12 rounded-2xl bg-[#071326] border border-white/15 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <span className="hidden sm:flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#f5a623]/20 border border-[#f5a623]/40 text-[#f5a623]">
+              <Database className="h-6 w-6" />
+            </span>
+            <div>
+              <p className="text-sm sm:text-base font-bold text-white">
+                Looking to connect Workday, SAP, MuleSoft, and Salesforce into a unified fabric?
+              </p>
+              <p className="text-xs text-slate-400 mt-0.5">
+                ConfigUSA provides cross-platform architects and integration squads to build end-to-end data pipelines and automated workflows.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-6 py-3 text-xs sm:text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
+            >
+              Explore a Partnership <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -1354,7 +1738,7 @@ function FinalCTA() {
             to="/contact"
             className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-6 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#e09612] transition-colors shadow-md"
           >
-            Talk to an Expert <ArrowRight className="h-4 w-4" />
+            Explore a Partnership <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             to="/contact"
@@ -1377,6 +1761,8 @@ function HomePage() {
       <TechTicker title="TRUSTED BY ENTERPRISE & PUBLIC-SECTOR ORGANIZATIONS" />
       <WhoWeAre />
       <CapabilitiesSection />
+      <FDESpotlightSection />
+      <EnterprisePlatformsSection />
       <EngagementModelsSection />
       <ProcessSection />
       <IndustriesSection />
