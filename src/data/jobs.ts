@@ -120,6 +120,32 @@ export const JOBS: Job[] = [
     niceToHave: ["MLOps tooling", "Vector databases", "Cloud AI platforms", "Prompt engineering"],
   },
   {
+    id: "palantir-foundry-aip-engineer",
+    title: "Palantir Foundry / AIP Data Engineer",
+    department: "Workforce Solutions",
+    location: "Remote (US)",
+    type: "Contract",
+    workMode: "Remote",
+    experience: "4+ years",
+    salary: "$90 – $130 / hr",
+    posted: "Jul 10, 2026",
+    summary:
+      "Join our specialized Palantir candidate pipeline. Build and optimize ontology models, PySpark pipelines, and AIP generative workflows for enterprise programs.",
+    responsibilities: [
+      "Develop and optimize PySpark data transformation pipelines inside Palantir Foundry.",
+      "Design and maintain enterprise object models and ontologies.",
+      "Implement and evaluate AIP agentic workflows and LLM orchestration with safe guardrails.",
+      "Collaborate directly with operational stakeholders and engineering squads.",
+    ],
+    requirements: [
+      "3+ years hands-on experience developing within Palantir Foundry.",
+      "Demonstrated experience with PySpark, Python, and SQL pipeline architecture.",
+      "Familiarity with Palantir AIP, Workshop, and Contour applications.",
+      "Strong analytical and collaborative problem-solving skills.",
+    ],
+    niceToHave: ["Palantir certifications", "AIP Logic", "Security clearance (Secret/TS)", "AWS / Azure integration"],
+  },
+  {
     id: "talent-acquisition-specialist",
     title: "Talent Acquisition Specialist",
     department: "Workforce Solutions",

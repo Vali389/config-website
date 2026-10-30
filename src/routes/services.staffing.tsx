@@ -145,7 +145,7 @@ const SKILL_DISCIPLINES = [
   },
   {
     area: "Data & Artificial Intelligence",
-    skills: ["Data Engineers (Snowflake/Databricks)", "MLOps Engineers", "GenAI / LLM Engineers", "Power BI / Tableau", "Data Scientists"],
+    skills: ["Palantir Foundry & AIP Specialists", "Data Engineers (Snowflake/Databricks)", "MLOps Engineers", "GenAI / LLM Engineers", "Power BI / Tableau", "Data Scientists"],
   },
 ];
 

@@ -21,9 +21,10 @@ export function Footer() {
             <ul className="space-y-2 text-xs">
               <li><Link to="/services" className="hover:text-blue-600 transition-colors">AI & Intelligent Solutions</Link></li>
               <li><Link to="/services/forward-deployed-engineering" className="hover:text-blue-600 transition-colors">Forward Deployed Engineering</Link></li>
-              <li><Link to="/services/palantir" className="hover:text-blue-600 transition-colors">Palantir Services</Link></li>
+              <li><Link to="/services/palantir" className="hover:text-blue-600 transition-colors">Palantir Talent & Staffing</Link></li>
               <li><Link to="/services/software" className="hover:text-blue-600 transition-colors">Digital Engineering</Link></li>
-              <li><Link to="/services/cloud" className="hover:text-blue-600 transition-colors">Cloud & Enterprise Platforms</Link></li>
+              <li><Link to="/services/cloud" className="hover:text-blue-600 transition-colors">Cloud & Infrastructure</Link></li>
+              <li><Link to="/services/enterprise-applications" className="hover:text-blue-600 transition-colors">Enterprise Applications</Link></li>
               <li><Link to="/services/staffing" className="hover:text-blue-600 transition-colors">Workforce Solutions</Link></li>
               <li><Link to="/services/managed-delivery" className="hover:text-blue-600 transition-colors">Managed Delivery</Link></li>
             </ul>

@@ -34,9 +34,10 @@ const NAV = [
     children: [
       { to: "/services", label: "AI & Intelligent Solutions", desc: "Generative AI, agentic workflows & automation", icon: BrainCircuit },
       { to: "/services/forward-deployed-engineering", label: "Forward Deployed Engineering", desc: "Embedded squads solving operational challenges", icon: Rocket },
-      { to: "/services/palantir", label: "Palantir Services", desc: "Foundry & AIP engineering, ontology & talent", icon: Database },
+      { to: "/services/palantir", label: "Palantir Talent & Staffing", desc: "Foundry & AIP talent pipeline & staffing", icon: Database },
       { to: "/services/software", label: "Digital Engineering", desc: "Modern apps & cloud-native platforms", icon: Code },
-      { to: "/services/cloud", label: "Cloud & Enterprise Platforms", desc: "Migration, DevOps & platform engineering", icon: Cloud },
+      { to: "/services/cloud", label: "Cloud & Infrastructure", desc: "Migration, DevOps & platform engineering", icon: Cloud },
+      { to: "/services/enterprise-applications", label: "Enterprise Applications", desc: "Workday, SAP, Oracle & Salesforce platforms", icon: Boxes },
       { to: "/services/managed-delivery", label: "Managed Delivery Services", desc: "Dedicated onshore & offshore teams", icon: LifeBuoy },
     ],
   },

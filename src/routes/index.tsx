@@ -121,12 +121,12 @@ const CAPABILITIES = [
   },
   {
     icon: Database,
-    title: "Palantir Services",
-    subtitle: "Foundry & AIP Implementation",
-    description: "Foundry and AIP engineering, enterprise data integration, AI-enabled applications, and specialist talent.",
+    title: "Palantir Talent & Staffing",
+    subtitle: "Specialized Workforce Solutions",
+    description: "Connect vetted Palantir Foundry and AIP engineers, PySpark developers, and AI specialists with enterprise programs.",
     to: "/services/palantir",
     image: palantirFoundryAipHero,
-    tags: ["Foundry", "Palantir AIP", "Ontology"],
+    tags: ["Foundry Talent", "AIP Specialists", "Staffing Pipeline"],
   },
   {
     icon: Code2,
@@ -444,7 +444,7 @@ function Hero() {
               className="inline-flex items-center gap-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-white/20 hover:border-[#f5a623]/60 transition-all shadow-sm"
             >
               <Database className="h-3.5 w-3.5 text-[#f5a623]" />
-              <span>Palantir Foundry & AIP Services</span>
+              <span>Palantir Talent & Staffing</span>
             </Link>
             <Link
               to="/services/cloud"

@@ -64,7 +64,7 @@ const ALL_CAPABILITIES = [
     subtitle: "Generative AI & Agentic Workflows",
     description:
       "Helping organizations adopt Generative AI, intelligent automation, agentic workflows, and predictive data solutions.",
-    to: "/services",
+    to: "#featured-ai",
     tags: ["GenAI & LLMs", "Intelligent Automation", "Predictive Analytics"],
   },
   {
@@ -78,12 +78,12 @@ const ALL_CAPABILITIES = [
   },
   {
     icon: Database,
-    title: "Palantir Services",
-    subtitle: "Foundry & AIP Implementation",
+    title: "Palantir Talent & Staffing",
+    subtitle: "Specialized Workforce Solutions",
     description:
-      "Turn enterprise data into operational intelligence with Palantir Foundry, AIP integration, ontology modeling, and specialized talent.",
+      "Connect with vetted Palantir Foundry and AIP professionals. Agile talent pipelines for contract staffing, C2H, and permanent placement.",
     to: "/services/palantir",
-    tags: ["Palantir Foundry", "Palantir AIP", "Ontology Engineering"],
+    tags: ["Palantir Foundry", "Palantir AIP", "Staffing Pipeline"],
   },
   {
     icon: Code2,
@@ -270,7 +270,7 @@ function ServicesIndexPage() {
       </section>
 
       {/* ────────────────────────── FEATURED: AI & DATA SOLUTIONS ────────────────────────── */}
-      <section className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
+      <section id="featured-ai" className="py-20 lg:py-24 bg-white border-b border-slate-200/60 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-12">
             <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">

@@ -901,6 +901,20 @@ function EnterpriseApplications() {
         </div>
       </section>
 
+      {/* ────────────────────────── TRADEMARK NOTICE ────────────────────────── */}
+      <section className="py-12 bg-slate-100 border-t border-slate-200">
+        <div className="mx-auto max-w-4xl px-4 lg:px-8">
+          <div className="rounded-xl border border-slate-300/80 bg-white p-6 text-center text-xs text-slate-500 shadow-sm leading-relaxed space-y-2">
+            <p className="font-bold text-slate-700 uppercase tracking-wider text-[11px]">
+              Trademark & Independence Notice
+            </p>
+            <p>
+              SAP®, Oracle®, Workday®, Salesforce®, MuleSoft®, Infor®, and Microsoft Dynamics 365® are registered trademarks of their respective owners. ConfigUSA is an independent technology staffing, technical workforce solutions, and consulting provider. References to third-party platforms are purely descriptive of enterprise technical disciplines, candidate proficiencies, and systems integration competencies. ConfigUSA is not affiliated with, sponsored by, or an authorized partner or vendor of these trademark holders unless explicitly stated.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ────────────────────────── CTA BANNER ────────────────────────── */}
       <section className="relative py-20 bg-[#071326] text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
