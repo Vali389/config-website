@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as GccRouteImport } from './routes/gcc'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProcessRouteImport } from './routes/process'
@@ -55,6 +56,11 @@ const ContactRoute = ContactRouteImport.update({
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GccRoute = GccRouteImport.update({
+  id: '/gcc',
+  path: '/gcc',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriesRoute = IndustriesRouteImport.update({
@@ -180,6 +186,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/gcc': typeof GccRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -209,6 +216,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/gcc': typeof GccRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
@@ -237,6 +245,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/gcc': typeof GccRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -268,6 +277,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/faq'
+    | '/gcc'
     | '/industries'
     | '/privacy'
     | '/process'
@@ -297,6 +307,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/faq'
+    | '/gcc'
     | '/privacy'
     | '/process'
     | '/request-talent'
@@ -324,6 +335,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/faq'
+    | '/gcc'
     | '/industries'
     | '/privacy'
     | '/process'
@@ -354,6 +366,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
+  GccRoute: typeof GccRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
   ProcessRoute: typeof ProcessRoute
@@ -395,6 +408,13 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gcc': {
+      id: '/gcc'
+      path: '/gcc'
+      fullPath: '/gcc'
+      preLoaderRoute: typeof GccRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/industries': {
@@ -611,6 +631,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
+  GccRoute: GccRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
   PrivacyRoute: PrivacyRoute,
   ProcessRoute: ProcessRoute,

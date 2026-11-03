@@ -22,6 +22,7 @@ export function Footer() {
               <li><Link to="/services" className="hover:text-blue-600 transition-colors">AI & Intelligent Solutions</Link></li>
               <li><Link to="/services/forward-deployed-engineering" className="hover:text-blue-600 transition-colors">Forward Deployed Engineering</Link></li>
               <li><Link to="/services/palantir" className="hover:text-blue-600 transition-colors">Palantir Talent & Staffing</Link></li>
+              <li><Link to="/gcc" className="hover:text-blue-600 transition-colors font-medium text-blue-700">GCC Talent Solutions</Link></li>
               <li><Link to="/services/software" className="hover:text-blue-600 transition-colors">Digital Engineering</Link></li>
               <li><Link to="/services/cloud" className="hover:text-blue-600 transition-colors">Cloud & Infrastructure</Link></li>
               <li><Link to="/services/enterprise-applications" className="hover:text-blue-600 transition-colors">Enterprise Applications</Link></li>

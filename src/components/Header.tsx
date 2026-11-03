@@ -35,6 +35,7 @@ const NAV = [
       { to: "/services", label: "AI & Intelligent Solutions", desc: "Generative AI, agentic workflows & automation", icon: BrainCircuit },
       { to: "/services/forward-deployed-engineering", label: "Forward Deployed Engineering", desc: "Embedded squads solving operational challenges", icon: Rocket },
       { to: "/services/palantir", label: "Palantir Talent & Staffing", desc: "Foundry & AIP talent pipeline & staffing", icon: Database },
+      { to: "/gcc", label: "GCC Talent Solutions", desc: "Powering India's next phase of GCC growth & executive hiring", icon: Building2 },
       { to: "/services/software", label: "Digital Engineering", desc: "Modern apps & cloud-native platforms", icon: Code },
       { to: "/services/cloud", label: "Cloud & Infrastructure", desc: "Migration, DevOps & platform engineering", icon: Cloud },
       { to: "/services/enterprise-applications", label: "Enterprise Applications", desc: "Workday, SAP, Oracle & Salesforce platforms", icon: Boxes },
@@ -42,6 +43,7 @@ const NAV = [
     ],
   },
   { to: "/services/staffing", label: "Technology Workforce Solutions" },
+  { to: "/gcc", label: "GCC Talent Solutions" },
   {
     to: "/industries",
     label: "Industries",
@@ -90,6 +92,7 @@ export function Header() {
     if (isHome) return false;
     if (to === "/services") return pathname === "/services" || pathname === "/services/";
     if (to === "/services/staffing") return pathname.startsWith("/services/staffing");
+    if (to === "/gcc") return pathname.startsWith("/gcc");
     if (to === "/industries") return pathname.startsWith("/industries");
     if (to === "/resources") return pathname.startsWith("/resources");
     if (to === "/about") return pathname === "/about";
@@ -107,8 +110,11 @@ export function Header() {
       if (childLabel === "Forward Deployed Engineering") {
         return pathname === "/services/forward-deployed-engineering";
       }
-      if (childLabel === "Palantir Services") {
+      if (childLabel === "Palantir Services" || childLabel === "Palantir Talent & Staffing") {
         return pathname === "/services/palantir";
+      }
+      if (childLabel === "GCC Talent Solutions") {
+        return pathname === "/gcc";
       }
       if (childLabel === "Digital Engineering") {
         return pathname === "/services/software";
@@ -125,9 +131,9 @@ export function Header() {
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 bg-white ${scrolled ? "shadow-md" : "border-b border-slate-100"}`}>
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 lg:px-8">
+      <div className="mx-auto flex max-w-[1460px] items-center justify-between px-4 py-2.5 lg:px-6 xl:px-8">
         <Logo />
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 shrink-0">
           {NAV.map((item) => {
             const hasChildren = "children" in item && Boolean(item.children);
             const active = isItemActive(item.to);
@@ -149,7 +155,7 @@ export function Header() {
                       setOpenDropdown((prev) => (prev === item.label ? null : item.label));
                     }
                   }}
-                  className={`relative flex items-center gap-1.5 px-3.5 py-2 text-[14px] rounded-lg border transition-all duration-200 font-semibold ${
+                  className={`relative flex items-center gap-1 whitespace-nowrap px-2 xl:px-3 py-1.5 xl:py-2 text-[13px] xl:text-[14px] rounded-lg border transition-all duration-200 font-semibold shrink-0 ${
                     active
                       ? "bg-[#0a1628] text-white border-[#0a1628] shadow-sm"
                       : "text-slate-800 border-transparent hover:text-blue-700 hover:bg-slate-50"

@@ -43,8 +43,12 @@ import {
   Award,
   ClipboardCheck,
   BarChart3,
+  TrendingUp,
 } from "lucide-react";
 
+import gccHeroSkyline from "@/assets/gcc-hero-skyline.jpg";
+import gccEnterpriseHub from "@/assets/gcc-enterprise-hub.jpg";
+import gccExecutiveTalent from "@/assets/gcc-executive-talent.jpg";
 import heroExecutives from "@/assets/hero_enterprise_executives.jpg";
 import whoWeAreReferenceMeeting from "@/assets/who_we_are_reference_meeting.jpg";
 import whoWeAreImg from "@/assets/about-hero-new.png";
@@ -1378,6 +1382,273 @@ function GlobalDeliverySection() {
   );
 }
 
+/* ────────────────────────── GCC Spotlight Section ────────────────────────── */
+
+function GCCSpotlightSection() {
+  return (
+    <section className="py-20 lg:py-24 bg-[#f8fafc] border-y border-slate-200/60 relative overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        {/* Section Header matching Homepage Pattern */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+          <div className="border-l-[3px] border-[#f5a623] pl-3.5">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1.5">
+              GCC TALENT SOLUTIONS • INDIA
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+              Powering India's Next Phase of GCC Growth
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-2xl font-normal leading-relaxed">
+              Connecting Leadership Talent with Global Opportunities. From offshore delivery to strategic global
+              operating models driving innovation, AI, and direct business impact.
+            </p>
+          </div>
+          <Link
+            to="/gcc"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 hover:text-blue-800 shrink-0 self-start sm:self-end"
+          >
+            Explore GCC Talent Solutions <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+
+        {/* 4 Stat Highlights matching Homepage STATS_TODAY style */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+          {[
+            { icon: TrendingUp, title: "Expanding Rapidly", desc: "GCCs in India moving to strategic global operating models" },
+            { icon: Users, title: "New Centres Monthly", desc: "Continual enterprise establishments across Tier-1 tech hubs" },
+            { icon: Briefcase, title: "More Strategic Roles", desc: "Direct ownership of worldwide technology & transformation" },
+            { icon: Target, title: "High Leader Demand", desc: "Pivotal need for executives with global exposure & local depth" },
+          ].map((item) => (
+            <Link
+              key={item.title}
+              to="/gcc"
+              className="flex items-start gap-3.5 p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all group"
+            >
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-[#d49b29] border border-amber-100/60 group-hover:bg-[#f5a623] group-hover:text-[#071326] transition-colors">
+                <item.icon className="h-5 w-5 stroke-[1.75]" />
+              </div>
+              <div>
+                <h3 className="text-base font-extrabold text-[#071326] group-hover:text-blue-700 transition-colors leading-snug">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-slate-500 font-medium leading-relaxed mt-1">
+                  {item.desc}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Dual Cards: For Organisations & For Professionals matching Homepage Card Design */}
+        <div className="grid md:grid-cols-2 gap-8 mb-12 items-stretch">
+          {/* Card 1: For Organisations */}
+          <div className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100/60">
+                    <Building2 className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#e89218] block">
+                      Primary Audience
+                    </span>
+                    <h3 className="text-xl font-bold text-[#071326]">For Organisations</h3>
+                  </div>
+                </div>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
+                  GCC Setup & Scale
+                </span>
+              </div>
+
+              <div className="relative h-48 rounded-xl overflow-hidden mb-5 border border-slate-100">
+                <img
+                  src={gccEnterpriseHub}
+                  alt="GCC Centre Campus"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+
+              <h4 className="text-lg font-bold text-[#071326] leading-snug mb-2">
+                Build Your GCC Team with Precision
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                If you are planning to establish a GCC, expand an existing centre, build leadership teams or hire
+                specialised talent, we can <strong className="text-blue-700">support your talent acquisition requirements</strong>.
+              </p>
+            </div>
+
+            <div className="mt-6 pt-5 border-t border-slate-100 flex flex-wrap items-center gap-3">
+              <Link
+                to="/gcc"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] hover:bg-[#d98218] px-5 py-2.5 text-xs sm:text-sm font-bold text-[#071326] transition-colors shadow-sm"
+              >
+                Build Your GCC Team <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/gcc"
+                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs sm:text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+              >
+                View GCC Models
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 2: For Professionals */}
+          <div className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100/60">
+                    <Users className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#e89218] block">
+                      Secondary Audience
+                    </span>
+                    <h3 className="text-xl font-bold text-[#071326]">For Professionals</h3>
+                  </div>
+                </div>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
+                  Leadership Roles
+                </span>
+              </div>
+
+              <div className="relative h-48 rounded-xl overflow-hidden mb-5 border border-slate-100">
+                <img
+                  src={gccExecutiveTalent}
+                  alt="GCC Executive Leader"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+
+              <h4 className="text-lg font-bold text-[#071326] leading-snug mb-2">
+                Your Global Experience. Your Next Opportunity in India.
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                If you are an experienced professional looking for your next leadership opportunity in a GCC, or
+                aspire to take the next step in your career, <strong className="text-blue-700">connect with us</strong> to explore strategic roles.
+              </p>
+            </div>
+
+            <div className="mt-6 pt-5 border-t border-slate-100 flex flex-wrap items-center gap-3">
+              <Link
+                to="/gcc"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#07172f] hover:bg-[#0d2345] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white transition-colors shadow-sm"
+              >
+                Explore GCC Career Opportunities <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/submit-resume"
+                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs sm:text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+              >
+                Submit Resume
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Key Roles We Help Fill (matches Homepage CAPABILITIES card style) */}
+        <div className="mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+            <div className="border-l-[3px] border-[#f5a623] pl-3.5">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1">
+                KEY ROLES WE HELP FILL
+              </p>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#071326] tracking-tight">
+                Leadership and Specialist Roles Across GCC Functions
+              </h3>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-9 gap-3">
+            {[
+              { icon: Network, title: "GCC Site Heads / Country Heads" },
+              { icon: Cpu, title: "Global Heads of Engineering" },
+              { icon: Repeat, title: "Heads of Operations / GBS" },
+              { icon: BarChart3, title: "Global Finance Leaders" },
+              { icon: UserCheck, title: "Global HR Leaders" },
+              { icon: BrainCircuit, title: "Heads of AI & Data" },
+              { icon: Rocket, title: "GCC Founding Members" },
+              { icon: Boxes, title: "Enterprise Architects" },
+              { icon: Share2, title: "Supply Chain & Functions" },
+            ].map((role) => (
+              <Link
+                key={role.title}
+                to="/gcc"
+                className="p-3.5 rounded-xl bg-white border border-slate-200/90 text-center flex flex-col items-center justify-between shadow-xs hover:border-blue-400 hover:shadow-md transition-all duration-200 group min-h-[110px]"
+              >
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors mb-2">
+                  <role.icon className="h-4 w-4" />
+                </div>
+                <span className="text-[11px] font-bold text-[#071326] leading-tight group-hover:text-blue-700 transition-colors">
+                  {role.title}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Our Value Strip matching Homepage Card Bar */}
+        <div className="mb-12 rounded-2xl bg-white border border-slate-200/90 p-5 sm:p-6 shadow-sm">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-6">
+            <div className="shrink-0 flex items-center gap-2 bg-[#07172f] text-white px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider">
+              <Award className="h-4 w-4 text-[#f5a623]" />
+              <span>Our Value</span>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 w-full">
+              {[
+                { icon: Search, label: "Access to Top GCC Talent" },
+                { icon: Users, label: "Deep GCC Expertise" },
+                { icon: Target, label: "Leadership & Specialist Hiring" },
+                { icon: Handshake, label: "Support for Expanding GCCs" },
+                { icon: Sparkles, label: "Long-term Talent Partnership" },
+              ].map((val) => (
+                <div key={val.label} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-100">
+                  <val.icon className="h-4 w-4 text-blue-600 shrink-0" />
+                  <span className="text-xs font-semibold text-slate-700 truncate">{val.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Banner matching Homepage FinalCTA style */}
+        <div className="rounded-2xl bg-[#0a1628] p-8 sm:p-10 text-white flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xl">
+          <div className="flex items-center gap-4 max-w-2xl">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#f5a623] border border-white/15">
+              <Network className="h-6 w-6 stroke-[1.75]" />
+            </div>
+            <div>
+              <p className="text-base sm:text-lg font-bold text-white leading-snug">
+                We help the right people access the right opportunities and help organisations build high-performing GCCs in India.
+              </p>
+              <p className="text-xs text-slate-300 mt-1">
+                Building the next generation of Global Capability Centres with world-class leadership.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <Link
+              to="/gcc"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] hover:bg-[#e09612] px-6 py-3.5 text-xs sm:text-sm font-bold text-[#071326] transition-colors shadow-sm"
+            >
+              Build Your GCC Team <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              to="/gcc"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/20 hover:bg-white/10 px-5 py-3.5 text-xs sm:text-sm font-semibold text-white transition-colors"
+            >
+              Explore GCC Career Opportunities
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ────────────────────────── ConfigUSA Today (Restored) ────────────────────────── */
 
 function ConfigUSATodaySection() {
@@ -1767,6 +2038,7 @@ function HomePage() {
       <ProcessSection />
       <IndustriesSection />
       <GlobalDeliverySection />
+      <GCCSpotlightSection />
       <CaseStudySection />
       <ConfigUSATodaySection />
       <CredentialsSection />
