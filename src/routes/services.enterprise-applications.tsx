@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import enterpriseHeroImg from "@/assets/enterprise_hero_img.png";
 import heroCarousel1 from "@/assets/hero_carousel_1.jpg";
-import enterprisePlatformsMesh from "@/assets/enterprise-platforms-mesh.jpg";
+import heroCarousel2 from "@/assets/hero_carousel_2.jpg";
 import ctaServicesBg from "@/assets/cta-services-bg.png";
 import wdEnterprise from "@/assets/wd-enterprise.jpg";
 import serviceSap from "@/assets/service-sap.jpg";
@@ -244,12 +244,12 @@ function EnterpriseApplications() {
         {/* Background Photography with Navy Gradient */}
         <div className="absolute inset-0 z-0">
           <img
-            src={enterprisePlatformsMesh}
-            alt="Enterprise Applications & ERP Modernization"
+            src={wdEnterprise}
+            alt="Enterprise Applications"
             className="h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/85 via-45% to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#071326]/50 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/90 via-55% to-[#071326]/40 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#071326] via-[#071326]/70 to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full my-auto py-8">
@@ -897,20 +897,6 @@ function EnterpriseApplications() {
                 <span>Business Users & Mobile Apps</span>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ────────────────────────── TRADEMARK NOTICE ────────────────────────── */}
-      <section className="py-12 bg-slate-100 border-t border-slate-200">
-        <div className="mx-auto max-w-4xl px-4 lg:px-8">
-          <div className="rounded-xl border border-slate-300/80 bg-white p-6 text-center text-xs text-slate-500 shadow-sm leading-relaxed space-y-2">
-            <p className="font-bold text-slate-700 uppercase tracking-wider text-[11px]">
-              Trademark & Independence Notice
-            </p>
-            <p>
-              SAP®, Oracle®, Workday®, Salesforce®, MuleSoft®, Infor®, and Microsoft Dynamics 365® are registered trademarks of their respective owners. ConfigUSA is an independent technology staffing, technical workforce solutions, and consulting provider. References to third-party platforms are purely descriptive of enterprise technical disciplines, candidate proficiencies, and systems integration competencies. ConfigUSA is not affiliated with, sponsored by, or an authorized partner or vendor of these trademark holders unless explicitly stated.
-            </p>
           </div>
         </div>
       </section>

@@ -24,13 +24,13 @@ import contactBg from "@/assets/contact-bg.jpg";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { StatsBar } from "@/components/StatsBar";
-import { InteractiveLeafletMap } from "@/components/InteractiveLeafletMap";
+import { InteractiveWorldMap } from "@/components/InteractiveWorldMap";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact ConfigUSA — Let's Start a Conversation" },
-      { name: "description", content: "Get in touch with ConfigUSA. Offices across North America and India. Whether you're hiring talent or looking for your next role, we're here to help." },
+      { name: "description", content: "Get in touch with ConfigUSA. Offices in USA, Canada, and India. Whether you're hiring talent or looking for your next role, we're here to help." },
       { property: "og:title", content: "Contact ConfigUSA" },
       { property: "og:description", content: "Talk to our team about staffing, technology, and workforce solutions." },
     ],
@@ -38,10 +38,14 @@ export const Route = createFileRoute("/contact")({
   component: Page,
 });
 
+const OFFICES = [
+  { code: "US", country: "United States", city: "Plainsboro, New Jersey", tag: "Global Headquarters", addr: "666 Plainsboro Road, Suite 1237, Plainsboro, NJ 08536", phone: "+1 (609) 934-3184" },
+  { code: "CA", country: "Canada", city: "Toronto, Ontario", tag: "North America Hub", addr: "1585 Markham Road, Suite # 309, Toronto, ON M1B 2W1", phone: "+1 (609) 934-3184" },
+  { code: "IN", country: "India", city: "Hyderabad, Telangana", tag: "Delivery & Tech Center", addr: "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081", phone: "+91 98409 60300" },
+];
+
 const CONTACTS = [
-  { icon: Phone, label: "USA Direct Phone", value: "+1 (609) 934-3184", href: "tel:+16099343184" },
-  { icon: Phone, label: "Canada Direct Phone", value: "+1 (647) 557-6968", href: "tel:+16475576968" },
-  { icon: Phone, label: "India Direct Phone", value: "+91 80746 83380", href: "tel:+918074683380" },
+  { icon: Phone, label: "Direct Phone", value: "+1 (609) 934-3184", href: "tel:+16099343184" },
   { icon: Mail, label: "General Inquiries", value: "info@configusa.com", href: "mailto:info@configusa.com" },
   { icon: MessageSquare, label: "Talent Desk", value: "careers@configusa.com", href: "mailto:careers@configusa.com" },
 ];
@@ -310,16 +314,16 @@ function Page() {
         </div>
       </section>
 
-      {/* Offices & Locations with Maps matching LanceSoft interactive map pattern */}
+      {/* Offices & Locations with Maps */}
       <section id="offices" className="py-24 bg-slate-50 border-b border-slate-200/60 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Global Presence"
-            title="Interactive Locations & Delivery Hubs"
-            subtitle="Explore our corporate headquarters in the United States, Canadian hub in Toronto, and offshore technology delivery center in Hyderabad, India. Click any location pin on the map or select an office to view coordinates and directions."
+            title="Offices Across Three Continents"
+            subtitle="Strategic corporate headquarters and delivery centers positioned across the United States, Canada, and India with interactive maps and directions."
           />
-          <div className="mt-12">
-            <InteractiveLeafletMap />
+          <div className="mt-14">
+            <InteractiveWorldMap />
           </div>
         </div>
       </section>

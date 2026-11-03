@@ -8,7 +8,6 @@ import {
   Cloud,
   Boxes,
   Users,
-  Database,
   LifeBuoy,
   HeartPulse,
   Landmark,
@@ -43,14 +42,8 @@ import {
   Award,
   ClipboardCheck,
   BarChart3,
-  TrendingUp,
-  Network,
-  Share2,
 } from "lucide-react";
 
-import gccHeroSkyline from "@/assets/gcc-hero-skyline.jpg";
-import gccEnterpriseHub from "@/assets/gcc-enterprise-hub.jpg";
-import gccExecutiveTalent from "@/assets/gcc-executive-talent.jpg";
 import heroExecutives from "@/assets/hero_enterprise_executives.jpg";
 import whoWeAreReferenceMeeting from "@/assets/who_we_are_reference_meeting.jpg";
 import whoWeAreImg from "@/assets/about-hero-new.png";
@@ -63,13 +56,6 @@ import certSam from "@/assets/cert-sam.jpg";
 import certEverify from "@/assets/cert-everify.png";
 import caseStudyTeam from "@/assets/case_study_team.jpg";
 import insightsTeam from "@/assets/insights_workforce_team.jpg";
-import fdeSquadCommand from "@/assets/fde-squad-command.jpg";
-import enterprisePlatformsMesh from "@/assets/enterprise-platforms-mesh.jpg";
-import palantirFoundryAipHero from "@/assets/palantir-foundry-aip-hero.jpg";
-import workforceSolutionsHero from "@/assets/workforce-solutions-hero.jpg";
-import wdAi from "@/assets/wd-ai.jpg";
-import wdEngineering from "@/assets/wd-engineering.jpg";
-import wdEnterprise from "@/assets/wd-enterprise.jpg";
 
 import indFinancial from "@/assets/ind-financial.jpg";
 import indHealthcare from "@/assets/ind-healthcare.jpg";
@@ -79,6 +65,7 @@ import indRetail from "@/assets/ind-retail.jpg";
 import indGovernment from "@/assets/ind-government.jpg";
 
 import { TechTicker } from "@/components/TechTicker";
+import { InteractiveWorldMap } from "@/components/InteractiveWorldMap";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -109,56 +96,44 @@ const CAPABILITIES = [
   {
     icon: BrainCircuit,
     title: "AI & Intelligent Solutions",
-    subtitle: "Generative AI & Agentic Workflows",
-    description: "Generative AI, agentic workflows, intelligent automation, and predictive analytics.",
+    subtitle: "Generative AI & Automation",
+    description: "Helping organizations adopt Generative AI, intelligent automation, and AI-powered business solutions.",
     to: "/services",
-    image: wdAi,
-    tags: ["LLMs", "AI Agents", "Predictive ML"],
-  },
-  {
-    icon: Rocket,
-    title: "Forward Deployed Engineering",
-    subtitle: "Embedded Engineering Squads",
-    description: "Embedded engineering teams that work close to business challenges and deliver production-ready solutions.",
-    to: "/services/forward-deployed-engineering",
-    image: fdeSquadCommand,
-    tags: ["Embedded Pods", "Prototype to Prod", "Workflows"],
-  },
-  {
-    icon: Database,
-    title: "Palantir Talent & Staffing",
-    subtitle: "Specialized Workforce Solutions",
-    description: "Connect vetted Palantir Foundry and AIP engineers, PySpark developers, and AI specialists with enterprise programs.",
-    to: "/services/palantir",
-    image: palantirFoundryAipHero,
-    tags: ["Foundry Talent", "AIP Specialists", "Staffing Pipeline"],
   },
   {
     icon: Code2,
     title: "Digital Engineering",
-    subtitle: "Modern Apps & APIs",
-    description: "Modern application development, APIs, systems integration, and software modernization.",
+    subtitle: "Modern Apps & Platforms",
+    description: "Building modern applications, cloud-native platforms, APIs, and scalable digital experiences.",
     to: "/services/software",
-    image: wdEngineering,
-    tags: ["Microservices", "REST & GraphQL", "Modern Cloud"],
   },
   {
     icon: Cloud,
-    title: "Cloud & Enterprise Platforms",
-    subtitle: "Infrastructure & Platform Integration",
-    description: "Cloud engineering, infrastructure, Workday, SAP, MuleSoft, and Salesforce enterprise platform integration.",
+    title: "Cloud & Infrastructure",
+    subtitle: "Migration, DevOps & Platform",
+    description: "Supporting cloud migration, modernization, DevOps, platform engineering, and operational excellence.",
     to: "/services/cloud",
-    image: wdEnterprise,
-    tags: ["Workday", "SAP", "MuleSoft", "Salesforce"],
+  },
+  {
+    icon: Boxes,
+    title: "Enterprise Applications",
+    subtitle: "ERP, CRM, HCM & Business Platforms",
+    description: "Implement, integrate and modernize SAP, Oracle, Microsoft Dynamics, Workday, Salesforce and other enterprise platforms.",
+    to: "/services/enterprise-applications",
   },
   {
     icon: Users,
     title: "Technology Workforce Solutions",
-    subtitle: "Specialized Talent Delivery",
-    description: "Specialized technology recruitment, contract staffing, dedicated teams, and managed talent delivery.",
+    subtitle: "Contract, Permanent & Project Staffing",
+    description: "Access highly skilled technology professionals for contract, full-time and project-based roles.",
     to: "/services/staffing",
-    image: workforceSolutionsHero,
-    tags: ["Specialist Vetting", "Contract-to-Hire", "Direct Placement"],
+  },
+  {
+    icon: LifeBuoy,
+    title: "Managed Delivery Services",
+    subtitle: "Dedicated Engineering Pods",
+    description: "End-to-end delivery teams that own outcomes from build to ongoing support.",
+    to: "/services/managed-delivery",
   },
 ];
 
@@ -405,7 +380,7 @@ function Hero() {
             transition={{ duration: 0.5 }}
             className="text-xs sm:text-[13px] font-bold uppercase tracking-[0.22em] text-[#f5a623] mb-4"
           >
-            AI • FORWARD-DEPLOYED ENGINEERING • PALANTIR SERVICES
+            ENTERPRISE TECHNOLOGY & WORKFORCE SOLUTIONS
           </motion.p>
 
           {/* Main Headline */}
@@ -427,38 +402,8 @@ function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6 text-base sm:text-lg lg:text-[19px] text-slate-200 max-w-2xl leading-relaxed font-normal"
           >
-            The Right Talent. The Right Engineering. Real Business Outcomes. Helping enterprises translate technology priorities into measurable results through Forward-Deployed Engineering (FDE), Palantir Foundry & AIP implementation, and specialized workforce solutions.
+            Building the capabilities enterprises need to transform, scale and compete.
           </motion.p>
-
-          {/* FDE & Palantir Left-Side Feature Badges */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="mt-5 flex flex-wrap gap-2.5"
-          >
-            <Link
-              to="/services/forward-deployed-engineering"
-              className="inline-flex items-center gap-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-white/20 hover:border-[#f5a623]/60 transition-all shadow-sm"
-            >
-              <Rocket className="h-3.5 w-3.5 text-[#f5a623]" />
-              <span>Forward-Deployed Engineering (FDE)</span>
-            </Link>
-            <Link
-              to="/services/palantir"
-              className="inline-flex items-center gap-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-white/20 hover:border-[#f5a623]/60 transition-all shadow-sm"
-            >
-              <Database className="h-3.5 w-3.5 text-[#f5a623]" />
-              <span>Palantir Talent & Staffing</span>
-            </Link>
-            <Link
-              to="/services/cloud"
-              className="inline-flex items-center gap-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-white/20 hover:border-[#f5a623]/60 transition-all shadow-sm"
-            >
-              <Boxes className="h-3.5 w-3.5 text-[#f5a623]" />
-              <span>Workday • SAP • MuleSoft • Salesforce</span>
-            </Link>
-          </motion.div>
 
           {/* Action Buttons */}
           <motion.div
@@ -471,7 +416,7 @@ function Hero() {
               to="/contact"
               className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] shadow-md hover:bg-[#e09612] transition-colors"
             >
-              Explore a Partnership <ArrowRight className="h-4 w-4" />
+              Talk to an Expert <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/services"
@@ -667,8 +612,6 @@ function WhoWeAre() {
 
 /* ────────────────────────── Capabilities ────────────────────────── */
 
-/* ────────────────────────── Capabilities ────────────────────────── */
-
 function CapabilitiesSection() {
   return (
     <section className="py-20 lg:py-24 bg-[#f8fafc] border-y border-slate-200/60">
@@ -676,13 +619,13 @@ function CapabilitiesSection() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div className="border-l-[3px] border-[#f5a623] pl-3.5">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1.5">
-              SPECIALIZED CAPABILITIES
+              OUR CAPABILITIES
             </p>
             <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
-              Specialized Engineering for Enterprise Transformation
+              End-to-End Technology Workforce Solutions
             </h2>
-            <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-2xl font-normal">
-              ConfigUSA combines AI, data, software engineering, and specialized technology talent to help enterprises solve complex problems and accelerate transformation.
+            <p className="mt-2 text-sm sm:text-base text-slate-500 max-w-2xl font-normal">
+              From AI to enterprise platforms and world-class talent, we help organizations achieve their most important technology goals.
             </p>
           </div>
           <Link
@@ -693,7 +636,7 @@ function CapabilitiesSection() {
           </Link>
         </div>
 
-        {/* 6 Capabilities Cards in 3x2 Grid matching Previous Style */}
+        {/* 6 Capabilities Cards in 3x2 Grid matching Reference */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {CAPABILITIES.map((c, i) => (
             <motion.div
@@ -734,338 +677,6 @@ function CapabilitiesSection() {
               </Link>
             </motion.div>
           ))}
-        </div>
-
-        {/* Action CTAs below Capabilities Grid */}
-        <div className="mt-12 pt-8 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-4">
-          <p className="text-xs sm:text-sm text-slate-600 font-medium">
-            Need custom architecture, forward-deployed engineers, or Palantir expertise?
-          </p>
-          <div className="flex flex-wrap items-center gap-3">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-6 py-3 text-xs sm:text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
-            >
-              Explore a Partnership <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3 text-xs sm:text-sm font-semibold text-slate-800 hover:bg-slate-50 transition-colors shadow-xs"
-            >
-              Explore Our Capabilities
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ────────────────────────── Forward Deployed Engineering Showcase ────────────────────────── */
-
-function FDESpotlightSection() {
-  return (
-    <section className="py-20 lg:py-28 bg-white border-b border-slate-200/80 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-          {/* Left Column: Context & Capabilities */}
-          <div className="lg:col-span-6">
-            <div className="border-l-[3px] border-[#f5a623] pl-4 mb-4">
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#e89218] mb-1.5">
-                FORWARD DEPLOYED ENGINEERING (FDE)
-              </p>
-              <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-extrabold text-[#071326] tracking-tight leading-tight">
-                From Business Challenges to Production-Ready Solutions
-              </h2>
-            </div>
-
-            <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-              A powerful AI model alone cannot transform an enterprise. The real challenge starts when AI must operate within complex legacy architectures, fragmented data sources, regulatory constraints, and human workflows.
-            </p>
-
-            <p className="mt-3 text-sm sm:text-base text-slate-700 font-medium leading-relaxed">
-              ConfigUSA's Forward-Deployed Engineers work directly alongside your business teams and operational users to design, build, and productionize practical, high-impact AI and data systems.
-            </p>
-
-            {/* 4 Feature Rows */}
-            <div className="mt-8 space-y-4">
-              <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-blue-400 transition-colors">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
-                  <Search className="h-4 w-4" />
-                </span>
-                <div>
-                  <h4 className="text-sm font-bold text-[#071326]">Business Problem Discovery</h4>
-                  <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
-                    We start by diagnosing operational bottlenecks and unit economics—determining exactly what should be built to deliver measurable ROI.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-blue-400 transition-colors">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 text-[#d98218]">
-                  <BrainCircuit className="h-4 w-4" />
-                </span>
-                <div>
-                  <h4 className="text-sm font-bold text-[#071326]">AI & Agentic Engineering</h4>
-                  <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
-                    Deploying custom LLMs, autonomous agents, and RAG pipelines grounded in enterprise data and business guardrails.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-blue-400 transition-colors">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700">
-                  <Layers className="h-4 w-4" />
-                </span>
-                <div>
-                  <h4 className="text-sm font-bold text-[#071326]">Data Pipelines & System Integration</h4>
-                  <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
-                    Integrating legacy ERPs, CRMs, APIs, Palantir Foundry, and data warehouses into cohesive operational intelligence.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-blue-400 transition-colors">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-purple-50 text-purple-700">
-                  <Rocket className="h-4 w-4" />
-                </span>
-                <div>
-                  <h4 className="text-sm font-bold text-[#071326]">Prototype-to-Production Delivery</h4>
-                  <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
-                    Iterative delivery pods that take working prototypes to secure, monitored enterprise production in weeks.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* CTAs */}
-            <div className="mt-8 flex flex-wrap items-center gap-3.5">
-              <Link
-                to="/services/forward-deployed-engineering"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#071326] px-6 py-3.5 text-sm font-bold text-[#f5a623] hover:bg-slate-900 transition-colors shadow-sm"
-              >
-                Explore FDE Services <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 hover:bg-slate-50 transition-colors"
-              >
-                Discuss FDE Requirements
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Column: Visual Command Center Showcase */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative rounded-2xl overflow-hidden border border-slate-200/90 shadow-2xl bg-[#071326]">
-              <img
-                src={fdeSquadCommand}
-                alt="ConfigUSA Forward-Deployed Engineering Squad Command Room"
-                className="w-full h-[460px] sm:h-[520px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/30 to-transparent" />
-
-              {/* Floating Top Pill */}
-              <div className="absolute top-4 left-4 flex items-center gap-2">
-                <span className="flex items-center gap-1.5 rounded-md bg-[#071326]/85 backdrop-blur border border-white/20 px-3 py-1 text-xs font-bold text-white shadow-sm">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Embedded Engineering Pods
-                </span>
-              </div>
-
-              {/* Floating Bottom Card */}
-              <div className="absolute bottom-4 left-4 right-4 p-5 rounded-xl bg-[#071326]/90 backdrop-blur-md border border-white/15 text-white">
-                <div className="flex items-center justify-between mb-2">
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#f5a623]">
-                    Enterprise Impact Benchmark
-                  </p>
-                  <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-500/20 px-2 py-0.5 rounded">
-                    Field-Proven
-                  </span>
-                </div>
-                <div className="grid grid-cols-3 gap-3 text-center border-t border-white/10 pt-3">
-                  <div>
-                    <p className="text-xl sm:text-2xl font-extrabold text-white">60%</p>
-                    <p className="text-[10px] text-slate-300 uppercase tracking-wider mt-0.5">Faster Time to Value</p>
-                  </div>
-                  <div>
-                    <p className="text-xl sm:text-2xl font-extrabold text-[#f5a623]">98%</p>
-                    <p className="text-[10px] text-slate-300 uppercase tracking-wider mt-0.5">Workflow Adoption</p>
-                  </div>
-                  <div>
-                    <p className="text-xl sm:text-2xl font-extrabold text-white">Zero</p>
-                    <p className="text-[10px] text-slate-300 uppercase tracking-wider mt-0.5">Disruption to Ops</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ────────────────────────── Enterprise Platforms Showcase (Workday, SAP, MuleSoft, Salesforce) ────────────────────────── */
-
-function EnterprisePlatformsSection() {
-  const PLATFORMS_DATA = [
-    {
-      name: "Workday",
-      badge: "HCM & Financials",
-      icon: Users,
-      color: "from-blue-600/20 to-sky-600/10",
-      accent: "text-sky-400",
-      description:
-        "Full-lifecycle implementation, Prism Analytics, custom Studio integrations, payroll optimization, and ongoing release support for enterprise Workday HCM and Financials.",
-      bullets: ["Workday HCM & Financial Management", "Workday Studio & EIB Integrations", "Adaptive Planning & Prism Analytics", "Bi-Annual Release & AMS Support"],
-      to: "/services/enterprise-applications",
-    },
-    {
-      name: "SAP",
-      badge: "S/4HANA & BTP",
-      icon: Boxes,
-      color: "from-amber-600/20 to-orange-600/10",
-      accent: "text-[#f5a623]",
-      description:
-        "Certified architectural guidance for S/4HANA greenfield & brownfield migrations, ECC modernization, SAP Business Technology Platform (BTP), and 24/7 mission-critical AMS.",
-      bullets: ["SAP S/4HANA Cloud & On-Premise", "SAP BTP Extension & Integration Suite", "Supply Chain (MM/SD/PP) & Finance", "ECC to S/4HANA Migration Factory"],
-      to: "/services/enterprise-applications",
-    },
-    {
-      name: "MuleSoft",
-      badge: "API-Led Connectivity",
-      icon: Layers,
-      color: "from-cyan-600/20 to-blue-600/10",
-      accent: "text-cyan-400",
-      description:
-        "Design and scale reusable API ecosystems with MuleSoft Anypoint Platform. Seamlessly connect legacy databases, enterprise ERPs, and third-party SaaS into unified event streams.",
-      bullets: ["MuleSoft Anypoint Platform Architecture", "System, Process & Experience APIs", "Real-Time Event Streams & Kafka Sync", "Legacy ESB to Modern API Mesh"],
-      to: "/services/enterprise-applications",
-    },
-    {
-      name: "Salesforce",
-      badge: "CRM & Agentforce AI",
-      icon: Sparkles,
-      color: "from-indigo-600/20 to-purple-600/10",
-      accent: "text-indigo-400",
-      description:
-        "Enterprise CRM transformation across Sales Cloud, Service Cloud, Data Cloud, and autonomous Agentforce AI workflows grounded in company knowledge and security rules.",
-      bullets: ["Salesforce Sales & Service Cloud", "Data Cloud & Customer 360", "Autonomous Agentforce AI Agents", "CPQ, Billing & Omnichannel Support"],
-      to: "/services/enterprise-applications",
-    },
-  ];
-
-  return (
-    <section className="relative py-20 lg:py-28 bg-[#091527] text-white overflow-hidden border-b border-slate-800">
-      {/* Background graphic */}
-      <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
-        <img
-          src={enterprisePlatformsMesh}
-          alt="Enterprise cloud fabric"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#091527] via-transparent to-[#091527]" />
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-6">
-          <div className="border-l-[3px] border-[#f5a623] pl-4">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#f5a623] mb-2">
-              ENTERPRISE PLATFORMS & INTEGRATIONS
-            </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-extrabold text-white tracking-tight leading-tight">
-              Workday • SAP • MuleSoft • Salesforce
-            </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate-300 max-w-2xl font-normal leading-relaxed">
-              ConfigUSA provides deep architectural engineering, certified squads, and integration frameworks across the four foundational platforms driving modern global business.
-            </p>
-          </div>
-          <Link
-            to="/services/enterprise-applications"
-            className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 backdrop-blur px-5 py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-white/10 hover:border-[#f5a623]/60 transition-all shrink-0 self-start sm:self-end"
-          >
-            Explore Enterprise Applications <ArrowRight className="h-4 w-4 text-[#f5a623]" />
-          </Link>
-        </div>
-
-        {/* 4 Cards Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {PLATFORMS_DATA.map((p, i) => (
-            <motion.div
-              key={p.name}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="flex flex-col justify-between rounded-2xl bg-[#0d1d36]/90 border border-slate-800/90 hover:border-[#f5a623]/60 hover:shadow-xl transition-all duration-300 p-6 sm:p-7 relative overflow-hidden group"
-            >
-              <div className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-br ${p.color} rounded-bl-full pointer-events-none blur-xl group-hover:scale-125 transition-transform`} />
-
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-5">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 border border-white/10 text-white shadow-sm group-hover:bg-[#f5a623] group-hover:text-[#071326] transition-colors">
-                    <p.icon className="h-5 w-5" />
-                  </span>
-                  <span className={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-white/5 border border-white/10 ${p.accent}`}>
-                    {p.badge}
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-extrabold text-white tracking-tight group-hover:text-[#f5a623] transition-colors">
-                  {p.name}
-                </h3>
-
-                <p className="mt-3 text-xs sm:text-[13px] text-slate-300 leading-relaxed">
-                  {p.description}
-                </p>
-
-                <div className="mt-5 space-y-2 pt-4 border-t border-slate-800">
-                  {p.bullets.map((bullet) => (
-                    <div key={bullet} className="flex items-start gap-2 text-xs text-slate-300">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-[#f5a623] shrink-0 mt-0.5" />
-                      <span>{bullet}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="relative z-10 mt-6 pt-4 border-t border-slate-800/80">
-                <Link
-                  to="/services/enterprise-applications"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#f5a623] group-hover:text-white transition-colors"
-                >
-                  View {p.name} Capabilities <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Platform Integration Banner */}
-        <div className="mt-12 rounded-2xl bg-[#071326] border border-white/15 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <span className="hidden sm:flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#f5a623]/20 border border-[#f5a623]/40 text-[#f5a623]">
-              <Database className="h-6 w-6" />
-            </span>
-            <div>
-              <p className="text-sm sm:text-base font-bold text-white">
-                Looking to connect Workday, SAP, MuleSoft, and Salesforce into a unified fabric?
-              </p>
-              <p className="text-xs text-slate-400 mt-0.5">
-                ConfigUSA provides cross-platform architects and integration squads to build end-to-end data pipelines and automated workflows.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-6 py-3 text-xs sm:text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
-            >
-              Explore a Partnership <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
         </div>
       </div>
     </section>
@@ -1376,273 +987,6 @@ function GlobalDeliverySection() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ────────────────────────── GCC Spotlight Section ────────────────────────── */
-
-function GCCSpotlightSection() {
-  return (
-    <section className="py-20 lg:py-24 bg-[#f8fafc] border-y border-slate-200/60 relative overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        {/* Section Header matching Homepage Pattern */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
-          <div className="border-l-[3px] border-[#f5a623] pl-3.5">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1.5">
-              GCC TALENT SOLUTIONS • INDIA
-            </p>
-            <h2 className="text-xl sm:text-2xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight whitespace-normal sm:whitespace-nowrap">
-              Powering India's Next Phase of <span className="text-[#e89218]">GCC Growth</span>
-            </h2>
-            <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-2xl font-normal leading-relaxed">
-              Connecting Leadership Talent with Global Opportunities. From offshore delivery to strategic global
-              operating models driving innovation, AI, and direct business impact.
-            </p>
-          </div>
-          <Link
-            to="/gcc"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 hover:text-blue-800 shrink-0 self-start sm:self-end"
-          >
-            Explore GCC Talent Solutions <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-
-        {/* 4 Stat Highlights matching Homepage STATS_TODAY style */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-          {[
-            { icon: TrendingUp, title: "Expanding Rapidly", desc: "GCCs in India moving to strategic global operating models" },
-            { icon: Users, title: "New Centres Monthly", desc: "Continual enterprise establishments across Tier-1 tech hubs" },
-            { icon: Briefcase, title: "More Strategic Roles", desc: "Direct ownership of worldwide technology & transformation" },
-            { icon: Target, title: "High Leader Demand", desc: "Pivotal need for executives with global exposure & local depth" },
-          ].map((item) => (
-            <Link
-              key={item.title}
-              to="/gcc"
-              className="flex items-start gap-3.5 p-5 rounded-xl bg-white border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all group"
-            >
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-[#d49b29] border border-amber-100/60 group-hover:bg-[#f5a623] group-hover:text-[#071326] transition-colors">
-                <item.icon className="h-5 w-5 stroke-[1.75]" />
-              </div>
-              <div>
-                <h3 className="text-base font-extrabold text-[#071326] group-hover:text-blue-700 transition-colors leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-slate-500 font-medium leading-relaxed mt-1">
-                  {item.desc}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        {/* Dual Cards: For Organisations & For Professionals matching Homepage Card Design */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12 items-stretch">
-          {/* Card 1: For Organisations */}
-          <div className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100/60">
-                    <Building2 className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#e89218] block">
-                      Primary Audience
-                    </span>
-                    <h3 className="text-xl font-bold text-[#071326]">For Organisations</h3>
-                  </div>
-                </div>
-                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
-                  GCC Setup & Scale
-                </span>
-              </div>
-
-              <div className="relative h-48 rounded-xl overflow-hidden mb-5 border border-slate-100">
-                <img
-                  src={gccEnterpriseHub}
-                  alt="GCC Centre Campus"
-                  className="w-full h-full object-cover object-center"
-                />
-              </div>
-
-              <h4 className="text-lg font-bold text-[#071326] leading-snug mb-2">
-                Build Your GCC Team with Precision
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                If you are planning to establish a GCC, expand an existing centre, build leadership teams or hire
-                specialised talent, we can <strong className="text-blue-700">support your talent acquisition requirements</strong>.
-              </p>
-            </div>
-
-            <div className="mt-6 pt-5 border-t border-slate-100 flex flex-wrap items-center gap-3">
-              <Link
-                to="/gcc"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] hover:bg-[#d98218] px-5 py-2.5 text-xs sm:text-sm font-bold text-[#071326] transition-colors shadow-sm"
-              >
-                Build Your GCC Team <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                to="/gcc"
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs sm:text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
-              >
-                View GCC Models
-              </Link>
-            </div>
-          </div>
-
-          {/* Card 2: For Professionals */}
-          <div className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100/60">
-                    <Users className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#e89218] block">
-                      Secondary Audience
-                    </span>
-                    <h3 className="text-xl font-bold text-[#071326]">For Professionals</h3>
-                  </div>
-                </div>
-                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
-                  Leadership Roles
-                </span>
-              </div>
-
-              <div className="relative h-48 rounded-xl overflow-hidden mb-5 border border-slate-100">
-                <img
-                  src={gccExecutiveTalent}
-                  alt="GCC Executive Leader"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-
-              <h4 className="text-lg font-bold text-[#071326] leading-snug mb-2">
-                Your Global Experience. Your Next Opportunity in India.
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                If you are an experienced professional looking for your next leadership opportunity in a GCC, or
-                aspire to take the next step in your career, <strong className="text-blue-700">connect with us</strong> to explore strategic roles.
-              </p>
-            </div>
-
-            <div className="mt-6 pt-5 border-t border-slate-100 flex flex-wrap items-center gap-3">
-              <Link
-                to="/gcc"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#07172f] hover:bg-[#0d2345] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white transition-colors shadow-sm"
-              >
-                Explore GCC Career Opportunities <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                to="/submit-resume"
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs sm:text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
-              >
-                Submit Resume
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Key Roles We Help Fill (matches Homepage CAPABILITIES card style) */}
-        <div className="mb-12">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
-            <div className="border-l-[3px] border-[#f5a623] pl-3.5">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1">
-                KEY ROLES WE HELP FILL
-              </p>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#071326] tracking-tight">
-                Leadership and Specialist Roles Across GCC Functions
-              </h3>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-9 gap-3">
-            {[
-              { icon: Network, title: "GCC Site Heads / Country Heads" },
-              { icon: Cpu, title: "Global Heads of Engineering" },
-              { icon: Repeat, title: "Heads of Operations / GBS" },
-              { icon: BarChart3, title: "Global Finance Leaders" },
-              { icon: UserCheck, title: "Global HR Leaders" },
-              { icon: BrainCircuit, title: "Heads of AI & Data" },
-              { icon: Rocket, title: "GCC Founding Members" },
-              { icon: Boxes, title: "Enterprise Architects" },
-              { icon: Share2, title: "Supply Chain & Functions" },
-            ].map((role) => (
-              <Link
-                key={role.title}
-                to="/gcc"
-                className="p-3.5 rounded-xl bg-white border border-slate-200/90 text-center flex flex-col items-center justify-between shadow-xs hover:border-blue-400 hover:shadow-md transition-all duration-200 group min-h-[110px]"
-              >
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors mb-2">
-                  <role.icon className="h-4 w-4" />
-                </div>
-                <span className="text-[11px] font-bold text-[#071326] leading-tight group-hover:text-blue-700 transition-colors">
-                  {role.title}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* Our Value Strip matching Homepage Card Bar */}
-        <div className="mb-12 rounded-2xl bg-white border border-slate-200/90 p-5 sm:p-6 shadow-sm">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-6">
-            <div className="shrink-0 flex items-center gap-2 bg-[#07172f] text-white px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider">
-              <Award className="h-4 w-4 text-[#f5a623]" />
-              <span>Our Value</span>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 w-full">
-              {[
-                { icon: Search, label: "Access to Top GCC Talent" },
-                { icon: Users, label: "Deep GCC Expertise" },
-                { icon: Target, label: "Leadership & Specialist Hiring" },
-                { icon: Handshake, label: "Support for Expanding GCCs" },
-                { icon: Sparkles, label: "Long-term Talent Partnership" },
-              ].map((val) => (
-                <div key={val.label} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-100">
-                  <val.icon className="h-4 w-4 text-blue-600 shrink-0" />
-                  <span className="text-xs font-semibold text-slate-700 truncate">{val.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Banner matching Homepage FinalCTA style */}
-        <div className="rounded-2xl bg-[#0a1628] p-8 sm:p-10 text-white flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xl">
-          <div className="flex items-center gap-4 max-w-2xl">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#f5a623] border border-white/15">
-              <Network className="h-6 w-6 stroke-[1.75]" />
-            </div>
-            <div>
-              <p className="text-base sm:text-lg font-bold text-white leading-snug">
-                We help the right people access the right opportunities and help organisations build high-performing GCCs in India.
-              </p>
-              <p className="text-xs text-slate-300 mt-1">
-                Building the next generation of Global Capability Centres with world-class leadership.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
-            <Link
-              to="/gcc"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] hover:bg-[#e09612] px-6 py-3.5 text-xs sm:text-sm font-bold text-[#071326] transition-colors shadow-sm"
-            >
-              Build Your GCC Team <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              to="/gcc"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/20 hover:bg-white/10 px-5 py-3.5 text-xs sm:text-sm font-semibold text-white transition-colors"
-            >
-              Explore GCC Career Opportunities
-            </Link>
           </div>
         </div>
       </div>
@@ -2010,7 +1354,7 @@ function FinalCTA() {
             to="/contact"
             className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-6 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#e09612] transition-colors shadow-md"
           >
-            Explore a Partnership <ArrowRight className="h-4 w-4" />
+            Talk to an Expert <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             to="/contact"
@@ -2033,13 +1377,10 @@ function HomePage() {
       <TechTicker title="TRUSTED BY ENTERPRISE & PUBLIC-SECTOR ORGANIZATIONS" />
       <WhoWeAre />
       <CapabilitiesSection />
-      <FDESpotlightSection />
-      <EnterprisePlatformsSection />
       <EngagementModelsSection />
       <ProcessSection />
       <IndustriesSection />
       <GlobalDeliverySection />
-      <GCCSpotlightSection />
       <CaseStudySection />
       <ConfigUSATodaySection />
       <CredentialsSection />

@@ -19,11 +19,12 @@ interface LocationDetail {
   role: string;
   address: string;
   phone: string;
-  email?: string;
+  email: string;
   embedUrl: string;
   mapUrl: string;
   teamSize: string;
   timeZone: string;
+  flag: string;
 }
 
 const LOCATIONS_DATA: LocationDetail[] = [
@@ -42,6 +43,7 @@ const LOCATIONS_DATA: LocationDetail[] = [
       "https://maps.google.com/?q=666+Plainsboro+Road,+Suite+1237,+Plainsboro,+NJ+08536",
     teamSize: "150+ Onshore Experts",
     timeZone: "EST (UTC-5)",
+    flag: "🇺🇸",
   },
   {
     id: "canada",
@@ -50,13 +52,15 @@ const LOCATIONS_DATA: LocationDetail[] = [
     badge: "North America Hub",
     role: "Regional Delivery & Technology Solutions",
     address: "1585 Markham Road, Suite # 309, Toronto, ON M1B 2W1, Canada",
-    phone: "+1 (647) 557-6968",
+    phone: "+1 (609) 934-3184",
+    email: "canada@configusa.com",
     embedUrl:
       "https://maps.google.com/maps?q=1585+Markham+Road,+Suite+309,+Toronto,+ON+M1B+2W1&t=&z=14&ie=UTF8&iwloc=&output=embed",
     mapUrl:
       "https://maps.google.com/?q=1585+Markham+Road,+Suite+309,+Toronto,+ON+M1B+2W1",
     teamSize: "50+ Technology Consultants",
     timeZone: "EST (UTC-5)",
+    flag: "🇨🇦",
   },
   {
     id: "india",
@@ -66,7 +70,7 @@ const LOCATIONS_DATA: LocationDetail[] = [
     role: "Global Delivery & Innovation Center",
     address:
       "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081, India",
-    phone: "+91 80746 83380",
+    phone: "+91 98409 60300",
     email: "india@configusa.com",
     embedUrl:
       "https://maps.google.com/maps?q=Trendz+Sapphire,+Vittal+Rao+Nagar,+Madhapur,+Hitech+City,+Hyderabad+500081&t=&z=14&ie=UTF8&iwloc=&output=embed",
@@ -74,6 +78,7 @@ const LOCATIONS_DATA: LocationDetail[] = [
       "https://maps.google.com/?q=Trendz+Sapphire,+Vittal+Rao+Nagar,+Madhapur,+Hitech+City,+Hyderabad+500081",
     teamSize: "350+ Global Engineers",
     timeZone: "IST (UTC+5:30)",
+    flag: "🇮🇳",
   },
 ];
 
@@ -112,7 +117,9 @@ export function InteractiveWorldMap() {
                 : "bg-white border border-slate-200 text-slate-600 hover:border-slate-300 hover:text-slate-900"
             }`}
           >
-            <span>{loc.country}</span>
+            <span className="flex items-center gap-2">
+              <span>{loc.flag}</span> {loc.country}
+            </span>
           </button>
         ))}
       </div>
@@ -199,22 +206,18 @@ export function InteractiveWorldMap() {
                     <div className="pt-3 border-t border-slate-200/70 grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
                       <a
                         href={`tel:${loc.phone.replace(/[^\d+]/g, "")}`}
-                        className={`flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200/80 hover:border-blue-400 hover:text-blue-600 text-slate-700 transition-colors font-medium shadow-xs ${
-                          !loc.email ? "sm:col-span-2" : ""
-                        }`}
+                        className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200/80 hover:border-blue-400 hover:text-blue-600 text-slate-700 transition-colors font-medium shadow-xs"
                       >
                         <Phone className="h-4 w-4 text-[#e89218] shrink-0" />
                         <span className="truncate">{loc.phone}</span>
                       </a>
-                      {loc.email && (
-                        <a
-                          href={`mailto:${loc.email}`}
-                          className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200/80 hover:border-blue-400 hover:text-blue-600 text-slate-700 transition-colors font-medium shadow-xs"
-                        >
-                          <Mail className="h-4 w-4 text-blue-600 shrink-0" />
-                          <span className="truncate">{loc.email}</span>
-                        </a>
-                      )}
+                      <a
+                        href={`mailto:${loc.email}`}
+                        className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200/80 hover:border-blue-400 hover:text-blue-600 text-slate-700 transition-colors font-medium shadow-xs"
+                      >
+                        <Mail className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span className="truncate">{loc.email}</span>
+                      </a>
                     </div>
                   </div>
 

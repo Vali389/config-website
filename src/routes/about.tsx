@@ -36,10 +36,10 @@ import { CTASection } from "@/components/CTASection";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About ConfigUSA — Engineering Trust & Enterprise Growth" },
+      { title: "About ConfigUSA — A Technology Growth Partner" },
       { name: "description", content: "Since 2013, ConfigUSA has helped organizations transform ideas into business outcomes through AI, digital engineering, enterprise technology, and world-class talent." },
       { property: "og:title", content: "About ConfigUSA" },
-      { property: "og:description", content: "Engineering trust and accelerating enterprise growth through technology and elite talent." },
+      { property: "og:description", content: "More than a staffing company — a technology growth partner." },
     ],
   }),
   component: AboutPage,
@@ -65,8 +65,8 @@ const LEADERS: { initials: string; name: string; title: string; bio: string; pho
 
 const OFFICES = [
   { city: "United States", tag: "Global Headquarters", lines: ["666 Plainsboro Road, Suite 1237", "Plainsboro, NJ 08536"], phone: "+1 (609) 934-3184" },
-  { city: "Canada", tag: "North America Hub", lines: ["1585 Markham Road, Suite # 309", "Toronto, ON M1B 2W1"], phone: "+1 (647) 557-6968" },
-  { city: "India", tag: "Delivery & Engineering Center", lines: ["Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2", "Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081"], phone: "+91 80746 83380" },
+  { city: "Canada", tag: "North America Hub", lines: ["1585 Markham Road, Suite # 309", "Toronto, ON M1B 2W1"], phone: "+1 (609) 934-3184" },
+  { city: "India", tag: "Delivery & Engineering Center", lines: ["Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2", "Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081"], phone: "+91 98409 60300" },
 ];
 
 const CERTIFICATIONS = [
@@ -91,8 +91,9 @@ function AboutPage() {
         align="left"
         title={
           <>
-            <span className="block text-white">A Decade of Engineering Trust.</span>
-            <span className="block text-[#f5a623] font-extrabold">Accelerating Enterprise Growth.</span>
+            <SplitText text="More Than a Staffing Company." />
+            <br />
+            <span className="text-[#f5a623] font-extrabold">A Technology Growth Partner.</span>
           </>
         }
         subtitle="A decade of engineering trust — connecting ambitious organizations with the talent and technology to turn strategic initiatives into measurable results."
@@ -103,7 +104,7 @@ function AboutPage() {
             to="/contact"
             className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
           >
-            Explore a Partnership <ArrowRight className="h-4 w-4" />
+            Partner With Us <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             to="/services"
@@ -160,7 +161,7 @@ function AboutPage() {
               to="/contact"
               className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#0a1628] px-7 py-3.5 text-sm font-bold text-white hover:bg-[#071326] transition-colors shadow-sm"
             >
-              Explore a Partnership <ArrowRight className="h-4 w-4" />
+              Partner With Us <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>
         </div>
@@ -297,8 +298,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership — temporarily commented out per user request */}
-      {/*
+      {/* Leadership */}
       <section className="py-24 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading eyebrow="Leadership" title="Meet the People Behind ConfigUSA" subtitle="An experienced team dedicated to your success across technology, delivery, and talent." />
@@ -334,7 +334,6 @@ function AboutPage() {
           </div>
         </div>
       </section>
-      */}
 
       {/* Global Offices */}
       <section className="relative py-24 bg-[#071326] text-white overflow-hidden">
@@ -356,7 +355,7 @@ function AboutPage() {
                 key={o.city}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="rounded-xl bg-[#0a182f]/80 border border-white/10 p-7 hover:border-[#f5a623]/40 transition-all duration-300"
               >
@@ -389,7 +388,7 @@ function AboutPage() {
                 key={c.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
                 className="group flex flex-col items-center text-center rounded-xl bg-white border border-slate-200/90 p-7 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300"
               >

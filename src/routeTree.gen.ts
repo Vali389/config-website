@@ -13,7 +13,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
-import { Route as GccRouteImport } from './routes/gcc'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProcessRouteImport } from './routes/process'
@@ -30,9 +29,7 @@ import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesAssessmentRouteImport } from './routes/services.assessment'
 import { Route as ServicesCloudRouteImport } from './routes/services.cloud'
 import { Route as ServicesEnterpriseApplicationsRouteImport } from './routes/services.enterprise-applications'
-import { Route as ServicesForwardDeployedEngineeringRouteImport } from './routes/services.forward-deployed-engineering'
 import { Route as ServicesManagedDeliveryRouteImport } from './routes/services.managed-delivery'
-import { Route as ServicesPalantirRouteImport } from './routes/services.palantir'
 import { Route as ServicesSapRouteImport } from './routes/services.sap'
 import { Route as ServicesSoftwareRouteImport } from './routes/services.software'
 import { Route as ServicesStaffingRouteImport } from './routes/services.staffing'
@@ -56,11 +53,6 @@ const ContactRoute = ContactRouteImport.update({
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GccRoute = GccRouteImport.update({
-  id: '/gcc',
-  path: '/gcc',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriesRoute = IndustriesRouteImport.update({
@@ -144,20 +136,9 @@ const ServicesEnterpriseApplicationsRoute =
     path: '/enterprise-applications',
     getParentRoute: () => ServicesRoute,
   } as any)
-const ServicesForwardDeployedEngineeringRoute =
-  ServicesForwardDeployedEngineeringRouteImport.update({
-    id: '/forward-deployed-engineering',
-    path: '/forward-deployed-engineering',
-    getParentRoute: () => ServicesRoute,
-  } as any)
 const ServicesManagedDeliveryRoute = ServicesManagedDeliveryRouteImport.update({
   id: '/managed-delivery',
   path: '/managed-delivery',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesPalantirRoute = ServicesPalantirRouteImport.update({
-  id: '/palantir',
-  path: '/palantir',
   getParentRoute: () => ServicesRoute,
 } as any)
 const ServicesSapRoute = ServicesSapRouteImport.update({
@@ -186,7 +167,6 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
-  '/gcc': typeof GccRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -200,9 +180,7 @@ export interface FileRoutesByFullPath {
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/cloud': typeof ServicesCloudRoute
   '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
-  '/services/forward-deployed-engineering': typeof ServicesForwardDeployedEngineeringRoute
   '/services/managed-delivery': typeof ServicesManagedDeliveryRoute
-  '/services/palantir': typeof ServicesPalantirRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
@@ -216,7 +194,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
-  '/gcc': typeof GccRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
@@ -228,9 +205,7 @@ export interface FileRoutesByTo {
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/cloud': typeof ServicesCloudRoute
   '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
-  '/services/forward-deployed-engineering': typeof ServicesForwardDeployedEngineeringRoute
   '/services/managed-delivery': typeof ServicesManagedDeliveryRoute
-  '/services/palantir': typeof ServicesPalantirRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
@@ -245,7 +220,6 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
-  '/gcc': typeof GccRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -259,9 +233,7 @@ export interface FileRoutesById {
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/cloud': typeof ServicesCloudRoute
   '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
-  '/services/forward-deployed-engineering': typeof ServicesForwardDeployedEngineeringRoute
   '/services/managed-delivery': typeof ServicesManagedDeliveryRoute
-  '/services/palantir': typeof ServicesPalantirRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
@@ -277,7 +249,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/faq'
-    | '/gcc'
     | '/industries'
     | '/privacy'
     | '/process'
@@ -291,9 +262,7 @@ export interface FileRouteTypes {
     | '/services/assessment'
     | '/services/cloud'
     | '/services/enterprise-applications'
-    | '/services/forward-deployed-engineering'
     | '/services/managed-delivery'
-    | '/services/palantir'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
@@ -307,7 +276,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/faq'
-    | '/gcc'
     | '/privacy'
     | '/process'
     | '/request-talent'
@@ -319,9 +287,7 @@ export interface FileRouteTypes {
     | '/services/assessment'
     | '/services/cloud'
     | '/services/enterprise-applications'
-    | '/services/forward-deployed-engineering'
     | '/services/managed-delivery'
-    | '/services/palantir'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
@@ -335,7 +301,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/faq'
-    | '/gcc'
     | '/industries'
     | '/privacy'
     | '/process'
@@ -349,9 +314,7 @@ export interface FileRouteTypes {
     | '/services/assessment'
     | '/services/cloud'
     | '/services/enterprise-applications'
-    | '/services/forward-deployed-engineering'
     | '/services/managed-delivery'
-    | '/services/palantir'
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
@@ -366,7 +329,6 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
-  GccRoute: typeof GccRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
   ProcessRoute: typeof ProcessRoute
@@ -408,13 +370,6 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/gcc': {
-      id: '/gcc'
-      path: '/gcc'
-      fullPath: '/gcc'
-      preLoaderRoute: typeof GccRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/industries': {
@@ -529,25 +484,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesEnterpriseApplicationsRouteImport
       parentRoute: typeof ServicesRoute
     }
-    '/services/forward-deployed-engineering': {
-      id: '/services/forward-deployed-engineering'
-      path: '/forward-deployed-engineering'
-      fullPath: '/services/forward-deployed-engineering'
-      preLoaderRoute: typeof ServicesForwardDeployedEngineeringRouteImport
-      parentRoute: typeof ServicesRoute
-    }
     '/services/managed-delivery': {
       id: '/services/managed-delivery'
       path: '/managed-delivery'
       fullPath: '/services/managed-delivery'
       preLoaderRoute: typeof ServicesManagedDeliveryRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/palantir': {
-      id: '/services/palantir'
-      path: '/palantir'
-      fullPath: '/services/palantir'
-      preLoaderRoute: typeof ServicesPalantirRouteImport
       parentRoute: typeof ServicesRoute
     }
     '/services/sap': {
@@ -599,9 +540,7 @@ interface ServicesRouteChildren {
   ServicesAssessmentRoute: typeof ServicesAssessmentRoute
   ServicesCloudRoute: typeof ServicesCloudRoute
   ServicesEnterpriseApplicationsRoute: typeof ServicesEnterpriseApplicationsRoute
-  ServicesForwardDeployedEngineeringRoute: typeof ServicesForwardDeployedEngineeringRoute
   ServicesManagedDeliveryRoute: typeof ServicesManagedDeliveryRoute
-  ServicesPalantirRoute: typeof ServicesPalantirRoute
   ServicesSapRoute: typeof ServicesSapRoute
   ServicesSoftwareRoute: typeof ServicesSoftwareRoute
   ServicesStaffingRoute: typeof ServicesStaffingRoute
@@ -612,10 +551,7 @@ const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesAssessmentRoute: ServicesAssessmentRoute,
   ServicesCloudRoute: ServicesCloudRoute,
   ServicesEnterpriseApplicationsRoute: ServicesEnterpriseApplicationsRoute,
-  ServicesForwardDeployedEngineeringRoute:
-    ServicesForwardDeployedEngineeringRoute,
   ServicesManagedDeliveryRoute: ServicesManagedDeliveryRoute,
-  ServicesPalantirRoute: ServicesPalantirRoute,
   ServicesSapRoute: ServicesSapRoute,
   ServicesSoftwareRoute: ServicesSoftwareRoute,
   ServicesStaffingRoute: ServicesStaffingRoute,
@@ -631,7 +567,6 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
-  GccRoute: GccRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
   PrivacyRoute: PrivacyRoute,
   ProcessRoute: ProcessRoute,

@@ -20,7 +20,7 @@ import {
   BarChart3,
   Layers,
 } from "lucide-react";
-import aiEnterpriseHero from "@/assets/ai-enterprise-hero.jpg";
+import wdAi from "@/assets/wd-ai.jpg";
 import wdEngineering from "@/assets/wd-engineering.jpg";
 import wdCloud from "@/assets/wd-cloud.jpg";
 import wdEnterprise from "@/assets/wd-enterprise.jpg";
@@ -61,29 +61,11 @@ const ALL_CAPABILITIES = [
   {
     icon: BrainCircuit,
     title: "AI & Intelligent Solutions",
-    subtitle: "Generative AI & Agentic Workflows",
+    subtitle: "Generative AI & Automation",
     description:
       "Helping organizations adopt Generative AI, intelligent automation, agentic workflows, and predictive data solutions.",
-    to: "#featured-ai",
+    to: "/services",
     tags: ["GenAI & LLMs", "Intelligent Automation", "Predictive Analytics"],
-  },
-  {
-    icon: Rocket,
-    title: "Forward Deployed Engineering",
-    subtitle: "Embedded Engineering Squads",
-    description:
-      "Bringing engineering expertise directly to business problems to design, build, integrate, and deploy production-grade solutions.",
-    to: "/services/forward-deployed-engineering",
-    tags: ["Embedded FDEs", "Agentic Engineering", "Rapid Prototyping"],
-  },
-  {
-    icon: Database,
-    title: "Palantir Talent & Staffing",
-    subtitle: "Specialized Workforce Solutions",
-    description:
-      "Connect with vetted Palantir Foundry and AIP professionals. Agile talent pipelines for contract staffing, C2H, and permanent placement.",
-    to: "/services/palantir",
-    tags: ["Palantir Foundry", "Palantir AIP", "Staffing Pipeline"],
   },
   {
     icon: Code2,
@@ -108,9 +90,9 @@ const ALL_CAPABILITIES = [
     title: "Enterprise Applications",
     subtitle: "ERP, CRM & Business Platforms",
     description:
-      "Implementing, integrating, and modernizing mission-critical platforms across Workday, SAP, MuleSoft, and Salesforce.",
+      "Implementing, integrating, and modernizing mission-critical platforms across SAP, Oracle, Microsoft Dynamics, and Salesforce.",
     to: "/services/enterprise-applications",
-    tags: ["Workday", "SAP S/4HANA", "MuleSoft", "Salesforce"],
+    tags: ["SAP S/4HANA", "Salesforce", "Microsoft Dynamics 365"],
   },
   {
     icon: Users,
@@ -181,15 +163,15 @@ function ServicesIndexPage() {
     <div className="min-h-screen bg-white">
       {/* ────────────────────────── HERO SECTION ────────────────────────── */}
       <section className="relative min-h-[64vh] flex items-center overflow-hidden pt-28 pb-16 bg-[#071326]">
-        {/* Background Photography with Crystal-Clear Right Side */}
+        {/* Background Photography with Navy Gradient */}
         <div className="absolute inset-0 z-0">
           <img
-            src={aiEnterpriseHero}
-            alt="AI & Enterprise Capabilities"
+            src={wdAi}
+            alt="AI & Digital Capabilities"
             className="h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/85 via-45% to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#071326]/50 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/90 via-55% to-[#071326]/40 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#071326] via-[#071326]/70 to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full my-auto py-8">
@@ -237,7 +219,7 @@ function ServicesIndexPage() {
                 to="/contact"
                 className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
               >
-                Explore a Partnership <ArrowRight className="h-4 w-4" />
+                Talk to an Expert <ArrowRight className="h-4 w-4" />
               </Link>
               <a
                 href="#all-capabilities"
@@ -270,7 +252,7 @@ function ServicesIndexPage() {
       </section>
 
       {/* ────────────────────────── FEATURED: AI & DATA SOLUTIONS ────────────────────────── */}
-      <section id="featured-ai" className="py-20 lg:py-24 bg-white border-b border-slate-200/60 scroll-mt-20">
+      <section className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-12">
             <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
@@ -318,7 +300,7 @@ function ServicesIndexPage() {
                 OUR COMPLETE PORTFOLIO
               </p>
               <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
-                Specialized Pillars of Enterprise Technology Excellence
+                Six Pillars of Enterprise Technology Excellence
               </h2>
               <p className="mt-2 text-sm sm:text-base text-slate-500 max-w-2xl font-normal">
                 Click into any capability below to explore specialized methodologies, technologies, and delivery frameworks.

@@ -19,7 +19,7 @@ import {
   Clock,
   Sparkles,
 } from "lucide-react";
-import workforceSolutionsHero from "@/assets/workforce-solutions-hero.jpg";
+import wdWorkforce from "@/assets/wd-workforce.jpg";
 import whoWeAreMeeting from "@/assets/who_we_are_reference_meeting.jpg";
 import ctaHome from "@/assets/cta-home.jpg";
 
@@ -145,7 +145,7 @@ const SKILL_DISCIPLINES = [
   },
   {
     area: "Data & Artificial Intelligence",
-    skills: ["Palantir Foundry & AIP Specialists", "Data Engineers (Snowflake/Databricks)", "MLOps Engineers", "GenAI / LLM Engineers", "Power BI / Tableau", "Data Scientists"],
+    skills: ["Data Engineers (Snowflake/Databricks)", "MLOps Engineers", "GenAI / LLM Engineers", "Power BI / Tableau", "Data Scientists"],
   },
 ];
 
@@ -168,12 +168,12 @@ function StaffingPage() {
         {/* Background Photography with Navy Gradient */}
         <div className="absolute inset-0 z-0">
           <img
-            src={workforceSolutionsHero}
+            src={wdWorkforce}
             alt="Technology Workforce Solutions"
             className="h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/85 via-45% to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#071326]/50 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/90 via-55% to-[#071326]/40 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#071326] via-[#071326]/70 to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full my-auto py-8">

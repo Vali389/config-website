@@ -4,6 +4,7 @@ import {
   Menu,
   X,
   ChevronDown,
+  ArrowRight,
   Users,
   Code,
   Landmark,
@@ -21,8 +22,6 @@ import {
   BookOpen,
   Search,
   Heart,
-  Rocket,
-  Database,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Logo } from "./Logo";
@@ -32,18 +31,14 @@ const NAV = [
     to: "/services",
     label: "Capabilities",
     children: [
-      { to: "/services", label: "AI & Intelligent Solutions", desc: "Generative AI, agentic workflows & automation", icon: BrainCircuit },
-      { to: "/services/forward-deployed-engineering", label: "Forward Deployed Engineering", desc: "Embedded squads solving operational challenges", icon: Rocket },
-      { to: "/services/palantir", label: "Palantir Talent & Staffing", desc: "Foundry & AIP talent pipeline & staffing", icon: Database },
-      { to: "/gcc", label: "GCC Talent Solutions", desc: "Powering India's next phase of GCC growth & executive hiring", icon: Building2 },
+      { to: "/services", label: "AI & Data", desc: "Generative AI & intelligent automation", icon: BrainCircuit },
       { to: "/services/software", label: "Digital Engineering", desc: "Modern apps & cloud-native platforms", icon: Code },
       { to: "/services/cloud", label: "Cloud & Infrastructure", desc: "Migration, DevOps & platform engineering", icon: Cloud },
-      { to: "/services/enterprise-applications", label: "Enterprise Applications", desc: "Workday, SAP, Oracle & Salesforce platforms", icon: Boxes },
-      { to: "/services/managed-delivery", label: "Managed Delivery Services", desc: "Dedicated onshore & offshore teams", icon: LifeBuoy },
+      { to: "/services/enterprise-applications", label: "Enterprise Applications", desc: "SAP, Oracle, Salesforce & more", icon: Boxes },
+      { to: "/services/staffing", label: "Workforce Solutions", desc: "Contract, permanent & managed talent", icon: Users },
+      { to: "/services/managed-delivery", label: "Managed Delivery", desc: "Dedicated onshore & offshore teams", icon: LifeBuoy },
     ],
   },
-  { to: "/services/staffing", label: "Technology Workforce Solutions" },
-  { to: "/gcc", label: "GCC Talent Solutions" },
   {
     to: "/industries",
     label: "Industries",
@@ -66,9 +61,9 @@ const NAV = [
       { to: "/resources", label: "Workforce Intelligence", desc: "Talent trends & market insights", icon: BookOpen },
     ],
   },
-  { to: "/about", label: "About Us" },
+  { to: "/about", label: "About" },
   { to: "/careers", label: "Careers" },
-  { to: "/contact", label: "Contact Us" },
+  { to: "/contact", label: "Contact" },
 ] as const;
 
 export function Header() {
@@ -90,9 +85,7 @@ export function Header() {
   // Clear active tab completely on home page / logo click; otherwise match routes
   const isItemActive = (to: string) => {
     if (isHome) return false;
-    if (to === "/services") return pathname === "/services" || pathname === "/services/";
-    if (to === "/services/staffing") return pathname.startsWith("/services/staffing");
-    if (to === "/gcc") return pathname.startsWith("/gcc");
+    if (to === "/services") return pathname.startsWith("/services");
     if (to === "/industries") return pathname.startsWith("/industries");
     if (to === "/resources") return pathname.startsWith("/resources");
     if (to === "/about") return pathname === "/about";
@@ -104,25 +97,22 @@ export function Header() {
   const isChildActive = (parentTo: string, childTo: string, childLabel: string) => {
     if (isHome) return false;
     if (parentTo === "/services") {
-      if (childLabel === "AI & Intelligent Solutions" || childLabel === "AI & Data") {
+      if (childLabel === "AI & Data") {
         return pathname === "/services" || pathname === "/services/";
-      }
-      if (childLabel === "Forward Deployed Engineering") {
-        return pathname === "/services/forward-deployed-engineering";
-      }
-      if (childLabel === "Palantir Services" || childLabel === "Palantir Talent & Staffing") {
-        return pathname === "/services/palantir";
-      }
-      if (childLabel === "GCC Talent Solutions") {
-        return pathname === "/gcc";
       }
       if (childLabel === "Digital Engineering") {
         return pathname === "/services/software";
       }
-      if (childLabel === "Cloud & Enterprise Platforms" || childLabel === "Cloud & Infrastructure") {
+      if (childLabel === "Cloud & Infrastructure") {
         return pathname === "/services/cloud";
       }
-      if (childLabel === "Managed Delivery Services" || childLabel === "Managed Delivery") {
+      if (childLabel === "Enterprise Applications") {
+        return pathname.startsWith("/services/enterprise-applications") || pathname.startsWith("/services/sap");
+      }
+      if (childLabel === "Workforce Solutions") {
+        return pathname.startsWith("/services/staffing");
+      }
+      if (childLabel === "Managed Delivery") {
         return pathname === "/services/managed-delivery";
       }
     }
@@ -131,9 +121,9 @@ export function Header() {
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 bg-white ${scrolled ? "shadow-md" : "border-b border-slate-100"}`}>
-      <div className="mx-auto flex max-w-[1460px] items-center justify-between px-4 py-2.5 lg:px-6 xl:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 lg:px-8">
         <Logo />
-        <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 shrink-0">
+        <nav className="hidden lg:flex items-center gap-1">
           {NAV.map((item) => {
             const hasChildren = "children" in item && Boolean(item.children);
             const active = isItemActive(item.to);
@@ -155,7 +145,7 @@ export function Header() {
                       setOpenDropdown((prev) => (prev === item.label ? null : item.label));
                     }
                   }}
-                  className={`relative flex items-center gap-1 whitespace-nowrap px-2 xl:px-3 py-1.5 xl:py-2 text-[13px] xl:text-[14px] rounded-lg border transition-all duration-200 font-semibold shrink-0 ${
+                  className={`relative flex items-center gap-1.5 px-3.5 py-2 text-[14px] rounded-lg border transition-all duration-200 font-semibold ${
                     active
                       ? "bg-[#0a1628] text-white border-[#0a1628] shadow-sm"
                       : "text-slate-800 border-transparent hover:text-blue-700 hover:bg-slate-50"
@@ -236,6 +226,14 @@ export function Header() {
             );
           })}
         </nav>
+        <div className="hidden lg:flex items-center gap-3">
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#0a1628] px-5 py-2.5 text-[13px] font-bold text-white shadow-sm hover:bg-[#152a4d] transition-colors"
+          >
+            Talk to an Expert <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
         <button
           onClick={() => setOpen((v) => !v)}
           className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg text-ink hover:bg-soft transition-colors"
@@ -291,6 +289,13 @@ export function Header() {
                   </div>
                 );
               })}
+              <Link
+                to="/contact"
+                onClick={() => setOpen(false)}
+                className="mt-3 flex items-center justify-center gap-2 rounded-lg bg-[#1d4ed8] px-5 py-3 text-sm font-bold text-white shadow-sm"
+              >
+                Talk to an Expert <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </motion.div>
         )}
