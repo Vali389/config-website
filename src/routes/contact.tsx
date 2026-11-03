@@ -316,7 +316,7 @@ function Page() {
           <SectionHeading
             eyebrow="Global Presence"
             title="Interactive Locations & Delivery Hubs"
-            subtitle="Explore our nationwide network across North America and offshore technology centers in India. Click any location pin on the map or select from the directory to view office coordinates and directions."
+            subtitle="Explore our corporate headquarters in the United States, Canadian hub in Toronto, and offshore technology delivery center in Hyderabad, India. Click any location pin on the map or select an office to view coordinates and directions."
           />
           <div className="mt-12">
             <InteractiveLeafletMap />
