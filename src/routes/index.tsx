@@ -44,6 +44,8 @@ import {
   ClipboardCheck,
   BarChart3,
   TrendingUp,
+  Network,
+  Share2,
 } from "lucide-react";
 
 import gccHeroSkyline from "@/assets/gcc-hero-skyline.jpg";
