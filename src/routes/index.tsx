@@ -1395,7 +1395,7 @@ function GCCSpotlightSection() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1.5">
               GCC TALENT SOLUTIONS • INDIA
             </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+            <h2 className="text-xl sm:text-2xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight whitespace-normal sm:whitespace-nowrap">
               Powering India's Next Phase of <span className="text-[#e89218]">GCC Growth</span>
             </h2>
             <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-2xl font-normal leading-relaxed">

@@ -309,7 +309,7 @@ function GCCGrowthPage() {
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full my-auto py-8">
-          <div className="max-w-3xl">
+          <div className="max-w-5xl">
             {/* Signature Amber Eyebrow */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -322,15 +322,14 @@ function GCCGrowthPage() {
               </p>
             </motion.div>
 
-            {/* Main Headline */}
+            {/* Main Headline (Single Line) */}
             <motion.h1
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-display text-3xl sm:text-4xl lg:text-[3.75rem] font-extrabold text-white leading-[1.08] tracking-tight"
+              className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] xl:text-[3.15rem] font-extrabold text-white leading-[1.12] tracking-tight whitespace-normal sm:whitespace-nowrap"
             >
               Powering India's Next Phase of{" "}
-              <br className="hidden sm:inline" />
               <span className="text-[#f5a623] font-extrabold">
                 GCC Growth.
               </span>
