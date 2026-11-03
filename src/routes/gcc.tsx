@@ -31,7 +31,6 @@ import {
   Database,
   Landmark,
   FileCheck2,
-  Compass,
 } from "lucide-react";
 
 import gccHeroSkyline from "@/assets/gcc-hero-skyline.jpg";
@@ -165,43 +164,43 @@ const HIRING_DEMAND_AREAS = [
     icon: BrainCircuit,
     badge: "AI & Innovation",
     title: "AI & Agentic AI",
-    desc: "AI engineering, intelligent automation, agentic workflows, and enterprise-grade generative AI solutions.",
+    desc: "AI engineering, intelligent automation, agentic workflows, and enterprise AI solutions.",
   },
   {
     icon: Database,
     badge: "Data & Insights",
     title: "Data Engineering & Advanced Analytics",
-    desc: "Data platforms, enterprise data pipelines, engineering, analytics, business intelligence, and real-time streaming.",
+    desc: "Data platforms, enterprise data pipelines, engineering, analytics, and business intelligence.",
   },
   {
     icon: ShieldCheck,
     badge: "Security & Platforms",
     title: "Cybersecurity & Cloud",
-    desc: "Enterprise security posture, Zero Trust, cloud architecture, platform engineering, and infrastructure modernisation.",
+    desc: "Enterprise security, Zero Trust, cloud architecture, and infrastructure modernisation.",
   },
   {
     icon: LineChart,
     badge: "Quantitative Models",
     title: "Quantitative Finance & Risk Analytics",
-    desc: "Complex financial modelling, risk management, credit risk analytics, and quantitative algorithmic analysis.",
+    desc: "Financial modelling, quantitative risk management, and quantitative algorithmic analysis.",
   },
   {
     icon: Cpu,
     badge: "Digital Products",
     title: "Digital Product Engineering",
-    desc: "Core product development, modern microservices, platform engineering, and modern application architecture.",
+    desc: "Product development, platform engineering, and modern application architecture.",
   },
   {
     icon: Landmark,
-    badge: "Operations",
+    badge: "Financial Operations",
     title: "Investment Operations",
-    desc: "Middle and back-office financial operations, trade execution support, investment services, and institutional support.",
+    desc: "Financial operations, investment services, institutional support, and trade workflows.",
   },
   {
     icon: FileCheck2,
     badge: "RegTech",
     title: "Regulatory Technology & Compliance",
-    desc: "Regulatory reporting operations, automated compliance technology, statutory compliance, and enterprise risk management.",
+    desc: "Regulatory operations, compliance technology, statutory reporting, and risk management.",
   },
 ];
 
@@ -210,27 +209,27 @@ const DEMAND_PROFESSIONALS = [
   {
     icon: BrainCircuit,
     title: "AI Engineers",
-    desc: "Engineers who can develop, deploy, and operationalise enterprise AI and agentic solutions at scale.",
+    desc: "Professionals who can develop, deploy, and operationalise enterprise AI solutions.",
   },
   {
     icon: Database,
     title: "Data Leaders",
-    desc: "Senior data practitioners who can translate vast information assets into strategic business decisions.",
+    desc: "Leaders who can translate complex information assets into high-impact business decisions.",
   },
   {
     icon: ShieldCheck,
     title: "Cybersecurity Professionals",
-    desc: "Specialists who deeply understand enterprise security frameworks, cloud vulnerabilities, and institutional risk.",
+    desc: "Specialists who understand enterprise security posture, regulatory compliance, and institutional risk.",
   },
   {
     icon: Cpu,
     title: "Product Engineers",
-    desc: "Hands-on engineers who take complete ownership of platforms, products, code quality, and technology roadmaps.",
+    desc: "Engineers who take complete ownership of platforms, products, and technology roadmaps.",
   },
   {
     icon: Landmark,
     title: "BFSI Specialists",
-    desc: "Professionals who combine rigorous financial and banking domain expertise with modern technology capabilities.",
+    desc: "Professionals who combine deep financial domain expertise with technology capabilities.",
   },
   {
     icon: Network,
@@ -295,41 +294,76 @@ function GCCGrowthPage() {
 
   return (
     <div className="bg-white text-slate-900 min-h-screen">
-      {/* ────────────────────── 1. HERO SECTION (Deep Navy Corporate) ────────────────────── */}
-      <section className="relative pt-28 sm:pt-32 pb-16 overflow-hidden bg-[#071326] text-white">
-        {/* Boardroom / Cityscape Backdrop */}
+      {/* ────────────────────── 1. HERO SECTION (High-Impact Background Image matching Homepage) ────────────────────── */}
+      <section className="relative min-h-[92vh] flex flex-col justify-between pt-28 sm:pt-32 pb-12 overflow-hidden bg-[#071326] text-white">
+        {/* Full Visibility Photography matching Homepage Hero pattern */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <img
             src={gccHeroSkyline}
-            alt="Boardroom overlooking city skyline representing India GCC growth"
-            className="w-full h-full object-cover object-center opacity-25"
+            alt="ConfigUSA GCC Enterprise Leadership in Executive Boardroom overlooking illuminated city skyline"
+            className="h-full w-full object-cover object-right lg:object-center"
           />
-          <div className="absolute inset-0 bg-[#071326]/90 via-[#071326]/85 to-[#071326]/98" />
+          {/* Corporate Gradient: Deep Navy on left for sharp text legibility, transparent on right to reveal the boardroom & skyline */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/90 via-45% to-transparent to-65%" />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#071326] via-[#071326]/70 to-transparent" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Eyebrow & Headline matching Homepage Hero Style */}
-          <div className="max-w-4xl">
-            <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-3.5">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#f5a623]">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full my-auto py-8">
+          <div className="max-w-3xl">
+            {/* Signature Amber Eyebrow */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="border-l-[3px] border-[#f5a623] pl-3.5 mb-4"
+            >
+              <p className="text-xs sm:text-[13px] font-bold uppercase tracking-[0.22em] text-[#f5a623]">
                 GCC TALENT SOLUTIONS
-              </span>
-            </div>
-            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
-              Powering India's Next Phase of GCC Growth
-            </h1>
-            <p className="mt-3 text-lg sm:text-xl text-slate-200 font-semibold">
-              Connecting Leadership Talent with Global Opportunities
-            </p>
-            <p className="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed">
-              India is emerging as a strategic destination for Global Capability Centres (GCCs). What began as an offshore delivery model has evolved into a global operating model, with GCCs taking on increasingly important responsibilities across technology, engineering, finance, operations, AI, data and business transformation.
-            </p>
-            <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
-              Today, GCCs are not simply supporting global organisations. They are driving innovation, building enterprise capabilities and contributing directly to global business strategy. With new centres being established and existing GCCs expanding their mandates, the demand for experienced leadership, specialised expertise and high-performing teams continues to grow.
-            </p>
+              </p>
+            </motion.div>
 
-            {/* Hero CTAs */}
-            <div className="mt-7 flex flex-wrap items-center gap-3.5">
+            {/* Main Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="font-display text-3xl sm:text-4xl lg:text-[3.75rem] font-extrabold text-white leading-[1.08] tracking-tight"
+            >
+              Powering India's Next Phase of GCC Growth
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="mt-4 text-lg sm:text-xl text-slate-200 font-semibold leading-snug"
+            >
+              Connecting Leadership Talent with Global Opportunities
+            </motion.p>
+
+            {/* Description */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed space-y-2.5 max-w-2xl"
+            >
+              <p>
+                India is emerging as a strategic destination for Global Capability Centres (GCCs). What began as an offshore delivery model has evolved into a global operating model, with GCCs taking on increasingly important responsibilities across technology, engineering, finance, operations, AI, data and business transformation.
+              </p>
+              <p>
+                Today, GCCs are not simply supporting global organisations. They are driving innovation, building enterprise capabilities and contributing directly to global business strategy.
+              </p>
+            </motion.div>
+
+            {/* Action Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="mt-7 flex flex-wrap items-center gap-3.5"
+            >
               <a
                 href="#consultation-form"
                 onClick={() => setActiveFormTab("organisation")}
@@ -346,10 +380,10 @@ function GCCGrowthPage() {
                 <Users className="h-4 w-4 text-[#f5a623]" />
                 Explore GCC Career Opportunities
               </a>
-            </div>
+            </motion.div>
           </div>
 
-          {/* Top 4 Stat Highlight Pills */}
+          {/* 4 Highlight Pills across bottom of Hero */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
             {TOP_HIGHLIGHTS.map((item, idx) => (
               <motion.div
@@ -374,25 +408,23 @@ function GCCGrowthPage() {
       </section>
 
       {/* ────────────────────── 2. AUDIENCE GATEWAY & KEY ROLES (Soft Slate Background) ────────────────────── */}
-      <section className="py-16 lg:py-20 bg-[#f8fafc] border-b border-slate-200/60">
+      <section className="py-20 lg:py-24 bg-[#f8fafc] border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
-          <div className="mb-10 text-center max-w-3xl mx-auto">
-            <div className="border-l-[3px] border-[#f5a623] pl-3.5 inline-block text-left mb-2">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218]">
-                STRATEGIC TALENT SOLUTIONS
-              </span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071326] tracking-tight">
-              A Changing Talent Landscape
+          <div className="mb-12 border-l-[3px] border-[#f5a623] pl-3.5 max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1.5">
+              A CHANGING TALENT LANDSCAPE
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+              Connecting Leadership Talent with Global Opportunities
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate-600">
+            <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
               The expansion of India's GCC ecosystem, combined with the return of experienced Indian technology professionals from international markets, is creating new opportunities for organisations and individuals alike.
             </p>
           </div>
 
           {/* Dual Audience Cards */}
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 gap-8 mb-14">
             {/* Card 1: For Organisations */}
             <div className="rounded-2xl bg-white border border-slate-200/90 p-7 sm:p-8 shadow-sm flex flex-col justify-between hover:border-blue-400 hover:shadow-lg transition-all duration-300">
               <div>
@@ -413,7 +445,7 @@ function GCCGrowthPage() {
                   </span>
                 </div>
 
-                <div className="relative h-48 rounded-xl overflow-hidden mb-5 border border-slate-100">
+                <div className="relative h-48 rounded-xl overflow-hidden mb-5 border border-slate-100 shadow-xs">
                   <img
                     src={gccEnterpriseHub}
                     alt="GCC Enterprise Hub"
@@ -468,7 +500,7 @@ function GCCGrowthPage() {
                   </span>
                 </div>
 
-                <div className="relative h-48 rounded-xl overflow-hidden mb-5 border border-slate-100">
+                <div className="relative h-48 rounded-xl overflow-hidden mb-5 border border-slate-100 shadow-xs">
                   <img
                     src={gccExecutiveTalent}
                     alt="GCC Executive Leader"
@@ -505,7 +537,7 @@ function GCCGrowthPage() {
           </div>
 
           {/* Key Roles We Help Fill (9-Role Grid) */}
-          <div className="mb-10">
+          <div className="mb-12">
             <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-6">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1">
                 KEY ROLES WE HELP FILL
@@ -535,7 +567,7 @@ function GCCGrowthPage() {
           </div>
 
           {/* Our Value Strip */}
-          <div className="mb-10 rounded-2xl bg-white border border-slate-200/90 p-5 sm:p-6 shadow-sm">
+          <div className="mb-12 rounded-2xl bg-white border border-slate-200/90 p-5 sm:p-6 shadow-sm">
             <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-6">
               <div className="shrink-0 flex items-center gap-2 bg-[#07172f] text-white px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider">
                 <Award className="h-4 w-4 text-[#f5a623]" />
@@ -592,74 +624,80 @@ function GCCGrowthPage() {
         </div>
       </section>
 
-      {/* ────────────────────── 3. STRATEGIC INTELLIGENCE REPORT (Clean White Background) ────────────────────── */}
+      {/* ────────────────────── 3. STRATEGIC INTELLIGENCE REPORT (Redesigned matching Homepage Editorial Aesthetics) ────────────────────── */}
       <section className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Main Report Header */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="border-l-[3px] border-[#f5a623] pl-3.5 inline-block text-left mb-3">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218]">
+          {/* Main Editorial Header */}
+          <div className="mb-16">
+            <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-3">
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#e89218]">
                 STRATEGIC INTELLIGENCE REPORT
-              </span>
+              </p>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#071326] tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-[2.65rem] font-extrabold text-[#071326] tracking-tight leading-[1.15] max-w-4xl">
               India's GCC Landscape: Hiring, Restructuring and the Future of Talent
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+            <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-3xl leading-relaxed">
               Understanding where the opportunities are emerging, which capabilities are gaining importance and how
               organisations and professionals need to prepare.
             </p>
 
-            <div className="mt-8 p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200/90 text-left max-w-4xl mx-auto shadow-xs border-l-4 border-l-blue-600">
-              <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                India's Global Capability Centre (GCC) ecosystem is entering a new phase of transformation. Some GCCs
-                are expanding their operations and taking on larger global responsibilities. Others are restructuring
-                their operating models, reassessing workforce requirements and accelerating automation. At the same time,
-                some professionals are securing exciting career opportunities, while others are navigating uncertainty
-                about the future of their roles.
-              </p>
-              <div className="mt-4 pt-3 border-t border-slate-200 text-sm sm:text-base font-bold text-blue-900">
-                Welcome to the new reality of India's GCC economy — where growth, transformation and workforce restructuring are happening simultaneously.
+            {/* Editorial Overview Card (Homepage Mission Card Style) */}
+            <div className="mt-8 bg-[#f8fafc] rounded-2xl p-7 sm:p-8 border border-slate-200/90 shadow-sm relative overflow-hidden">
+              <div className="max-w-4xl">
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                  India's Global Capability Centre (GCC) ecosystem is entering a new phase of transformation. Some GCCs
+                  are expanding their operations and taking on larger global responsibilities. Others are restructuring
+                  their operating models, reassessing workforce requirements and accelerating automation. At the same time,
+                  some professionals are securing exciting career opportunities, while others are navigating uncertainty
+                  about the future of their roles.
+                </p>
+                <div className="mt-4 pt-4 border-t border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <p className="text-sm sm:text-[15px] font-bold text-[#071326]">
+                    Welcome to the new reality of India's GCC economy — where growth, transformation and workforce restructuring are happening simultaneously.
+                  </p>
+                  <div className="h-1 w-12 bg-[#f5a623] rounded-full shrink-0" />
+                </div>
               </div>
             </div>
           </div>
 
           {/* ──────────────── 1. Where Is the Hiring Demand? ──────────────── */}
-          <div className="mb-16">
-            <div className="flex items-center gap-3.5 mb-4">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600 text-white font-extrabold text-sm shadow-sm">
+          <div className="mb-20">
+            <div className="flex items-center gap-3.5 mb-3">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#07172f] text-white font-extrabold text-sm shadow-xs">
                 1
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#071326] tracking-tight">
+              <h3 className="text-2xl sm:text-[1.75rem] font-bold text-[#071326] tracking-tight">
                 Where Is the Hiring Demand?
               </h3>
             </div>
-            <p className="text-sm sm:text-base text-slate-600 max-w-4xl mb-7 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 max-w-3xl mb-8 leading-relaxed">
               Global banks, financial institutions and technology-led GCCs continue to seek specialised capabilities across critical business and technology functions. Key areas of demand include:
             </p>
 
-            {/* 7 Exact Areas of Demand Grid */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {/* 7 Demand Area Cards in Crisp White Grid */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {HIRING_DEMAND_AREAS.map((area, idx) => (
                 <div
                   key={area.title}
-                  className={`p-5 rounded-2xl border border-slate-200/90 bg-white hover:border-blue-400 hover:shadow-md transition-all duration-300 flex flex-col justify-between ${
+                  className={`p-6 rounded-2xl border border-slate-200/90 bg-white hover:border-blue-400 hover:shadow-md transition-all duration-300 flex flex-col justify-between ${
                     idx === 6 ? "sm:col-span-2 lg:col-span-1" : ""
                   }`}
                 >
                   <div>
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100/60">
-                        <area.icon className="h-5 w-5" />
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100/60">
+                        <area.icon className="h-5 w-5 stroke-[1.75]" />
                       </div>
-                      <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-600">
+                      <span className="rounded-full bg-slate-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-600">
                         {area.badge}
                       </span>
                     </div>
-                    <h4 className="text-base font-bold text-[#071326] mb-1.5 leading-snug">
+                    <h4 className="text-base sm:text-[17px] font-bold text-[#071326] mb-2 leading-snug">
                       {area.title}
                     </h4>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
                       {area.desc}
                     </p>
                   </div>
@@ -667,67 +705,83 @@ function GCCGrowthPage() {
               ))}
             </div>
 
-            <div className="mt-5 p-4 rounded-xl bg-blue-50/70 border border-blue-200/70 text-xs sm:text-sm text-blue-900 font-medium">
-              💡 <strong>Strategic Shift:</strong> The shift is towards specialised skills, stronger domain knowledge and capabilities that support global business outcomes.
+            <div className="mt-6 rounded-xl bg-slate-50 border border-slate-200/80 p-4 flex items-center gap-3">
+              <div className="h-2 w-2 rounded-full bg-[#f5a623] shrink-0" />
+              <p className="text-xs sm:text-sm text-slate-700 font-medium">
+                <strong>Strategic Direction:</strong> The shift is towards specialised skills, stronger domain knowledge and capabilities that support global business outcomes.
+              </p>
             </div>
           </div>
 
           {/* ──────────────── 2. Why Are Some GCCs Restructuring? ──────────────── */}
-          <div className="mb-16">
-            <div className="flex items-center gap-3.5 mb-4">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600 text-white font-extrabold text-sm shadow-sm">
+          <div className="mb-20">
+            <div className="flex items-center gap-3.5 mb-3">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#07172f] text-white font-extrabold text-sm shadow-xs">
                 2
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#071326] tracking-tight">
+              <h3 className="text-2xl sm:text-[1.75rem] font-bold text-[#071326] tracking-tight">
                 Why Are Some GCCs Restructuring?
               </h3>
             </div>
-            <p className="text-sm sm:text-base text-slate-600 max-w-4xl mb-6 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 max-w-3xl mb-8 leading-relaxed">
               Across the technology and business services ecosystem, organisations are reassessing their operating models, workforce structures and cost efficiencies. This includes:
             </p>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3.5 mb-6">
+            {/* 5 Restructuring Drivers */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
               {[
                 { title: "Simplifying Organisational Structures", desc: "Rationalising management layers for agile decision-making." },
                 { title: "Automating Repetitive Processes", desc: "Automating repetitive business and technology processes." },
-                { title: "Consolidating Delivery Functions", desc: "Consolidating fragmented operations into unified hubs." },
+                { title: "Consolidating Delivery Functions", desc: "Consolidating operations and delivery functions into unified hubs." },
                 { title: "Reviewing Legacy Models", desc: "Reviewing legacy technology and application support models." },
-                { title: "Aligning Capabilities", desc: "Aligning workforce capabilities directly with changing priorities." },
+                { title: "Aligning Capabilities", desc: "Aligning workforce capabilities directly with changing business priorities." },
               ].map((item, i) => (
-                <div key={i} className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between">
+                <div key={i} className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between hover:border-blue-300 transition-colors">
                   <div>
-                    <Workflow className="h-5 w-5 text-blue-600 mb-2" />
-                    <h5 className="text-xs font-bold text-[#071326] mb-1">{item.title}</h5>
-                    <p className="text-[11px] text-slate-600 leading-snug">{item.desc}</p>
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-50 text-blue-600 mb-3">
+                      <Workflow className="h-4 w-4" />
+                    </div>
+                    <h5 className="text-xs sm:text-sm font-bold text-[#071326] mb-1.5 leading-snug">{item.title}</h5>
+                    <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/90 text-slate-700 shadow-xs border-l-4 border-l-blue-600">
-              <p className="text-xs sm:text-sm leading-relaxed">
+            {/* Featured Insight Quote Card */}
+            <div className="rounded-2xl bg-white border border-slate-200/90 p-7 sm:p-8 shadow-sm border-l-4 border-l-[#f5a623]">
+              <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
                 However, restructuring in one function does not necessarily mean that the entire GCC is shrinking. An organisation may reduce traditional support roles while simultaneously investing in AI, data engineering, cybersecurity and digital product development.
               </p>
-              <p className="mt-2.5 text-sm sm:text-base font-bold text-[#071326]">
-                "The real story is not simply about job cuts or hiring growth. It is about how the nature of work is changing."
-              </p>
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <p className="text-sm sm:text-base font-bold text-[#071326]">
+                  “The real story is not simply about job cuts or hiring growth. It is about how the nature of work is changing.”
+                </p>
+                <div className="h-1 w-10 bg-[#f5a623] rounded-full shrink-0 hidden sm:block" />
+              </div>
             </div>
           </div>
 
-          {/* ──────────────── 3 & 4: Roles Under Pressure & In Demand ──────────────── */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          {/* ──────────────── 3 & 4: Roles Under Pressure & In Demand (Side-by-Side Comparison) ──────────────── */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-20">
             {/* 3. Which Roles Face Greater Pressure? */}
-            <div className="rounded-2xl border border-amber-200/80 bg-white p-7 sm:p-8 shadow-sm flex flex-col justify-between">
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm flex flex-col justify-between border-t-4 border-t-amber-500">
               <div>
-                <div className="flex items-center gap-3.5 mb-4">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#e89218] text-white font-extrabold text-sm">
-                    3
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500 text-white font-bold text-sm">
+                      3
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#071326] tracking-tight">
+                      Which Roles Face Greater Pressure?
+                    </h3>
+                  </div>
+                  <span className="rounded-full bg-amber-50 text-amber-800 border border-amber-200/60 px-3 py-1 text-[11px] font-bold uppercase tracking-wider">
+                    Evolving
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#071326] tracking-tight">
-                    Which Roles Face Greater Pressure?
-                  </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-600 mb-5 leading-relaxed">
+
+                <p className="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
                   Roles involving repetitive, standardised activities and limited business ownership may face increasing pressure from automation and operating model changes. Examples include:
                 </p>
 
@@ -742,32 +796,38 @@ function GCCGrowthPage() {
                   ].map((item, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-2 p-3 rounded-xl bg-amber-50/50 border border-amber-200/70"
+                      className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/80"
                     >
-                      <AlertTriangle className="h-4 w-4 text-[#e89218] shrink-0" />
-                      <span className="text-xs text-slate-800 font-medium leading-snug">{item}</span>
+                      <AlertTriangle className="h-4 w-4 text-[#e89218] shrink-0 mt-0.5" />
+                      <span className="text-xs text-slate-700 font-medium leading-snug">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 text-xs text-slate-600 leading-relaxed italic">
+              <div className="pt-4 border-t border-slate-100 text-xs text-slate-500 leading-relaxed italic">
                 This does not mean these roles will disappear overnight. Their responsibilities and skill requirements are likely to evolve as organisations adopt new technologies and operating models.
               </div>
             </div>
 
             {/* 4. Which Professionals Will Be in Demand? (6 exact roles) */}
-            <div className="rounded-2xl border border-blue-200/80 bg-white p-7 sm:p-8 shadow-sm flex flex-col justify-between">
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm flex flex-col justify-between border-t-4 border-t-blue-600">
               <div>
-                <div className="flex items-center gap-3.5 mb-4">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white font-extrabold text-sm">
-                    4
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white font-bold text-sm">
+                      4
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#071326] tracking-tight">
+                      Which Professionals Will Be in Demand?
+                    </h3>
+                  </div>
+                  <span className="rounded-full bg-blue-50 text-blue-700 border border-blue-200/60 px-3 py-1 text-[11px] font-bold uppercase tracking-wider">
+                    High Demand
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#071326] tracking-tight">
-                    Which Professionals Will Be in Demand?
-                  </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-600 mb-5 leading-relaxed">
+
+                <p className="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
                   The strongest opportunities are likely to emerge for professionals who combine technology expertise with business understanding and measurable outcomes. Organisations increasingly need:
                 </p>
 
@@ -775,11 +835,13 @@ function GCCGrowthPage() {
                   {DEMAND_PROFESSIONALS.map((prof) => (
                     <div
                       key={prof.title}
-                      className="p-3 rounded-xl bg-blue-50/40 border border-blue-100/80 flex items-start gap-3"
+                      className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3"
                     >
-                      <prof.icon className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
+                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 border border-blue-100/60">
+                        <prof.icon className="h-3.5 w-3.5" />
+                      </div>
                       <div className="text-xs">
-                        <strong className="text-blue-950 font-bold">{prof.title}:</strong>{" "}
+                        <strong className="text-[#071326] font-bold">{prof.title}:</strong>{" "}
                         <span className="text-slate-600">{prof.desc}</span>
                       </div>
                     </div>
@@ -787,27 +849,27 @@ function GCCGrowthPage() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 text-xs sm:text-sm font-semibold text-blue-900">
+              <div className="pt-4 border-t border-slate-100 text-xs sm:text-sm font-semibold text-blue-800">
                 The differentiator is no longer just technical knowledge. It is the ability to apply that knowledge to solve business problems.
               </div>
             </div>
           </div>
 
-          {/* ──────────────── 5 & 6: Actionable Priorities for Professionals & Leaders ──────────────── */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          {/* ──────────────── 5 & 6: Actionable Strategy for Professionals & Leaders ──────────────── */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-20">
             {/* 5. What Should GCC Professionals Be Thinking About? */}
             <div className="rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3.5 mb-4">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white font-extrabold text-sm">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#07172f] text-white font-bold text-sm">
                     5
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold text-[#071326] tracking-tight">
                     What Should GCC Professionals Be Thinking About?
                   </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-600 mb-5 leading-relaxed">
-                  Rather than focusing only on which companies are hiring today, professionals need to think about the capabilities that will remain valuable over the next three to five years. Important priorities include:
+                <p className="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
+                  Rather than focusing only on which companies are hiring today, professionals need to think about the capabilities that will remain valuable over the next three to five years. Some important priorities include:
                 </p>
 
                 <div className="space-y-3 mb-6">
@@ -836,14 +898,14 @@ function GCCGrowthPage() {
             <div className="rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3.5 mb-4">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white font-extrabold text-sm">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#07172f] text-white font-bold text-sm">
                     6
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold text-[#071326] tracking-tight">
                     What Should GCC Leaders Be Doing?
                   </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-600 mb-5 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
                   For organisations, the challenge is to balance operational efficiency with long-term capability development. Five priorities deserve attention:
                 </p>
 
@@ -870,8 +932,8 @@ function GCCGrowthPage() {
                       desc: "Help employees understand how their roles and skills can evolve.",
                     },
                   ].map((item, idx) => (
-                    <div key={idx} className="p-3 rounded-xl bg-slate-50 border border-slate-200/80">
-                      <h5 className="font-bold text-xs text-[#071326]">
+                    <div key={idx} className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
+                      <h5 className="font-bold text-xs sm:text-[13px] text-[#071326]">
                         {idx + 1}. {item.title}
                       </h5>
                       <p className="text-xs text-slate-600 mt-0.5">{item.desc}</p>
@@ -881,27 +943,29 @@ function GCCGrowthPage() {
               </div>
 
               <div className="pt-4 border-t border-slate-100 text-xs text-slate-500">
-                Balancing cost efficiency with sustainable, high-calibre leadership retention.
+                Balancing operational efficiency with sustainable long-term capability growth.
               </div>
             </div>
           </div>
 
           {/* ──────────────── 7. The Bigger Picture: Growth and Restructuring Can Coexist ──────────────── */}
-          <div className="rounded-2xl bg-[#071326] text-white p-8 sm:p-10 shadow-xl">
-            <div className="flex items-center gap-3.5 mb-4">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f5a623] text-[#071326] font-extrabold text-sm">
-                7
-              </span>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight">
-                The Bigger Picture: Growth and Restructuring Can Coexist
-              </h3>
+          <div className="rounded-2xl bg-[#071326] text-white p-8 sm:p-12 shadow-xl relative overflow-hidden">
+            <div className="relative z-10 max-w-4xl">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#f5a623] text-[#071326] font-extrabold text-sm">
+                  7
+                </span>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight">
+                  The Bigger Picture: Growth and Restructuring Can Coexist
+                </h3>
+              </div>
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                One important distinction is that hiring and restructuring can happen simultaneously within the same organisation. A GCC may be reducing its traditional support workforce while expanding its AI engineering team. It may consolidate certain operations while creating new leadership positions. It may automate existing processes while investing in digital product development.
+              </p>
+              <p className="mt-4 text-sm sm:text-base text-[#f5a623] font-semibold leading-relaxed">
+                Therefore, company-wide announcements do not automatically tell us which specific teams are expanding or contracting. Understanding the actual business mandate, technology priorities and workforce strategy is essential.
+              </p>
             </div>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-4xl">
-              One important distinction is that hiring and restructuring can happen simultaneously within the same organisation. A GCC may be reducing its traditional support workforce while expanding its AI engineering team. It may consolidate certain operations while creating new leadership positions. It may automate existing processes while investing in digital product development.
-            </p>
-            <p className="mt-3.5 text-sm sm:text-base text-[#f5a623] font-semibold max-w-4xl">
-              Therefore, company-wide announcements do not automatically tell us which specific teams are expanding or contracting. Understanding the actual business mandate, technology priorities and workforce strategy is essential.
-            </p>
           </div>
         </div>
       </section>
@@ -909,16 +973,14 @@ function GCCGrowthPage() {
       {/* ────────────────────── 4. HOW WE SUPPORT THE GCC ECOSYSTEM (Soft Slate Background) ────────────────────── */}
       <section className="py-20 lg:py-24 bg-[#f8fafc] border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="border-l-[3px] border-[#f5a623] pl-3.5 inline-block text-left mb-2">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218]">
-                PARTNERSHIP FRAMEWORK
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071326] tracking-tight">
+          <div className="mb-14 border-l-[3px] border-[#f5a623] pl-3.5 max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1.5">
+              PARTNERSHIP FRAMEWORK
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
               How We Support the GCC Ecosystem
             </h2>
-            <p className="mt-3 text-base text-slate-600">
+            <p className="mt-2 text-sm sm:text-base text-slate-600">
               We work with organisations and professionals across India's evolving GCC landscape.
             </p>
           </div>
@@ -1018,7 +1080,7 @@ function GCCGrowthPage() {
           </div>
 
           <div className="text-center">
-            <p className="text-sm sm:text-base font-semibold text-blue-900 bg-white inline-block px-6 py-3 rounded-full border border-slate-200/90 shadow-xs">
+            <p className="text-sm sm:text-base font-semibold text-[#071326] bg-white inline-block px-6 py-3 rounded-full border border-slate-200/90 shadow-xs">
               Our focus is on connecting the right people with the right opportunities and helping organisations build high-performing teams.
             </p>
           </div>
@@ -1028,16 +1090,14 @@ function GCCGrowthPage() {
       {/* ────────────────────── 5. OUR GCC SERVICES SUITE (Clean White Background) ────────────────────── */}
       <section className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="border-l-[3px] border-[#f5a623] pl-3.5 inline-block text-left mb-2">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218]">
-                END-TO-END CAPABILITY SUITE
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071326] tracking-tight">
+          <div className="mb-14 border-l-[3px] border-[#f5a623] pl-3.5 max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1.5">
+              END-TO-END CAPABILITY SUITE
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
               Our GCC Services
             </h2>
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
+            <div className="mt-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
               <span className="bg-slate-100 px-3 py-1 rounded-full">GCC Strategy</span>
               <span>•</span>
               <span className="bg-slate-100 px-3 py-1 rounded-full">GCC Setup & Scale</span>
@@ -1127,8 +1187,8 @@ function GCCGrowthPage() {
           </p>
           <div className="mt-8 p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-sm border-l-4 border-l-[#f5a623]">
             <p className="text-base sm:text-lg font-bold text-[#071326]">
-              "The question is no longer just who is hiring or who is restructuring. It is who is building the
-              capabilities that will define the next phase of global business."
+              “The question is no longer just who is hiring or who is restructuring. It is who is building the
+              capabilities that will define the next phase of global business.”
             </p>
           </div>
         </div>
