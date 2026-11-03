@@ -24,26 +24,19 @@ import contactBg from "@/assets/contact-bg.jpg";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { StatsBar } from "@/components/StatsBar";
-import { InteractiveWorldMap } from "@/components/InteractiveWorldMap";
 import { InteractiveLeafletMap } from "@/components/InteractiveLeafletMap";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact ConfigUSA — Let's Start a Conversation" },
-      { name: "description", content: "Get in touch with ConfigUSA. Offices in USA, Canada, and India. Whether you're hiring talent or looking for your next role, we're here to help." },
+      { name: "description", content: "Get in touch with ConfigUSA. Offices across North America and India. Whether you're hiring talent or looking for your next role, we're here to help." },
       { property: "og:title", content: "Contact ConfigUSA" },
       { property: "og:description", content: "Talk to our team about staffing, technology, and workforce solutions." },
     ],
   }),
   component: Page,
 });
-
-const OFFICES = [
-  { code: "US", country: "United States", city: "Plainsboro, New Jersey", tag: "Global Headquarters", addr: "666 Plainsboro Road, Suite 1237, Plainsboro, NJ 08536", phone: "+1 (609) 934-3184" },
-  { code: "CA", country: "Canada", city: "Toronto, Ontario", tag: "North America Hub", addr: "1585 Markham Road, Suite # 309, Toronto, ON M1B 2W1", phone: "+1 (647) 557-6968" },
-  { code: "IN", country: "India", city: "Hyderabad, Telangana", tag: "Delivery & Tech Center", addr: "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081", phone: "+91 80746 83380" },
-];
 
 const CONTACTS = [
   { icon: Phone, label: "USA Direct Phone", value: "+1 (609) 934-3184", href: "tel:+16099343184" },
@@ -327,18 +320,6 @@ function Page() {
           />
           <div className="mt-12">
             <InteractiveLeafletMap />
-          </div>
-
-          <div className="mt-20">
-            <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-8">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1">
-                CORPORATE & DELIVERY HEADQUARTERS
-              </p>
-              <h3 className="text-2xl font-bold text-[#071326] tracking-tight">
-                Primary Campus Details & Google Maps
-              </h3>
-            </div>
-            <InteractiveWorldMap />
           </div>
         </div>
       </section>

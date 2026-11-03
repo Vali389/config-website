@@ -24,7 +24,6 @@ interface LocationDetail {
   mapUrl: string;
   teamSize: string;
   timeZone: string;
-  flag: string;
 }
 
 const LOCATIONS_DATA: LocationDetail[] = [
@@ -43,7 +42,6 @@ const LOCATIONS_DATA: LocationDetail[] = [
       "https://maps.google.com/?q=666+Plainsboro+Road,+Suite+1237,+Plainsboro,+NJ+08536",
     teamSize: "150+ Onshore Experts",
     timeZone: "EST (UTC-5)",
-    flag: "🇺🇸",
   },
   {
     id: "canada",
@@ -59,7 +57,6 @@ const LOCATIONS_DATA: LocationDetail[] = [
       "https://maps.google.com/?q=1585+Markham+Road,+Suite+309,+Toronto,+ON+M1B+2W1",
     teamSize: "50+ Technology Consultants",
     timeZone: "EST (UTC-5)",
-    flag: "🇨🇦",
   },
   {
     id: "india",
@@ -77,7 +74,6 @@ const LOCATIONS_DATA: LocationDetail[] = [
       "https://maps.google.com/?q=Trendz+Sapphire,+Vittal+Rao+Nagar,+Madhapur,+Hitech+City,+Hyderabad+500081",
     teamSize: "350+ Global Engineers",
     timeZone: "IST (UTC+5:30)",
-    flag: "🇮🇳",
   },
 ];
 
@@ -116,9 +112,7 @@ export function InteractiveWorldMap() {
                 : "bg-white border border-slate-200 text-slate-600 hover:border-slate-300 hover:text-slate-900"
             }`}
           >
-            <span className="flex items-center gap-2">
-              <span>{loc.flag}</span> {loc.country}
-            </span>
+            <span>{loc.country}</span>
           </button>
         ))}
       </div>

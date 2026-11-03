@@ -79,7 +79,6 @@ import indRetail from "@/assets/ind-retail.jpg";
 import indGovernment from "@/assets/ind-government.jpg";
 
 import { TechTicker } from "@/components/TechTicker";
-import { InteractiveWorldMap } from "@/components/InteractiveWorldMap";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -1397,7 +1396,7 @@ function GCCSpotlightSection() {
               GCC TALENT SOLUTIONS • INDIA
             </p>
             <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
-              Powering India's Next Phase of GCC Growth
+              Powering India's Next Phase of <span className="text-[#e89218]">GCC Growth</span>
             </h2>
             <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-2xl font-normal leading-relaxed">
               Connecting Leadership Talent with Global Opportunities. From offshore delivery to strategic global

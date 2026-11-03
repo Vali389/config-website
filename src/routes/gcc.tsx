@@ -329,7 +329,11 @@ function GCCGrowthPage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="font-display text-3xl sm:text-4xl lg:text-[3.75rem] font-extrabold text-white leading-[1.08] tracking-tight"
             >
-              Powering India's Next Phase of GCC Growth
+              Powering India's Next Phase of{" "}
+              <br className="hidden sm:inline" />
+              <span className="text-[#f5a623] font-extrabold">
+                GCC Growth.
+              </span>
             </motion.h1>
 
             {/* Subtitle */}

@@ -836,7 +836,7 @@ export function InteractiveLeafletMap() {
                   : "bg-white border border-slate-200 text-slate-600 hover:text-slate-900"
               }`}
             >
-              🇺🇸 🇨🇦 North America ({naCount})
+              North America ({naCount})
             </button>
             <button
               onClick={() => handleRegionChange("india")}
@@ -846,7 +846,7 @@ export function InteractiveLeafletMap() {
                   : "bg-white border border-slate-200 text-slate-600 hover:text-slate-900"
               }`}
             >
-              🇮🇳 India Delivery Hubs ({inCount})
+              India Delivery Hubs ({inCount})
             </button>
             <button
               onClick={() => handleRegionChange("all")}
