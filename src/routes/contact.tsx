@@ -25,6 +25,7 @@ import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { StatsBar } from "@/components/StatsBar";
 import { InteractiveWorldMap } from "@/components/InteractiveWorldMap";
+import { InteractiveLeafletMap } from "@/components/InteractiveLeafletMap";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -316,15 +317,27 @@ function Page() {
         </div>
       </section>
 
-      {/* Offices & Locations with Maps */}
+      {/* Offices & Locations with Maps matching LanceSoft interactive map pattern */}
       <section id="offices" className="py-24 bg-slate-50 border-b border-slate-200/60 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading
             eyebrow="Global Presence"
-            title="Offices Across Three Continents"
-            subtitle="Strategic corporate headquarters and delivery centers positioned across the United States, Canada, and India with interactive maps and directions."
+            title="Interactive Locations & Delivery Hubs"
+            subtitle="Explore our nationwide network across North America and offshore technology centers in India. Click any location pin on the map or select from the directory to view office coordinates and directions."
           />
-          <div className="mt-14">
+          <div className="mt-12">
+            <InteractiveLeafletMap />
+          </div>
+
+          <div className="mt-20">
+            <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-8">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1">
+                CORPORATE & DELIVERY HEADQUARTERS
+              </p>
+              <h3 className="text-2xl font-bold text-[#071326] tracking-tight">
+                Primary Campus Details & Google Maps
+              </h3>
+            </div>
             <InteractiveWorldMap />
           </div>
         </div>
