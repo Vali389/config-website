@@ -398,15 +398,18 @@ function Hero() {
       {/* Main Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full my-auto py-8">
         <div className="max-w-3xl">
-          {/* Amber Eyebrow */}
-          <motion.p
+          {/* Rounded Pill Eyebrow Badge */}
+          <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-xs sm:text-[13px] font-bold uppercase tracking-[0.22em] text-[#f5a623] mb-4"
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-5 shadow-sm"
           >
-            CONFIGUSA • TECHNOLOGY. TALENT. TRANSFORMATION.
-          </motion.p>
+            <span className="h-2 w-2 rounded-full bg-[#f5a623] animate-pulse" />
+            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-[#f5a623]">
+              TECHNOLOGY. TALENT. TRANSFORMATION.
+            </span>
+          </motion.div>
 
           {/* Main Headline */}
           <motion.h1
@@ -1787,10 +1790,10 @@ function CaseStudySection() {
                   ConfigUSA's speed, talent caliber and managed execution allowed us to achieve our cloud migration milestones without compromising engineering standards.
                 </blockquote>
                 <div className="text-xs font-bold text-white">
-                  Managing Director, Enterprise Technology
+                  Managing Director, Enterprise Cloud Architecture
                 </div>
-                <div className="text-[11px] text-slate-300">
-                  Global Financial Services Client
+                <div className="text-[11px] text-[#f5a623] font-medium">
+                  Tier-1 Financial Services & Wealth Management Enterprise (Fortune 500)
                 </div>
               </div>
             </div>
@@ -1840,6 +1843,12 @@ function CaseStudySection() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Verifiable Reference Footer Note */}
+        <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+          <span className="font-semibold text-slate-700">Program Scope: Multi-Cloud Engineering, Kubernetes & FinOps Governance</span>
+          <span className="italic">*Full verified case documentation and executive reference available upon request under mutual NDA.</span>
         </div>
       </div>
     </section>

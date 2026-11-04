@@ -93,7 +93,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© 2024 ConfigUSA. All rights reserved.</p>
+          <p>© 2026 ConfigUSA. All rights reserved.</p>
           <div className="flex gap-4">
             <Link to="/privacy" className="hover:text-blue-600 transition-colors">Privacy</Link>
             <span className="text-slate-300">|</span>

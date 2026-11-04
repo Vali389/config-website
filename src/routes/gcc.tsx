@@ -538,7 +538,7 @@ function GCCGrowthPage() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.35 + idx * 0.08 }}
-                className="p-5 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md hover:bg-white/15 transition-all"
+                className="p-5 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md hover:bg-white/15 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-600 text-white mb-3 shadow-md">
                   <card.icon className="h-5 w-5" />
@@ -631,7 +631,7 @@ function GCCGrowthPage() {
             {WHY_CONFIGUSA.map((item) => (
               <div
                 key={item.title}
-                className="rounded-2xl bg-white border border-slate-200/90 p-7 shadow-sm hover:border-red-500 hover:shadow-md transition-all duration-300 group flex flex-col justify-between"
+                className="rounded-2xl bg-white border border-slate-200/90 p-7 shadow-sm hover:border-red-500 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl group flex flex-col justify-between"
               >
                 <div>
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-red-600 border border-red-100 group-hover:bg-red-600 group-hover:text-white transition-colors duration-200 mb-5">
@@ -673,7 +673,7 @@ function GCCGrowthPage() {
             {CORE_SERVICES.map((srv) => (
               <div
                 key={srv.id}
-                className="rounded-2xl bg-white border border-slate-200/90 shadow-sm p-7 flex flex-col justify-between hover:border-red-400 hover:shadow-lg transition-all duration-300 relative overflow-hidden"
+                className="rounded-2xl bg-white border border-slate-200/90 shadow-sm p-7 flex flex-col justify-between hover:border-red-400 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl relative overflow-hidden group"
               >
                 <div className="absolute top-0 right-0 w-24 h-24 bg-red-50/50 rounded-bl-full pointer-events-none" />
                 <div>
@@ -740,7 +740,7 @@ function GCCGrowthPage() {
             {INDUSTRY_EXPERTISE.map((ind) => (
               <div
                 key={ind.title}
-                className="rounded-2xl bg-white border border-slate-200/90 shadow-sm overflow-hidden flex flex-col justify-between hover:border-red-400 hover:shadow-lg transition-all duration-300 group"
+                className="rounded-2xl bg-white border border-slate-200/90 shadow-sm overflow-hidden flex flex-col justify-between hover:border-red-400 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl group"
               >
                 <div>
                   <div className="relative h-44 overflow-hidden">
@@ -809,7 +809,7 @@ function GCCGrowthPage() {
             {ENTERPRISE_CREDENTIALS.map((c) => (
               <div
                 key={c.label}
-                className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
+                className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-red-500/50"
               >
                 <div className="text-3xl sm:text-4xl font-extrabold text-red-400">
                   {c.metric}
@@ -833,7 +833,7 @@ function GCCGrowthPage() {
               {DELIVERY_CAPABILITIES.map((cap) => (
                 <div
                   key={cap.title}
-                  className="p-5 rounded-xl bg-white/5 border border-white/10 hover:border-red-500/60 transition-colors"
+                  className="p-5 rounded-xl bg-white/5 border border-white/10 hover:border-red-500/60 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
                 >
                   <div className="flex items-center gap-2.5 mb-2">
                     <span className="h-2 w-2 rounded-full bg-red-400" />
@@ -868,7 +868,7 @@ function GCCGrowthPage() {
             {CASE_STUDIES.map((cs, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl bg-white border border-slate-200/90 shadow-sm overflow-hidden flex flex-col justify-between hover:border-red-400 hover:shadow-xl transition-all duration-300 group"
+                className="rounded-2xl bg-white border border-slate-200/90 shadow-sm overflow-hidden flex flex-col justify-between hover:border-red-400 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl group"
               >
                 <div>
                   <div className="relative h-48 overflow-hidden">
@@ -953,7 +953,7 @@ function GCCGrowthPage() {
             {GCC_INTELLIGENCE_2026.map((item, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl bg-white border border-slate-200/90 p-6 shadow-sm flex flex-col justify-between hover:border-red-400 hover:shadow-md transition-all duration-200"
+                className="rounded-2xl bg-white border border-slate-200/90 p-6 shadow-sm flex flex-col justify-between hover:border-red-400 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
@@ -1056,7 +1056,7 @@ function GCCGrowthPage() {
 
               {/* Desk Information Cards */}
               <div className="space-y-4 pt-4">
-                <div className="p-5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-4">
+                <div className="p-5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-4 transform transition-all duration-300 hover:-translate-y-1 hover:border-red-500/60 hover:shadow-lg">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-600 text-white font-bold">
                     <MapPin className="h-5 w-5" />
                   </div>
@@ -1078,7 +1078,7 @@ function GCCGrowthPage() {
                   </div>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-4">
+                <div className="p-5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-4 transform transition-all duration-300 hover:-translate-y-1 hover:border-red-500/60 hover:shadow-lg">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-600 text-white font-bold">
                     <Building2 className="h-5 w-5" />
                   </div>

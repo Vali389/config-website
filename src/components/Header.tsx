@@ -162,6 +162,11 @@ export function Header() {
                   }`}
                 >
                   {item.label}
+                  {item.to === "/gcc" && (
+                    <span className="hidden xl:inline-block px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-red-100 text-red-700 border border-red-200 leading-none ml-1">
+                      India Hub
+                    </span>
+                  )}
                   {hasChildren && (
                     <ChevronDown
                       className={`h-3.5 w-3.5 transition-transform duration-200 ${
@@ -262,11 +267,20 @@ export function Header() {
                     <Link
                       to={item.to as any}
                       onClick={() => setOpen(false)}
-                      className={`block rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors ${
-                        active ? "bg-[#0a1628] text-white font-bold" : "text-slate-800 hover:bg-slate-50"
+                      className={`flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors ${
+                        active
+                          ? "bg-[#0a1628] text-white font-bold"
+                          : item.to === "/gcc"
+                          ? "bg-red-50 text-red-700 font-bold border border-red-200/60"
+                          : "text-slate-800 hover:bg-slate-50"
                       }`}
                     >
-                      {item.label}
+                      <span>{item.label}</span>
+                      {item.to === "/gcc" && (
+                        <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-red-600 text-white">
+                          India Hub
+                        </span>
+                      )}
                     </Link>
                     {"children" in item && item.children && (
                       <div className="ml-4 mt-1 space-y-1">
