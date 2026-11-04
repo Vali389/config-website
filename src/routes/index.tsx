@@ -405,7 +405,7 @@ function Hero() {
             transition={{ duration: 0.5 }}
             className="text-xs sm:text-[13px] font-bold uppercase tracking-[0.22em] text-[#f5a623] mb-4"
           >
-            AI • FORWARD-DEPLOYED ENGINEERING • PALANTIR SERVICES
+            CONFIGUSA • TECHNOLOGY. TALENT. TRANSFORMATION.
           </motion.p>
 
           {/* Main Headline */}
@@ -413,11 +413,10 @@ function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-display text-4xl sm:text-5xl lg:text-[4.25rem] font-extrabold text-white leading-[1.06] tracking-tight"
+            className="font-display text-4xl sm:text-5xl lg:text-[4rem] font-extrabold text-white leading-[1.08] tracking-tight"
           >
-            Technology. Talent.
-            <br />
-            Transformation.
+            Engineering Enterprise Growth Through{" "}
+            <span className="text-[#f5a623]">Technology and Talent.</span>
           </motion.h1>
 
           {/* Supporting Description */}
@@ -427,7 +426,17 @@ function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6 text-base sm:text-lg lg:text-[19px] text-slate-200 max-w-2xl leading-relaxed font-normal"
           >
-            The Right Talent. The Right Engineering. Real Business Outcomes. Helping enterprises translate technology priorities into measurable results through Forward-Deployed Engineering (FDE), Palantir Foundry & AIP implementation, and specialized workforce solutions.
+            We help enterprises accelerate technology transformation through specialised engineering, AI capabilities, enterprise platforms and scalable workforce solutions.
+          </motion.p>
+
+          {/* Supporting Tagline */}
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.22 }}
+            className="mt-3 text-xs sm:text-sm font-bold tracking-wider text-[#f5a623] uppercase"
+          >
+            The Right Talent. The Right Engineering. Real Business Outcomes.
           </motion.p>
 
           {/* FDE & Palantir Left-Side Feature Badges */}
@@ -676,7 +685,7 @@ function CapabilitiesSection() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div className="border-l-[3px] border-[#f5a623] pl-3.5">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1.5">
-              SPECIALIZED CAPABILITIES
+              ENTERPRISE CAPABILITIES
             </p>
             <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
               Specialized Engineering for Enterprise Transformation
@@ -1301,7 +1310,7 @@ function GlobalDeliverySection() {
           <div className="lg:col-span-7">
             <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-3">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#f5a623]">
-                GLOBAL DELIVERY
+                GLOBAL DELIVERY CAPABILITIES
               </p>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-snug tracking-tight">
@@ -1393,7 +1402,7 @@ function GCCSpotlightSection() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div className="border-l-[3px] border-[#f5a623] pl-3.5">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1.5">
-              GCC TALENT SOLUTIONS • INDIA
+              GCC & GLOBAL WORKFORCE SOLUTIONS
             </p>
             <h2 className="text-xl sm:text-2xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight whitespace-normal sm:whitespace-nowrap">
               Powering India's Next Phase of <span className="text-[#e89218]">GCC Growth</span>
@@ -1701,7 +1710,7 @@ function CaseStudySection() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div className="border-l-[3px] border-[#f5a623] pl-3.5">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218] mb-1.5">
-              SUCCESS STORY & CASE STUDY
+              CLIENT SUCCESS STORIES
             </p>
             <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
               Scaling a 40-Person Cloud Engineering Org in 41 Days
@@ -1996,6 +2005,9 @@ function FinalCTA() {
     <section className="py-16 px-4 lg:px-8 bg-[#0a1628]">
       <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-8 py-4">
         <div>
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#f5a623] mb-2">
+            CONTACT / PARTNERSHIP ENQUIRY
+          </p>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
             Ready to Build What's Next?
           </h2>
@@ -2029,21 +2041,42 @@ function FinalCTA() {
 function HomePage() {
   return (
     <>
+      {/* 1. Hero – Technology. Talent. Transformation. */}
       <Hero />
       <TechTicker title="TRUSTED BY ENTERPRISE & PUBLIC-SECTOR ORGANIZATIONS" />
-      <WhoWeAre />
+
+      {/* 2. Enterprise Capabilities – AI, FDE, Palantir, Digital Engineering */}
       <CapabilitiesSection />
       <FDESpotlightSection />
+
+      {/* 3. Enterprise Platforms – Workday, SAP, MuleSoft, Salesforce */}
       <EnterprisePlatformsSection />
+
+      {/* 4. GCC & Global Workforce Solutions */}
+      <GCCSpotlightSection />
+
+      {/* 5. Engagement Models */}
       <EngagementModelsSection />
       <ProcessSection />
+
+      {/* 6. Industry Expertise */}
       <IndustriesSection />
+
+      {/* 7. Global Delivery Capabilities */}
       <GlobalDeliverySection />
-      <GCCSpotlightSection />
-      <CaseStudySection />
+      <WhoWeAre />
       <ConfigUSATodaySection />
+
+      {/* 8. Client Success Stories */}
+      <CaseStudySection />
+
+      {/* 9. Credentials & Compliance */}
       <CredentialsSection />
+
+      {/* 10. Insights & Perspectives */}
       <InsightsSection />
+
+      {/* 11. Contact / Partnership Enquiry */}
       <FinalCTA />
     </>
   );
