@@ -305,7 +305,7 @@ function ServicesIndexPage() {
                   Specialized Engineering & AI
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-                  Embedding elite problem-solving squads directly into client workflows to build production LLMs, agentic systems, and Palantir platforms.
+                  Embedding elite problem-solving squads directly into client workflows to deploy production LLMs, agentic systems, and vetted Palantir talent pipelines.
                 </p>
                 <ul className="space-y-2 text-xs text-slate-700 pt-3 border-t border-slate-100">
                   <li className="flex items-center gap-2">
