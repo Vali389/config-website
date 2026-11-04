@@ -24,7 +24,14 @@ const TRUST = [
   { icon: BadgeCheck, title: "95% Retention", text: "Placements that stay and grow with you." },
 ];
 
-const HIRING_TYPES = ["Contract", "Permanent", "Contract-to-Hire", "Project-Based", "Executive Search"];
+const HIRING_TYPES = [
+  "Contract Staffing",
+  "Contract-to-Hire",
+  "Direct Placement & Executive Search",
+  "Dedicated Engineering Pod (SOW)",
+  "Forward Deployed Squad (FDE)",
+  "GCC Seed Team / India Delivery Hub",
+];
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (

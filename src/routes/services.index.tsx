@@ -19,6 +19,7 @@ import {
   Zap,
   BarChart3,
   Layers,
+  Building2,
 } from "lucide-react";
 import aiEnterpriseHero from "@/assets/ai-enterprise-hero.jpg";
 import wdEngineering from "@/assets/wd-engineering.jpg";
@@ -120,6 +121,15 @@ const ALL_CAPABILITIES = [
       "Deploying high-caliber technical professionals for contract, contract-to-hire, and strategic engineering pod scaling.",
     to: "/services/staffing",
     tags: ["Top 3% Vetted", "48h Deployment", "Direct & Contract"],
+  },
+  {
+    icon: Building2,
+    title: "GCC Talent & Global Workforce Solutions",
+    subtitle: "India Setup, BOT & Leadership Search",
+    description:
+      "Strategic partner for global capability centres in India. Turnkey BOT delivery squads, site head and executive search, and scalable technical pods.",
+    to: "/gcc",
+    tags: ["GCC Setup", "Site Heads & CXOs", "Turnkey BOT Delivery"],
   },
   {
     icon: LifeBuoy,
@@ -266,6 +276,147 @@ function ServicesIndexPage() {
               </div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* ────────────────────────── 3 CORE STRATEGIC PILLARS (Hierarchy & Clarity) ────────────────────────── */}
+      <section className="py-16 bg-[#f8fafc] border-b border-slate-200/80">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#e89218]">
+              ENTERPRISE CAPABILITY ARCHITECTURE
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#071326] tracking-tight mt-1">
+              Three Strategic Pillars of Enterprise Transformation
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-600">
+              Clear differentiation, verified execution models, and specialized talent squads designed for Fortune 500 and mid-market growth.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-7">
+            {/* Pillar 1 */}
+            <div className="rounded-2xl bg-white border border-slate-200/90 p-7 shadow-sm hover:border-blue-400 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl flex flex-col justify-between">
+              <div>
+                <span className="inline-block px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 border border-blue-100 mb-4">
+                  Pillar 01
+                </span>
+                <h3 className="text-xl font-bold text-[#071326] mb-2">
+                  Specialized Engineering & AI
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                  Embedding elite problem-solving squads directly into client workflows to build production LLMs, agentic systems, and Palantir platforms.
+                </p>
+                <ul className="space-y-2 text-xs text-slate-700 pt-3 border-t border-slate-100">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-blue-600 shrink-0" />
+                    <span>Forward-Deployed Engineering (FDE)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-blue-600 shrink-0" />
+                    <span>Generative AI & Agentic Workflows</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-blue-600 shrink-0" />
+                    <span>Palantir Foundry & AIP Talent Squads</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-100">
+                <Link
+                  to="/services/forward-deployed-engineering"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800"
+                >
+                  <span>Explore FDE & AI Practice</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Pillar 2 */}
+            <div className="rounded-2xl bg-white border border-slate-200/90 p-7 shadow-sm hover:border-[#f5a623] transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl flex flex-col justify-between">
+              <div>
+                <span className="inline-block px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-50 text-[#b26a00] border border-amber-200/60 mb-4">
+                  Pillar 02
+                </span>
+                <h3 className="text-xl font-bold text-[#071326] mb-2">
+                  Enterprise Platforms
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                  Certified architectural guidance, integration fabrics, and 24/7 AMS squads across the 4 foundational platforms powering global business.
+                </p>
+                <ul className="space-y-2 text-xs text-slate-700 pt-3 border-t border-slate-100">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[#f5a623] shrink-0" />
+                    <span>Workday HCM & Financials (Prism/Studio)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[#f5a623] shrink-0" />
+                    <span>SAP S/4HANA Clean Core & BTP Integration</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[#f5a623] shrink-0" />
+                    <span>MuleSoft Anypoint API Mesh & Event Streams</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[#f5a623] shrink-0" />
+                    <span>Salesforce Data Cloud & Agentforce AI</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-100">
+                <Link
+                  to="/services/enterprise-applications"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#b26a00] hover:text-[#8a4e00]"
+                >
+                  <span>Explore Enterprise Platforms</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Pillar 3 */}
+            <div className="rounded-2xl bg-white border border-slate-200/90 p-7 shadow-sm hover:border-red-500 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl flex flex-col justify-between">
+              <div>
+                <span className="inline-block px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider bg-red-50 text-red-700 border border-red-200/60 mb-4">
+                  Pillar 03
+                </span>
+                <h3 className="text-xl font-bold text-[#071326] mb-2">
+                  GCC & Global Workforce Solutions
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                  End-to-end partner for multinational organisations establishing or scaling Global Capability Centres in India with executive talent and BOT squads.
+                </p>
+                <ul className="space-y-2 text-xs text-slate-700 pt-3 border-t border-slate-100">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-red-600 shrink-0" />
+                    <span>GCC Country Heads & Practice Leadership</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-red-600 shrink-0" />
+                    <span>Turnkey Build-Operate-Transfer (BOT)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-red-600 shrink-0" />
+                    <span>Dedicated Engineering Pods (Hyderabad Hub)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-red-600 shrink-0" />
+                    <span>Cross-Border Compliance (US–Canada–India)</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-100">
+                <Link
+                  to="/gcc"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700"
+                >
+                  <span>Explore GCC Growth Practice</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

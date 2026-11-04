@@ -38,7 +38,7 @@ const NAV = [
       { to: "/gcc", label: "GCC Talent Solutions", desc: "Powering India's next phase of GCC growth & executive hiring", icon: Building2 },
       { to: "/services/software", label: "Digital Engineering", desc: "Modern apps & cloud-native platforms", icon: Code },
       { to: "/services/cloud", label: "Cloud & Infrastructure", desc: "Migration, DevOps & platform engineering", icon: Cloud },
-      { to: "/services/enterprise-applications", label: "Enterprise Applications", desc: "Workday, SAP, Oracle & Salesforce platforms", icon: Boxes },
+      { to: "/services/enterprise-applications", label: "Enterprise Applications", desc: "Workday, SAP, MuleSoft & Salesforce platforms", icon: Boxes },
       { to: "/services/managed-delivery", label: "Managed Delivery Services", desc: "Dedicated onshore & offshore teams", icon: LifeBuoy },
     ],
   },
@@ -241,6 +241,7 @@ export function Header() {
             );
           })}
         </nav>
+
         <button
           onClick={() => setOpen((v) => !v)}
           className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg text-ink hover:bg-soft transition-colors"

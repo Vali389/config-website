@@ -27,6 +27,8 @@ import wdAi from "@/assets/wd-ai.jpg";
 import indFinancial from "@/assets/ind-financial.jpg";
 import indRetail from "@/assets/ind-retail.jpg";
 import aboutApproach from "@/assets/about-approach.jpg";
+import gccEnterpriseHub from "@/assets/gcc-enterprise-hub.jpg";
+import palantirFoundryAipHero from "@/assets/palantir-foundry-aip-hero.jpg";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { StatsBar } from "@/components/StatsBar";
@@ -64,6 +66,24 @@ const FEATURED_BRIEFING = {
 };
 
 const POSTS = [
+  {
+    tag: "Whitepaper",
+    title: "2026 Executive Guide: Setting Up a High-Performing GCC in India",
+    excerpt:
+      "Strategic operating models, Tier-1 location analysis (Bengaluru, Hyderabad, Pune), leadership hiring compensation benchmarks, and turnkey Build-Operate-Transfer (BOT) frameworks.",
+    date: "Feb 02, 2026",
+    readTime: "14 min read",
+    image: gccEnterpriseHub,
+  },
+  {
+    tag: "Insight",
+    title: "Bridging the AI Production Gap with Forward-Deployed Engineering",
+    excerpt:
+      "Why 80% of enterprise AI models stall before production and how embedded Forward Deployed Software Engineers (FDSE) achieve 60% faster time-to-value inside live business workflows.",
+    date: "Jan 28, 2026",
+    readTime: "6 min read",
+    image: palantirFoundryAipHero,
+  },
   {
     tag: "Insight",
     title: "The 2026 IT Talent Landscape: What Technology Leaders Need to Know",

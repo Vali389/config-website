@@ -55,21 +55,27 @@ const SOCIALS = [
 ];
 
 const SERVICES = [
-  "AI & Data Solutions",
-  "Digital Engineering & Cloud",
-  "Enterprise Applications (SAP, Oracle)",
-  "Workforce Solutions & IT Staffing",
-  "Managed Delivery & Squads",
-  "General Consultation",
+  "Forward Deployed Engineering (FDE)",
+  "GCC Talent Solutions & India Setup",
+  "Enterprise Platforms (Workday, SAP, MuleSoft, Salesforce)",
+  "Palantir Foundry & AIP Talent Squads",
+  "AI & Intelligent Solutions (GenAI / Agents)",
+  "Digital Engineering & Cloud Migration",
+  "Technology Workforce Solutions & Staffing",
+  "Managed Delivery (SOW Pods)",
+  "Executive Search & Direct Placement",
+  "General Partnership Consultation",
 ];
 
 const NEEDS = [
   "Immediate project need (< 2 weeks)",
-  "Upcoming initiative (1–3 months)",
-  "Contract / Augmentation staffing",
-  "Direct hire / Executive placement",
-  "Managed team / SOW delivery",
-  "Exploring partnerships",
+  "GCC establishment or expansion in India",
+  "Forward Deployed Engineering pod deployment",
+  "Workday / SAP / MuleSoft / Salesforce expertise",
+  "Contract staffing / capacity augmentation",
+  "Direct hire / executive placement",
+  "Managed team / outcome-based SOW",
+  "Exploring strategic enterprise partnerships",
 ];
 
 const schema = z.object({
