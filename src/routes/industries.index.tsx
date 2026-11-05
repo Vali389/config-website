@@ -9,12 +9,12 @@ import {
   Truck,
   ArrowRight,
 } from "lucide-react";
-import indFinancial from "@/assets/ind-financial.jpg";
-import indTechnology from "@/assets/ind-technology.jpg";
-import indManufacturing from "@/assets/ind-manufacturing.jpg";
-import indRetail from "@/assets/ind-retail.jpg";
-import indHealthcare from "@/assets/ind-healthcare.jpg";
-import indGovernment from "@/assets/ind-government.jpg";
+import indFinancial from "@/assets/Financial Analytics Team at Work-1.png";
+import indTechnology from "@/assets/Collaborative Tech Team in Modern Office-2.png";
+import indManufacturing from "@/assets/Collaborative Engineers in a Smart Factory-3.png";
+import indRetail from "@/assets/Retail Team Reviewing Tablet in Showroom-4.png";
+import indHealthcare from "@/assets/High-Tech Medical Research Laboratory-5.png";
+import indGovernment from "@/assets/Warehouse Logistics Dashboard Team-6.png";
 import industriesHeroBg from "@/assets/industries-bg.png";
 
 export const Route = createFileRoute("/industries/")({
@@ -171,20 +171,20 @@ function IndustriesIndexPage() {
             {SECTOR_OVERVIEWS.map((sector) => (
               <div
                 key={sector.id}
-                className="group relative rounded-2xl border border-slate-200/80 bg-white overflow-hidden shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
+                className="group relative rounded-2xl border border-slate-200/80 bg-white overflow-hidden shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:z-20"
               >
-                <div className="relative h-48 overflow-hidden bg-slate-100">
+                <div className="relative h-52 overflow-hidden bg-slate-100">
                   <img
                     src={sector.image}
                     alt={sector.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#102B4E]/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-4 flex items-center gap-2 text-white">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/20 backdrop-blur-sm">
-                      <sector.icon className="h-4 w-4" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#102B4E]/85 via-transparent to-transparent" />
+                  <div className="absolute bottom-3.5 left-4 right-4 flex items-center gap-2.5 text-white">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/20 backdrop-blur-md text-white group-hover:bg-[#245B91] transition-colors duration-300">
+                      <sector.icon className="h-4.5 w-4.5" />
                     </span>
-                    <span className="font-bold text-sm tracking-tight text-white drop-shadow-sm">
+                    <span className="font-bold text-sm sm:text-base tracking-tight text-white drop-shadow-sm">
                       {sector.name}
                     </span>
                   </div>

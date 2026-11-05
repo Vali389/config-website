@@ -1,6 +1,7 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import {
   HeartPulse,
+  Truck,
   Landmark,
   Building2,
   Factory,
@@ -17,12 +18,13 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { IndustryDetail } from "@/components/IndustryDetail";
-import indHealthcare from "@/assets/ind-healthcare.jpg";
-import indFinancial from "@/assets/ind-financial.jpg";
-import indGovernment from "@/assets/ind-government.jpg";
-import indManufacturing from "@/assets/ind-manufacturing.jpg";
-import indRetail from "@/assets/ind-retail.jpg";
-import indTechnology from "@/assets/ind-technology.jpg";
+import indHealthcare from "@/assets/High-Tech Medical Research Laboratory-5.png";
+import indFinancial from "@/assets/Financial Analytics Team at Work-1.png";
+import indGovernment from "@/assets/Warehouse Logistics Dashboard Team-6.png";
+import indManufacturing from "@/assets/Collaborative Engineers in a Smart Factory-3.png";
+import indManufacturing2 from "@/assets/Engineers Collaborating on Smart Factory Automation-7.png";
+import indRetail from "@/assets/Retail Team Reviewing Tablet in Showroom-4.png";
+import indTechnology from "@/assets/Collaborative Tech Team in Modern Office-2.png";
 
 import ctaIndustries from "@/assets/cta-industries.jpg";
 
@@ -30,11 +32,11 @@ export const Route = createFileRoute("/industries/$industryId")({
   head: ({ params }) => {
     const names: Record<string, string> = {
       healthcare: "Healthcare & Life Sciences Solutions",
-      financial: "Financial Services Solutions",
-      government: "Government & Public Sector Solutions",
-      manufacturing: "Manufacturing Solutions",
-      retail: "Retail & E-commerce Solutions",
-      technology: "Technology & SaaS Solutions",
+      financial: "Banking & Financial Services Solutions",
+      government: "Logistics & Supply Chain Solutions",
+      manufacturing: "Manufacturing & Industrial Solutions",
+      retail: "Retail & Consumer Solutions",
+      technology: "Technology & IT Services Solutions",
     };
     const title = `${names[params.industryId] ?? "Industry Solutions"} — ConfigUSA`;
     return {
@@ -59,12 +61,12 @@ const DATA: Record<string, any> = {
     eyebrow: "Healthcare & Life Sciences",
     title: <>Digital Innovation in <span className="text-[#245B91]">Healthcare.</span></>,
     subtitle: "Deliver patient-centered digital health services and secure interoperability under strict regulatory compliance.",
-    heroImage: indHealthcare,// TODO: VERIFY: Figures from original site content awaiting client confirmation.
-      stats: [
-        { value: "99.99%", label: "System Uptime" },
-        { value: "PCI-DSS", label: "Readiness" },
-        { value: "SOC 2", label: "Audit Standards" },
-      ],
+    heroImage: indHealthcare,
+    stats: [
+      { value: "HIPAA", label: "Security & Privacy" },
+      { value: "SOC 2 Type II", label: "Audit Standards" },
+      { value: "FHIR / HL7", label: "Interoperability Ready" },
+    ],
     overviewHeading: "Engineered for Clinical Trust and Security",
     overviewParas: [
       "We provide modern engineering and talent solutions for hospital networks, digital health apps, and life sciences companies.",
@@ -80,7 +82,8 @@ const DATA: Record<string, any> = {
     ],
     capabilitiesHeading: "Proven Healthcare Capabilities",
     capabilities: [
-      { icon: HeartPulse, title: "EHR / EMR Interoperability", text: "Integrate clinical records systems smoothly across networks and portals." },
+      { icon: HeartPulse,
+  Truck, title: "EHR / EMR Interoperability", text: "Integrate clinical records systems smoothly across networks and portals." },
       { icon: ShieldCheck, title: "Healthcare Compliance", text: "Enforce SOC 2, HIPAA, and patient data confidentiality controls." },
       { icon: Cpu, title: "Digital Health Apps", text: "Develop high-scale telemedicine platforms and remote monitoring tools." },
     ],
@@ -117,41 +120,42 @@ const DATA: Record<string, any> = {
     ],
   },
   government: {
-    eyebrow: "Government & Public Sector",
-    title: <>Dependable Solutions for <span className="text-[#245B91]">Public Sector.</span></>,
-    subtitle: "Modernize legacy mainframes and secure government clouds with background-checked tech squads.",
+    eyebrow: "Logistics & Supply Chain",
+    title: <>Digital Visibility & Velocity for <span className="text-[#245B91]">Supply Chains.</span></>,
+    subtitle: "Technology talent supporting supply chain visibility, telemetry, analytics, warehouse management, and resilient distribution operations.",
     heroImage: indGovernment,
     stats: [
-      { value: "ADA 508", label: "Accessibility Standards" },
-      { value: "Cleared", label: "Talent Roster" },
-      { value: "100%", label: "SLA compliance" },
-      { value: "FedRAMP", label: "Ready Systems" },
+      { value: "Real-Time", label: "Fleet & Asset Telemetry" },
+      { value: "WMS & ERP", label: "Integration Architecture" },
+      { value: "99.9%", label: "Platform Availability" },
+      { value: "End-to-End", label: "Logistics Visibility" },
     ],
-    overviewHeading: "Supporting Government Digital Transformation",
+    overviewHeading: "Modernizing Supply Chain Technology and Operational Flow",
     overviewParas: [
-      "ConfigUSA provides vetted developers and project teams to modernize public citizen services.",
-      "Our background-checked professionals keep legacy systems running while delivering secure cloud transitions."
+      "ConfigUSA provides vetted technology squads to build connected distribution networks, warehouse telemetry, and predictive logistics.",
+      "Our professionals integrate seamlessly into your engineering roadmaps to optimize routing, reduce distribution downtime, and modernize legacy inventory systems."
     ],
     benefits: [
-      "ADA Section 508 compliant frontend development",
-      "Secure cloud architecture (AWS GovCloud / Azure Government)",
-      "Strict data classification and clearance protocols",
-      "Phased legacy mainframe modernisation paths",
-      "SLA-backed deliverables to prevent project overrun",
-      "Vetted talent pool with necessary clearances",
+      "Warehouse Management System (WMS) and ERP modern integrations",
+      "Real-time shipment and fleet GPS telemetry pipelines",
+      "Automated stock visibility and inventory forecasting dashboards",
+      "Omnichannel distribution routing and dispatch algorithms",
+      "Custom vendor management portals and supplier API layers",
+      "High-throughput cloud architecture built for peak holiday surges",
     ],
-    capabilitiesHeading: "Government Tech Capabilities",
+    capabilitiesHeading: "Logistics & Supply Chain Capabilities",
     capabilities: [
-      { icon: Building2, title: "Legacy Modernization", text: "Migrate legacy mainframes to secure, modern public cloud systems." },
-      { icon: ShieldCheck, title: "Citizen Portals", text: "Build reliable citizen-facing portals conforming to accessibility laws." },
-      { icon: Cpu, title: "Secured Infrastructure", text: "Deploy GovCloud solutions following FedRAMP-aligned patterns." },
+      { icon: Truck, title: "WMS & Fleet Telemetry", text: "Connect warehouse databases and real-time fleet GPS tracking securely." },
+      { icon: ShieldCheck, title: "Inventory & Flow Visibility", text: "Deliver unified real-time inventory visibility across distribution hubs." },
+      { icon: Cpu, title: "Route & Load Optimization", text: "Build predictive algorithms and automated dispatch tools for logistics fleets." },
     ],
   },
   manufacturing: {
-    eyebrow: "Manufacturing",
-    title: <>Smart Solutions for <span className="text-[#245B91]">Manufacturing & ERP.</span></>,
+    eyebrow: "Manufacturing & Industrial",
+    title: <>Smart Solutions for <span className="text-[#245B91]">Manufacturing & Industrial.</span></>,
     subtitle: "Optimize industrial supply chains, implement certified ERP/SAP rollouts, and automate telemetry.",
     heroImage: indManufacturing,
+    overviewImage: indManufacturing2,
     stats: [
       { value: "SAP ERP", label: "Certified Engineers" },
       { value: "35%", label: "Operational Speedup" },
@@ -257,7 +261,7 @@ function Page() {
       overviewLabel="Overview"
       overviewHeading={info.overviewHeading}
       overviewParas={info.overviewParas}
-      overviewImage={info.heroImage}
+      overviewImage={info.overviewImage || info.heroImage}
       benefits={info.benefits}
       capabilitiesHeading={info.capabilitiesHeading}
       capabilities={info.capabilities}

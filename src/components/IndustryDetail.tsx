@@ -43,17 +43,17 @@ export interface IndustryDetailProps {
 export function IndustryDetail(p: IndustryDetailProps) {
   return (
     <>
-      <PageHero eyebrow={p.eyebrow} title={p.title} subtitle={p.subtitle} image={p.heroImage}>
-        <div className="flex flex-wrap justify-center gap-4">
+      <PageHero eyebrow={p.eyebrow} title={p.title} subtitle={p.subtitle} image={p.heroImage} align="left" minHeight="min-h-[440px] lg:min-h-[500px]">
+        <div className="flex flex-wrap gap-4 pt-2">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-[#C83B43] px-7 py-3.5 text-sm font-bold text-white hover:bg-[#b02f37] transition-colors shadow-sm"
+            className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
           >
             Talk to an Expert <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             to="/industries"
-            className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/5 backdrop-blur px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+            className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
           >
             All Industries
           </Link>
@@ -81,7 +81,7 @@ export function IndustryDetail(p: IndustryDetailProps) {
       )}
 
       {/* Overview */}
-      <section className="py-10 lg:py-12 bg-white overflow-hidden border-b border-slate-200/60">
+      <section className="py-8 lg:py-10 bg-white overflow-hidden border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -119,7 +119,7 @@ export function IndustryDetail(p: IndustryDetailProps) {
       </section>
 
       {/* Capabilities */}
-      <section className="py-10 lg:py-12 bg-slate-50 border-b border-slate-200/60">
+      <section className="py-8 lg:py-10 bg-slate-50 border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading eyebrow="What We Deliver" title={p.capabilitiesHeading} subtitle={p.capabilitiesSub} />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -130,9 +130,9 @@ export function IndustryDetail(p: IndustryDetailProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.07 }}
-                className="group rounded-xl bg-white p-7 sm:p-8 border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300 relative overflow-hidden"
+                className="group rounded-2xl bg-white p-7 sm:p-8 border border-slate-200/90 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 relative overflow-hidden before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 border border-blue-100 text-blue-600 group-hover:bg-[#102B4E] group-hover:text-white transition-colors duration-200">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 border border-blue-100 text-blue-600 group-hover:bg-[#245B91] group-hover:text-white transition-colors duration-200">
                   <c.icon className="h-6 w-6 stroke-[1.75]" />
                 </span>
                 <h3 className="mt-5 text-base sm:text-[17px] font-bold text-[#102B4E] group-hover:text-blue-700 transition-colors leading-snug">{c.title}</h3>
@@ -144,7 +144,7 @@ export function IndustryDetail(p: IndustryDetailProps) {
       </section>
 
       {/* Process */}
-      <section className="py-10 lg:py-12 bg-white border-b border-slate-200/60">
+      <section className="py-8 lg:py-10 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading eyebrow="How It Works" title={p.processHeading} subtitle={p.processSub} />
           <div className="mt-16 relative">
@@ -162,7 +162,7 @@ export function IndustryDetail(p: IndustryDetailProps) {
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white border-2 border-slate-200 text-blue-600 shadow-sm group-hover:bg-[#102B4E] group-hover:border-[#102B4E] group-hover:text-white transition-all duration-300 z-10">
                     <h.icon className="h-6 w-6 stroke-[1.75]" />
                   </div>
-                  <div className="mt-6 rounded-xl bg-slate-50 p-6 border border-slate-200/80 hover:bg-white hover:border-blue-400 hover:shadow-md transition-all duration-300 w-full">
+                  <div className="mt-6 rounded-2xl bg-slate-50 p-6 border border-slate-200/80 hover:bg-white hover:border-[#245B91] hover:-translate-y-1 hover:shadow-md transition-all duration-300 w-full">
                     <div className="text-xs font-bold text-[#245B91]">STEP {String(i + 1).padStart(2, "0")}</div>
                     <h3 className="mt-1 text-base font-bold text-[#102B4E] group-hover:text-blue-700 transition-colors">{h.title}</h3>
                     <p className="mt-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed">{h.text}</p>
