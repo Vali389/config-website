@@ -196,7 +196,7 @@ function CareersPage() {
               filtered.map((job) => (
                 <div
                   key={job.id}
-                  className="rounded-xl border border-slate-200/80 bg-white p-6 shadow-xs hover:border-[#245B91]/50 hover:shadow-md transition-all duration-200 flex flex-col md:flex-row md:items-center justify-between gap-4"
+                  className="group rounded-xl border border-slate-200/80 bg-white p-6 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-4"
                 >
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -254,7 +254,7 @@ function CareersPage() {
             {PROCESS_STEPS.map((s, idx) => (
               <div
                 key={s.step}
-                className="relative rounded-xl border border-slate-200/80 bg-white p-5 shadow-xs flex flex-col justify-between"
+                className="group relative rounded-xl border border-slate-200/80 bg-white p-5 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 font-bold text-xs mb-4">

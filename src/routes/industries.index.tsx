@@ -172,7 +172,7 @@ function IndustriesIndexPage() {
             {SECTOR_OVERVIEWS.map((sector) => (
               <div
                 key={sector.id}
-                className="group rounded-xl border border-slate-200/80 bg-white overflow-hidden shadow-xs hover:border-[#245B91]/50 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                className="group rounded-xl border border-slate-200/80 bg-white overflow-hidden shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
               >
                 <div className="relative h-48 overflow-hidden bg-slate-100">
                   <img

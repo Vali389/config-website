@@ -227,11 +227,11 @@ function CaseStudiesPage() {
             {CASE_STUDY_STRUCTURE.map((item) => (
               <div
                 key={item.title}
-                className="rounded-xl border border-slate-200/80 bg-white p-6 shadow-xs hover:border-[#245B91]/50 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                className="group rounded-xl border border-slate-200/80 bg-white p-6 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 font-bold text-xs">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 font-bold text-xs group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300">
                       {item.step}
                     </span>
                     <item.icon className="h-4 w-4 text-slate-400" />
@@ -275,7 +275,7 @@ function CaseStudiesPage() {
             {VERIFIED_CASE_STUDIES.map((cs) => (
               <div
                 key={cs.id}
-                className="rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-9 shadow-xs hover:border-[#245B91]/40 hover:shadow-md transition-all duration-200 overflow-hidden"
+                className="rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-9 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 overflow-hidden"
               >
                 {/* Header: Category Badge, Sector & Title */}
                 <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-100">

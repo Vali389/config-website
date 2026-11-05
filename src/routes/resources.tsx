@@ -182,10 +182,10 @@ function InsightsPage() {
             {EDITORIAL_THEMES.map((theme) => (
               <div
                 key={theme.title}
-                className="rounded-xl border border-slate-200/80 bg-white p-7 shadow-xs hover:border-[#245B91]/50 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                className="group rounded-xl border border-slate-200/80 bg-white p-7 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 mb-5">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 mb-5 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300">
                     <theme.icon className="h-5 w-5 stroke-[1.75]" />
                   </span>
                   <h3 className="text-lg font-bold text-[#102B4E] tracking-tight mb-2.5">
@@ -222,7 +222,7 @@ function InsightsPage() {
             {ARTICLES.map((article) => (
               <div
                 key={article.title}
-                className="group rounded-xl border border-slate-200/80 bg-white overflow-hidden shadow-xs hover:border-[#245B91]/50 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                className="group rounded-xl border border-slate-200/80 bg-white overflow-hidden shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
               >
                 <div className="relative h-52 overflow-hidden bg-slate-100">
                   <img

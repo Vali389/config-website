@@ -146,10 +146,10 @@ function WorkforceSolutionsPage() {
             {ENGAGEMENT_MODELS.map((model) => (
               <div
                 key={model.title}
-                className="rounded-xl border border-slate-200/80 bg-white p-7 shadow-xs hover:border-[#245B91]/50 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                className="group rounded-xl border border-slate-200/80 bg-white p-7 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 mb-5">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 mb-5 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300">
                     <model.icon className="h-5 w-5 stroke-[1.75]" />
                   </span>
                   <h3 className="text-xl font-bold text-[#102B4E] tracking-tight mb-2.5">
