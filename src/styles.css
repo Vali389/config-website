@@ -53,8 +53,8 @@
 
   /* ── Layout Tokens (Max-width: 1280px, Gap: 24px, Section: 80-96px desktop / 48-56px mobile) ── */
   --container-max-width: 80rem; /* 1280px */
-  --section-padding-desktop: 5.5rem; /* 88px (80-96px) */
-  --section-padding-mobile: 3.25rem; /* 52px (48-56px) */
+  --section-padding-desktop: 4rem; /* 64px - balanced enterprise vertical rhythm */
+  --section-padding-mobile: 2.25rem; /* 36px */
   --card-gap: 1.5rem; /* 24px */
   --card-padding: 1.625rem; /* 26px (24-28px) */
 
@@ -476,8 +476,8 @@
   }
   @media (min-width: 768px) {
     .section-padding {
-      padding-top: 5rem;
-      padding-bottom: 5rem;
+      padding-top: 3.25rem;
+      padding-bottom: 3.25rem;
     }
   }
   @media (min-width: 1024px) {

@@ -30,37 +30,42 @@ export function HomeCoreCapabilities() {
   ];
 
   return (
-    <section className="section-padding bg-white border-b border-[#e2e8f0]">
+    <section className="py-12 lg:py-16 bg-[#F8FAFC] border-b border-slate-200/80">
       <div className="container-enterprise">
         <div className="flex items-center gap-2.5 mb-8">
-          <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+          <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
             OUR CORE CAPABILITIES
           </span>
-          <span className="w-10 h-[3px] bg-[#C83B43]" />
+          <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
         </div>
 
-        {/* 4 Cards in 1 Row across Desktop */}
+        {/* 4 Interactive Floating Cards in 1 Row across Desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {capabilities.map((item) => (
             <Link
               key={item.title}
               to={item.to}
-              className="group flex flex-col justify-between p-6 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#245B91]/50 hover:shadow-md transition-all duration-200"
+              className="relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 group overflow-hidden"
             >
+              {/* Subtle top indicator bar on hover */}
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-transparent group-hover:bg-[#245B91] transition-colors duration-300" />
+
               <div>
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 mb-5">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/70 mb-5 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300">
                   <item.icon className="h-5 w-5 stroke-[1.75]" />
                 </span>
-                <h3 className="text-lg font-bold text-[#102B4E] tracking-tight mb-2">
+                <h3 className="text-lg font-bold text-[#102B4E] tracking-tight mb-2 group-hover:text-[#245B91] transition-colors duration-200">
                   {item.title}
                 </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
 
               <div className="mt-6 flex justify-end">
-                <ArrowRight className="h-4 w-4 text-[#C83B43] group-hover:translate-x-1 transition-transform" />
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-50 text-[#C83B43] group-hover:bg-red-50 group-hover:text-[#245B91] transition-colors duration-200">
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+                </span>
               </div>
             </Link>
           ))}
