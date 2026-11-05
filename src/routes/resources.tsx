@@ -159,9 +159,9 @@ function InsightsPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 2. Section: Editorial Themes (Template Card Grid)                   */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="perspectives" className="section-padding bg-white border-b border-[#e2e8f0] scroll-mt-24">
+      <section id="perspectives" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-8 items-start mb-12">
+          <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2.5 mb-3">
                 <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
@@ -182,7 +182,7 @@ function InsightsPage() {
             {EDITORIAL_THEMES.map((theme) => (
               <div
                 key={theme.title}
-                className="group rounded-xl border border-slate-200/80 bg-white p-7 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
+                className="group relative rounded-2xl border border-slate-200/80 bg-white p-7 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 overflow-hidden flex flex-col justify-between"
               >
                 <div>
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 mb-5 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300">
@@ -204,9 +204,9 @@ function InsightsPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 3. Section: Articles & Reports (Template Card Grid with Images)     */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="articles" className="section-padding bg-[#F3F5F8] border-b border-[#e2e8f0] scroll-mt-24">
+      <section id="articles" className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
-          <div className="max-w-3xl mb-12">
+          <div className="max-w-3xl mb-6">
             <div className="flex items-center gap-2.5 mb-3">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
                 ARTICLES & REPORTS
@@ -222,7 +222,7 @@ function InsightsPage() {
             {ARTICLES.map((article) => (
               <div
                 key={article.title}
-                className="group rounded-xl border border-slate-200/80 bg-white overflow-hidden shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
+                className="group relative rounded-2xl border border-slate-200/80 bg-white overflow-hidden shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
               >
                 <div className="relative h-52 overflow-hidden bg-slate-100">
                   <img

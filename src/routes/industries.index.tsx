@@ -149,9 +149,9 @@ function IndustriesIndexPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 2. Section: Industry Sectors (Template Image Cards Grid)            */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="industry-sectors" className="section-padding bg-white border-b border-[#e2e8f0] scroll-mt-24">
+      <section id="industry-sectors" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-8 items-start mb-12">
+          <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2.5 mb-3">
                 <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
@@ -172,7 +172,7 @@ function IndustriesIndexPage() {
             {SECTOR_OVERVIEWS.map((sector) => (
               <div
                 key={sector.id}
-                className="group rounded-xl border border-slate-200/80 bg-white overflow-hidden shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
+                className="group relative rounded-2xl border border-slate-200/80 bg-white overflow-hidden shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
               >
                 <div className="relative h-48 overflow-hidden bg-slate-100">
                   <img
@@ -200,7 +200,7 @@ function IndustriesIndexPage() {
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-[#C83B43] group-hover:text-[#a82e35] transition-colors"
                   >
                     <span>Explore sector solutions</span>
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
               </div>

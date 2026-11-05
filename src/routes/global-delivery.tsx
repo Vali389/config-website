@@ -126,9 +126,9 @@ function GlobalDeliveryPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 2. Section: Operating footprint (Verified Locations Only)          */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="operating-footprint" className="section-padding bg-white border-b border-[#e2e8f0] scroll-mt-24">
+      <section id="operating-footprint" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-8 items-start mb-12">
+          <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2.5 mb-3">
                 <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
@@ -180,7 +180,7 @@ function GlobalDeliveryPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 3. Section: Cross-border delivery & Governance (Split 2-Col)        */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-[#F3F5F8] border-b border-[#e2e8f0]">
+      <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-6">

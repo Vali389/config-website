@@ -121,9 +121,9 @@ function CareersPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 2. Section: Opportunities (Job Board with Filters)                  */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="openings" className="section-padding bg-white border-b border-[#e2e8f0] scroll-mt-24">
+      <section id="openings" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-8 items-start mb-10">
+          <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2.5 mb-3">
                 <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
@@ -196,7 +196,7 @@ function CareersPage() {
               filtered.map((job) => (
                 <div
                   key={job.id}
-                  className="group rounded-xl border border-slate-200/80 bg-white p-6 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-4"
+                  className="group relative rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-4"
                 >
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -236,9 +236,9 @@ function CareersPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 3. Section: Our process (5-Step Stepper Flow)                       */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-[#F3F5F8] border-b border-[#e2e8f0]">
+      <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">
-          <div className="max-w-3xl mb-12">
+          <div className="max-w-3xl mb-6">
             <div className="flex items-center gap-2.5 mb-3">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
                 OUR PROCESS
@@ -254,7 +254,7 @@ function CareersPage() {
             {PROCESS_STEPS.map((s, idx) => (
               <div
                 key={s.step}
-                className="group relative rounded-xl border border-slate-200/80 bg-white p-5 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
+                className="group relative rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 overflow-hidden flex flex-col justify-between"
               >
                 <div>
                   <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 font-bold text-xs mb-4">
@@ -281,7 +281,7 @@ function CareersPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 4. Section: Candidate commitment & General application (Split 2-Col)*/}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="candidate-commitment" className="section-padding bg-white border-b border-[#e2e8f0]">
+      <section id="candidate-commitment" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0]">
         <div className="container-enterprise">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-6">

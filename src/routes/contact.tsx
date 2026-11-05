@@ -183,7 +183,7 @@ function ContactPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 2. Enterprise Enquiry Form & Context                                */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="enquiry-form" className="section-padding bg-white border-b border-[#e2e8f0] scroll-mt-24">
+      <section id="enquiry-form" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
           <div className="grid lg:grid-cols-12 gap-12 items-start">
             {/* Form Column */}
@@ -427,9 +427,9 @@ function ContactPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 3. Verified Offices Section                                         */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-[#F3F5F8] border-b border-[#e2e8f0]">
+      <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">
-          <div className="max-w-3xl mb-10">
+          <div className="max-w-3xl mb-6">
             <div className="flex items-center gap-2.5 mb-2">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
                 OFFICE LOCATIONS

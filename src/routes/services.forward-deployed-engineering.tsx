@@ -163,7 +163,7 @@ function ForwardDeployedEngineeringPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 2. Section: What FDE means (Split Intro Layout matching Template)   */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="what-fde-means" className="section-padding bg-white border-b border-[#e2e8f0] scroll-mt-24">
+      <section id="what-fde-means" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
           <div className="grid lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7">
@@ -187,9 +187,9 @@ function ForwardDeployedEngineeringPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 3. Section: Typical areas of work (Template Card Grid)              */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-[#F3F5F8] border-b border-[#e2e8f0]">
+      <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">
-          <div className="max-w-3xl mb-12">
+          <div className="max-w-3xl mb-6">
             <div className="flex items-center gap-2.5 mb-3">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
                 TYPICAL AREAS OF WORK
@@ -205,7 +205,7 @@ function ForwardDeployedEngineeringPage() {
             {TYPICAL_AREAS.map((area) => (
               <div
                 key={area.title}
-                className="group rounded-xl border border-slate-200/80 bg-white p-7 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
+                className="group relative rounded-2xl border border-slate-200/80 bg-white p-7 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 overflow-hidden flex flex-col justify-between"
               >
                 <div>
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 mb-5 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300">
@@ -227,9 +227,9 @@ function ForwardDeployedEngineeringPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 4. Section: How an engagement works (5-Step Stepper Flow)           */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-white border-b border-[#e2e8f0]">
+      <section className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0]">
         <div className="container-enterprise">
-          <div className="max-w-3xl mb-12">
+          <div className="max-w-3xl mb-6">
             <div className="flex items-center gap-2.5 mb-3">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
                 HOW AN ENGAGEMENT WORKS
@@ -245,7 +245,7 @@ function ForwardDeployedEngineeringPage() {
             {ENGAGEMENT_STEPS.map((s, idx) => (
               <div
                 key={s.step}
-                className="group relative rounded-xl border border-slate-200/80 bg-white p-5 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
+                className="group relative rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 overflow-hidden flex flex-col justify-between"
               >
                 <div>
                   <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 font-bold text-xs mb-4">
@@ -272,7 +272,7 @@ function ForwardDeployedEngineeringPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 5. Section: Team composition & Delivery principles (Split 2-Col)   */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-[#F3F5F8] border-b border-[#e2e8f0]">
+      <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-6">

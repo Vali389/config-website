@@ -204,9 +204,9 @@ function CaseStudiesPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 2. Section: Delivery Framework (Template Card Grid)                 */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="case-study-framework" className="section-padding bg-white border-b border-[#e2e8f0] scroll-mt-24">
+      <section id="case-study-framework" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-8 items-start mb-12">
+          <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2.5 mb-3">
                 <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
@@ -227,7 +227,7 @@ function CaseStudiesPage() {
             {CASE_STUDY_STRUCTURE.map((item) => (
               <div
                 key={item.title}
-                className="group rounded-xl border border-slate-200/80 bg-white p-6 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
+                className="group relative rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 overflow-hidden flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -252,9 +252,9 @@ function CaseStudiesPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 3. Section: Verified Client Case Studies (4-Part Framework)         */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="verified-case-studies" className="section-padding bg-[#F8FAFC] border-b border-[#e2e8f0] scroll-mt-24">
+      <section id="verified-case-studies" className="py-8 lg:py-10 bg-[#F8FAFC] border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-8 items-start mb-12">
+          <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2.5 mb-3">
                 <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
@@ -364,7 +364,7 @@ function CaseStudiesPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 4. Section: Confidentiality & Briefings (Split 2-Col with Photo)   */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-white border-b border-[#e2e8f0]">
+      <section className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0]">
         <div className="container-enterprise">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-6">

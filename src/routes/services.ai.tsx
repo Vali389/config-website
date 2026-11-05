@@ -153,9 +153,9 @@ function AISolutionsPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 2. Section: Where AI can create value (Template Card Grid)          */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="where-ai-creates-value" className="section-padding bg-white border-b border-[#e2e8f0] scroll-mt-24">
+      <section id="where-ai-creates-value" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-8 items-start mb-12">
+          <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2.5 mb-3">
                 <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
@@ -176,7 +176,7 @@ function AISolutionsPage() {
             {AI_VALUE_AREAS.map((item) => (
               <div
                 key={item.title}
-                className="group rounded-xl border border-slate-200/80 bg-white p-7 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
+                className="group relative rounded-2xl border border-slate-200/80 bg-white p-7 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 overflow-hidden flex flex-col justify-between"
               >
                 <div>
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 mb-5 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300">
@@ -198,9 +198,9 @@ function AISolutionsPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 3. Section: Our approach (5-Step Stepper Flow)                      */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-[#F3F5F8] border-b border-[#e2e8f0]">
+      <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">
-          <div className="max-w-3xl mb-12">
+          <div className="max-w-3xl mb-6">
             <div className="flex items-center gap-2.5 mb-3">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
                 OUR APPROACH
@@ -216,7 +216,7 @@ function AISolutionsPage() {
             {APPROACH_STEPS.map((s, idx) => (
               <div
                 key={s.step}
-                className="group relative rounded-xl border border-slate-200/80 bg-white p-5 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between"
+                className="group relative rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 overflow-hidden flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -246,7 +246,7 @@ function AISolutionsPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 4. Section: Responsible enterprise AI & Engagement                 */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-white border-b border-[#e2e8f0]">
+      <section className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0]">
         <div className="container-enterprise">
           <div className="grid lg:grid-cols-2 gap-8">
             <div className="rounded-xl border border-slate-200/90 bg-[#F3F5F8] p-8 lg:p-10 flex flex-col justify-between">
