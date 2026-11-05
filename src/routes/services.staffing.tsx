@@ -8,7 +8,7 @@ import {
   ArrowRight,
   Check,
 } from "lucide-react";
-import heroTemplateWorkforce from "@/assets/hero_template_workforce.png";
+import workforceSolutionsHero from "@/assets/workforce-solutions-hero.jpg";
 import wdWorkforce from "@/assets/wd-workforce.jpg";
 
 export const Route = createFileRoute("/services/staffing")({
@@ -77,7 +77,7 @@ function WorkforceSolutionsPage() {
       <section className="relative min-h-[540px] lg:min-h-[620px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-20 border-b border-white/10">
         <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[58%] overflow-hidden pointer-events-none z-0">
           <img
-            src={heroTemplateWorkforce}
+            src={workforceSolutionsHero}
             alt="Workforce Solutions and Strategy"
             className="h-full w-full object-cover object-right brightness-105 contrast-105"
           />

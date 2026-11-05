@@ -10,7 +10,7 @@ import {
   ShieldAlert,
   Check,
 } from "lucide-react";
-import heroTemplatePalantir from "@/assets/hero_template_palantir.png";
+import palantirFoundryAipHero from "@/assets/palantir-foundry-aip-hero.jpg";
 import heroData from "@/assets/hero-data.jpg";
 
 export const Route = createFileRoute("/services/palantir")({
@@ -113,7 +113,7 @@ function PalantirTalentPage() {
       <section className="relative min-h-[540px] lg:min-h-[620px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-20 border-b border-white/10">
         <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[58%] overflow-hidden pointer-events-none z-0">
           <img
-            src={heroTemplatePalantir}
+            src={palantirFoundryAipHero}
             alt="Palantir Foundry and AIP Talent"
             className="h-full w-full object-cover object-right brightness-105 contrast-105"
           />

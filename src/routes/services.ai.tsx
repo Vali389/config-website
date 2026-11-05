@@ -13,7 +13,7 @@ import {
   Rocket,
   LineChart,
 } from "lucide-react";
-import heroTemplateAi from "@/assets/hero_template_ai.png";
+import aiEnterpriseHero from "@/assets/ai-enterprise-hero.jpg";
 
 export const Route = createFileRoute("/services/ai")({
   head: () => ({
@@ -107,7 +107,7 @@ function AISolutionsPage() {
       <section className="relative min-h-[540px] lg:min-h-[620px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-20 border-b border-white/10">
         <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[58%] overflow-hidden pointer-events-none z-0">
           <img
-            src={heroTemplateAi}
+            src={aiEnterpriseHero}
             alt="AI & Intelligent Solutions"
             className="h-full w-full object-cover object-right brightness-105 contrast-105"
           />

@@ -100,16 +100,15 @@ export function Header() {
     return pathname === childTo;
   };
 
-  const handleDropdownItemClick = (hash?: string) => {
+  const handleDropdownItemClick = (targetHash?: string) => {
     setOpenDropdown(null);
     setOpen(false);
-    if (hash) {
-      setTimeout(() => {
-        const el = document.getElementById(hash);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 80);
+    if (targetHash) {
+      const clean = targetHash.replace(/^#/, "").trim();
+      const el = document.getElementById(clean);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
   };
 
