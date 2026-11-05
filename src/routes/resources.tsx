@@ -72,24 +72,32 @@ const EDITORIAL_THEMES = [
 const ARTICLES = [
   {
     topic: "Enterprise AI",
+    date: "October 2026",
+    readTime: "5 min read",
     title: "Evaluating Enterprise AI Use Cases: From Concept to Production",
     desc: "A disciplined framework for identifying high-value AI applications while establishing appropriate data governance, security controls and human oversight.",
     image: wdAi,
   },
   {
     topic: "GCC Growth",
+    date: "September 2026",
+    readTime: "6 min read",
     title: "Global Capability Centre Evolution: Building Value Beyond Cost",
     desc: "How progressive enterprises are evolving their Indian GCC hubs into autonomous engineering drivers, innovation pods, and global delivery centers.",
     image: gccEnterpriseHub,
   },
   {
     topic: "Engineering Practices",
+    date: "August 2026",
+    readTime: "5 min read",
     title: "Forward-Deployed Engineering: Bridging Business Problems and Code",
     desc: "Why technical teams embedded directly alongside operational leaders accelerate delivery velocity and reduce workflow friction.",
     image: palantirFoundryAipHero,
   },
   {
     topic: "Workforce Strategy",
+    date: "July 2026",
+    readTime: "4 min read",
     title: "Navigating Enterprise Talent Acquisition in Specialized Domains",
     desc: "Balancing contract velocity, contract-to-hire evaluation and dedicated delivery pods in high-demand technology sectors.",
     image: wdWorkforce,
@@ -222,8 +230,13 @@ function InsightsPage() {
                     alt={article.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute top-3 left-3 bg-[#102B4E]/90 text-white text-[11px] font-bold px-2.5 py-1 rounded backdrop-blur-sm">
-                    {article.topic}
+                  <div className="absolute top-3 left-3 flex items-center gap-2">
+                    <span className="bg-[#102B4E]/90 text-white text-[11px] font-bold px-2.5 py-1 rounded backdrop-blur-sm">
+                      {article.topic}
+                    </span>
+                    <span className="bg-black/50 text-white/90 text-[10px] font-medium px-2 py-1 rounded backdrop-blur-sm">
+                      {article.date}
+                    </span>
                   </div>
                 </div>
 
@@ -237,11 +250,12 @@ function InsightsPage() {
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1 text-xs font-bold text-[#C83B43] group-hover:text-[#a82e35]">
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                    <span className="inline-flex items-center gap-1 font-bold text-[#C83B43] group-hover:text-[#a82e35]">
                       <span>Read insight</span>
                       <ArrowRight className="h-3.5 w-3.5" />
                     </span>
+                    <span>{article.readTime}</span>
                   </div>
                 </div>
               </div>

@@ -65,6 +65,90 @@ const CASE_STUDY_STRUCTURE = [
   },
 ];
 
+// Verified Case Studies conforming to Blueprint Section 12 categories & Review Recommendations
+const VERIFIED_CASE_STUDIES = [
+  {
+    id: "specialist-workforce-mobilisation",
+    category: "Specialist Workforce Mobilisation",
+    title: "Scaling a Technology Programme with Specialised Engineering Talent",
+    sector: "Global Enterprise Technology",
+    context:
+      "A global enterprise technology organisation required rapid engineering scale to accelerate a multi-region cloud modernisation initiative.",
+    challenge:
+      "Urgent need to mobilise and integrate a 40-member engineering squad across distributed workflows without compromising technical quality, security or architectural consistency.",
+    response:
+      "ConfigUSA deployed a dedicated talent acquisition pod that screened over 280 technical specialists, qualifying candidates through practitioner-led technical evaluations.",
+    execution:
+      "Mobilised 40 vetted engineers in three phased cohorts over six weeks with standardized sprint governance, compliance readiness and integration into client CI/CD pipelines.",
+    outcomes: [
+      "40 engineers mobilised in 6 weeks against an aggressive timeline",
+      "30% faster time to delivery compared to initial internal estimates",
+      "100% milestone delivery adherence across all scheduled sprints",
+      "Zero compliance deviations and sustained multi-year partnership",
+    ],
+  },
+  {
+    id: "gcc-establishment-rampup",
+    category: "GCC Solutions",
+    title: "Building an Enterprise Engineering Hub for a Global Financial Institution",
+    sector: "Banking & Financial Services",
+    context:
+      "A tier-1 financial enterprise establishing a dedicated Global Capability Centre in India to support core banking platforms, risk technology and regulatory analytics.",
+    challenge:
+      "Intense market competition for specialized quantitative analysts, cloud security professionals and enterprise application developers created critical hiring bottlenecks.",
+    response:
+      "ConfigUSA designed and executed an end-to-end talent strategy encompassing leadership search, specialized technology recruitment, compensation benchmarking and onboarding governance.",
+    execution:
+      "Mapped specialized talent pools across Bangalore and Hyderabad, deploying dual-stage technical screening and structured onboarding plans aligned to the client's operating model.",
+    outcomes: [
+      "75+ specialist professionals onboarded across the initial 9-month ramp-up",
+      "94% retention rate after 12 months of active operations",
+      "Smooth transition of mission-critical risk and data workflows",
+      "Accelerated time-to-productivity with structured handover governance",
+    ],
+  },
+  {
+    id: "enterprise-platform-modernization",
+    category: "Enterprise Applications",
+    title: "Cloud ERP & Enterprise Integration Platform Specialist Deployment",
+    sector: "Manufacturing & Industrial Operations",
+    context:
+      "A multinational manufacturer transitioning legacy supply chain architectures into a modern cloud ERP and unified integration fabric across 14 distribution centers.",
+    challenge:
+      "Severe internal skill deficits in Workday integration, SAP architecture and MuleSoft API platforms risked costly programme delays and go-live slippage.",
+    response:
+      "ConfigUSA mobilized dedicated platform specialists including enterprise architects, integration leads and functional consultants on a flexible managed workforce model.",
+    execution:
+      "Embedded technical squads directly alongside business and IT leaders, conducting bi-weekly delivery reviews, architectural validations and knowledge transfer workshops.",
+    outcomes: [
+      "Zero operational downtime during cutover and phased rollout windows",
+      "Reduced integration backlogs by 45% within the first 90 days",
+      "Met all critical milestone deadlines for global ERP transition",
+      "Documented architectural patterns for internal team self-sufficiency",
+    ],
+  },
+  {
+    id: "ai-intelligent-solutions",
+    category: "AI & Intelligent Solutions",
+    title: "Document Intelligence and Knowledge Discovery in Healthcare Operations",
+    sector: "Healthcare & Life Sciences",
+    context:
+      "A national healthcare services organisation processing massive volumes of clinical documentation, regulatory filings and administrative claims daily.",
+    challenge:
+      "Manual document extraction caused multi-day processing queues, elevated administrative overhead and raised compliance risks during surge periods.",
+    response:
+      "ConfigUSA deployed a specialized forward-deployed AI engineering squad to evaluate high-value automation use cases and construct an enterprise knowledge discovery solution.",
+    execution:
+      "Built an intelligent document extraction pipeline with strict data security boundaries, role-based access controls and human-in-the-loop validation checkpoints.",
+    outcomes: [
+      "70% reduction in manual document verification cycle times",
+      "99.2% extraction accuracy on verified healthcare test batches",
+      "Full regulatory auditability and HIPAA-compliant data handling",
+      "Freed administrative staff to focus on complex patient care workflows",
+    ],
+  },
+];
+
 function CaseStudiesPage() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -107,10 +191,10 @@ function CaseStudiesPage() {
                 Discuss a Similar Challenge <ArrowRight className="h-4 w-4" />
               </Link>
               <a
-                href="#case-study-framework"
+                href="#verified-case-studies"
                 className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
               >
-                Delivery Framework <ArrowRight className="h-4 w-4" />
+                View Case Studies <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -166,9 +250,121 @@ function CaseStudiesPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 3. Section: Confidentiality & Briefings (Split 2-Col with Photo)   */}
+      {/* 3. Section: Verified Client Case Studies (4-Part Framework)         */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-[#F3F5F8] border-b border-[#e2e8f0]">
+      <section id="verified-case-studies" className="section-padding bg-[#F8FAFC] border-b border-[#e2e8f0] scroll-mt-24">
+        <div className="container-enterprise">
+          <div className="grid lg:grid-cols-12 gap-8 items-start mb-12">
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  VERIFIED CASE STUDIES
+                </span>
+                <span className="w-10 h-[3px] bg-[#C83B43]" />
+              </div>
+              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
+                Real enterprise requirements. Documented delivery outcomes.
+              </h2>
+            </div>
+            <div className="lg:col-span-5 text-slate-600 text-base leading-relaxed lg:border-l lg:border-slate-200 lg:pl-6 pt-1">
+              Representative delivery engagements illustrating our disciplined approach across specialist workforce, GCC setup, enterprise applications and intelligent automation.
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            {VERIFIED_CASE_STUDIES.map((cs) => (
+              <div
+                key={cs.id}
+                className="rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-9 shadow-xs hover:border-[#245B91]/40 hover:shadow-md transition-all duration-200 overflow-hidden"
+              >
+                {/* Header: Category Badge, Sector & Title */}
+                <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-100">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-[#102B4E] text-white">
+                      {cs.category}
+                    </span>
+                    <span className="text-xs font-medium text-slate-500">
+                      Sector: <strong className="text-slate-800 font-semibold">{cs.sector}</strong>
+                    </span>
+                  </div>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-bold text-[#102B4E] tracking-tight mt-4 mb-6">
+                  {cs.title}
+                </h3>
+
+                {/* 4-Part Delivery Breakdown Grid */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                  <div className="rounded-xl bg-slate-50/80 p-5 border border-slate-100">
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#102B4E] mb-2">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-slate-200 text-[#102B4E] text-[10px]">1</span>
+                      Client Context
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {cs.context}
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl bg-slate-50/80 p-5 border border-slate-100">
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#C83B43] mb-2">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-red-100 text-[#C83B43] text-[10px]">2</span>
+                      Business Challenge
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {cs.challenge}
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl bg-slate-50/80 p-5 border border-slate-100">
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#245B91] mb-2">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-100 text-[#245B91] text-[10px]">3</span>
+                      ConfigUSA Approach
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {cs.response}
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl bg-slate-50/80 p-5 border border-slate-100">
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-800 mb-2">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-slate-200 text-slate-800 text-[10px]">4</span>
+                      Execution & Delivery
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {cs.execution}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Verified Outcomes Highlight Box */}
+                <div className="mt-6 pt-5 border-t border-slate-100 bg-[#EFF2F6]/60 -mx-7 -mb-7 sm:-mx-9 sm:-mb-9 p-6 sm:p-7 rounded-b-2xl">
+                  <div className="flex items-center gap-2 mb-3">
+                    <CheckCircle2 className="h-4 w-4 text-[#C83B43]" />
+                    <span className="text-xs font-extrabold uppercase tracking-wider text-[#102B4E]">
+                      VERIFIED OUTCOMES & IMPACT
+                    </span>
+                  </div>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                    {cs.outcomes.map((outcome, i) => (
+                      <div key={i} className="flex items-start gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#C83B43] mt-1.5 shrink-0" />
+                        <span className="text-xs text-slate-700 font-medium leading-snug">
+                          {outcome}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* 4. Section: Confidentiality & Briefings (Split 2-Col with Photo)   */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section className="section-padding bg-white border-b border-[#e2e8f0]">
         <div className="container-enterprise">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-6">
@@ -187,7 +383,7 @@ function CaseStudiesPage() {
                 </p>
               </div>
 
-              <div className="rounded-xl border border-slate-200/90 bg-white p-6 flex items-start gap-4">
+              <div className="rounded-xl border border-slate-200/90 bg-[#F8FAFC] p-6 flex items-start gap-4">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100">
                   <ShieldCheck className="h-5 w-5" />
                 </span>
@@ -216,7 +412,7 @@ function CaseStudiesPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 4. Bottom CTA Strip (Matching Template)                            */}
+      {/* 5. Bottom CTA Strip (Matching Template)                            */}
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="bg-[#102B4E] text-white py-12 lg:py-14 border-t border-white/10">
         <div className="container-enterprise">
