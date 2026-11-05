@@ -10,6 +10,7 @@ import {
   Building2,
 } from "lucide-react";
 import heroTemplateCaseStudies from "@/assets/hero_template_case_studies.png";
+import caseStudyTeam from "@/assets/case_study_team.jpg";
 
 export const Route = createFileRoute("/case-studies")({
   head: () => ({

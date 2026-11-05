@@ -59,8 +59,8 @@ function CareersPage() {
       const matchesQuery =
         !q ||
         j.title.toLowerCase().includes(q) ||
-        j.description.toLowerCase().includes(q) ||
-        j.skills.some((s) => s.toLowerCase().includes(q));
+        ((j as any).summary && (j as any).summary.toLowerCase().includes(q)) ||
+        (((j as any).requirements || []) as string[]).some((s: string) => s.toLowerCase().includes(q));
       const matchesDept = dept === "All Departments" || j.department === dept;
       const matchesLoc = loc === "All Locations" || j.location.includes(loc);
       return matchesQuery && matchesDept && matchesLoc;
@@ -216,7 +216,7 @@ function CareersPage() {
                       {job.title}
                     </h3>
                     <p className="text-sm text-slate-600 line-clamp-1 mt-1">
-                      {job.description}
+                      {(job as any).summary}
                     </p>
                   </div>
 

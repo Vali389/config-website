@@ -172,14 +172,15 @@ export function Header() {
                       }`}
                     >
                       {item.children.map((c) => {
-                        const childActive = isChildActive(c.to, c.hash);
+                        const childHash = "hash" in c ? (c as any).hash : undefined;
+                        const childActive = isChildActive(c.to, childHash);
 
                         return (
                           <Link
                             key={c.label}
                             to={c.to as any}
-                            hash={c.hash}
-                            onClick={() => handleDropdownItemClick(c.hash)}
+                            hash={childHash}
+                            onClick={() => handleDropdownItemClick(childHash)}
                             className={`flex items-start gap-3 rounded-lg px-3 py-2.5 text-sm transition-all duration-150 group/item border ${
                               childActive
                                 ? "bg-slate-50 border-slate-200 text-[#102B4E] font-semibold"
@@ -270,13 +271,14 @@ export function Header() {
                     {"children" in item && item.children && (
                       <div className="ml-3 mt-1 space-y-1">
                         {item.children.map((c) => {
-                          const childActive = isChildActive(c.to, c.hash);
+                          const childHash = "hash" in c ? (c as any).hash : undefined;
+                          const childActive = isChildActive(c.to, childHash);
                           return (
                             <Link
                               key={c.label}
                               to={c.to as any}
-                              hash={c.hash}
-                              onClick={() => handleDropdownItemClick(c.hash)}
+                              hash={childHash}
+                              onClick={() => handleDropdownItemClick(childHash)}
                               className={`flex items-center gap-2.5 rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
                                 childActive ? "bg-red-50 text-[#C83B43] font-semibold" : "text-slate-600 hover:bg-slate-50"
                               }`}

@@ -173,7 +173,7 @@ export function InteractiveWorldMap() {
                       </span>
                       <div>
                         <h4 className="text-xl sm:text-2xl font-extrabold text-[#102B4E] flex items-center gap-2">
-                          <span>{loc.flag}</span> {loc.region}
+                          {(loc as any).flag && <span>{(loc as any).flag}</span>} {loc.region}
                         </h4>
                         <p className="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">
                           {loc.role}
