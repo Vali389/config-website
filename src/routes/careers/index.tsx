@@ -11,7 +11,7 @@ import {
   Send,
 } from "lucide-react";
 import { JOBS, DEPARTMENTS, LOCATIONS } from "@/data/jobs";
-import heroTemplateCareers from "@/assets/hero_template_careers.png";
+import careersHeroBg from "@/assets/careers-bg.png";
 import whoWeAreMeeting from "@/assets/who_we_are_meeting.jpg";
 
 export const Route = createFileRoute("/careers/")({
@@ -73,14 +73,13 @@ function CareersPage() {
       {/* 1. Hero Section (Edge-to-Edge Navy Hero with Photography on Right)  */}
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[520px] lg:min-h-[580px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-white/10">
-        <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[58%] overflow-hidden pointer-events-none z-0">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <img
-            src={heroTemplateCareers}
+            src={careersHeroBg}
             alt="Careers at ConfigUSA"
             className="h-full w-full object-cover object-right brightness-105 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/40 to-transparent lg:from-[#102B4E] lg:via-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#102B4E] to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/80 via-transparent to-transparent lg:hidden pointer-events-none" />
         </div>
 
         <div className="container-enterprise relative z-10 w-full">

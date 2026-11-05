@@ -1,20 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import heroTemplateHome from "@/assets/hero_homepage_executives.jpg";
+import homeBg from "@/assets/home-bg.png";
 
 export function HomeHero() {
   return (
     <section className="relative min-h-[460px] lg:min-h-[520px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-[#1b3a63]">
-      {/* Right-aligned photography: 2 team members clearly framed and razor-sharp on the right */}
-      <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[54%] xl:w-[50%] overflow-hidden pointer-events-none z-0">
+      {/* Edge-to-Edge Hero Background provided by client */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <img
-          src={heroTemplateHome}
+          src={homeBg}
           alt="ConfigUSA Enterprise Technology Leadership"
-          className="h-full w-full object-cover object-[70%_center] lg:object-right brightness-105 contrast-105"
+          className="h-full w-full object-cover object-right brightness-105 contrast-105"
         />
-        {/* Subtle left blend into navy container so text stays crisp on all devices without white leak */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/70 to-transparent lg:from-[#102B4E] lg:via-[#102B4E]/30 lg:to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#102B4E] to-transparent pointer-events-none" />
+        {/* Subtle mobile overlay for ultra-crisp typography on smaller screens */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/80 via-transparent to-transparent lg:hidden pointer-events-none" />
       </div>
 
       <div className="container-enterprise relative z-10 w-full">
