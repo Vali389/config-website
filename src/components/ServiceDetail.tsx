@@ -81,7 +81,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
       )}
 
       {/* Overview */}
-      <section className="py-24 bg-white overflow-hidden border-b border-slate-200/60">
+      <section className="py-10 lg:py-12 bg-white overflow-hidden border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -119,7 +119,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
       </section>
 
       {/* Capabilities */}
-      <section className="py-24 bg-slate-50 border-b border-slate-200/60">
+      <section className="py-10 lg:py-12 bg-slate-50 border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading eyebrow="What We Deliver" title={p.capabilitiesHeading} subtitle={p.capabilitiesSub} />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -144,7 +144,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
       </section>
 
       {/* Process */}
-      <section className="py-24 bg-white border-b border-slate-200/60">
+      <section className="py-10 lg:py-12 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <SectionHeading eyebrow="How It Works" title={p.processHeading} subtitle={p.processSub} />
           <div className="mt-16 relative">
@@ -176,7 +176,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
 
       {/* Tech / tools */}
       {p.tech && p.tech.length > 0 && (
-        <section className="py-20 bg-[#102B4E] text-white relative overflow-hidden">
+        <section className="py-8 lg:py-10 bg-[#102B4E] text-white relative overflow-hidden">
           <div className="pointer-events-none absolute -top-24 right-0 h-80 w-80 rounded-full bg-brand-glow/10 blur-3xl" />
           <div className="relative z-10 mx-auto max-w-5xl px-4 lg:px-8 text-center">
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-glow mb-3">{p.techHeading ?? "Tools & Technologies"}</p>

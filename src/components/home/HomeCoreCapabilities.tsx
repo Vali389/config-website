@@ -30,9 +30,9 @@ export function HomeCoreCapabilities() {
   ];
 
   return (
-    <section className="py-12 lg:py-16 bg-[#F8FAFC] border-b border-slate-200/80">
+    <section className="py-7 lg:py-9 bg-[#F8FAFC] border-b border-slate-200/80">
       <div className="container-enterprise">
-        <div className="flex items-center gap-2.5 mb-8">
+        <div className="flex items-center gap-2.5 mb-6">
           <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
             OUR CORE CAPABILITIES
           </span>

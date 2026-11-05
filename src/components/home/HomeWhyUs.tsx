@@ -10,7 +10,7 @@ export function HomeWhyUs() {
   ];
 
   return (
-    <section className="py-14 lg:py-18 bg-white border-b border-slate-100">
+    <section className="py-8 lg:py-10 bg-white border-b border-slate-100">
       <div className="container-enterprise">
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           {/* Left Column: Kicker & 4 Interactive Bullets */}

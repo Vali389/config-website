@@ -4,7 +4,7 @@ import heroTemplateHome from "@/assets/hero_homepage_executives.jpg";
 
 export function HomeHero() {
   return (
-    <section className="relative min-h-[580px] lg:min-h-[640px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-20 border-b border-[#1b3a63]">
+    <section className="relative min-h-[460px] lg:min-h-[520px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-[#1b3a63]">
       {/* Right-aligned photography: 2 team members clearly framed and razor-sharp on the right */}
       <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[54%] xl:w-[50%] overflow-hidden pointer-events-none z-0">
         <img

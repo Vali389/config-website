@@ -27,9 +27,9 @@ export function HomeEvidence() {
   ];
 
   return (
-    <section className="py-14 lg:py-18 bg-white border-b border-slate-100">
+    <section className="py-7 lg:py-9 bg-white border-b border-slate-100">
       <div className="container-enterprise">
-        <div className="flex items-center gap-2.5 mb-8">
+        <div className="flex items-center gap-2.5 mb-5">
           <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
             EVIDENCE OF DELIVERY
           </span>

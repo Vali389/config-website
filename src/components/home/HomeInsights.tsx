@@ -36,9 +36,9 @@ export function HomeInsights() {
   ];
 
   return (
-    <section className="py-14 lg:py-18 bg-white border-b border-slate-100">
+    <section className="py-8 lg:py-10 bg-white border-b border-slate-100">
       <div className="container-enterprise">
-        <div className="grid lg:grid-cols-12 gap-8 items-start mb-10">
+        <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
           <div className="lg:col-span-5 space-y-3">
             <div className="flex items-center gap-2.5">
               <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">

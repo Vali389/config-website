@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function HomeFinalCTA() {
   return (
-    <section className="bg-[#102B4E] text-white py-12 lg:py-14 border-t border-white/10">
+    <section className="bg-[#102B4E] text-white py-7 lg:py-9 border-t border-white/10">
       <div className="container-enterprise">
         <div className="grid lg:grid-cols-12 gap-6 items-center">
           <div className="lg:col-span-5">

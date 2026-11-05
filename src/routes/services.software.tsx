@@ -256,7 +256,7 @@ function SoftwareEngineeringPage() {
       </section>
 
       {/* ────────────────────────── STRATEGIC OVERVIEW ────────────────────────── */}
-      <section className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
+      <section className="py-8 lg:py-10 lg:py-10 lg:py-12 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Visual Left */}
@@ -327,7 +327,7 @@ function SoftwareEngineeringPage() {
       </section>
 
       {/* ────────────────────────── 6 CORE CAPABILITIES (WHITE CARDS) ────────────────────────── */}
-      <section className="py-20 lg:py-24 bg-slate-50 border-b border-slate-200/60">
+      <section className="py-8 lg:py-10 lg:py-10 lg:py-12 bg-slate-50 border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
             <div className="border-l-[3px] border-[#C83B43] pl-3.5">
@@ -404,7 +404,7 @@ function SoftwareEngineeringPage() {
       </section>
 
       {/* ────────────────────────── ENTERPRISE TECH MATRIX (NAVY) ────────────────────────── */}
-      <section className="py-20 lg:py-24 bg-[#102B4E] text-white">
+      <section className="py-8 lg:py-10 lg:py-10 lg:py-12 bg-[#102B4E] text-white">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="border-l-[3px] border-[#C83B43] pl-3.5 mb-12">
             <p className="text-xs font-bold uppercase tracking-widest text-[#245B91] mb-1">
@@ -448,7 +448,7 @@ function SoftwareEngineeringPage() {
       </section>
 
       {/* ────────────────────────── 4-STEP PRODUCT LIFECYCLE ────────────────────────── */}
-      <section className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
+      <section className="py-8 lg:py-10 lg:py-10 lg:py-12 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="border-l-[3px] border-[#C83B43] pl-3.5 mb-12">
             <p className="text-xs font-bold uppercase tracking-widest text-[#245B91] mb-1">
@@ -493,7 +493,7 @@ function SoftwareEngineeringPage() {
       </section>
 
       {/* ────────────────────────── CTA BANNER ────────────────────────── */}
-      <section className="relative py-20 bg-[#102B4E] text-white overflow-hidden">
+      <section className="relative py-8 lg:py-10 bg-[#102B4E] text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={ctaHome}

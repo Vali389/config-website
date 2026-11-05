@@ -1,6 +1,6 @@
 export function HomeWhatWeDo() {
   return (
-    <section className="pt-12 pb-10 lg:pt-16 lg:pb-12 bg-white border-b border-slate-100">
+    <section className="py-6 lg:py-8 bg-white border-b border-slate-100">
       <div className="container-enterprise">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-7 space-y-3">

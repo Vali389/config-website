@@ -110,7 +110,7 @@ function PalantirTalentPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 1. Hero Section (Edge-to-Edge Navy Hero with Photography on Right)  */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[540px] lg:min-h-[620px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-20 border-b border-white/10">
+      <section className="relative min-h-[440px] lg:min-h-[500px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-white/10">
         <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[58%] overflow-hidden pointer-events-none z-0">
           <img
             src={palantirFoundryAipHero}
@@ -318,7 +318,7 @@ function PalantirTalentPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 6. Bottom CTA Strip (Matching Template)                            */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="bg-[#102B4E] text-white py-12 lg:py-14 border-t border-white/10">
+      <section className="bg-[#102B4E] text-white py-7 lg:py-9 border-t border-white/10">
         <div className="container-enterprise">
           <div className="grid lg:grid-cols-12 gap-6 items-center">
             <div className="lg:col-span-5">
