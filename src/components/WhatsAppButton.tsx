@@ -55,7 +55,7 @@ export function WhatsAppButton() {
             className="absolute bottom-14 right-0 w-[92vw] max-w-[340px] overflow-hidden rounded-2xl bg-white shadow-elegant ring-1 ring-black/5 text-left mb-2 z-50"
           >
             {/* Header */}
-            <div className="relative bg-[#0a1628] px-5 pt-4 pb-5 text-white">
+            <div className="relative bg-[#102B4E] px-5 pt-4 pb-5 text-white">
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close chat"
@@ -134,7 +134,7 @@ export function WhatsAppButton() {
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close assistant" : "Open assistant"}
         className={`relative flex h-11 w-11 items-center justify-center rounded-lg text-white shadow-md transition-all hover:scale-105 cursor-pointer z-40 ${
-          open ? "bg-slate-700" : "bg-[#1d4ed8]"
+          open ? "bg-slate-700" : "bg-[#245B91]"
         }`}
       >
         <AnimatePresence mode="wait" initial={false}>

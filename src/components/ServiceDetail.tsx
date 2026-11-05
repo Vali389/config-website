@@ -47,7 +47,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#C83B43] px-7 py-3.5 text-sm font-bold text-white hover:bg-[#b33239] transition-colors shadow-sm"
           >
             Talk to an Expert <ArrowRight className="h-4 w-4" />
           </Link>
@@ -72,7 +72,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
           >
             {p.stats.map((s) => (
               <div key={s.label} className="px-4 py-7 text-center">
-                <div className="text-2xl md:text-3xl font-extrabold text-[#071326] tracking-tight">{s.value}</div>
+                <div className="text-2xl md:text-3xl font-extrabold text-[#102B4E] tracking-tight">{s.value}</div>
                 <div className="mt-1.5 text-xs font-semibold uppercase tracking-wider text-slate-500">{s.label}</div>
               </div>
             ))}
@@ -99,9 +99,9 @@ export function ServiceDetail(p: ServiceDetailProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-4">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">{p.overviewLabel}</p>
-              <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-bold text-[#071326] leading-tight tracking-tight">{p.overviewHeading}</h2>
+            <div className="border-l-[3px] border-[#C83B43] pl-3.5 mb-4">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#245B91] mb-1">{p.overviewLabel}</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-bold text-[#102B4E] leading-tight tracking-tight">{p.overviewHeading}</h2>
             </div>
             {p.overviewParas.map((para, i) => (
               <p key={i} className="mt-4 text-slate-600 leading-relaxed">{para}</p>
@@ -109,7 +109,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
             <ul className="mt-6 grid sm:grid-cols-2 gap-x-6 gap-y-3">
               {p.benefits.map((b) => (
                 <li key={b} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 shrink-0 text-[#f5a623] mt-1" />
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-[#245B91] mt-1" />
                   <span className="text-xs sm:text-[13px] text-slate-700 font-medium leading-snug">{b}</span>
                 </li>
               ))}
@@ -132,10 +132,10 @@ export function ServiceDetail(p: ServiceDetailProps) {
                 transition={{ duration: 0.5, delay: i * 0.07 }}
                 className="group rounded-xl bg-white p-7 sm:p-8 border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300 relative overflow-hidden"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 border border-blue-100 text-blue-600 group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-colors duration-200">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 border border-blue-100 text-blue-600 group-hover:bg-[#102B4E] group-hover:text-white transition-colors duration-200">
                   <c.icon className="h-6 w-6 stroke-[1.75]" />
                 </span>
-                <h3 className="mt-5 text-base sm:text-[17px] font-bold text-[#071326] group-hover:text-blue-700 transition-colors leading-snug">{c.title}</h3>
+                <h3 className="mt-5 text-base sm:text-[17px] font-bold text-[#102B4E] group-hover:text-white transition-colors leading-snug">{c.title}</h3>
                 <p className="mt-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed">{c.text}</p>
               </motion.div>
             ))}
@@ -159,12 +159,12 @@ export function ServiceDetail(p: ServiceDetailProps) {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="flex flex-col items-center text-center group"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white border-2 border-slate-200 text-blue-600 shadow-sm group-hover:bg-[#071326] group-hover:border-[#071326] group-hover:text-[#f5a623] transition-all duration-300 z-10">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white border-2 border-slate-200 text-blue-600 shadow-sm group-hover:bg-[#102B4E] group-hover:border-[#102B4E] group-hover:text-white transition-all duration-300 z-10">
                     <h.icon className="h-6 w-6 stroke-[1.75]" />
                   </div>
                   <div className="mt-6 rounded-xl bg-slate-50 p-6 border border-slate-200/80 hover:bg-white hover:border-blue-400 hover:shadow-md transition-all duration-300 w-full">
-                    <div className="text-xs font-bold text-[#f5a623]">STEP {String(i + 1).padStart(2, "0")}</div>
-                    <h3 className="mt-1 text-base font-bold text-[#071326] group-hover:text-blue-700 transition-colors">{h.title}</h3>
+                    <div className="text-xs font-bold text-[#245B91]">STEP {String(i + 1).padStart(2, "0")}</div>
+                    <h3 className="mt-1 text-base font-bold text-[#102B4E] group-hover:text-white transition-colors">{h.title}</h3>
                     <p className="mt-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed">{h.text}</p>
                   </div>
                 </motion.div>
@@ -176,7 +176,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
 
       {/* Tech / tools */}
       {p.tech && p.tech.length > 0 && (
-        <section className="py-20 bg-[#051124] text-white relative overflow-hidden">
+        <section className="py-20 bg-[#102B4E] text-white relative overflow-hidden">
           <div className="pointer-events-none absolute -top-24 right-0 h-80 w-80 rounded-full bg-brand-glow/10 blur-3xl" />
           <div className="relative z-10 mx-auto max-w-5xl px-4 lg:px-8 text-center">
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-glow mb-3">{p.techHeading ?? "Tools & Technologies"}</p>

@@ -1,334 +1,493 @@
+import React, { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { motion } from "motion/react";
 import {
   MapPin,
   Phone,
   Mail,
   Send,
-  MessageSquare,
-  Clock,
   CheckCircle2,
+  Clock,
+  UserCheck,
+  Compass,
+  Building2,
   ArrowRight,
-  AlertCircle,
-  Linkedin,
-  Twitter,
-  Facebook,
-  Instagram,
-  Youtube,
+  Briefcase,
 } from "lucide-react";
-import contactBg from "@/assets/contact-bg.jpg";
-import { PageHero } from "@/components/PageHero";
-import { SectionHeading } from "@/components/SectionHeading";
-import { StatsBar } from "@/components/StatsBar";
+import heroTemplateContact from "@/assets/hero_template_contact.png";
 import { InteractiveLeafletMap } from "@/components/InteractiveLeafletMap";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact ConfigUSA — Let's Start a Conversation" },
-      { name: "description", content: "Get in touch with ConfigUSA. Offices across North America and India. Whether you're hiring talent or looking for your next role, we're here to help." },
+      { title: "Contact ConfigUSA — Tell Us What You Need to Achieve" },
+      {
+        name: "description",
+        content:
+          "Whether you are building a team, addressing a specialist skill gap or exploring a technology initiative, share a few details. Our team will review the requirement and identify the appropriate next step.",
+      },
       { property: "og:title", content: "Contact ConfigUSA" },
-      { property: "og:description", content: "Talk to our team about staffing, technology, and workforce solutions." },
+      {
+        property: "og:description",
+        content:
+          "Tell us what you need to achieve. Enterprise technology, specialist workforce and GCC enquiries.",
+      },
     ],
   }),
-  component: Page,
+  component: ContactPage,
 });
 
-const CONTACTS = [
-  { icon: Phone, label: "USA Direct Phone", value: "+1 (609) 934-3184", href: "tel:+16099343184" },
-  { icon: Phone, label: "Canada Direct Phone", value: "+1 (647) 557-6968", href: "tel:+16475576968" },
-  { icon: Phone, label: "India Direct Phone", value: "+91 80746 83380", href: "tel:+918074683380" },
-  { icon: Mail, label: "General Inquiries", value: "info@configusa.com", href: "mailto:info@configusa.com" },
-  { icon: MessageSquare, label: "Talent Desk", value: "careers@configusa.com", href: "mailto:careers@configusa.com" },
+// Blueprint Section 14: Area of interest options
+const AREAS_OF_INTEREST = [
+  "Technology & AI initiatives",
+  "Forward-Deployed Engineering",
+  "Enterprise Applications (Workday, SAP, MuleSoft, Salesforce)",
+  "Specialist Workforce & Staffing",
+  "GCC Establishment & Scaling",
+  "General Enterprise Enquiry",
 ];
 
-const SOCIALS = [
-  { Icon: Linkedin, label: "LinkedIn" },
-  { Icon: Twitter, label: "X" },
-  { Icon: Facebook, label: "Facebook" },
-  { Icon: Instagram, label: "Instagram" },
-  { Icon: Youtube, label: "YouTube" },
+// Blueprint Section 14: What to expect
+const WHAT_TO_EXPECT = [
+  {
+    icon: Clock,
+    title: "Prompt review & acknowledgement",
+    desc: "Enquiries are reviewed by practice leads and acknowledged within one business day.",
+  },
+  {
+    icon: UserCheck,
+    title: "Consultative technical conversation",
+    desc: "Connect directly with domain practitioners who understand your technical environment.",
+  },
+  {
+    icon: Compass,
+    title: "Clear assessment & engagement plan",
+    desc: "Transparent assessment of skill availability, timelines and recommended engagement models.",
+  },
 ];
 
-const SERVICES = [
-  "Forward Deployed Engineering (FDE)",
-  "GCC Talent Solutions & India Setup",
-  "Enterprise Platforms (Workday, SAP, MuleSoft, Salesforce)",
-  "Palantir Foundry & AIP Talent Squads",
-  "AI & Intelligent Solutions (GenAI / Agents)",
-  "Digital Engineering & Cloud Migration",
-  "Technology Workforce Solutions & Staffing",
-  "Managed Delivery (SOW Pods)",
-  "Executive Search & Direct Placement",
-  "General Partnership Consultation",
-];
-
-const NEEDS = [
-  "Immediate project need (< 2 weeks)",
-  "GCC establishment or expansion in India",
-  "Forward Deployed Engineering pod deployment",
-  "Workday / SAP / MuleSoft / Salesforce expertise",
-  "Contract staffing / capacity augmentation",
-  "Direct hire / executive placement",
-  "Managed team / outcome-based SOW",
-  "Exploring strategic enterprise partnerships",
+// Verified Offices per Blueprint Section 2, 10, 14
+const OFFICES = [
+  {
+    city: "United States",
+    tag: "Global Headquarters",
+    address: "666 Plainsboro Road, Suite 1237, Plainsboro, NJ 08536",
+    phone: "+1 (609) 934-3184",
+  },
+  {
+    city: "Canada",
+    tag: "North America Hub",
+    address: "1585 Markham Road, Suite # 309, Toronto, ON M1B 2W1",
+    phone: "+1 (647) 557-6968",
+  },
+  {
+    city: "India",
+    tag: "Delivery & Engineering Center",
+    address: "Trendz Sapphire, 3rd Floor, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081",
+    phone: "+91 80746 83380",
+  },
 ];
 
 const schema = z.object({
   name: z.string().min(2, "Please enter your name"),
-  company: z.string().optional(),
-  email: z.string().min(1, "Email is required").email("Enter a valid email address"),
-  phone: z
-    .string()
-    .optional()
-    .refine((v) => !v || /^[+\d][\d\s()-]{6,}$/.test(v), "Enter a valid phone number"),
-  service: z.string(),
-  needs: z.string(),
-  message: z.string().min(10, "Please provide at least 10 characters with your inquiry details"),
+  email: z.string().email("Please enter a valid work email"),
+  company: z.string().min(2, "Please enter your company name"),
+  jobTitle: z.string().min(2, "Please enter your job title"),
+  areaOfInterest: z.string().min(1, "Please select an area of interest"),
+  message: z.string().min(10, "Please describe your requirement"),
+  timeline: z.string().optional(),
+  honeypot: z.string().max(0, "Bot detected"),
 });
-type FormData = z.infer<typeof schema>;
 
-const baseInput = "w-full rounded-lg bg-slate-50/70 px-4 py-3 text-sm text-[#071326] placeholder:text-slate-400 border transition-all focus:outline-none focus:bg-white";
-const okInput = "border-slate-200 focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500";
-const errInput = "border-red-400 bg-red-50/40 focus:ring-2 focus:ring-red-200";
+type ContactFormData = z.infer<typeof schema>;
 
-function Page() {
-  const [sent, setSent] = useState(false);
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+function ContactPage() {
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({
     resolver: zodResolver(schema),
-    defaultValues: { service: SERVICES[0], needs: NEEDS[0] },
+    defaultValues: {
+      areaOfInterest: AREAS_OF_INTEREST[0],
+      timeline: "Immediate / Within 1 month",
+      honeypot: "",
+    },
   });
 
-  const cls = (field: keyof FormData) => `${baseInput} ${errors[field] ? errInput : okInput}`;
-  const Err = ({ field }: { field: keyof FormData }) =>
-    errors[field] ? (
-      <span className="mt-1.5 flex items-center gap-1 text-xs font-medium text-red-500">
-        <AlertCircle className="h-3.5 w-3.5" /> {errors[field]?.message as string}
-      </span>
-    ) : null;
+  const onSubmit = async (data: ContactFormData) => {
+    setSubmitting(true);
+    await new Promise((resolve) => setTimeout(resolve, 800));
+    setSubmitting(false);
+    setSubmitted(true);
+    reset();
+  };
 
   return (
-    <>
-      <PageHero
-        eyebrow="Contact Us"
-        title={
-          <>
-            Let's Start a <br />
-            <span className="text-[#f5a623] font-extrabold">Strategic Conversation.</span>
-          </>
-        }
-        subtitle="Whether you're looking to augment your technical workforce, implement enterprise platforms, or accelerate digital transformation, our teams are ready to help."
-        image={contactBg}
-      >
-        <div className="flex flex-wrap items-center gap-4 mt-6">
-          <a
-            href="#contact-form"
-            className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
-          >
-            Send Inquiry <ArrowRight className="h-4 w-4" />
-          </a>
-          <a
-            href="#offices"
-            className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur hover:bg-white/20 transition-all"
-          >
-            Global Locations
-          </a>
+    <div className="flex flex-col min-h-screen">
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* 1. Hero Section (Edge-to-Edge Navy Hero with Photography on Right)  */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section className="relative min-h-[520px] lg:min-h-[580px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-20 border-b border-white/10">
+        <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[58%] overflow-hidden pointer-events-none z-0">
+          <img
+            src={heroTemplateContact}
+            alt="Contact ConfigUSA"
+            className="h-full w-full object-cover object-right brightness-105 contrast-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/40 to-transparent lg:from-[#102B4E] lg:via-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#102B4E] to-transparent pointer-events-none" />
         </div>
-      </PageHero>
 
-      <div className="pb-12">
-        <StatsBar />
-      </div>
-
-      {/* Main contact grid & form */}
-      <section id="contact-form" className="py-24 bg-white border-b border-slate-200/60 scroll-mt-24">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8 grid lg:grid-cols-[0.85fr_1.15fr] gap-10 items-start">
-          {/* Left: contact methods */}
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <div className="rounded-xl bg-white border border-slate-200/90 shadow-sm p-7 sm:p-8">
-              <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-4">
-                <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">Direct Communication</p>
-                <h2 className="text-xl sm:text-2xl font-bold text-[#071326]">Get in Touch</h2>
-              </div>
-              <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                Connect directly with our client partners and practice leads. We respond within one business day.
-              </p>
-
-              <div className="mt-6 space-y-3">
-                {CONTACTS.map((c) => (
-                  <a
-                    key={c.label}
-                    href={c.href}
-                    className="group flex items-center gap-4 rounded-xl border border-slate-200/90 p-4 hover:border-blue-400 hover:shadow-sm transition-all duration-200 bg-white"
-                  >
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 border border-blue-100 text-blue-600 group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-colors duration-200">
-                      <c.icon className="h-5 w-5 stroke-[1.75]" />
-                    </span>
-                    <div>
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">{c.label}</div>
-                      <div className="text-sm font-bold text-[#071326] group-hover:text-blue-700 transition-colors">{c.value}</div>
-                    </div>
-                  </a>
-                ))}
-              </div>
+        <div className="container-enterprise relative z-10 w-full">
+          <div className="max-w-2xl space-y-6">
+            <div className="flex items-center gap-2.5">
+              <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#e2e8f0]">
+                CONTACT CONFIGUSA
+              </span>
+              <span className="w-10 h-[3px] bg-[#C83B43]" />
             </div>
 
-            <div className="rounded-xl bg-slate-50 border border-slate-200/90 p-7 sm:p-8">
-              <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-blue-600 border border-slate-200 shadow-sm">
-                  <Clock className="h-5 w-5 stroke-[1.75]" />
-                </span>
-                <h3 className="font-bold text-base text-[#071326]">Business Hours</h3>
-              </div>
-              <div className="mt-4 flex items-center justify-between text-xs sm:text-sm">
-                <span className="text-slate-500">Monday – Friday</span>
-                <span className="font-bold text-[#071326]">8:30 AM – 6:30 PM EST</span>
-              </div>
-              <div className="mt-2 flex items-center justify-between text-xs sm:text-sm">
-                <span className="text-slate-500">Saturday – Sunday</span>
-                <span className="font-bold text-[#071326]">Dedicated On-Call Support</span>
-              </div>
-              <div className="mt-6 pt-5 border-t border-slate-200 flex gap-2.5">
-                {SOCIALS.map(({ Icon, label }) => (
-                  <a
-                    key={label}
-                    href="#"
-                    aria-label={label}
-                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-[#071326] hover:text-[#f5a623] hover:border-[#071326] transition-all"
-                  >
-                    <Icon className="h-4 w-4" />
-                  </a>
-                ))}
-              </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
+              Tell us what you need to achieve.
+            </h1>
+
+            <p className="text-base sm:text-lg text-[#e2e8f0] leading-relaxed">
+              Whether you are building a team, addressing a specialist skill gap or exploring a technology initiative, share a few details. Our team will review the requirement and identify the appropriate next step.
+            </p>
+
+            <div className="pt-2 flex flex-wrap gap-4 items-center">
+              <a
+                href="#enquiry-form"
+                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
+              >
+                Submit Your Enquiry <ArrowRight className="h-4 w-4" />
+              </a>
+              <Link
+                to="/careers"
+                className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
+              >
+                Career Enquiries <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
-          </motion.div>
-
-          {/* Right: validated form */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="rounded-xl bg-white border border-slate-200/90 shadow-sm p-8 sm:p-10 relative overflow-hidden"
-          >
-            {sent ? (
-              <div className="py-16 text-center">
-                <motion.div
-                  initial={{ scale: 0.6, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200"
-                >
-                  <CheckCircle2 className="h-8 w-8" />
-                </motion.div>
-                <h3 className="text-2xl font-bold text-[#071326]">Inquiry Sent Successfully</h3>
-                <p className="mt-2 text-sm text-slate-600 max-w-sm mx-auto">
-                  Thank you for reaching out. A senior practice lead will contact you within one business day.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setSent(false)}
-                  className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#0a1628] px-6 py-2.5 text-xs font-bold text-white hover:bg-[#071326] transition-colors"
-                >
-                  Send another inquiry
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit(() => setSent(true))} noValidate>
-                <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-6">
-                  <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">Inquiry Form</p>
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#071326]">Send Us a Message</h3>
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <label className="block">
-                    <span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-slate-700">Full Name *</span>
-                    <input {...register("name")} className={cls("name")} placeholder="John Doe" />
-                    <Err field="name" />
-                  </label>
-                  <label className="block">
-                    <span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-slate-700">Company Name</span>
-                    <input {...register("company")} className={cls("company")} placeholder="Enterprise Inc." />
-                  </label>
-                  <label className="block">
-                    <span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-slate-700">Business Email *</span>
-                    <input {...register("email")} className={cls("email")} placeholder="john@company.com" />
-                    <Err field="email" />
-                  </label>
-                  <label className="block">
-                    <span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-slate-700">Phone Number</span>
-                    <input {...register("phone")} className={cls("phone")} placeholder="+1 (609) 000-0000" />
-                    <Err field="phone" />
-                  </label>
-                  <label className="block">
-                    <span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-slate-700">Practice Area</span>
-                    <select {...register("service")} className={cls("service")}>
-                      {SERVICES.map((s) => (
-                        <option key={s}>{s}</option>
-                      ))}
-                    </select>
-                  </label>
-                  <label className="block">
-                    <span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-slate-700">Project Timeline</span>
-                    <select {...register("needs")} className={cls("needs")}>
-                      {NEEDS.map((n) => (
-                        <option key={n}>{n}</option>
-                      ))}
-                    </select>
-                  </label>
-                </div>
-
-                <label className="mt-4 block">
-                  <span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-slate-700">Message / Scope Overview *</span>
-                  <textarea
-                    {...register("message")}
-                    rows={4}
-                    className={`${cls("message")} resize-none`}
-                    placeholder="Provide details about your project goals, required skills, or engagement scope…"
-                  />
-                  <Err field="message" />
-                </label>
-
-                <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <p className="text-[11px] text-slate-500">
-                    We adhere to strict confidentiality and never share client information.
-                  </p>
-                  <button
-                    type="submit"
-                    className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-[#0a1628] px-8 py-3.5 text-sm font-bold text-white hover:bg-[#071326] transition-colors shadow-sm"
-                  >
-                    Submit Inquiry <Send className="h-4 w-4" />
-                  </button>
-                </div>
-              </form>
-            )}
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Offices & Locations with Maps matching LanceSoft interactive map pattern */}
-      <section id="offices" className="py-24 bg-slate-50 border-b border-slate-200/60 scroll-mt-24">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <SectionHeading
-            eyebrow="Global Presence"
-            title="Interactive Locations & Delivery Hubs"
-            subtitle="Explore our corporate headquarters in the United States, Canadian hub in Toronto, and offshore technology delivery center in Hyderabad, India. Click any location pin on the map or select an office to view coordinates and directions."
-          />
-          <div className="mt-12">
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* 2. Enterprise Enquiry Form & Context                                */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section id="enquiry-form" className="section-padding bg-white border-b border-[#e2e8f0] scroll-mt-24">
+        <div className="container-enterprise">
+          <div className="grid lg:grid-cols-12 gap-12 items-start">
+            {/* Form Column */}
+            <div className="lg:col-span-7 bg-[#F3F5F8] border border-slate-200/90 rounded-2xl p-8 lg:p-10 shadow-xs">
+              <div className="mb-8">
+                <div className="flex items-center gap-2.5 mb-2">
+                  <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                    ENTERPRISE ENQUIRY
+                  </span>
+                  <span className="w-10 h-[3px] bg-[#C83B43]" />
+                </div>
+                <h2 className="text-2xl font-extrabold text-[#102B4E] tracking-tight">
+                  Share details of your upcoming requirement.
+                </h2>
+              </div>
+
+              {submitted ? (
+                <div className="p-8 rounded-xl bg-white border border-slate-200 text-center space-y-4">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-red-50 text-[#C83B43] mx-auto border border-red-100">
+                    <CheckCircle2 className="h-7 w-7" />
+                  </span>
+                  <h3 className="text-xl font-bold text-[#102B4E]">Enquiry Received</h3>
+                  <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+                    Thank you for reaching out. A capability or workforce lead will review your requirement details and respond within one business day.
+                  </p>
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="btn-cta-secondary inline-flex text-xs font-bold mt-2"
+                  >
+                    Submit Another Enquiry
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+                  <input
+                    type="text"
+                    {...register("honeypot")}
+                    className="hidden"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        {...register("name")}
+                        placeholder="John Doe"
+                        className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E]"
+                      />
+                      {errors.name && (
+                        <p className="mt-1 text-xs text-[#C83B43]">{errors.name.message}</p>
+                      )}
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                        Business Email *
+                      </label>
+                      <input
+                        type="email"
+                        {...register("email")}
+                        placeholder="john@enterprise.com"
+                        className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E]"
+                      />
+                      {errors.email && (
+                        <p className="mt-1 text-xs text-[#C83B43]">{errors.email.message}</p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                        Company *
+                      </label>
+                      <input
+                        type="text"
+                        {...register("company")}
+                        placeholder="Enterprise Org"
+                        className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E]"
+                      />
+                      {errors.company && (
+                        <p className="mt-1 text-xs text-[#C83B43]">{errors.company.message}</p>
+                      )}
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                        Job Title / Role *
+                      </label>
+                      <input
+                        type="text"
+                        {...register("jobTitle")}
+                        placeholder="VP Engineering / Director"
+                        className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E]"
+                      />
+                      {errors.jobTitle && (
+                        <p className="mt-1 text-xs text-[#C83B43]">{errors.jobTitle.message}</p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                        Area of Interest *
+                      </label>
+                      <select
+                        {...register("areaOfInterest")}
+                        className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E] bg-white"
+                      >
+                        {AREAS_OF_INTEREST.map((area) => (
+                          <option key={area} value={area}>
+                            {area}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                        Expected Timeline (Optional)
+                      </label>
+                      <select
+                        {...register("timeline")}
+                        className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E] bg-white"
+                      >
+                        <option value="Immediate / Within 1 month">Immediate / Within 1 month</option>
+                        <option value="1–3 months">1–3 months</option>
+                        <option value="3–6 months">3–6 months</option>
+                        <option value="Planning / Exploratory">Planning / Exploratory</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                      Brief Description of Requirement *
+                    </label>
+                    <textarea
+                      {...register("message")}
+                      rows={4}
+                      placeholder="Briefly describe the initiative, technical environment, desired skill profile or delivery challenge..."
+                      className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E]"
+                    />
+                    {errors.message && (
+                      <p className="mt-1 text-xs text-[#C83B43]">{errors.message.message}</p>
+                    )}
+                  </div>
+
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      disabled={submitting}
+                      className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md cursor-pointer disabled:opacity-70"
+                    >
+                      {submitting ? "Submitting..." : "Submit Your Enquiry"}{" "}
+                      <Send className="h-4 w-4" />
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+
+            {/* Context & What to Expect Column */}
+            <div className="lg:col-span-5 space-y-8">
+              <div>
+                <div className="flex items-center gap-2.5 mb-2">
+                  <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                    WHAT TO EXPECT
+                  </span>
+                  <span className="w-10 h-[3px] bg-[#C83B43]" />
+                </div>
+                <h3 className="text-xl font-bold text-[#102B4E] tracking-tight mb-5">
+                  Responsive, practitioner-led assessment.
+                </h3>
+
+                <div className="space-y-4">
+                  {WHAT_TO_EXPECT.map((item) => (
+                    <div
+                      key={item.title}
+                      className="p-5 rounded-xl bg-[#F3F5F8] border border-slate-200/90 flex items-start gap-4"
+                    >
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-red-50 text-[#C83B43] border border-red-100/60">
+                        <item.icon className="h-5 w-5" />
+                      </span>
+                      <div>
+                        <h4 className="text-sm font-bold text-[#102B4E]">{item.title}</h4>
+                        <p className="text-xs text-slate-600 mt-1 leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Separate Candidate Route per Blueprint Section 14 */}
+              <div className="p-6 rounded-xl border border-slate-200/90 bg-white shadow-xs">
+                <div className="flex items-start gap-3.5">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-red-50 text-[#C83B43] border border-red-100">
+                    <Briefcase className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <h4 className="text-sm font-bold text-[#102B4E]">Looking for Career Opportunities?</h4>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                      Candidates should submit resumes via our dedicated Careers portal rather than enterprise sales enquiries.
+                    </p>
+                    <Link
+                      to="/careers"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#C83B43] hover:text-[#a82e35] mt-3"
+                    >
+                      <span>Explore open roles on Careers</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Direct Channels */}
+              <div className="p-6 rounded-xl bg-[#102B4E] text-white space-y-3">
+                <h4 className="text-sm font-bold text-white uppercase tracking-wider">Direct Business Channels</h4>
+                <div className="space-y-2 text-xs text-slate-300">
+                  <p className="flex items-center gap-2">
+                    <Mail className="h-4 w-4 text-[#245B91]" />
+                    <span>Business Enquiries: <a href="mailto:contact@config-usa.com" className="text-white hover:underline font-semibold">contact@config-usa.com</a></span>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <Phone className="h-4 w-4 text-[#245B91]" />
+                    <span>Global HQ Phone: <a href="tel:+16099343184" className="text-white hover:underline font-semibold">+1 (609) 934-3184</a></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* 3. Verified Offices Section                                         */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section className="section-padding bg-[#F3F5F8] border-b border-[#e2e8f0]">
+        <div className="container-enterprise">
+          <div className="max-w-3xl mb-10">
+            <div className="flex items-center gap-2.5 mb-2">
+              <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                OFFICE LOCATIONS
+              </span>
+              <span className="w-10 h-[3px] bg-[#C83B43]" />
+            </div>
+            <h3 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
+              Confirmed operating offices and delivery centres.
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {OFFICES.map((o) => (
+              <div
+                key={o.city}
+                className="rounded-xl bg-white border border-slate-200/80 p-6 shadow-xs flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#C83B43] bg-red-50 border border-red-100 px-2.5 py-1 rounded">
+                      <Building2 className="h-3.5 w-3.5" />
+                      {o.tag}
+                    </span>
+                  </div>
+                  <h4 className="text-lg font-bold text-[#102B4E] tracking-tight mb-2">{o.city}</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed mb-4">{o.address}</p>
+                </div>
+                <div className="pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-slate-700">
+                  <Phone className="h-3.5 w-3.5 text-[#245B91]" />
+                  <a href={`tel:${o.phone.replace(/[^+\d]/g, "")}`} className="hover:text-[#245B91]">
+                    {o.phone}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* 4. Interactive Map Section (Preserved below per user rule)          */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section className="bg-white py-12 border-b border-[#e2e8f0]">
+        <div className="container-enterprise">
+          <div className="flex items-center gap-2.5 mb-2">
+            <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+              GLOBAL MAP
+            </span>
+            <span className="w-10 h-[3px] bg-[#C83B43]" />
+          </div>
+          <h3 className="text-2xl font-extrabold text-[#102B4E] tracking-tight mb-8">
+            Interactive Global Locations Map
+          </h3>
+          <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
             <InteractiveLeafletMap />
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

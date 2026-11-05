@@ -45,6 +45,7 @@ export const Route = createFileRoute("/services/managed-delivery")({
 
 /* ────────────────────────── DATA ────────────────────────── */
 
+// TODO: VERIFY: Metrics awaiting client confirmation.
 const DELIVERY_METRICS = [
   { value: "99.5%", label: "Milestone SLA Adherence" },
   { value: "48h", label: "Rapid Pod Mobilization" },
@@ -168,7 +169,7 @@ function ManagedDeliveryPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* ────────────────────────── HERO SECTION ────────────────────────── */}
-      <section className="relative min-h-[64vh] flex items-center overflow-hidden pt-28 pb-16 bg-[#071326]">
+      <section className="relative min-h-[64vh] flex items-center overflow-hidden pt-28 pb-16 bg-[#102B4E]">
         {/* Background Photography with Crystal-Clear Right Side */}
         <div className="absolute inset-0 z-0">
           <img
@@ -176,8 +177,8 @@ function ManagedDeliveryPage() {
             alt="Managed Delivery Services"
             className="h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/85 via-45% to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#071326]/50 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 via-45% to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#102B4E]/50 to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full my-auto py-8">
@@ -187,7 +188,7 @@ function ManagedDeliveryPage() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f5a623]/15 border border-[#f5a623]/30 text-[#f5a623] text-xs font-bold uppercase tracking-wider mb-4"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#245B91]/15 border border-[#245B91]/30 text-[#245B91] text-xs font-bold uppercase tracking-wider mb-4"
             >
               <LifeBuoy className="h-3.5 w-3.5" />
               <span>Outcome-Driven Managed Delivery</span>
@@ -201,7 +202,7 @@ function ManagedDeliveryPage() {
               className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight"
             >
               Dedicated Engineering Pods That{" "}
-              <span className="text-[#f5a623]">Own Outcomes.</span>
+              <span className="text-[#245B91]">Own Outcomes.</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -223,7 +224,7 @@ function ManagedDeliveryPage() {
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#C83B43] px-7 py-3.5 text-sm font-bold text-white hover:bg-[#b02f37] transition-colors shadow-sm"
               >
                 Assemble a Delivery Pod <ArrowRight className="h-4 w-4" />
               </Link>
@@ -275,9 +276,9 @@ function ManagedDeliveryPage() {
                   alt="High-Performance Managed Pod"
                   className="w-full aspect-[4/3] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071326]/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#102B4E]/80 via-transparent to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#f5a623] text-[#071326] text-xs font-bold mb-2">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#245B91] text-white text-xs font-bold mb-2">
                     Milestone-Driven
                   </div>
                   <p className="text-sm font-semibold">
@@ -296,11 +297,11 @@ function ManagedDeliveryPage() {
               className="lg:col-span-7"
             >
               {/* Homepage Heading Structure with Left Gold Bar */}
-              <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-6">
-                <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+              <div className="border-l-[3px] border-[#C83B43] pl-3.5 mb-6">
+                <p className="text-xs font-bold uppercase tracking-widest text-[#245B91] mb-1">
                   DELIVERY GOVERNANCE & SLA COMMITMENT
                 </p>
-                <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+                <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#102B4E] tracking-tight">
                   Stop Managing Headcount. Start Buying Delivery Outcomes.
                 </h2>
                 <p className="mt-2 text-sm sm:text-base text-slate-500 font-normal">
@@ -316,7 +317,7 @@ function ManagedDeliveryPage() {
               <div className="mt-6 grid sm:grid-cols-2 gap-3.5 pt-4 border-t border-slate-100">
                 {ADVANTAGES.map((adv, idx) => (
                   <div key={idx} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="h-4 w-4 text-[#f5a623] shrink-0 mt-1" />
+                    <CheckCircle2 className="h-4 w-4 text-[#245B91] shrink-0 mt-1" />
                     <span className="text-xs sm:text-[13px] text-slate-700 font-medium leading-snug">
                       {adv}
                     </span>
@@ -332,11 +333,11 @@ function ManagedDeliveryPage() {
       <section className="py-20 lg:py-24 bg-slate-50 border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
-            <div className="border-l-[3px] border-[#f5a623] pl-3.5">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+            <div className="border-l-[3px] border-[#C83B43] pl-3.5">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#245B91] mb-1">
                 DELIVERY MODELS
               </p>
-              <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#102B4E] tracking-tight">
                 Flexible Pod Structures Tailored to Your Roadmap
               </h2>
               <p className="mt-2 text-sm sm:text-base text-slate-500 max-w-2xl font-normal">
@@ -364,11 +365,11 @@ function ManagedDeliveryPage() {
                 <div className="group flex flex-col justify-between h-full bg-white rounded-xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300">
                   <div>
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100/60 group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-colors duration-200">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100/60 group-hover:bg-[#102B4E] group-hover:text-white transition-colors duration-200">
                         <pillar.icon className="h-6 w-6 stroke-[1.75]" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-base sm:text-[17px] text-[#071326] group-hover:text-blue-700 transition-colors leading-snug">
+                        <h3 className="font-bold text-base sm:text-[17px] text-[#102B4E] group-hover:text-blue-700 transition-colors leading-snug">
                           {pillar.title}
                         </h3>
                         <p className="text-xs text-slate-500 font-medium mt-0.5">
@@ -406,10 +407,10 @@ function ManagedDeliveryPage() {
       </section>
 
       {/* ────────────────────────── SLA & GOVERNANCE MATRIX (NAVY) ────────────────────────── */}
-      <section className="py-20 lg:py-24 bg-[#071326] text-white">
+      <section className="py-20 lg:py-24 bg-[#102B4E] text-white">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-12">
-            <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+          <div className="border-l-[3px] border-[#C83B43] pl-3.5 mb-12">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#245B91] mb-1">
               PERFORMANCE ASSURANCE
             </p>
             <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-white tracking-tight">
@@ -428,10 +429,10 @@ function ManagedDeliveryPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.06 }}
-                className="p-6 rounded-xl bg-[#0a182f]/80 border border-white/10 hover:border-[#f5a623]/40 transition-colors flex flex-col justify-between"
+                className="p-6 rounded-xl bg-[#102B4E]/80 border border-white/10 hover:border-[#245B91]/40 transition-colors flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-2xl font-black text-[#f5a623]">
+                  <span className="text-2xl font-black text-[#245B91]">
                     {kpi.kpi}
                   </span>
                   <h3 className="text-base font-bold text-white mt-3 mb-2">
@@ -450,11 +451,11 @@ function ManagedDeliveryPage() {
       {/* ────────────────────────── 4-STEP POD LIFECYCLE ────────────────────────── */}
       <section className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-12">
-            <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+          <div className="border-l-[3px] border-[#C83B43] pl-3.5 mb-12">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#245B91] mb-1">
               ENGAGEMENT BLUEPRINT
             </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#102B4E] tracking-tight">
               From Discovery to High-Velocity Delivery in 4 Stages
             </h2>
             <p className="mt-2 text-sm sm:text-base text-slate-500 max-w-2xl font-normal">
@@ -473,14 +474,14 @@ function ManagedDeliveryPage() {
                 className="relative p-6 rounded-xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:border-blue-400 hover:shadow-md transition-all group"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl font-black text-[#f5a623]">
+                  <span className="text-2xl font-black text-[#245B91]">
                     {p.step}
                   </span>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-colors">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover:bg-[#102B4E] group-hover:text-white transition-colors">
                     <p.icon className="h-5 w-5" />
                   </div>
                 </div>
-                <h3 className="text-base font-bold text-[#071326] mb-2">
+                <h3 className="text-base font-bold text-[#102B4E] mb-2">
                   {p.title}
                 </h3>
                 <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
@@ -493,18 +494,18 @@ function ManagedDeliveryPage() {
       </section>
 
       {/* ────────────────────────── CTA BANNER ────────────────────────── */}
-      <section className="relative py-20 bg-[#071326] text-white overflow-hidden">
+      <section className="relative py-20 bg-[#102B4E] text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={ctaHome}
             alt="ConfigUSA Managed Delivery"
             className="h-full w-full object-cover opacity-15"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/95 to-[#071326]/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/95 to-[#102B4E]/80" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-5xl px-4 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-3">
+          <p className="text-xs font-bold uppercase tracking-widest text-[#245B91] mb-3">
             ACCELERATE TIME-TO-MARKET
           </p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -516,7 +517,7 @@ function ManagedDeliveryPage() {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-8 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#C83B43] px-8 py-3.5 text-sm font-bold text-white hover:bg-[#b02f37] transition-colors"
             >
               Request a Pod Proposal <ArrowRight className="h-4 w-4" />
             </Link>

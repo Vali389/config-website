@@ -33,57 +33,77 @@
   --color-navy-deep: var(--navy-deep);
   --color-brand: var(--brand);
   --color-brand-glow: var(--brand-glow);
+  --color-accent-red: var(--accent-red);
+  --color-accent-red-hover: var(--accent-red-hover);
+  --color-charcoal: var(--charcoal);
   --color-ink: var(--ink);
   --color-soft: var(--soft);
-  --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
-  --font-sans: "Inter", "Plus Jakarta Sans", sans-serif;
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 :root {
+  /* ── Type Scale Tokens (Hero: 48-56px, H2: 30-36px, Body: 15-17px) ── */
+  --font-size-hero: clamp(3rem, 4.5vw, 3.5rem); /* 48px - 56px */
+  --line-height-hero: 1.12;
+  --font-size-h2: clamp(1.875rem, 2.5vw, 2.25rem); /* 30px - 36px */
+  --line-height-h2: 1.2;
+  --font-size-body: clamp(0.9375rem, 1.1vw, 1.0625rem); /* 15px - 17px */
+  --line-height-body: 1.6;
+
+  /* ── Layout Tokens (Max-width: 1280px, Gap: 24px, Section: 80-96px desktop / 48-56px mobile) ── */
+  --container-max-width: 80rem; /* 1280px */
+  --section-padding-desktop: 5.5rem; /* 88px (80-96px) */
+  --section-padding-mobile: 3.25rem; /* 52px (48-56px) */
+  --card-gap: 1.5rem; /* 24px */
+  --card-padding: 1.625rem; /* 26px (24-28px) */
+
   --radius: 0.75rem;
 
-  /* ── Black / White / Blue palette ── */
+  /* ── Big-4 Enterprise Palette: Deep Navy, Corporate Blue, Restrained Red, Charcoal, Soft Grey, White ── */
   --background: #ffffff;
-  --foreground: #0f172a;
+  --foreground: #344054;
   --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card-foreground: #102B4E;
   --popover: #ffffff;
-  --popover-foreground: #0f172a;
-  --primary: #1d4ed8;
-  /* blue-700 */
+  --popover-foreground: #102B4E;
+  --primary: #245B91;
   --primary-foreground: #ffffff;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0f172a;
-  --muted: #f1f5f9;
+  --secondary: #F3F5F8;
+  --secondary-foreground: #102B4E;
+  --muted: #F3F5F8;
   --muted-foreground: #64748b;
-  --accent: #3b82f6;
-  /* blue-500 */
-  --accent-foreground: #0f172a;
-  --destructive: #dc2626;
+  --accent: #245B91;
+  --accent-foreground: #ffffff;
+  --destructive: #C83B43;
   --destructive-foreground: #ffffff;
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: #1d4ed8;
+  --ring: #245B91;
 
-  --navy-deep: #0a1628;
-  /* very dark blue-black hero bg */
-  --navy: #0f2040;
-  --brand: #1d4ed8;
-  /* blue-700 – primary brand blue */
-  --brand-glow: #3b82f6;
-  /* blue-500 – lighter accent */
-  --ink: #0f172a;
-  /* near-black headings */
-  --soft: #f8fafc;
-  /* off-white section bg */
+  --navy-deep: #102B4E;
+  /* Deep Navy: authoritative headers & hero backgrounds */
+  --navy: #102B4E;
+  --brand: #245B91;
+  /* Corporate Blue: links & active indicators */
+  --brand-glow: #3d79b8;
+  --accent-red: #C83B43;
+  /* ConfigUSA Red: key CTAs and restrained accents only */
+  --accent-red-hover: #b33239;
+  --charcoal: #344054;
+  /* Charcoal: high-legibility body */
+  --ink: #102B4E;
+  /* Near-navy headings */
+  --soft: #F3F5F8;
+  /* Soft grey section bg */
 
-  --gradient-hero: linear-gradient(135deg, #0a1628 0%, #0f2040 45%, #1e3a6e 100%);
-  --gradient-brand: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
-  --gradient-overlay: linear-gradient(180deg, rgba(10, 22, 40, 0.35) 0%, rgba(10, 22, 40, 0.9) 100%);
+  --gradient-hero: linear-gradient(135deg, #102B4E 0%, #173d6b 50%, #245B91 100%);
+  --gradient-brand: linear-gradient(135deg, #245B91 0%, #3d79b8 100%);
+  --gradient-overlay: linear-gradient(180deg, rgba(16, 43, 78, 0.45) 0%, rgba(16, 43, 78, 0.95) 100%);
 
-  --shadow-elegant: 0 20px 60px -20px rgba(29, 78, 216, 0.25);
-  --shadow-glow: 0 0 60px rgba(59, 130, 246, 0.3);
-  --shadow-card: 0 10px 40px -12px rgba(15, 23, 42, 0.12);
+  --shadow-elegant: 0 20px 60px -20px rgba(16, 43, 78, 0.18);
+  --shadow-glow: 0 0 40px rgba(36, 91, 145, 0.22);
+  --shadow-card: 0 8px 30px -10px rgba(16, 43, 78, 0.08);
 }
 
 @layer base {
@@ -372,154 +392,7 @@
 }
 
 /* Particles that rise and fade from a card on hover */
-@keyframes particle-float {
-  0% {
-    transform: translateY(0) translateX(0) scale(0);
-    opacity: 0;
-  }
 
-  30% {
-    opacity: 1;
-    transform: translateY(-10px) translateX(5px) scale(1);
-  }
-
-  100% {
-    transform: translateY(-40px) translateX(-5px) scale(0);
-    opacity: 0;
-  }
-}
-
-@utility animate-particle {
-  animation: particle-float 1.6s ease-out infinite;
-}
-
-/* Particles that fall like rain from the top of a card on hover */
-@keyframes particle-rain {
-  0% {
-    transform: translateY(-26px) translateX(0) scale(0);
-    opacity: 0;
-  }
-
-  25% {
-    opacity: 1;
-    transform: translateY(0) translateX(4px) scale(1);
-  }
-
-  100% {
-    transform: translateY(46px) translateX(-4px) scale(0);
-    opacity: 0;
-  }
-}
-
-@utility animate-particle-rain {
-  animation: particle-rain 1.9s linear infinite;
-}
-
-/* Continuous ambient rain streaks falling down a section */
-@keyframes rain-drop {
-  0% {
-    top: -12%;
-    opacity: 0;
-  }
-
-  8% {
-    opacity: 1;
-  }
-
-  92% {
-    opacity: 1;
-  }
-
-  100% {
-    top: 112%;
-    opacity: 0;
-  }
-}
-
-@utility animate-rain-drop {
-  animation: rain-drop 3s linear infinite backwards;
-}
-
-/* Bubbles / tiny particles rising up a section */
-@keyframes bubble-rise {
-  0% {
-    bottom: -12%;
-    opacity: 0;
-    transform: translateX(0) scale(0.7);
-  }
-
-  12% {
-    opacity: 0.7;
-  }
-
-  88% {
-    opacity: 0.7;
-  }
-
-  100% {
-    bottom: 112%;
-    opacity: 0;
-    transform: translateX(14px) scale(1.05);
-  }
-}
-
-@utility animate-bubble {
-  animation: bubble-rise 9s ease-in infinite backwards;
-}
-
-/* Bubbles / tiny particles falling down a section (top → bottom) */
-@keyframes bubble-fall {
-  0% {
-    top: -12%;
-    opacity: 0;
-    transform: translateX(0) scale(0.7);
-  }
-
-  12% {
-    opacity: 0.7;
-  }
-
-  88% {
-    opacity: 0.7;
-  }
-
-  100% {
-    top: 112%;
-    opacity: 0;
-    transform: translateX(14px) scale(1.05);
-  }
-}
-
-@utility animate-bubble-fall {
-  animation: bubble-fall 9s ease-in infinite backwards;
-}
-
-/* Particles drifting right-to-left across a section */
-@keyframes drift-lr {
-  0% {
-    right: -6%;
-    opacity: 0;
-    transform: translateY(0);
-  }
-
-  10% {
-    opacity: 0.75;
-  }
-
-  90% {
-    opacity: 0.75;
-  }
-
-  100% {
-    right: 106%;
-    opacity: 0;
-    transform: translateY(-14px);
-  }
-}
-
-@utility animate-drift-lr {
-  animation: drift-lr 11s linear infinite backwards;
-}
 
 /* Floating decorative shapes (drift + gentle rotate) */
 @keyframes float-shape {
@@ -575,6 +448,70 @@
 
 /* Animated underline for footer links */
 @layer components {
+
+  /* ── Big-4 Enterprise Typography & Layout Utilities ── */
+  .type-hero {
+    font-size: var(--font-size-hero);
+    line-height: var(--line-height-hero);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+  }
+
+  .type-h2 {
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .type-body {
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    color: var(--charcoal);
+  }
+
+  .section-padding {
+    padding-top: var(--section-padding-mobile);
+    padding-bottom: var(--section-padding-mobile);
+  }
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: var(--section-padding-desktop);
+      padding-bottom: var(--section-padding-desktop);
+    }
+  }
+
+  .container-enterprise {
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-enterprise {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-enterprise {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .card-grid-enterprise {
+    display: grid;
+    gap: var(--card-gap);
+  }
+
   .footer-link {
     position: relative;
   }
@@ -606,16 +543,51 @@
   animation: dash-scroll 1.5s linear infinite;
 }
 
-/* Suppress intrusive third-party attention grabbers & popups */
-#tawk-bubble-container,
-[id^="tawk-bubble"],
-.tawk-bubble-container,
-.tawk-min-container .tawk-bubble,
-div[class*="tawk-bubble"],
-iframe[title*="chat bubble"],
-iframe[title*="bubble"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+
+
+
+
+
+@layer components {
+  .btn-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--accent-red);
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.25rem;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 2px 0 rgba(16, 43, 78, 0.05);
+  }
+  .btn-cta-primary:hover {
+    background-color: var(--accent-red-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(200, 59, 67, 0.25);
+  }
+
+  .btn-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    color: var(--brand);
+    border: 1px solid var(--brand);
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.25rem;
+    transition: all 0.2s ease-in-out;
+  }
+  .btn-cta-secondary:hover {
+    background-color: var(--brand);
+    color: #ffffff;
+    transform: translateY(-1px);
+  }
 }

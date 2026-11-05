@@ -46,6 +46,7 @@ export const Route = createFileRoute("/services/software")({
 
 /* ────────────────────────── DATA ────────────────────────── */
 
+// TODO: VERIFY: Metrics awaiting client confirmation.
 const ENGINEERING_METRICS = [
   { value: "500+", label: "Projects Shipped" },
   { value: "10+ Yrs", label: "Avg. Engineer Experience" },
@@ -165,7 +166,7 @@ function SoftwareEngineeringPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* ────────────────────────── HERO SECTION ────────────────────────── */}
-      <section className="relative min-h-[64vh] flex items-center overflow-hidden pt-28 pb-16 bg-[#071326]">
+      <section className="relative min-h-[64vh] flex items-center overflow-hidden pt-28 pb-16 bg-[#102B4E]">
         {/* Background Photography with Navy Gradient */}
         <div className="absolute inset-0 z-0">
           <img
@@ -173,8 +174,8 @@ function SoftwareEngineeringPage() {
             alt="Digital Engineering"
             className="h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/85 via-45% to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#071326]/50 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 via-45% to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#102B4E]/50 to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full my-auto py-8">
@@ -184,7 +185,7 @@ function SoftwareEngineeringPage() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f5a623]/15 border border-[#f5a623]/30 text-[#f5a623] text-xs font-bold uppercase tracking-wider mb-4"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#245B91]/15 border border-[#245B91]/30 text-[#245B91] text-xs font-bold uppercase tracking-wider mb-4"
             >
               <Code2 className="h-3.5 w-3.5" />
               <span>Digital Engineering & Custom Software</span>
@@ -198,7 +199,7 @@ function SoftwareEngineeringPage() {
               className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight"
             >
               Software Built to{" "}
-              <span className="text-[#f5a623]">Scale Your Enterprise.</span>
+              <span className="text-[#245B91]">Scale Your Enterprise.</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -220,7 +221,7 @@ function SoftwareEngineeringPage() {
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#C83B43] px-7 py-3.5 text-sm font-bold text-white hover:bg-[#b02f37] transition-colors shadow-sm"
               >
                 Talk to an Engineering Lead <ArrowRight className="h-4 w-4" />
               </Link>
@@ -272,9 +273,9 @@ function SoftwareEngineeringPage() {
                   alt="Enterprise Digital Engineering"
                   className="w-full aspect-[4/3] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071326]/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#102B4E]/80 via-transparent to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#f5a623] text-[#071326] text-xs font-bold mb-2">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#245B91] text-white text-xs font-bold mb-2">
                     Production Excellence
                   </div>
                   <p className="text-sm font-semibold">
@@ -293,11 +294,11 @@ function SoftwareEngineeringPage() {
               className="lg:col-span-7"
             >
               {/* Homepage Heading Structure with Left Gold Bar */}
-              <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-6">
-                <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+              <div className="border-l-[3px] border-[#C83B43] pl-3.5 mb-6">
+                <p className="text-xs font-bold uppercase tracking-widest text-[#245B91] mb-1">
                   FULL-LIFECYCLE PRODUCT ENGINEERING
                 </p>
-                <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+                <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#102B4E] tracking-tight">
                   High-Velocity Engineering Tailored for Enterprise Demands
                 </h2>
                 <p className="mt-2 text-sm sm:text-base text-slate-500 font-normal">
@@ -313,7 +314,7 @@ function SoftwareEngineeringPage() {
               <div className="mt-6 grid sm:grid-cols-2 gap-3.5 pt-4 border-t border-slate-100">
                 {WHY_CHOOSE_ENGINEERING.map((benefit, idx) => (
                   <div key={idx} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="h-4 w-4 text-[#f5a623] shrink-0 mt-1" />
+                    <CheckCircle2 className="h-4 w-4 text-[#245B91] shrink-0 mt-1" />
                     <span className="text-xs sm:text-[13px] text-slate-700 font-medium leading-snug">
                       {benefit}
                     </span>
@@ -329,11 +330,11 @@ function SoftwareEngineeringPage() {
       <section className="py-20 lg:py-24 bg-slate-50 border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
-            <div className="border-l-[3px] border-[#f5a623] pl-3.5">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+            <div className="border-l-[3px] border-[#C83B43] pl-3.5">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#245B91] mb-1">
                 WHAT WE DELIVER
               </p>
-              <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#102B4E] tracking-tight">
                 Complete Engineering Capabilities
               </h2>
               <p className="mt-2 text-sm sm:text-base text-slate-500 max-w-2xl font-normal">
@@ -361,11 +362,11 @@ function SoftwareEngineeringPage() {
                 <div className="group flex flex-col justify-between h-full bg-white rounded-xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300">
                   <div>
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100/60 group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-colors duration-200">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100/60 group-hover:bg-[#102B4E] group-hover:text-white transition-colors duration-200">
                         <pillar.icon className="h-6 w-6 stroke-[1.75]" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-base sm:text-[17px] text-[#071326] group-hover:text-blue-700 transition-colors leading-snug">
+                        <h3 className="font-bold text-base sm:text-[17px] text-[#102B4E] group-hover:text-blue-700 transition-colors leading-snug">
                           {pillar.title}
                         </h3>
                         <p className="text-xs text-slate-500 font-medium mt-0.5">
@@ -403,10 +404,10 @@ function SoftwareEngineeringPage() {
       </section>
 
       {/* ────────────────────────── ENTERPRISE TECH MATRIX (NAVY) ────────────────────────── */}
-      <section className="py-20 lg:py-24 bg-[#071326] text-white">
+      <section className="py-20 lg:py-24 bg-[#102B4E] text-white">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-12">
-            <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+          <div className="border-l-[3px] border-[#C83B43] pl-3.5 mb-12">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#245B91] mb-1">
               ENGINEERING STACK
             </p>
             <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-white tracking-tight">
@@ -425,9 +426,9 @@ function SoftwareEngineeringPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="p-6 rounded-xl bg-[#0a182f]/80 border border-white/10 hover:border-[#f5a623]/40 transition-colors"
+                className="p-6 rounded-xl bg-[#102B4E]/80 border border-white/10 hover:border-[#245B91]/40 transition-colors"
               >
-                <h3 className="text-base font-bold text-[#f5a623] mb-4">
+                <h3 className="text-base font-bold text-[#245B91] mb-4">
                   {stack.category}
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -449,11 +450,11 @@ function SoftwareEngineeringPage() {
       {/* ────────────────────────── 4-STEP PRODUCT LIFECYCLE ────────────────────────── */}
       <section className="py-20 lg:py-24 bg-white border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-12">
-            <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">
+          <div className="border-l-[3px] border-[#C83B43] pl-3.5 mb-12">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#245B91] mb-1">
               DELIVERY PROCESS
             </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#071326] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-[#102B4E] tracking-tight">
               From Concept to Shipped Software in 4 Steps
             </h2>
             <p className="mt-2 text-sm sm:text-base text-slate-500 max-w-2xl font-normal">
@@ -472,14 +473,14 @@ function SoftwareEngineeringPage() {
                 className="relative p-6 rounded-xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:border-blue-400 hover:shadow-md transition-all group"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl font-black text-[#f5a623]">
+                  <span className="text-2xl font-black text-[#245B91]">
                     {cycle.step}
                   </span>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover:bg-[#071326] group-hover:text-[#f5a623] transition-colors">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover:bg-[#102B4E] group-hover:text-white transition-colors">
                     <cycle.icon className="h-5 w-5" />
                   </div>
                 </div>
-                <h3 className="text-base font-bold text-[#071326] mb-2">
+                <h3 className="text-base font-bold text-[#102B4E] mb-2">
                   {cycle.title}
                 </h3>
                 <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
@@ -492,18 +493,18 @@ function SoftwareEngineeringPage() {
       </section>
 
       {/* ────────────────────────── CTA BANNER ────────────────────────── */}
-      <section className="relative py-20 bg-[#071326] text-white overflow-hidden">
+      <section className="relative py-20 bg-[#102B4E] text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={ctaHome}
             alt="ConfigUSA Digital Engineering"
             className="h-full w-full object-cover opacity-15"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/95 to-[#071326]/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/95 to-[#102B4E]/80" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-5xl px-4 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-3">
+          <p className="text-xs font-bold uppercase tracking-widest text-[#245B91] mb-3">
             START YOUR NEXT BUILD
           </p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -515,7 +516,7 @@ function SoftwareEngineeringPage() {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-8 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#C83B43] px-8 py-3.5 text-sm font-bold text-white hover:bg-[#b02f37] transition-colors"
             >
               Start Technical Scoping <ArrowRight className="h-4 w-4" />
             </Link>

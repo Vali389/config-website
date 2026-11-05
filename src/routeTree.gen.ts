@@ -11,9 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GccRouteImport } from './routes/gcc'
+import { Route as GlobalDeliveryRouteImport } from './routes/global-delivery'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProcessRouteImport } from './routes/process'
@@ -27,6 +29,7 @@ import { Route as CareersIndexRouteImport } from './routes/careers/index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as IndustriesIndustryIdRouteImport } from './routes/industries.$industryId'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesAiRouteImport } from './routes/services.ai'
 import { Route as ServicesAssessmentRouteImport } from './routes/services.assessment'
 import { Route as ServicesCloudRouteImport } from './routes/services.cloud'
 import { Route as ServicesEnterpriseApplicationsRouteImport } from './routes/services.enterprise-applications'
@@ -48,6 +51,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -61,6 +69,11 @@ const FaqRoute = FaqRouteImport.update({
 const GccRoute = GccRouteImport.update({
   id: '/gcc',
   path: '/gcc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlobalDeliveryRoute = GlobalDeliveryRouteImport.update({
+  id: '/global-delivery',
+  path: '/global-delivery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriesRoute = IndustriesRouteImport.update({
@@ -128,6 +141,11 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ServicesRoute,
 } as any)
+const ServicesAiRoute = ServicesAiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
+  getParentRoute: () => ServicesRoute,
+} as any)
 const ServicesAssessmentRoute = ServicesAssessmentRouteImport.update({
   id: '/assessment',
   path: '/assessment',
@@ -184,9 +202,11 @@ const CareersJobJobIdRoute = CareersJobJobIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/gcc': typeof GccRoute
+  '/global-delivery': typeof GlobalDeliveryRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -197,6 +217,7 @@ export interface FileRoutesByFullPath {
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
+  '/services/ai': typeof ServicesAiRoute
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/cloud': typeof ServicesCloudRoute
   '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
@@ -214,9 +235,11 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/gcc': typeof GccRoute
+  '/global-delivery': typeof GlobalDeliveryRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
@@ -225,6 +248,7 @@ export interface FileRoutesByTo {
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
+  '/services/ai': typeof ServicesAiRoute
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/cloud': typeof ServicesCloudRoute
   '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
@@ -243,9 +267,11 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/gcc': typeof GccRoute
+  '/global-delivery': typeof GlobalDeliveryRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -256,6 +282,7 @@ export interface FileRoutesById {
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
+  '/services/ai': typeof ServicesAiRoute
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/cloud': typeof ServicesCloudRoute
   '/services/enterprise-applications': typeof ServicesEnterpriseApplicationsRoute
@@ -275,9 +302,11 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/case-studies'
     | '/contact'
     | '/faq'
     | '/gcc'
+    | '/global-delivery'
     | '/industries'
     | '/privacy'
     | '/process'
@@ -288,6 +317,7 @@ export interface FileRouteTypes {
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
+    | '/services/ai'
     | '/services/assessment'
     | '/services/cloud'
     | '/services/enterprise-applications'
@@ -305,9 +335,11 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/case-studies'
     | '/contact'
     | '/faq'
     | '/gcc'
+    | '/global-delivery'
     | '/privacy'
     | '/process'
     | '/request-talent'
@@ -316,6 +348,7 @@ export interface FileRouteTypes {
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
+    | '/services/ai'
     | '/services/assessment'
     | '/services/cloud'
     | '/services/enterprise-applications'
@@ -333,9 +366,11 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/case-studies'
     | '/contact'
     | '/faq'
     | '/gcc'
+    | '/global-delivery'
     | '/industries'
     | '/privacy'
     | '/process'
@@ -346,6 +381,7 @@ export interface FileRouteTypes {
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
+    | '/services/ai'
     | '/services/assessment'
     | '/services/cloud'
     | '/services/enterprise-applications'
@@ -364,9 +400,11 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
   GccRoute: typeof GccRoute
+  GlobalDeliveryRoute: typeof GlobalDeliveryRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
   ProcessRoute: typeof ProcessRoute
@@ -396,6 +434,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -415,6 +460,13 @@ declare module '@tanstack/react-router' {
       path: '/gcc'
       fullPath: '/gcc'
       preLoaderRoute: typeof GccRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/global-delivery': {
+      id: '/global-delivery'
+      path: '/global-delivery'
+      fullPath: '/global-delivery'
+      preLoaderRoute: typeof GlobalDeliveryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/industries': {
@@ -508,6 +560,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/services/ai': {
+      id: '/services/ai'
+      path: '/ai'
+      fullPath: '/services/ai'
+      preLoaderRoute: typeof ServicesAiRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/assessment': {
       id: '/services/assessment'
       path: '/assessment'
@@ -596,6 +655,7 @@ const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
 )
 
 interface ServicesRouteChildren {
+  ServicesAiRoute: typeof ServicesAiRoute
   ServicesAssessmentRoute: typeof ServicesAssessmentRoute
   ServicesCloudRoute: typeof ServicesCloudRoute
   ServicesEnterpriseApplicationsRoute: typeof ServicesEnterpriseApplicationsRoute
@@ -609,6 +669,7 @@ interface ServicesRouteChildren {
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesAiRoute: ServicesAiRoute,
   ServicesAssessmentRoute: ServicesAssessmentRoute,
   ServicesCloudRoute: ServicesCloudRoute,
   ServicesEnterpriseApplicationsRoute: ServicesEnterpriseApplicationsRoute,
@@ -629,9 +690,11 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
   GccRoute: GccRoute,
+  GlobalDeliveryRoute: GlobalDeliveryRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
   PrivacyRoute: PrivacyRoute,
   ProcessRoute: ProcessRoute,

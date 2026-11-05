@@ -60,7 +60,7 @@ export function CTASection({ image }: CTASectionProps) {
           >
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-brand hover:bg-brand/90 px-8 py-4 text-sm font-bold text-white tracking-wide transition-all hover:scale-105 shadow-lg"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#C83B43] hover:bg-[#b33239] px-8 py-4 text-sm font-bold text-white tracking-wide transition-all hover:scale-105 shadow-lg"
             >
               Request a Consultation
               <ArrowRight className="h-4 w-4" />

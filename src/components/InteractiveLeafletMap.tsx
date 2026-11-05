@@ -43,6 +43,8 @@ export const THREE_LOCATIONS: OfficeLocation[] = [
     coords: [40.3340, -74.5938],
     zoomLevel: 12,
     timeZone: "EST (UTC-5)",
+    // TODO: VERIFY (headcount): 150+ Onshore Experts (hidden from visible UI)
+    // TODO: VERIFY: Address and phone number (needs client confirmation)
     teamSize: "150+ Onshore Experts",
     isHQ: true,
   },
@@ -59,6 +61,8 @@ export const THREE_LOCATIONS: OfficeLocation[] = [
     coords: [43.7915, -79.2274],
     zoomLevel: 12,
     timeZone: "EST (UTC-5)",
+    // TODO: VERIFY (headcount): 50+ Technology Consultants (hidden from visible UI)
+    // TODO: VERIFY: Address and phone number (needs client confirmation)
     teamSize: "50+ Technology Consultants",
   },
   {
@@ -74,6 +78,8 @@ export const THREE_LOCATIONS: OfficeLocation[] = [
     coords: [17.4474, 78.3762],
     zoomLevel: 12,
     timeZone: "IST (UTC+5:30)",
+    // TODO: VERIFY (headcount): 350+ Global Engineers (hidden from visible UI)
+    // TODO: VERIFY: Address and phone number (needs client confirmation)
     teamSize: "350+ Global Engineers",
   },
 ];
@@ -216,7 +222,7 @@ export function InteractiveLeafletMap() {
         <div className="p-4 sm:p-5 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-50/70">
           <div className="flex items-center gap-3">
             <span className="h-3 w-3 rounded-full bg-blue-600 animate-pulse" />
-            <span className="text-sm sm:text-base font-bold text-[#071326] tracking-tight">
+            <span className="text-sm sm:text-base font-bold text-[#102B4E] tracking-tight">
               3 Strategic Locations · Global Delivery Network
             </span>
           </div>
@@ -227,7 +233,7 @@ export function InteractiveLeafletMap() {
               onClick={handleShowAll}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 viewMode === "all"
-                  ? "bg-[#07172f] text-[#f5a623] shadow-sm"
+                  ? "bg-[#102B4E] text-white shadow-sm"
                   : "bg-white border border-slate-200 text-slate-600 hover:text-slate-900"
               }`}
             >
@@ -240,7 +246,7 @@ export function InteractiveLeafletMap() {
                 onClick={() => handleSelectOffice(loc)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   selectedOffice.id === loc.id && viewMode !== "all"
-                    ? "bg-[#07172f] text-white shadow-sm"
+                    ? "bg-[#102B4E] text-white shadow-sm"
                     : "bg-white border border-slate-200 text-slate-600 hover:text-slate-900"
                 }`}
               >
@@ -290,7 +296,7 @@ export function InteractiveLeafletMap() {
                 </span>
               </div>
 
-              <h4 className="text-lg sm:text-xl font-extrabold text-[#071326] leading-snug">
+              <h4 className="text-lg sm:text-xl font-extrabold text-[#102B4E] leading-snug">
                 {selectedOffice.name}
               </h4>
               <p className="text-xs text-slate-500 font-semibold mt-0.5">
@@ -307,9 +313,9 @@ export function InteractiveLeafletMap() {
                 <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between gap-2 text-slate-600">
                   <a
                     href={`tel:${selectedOffice.phone.replace(/[^\d+]/g, "")}`}
-                    className="flex items-center gap-1.5 font-bold text-[#071326] hover:text-blue-600 transition-colors"
+                    className="flex items-center gap-1.5 font-bold text-[#102B4E] hover:text-blue-600 transition-colors"
                   >
-                    <Phone className="h-3.5 w-3.5 text-[#f5a623]" />
+                    <Phone className="h-3.5 w-3.5 text-[#245B91]" />
                     <span>{selectedOffice.phone}</span>
                   </a>
                   <a
@@ -336,9 +342,9 @@ export function InteractiveLeafletMap() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#07172f] hover:bg-[#0d2345] px-4 py-2.5 text-xs font-bold text-white transition-all shadow-xs"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#102B4E] hover:bg-[#0d2345] px-4 py-2.5 text-xs font-bold text-white transition-all shadow-xs"
                 >
-                  <Navigation className="h-3.5 w-3.5 text-[#f5a623]" />
+                  <Navigation className="h-3.5 w-3.5 text-[#245B91]" />
                   <span>Get Directions</span>
                   <ExternalLink className="h-3 w-3 opacity-60" />
                 </a>
@@ -376,7 +382,7 @@ export function InteractiveLeafletMap() {
                         }`}
                       />
                       <div className="min-w-0">
-                        <p className="text-xs font-bold text-[#071326] truncate">
+                        <p className="text-xs font-bold text-[#102B4E] truncate">
                           {loc.city}, {loc.country}
                         </p>
                         <p className="text-[11px] text-slate-500 truncate">{loc.name}</p>

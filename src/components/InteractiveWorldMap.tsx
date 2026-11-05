@@ -40,6 +40,8 @@ const LOCATIONS_DATA: LocationDetail[] = [
       "https://maps.google.com/maps?q=666+Plainsboro+Road,+Suite+1237,+Plainsboro,+NJ+08536&t=&z=14&ie=UTF8&iwloc=&output=embed",
     mapUrl:
       "https://maps.google.com/?q=666+Plainsboro+Road,+Suite+1237,+Plainsboro,+NJ+08536",
+    // TODO: VERIFY (headcount): 150+ Onshore Experts (hidden from visible UI)
+    // TODO: VERIFY: Address and phone number (needs client confirmation)
     teamSize: "150+ Onshore Experts",
     timeZone: "EST (UTC-5)",
   },
@@ -55,6 +57,8 @@ const LOCATIONS_DATA: LocationDetail[] = [
       "https://maps.google.com/maps?q=1585+Markham+Road,+Suite+309,+Toronto,+ON+M1B+2W1&t=&z=14&ie=UTF8&iwloc=&output=embed",
     mapUrl:
       "https://maps.google.com/?q=1585+Markham+Road,+Suite+309,+Toronto,+ON+M1B+2W1",
+    // TODO: VERIFY (headcount): 50+ Technology Consultants (hidden from visible UI)
+    // TODO: VERIFY: Address and phone number (needs client confirmation)
     teamSize: "50+ Technology Consultants",
     timeZone: "EST (UTC-5)",
   },
@@ -72,6 +76,8 @@ const LOCATIONS_DATA: LocationDetail[] = [
       "https://maps.google.com/maps?q=Trendz+Sapphire,+Vittal+Rao+Nagar,+Madhapur,+Hitech+City,+Hyderabad+500081&t=&z=14&ie=UTF8&iwloc=&output=embed",
     mapUrl:
       "https://maps.google.com/?q=Trendz+Sapphire,+Vittal+Rao+Nagar,+Madhapur,+Hitech+City,+Hyderabad+500081",
+    // TODO: VERIFY (headcount): 350+ Global Engineers (hidden from visible UI)
+    // TODO: VERIFY: Address and phone number (needs client confirmation)
     teamSize: "350+ Global Engineers",
     timeZone: "IST (UTC+5:30)",
   },
@@ -93,7 +99,7 @@ export function InteractiveWorldMap() {
           onClick={() => setSelectedId("all")}
           className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
             selectedId === "all"
-              ? "bg-[#071326] text-[#f5a623] shadow-md shadow-slate-900/10"
+              ? "bg-[#102B4E] text-white shadow-md shadow-slate-900/10"
               : "bg-white border border-slate-200 text-slate-600 hover:border-slate-300 hover:text-slate-900"
           }`}
         >
@@ -108,7 +114,7 @@ export function InteractiveWorldMap() {
             onClick={() => setSelectedId(loc.id)}
             className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               selectedId === loc.id
-                ? "bg-[#071326] text-[#f5a623] shadow-md shadow-slate-900/10"
+                ? "bg-[#102B4E] text-white shadow-md shadow-slate-900/10"
                 : "bg-white border border-slate-200 text-slate-600 hover:border-slate-300 hover:text-slate-900"
             }`}
           >
@@ -148,7 +154,7 @@ export function InteractiveWorldMap() {
                     href={loc.mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute bottom-3.5 right-3.5 z-10 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#071326] hover:bg-blue-600 text-white text-xs font-bold shadow-md backdrop-blur-md transition-all hover:scale-105"
+                    className="absolute bottom-3.5 right-3.5 z-10 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#102B4E] hover:bg-blue-600 text-white text-xs font-bold shadow-md backdrop-blur-md transition-all hover:scale-105"
                   >
                     <span>Open in Google Maps</span>
                     <ExternalLink className="h-3 w-3" />
@@ -166,7 +172,7 @@ export function InteractiveWorldMap() {
                         <Building2 className="h-6 w-6" />
                       </span>
                       <div>
-                        <h4 className="text-xl sm:text-2xl font-extrabold text-[#071326] flex items-center gap-2">
+                        <h4 className="text-xl sm:text-2xl font-extrabold text-[#102B4E] flex items-center gap-2">
                           <span>{loc.flag}</span> {loc.region}
                         </h4>
                         <p className="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">
@@ -174,7 +180,7 @@ export function InteractiveWorldMap() {
                         </p>
                       </div>
                     </div>
-                    <span className="px-3.5 py-1 rounded-full text-[0.7rem] font-bold uppercase tracking-wider bg-amber-500/10 border border-amber-500/30 text-[#b26a00] shrink-0">
+                    <span className="px-3.5 py-1 rounded-full text-[0.7rem] font-bold uppercase tracking-wider bg-[#245B91]/10 border border-[#245B91]/30 text-[#245B91] shrink-0">
                       {loc.badge}
                     </span>
                   </div>
@@ -203,7 +209,7 @@ export function InteractiveWorldMap() {
                           !loc.email ? "sm:col-span-2" : ""
                         }`}
                       >
-                        <Phone className="h-4 w-4 text-[#e89218] shrink-0" />
+                        <Phone className="h-4 w-4 text-[#245B91] shrink-0" />
                         <span className="truncate">{loc.phone}</span>
                       </a>
                       {loc.email && (
@@ -224,7 +230,7 @@ export function InteractiveWorldMap() {
                       <Clock className="h-3.5 w-3.5 text-blue-600" /> Timezone: {loc.timeZone}
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-xs text-slate-700 font-semibold">
-                      <Users className="h-3.5 w-3.5 text-slate-600" /> Team: {loc.teamSize}
+                      {/* TODO: VERIFY (headcount): Team headcount hidden until confirmed */}
                     </span>
                   </div>
                 </div>
@@ -235,7 +241,7 @@ export function InteractiveWorldMap() {
                     href={loc.mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#071326] hover:bg-blue-900 text-white text-xs sm:text-sm font-bold shadow-md hover:scale-[1.01] transition-all"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#102B4E] hover:bg-blue-900 text-white text-xs sm:text-sm font-bold shadow-md hover:scale-[1.01] transition-all"
                   >
                     Directions in Google Maps <ExternalLink className="h-4 w-4" />
                   </a>
@@ -243,7 +249,7 @@ export function InteractiveWorldMap() {
                     href="#contact-form"
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-slate-200 text-slate-800 text-xs sm:text-sm font-bold hover:bg-slate-50 hover:border-blue-300 transition-all shadow-xs"
                   >
-                    Contact This Office <ArrowRight className="h-4 w-4 text-[#e89218]" />
+                    Contact This Office <ArrowRight className="h-4 w-4 text-[#245B91]" />
                   </a>
                 </div>
               </div>

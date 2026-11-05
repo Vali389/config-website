@@ -2,11 +2,11 @@ import { motion, useMotionValue, useTransform, animate } from "motion/react";
 import { useEffect, useRef } from "react";
 import { UserCheck, Users, Layers, ShieldCheck, Clock } from "lucide-react";
 
+// TODO: VERIFY: The following figures are from original site content and require client confirmation.
+// Client retention (95%) and 15+ industries served removed until confirmed.
 const STATS = [
   { icon: UserCheck, value: 10, suffix: "K+", label: "Professionals Placed", isYear: false },
   { icon: Users, value: 500, suffix: "+", label: "Happy Clients", isYear: false },
-  { icon: Layers, value: 15, suffix: "+", label: "Industries Served", isYear: false },
-  { icon: ShieldCheck, value: 95, suffix: "%", label: "Client Retention", isYear: false },
   { icon: Clock, value: 48, suffix: "h", label: "Avg. Delivery", isYear: false },
 ];
 
@@ -54,7 +54,7 @@ export function StatsBar({ className = "relative -mt-12 z-20 mx-auto max-w-4xl p
       >
         <div className="absolute top-0 inset-x-0 h-1 bg-gradient-brand" />
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 md:divide-x md:divide-border/50">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:divide-x md:divide-border/50 max-w-3xl mx-auto">
           {STATS.map((s, i) => (
             <motion.div
               key={s.label}
@@ -64,10 +64,10 @@ export function StatsBar({ className = "relative -mt-12 z-20 mx-auto max-w-4xl p
               transition={{ duration: 0.45, delay: 0.1 + i * 0.08 }}
               className="group flex flex-col items-center text-center gap-1.5 px-3 py-3.5"
             >
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-white shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-glow">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#245B91] text-white shadow-sm transition-all duration-300 group-hover:scale-105">
                 <s.icon className="h-4 w-4" />
               </span>
-              <div className="text-xl md:text-2xl font-black tracking-tight leading-none tabular-nums text-gradient-brand">
+              <div className="text-xl md:text-2xl font-bold tracking-tight leading-none tabular-nums text-[#102B4E]">
                 <CountUp to={s.value} suffix={s.suffix} isYear={s.isYear} />
               </div>
               <div className="text-[0.58rem] font-bold uppercase tracking-[0.14em] text-muted-foreground">

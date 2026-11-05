@@ -15,7 +15,7 @@ interface Props {
  */
 export function LightHero({ eyebrow, title, subtitle, image, children }: Props) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-sky-50/50 to-white pt-36 pb-20">
+    <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-slate-50 to-white pt-36 pb-20">
       {/* Optional zooming background image with a bright wash */}
       {image && (
         <div className="absolute inset-0">
@@ -26,7 +26,7 @@ export function LightHero({ eyebrow, title, subtitle, image, children }: Props) 
 
       {/* Floating soft glows */}
       <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-brand/10 blur-3xl" />
-      <div className="pointer-events-none absolute -top-16 right-0 h-80 w-80 rounded-full bg-sky-300/20 blur-3xl" />
+      <div className="pointer-events-none absolute -top-16 right-0 h-80 w-80 rounded-full bg-[#245B91]/10 blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-red-300/10 blur-3xl" />
       {/* Subtle grid */}
       <div

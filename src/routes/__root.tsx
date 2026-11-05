@@ -14,7 +14,6 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
-import { TawkChat } from "../components/TawkChat";
 import { ScrollToTop } from "../components/ScrollToTop";
 
 
@@ -85,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "apple-touch-icon", href: "/favicon.svg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -118,7 +117,6 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
-      <TawkChat />
-    </QueryClientProvider>
+          </QueryClientProvider>
   );
 }

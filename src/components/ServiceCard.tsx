@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { CardParticles } from "./CardParticles";
 
 interface Props {
   image: string;
@@ -38,7 +37,7 @@ export function ServiceCard({ image, title, eyebrow, description, to, popular, d
           
           {/* Title - serif style overlaying the image */}
           <div className="absolute bottom-4 left-4 right-4 z-10">
-            <h3 className="font-serif text-lg md:text-xl font-bold text-white leading-snug group-hover:text-[#60a5fa] transition-colors">
+            <h3 className="font-display text-lg md:text-xl font-bold text-white leading-snug group-hover:text-blue-200 transition-colors">
               {title}
             </h3>
           </div>
@@ -53,7 +52,7 @@ export function ServiceCard({ image, title, eyebrow, description, to, popular, d
         {/* Content */}
         <div className="flex flex-col flex-1 p-6 pt-5 pb-8">
           {/* Eyebrow — colored accent */}
-          <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-red-600 mb-3 leading-tight">
+          <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-[#245B91] mb-3 leading-tight">
             {eyebrow}
           </p>
 
@@ -63,7 +62,7 @@ export function ServiceCard({ image, title, eyebrow, description, to, popular, d
           </p>
 
           {/* Link */}
-          <div className="mt-5 inline-flex items-center gap-1 text-sm font-bold text-brand group-hover:text-[#60a5fa] transition-colors">
+          <div className="mt-5 inline-flex items-center gap-1 text-sm font-bold text-[#245B91] group-hover:text-[#102B4E] transition-colors">
             Explore Service
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </div>
@@ -74,10 +73,9 @@ export function ServiceCard({ image, title, eyebrow, description, to, popular, d
           <div className="absolute top-0 left-0 h-full w-1/3 -translate-x-[120%] bg-gradient-to-r from-transparent via-white/25 to-transparent group-hover:animate-shine" />
         </div>
 
-        <CardParticles />
-
+        
         {/* Shine Bottom Edge Bar */}
-        <div className="absolute bottom-0 inset-x-0 h-1.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
+        <div className="absolute bottom-0 inset-x-0 h-1 bg-[#245B91] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
       </motion.div>
     </Link>
   );

@@ -18,10 +18,9 @@ export const Route = createFileRoute("/request-talent")({
 });
 
 const TRUST = [
-  { icon: Clock, title: "48-Hour Delivery", text: "Average time to first qualified candidates." },
-  { icon: ShieldCheck, title: "Rigorously Vetted", text: "Technical screening and background checks." },
-  { icon: Users, title: "10K+ Network", text: "Pre-qualified professionals across industries." },
-  { icon: BadgeCheck, title: "95% Retention", text: "Placements that stay and grow with you." },
+  { icon: Clock, title: "Focused Talent Access", text: "Targeted sourcing for specialised enterprise technology skills." },
+  { icon: ShieldCheck, title: "Structured Governance", text: "Rigorous technical screening against project requirements." },
+  { icon: Users, title: "Flexible Engagement", text: "Commercial models aligned to client scale, timeline and scope." },
 ];
 
 const HIRING_TYPES = [
@@ -54,7 +53,7 @@ function Page() {
         eyebrow="Request Talent"
         image={heroRequest}
         title={<>Hire Top Talent <span className="text-gradient-brand">Faster.</span></>}
-        subtitle="Looking for qualified professionals to support your business? Share your requirements and our staffing experts will contact you within one business day."
+        subtitle="Looking for qualified professionals to support your business? Share your requirements and our staffing experts will review your request and get in touch."
       />
 
       <section className="pb-24 -mt-6">

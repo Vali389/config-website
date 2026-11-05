@@ -35,12 +35,12 @@ function JobDetailPage() {
     return (
       <div className="flex min-h-[70vh] items-center justify-center px-4 pt-24 bg-white">
         <div className="text-center">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-2">Careers</p>
-          <h1 className="text-3xl font-bold text-[#071326]">Position Not Available</h1>
+          <p className="text-xs font-bold uppercase tracking-widest text-[#245B91] mb-2">Careers</p>
+          <h1 className="text-3xl font-bold text-[#102B4E]">Position Not Available</h1>
           <p className="mt-3 text-slate-500 text-sm">This role may have been filled or the link has changed.</p>
           <Link
             to="/careers"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#071326] px-6 py-3 text-sm font-bold text-white hover:bg-blue-900 transition-colors shadow-sm"
+            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#102B4E] px-6 py-3 text-sm font-bold text-white hover:bg-blue-900 transition-colors shadow-sm"
           >
             <ArrowLeft className="h-4 w-4" /> Back to all open roles
           </Link>
@@ -63,12 +63,12 @@ function JobDetailPage() {
   return (
     <>
       {/* Hero band */}
-      <section className="relative overflow-hidden bg-[#071326] pt-32 pb-16 text-white border-b border-slate-800">
-        <div className="pointer-events-none absolute -top-24 right-0 h-80 w-80 rounded-full bg-[#f5a623]/10 blur-3xl" />
+      <section className="relative overflow-hidden bg-[#102B4E] pt-32 pb-16 text-white border-b border-slate-800">
+        <div className="pointer-events-none absolute -top-24 right-0 h-80 w-80 rounded-full bg-[#245B91]/10 blur-3xl" />
         <div className="relative z-10 mx-auto max-w-5xl px-4 lg:px-8">
           <Link
             to="/careers"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-300 hover:text-[#f5a623] transition-colors"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-300 hover:text-[#245B91] transition-colors"
           >
             <ArrowLeft className="h-4 w-4" /> All Open Positions
           </Link>
@@ -80,7 +80,7 @@ function JobDetailPage() {
             className="mt-6"
           >
             <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded-md bg-[#f5a623] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#071326]">
+              <span className="rounded-md bg-[#245B91] px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
                 {job.department}
               </span>
               <span className="rounded-md bg-white/10 border border-white/20 px-3 py-1 text-xs font-semibold text-white/90">
@@ -94,13 +94,13 @@ function JobDetailPage() {
 
             <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-300">
               <span className="flex items-center gap-1.5">
-                <MapPin className="h-4 w-4 text-[#f5a623]" /> {job.location}
+                <MapPin className="h-4 w-4 text-[#245B91]" /> {job.location}
               </span>
               <span className="flex items-center gap-1.5">
-                <Clock className="h-4 w-4 text-[#f5a623]" /> {job.workMode}
+                <Clock className="h-4 w-4 text-[#245B91]" /> {job.workMode}
               </span>
               <span className="flex items-center gap-1.5">
-                <BadgeDollarSign className="h-4 w-4 text-[#f5a623]" /> {job.salary}
+                <BadgeDollarSign className="h-4 w-4 text-[#245B91]" /> {job.salary}
               </span>
             </div>
           </motion.div>
@@ -113,20 +113,20 @@ function JobDetailPage() {
           {/* Main content */}
           <div className="lg:col-span-2 space-y-10">
             <div>
-              <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-3">
-                <h2 className="text-xl font-bold text-[#071326]">About the Role</h2>
+              <div className="border-l-[3px] border-[#C83B43] pl-3.5 mb-3">
+                <h2 className="text-xl font-bold text-[#102B4E]">About the Role</h2>
               </div>
               <p className="mt-3 text-sm text-slate-600 leading-relaxed">{job.summary}</p>
             </div>
 
             <div>
-              <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-3">
-                <h2 className="text-xl font-bold text-[#071326]">What You'll Do</h2>
+              <div className="border-l-[3px] border-[#C83B43] pl-3.5 mb-3">
+                <h2 className="text-xl font-bold text-[#102B4E]">What You'll Do</h2>
               </div>
               <ul className="mt-4 space-y-3">
                 {job.responsibilities.map((r) => (
                   <li key={r} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[#f5a623] mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[#245B91] mt-0.5" />
                     <span className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">{r}</span>
                   </li>
                 ))}
@@ -134,13 +134,13 @@ function JobDetailPage() {
             </div>
 
             <div>
-              <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-3">
-                <h2 className="text-xl font-bold text-[#071326]">Requirements & Competencies</h2>
+              <div className="border-l-[3px] border-[#C83B43] pl-3.5 mb-3">
+                <h2 className="text-xl font-bold text-[#102B4E]">Requirements & Competencies</h2>
               </div>
               <ul className="mt-4 space-y-3">
                 {job.requirements.map((r) => (
                   <li key={r} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[#f5a623] mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[#245B91] mt-0.5" />
                     <span className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">{r}</span>
                   </li>
                 ))}
@@ -149,8 +149,8 @@ function JobDetailPage() {
 
             {job.niceToHave && job.niceToHave.length > 0 && (
               <div>
-                <div className="border-l-[3px] border-[#f5a623] pl-3.5 mb-3">
-                  <h2 className="text-xl font-bold text-[#071326]">Nice to Have</h2>
+                <div className="border-l-[3px] border-[#C83B43] pl-3.5 mb-3">
+                  <h2 className="text-xl font-bold text-[#102B4E]">Nice to Have</h2>
                 </div>
                 <div className="mt-4 flex flex-wrap gap-2.5">
                   {job.niceToHave.map((n) => (
@@ -158,22 +158,22 @@ function JobDetailPage() {
                       key={n}
                       className="inline-flex items-center gap-1.5 rounded-lg bg-blue-50 border border-blue-100 px-3.5 py-1.5 text-xs font-semibold text-blue-700"
                     >
-                      <Sparkles className="h-3.5 w-3.5 text-[#f5a623]" /> {n}
+                      <Sparkles className="h-3.5 w-3.5 text-[#245B91]" /> {n}
                     </span>
                   ))}
                 </div>
               </div>
             )}
 
-            <div className="rounded-xl bg-[#071326] p-8 sm:p-10 text-center relative overflow-hidden border border-slate-800">
-              <div className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-[#f5a623]/10 blur-3xl" />
+            <div className="rounded-xl bg-[#102B4E] p-8 sm:p-10 text-center relative overflow-hidden border border-slate-800">
+              <div className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-[#245B91]/10 blur-3xl" />
               <h3 className="relative text-xl sm:text-2xl font-bold text-white">Ready to join our team?</h3>
               <p className="relative mt-2 text-xs sm:text-sm text-slate-300 max-w-md mx-auto">
                 Submit your profile and connect with our talent team within one business day.
               </p>
               <Link
                 to="/contact"
-                className="relative mt-6 inline-flex items-center gap-2 rounded-lg bg-[#f5a623] px-7 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm"
+                className="relative mt-6 inline-flex items-center gap-2 rounded-lg bg-[#C83B43] px-7 py-3.5 text-sm font-bold text-white hover:bg-[#b02f37] transition-colors shadow-sm"
               >
                 Apply for this Role <ArrowRight className="h-4 w-4" />
               </Link>
@@ -184,8 +184,8 @@ function JobDetailPage() {
           <aside className="lg:col-span-1">
             <div className="lg:sticky lg:top-28 space-y-6">
               <div className="rounded-xl bg-white border border-slate-200/90 shadow-sm p-6">
-                <div className="border-l-[3px] border-[#f5a623] pl-3 mb-4">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#071326]">Role Overview</h3>
+                <div className="border-l-[3px] border-[#C83B43] pl-3 mb-4">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#102B4E]">Role Overview</h3>
                 </div>
                 <ul className="mt-4 space-y-4">
                   {overview.map((o) => (
@@ -195,14 +195,14 @@ function JobDetailPage() {
                       </span>
                       <div>
                         <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">{o.label}</div>
-                        <div className="text-sm font-bold text-[#071326]">{o.value}</div>
+                        <div className="text-sm font-bold text-[#102B4E]">{o.value}</div>
                       </div>
                     </li>
                   ))}
                 </ul>
                 <Link
                   to="/contact"
-                  className="mt-6 flex items-center justify-center gap-2 rounded-lg bg-[#f5a623] px-5 py-3.5 text-sm font-bold text-[#071326] hover:bg-[#d98218] transition-colors shadow-sm w-full"
+                  className="mt-6 flex items-center justify-center gap-2 rounded-lg bg-[#C83B43] px-5 py-3.5 text-sm font-bold text-white hover:bg-[#b02f37] transition-colors shadow-sm w-full"
                 >
                   Apply Now <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -210,7 +210,7 @@ function JobDetailPage() {
 
               {related.length > 0 && (
                 <div className="rounded-xl bg-slate-50 border border-slate-200/80 p-6">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#071326] mb-3">Similar Roles</h3>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#102B4E] mb-3">Similar Roles</h3>
                   <ul className="space-y-3">
                     {related.map((r) => (
                       <li key={r.id}>
@@ -219,7 +219,7 @@ function JobDetailPage() {
                           params={{ jobId: r.id }}
                           className="group block rounded-lg bg-white border border-slate-200/90 p-4 hover:border-blue-400 hover:shadow-sm transition-all"
                         >
-                          <div className="font-bold text-xs sm:text-sm text-[#071326] group-hover:text-blue-700 transition-colors">
+                          <div className="font-bold text-xs sm:text-sm text-[#102B4E] group-hover:text-blue-700 transition-colors">
                             {r.title}
                           </div>
                           <div className="mt-1 flex items-center gap-1 text-xs text-slate-500">

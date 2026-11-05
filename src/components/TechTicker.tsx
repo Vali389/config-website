@@ -70,7 +70,7 @@ export function TechTicker({
         transition={{ duration: 0.5 }}
         className="mx-auto max-w-7xl px-4 lg:px-8"
       >
-        <p className="text-center text-xs sm:text-[13px] font-bold uppercase tracking-[0.22em] text-[#1b365d] mb-6 sm:mb-8">
+        <p className="text-center text-xs sm:text-[13px] font-bold uppercase tracking-[0.22em] text-[#102B4E] mb-6 sm:mb-8">
           {title}
         </p>
 

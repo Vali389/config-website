@@ -34,7 +34,7 @@ export function PageHero({ eyebrow, title, subtitle, image, images, align = "cen
   };
 
   return (
-    <section className={`relative ${minHeight} flex items-center overflow-hidden pt-28 pb-16 bg-[#030a16]`}>
+    <section className={`relative ${minHeight} flex items-center overflow-hidden pt-28 pb-16 bg-[#102B4E]`}>
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
           {imageList.length > 0 && (
@@ -52,8 +52,8 @@ export function PageHero({ eyebrow, title, subtitle, image, images, align = "cen
         </AnimatePresence>
 
         {/* Crisp gradient: Solid dark navy on the left for text contrast, completely transparent on the right so the image is razor-sharp */}
-        <div className={`absolute inset-0 ${align === 'center' ? 'bg-gradient-to-t from-[#030a16]/80 via-[#030a16]/40 to-transparent' : 'bg-gradient-to-r from-[#030a16] via-[#030a16]/85 via-45% to-transparent'} z-10 pointer-events-none`} />
-        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#030a16]/50 to-transparent z-10 pointer-events-none" />
+        <div className={`absolute inset-0 ${align === 'center' ? 'bg-gradient-to-t from-[#102B4E]/80 via-[#102B4E]/40 to-transparent' : 'bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 via-45% to-transparent'} z-10 pointer-events-none`} />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#102B4E]/50 to-transparent z-10 pointer-events-none" />
       </div>
 
       <div

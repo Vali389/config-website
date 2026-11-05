@@ -57,15 +57,14 @@ export const Route = createFileRoute("/industries/$industryId")({
 const DATA: Record<string, any> = {
   healthcare: {
     eyebrow: "Healthcare & Life Sciences",
-    title: <>Digital Innovation in <span className="text-[#f5a623]">Healthcare.</span></>,
+    title: <>Digital Innovation in <span className="text-[#245B91]">Healthcare.</span></>,
     subtitle: "Deliver patient-centered digital health services and secure interoperability under strict regulatory compliance.",
-    heroImage: indHealthcare,
-    stats: [
-      { value: "HIPAA", label: "Compliant Systems" },
-      { value: "Epic/Cerner", label: "Expert Integration" },
-      { value: "100%", label: "Vetted tech panels" },
-      { value: "12d", label: "Avg. project launch" },
-    ],
+    heroImage: indHealthcare,// TODO: VERIFY: Figures from original site content awaiting client confirmation.
+      stats: [
+        { value: "99.99%", label: "System Uptime" },
+        { value: "PCI-DSS", label: "Readiness" },
+        { value: "SOC 2", label: "Audit Standards" },
+      ],
     overviewHeading: "Engineered for Clinical Trust and Security",
     overviewParas: [
       "We provide modern engineering and talent solutions for hospital networks, digital health apps, and life sciences companies.",
@@ -88,13 +87,13 @@ const DATA: Record<string, any> = {
   },
   financial: {
     eyebrow: "Financial Services",
-    title: <>Secure Technology for <span className="text-[#f5a623]">Financial Services.</span></>,
+    title: <>Secure Technology for <span className="text-[#245B91]">Financial Services.</span></>,
     subtitle: "Scale your transaction engines, secure ledger APIs, and protect core assets with SOC 2 compliance.",
     heroImage: indFinancial,
     stats: [
       { value: "99.99%", label: "System Uptime" },
       { value: "PCI-DSS", label: "Readiness" },
-      { value: "98%", label: "Client Retention" },
+      
       { value: "SOC 2", label: "Audit Standards" },
     ],
     overviewHeading: "Modernizing Core Systems and Digital Banking",
@@ -119,7 +118,7 @@ const DATA: Record<string, any> = {
   },
   government: {
     eyebrow: "Government & Public Sector",
-    title: <>Dependable Solutions for <span className="text-[#f5a623]">Public Sector.</span></>,
+    title: <>Dependable Solutions for <span className="text-[#245B91]">Public Sector.</span></>,
     subtitle: "Modernize legacy mainframes and secure government clouds with background-checked tech squads.",
     heroImage: indGovernment,
     stats: [
@@ -150,7 +149,7 @@ const DATA: Record<string, any> = {
   },
   manufacturing: {
     eyebrow: "Manufacturing",
-    title: <>Smart Solutions for <span className="text-[#f5a623]">Manufacturing & ERP.</span></>,
+    title: <>Smart Solutions for <span className="text-[#245B91]">Manufacturing & ERP.</span></>,
     subtitle: "Optimize industrial supply chains, implement certified ERP/SAP rollouts, and automate telemetry.",
     heroImage: indManufacturing,
     stats: [
@@ -181,7 +180,7 @@ const DATA: Record<string, any> = {
   },
   retail: {
     eyebrow: "Retail & E-commerce",
-    title: <>High-Scale Commerce for <span className="text-[#f5a623]">Retailers.</span></>,
+    title: <>High-Scale Commerce for <span className="text-[#245B91]">Retailers.</span></>,
     subtitle: "Deploy fast headless storefronts, personalize experiences with AI search, and sync global stocks.",
     heroImage: indRetail,
     stats: [
@@ -212,7 +211,7 @@ const DATA: Record<string, any> = {
   },
   technology: {
     eyebrow: "Technology & SaaS",
-    title: <>Accelerated Scale for <span className="text-[#f5a623]">Tech & SaaS.</span></>,
+    title: <>Accelerated Scale for <span className="text-[#245B91]">Tech & SaaS.</span></>,
     subtitle: "Scale your roadmap with elite full-stack developer squads and cloud-native infrastructure.",
     heroImage: indTechnology,
     stats: [
