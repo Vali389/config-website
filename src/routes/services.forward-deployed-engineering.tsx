@@ -166,23 +166,23 @@ function ForwardDeployedEngineeringPage() {
       <section id="what-fde-means" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
           <FadeUp>
-          <div className="grid lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-7">
-              <div className="flex items-center gap-2.5 mb-3">
-                <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                  WHAT FDE MEANS
-                </span>
-                <span className="w-10 h-[3px] bg-[#C83B43]" />
+            <div className="grid lg:grid-cols-12 gap-8 items-start">
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                    WHAT FDE MEANS
+                  </span>
+                  <span className="w-10 h-[3px] bg-[#C83B43]" />
+                </div>
+                <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
+                  Working within the operating context to turn difficult problems into working code.
+                </h2>
               </div>
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
-                Working within the operating context to turn difficult problems into working code.
-              </h2>
+              <div className="lg:col-span-5 text-slate-600 text-base leading-relaxed lg:border-l lg:border-slate-200 lg:pl-6 pt-1">
+                Forward-deployed engineers work within the client's operating context. They understand the problem, collaborate with users, connect to relevant systems and help turn requirements into working solutions.
+              </div>
             </div>
-            <div className="lg:col-span-5 text-slate-600 text-base leading-relaxed lg:border-l lg:border-slate-200 lg:pl-6 pt-1">
-              Forward-deployed engineers work within the client's operating context. They understand the problem, collaborate with users, connect to relevant systems and help turn requirements into working solutions.
-            </div>
-          </div>
-                  </FadeUp>
+          </FadeUp>
         </div>
       </section>
 
@@ -192,39 +192,39 @@ function ForwardDeployedEngineeringPage() {
       <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">
           <FadeUp>
-          <div className="max-w-3xl mb-6">
-            <div className="flex items-center gap-2.5 mb-3">
-              <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                TYPICAL AREAS OF WORK
-              </span>
-              <span className="w-10 h-[3px] bg-[#C83B43]" />
-            </div>
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
-              Where forward-deployed engineers create immediate operational impact.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {TYPICAL_AREAS.map((area) => (
-              <div
-                key={area.title}
-                className="group relative rounded-2xl border border-slate-200/80 bg-white p-7 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 overflow-hidden flex flex-col justify-between"
-              >
-                <div>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 mb-5 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300">
-                    <area.icon className="h-5 w-5 stroke-[1.75]" />
-                  </span>
-                  <h3 className="text-lg font-bold text-[#102B4E] tracking-tight mb-2.5">
-                    {area.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {area.desc}
-                  </p>
-                </div>
+            <div className="max-w-3xl mb-6">
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  TYPICAL AREAS OF WORK
+                </span>
+                <span className="w-10 h-[3px] bg-[#C83B43]" />
               </div>
-            ))}
-          </div>
-                  </FadeUp>
+              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
+                Where forward-deployed engineers create immediate operational impact.
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {TYPICAL_AREAS.map((area) => (
+                <div
+                  key={area.title}
+                  className="group relative rounded-2xl border border-slate-200/80 bg-white p-7 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 overflow-hidden flex flex-col justify-between"
+                >
+                  <div>
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 mb-5 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300">
+                      <area.icon className="h-5 w-5 stroke-[1.75]" />
+                    </span>
+                    <h3 className="text-lg font-bold text-[#102B4E] tracking-tight mb-2.5">
+                      {area.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      {area.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -234,47 +234,47 @@ function ForwardDeployedEngineeringPage() {
       <section className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0]">
         <div className="container-enterprise">
           <FadeUp>
-          <div className="max-w-3xl mb-6">
-            <div className="flex items-center gap-2.5 mb-3">
-              <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                HOW AN ENGAGEMENT WORKS
-              </span>
-              <span className="w-10 h-[3px] bg-[#C83B43]" />
-            </div>
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
-              A structured lifecycle designed for speed, clarity and alignment.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 relative">
-            {ENGAGEMENT_STEPS.map((s, idx) => (
-              <div
-                key={s.step}
-                className="group relative rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 overflow-visible flex flex-col justify-between"
-              >
-                <div>
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 font-bold text-xs mb-4">
-                    {s.step}
-                  </span>
-                  <h3 className="text-sm font-bold text-[#102B4E] tracking-tight mb-1.5">
-                    {s.title}
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {s.desc}
-                  </p>
-                </div>
-                {idx < ENGAGEMENT_STEPS.length - 1 && (
-                  <div
-                    aria-hidden="true"
-                    className="hidden lg:flex items-center justify-center absolute -right-[22px] top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-white border border-slate-300 shadow-md text-[#245B91]"
-                  >
-                    <ArrowRight className="h-3.5 w-3.5 stroke-[2.5]" />
-                  </div>
-                )}
+            <div className="max-w-3xl mb-6">
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  HOW AN ENGAGEMENT WORKS
+                </span>
+                <span className="w-10 h-[3px] bg-[#C83B43]" />
               </div>
-            ))}
-          </div>
-                  </FadeUp>
+              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
+                A structured lifecycle designed for speed, clarity and alignment.
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 relative">
+              {ENGAGEMENT_STEPS.map((s, idx) => (
+                <div
+                  key={s.step}
+                  className="group relative rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 overflow-visible flex flex-col justify-between"
+                >
+                  <div>
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 font-bold text-xs mb-4">
+                      {s.step}
+                    </span>
+                    <h3 className="text-sm font-bold text-[#102B4E] tracking-tight mb-1.5">
+                      {s.title}
+                    </h3>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      {s.desc}
+                    </p>
+                  </div>
+                  {idx < ENGAGEMENT_STEPS.length - 1 && (
+                    <div
+                      aria-hidden="true"
+                      className="hidden lg:flex items-center justify-center absolute -right-[22px] top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-white border border-slate-300 shadow-md text-[#245B91]"
+                    >
+                      <ArrowRight className="h-3.5 w-3.5 stroke-[2.5]" />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -284,48 +284,48 @@ function ForwardDeployedEngineeringPage() {
       <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">
           <FadeUp>
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-7 space-y-6">
-              <div>
-                <div className="flex items-center gap-2.5 mb-3">
-                  <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                    DELIVERY PRINCIPLES
-                  </span>
-                  <span className="w-10 h-[3px] bg-[#C83B43]" />
-                </div>
-                <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight mb-4">
-                  Disciplined engineering governance built into every sprint.
-                </h2>
-                <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                  Depending on the assignment, teams may include solution architects, AI/ML engineers, data engineers, software developers, integration specialists, QA engineers and product or delivery leads.
-                </p>
-              </div>
-
-              <div className="space-y-3">
-                {DELIVERY_PRINCIPLES.map((principle) => (
-                  <div key={principle} className="flex items-center gap-3">
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#C83B43] text-white">
-                      <Check className="h-3 w-3 stroke-[3]" />
+            <div className="grid lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-7 space-y-6">
+                <div>
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                      DELIVERY PRINCIPLES
                     </span>
-                    <span className="text-sm font-semibold text-slate-700">
-                      {principle}
-                    </span>
+                    <span className="w-10 h-[3px] bg-[#C83B43]" />
                   </div>
-                ))}
-              </div>
-            </div>
+                  <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight mb-4">
+                    Disciplined engineering governance built into every sprint.
+                  </h2>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                    Depending on the assignment, teams may include solution architects, AI/ML engineers, data engineers, software developers, integration specialists, QA engineers and product or delivery leads.
+                  </p>
+                </div>
 
-            <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-lg">
-                <img
-                  src={fdeBesideBusiness}
-                  alt="Forward-Deployed Engineering Team"
-                  className="w-full h-80 object-cover object-center"
-                />
+                <div className="space-y-3">
+                  {DELIVERY_PRINCIPLES.map((principle) => (
+                    <div key={principle} className="flex items-center gap-3">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#C83B43] text-white">
+                        <Check className="h-3 w-3 stroke-[3]" />
+                      </span>
+                      <span className="text-sm font-semibold text-slate-700">
+                        {principle}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="lg:col-span-5">
+                <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-lg">
+                  <img
+                    src={fdeBesideBusiness}
+                    alt="Forward-Deployed Engineering Team"
+                    className="w-full h-80 object-cover object-center"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-                  </FadeUp>
+          </FadeUp>
         </div>
       </section>
 
@@ -335,25 +335,25 @@ function ForwardDeployedEngineeringPage() {
       <section className="bg-[#102B4E] text-white py-7 lg:py-9 border-t border-white/10">
         <div className="container-enterprise">
           <FadeUp>
-          <div className="grid lg:grid-cols-12 gap-6 items-center">
-            <div className="lg:col-span-5">
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-tight">
-                Facing a delivery bottleneck or complex integration?
-              </h2>
+            <div className="grid lg:grid-cols-12 gap-6 items-center">
+              <div className="lg:col-span-5">
+                <h2 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-tight">
+                  Facing a delivery bottleneck or complex integration?
+                </h2>
+              </div>
+              <div className="lg:col-span-4 text-slate-200 text-sm lg:text-base lg:border-l lg:border-white/20 lg:pl-6 leading-relaxed">
+                Tell us what you need to build and we will assemble the right engineering capability.
+              </div>
+              <div className="lg:col-span-3 lg:text-right">
+                <Link
+                  to="/contact"
+                  className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
+                >
+                  Build an Engineering Team <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
-            <div className="lg:col-span-4 text-slate-200 text-sm lg:text-base lg:border-l lg:border-white/20 lg:pl-6 leading-relaxed">
-              Tell us what you need to build and we will assemble the right engineering capability.
-            </div>
-            <div className="lg:col-span-3 lg:text-right">
-              <Link
-                to="/contact"
-                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
-              >
-                Build an Engineering Team <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-                  </FadeUp>
+          </FadeUp>
         </div>
       </section>
     </div>
