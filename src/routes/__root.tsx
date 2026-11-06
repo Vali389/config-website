@@ -94,10 +94,37 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "ConfigUSA",
+    url: "https://config-website-ashen.vercel.app",
+    logo: "https://config-website-ashen.vercel.app/favicon.svg",
+    description:
+      "Technology expertise, engineering capability and specialist workforce needed to deliver critical business initiatives.",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "666 Plainsboro Road, Suite 1237",
+      addressLocality: "Plainsboro",
+      addressRegion: "NJ",
+      postalCode: "08536",
+      addressCountry: "US",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+1-609-934-3184",
+      contactType: "customer service",
+    },
+  };
+
   return (
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
       </head>
       <body>
         {children}
@@ -111,12 +138,15 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      <a href="#main-content" className="skip-to-content">
+        Skip to main content
+      </a>
       <ScrollToTop />
       <Header />
-      <main className="min-h-screen">
+      <main id="main-content" className="min-h-screen">
         <Outlet />
       </main>
       <Footer />
-          </QueryClientProvider>
+    </QueryClientProvider>
   );
 }

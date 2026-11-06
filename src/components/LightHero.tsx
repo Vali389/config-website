@@ -19,7 +19,7 @@ export function LightHero({ eyebrow, title, subtitle, image, children }: Props) 
       {/* Optional zooming background image with a bright wash */}
       {image && (
         <div className="absolute inset-0">
-          <img src={image} alt="" className="h-full w-full object-cover animate-kenburns" />
+          <img src={image} alt={eyebrow || "ConfigUSA background"} className="h-full w-full object-cover animate-kenburns" />
           <div className="absolute inset-0 bg-gradient-to-b from-white/55 via-white/50 to-white/80" />
         </div>
       )}

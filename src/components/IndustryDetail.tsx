@@ -91,7 +91,7 @@ export function IndustryDetail(p: IndustryDetailProps) {
             className="relative"
           >
             <div className="absolute -inset-3 rounded-[2rem] bg-blue-500/10 opacity-60 blur-2xl" />
-            <img src={p.overviewImage} alt="" className="relative rounded-2xl shadow-card border border-slate-200/80 w-full object-cover aspect-[4/3]" />
+            <img src={p.overviewImage} alt={p.overviewHeading || "Industry overview"} className="relative rounded-2xl shadow-card border border-slate-200/80 w-full object-cover aspect-[4/3]" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 30 }}

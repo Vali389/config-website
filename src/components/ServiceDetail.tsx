@@ -91,7 +91,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
             className="relative"
           >
             <div className="absolute -inset-3 rounded-[2rem] bg-gradient-brand opacity-10 blur-2xl" />
-            <img src={p.overviewImage} alt="" className="relative rounded-2xl shadow-card border border-slate-200/80 w-full object-cover aspect-[4/3]" />
+            <img src={p.overviewImage} alt={p.overviewHeading || "Service overview"} className="relative rounded-2xl shadow-card border border-slate-200/80 w-full object-cover aspect-[4/3]" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 30 }}
