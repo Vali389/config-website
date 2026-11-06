@@ -265,7 +265,7 @@ function GCCSolutionsPage() {
             {GCC_LIFECYCLE_STAGES.map((s, idx) => (
               <div
                 key={s.step}
-                className="group relative rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 overflow-hidden flex flex-col justify-between"
+                className="group relative rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 overflow-visible flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -286,7 +286,7 @@ function GCCSolutionsPage() {
                 {idx < GCC_LIFECYCLE_STAGES.length - 1 && (
                   <div
                     aria-hidden="true"
-                    className="hidden lg:flex items-center justify-center absolute -right-3.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-white border border-slate-300 shadow-sm text-[#245B91]"
+                    className="hidden lg:flex items-center justify-center absolute -right-[24px] top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-white border border-slate-300 shadow-md text-[#245B91]"
                   >
                     <ArrowRight className="h-3.5 w-3.5 stroke-[2.5]" />
                   </div>

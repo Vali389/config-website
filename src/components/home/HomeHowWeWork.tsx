@@ -44,7 +44,7 @@ export function HomeHowWeWork() {
               {idx < steps.length - 1 && (
                 <div
                   aria-hidden="true"
-                  className="hidden lg:flex items-center justify-center absolute -right-4 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-white border border-slate-300 shadow-sm text-[#245B91] hover:text-[#C83B43] hover:border-[#C83B43] transition-colors"
+                  className="hidden lg:flex items-center justify-center absolute -right-[24px] top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-white border border-slate-300 shadow-md text-[#245B91] hover:text-[#C83B43] hover:border-[#C83B43] transition-colors"
                 >
                   <ArrowRight className="h-3.5 w-3.5 stroke-[2.5]" />
                 </div>
