@@ -10,14 +10,14 @@ export function HomeHero() {
         <img
           src={homeBg}
           alt="ConfigUSA Enterprise Technology Leadership"
-          className="h-full w-full object-cover object-right brightness-105 contrast-105"
+          className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
         />
         {/* Subtle mobile overlay for ultra-crisp typography on smaller screens */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/80 via-transparent to-transparent lg:hidden pointer-events-none" />
       </div>
 
       <div className="container-enterprise relative z-10 w-full">
-        <div className="max-w-xl lg:max-w-[540px] xl:max-w-[600px] space-y-6">
+        <div className="max-w-xl lg:max-w-[520px] xl:max-w-[580px] space-y-6">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.12]">
             Technology. Talent. Transformation.
           </h1>

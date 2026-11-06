@@ -109,13 +109,13 @@ function AISolutionsPage() {
           <img
             src={aiHeroBg}
             alt="AI & Intelligent Solutions"
-            className="h-full w-full object-cover object-right brightness-105 contrast-105"
+            className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/80 via-transparent to-transparent lg:hidden pointer-events-none" />
         </div>
 
         <div className="container-enterprise relative z-10 w-full">
-          <div className="max-w-2xl space-y-6">
+          <div className="max-w-xl lg:max-w-[520px] xl:max-w-[580px] space-y-6">
             <div className="flex items-center gap-2.5">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#e2e8f0]">
                 AI & INTELLIGENT SOLUTIONS
