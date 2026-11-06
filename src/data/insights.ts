@@ -2,9 +2,6 @@ import wdAi from "@/assets/wd-ai.jpg";
 import gccEnterpriseHub from "@/assets/gcc-enterprise-hub.jpg";
 import palantirFoundryAipHero from "@/assets/palantir-foundry-aip-hero.jpg";
 import insightsWorkforceTeam from "@/assets/insights_workforce_team.jpg";
-import insight1 from "@/assets/home_template_insight_1.png";
-import insight2 from "@/assets/home_template_insight_2.png";
-import insight3 from "@/assets/home_template_insight_3.png";
 
 export interface ArticleSection {
   heading: string;
@@ -48,7 +45,7 @@ export const ARTICLES: Article[] = [
       name: "ConfigUSA AI Practice",
       role: "Applied Intelligence & Machine Learning Group",
     },
-    cardImage: insight1,
+    cardImage: wdAi,
     heroImage: wdAi,
     summary:
       "While generative and predictive AI have dominated executive agendas, the journey from proof-of-concept to resilient production remains steep. This briefing outlines our proven 4-stage evaluation framework, governance guardrails, and platform integration patterns.",
@@ -105,7 +102,7 @@ export const ARTICLES: Article[] = [
       name: "ConfigUSA Delivery Group",
       role: "Global Capability & Cross-Border Delivery",
     },
-    cardImage: insight2,
+    cardImage: gccEnterpriseHub,
     heroImage: gccEnterpriseHub,
     summary:
       "Global Capability Centres (GCCs) have transformed from back-office cost arbitrage units into central hubs for enterprise engineering, core platform ownership, and executive leadership.",
@@ -217,7 +214,7 @@ export const ARTICLES: Article[] = [
       name: "ConfigUSA Workforce Advisory",
       role: "Enterprise Talent & Staffing Practice",
     },
-    cardImage: insight3,
+    cardImage: insightsWorkforceTeam,
     heroImage: insightsWorkforceTeam,
     summary:
       "Finding verified specialists in high-demand domains like SAP, Palantir, cloud-native DevOps, and AI engineering requires technical vetting panels and flexible engagement structures.",

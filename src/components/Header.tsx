@@ -18,7 +18,7 @@ import {
   Lightbulb,
   FileText,
   BarChart3,
-  Search,
+  Briefcase,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Logo } from "./Logo";
@@ -60,6 +60,7 @@ const NAV = [
       { to: "/resources", hash: "articles", label: "Articles & Reports", desc: "In-depth research and market intelligence", icon: BarChart3 },
     ],
   },
+  { to: "/careers", label: "Careers" },
   { to: "/about", label: "About Us" },
 ] as const;
 
@@ -85,6 +86,7 @@ export function Header() {
     if (to === "/services") return pathname.startsWith("/services") || pathname === "/gcc";
     if (to === "/industries") return pathname.startsWith("/industries");
     if (to === "/resources") return pathname.startsWith("/resources") || pathname === "/case-studies";
+    if (to === "/careers") return pathname.startsWith("/careers");
     if (to === "/about") return pathname.startsWith("/about");
     return pathname === to;
   };
@@ -219,15 +221,8 @@ export function Header() {
           })}
         </nav>
 
-        {/* Right CTA area matching the template */}
+        {/* Right CTA area - Search icon removed per user instruction */}
         <div className="hidden lg:flex items-center gap-4">
-          <Link
-            to="/resources"
-            className="text-slate-500 hover:text-[#102B4E] transition-colors p-1"
-            aria-label="Search"
-          >
-            <Search className="h-4 w-4" />
-          </Link>
           <Link
             to="/contact"
             className="btn-cta-primary text-sm font-semibold px-4 py-2 rounded-md shadow-sm inline-flex items-center gap-1.5"

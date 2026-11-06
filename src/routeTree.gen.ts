@@ -28,6 +28,7 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as CareersIndexRouteImport } from './routes/careers/index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as IndustriesIndustryIdRouteImport } from './routes/industries.$industryId'
+import { Route as ResourcesIndexRouteImport } from './routes/resources.index'
 import { Route as ResourcesSlugRouteImport } from './routes/resources.$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesAiRouteImport } from './routes/services.ai'
@@ -137,6 +138,11 @@ const IndustriesIndustryIdRoute = IndustriesIndustryIdRouteImport.update({
   path: '/$industryId',
   getParentRoute: () => IndustriesRoute,
 } as any)
+const ResourcesIndexRoute = ResourcesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ResourcesRoute,
+} as any)
 const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -236,6 +242,7 @@ export interface FileRoutesByFullPath {
   '/services/staffing': typeof ServicesStaffingRoute
   '/careers/': typeof CareersIndexRoute
   '/industries/': typeof IndustriesIndexRoute
+  '/resources/': typeof ResourcesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/careers/job/$jobId': typeof CareersJobJobIdRoute
 }
@@ -250,7 +257,6 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
-  '/resources': typeof ResourcesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
@@ -268,6 +274,7 @@ export interface FileRoutesByTo {
   '/services/staffing': typeof ServicesStaffingRoute
   '/careers': typeof CareersIndexRoute
   '/industries': typeof IndustriesIndexRoute
+  '/resources': typeof ResourcesIndexRoute
   '/services': typeof ServicesIndexRoute
   '/careers/job/$jobId': typeof CareersJobJobIdRoute
 }
@@ -303,6 +310,7 @@ export interface FileRoutesById {
   '/services/staffing': typeof ServicesStaffingRoute
   '/careers/': typeof CareersIndexRoute
   '/industries/': typeof IndustriesIndexRoute
+  '/resources/': typeof ResourcesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/careers/job/$jobId': typeof CareersJobJobIdRoute
 }
@@ -339,6 +347,7 @@ export interface FileRouteTypes {
     | '/services/staffing'
     | '/careers/'
     | '/industries/'
+    | '/resources/'
     | '/services/'
     | '/careers/job/$jobId'
   fileRoutesByTo: FileRoutesByTo
@@ -353,7 +362,6 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/process'
     | '/request-talent'
-    | '/resources'
     | '/sitemap.xml'
     | '/submit-resume'
     | '/terms'
@@ -371,6 +379,7 @@ export interface FileRouteTypes {
     | '/services/staffing'
     | '/careers'
     | '/industries'
+    | '/resources'
     | '/services'
     | '/careers/job/$jobId'
   id:
@@ -405,6 +414,7 @@ export interface FileRouteTypes {
     | '/services/staffing'
     | '/careers/'
     | '/industries/'
+    | '/resources/'
     | '/services/'
     | '/careers/job/$jobId'
   fileRoutesById: FileRoutesById
@@ -565,6 +575,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesIndustryIdRouteImport
       parentRoute: typeof IndustriesRoute
     }
+    '/resources/': {
+      id: '/resources/'
+      path: '/'
+      fullPath: '/resources/'
+      preLoaderRoute: typeof ResourcesIndexRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
     '/resources/$slug': {
       id: '/resources/$slug'
       path: '/$slug'
@@ -675,10 +692,12 @@ const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
 
 interface ResourcesRouteChildren {
   ResourcesSlugRoute: typeof ResourcesSlugRoute
+  ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
 
 const ResourcesRouteChildren: ResourcesRouteChildren = {
   ResourcesSlugRoute: ResourcesSlugRoute,
+  ResourcesIndexRoute: ResourcesIndexRoute,
 }
 
 const ResourcesRouteWithChildren = ResourcesRoute._addFileChildren(

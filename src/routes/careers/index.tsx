@@ -193,10 +193,12 @@ function CareersPage() {
               </div>
             ) : (
               filtered.map((job) => (
-                <div
+                <Link
                   key={job.id}
-                  className="group relative rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-4"
+                  to={`/careers/job/${job.id}` as any}
+                  className="group relative block rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 overflow-hidden"
                 >
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-2">
                       <span className="text-xs font-bold uppercase tracking-wider text-[#C83B43] bg-red-50 border border-red-100 px-2.5 py-0.5 rounded">
@@ -219,13 +221,11 @@ function CareersPage() {
                     </p>
                   </div>
 
-                  <Link
-                    to={`/careers/job/${job.id}` as any}
-                    className="btn-cta-primary text-xs font-bold px-4 py-2 rounded-md shadow-xs shrink-0 self-start md:self-center inline-flex items-center gap-1.5"
-                  >
-                    View Details <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
+                  <div className="btn-cta-primary text-xs font-bold px-4 py-2 rounded-md shadow-xs shrink-0 self-start md:self-center inline-flex items-center gap-1.5 group-hover:bg-[#a62b32] transition-colors">
+                      View Details <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </Link>
               ))
             )}
           </div>
