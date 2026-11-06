@@ -16,7 +16,7 @@ import indRetail from "@/assets/Retail Team Reviewing Tablet in Showroom-4.png";
 import indHealthcare from "@/assets/High-Tech Medical Research Laboratory-5.png";
 import indGovernment from "@/assets/Warehouse Logistics Dashboard Team-6.png";
 import { FadeUp } from "@/components/FadeUp";
-import industriesHeroBg from "@/assets/industries-bg.png";
+import industriesHeroBg from "@/assets/industries-bg.jpg";
 
 export const Route = createFileRoute("/industries/")({
   head: () => ({

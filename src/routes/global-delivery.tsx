@@ -10,7 +10,7 @@ import {
   Phone,
   Check,
 } from "lucide-react";
-import globalDeliveryHeroBg from "@/assets/global-delivery-bg.png";
+import globalDeliveryHeroBg from "@/assets/global-delivery-bg.jpg";
 import gccEnterpriseHub from "@/assets/gcc-enterprise-hub.jpg";
 
 export const Route = createFileRoute("/global-delivery")({

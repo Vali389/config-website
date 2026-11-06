@@ -8,7 +8,7 @@ import {
   Users,
   ArrowRight,
 } from "lucide-react";
-import insightsHeroBg from "@/assets/Insights & Perspectives-bg.png";
+import insightsHeroBg from "@/assets/Insights & Perspectives-bg.jpg";
 import { FadeUp } from "@/components/FadeUp";
 import { ARTICLES } from "@/data/insights";
 

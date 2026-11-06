@@ -11,7 +11,7 @@ import {
   Send,
 } from "lucide-react";
 import { JOBS, DEPARTMENTS, LOCATIONS } from "@/data/jobs";
-import careersHeroBg from "@/assets/careers-bg.png";
+import careersHeroBg from "@/assets/careers-bg.jpg";
 import whoWeAreMeeting from "@/assets/who_we_are_meeting.jpg";
 
 export const Route = createFileRoute("/careers/")({

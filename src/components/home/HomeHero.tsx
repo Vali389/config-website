@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import homeBg from "@/assets/home-bg.png";
+import homeBg from "@/assets/home-bg.jpg";
 
 export function HomeHero() {
   return (
@@ -10,6 +10,9 @@ export function HomeHero() {
         <img
           src={homeBg}
           alt="ConfigUSA Enterprise Technology Leadership"
+          loading="eager"
+          fetchPriority="high"
+          decoding="sync"
           className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
         />
         {/* Subtle mobile overlay for ultra-crisp typography on smaller screens */}

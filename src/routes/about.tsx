@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
 import whoWeAreMeeting from "@/assets/who_we_are_meeting.jpg";
-import aboutBg from "@/assets/about-bg.png";
+import aboutBg from "@/assets/about-bg.jpg";
 import aboutApproach from "@/assets/about-approach.jpg";
 import certMwbe from "@/assets/cert-mwbe.jpg";
 import certSbe from "@/assets/cert-sbe.jpg";

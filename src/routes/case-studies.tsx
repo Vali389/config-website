@@ -10,7 +10,7 @@ import {
   Building2,
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
-import caseStudiesHeroBg from "@/assets/case-studies-bg.png";
+import caseStudiesHeroBg from "@/assets/case-studies-bg.jpg";
 import caseStudyTeam from "@/assets/case_study_team.jpg";
 import gccEnterpriseHub from "@/assets/gcc-enterprise-hub.jpg";
 import erpImplementationImg from "@/assets/erp_implementation_img.png";

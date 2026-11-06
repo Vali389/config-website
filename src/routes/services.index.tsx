@@ -12,7 +12,7 @@ import {
   UserCheck,
   LineChart,
 } from "lucide-react";
-import servicesHeroBg from "@/assets/Engagement Models-bg.png";
+import servicesHeroBg from "@/assets/Engagement Models-bg.jpg";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
