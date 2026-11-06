@@ -216,6 +216,71 @@ function AboutPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* 2.5 Section: Mission, Vision & Values (Gold Reference Integration)  */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section className="py-8 lg:py-10 bg-[#F8FAFC] border-b border-[#e2e8f0]">
+        <div className="container-enterprise">
+          <FadeUp>
+            <div className="max-w-3xl mb-8">
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  MISSION, VISION & VALUES
+                </span>
+                <span className="w-10 h-[3px] bg-[#C83B43]" />
+              </div>
+              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
+                What drives our organization every single day.
+              </h2>
+            </div>
+          </FadeUp>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <FadeUp delay={0.08}>
+              <div className="p-7 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 h-full flex flex-col justify-between before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 hover:before:opacity-100 before:transition-opacity relative overflow-hidden">
+                <div>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/70 mb-5">
+                    <Compass className="h-6 w-6 stroke-[1.75]" />
+                  </span>
+                  <h3 className="text-xl font-bold text-[#102B4E] mb-2">Our Mission</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    Empowering organizations with the specialized technology talent, engineering capability and delivery expertise needed to drive sustainable digital transformation.
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.16}>
+              <div className="p-7 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 h-full flex flex-col justify-between before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 hover:before:opacity-100 before:transition-opacity relative overflow-hidden">
+                <div>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-[#245B91] border border-blue-100/70 mb-5">
+                    <ShieldCheck className="h-6 w-6 stroke-[1.75]" />
+                  </span>
+                  <h3 className="text-xl font-bold text-[#102B4E] mb-2">Our Vision</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    To be the most trusted, outcome-focused technology growth and workforce partner for enterprise leaders building mission-critical capabilities.
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.24}>
+              <div className="p-7 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 h-full flex flex-col justify-between before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 hover:before:opacity-100 before:transition-opacity relative overflow-hidden">
+                <div>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-100/70 mb-5">
+                    <Check className="h-6 w-6 stroke-[2]" />
+                  </span>
+                  <h3 className="text-xl font-bold text-[#102B4E] mb-2">Core Values</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    Integrity in capability representation, delivery excellence, transparent governance, and an unyielding commitment to verified client outcomes.
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 3. Section: What guides us (4 Principles Cards Grid)                */}
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">

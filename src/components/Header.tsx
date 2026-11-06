@@ -36,7 +36,7 @@ const NAV = [
       { to: "/services/enterprise-applications", label: "Enterprise Applications", desc: "Workday, SAP, MuleSoft and Salesforce platforms", icon: Boxes },
       { to: "/services/staffing", label: "Workforce Solutions", desc: "Contract staffing, permanent hiring and managed workforce", icon: Users },
       { to: "/gcc", label: "GCC Solutions", desc: "Talent and workforce strategy for Global Capability Centres", icon: Building2 },
-      { to: "/services/staffing", hash: "engagement-models", label: "Engagement Models", desc: "Flexible engagement structures aligned to client need", icon: LifeBuoy },
+      { to: "/engagement-models", label: "Engagement Models", desc: "Flexible engagement structures aligned to client need", icon: LifeBuoy },
     ],
   },
   {
@@ -83,7 +83,7 @@ export function Header() {
   const isItemActive = (to: string) => {
     if (to === "/") return isHome;
     if (isHome) return false;
-    if (to === "/services") return pathname.startsWith("/services") || pathname === "/gcc";
+    if (to === "/services") return pathname.startsWith("/services") || pathname === "/gcc" || pathname === "/engagement-models";
     if (to === "/industries") return pathname.startsWith("/industries");
     if (to === "/resources") return pathname.startsWith("/resources") || pathname === "/case-studies";
     if (to === "/careers") return pathname.startsWith("/careers");

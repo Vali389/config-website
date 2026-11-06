@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EngagementModelsRouteImport } from './routes/engagement-models'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GccRouteImport } from './routes/gcc'
 import { Route as GlobalDeliveryRouteImport } from './routes/global-delivery'
@@ -61,6 +62,11 @@ const CaseStudiesRoute = CaseStudiesRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EngagementModelsRoute = EngagementModelsRouteImport.update({
+  id: '/engagement-models',
+  path: '/engagement-models',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -216,6 +222,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/engagement-models': typeof EngagementModelsRoute
   '/faq': typeof FaqRoute
   '/gcc': typeof GccRoute
   '/global-delivery': typeof GlobalDeliveryRoute
@@ -251,6 +258,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/engagement-models': typeof EngagementModelsRoute
   '/faq': typeof FaqRoute
   '/gcc': typeof GccRoute
   '/global-delivery': typeof GlobalDeliveryRoute
@@ -284,6 +292,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/engagement-models': typeof EngagementModelsRoute
   '/faq': typeof FaqRoute
   '/gcc': typeof GccRoute
   '/global-delivery': typeof GlobalDeliveryRoute
@@ -321,6 +330,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/case-studies'
     | '/contact'
+    | '/engagement-models'
     | '/faq'
     | '/gcc'
     | '/global-delivery'
@@ -356,6 +366,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/case-studies'
     | '/contact'
+    | '/engagement-models'
     | '/faq'
     | '/gcc'
     | '/global-delivery'
@@ -388,6 +399,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/case-studies'
     | '/contact'
+    | '/engagement-models'
     | '/faq'
     | '/gcc'
     | '/global-delivery'
@@ -424,6 +436,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
+  EngagementModelsRoute: typeof EngagementModelsRoute
   FaqRoute: typeof FaqRoute
   GccRoute: typeof GccRoute
   GlobalDeliveryRoute: typeof GlobalDeliveryRoute
@@ -468,6 +481,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/engagement-models': {
+      id: '/engagement-models'
+      path: '/engagement-models'
+      fullPath: '/engagement-models'
+      preLoaderRoute: typeof EngagementModelsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -742,6 +762,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
+  EngagementModelsRoute: EngagementModelsRoute,
   FaqRoute: FaqRoute,
   GccRoute: GccRoute,
   GlobalDeliveryRoute: GlobalDeliveryRoute,

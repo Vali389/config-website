@@ -4,10 +4,10 @@ import { FadeUp } from "@/components/FadeUp";
 
 export function HomeWhyUs() {
   const points = [
-    "Focused talent access for specialised technology requirements.",
-    "Flexible engagement models aligned to client needs.",
-    "Structured recruitment and delivery governance.",
-    "A practical, accountable approach from requirement definition to deployment.",
+    "Focused talent access for specialized technology, platform engineering and AI initiatives.",
+    "Flexible engagement models: contract staffing, dedicated pods, and managed delivery.",
+    "Dual-engine reach: onshore North American leadership paired with offshore scale in India.",
+    "Structured delivery governance with transparent milestone accountability and zero IP friction.",
   ];
 
   return (

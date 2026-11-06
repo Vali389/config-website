@@ -46,6 +46,7 @@ export function Footer() {
               <li><Link to="/services/enterprise-applications" className="hover:text-[#245B91] transition-colors">Enterprise Applications</Link></li>
               <li><Link to="/services/staffing" className="hover:text-[#245B91] transition-colors">Workforce Solutions</Link></li>
               <li><Link to="/gcc" className="hover:text-[#245B91] transition-colors">GCC Solutions</Link></li>
+              <li><Link to="/engagement-models" className="hover:text-[#245B91] transition-colors">Engagement Models</Link></li>
             </ul>
           </div>
 

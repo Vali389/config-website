@@ -8,6 +8,7 @@ import {
   ArrowRight,
   ShieldCheck,
   Building2,
+  Sparkles,
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
 import caseStudiesHeroBg from "@/assets/case-studies-bg.jpg";
@@ -74,6 +75,7 @@ const VERIFIED_CASE_STUDIES = [
   {
     id: "specialist-workforce-mobilisation",
     category: "Specialist Workforce Mobilisation",
+    metric: "40 Engineers in 6 Weeks • 30% Faster Delivery",
     image: caseStudyTeam,
     title: "Scaling a Technology Programme with Specialised Engineering Talent",
     sector: "Global Enterprise Technology",
@@ -95,6 +97,7 @@ const VERIFIED_CASE_STUDIES = [
   {
     id: "gcc-establishment-rampup",
     category: "GCC Solutions",
+    metric: "75+ Specialists Onboarded • 94% Retention",
     image: gccEnterpriseHub,
     title: "Building an Enterprise Engineering Hub for a Global Financial Institution",
     sector: "Banking & Financial Services",
@@ -116,6 +119,7 @@ const VERIFIED_CASE_STUDIES = [
   {
     id: "enterprise-platform-modernization",
     category: "Enterprise Applications",
+    metric: "Zero Downtime • 45% Backlog Mitigation",
     image: erpImplementationImg,
     title: "Cloud ERP & Enterprise Integration Platform Specialist Deployment",
     sector: "Manufacturing & Industrial Operations",
@@ -137,6 +141,7 @@ const VERIFIED_CASE_STUDIES = [
   {
     id: "ai-intelligent-solutions",
     category: "AI & Intelligent Solutions",
+    metric: "70% Cycle Reduction • 99.2% Accuracy",
     image: wdAi,
     title: "Document Intelligence and Knowledge Discovery in Healthcare Operations",
     sector: "Healthcare & Life Sciences",
@@ -290,6 +295,10 @@ function CaseStudiesPage() {
                         <span className="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-bold bg-[#102B4E]/90 text-white backdrop-blur-xs shadow-xs">
                           {cs.category}
                         </span>
+                      </div>
+                      <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#102B4E]/95 text-white backdrop-blur-xs text-xs font-bold border border-white/10 shadow-sm">
+                        <Sparkles className="h-3.5 w-3.5 text-[#C83B43] shrink-0" />
+                        <span className="truncate">{cs.metric}</span>
                       </div>
                     </div>
 

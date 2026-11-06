@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
 import caseStudyTeam from "@/assets/case_study_team.jpg";
 import { FadeUp } from "@/components/FadeUp";
 
@@ -40,6 +40,10 @@ export function HomeCaseStudy() {
                   <span className="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-bold bg-[#102B4E]/90 text-white backdrop-blur-xs shadow-xs">
                     Enterprise Engineering Pod
                   </span>
+                </div>
+                <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#102B4E]/95 text-white backdrop-blur-xs text-xs font-bold border border-white/10 shadow-sm">
+                  <Sparkles className="h-3.5 w-3.5 text-[#C83B43] shrink-0" />
+                  <span>40 Engineers in 6 Weeks • 30% Faster Time-to-Delivery</span>
                 </div>
               </div>
 

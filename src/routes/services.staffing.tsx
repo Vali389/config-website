@@ -163,7 +163,17 @@ function WorkforceSolutionsPage() {
               </div>
             ))}
           </div>
-                  </FadeUp>
+
+          <div className="pt-6 flex justify-end">
+            <Link
+              to="/engagement-models"
+              className="text-xs font-bold text-[#C83B43] hover:text-[#a82e35] inline-flex items-center gap-1.5 transition-colors"
+            >
+              <span>Explore Dedicated Engagement Models & Evaluation Guide</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+          </FadeUp>
         </div>
       </section>
 
