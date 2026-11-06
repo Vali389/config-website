@@ -1,5 +1,5 @@
 import React from "react";
-import { createFileRoute, notFound, Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Calendar,
   Clock,
@@ -13,43 +13,55 @@ import {
 } from "lucide-react";
 import { ARTICLES, type Article } from "@/data/insights";
 
+function findArticle(slug?: string): Article {
+  if (!slug) return ARTICLES[0];
+  const exact = ARTICLES.find((a) => a.slug === slug);
+  if (exact) return exact;
+  const normalized = slug.toLowerCase().replace(/[^a-z0-9]/g, "");
+  const partial = ARTICLES.find((a) => {
+    const normArticleSlug = a.slug.replace(/[^a-z0-9]/g, "");
+    const normArticleTitle = a.title.toLowerCase().replace(/[^a-z0-9]/g, "");
+    return (
+      normArticleSlug.includes(normalized) ||
+      normalized.includes(normArticleSlug) ||
+      normArticleTitle.includes(normalized) ||
+      normalized.includes(normArticleTitle)
+    );
+  });
+  return partial || ARTICLES[0];
+}
+
 export const Route = createFileRoute("/resources/$slug")({
   head: ({ params }) => {
-    const article = ARTICLES.find((a) => a.slug === params.slug);
-    const title = article
-      ? `${article.title} — ConfigUSA Insights`
-      : "Insight — ConfigUSA";
+    const article = findArticle(params.slug);
+    const title = `${article.title} — ConfigUSA Insights`;
     return {
       meta: [
         { title },
         {
           name: "description",
-          content: article?.subtitle || "Enterprise technology and workforce insights from ConfigUSA.",
+          content: article.subtitle || "Enterprise technology and workforce insights from ConfigUSA.",
         },
         { property: "og:title", content: title },
         {
           property: "og:description",
-          content: article?.subtitle || "Enterprise technology perspectives.",
+          content: article.subtitle || "Enterprise technology perspectives.",
         },
       ],
     };
   },
   loader: ({ params }) => {
-    const article = ARTICLES.find((a) => a.slug === params.slug);
-    if (!article) {
-      throw notFound();
-    }
-    return { slug: params.slug };
+    const article = findArticle(params.slug);
+    return { slug: params.slug, article };
   },
   component: ArticleDetailPage,
 });
 
 function ArticleDetailPage() {
   const { slug } = Route.useParams();
-  const article = ARTICLES.find((a) => a.slug === slug);
-  if (!article) throw notFound();
+  const article = findArticle(slug);
 
-  const otherArticles = ARTICLES.filter((a) => a.slug !== slug).slice(0, 3);
+  const otherArticles = ARTICLES.filter((a) => a.slug !== article.slug).slice(0, 3);
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -89,156 +101,170 @@ function ArticleDetailPage() {
               </div>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[2.75rem] font-extrabold text-white tracking-tight leading-[1.2]">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">
               {article.title}
             </h1>
 
-            <p className="text-base sm:text-lg text-[#e2e8f0] leading-relaxed max-w-3xl">
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-3xl">
               {article.subtitle}
             </p>
+          </div>
+        </div>
 
-            <div className="pt-2 flex items-center gap-3 text-xs text-slate-300 border-t border-white/15 pt-4">
-              <div>
-                <span className="font-bold text-white block">{article.author.name}</span>
-                <span className="text-slate-300">{article.author.role}</span>
-              </div>
+        {/* Subtle decorative gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/90 to-[#245B91]/30 pointer-events-none" />
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* 2. Hero Image Banner                                                */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section className="bg-slate-50 border-b border-slate-200/80">
+        <div className="container-enterprise py-8">
+          <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 max-h-[480px]">
+            <img
+              src={article.heroImage}
+              alt={article.title}
+              className="w-full h-full object-cover max-h-[480px]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 text-white text-xs sm:text-sm font-semibold flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-[#C83B43]" />
+              <span>ConfigUSA Strategic Perspective • {article.topic}</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 2. Main Article Body + Sidebar                                      */}
+      {/* 3. Article Body & Sidebar Content Grid                              */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="py-10 lg:py-14 bg-white border-b border-slate-200">
+      <section className="py-12 lg:py-16 bg-white">
         <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-10 items-start">
-            {/* Left 8 Columns: Article Content */}
+          <div className="grid lg:grid-cols-12 gap-10">
+            {/* Main Article Content (8 cols) */}
             <article className="lg:col-span-8 space-y-10">
-              {/* Featured Image */}
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm aspect-[16/9] bg-slate-100">
-                <img
-                  src={article.heroImage}
-                  alt={article.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Executive Summary Callout */}
-              <div className="rounded-2xl bg-[#F4F7FB] border-l-4 border-[#245B91] p-6 sm:p-7 space-y-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#245B91] block">
-                  Executive Brief
-                </span>
-                <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
+              {/* Executive Summary Card */}
+              <div className="rounded-2xl border-l-4 border-[#C83B43] bg-red-50/20 p-6 sm:p-7 border border-slate-200/80">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#C83B43] uppercase tracking-wider mb-2">
+                  <Sparkles className="h-4 w-4" />
+                  <span>Executive Takeaway</span>
+                </div>
+                <p className="text-sm sm:text-base text-slate-800 leading-relaxed font-medium">
                   {article.summary}
                 </p>
-              </div>
-
-              {/* Key Takeaways */}
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 shadow-xs">
-                <h3 className="text-base font-bold text-[#102B4E] uppercase tracking-wider mb-4 flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-[#C83B43]" />
-                  <span>Key Takeaways for Enterprise Leaders</span>
-                </h3>
-                <ul className="space-y-3">
-                  {article.keyTakeaways.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="h-4 w-4 text-[#245B91] shrink-0 mt-0.5" />
-                      <span className="text-sm text-slate-700 leading-relaxed font-medium">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* In-Depth Content Sections */}
-              <div className="space-y-8 pt-2">
-                {article.sections.map((section, idx) => (
-                  <div key={idx} className="space-y-4">
-                    <h2 className="text-xl sm:text-2xl font-bold text-[#102B4E] tracking-tight">
-                      {section.heading}
-                    </h2>
-
-                    {section.paragraphs.map((p, pIdx) => (
-                      <p key={pIdx} className="text-base text-slate-700 leading-relaxed">
-                        {p}
-                      </p>
+                {article.keyTakeaways && article.keyTakeaways.length > 0 && (
+                  <ul className="mt-4 pt-4 border-t border-red-100 space-y-2">
+                    {article.keyTakeaways.map((point) => (
+                      <li key={point} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
+                        <CheckCircle2 className="h-4 w-4 text-[#C83B43] shrink-0 mt-0.5" />
+                        <span>{point}</span>
+                      </li>
                     ))}
+                  </ul>
+                )}
+              </div>
 
-                    {section.callout && (
-                      <div className="my-5 rounded-xl bg-slate-50 border-l-[3px] border-[#C83B43] p-5 italic text-slate-800 text-base leading-relaxed font-serif">
-                        "{section.callout}"
+              {/* Sections from Content Data */}
+              {article.sections.map((section, idx) => (
+                <div key={section.heading} className="space-y-4">
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#102B4E] tracking-tight">
+                    {section.heading}
+                  </h2>
+                  {section.paragraphs.map((p, pIdx) => (
+                    <p key={pIdx} className="text-slate-700 leading-relaxed text-sm sm:text-base">
+                      {p}
+                    </p>
+                  ))}
+
+                  {section.bullets && section.bullets.length > 0 && (
+                    <div className="mt-4 rounded-xl bg-slate-50 border border-slate-200/90 p-5 space-y-2.5">
+                      <div className="text-xs font-bold uppercase tracking-wider text-[#245B91]">
+                        Key Delivery Insights
                       </div>
-                    )}
-
-                    {section.bullets && section.bullets.length > 0 && (
-                      <ul className="space-y-2.5 my-4 pl-1">
-                        {section.bullets.map((b, bIdx) => (
-                          <li key={bIdx} className="flex items-start gap-2.5 text-sm sm:text-base text-slate-700 leading-relaxed">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#245B91] mt-2.5 shrink-0" />
-                            <span>{b}</span>
+                      <ul className="space-y-2">
+                        {section.bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                            <CheckCircle2 className="h-4 w-4 text-[#245B91] shrink-0 mt-0.5" />
+                            <span>{bullet}</span>
                           </li>
                         ))}
                       </ul>
-                    )}
-                  </div>
-                ))}
+                    </div>
+                  )}
+
+                  {section.callout && (
+                    <div className="rounded-xl border border-blue-200 bg-blue-50/50 p-4 text-xs sm:text-sm font-semibold text-[#102B4E]">
+                      {section.callout}
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              {/* Conclusion Section */}
+              <div className="pt-6 border-t border-slate-200 space-y-4">
+                <h3 className="text-xl font-bold text-[#102B4E]">Strategic Conclusion</h3>
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                  Enterprise transformation initiatives succeed when technology capability is paired directly with domain-aligned practitioner talent. At ConfigUSA, our objective is to de-risk complex deployments, mobilise high-calibre specialist squads, and ensure measurable business outcomes at every stage of the adoption lifecycle.
+                </p>
               </div>
 
-              {/* Back to Resources & Share */}
-              <div className="pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+              {/* Back to list & Share */}
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-200">
                 <Link
                   to="/resources"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-[#102B4E] hover:text-[#245B91] transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-[#245B91] hover:text-[#102B4E] transition-colors"
                 >
-                  <ArrowLeft className="h-4 w-4" />
-                  <span>Back to all insights & articles</span>
+                  <ArrowLeft className="h-4 w-4" /> Back to all articles & reports
                 </Link>
-
-                <Link
-                  to={article.relatedLink.to as any}
-                  className="inline-flex items-center gap-1.5 text-sm font-bold text-[#C83B43] hover:text-[#a82e35] transition-colors"
-                >
-                  <span>{article.relatedLink.label}</span>
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+                <div className="flex items-center gap-2 text-xs text-slate-500">
+                  <Share2 className="h-3.5 w-3.5" />
+                  <span>Share article with colleagues or teams</span>
+                </div>
               </div>
             </article>
 
-            {/* Right 4 Columns: Sticky Sidebar */}
-            <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
-              {/* Related Practice Card */}
-              <div className="rounded-2xl border border-slate-200 bg-[#F4F7FB] p-6 space-y-4">
+            {/* Sticky Sidebar (4 cols) */}
+            <aside className="lg:col-span-4 space-y-8">
+              {/* Practice / Capability Pod Card */}
+              <div className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 space-y-4 shadow-xs">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#102B4E]">
                   <Building2 className="h-4 w-4 text-[#245B91]" />
-                  <span>ConfigUSA Practice Area</span>
+                  <span>Aligned Practice Area</span>
                 </div>
-                <h4 className="text-base font-bold text-[#102B4E] leading-snug">
-                  Need specialist capability in {article.topic}?
-                </h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Connect directly with practitioners and technical squad leads who build, scale and maintain solutions in this domain.
+                <h4 className="text-base font-bold text-[#102B4E]">{article.topic} Practice</h4>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  ConfigUSA provides vetted specialist workforce squads, forward-deployed engineering, and delivery support across enterprise platforms, AI frameworks, and Indian capability centres.
                 </p>
                 <Link
                   to="/contact"
-                  className="btn-cta-primary w-full inline-flex items-center justify-center gap-2 text-xs font-bold py-2.5 shadow-sm"
+                  className="btn-cta-primary w-full text-xs font-bold py-2.5 rounded-lg justify-center shadow-xs inline-flex items-center gap-2"
                 >
-                  Discuss Your Requirement <ArrowRight className="h-3.5 w-3.5" />
+                  <span>Discuss Your Requirement</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
 
-              {/* Publication Credentials */}
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 space-y-3 text-xs text-slate-600">
-                <div className="font-bold text-[#102B4E] uppercase tracking-wider text-[11px]">
-                  About ConfigUSA Insights
-                </div>
-                <p className="leading-relaxed">
-                  Our viewpoints reflect practical execution experience across enterprise platforms, cross-border capability centres, and high-velocity engineering squads.
-                </p>
-                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-slate-500">
-                  <span>Topic: {article.topic}</span>
-                  <span>{article.date}</span>
+              {/* Related Reading */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 space-y-4 shadow-xs">
+                <h4 className="text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  Related Reading
+                </h4>
+                <div className="space-y-4">
+                  {otherArticles.map((item) => (
+                    <Link
+                      key={item.slug}
+                      to={`/resources/${item.slug}` as any}
+                      className="group block space-y-1.5 pb-3 border-b border-slate-100 last:border-0 last:pb-0"
+                    >
+                      <div className="text-[10px] font-bold uppercase tracking-wider text-[#C83B43]">
+                        {item.topic}
+                      </div>
+                      <h5 className="text-xs sm:text-[13px] font-bold text-[#102B4E] leading-snug group-hover:text-[#245B91] transition-colors">
+                        {item.title}
+                      </h5>
+                      <span className="text-[11px] text-slate-400">{item.readTime}</span>
+                    </Link>
+                  ))}
                 </div>
               </div>
             </aside>
@@ -247,100 +273,26 @@ function ArticleDetailPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 3. Section: More Perspectives (Related Insights Grid)               */}
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="py-10 lg:py-12 bg-[#F3F5F8] border-b border-[#e2e8f0]">
-        <div className="container-enterprise">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-xs font-extrabold uppercase tracking-wider text-[#102B4E]">
-                  CONTINUE EXPLORING
-                </span>
-                <span className="w-8 h-[2px] bg-[#C83B43]" />
-              </div>
-              <h2 className="text-xl sm:text-2xl font-extrabold text-[#102B4E] tracking-tight">
-                Related viewpoints and analyses
-              </h2>
-            </div>
-
-            <Link
-              to="/resources"
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-[#C83B43] hover:text-[#a82e35] transition-colors"
-            >
-              <span>View all insights</span>
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {otherArticles.map((item) => (
-              <Link
-                key={item.slug}
-                to={`/resources/${item.slug}` as any}
-                className="group flex flex-col justify-between rounded-2xl overflow-hidden bg-white border border-slate-200/90 shadow-xs hover:-translate-y-1.5 hover:border-[#245B91] hover:shadow-xl transition-all duration-300 before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:z-20 relative"
-              >
-                <div>
-                  <div className="relative h-44 overflow-hidden bg-slate-100">
-                    <img
-                      src={item.cardImage}
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#102B4E]/90 text-white backdrop-blur-xs">
-                      {item.topic}
-                    </span>
-                  </div>
-
-                  <div className="p-5 space-y-2">
-                    <div className="flex items-center gap-2 text-[11px] text-slate-500 font-medium">
-                      <span>{item.date}</span>
-                      <span>•</span>
-                      <span>{item.readTime}</span>
-                    </div>
-
-                    <h3 className="text-sm font-bold text-[#102B4E] leading-snug group-hover:text-[#245B91] transition-colors line-clamp-2">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                      {item.subtitle}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-5 pt-0">
-                  <span className="inline-flex items-center gap-1 text-xs font-bold text-[#C83B43] group-hover:text-[#245B91] transition-colors">
-                    <span>Read insight</span>
-                    <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 4. Bottom CTA Strip                                                 */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="bg-[#102B4E] text-white py-7 lg:py-9 border-t border-white/10">
+      <section className="bg-[#102B4E] text-white py-10 border-t border-white/10">
         <div className="container-enterprise">
           <div className="grid lg:grid-cols-12 gap-6 items-center">
-            <div className="lg:col-span-5">
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-tight">
-                Discuss your technology and workforce priorities.
+            <div className="lg:col-span-8 space-y-2">
+              <h2 className="text-2xl font-extrabold tracking-tight">
+                Accelerate Your Enterprise Capability with ConfigUSA
               </h2>
+              <p className="text-slate-300 text-sm">
+                Discuss how our specialist workforce pods and forward-deployed engineering teams can support your roadmap.
+              </p>
             </div>
-            <div className="lg:col-span-4 text-slate-200 text-sm lg:text-base lg:border-l lg:border-white/20 lg:pl-6 leading-relaxed">
-              Connect with our domain practice leads to evaluate strategic requirements and delivery models.
-            </div>
-            <div className="lg:col-span-3 lg:text-right">
+            <div className="lg:col-span-4 lg:text-right">
               <Link
                 to="/contact"
-                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
+                className="btn-cta-primary text-sm font-semibold px-6 py-3 rounded-md shadow-sm inline-flex items-center gap-2"
               >
-                Discuss Your Requirement <ArrowRight className="h-4 w-4" />
+                <span>Connect With an Enterprise Lead</span>
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
@@ -349,4 +301,3 @@ function ArticleDetailPage() {
     </div>
   );
 }
-
