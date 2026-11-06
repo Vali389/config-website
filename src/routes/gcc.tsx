@@ -284,8 +284,11 @@ function GCCSolutionsPage() {
                   </p>
                 </div>
                 {idx < GCC_LIFECYCLE_STAGES.length - 1 && (
-                  <div className="hidden lg:block absolute -right-2.5 top-1/2 -translate-y-1/2 z-10">
-                    <ArrowRight className="h-4 w-4 text-slate-300" />
+                  <div
+                    aria-hidden="true"
+                    className="hidden lg:flex items-center justify-center absolute -right-3.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-white border border-slate-300 shadow-sm text-[#245B91]"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 stroke-[2.5]" />
                   </div>
                 )}
               </div>

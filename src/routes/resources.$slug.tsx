@@ -6,7 +6,6 @@ import {
   ArrowRight,
   CheckCircle2,
   ChevronRight,
-  Share2,
   ArrowLeft,
   Building2,
   Sparkles,
@@ -208,18 +207,14 @@ function ArticleDetailPage() {
                 </p>
               </div>
 
-              {/* Back to list & Share */}
-              <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-200">
+              {/* Back to list */}
+              <div className="flex items-center justify-between gap-4 pt-6 border-t border-slate-200">
                 <Link
                   to="/resources"
                   className="inline-flex items-center gap-2 text-sm font-bold text-[#245B91] hover:text-[#102B4E] transition-colors"
                 >
                   <ArrowLeft className="h-4 w-4" /> Back to all articles & reports
                 </Link>
-                <div className="flex items-center gap-2 text-xs text-slate-500">
-                  <Share2 className="h-3.5 w-3.5" />
-                  <span>Share article with colleagues or teams</span>
-                </div>
               </div>
             </article>
 

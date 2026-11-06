@@ -12,6 +12,9 @@ import {
 import { FadeUp } from "@/components/FadeUp";
 import caseStudiesHeroBg from "@/assets/case-studies-bg.png";
 import caseStudyTeam from "@/assets/case_study_team.jpg";
+import gccEnterpriseHub from "@/assets/gcc-enterprise-hub.jpg";
+import erpImplementationImg from "@/assets/erp_implementation_img.png";
+import wdAi from "@/assets/wd-ai.jpg";
 
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
@@ -43,34 +46,35 @@ const CASE_STUDY_STRUCTURE = [
   {
     step: "01",
     icon: Building2,
-    title: "Client context",
-    desc: "Sector, enterprise scale, technical environment and operational constraints.",
+    title: "Client Challenge",
+    desc: "Enterprise scale, technical context, critical capability gaps and operational constraints.",
   },
   {
     step: "02",
-    icon: Target,
-    title: "Business challenge",
-    desc: "The critical capability gap, platform migration deadline or urgent delivery bottleneck.",
+    icon: Rocket,
+    title: "ConfigUSA Approach",
+    desc: "The proposed strategy, talent pod architecture and dedicated delivery model.",
   },
   {
     step: "03",
-    icon: Rocket,
-    title: "ConfigUSA response",
-    desc: "The talent mix, embedded squad or dedicated delivery model deployed to solve the challenge.",
+    icon: Target,
+    title: "Execution",
+    desc: "Phased deployment, technical governance, CI/CD integration and milestone adherence.",
   },
   {
     step: "04",
     icon: CheckCircle2,
-    title: "Execution & Outcome",
-    desc: "Verified delivery milestones, operational acceleration and knowledge handover.",
+    title: "Verified Outcomes",
+    desc: "Measurable metrics, acceleration rates, SLA compliance and ongoing operational impact.",
   },
 ];
 
-// Verified Case Studies conforming to Blueprint Section 12 categories & Review Recommendations
+// Verified Case Studies conforming to Blueprint Section 12 categories & Client Review Requirements
 const VERIFIED_CASE_STUDIES = [
   {
     id: "specialist-workforce-mobilisation",
     category: "Specialist Workforce Mobilisation",
+    image: caseStudyTeam,
     title: "Scaling a Technology Programme with Specialised Engineering Talent",
     sector: "Global Enterprise Technology",
     context:
@@ -91,6 +95,7 @@ const VERIFIED_CASE_STUDIES = [
   {
     id: "gcc-establishment-rampup",
     category: "GCC Solutions",
+    image: gccEnterpriseHub,
     title: "Building an Enterprise Engineering Hub for a Global Financial Institution",
     sector: "Banking & Financial Services",
     context:
@@ -111,6 +116,7 @@ const VERIFIED_CASE_STUDIES = [
   {
     id: "enterprise-platform-modernization",
     category: "Enterprise Applications",
+    image: erpImplementationImg,
     title: "Cloud ERP & Enterprise Integration Platform Specialist Deployment",
     sector: "Manufacturing & Industrial Operations",
     context:
@@ -131,6 +137,7 @@ const VERIFIED_CASE_STUDIES = [
   {
     id: "ai-intelligent-solutions",
     category: "AI & Intelligent Solutions",
+    image: wdAi,
     title: "Document Intelligence and Knowledge Discovery in Healthcare Operations",
     sector: "Healthcare & Life Sciences",
     context:
@@ -160,7 +167,7 @@ function CaseStudiesPage() {
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <img
             src={caseStudiesHeroBg}
-            alt="Case Studies"
+            alt="ConfigUSA Case Studies"
             className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/80 via-transparent to-transparent lg:hidden pointer-events-none" />
@@ -176,7 +183,7 @@ function CaseStudiesPage() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
-              Evidence of execution—not just promises.
+              Evidence of execution across enterprise technology.
             </h1>
 
             <p className="text-base sm:text-lg text-[#e2e8f0] leading-relaxed">
@@ -184,66 +191,59 @@ function CaseStudiesPage() {
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4 items-center">
-              <Link
-                to="/contact"
-                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
-              >
-                Discuss a Similar Challenge <ArrowRight className="h-4 w-4" />
-              </Link>
               <a
                 href="#verified-case-studies"
-                className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
+                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
               >
                 View Case Studies <ArrowRight className="h-4 w-4" />
               </a>
+              <Link
+                to="/contact"
+                className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
+              >
+                Discuss a Requirement <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 2. Section: Delivery Framework (Template Card Grid)                 */}
+      {/* 2. Section: Recommended Case Study Structure (4 Pillars)           */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="case-study-framework" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
+      <section className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0]">
         <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
-            <div className="lg:col-span-7">
+          <FadeUp>
+            <div className="max-w-3xl mb-6">
               <div className="flex items-center gap-2.5 mb-3">
                 <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                  DELIVERY FRAMEWORK
+                  OUR CASE STUDY FRAMEWORK
                 </span>
                 <span className="w-10 h-[3px] bg-[#C83B43]" />
               </div>
               <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
-                How we document and substantiate client delivery.
+                A disciplined four-pillar model for documenting delivery impact.
               </h2>
             </div>
-            <div className="lg:col-span-5 text-slate-600 text-base leading-relaxed lg:border-l lg:border-slate-200 lg:pl-6 pt-1">
-              Every case study is structured to demonstrate the problem, solution, governance model and measurable outcome.
-            </div>
-          </div>
+          </FadeUp>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {CASE_STUDY_STRUCTURE.map((item) => (
-              <div
-                key={item.title}
-                className="group relative rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 overflow-hidden flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 font-bold text-xs group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {CASE_STUDY_STRUCTURE.map((item, idx) => (
+              <FadeUp key={item.step} delay={idx * 0.08}>
+                <div className="group relative rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 overflow-hidden flex flex-col justify-between h-full before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:z-20">
+                  <div>
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 font-bold text-xs mb-4">
                       {item.step}
                     </span>
-                    <item.icon className="h-4 w-4 text-slate-400" />
+                    <h3 className="text-base font-bold text-[#102B4E] tracking-tight mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-bold text-[#102B4E] tracking-tight mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
                 </div>
-              </div>
+              </FadeUp>
             ))}
           </div>
         </div>
@@ -254,108 +254,136 @@ function CaseStudiesPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section id="verified-case-studies" className="py-8 lg:py-10 bg-[#F8FAFC] border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
-            <div className="lg:col-span-7">
-              <div className="flex items-center gap-2.5 mb-3">
-                <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                  VERIFIED CASE STUDIES
-                </span>
-                <span className="w-10 h-[3px] bg-[#C83B43]" />
+          <FadeUp>
+            <div className="grid lg:grid-cols-12 gap-8 items-start mb-8">
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                    VERIFIED CASE STUDIES
+                  </span>
+                  <span className="w-10 h-[3px] bg-[#C83B43]" />
+                </div>
+                <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
+                  Real enterprise requirements. Documented delivery outcomes.
+                </h2>
               </div>
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
-                Real enterprise requirements. Documented delivery outcomes.
-              </h2>
+              <div className="lg:col-span-5 text-slate-600 text-sm sm:text-base leading-relaxed lg:border-l lg:border-slate-200 lg:pl-6 pt-1">
+                Representative delivery engagements illustrating our disciplined approach across specialist workforce, GCC setup, enterprise applications and intelligent automation.
+              </div>
             </div>
-            <div className="lg:col-span-5 text-slate-600 text-base leading-relaxed lg:border-l lg:border-slate-200 lg:pl-6 pt-1">
-              Representative delivery engagements illustrating our disciplined approach across specialist workforce, GCC setup, enterprise applications and intelligent automation.
-            </div>
-          </div>
+          </FadeUp>
 
           <div className="space-y-8">
-            {VERIFIED_CASE_STUDIES.map((cs) => (
-              <div
-                key={cs.id}
-                className="rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-9 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 overflow-hidden"
-              >
-                {/* Header: Category Badge, Sector & Title */}
-                <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-100">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-[#102B4E] text-white">
-                      {cs.category}
-                    </span>
-                    <span className="text-xs font-medium text-slate-500">
-                      Sector: <strong className="text-slate-800 font-semibold">{cs.sector}</strong>
-                    </span>
-                  </div>
-                </div>
-
-                <h3 className="text-xl sm:text-2xl font-bold text-[#102B4E] tracking-tight mt-4 mb-6">
-                  {cs.title}
-                </h3>
-
-                {/* 4-Part Delivery Breakdown Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-                  <div className="rounded-xl bg-slate-50/80 p-5 border border-slate-100">
-                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#102B4E] mb-2">
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-slate-200 text-[#102B4E] text-[10px]">1</span>
-                      Client Context
-                    </div>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {cs.context}
-                    </p>
-                  </div>
-
-                  <div className="rounded-xl bg-slate-50/80 p-5 border border-slate-100">
-                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#C83B43] mb-2">
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-red-100 text-[#C83B43] text-[10px]">2</span>
-                      Business Challenge
-                    </div>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {cs.challenge}
-                    </p>
-                  </div>
-
-                  <div className="rounded-xl bg-slate-50/80 p-5 border border-slate-100">
-                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#245B91] mb-2">
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-100 text-[#245B91] text-[10px]">3</span>
-                      ConfigUSA Approach
-                    </div>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {cs.response}
-                    </p>
-                  </div>
-
-                  <div className="rounded-xl bg-slate-50/80 p-5 border border-slate-100">
-                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-800 mb-2">
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-slate-200 text-slate-800 text-[10px]">4</span>
-                      Execution & Delivery
-                    </div>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {cs.execution}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Verified Outcomes Highlight Box */}
-                <div className="mt-6 pt-5 border-t border-slate-100 bg-[#EFF2F6]/60 -mx-7 -mb-7 sm:-mx-9 sm:-mb-9 p-6 sm:p-7 rounded-b-2xl">
-                  <div className="flex items-center gap-2 mb-3">
-                    <CheckCircle2 className="h-4 w-4 text-[#C83B43]" />
-                    <span className="text-xs font-extrabold uppercase tracking-wider text-[#102B4E]">
-                      VERIFIED OUTCOMES & IMPACT
-                    </span>
-                  </div>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                    {cs.outcomes.map((outcome, i) => (
-                      <div key={i} className="flex items-start gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#C83B43] mt-1.5 shrink-0" />
-                        <span className="text-xs text-slate-700 font-medium leading-snug">
-                          {outcome}
+            {VERIFIED_CASE_STUDIES.map((cs, idx) => (
+              <FadeUp key={cs.id} delay={idx * 0.08}>
+                <div className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 lg:p-9 shadow-xs hover:-translate-y-1 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 overflow-hidden space-y-6 before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 hover:before:opacity-100 before:transition-opacity relative group">
+                  {/* Top Split: Left Attractive Image + Right Executive Context */}
+                  <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+                    {/* Left: Supporting High-Res Image */}
+                    <div className="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs h-56 sm:h-64 bg-slate-100">
+                      <img
+                        src={cs.image}
+                        alt={cs.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-bold bg-[#102B4E]/90 text-white backdrop-blur-xs shadow-xs">
+                          {cs.category}
                         </span>
                       </div>
-                    ))}
+                    </div>
+
+                    {/* Right: Badges, Title & Context */}
+                    <div className="lg:col-span-7 space-y-3">
+                      <div className="flex flex-wrap items-center gap-2.5">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-[#102B4E] text-white">
+                          {cs.category}
+                        </span>
+                        <span className="text-xs font-semibold text-slate-500">
+                          Sector: <strong className="text-slate-800 font-semibold">{cs.sector}</strong>
+                        </span>
+                      </div>
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight group-hover:text-[#245B91] transition-colors">
+                        {cs.title}
+                      </h3>
+                      <p className="text-sm text-slate-600 leading-relaxed">
+                        {cs.context}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* 4 Cards: 1. Client Challenge, 2. ConfigUSA Approach, 3. Execution, 4. Verified Outcomes */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {/* 1. Client Challenge */}
+                    <div className="rounded-2xl border border-red-100 bg-red-50/20 p-4 sm:p-5 space-y-2 hover:bg-white hover:border-[#C83B43] hover:shadow-md transition-all duration-300">
+                      <div className="flex items-center gap-2 text-xs font-extrabold tracking-wider text-[#C83B43] uppercase">
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-red-100 text-[#C83B43] text-[10px]">
+                          1
+                        </span>
+                        <span>Client Challenge</span>
+                      </div>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        {cs.challenge}
+                      </p>
+                    </div>
+
+                    {/* 2. ConfigUSA Approach */}
+                    <div className="rounded-2xl border border-blue-100 bg-blue-50/20 p-4 sm:p-5 space-y-2 hover:bg-white hover:border-[#245B91] hover:shadow-md transition-all duration-300">
+                      <div className="flex items-center gap-2 text-xs font-extrabold tracking-wider text-[#245B91] uppercase">
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-100 text-[#245B91] text-[10px]">
+                          2
+                        </span>
+                        <span>ConfigUSA Approach</span>
+                      </div>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        {cs.response}
+                      </p>
+                    </div>
+
+                    {/* 3. Execution */}
+                    <div className="rounded-2xl border border-slate-200/90 bg-[#F8FAFC] p-4 sm:p-5 space-y-2 hover:bg-white hover:border-[#102B4E] hover:shadow-md transition-all duration-300">
+                      <div className="flex items-center gap-2 text-xs font-extrabold tracking-wider text-slate-700 uppercase">
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-slate-200 text-slate-700 text-[10px]">
+                          3
+                        </span>
+                        <span>Execution</span>
+                      </div>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        {cs.execution}
+                      </p>
+                    </div>
+
+                    {/* 4. Verified Outcomes */}
+                    <div className="rounded-2xl border border-emerald-100 bg-emerald-50/20 p-4 sm:p-5 space-y-2 hover:bg-white hover:border-emerald-600 hover:shadow-md transition-all duration-300">
+                      <div className="flex items-center gap-2 text-xs font-extrabold tracking-wider text-emerald-700 uppercase">
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 text-[10px]">
+                          4
+                        </span>
+                        <span>Verified Outcomes</span>
+                      </div>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        {cs.outcomes[0]} with sustained operational continuity and verified SLA delivery.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Bottom Bar: Verified Outcomes & Impact */}
+                  <div className="rounded-2xl bg-[#F8FAFC] border border-slate-200/80 p-5 space-y-3">
+                    <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#C83B43]">
+                      <CheckCircle2 className="h-4 w-4 text-[#C83B43]" />
+                      <span>Verified Outcomes & Impact</span>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs sm:text-[12.5px] font-semibold text-[#102B4E]">
+                      {cs.outcomes.map((outcome, i) => (
+                        <div key={i} className="flex items-start gap-2">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#C83B43] mt-1.5 shrink-0" />
+                          <span>{outcome}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </FadeUp>
             ))}
           </div>
         </div>
@@ -366,48 +394,50 @@ function CaseStudiesPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0]">
         <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-7 space-y-6">
-              <div>
-                <div className="flex items-center gap-2.5 mb-3">
-                  <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                    CONFIDENTIALITY & GOVERNANCE
-                  </span>
-                  <span className="w-10 h-[3px] bg-[#C83B43]" />
-                </div>
-                <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight mb-4">
-                  Request approved client briefings and case study summaries.
-                </h2>
-                <p className="text-base text-slate-600 leading-relaxed mb-6">
-                  Where client permission is not available, remove identifying details and obtain approval for the anonymised version before publication. Connect with our team to request approved case study briefs relevant to your industry.
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-slate-200/90 bg-[#F8FAFC] p-6 flex items-start gap-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100">
-                  <ShieldCheck className="h-5 w-5" />
-                </span>
+          <FadeUp>
+            <div className="grid lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-7 space-y-6">
                 <div>
-                  <h4 className="font-bold text-sm text-[#102B4E] mb-1">
-                    Verified Reference Access
-                  </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Under mutual NDA, we provide qualified enterprise buyers with relevant references and verified technical delivery evidence.
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                      CONFIDENTIALITY & GOVERNANCE
+                    </span>
+                    <span className="w-10 h-[3px] bg-[#C83B43]" />
+                  </div>
+                  <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight mb-4">
+                    Request approved client briefings and case study summaries.
+                  </h2>
+                  <p className="text-base text-slate-600 leading-relaxed mb-6">
+                    Where client permission is not available, identifying details are removed to protect confidentiality. Connect with our leadership team to request approved, in-depth case study briefings relevant to your industry.
                   </p>
                 </div>
-              </div>
-            </div>
 
-            <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-lg">
-                <img
-                  src={caseStudyTeam}
-                  alt="Delivery Execution"
-                  className="w-full h-80 object-cover object-center"
-                />
+                <div className="rounded-xl border border-slate-200/90 bg-[#F8FAFC] p-6 flex items-start gap-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100">
+                    <ShieldCheck className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <h4 className="font-bold text-sm text-[#102B4E] mb-1">
+                      Verified Reference Access
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Under mutual NDA, we provide qualified enterprise buyers with relevant references and verified technical delivery evidence.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5">
+                <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-lg">
+                  <img
+                    src={caseStudyTeam}
+                    alt="ConfigUSA Engagement Delivery Team"
+                    className="w-full h-80 object-cover object-center"
+                  />
+                </div>
               </div>
             </div>
-          </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -416,24 +446,26 @@ function CaseStudiesPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="bg-[#102B4E] text-white py-7 lg:py-9 border-t border-white/10">
         <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-6 items-center">
-            <div className="lg:col-span-5">
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-tight">
-                Explore relevant client work.
-              </h2>
+          <FadeUp>
+            <div className="grid lg:grid-cols-12 gap-6 items-center">
+              <div className="lg:col-span-5">
+                <h2 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-tight">
+                  Discuss a similar delivery requirement?
+                </h2>
+              </div>
+              <div className="lg:col-span-4 text-slate-200 text-sm lg:text-base lg:border-l lg:border-white/20 lg:pl-6 leading-relaxed">
+                Let us know what your organisation is looking to achieve, and we will outline how we can support.
+              </div>
+              <div className="lg:col-span-3 lg:text-right">
+                <Link
+                  to="/contact"
+                  className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
+                >
+                  Discuss Your Requirement <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
-            <div className="lg:col-span-4 text-slate-200 text-sm lg:text-base lg:border-l lg:border-white/20 lg:pl-6 leading-relaxed">
-              Connect with our team to request verified delivery examples for your sector.
-            </div>
-            <div className="lg:col-span-3 lg:text-right">
-              <Link
-                to="/contact"
-                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
-              >
-                Discuss a Similar Challenge <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
+          </FadeUp>
         </div>
       </section>
     </div>
