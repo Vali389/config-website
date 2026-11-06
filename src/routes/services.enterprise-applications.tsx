@@ -8,6 +8,7 @@ import {
   ArrowRight,
   Check,
 } from "lucide-react";
+import { FadeUp } from "@/components/FadeUp";
 import enterprisePlatformsMesh from "@/assets/enterprise-platforms-mesh.jpg";
 import erpHeroBg from "@/assets/Enterprise Applications-bg.png";
 import erpImplementationImg from "@/assets/erp_implementation_img.png";
@@ -129,6 +130,7 @@ function EnterpriseApplicationsPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section id="platforms" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
+          <FadeUp>
           <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2.5 mb-3">
@@ -167,6 +169,7 @@ function EnterpriseApplicationsPage() {
               </div>
             ))}
           </div>
+                  </FadeUp>
         </div>
       </section>
 
@@ -175,6 +178,7 @@ function EnterpriseApplicationsPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">
+          <FadeUp>
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-6">
               <div>
@@ -216,6 +220,7 @@ function EnterpriseApplicationsPage() {
               </div>
             </div>
           </div>
+                  </FadeUp>
         </div>
       </section>
 
@@ -224,6 +229,7 @@ function EnterpriseApplicationsPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="bg-[#102B4E] text-white py-7 lg:py-9 border-t border-white/10">
         <div className="container-enterprise">
+          <FadeUp>
           <div className="grid lg:grid-cols-12 gap-6 items-center">
             <div className="lg:col-span-5">
               <h2 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-tight">
@@ -242,6 +248,7 @@ function EnterpriseApplicationsPage() {
               </Link>
             </div>
           </div>
+                  </FadeUp>
         </div>
       </section>
     </div>

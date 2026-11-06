@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import whoWeAreMeeting from "@/assets/who_we_are_reference_meeting.jpg";
+import { FadeUp } from "@/components/FadeUp";
 
 export function HomeWhyUs() {
   const points = [
@@ -14,7 +15,7 @@ export function HomeWhyUs() {
       <div className="container-enterprise">
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           {/* Left Column: Kicker & 4 Interactive Bullets */}
-          <div className="lg:col-span-6 space-y-6">
+          <FadeUp className="lg:col-span-6 space-y-6">
             <div>
               <div className="flex items-center gap-2.5 mb-3">
                 <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
@@ -42,10 +43,10 @@ export function HomeWhyUs() {
                 </div>
               ))}
             </div>
-          </div>
+          </FadeUp>
 
           {/* Right Column: Photography with subtle hover zoom */}
-          <div className="lg:col-span-6">
+          <FadeUp delay={0.15} className="lg:col-span-6">
             <div className="group relative rounded-2xl overflow-hidden border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300">
               <img
                 src={whoWeAreMeeting}
@@ -54,7 +55,7 @@ export function HomeWhyUs() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#102B4E]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
             </div>
-          </div>
+          </FadeUp>
         </div>
       </div>
     </section>

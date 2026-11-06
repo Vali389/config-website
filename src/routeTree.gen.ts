@@ -28,6 +28,7 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as CareersIndexRouteImport } from './routes/careers/index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as IndustriesIndustryIdRouteImport } from './routes/industries.$industryId'
+import { Route as ResourcesSlugRouteImport } from './routes/resources.$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesAiRouteImport } from './routes/services.ai'
 import { Route as ServicesAssessmentRouteImport } from './routes/services.assessment'
@@ -136,6 +137,11 @@ const IndustriesIndustryIdRoute = IndustriesIndustryIdRouteImport.update({
   path: '/$industryId',
   getParentRoute: () => IndustriesRoute,
 } as any)
+const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ResourcesRoute,
+} as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -211,12 +217,13 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
-  '/resources': typeof ResourcesRoute
+  '/resources': typeof ResourcesRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
+  '/resources/$slug': typeof ResourcesSlugRoute
   '/services/ai': typeof ServicesAiRoute
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/cloud': typeof ServicesCloudRoute
@@ -243,11 +250,12 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
-  '/resources': typeof ResourcesRoute
+  '/resources': typeof ResourcesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
+  '/resources/$slug': typeof ResourcesSlugRoute
   '/services/ai': typeof ServicesAiRoute
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/cloud': typeof ServicesCloudRoute
@@ -276,12 +284,13 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
-  '/resources': typeof ResourcesRoute
+  '/resources': typeof ResourcesRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
+  '/resources/$slug': typeof ResourcesSlugRoute
   '/services/ai': typeof ServicesAiRoute
   '/services/assessment': typeof ServicesAssessmentRoute
   '/services/cloud': typeof ServicesCloudRoute
@@ -317,6 +326,7 @@ export interface FileRouteTypes {
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
+    | '/resources/$slug'
     | '/services/ai'
     | '/services/assessment'
     | '/services/cloud'
@@ -348,6 +358,7 @@ export interface FileRouteTypes {
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
+    | '/resources/$slug'
     | '/services/ai'
     | '/services/assessment'
     | '/services/cloud'
@@ -381,6 +392,7 @@ export interface FileRouteTypes {
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
+    | '/resources/$slug'
     | '/services/ai'
     | '/services/assessment'
     | '/services/cloud'
@@ -409,7 +421,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ProcessRoute: typeof ProcessRoute
   RequestTalentRoute: typeof RequestTalentRoute
-  ResourcesRoute: typeof ResourcesRoute
+  ResourcesRoute: typeof ResourcesRouteWithChildren
   ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SubmitResumeRoute: typeof SubmitResumeRoute
@@ -553,6 +565,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesIndustryIdRouteImport
       parentRoute: typeof IndustriesRoute
     }
+    '/resources/$slug': {
+      id: '/resources/$slug'
+      path: '/$slug'
+      fullPath: '/resources/$slug'
+      preLoaderRoute: typeof ResourcesSlugRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
     '/services/': {
       id: '/services/'
       path: '/'
@@ -654,6 +673,18 @@ const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
   IndustriesRouteChildren,
 )
 
+interface ResourcesRouteChildren {
+  ResourcesSlugRoute: typeof ResourcesSlugRoute
+}
+
+const ResourcesRouteChildren: ResourcesRouteChildren = {
+  ResourcesSlugRoute: ResourcesSlugRoute,
+}
+
+const ResourcesRouteWithChildren = ResourcesRoute._addFileChildren(
+  ResourcesRouteChildren,
+)
+
 interface ServicesRouteChildren {
   ServicesAiRoute: typeof ServicesAiRoute
   ServicesAssessmentRoute: typeof ServicesAssessmentRoute
@@ -699,7 +730,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ProcessRoute: ProcessRoute,
   RequestTalentRoute: RequestTalentRoute,
-  ResourcesRoute: ResourcesRoute,
+  ResourcesRoute: ResourcesRouteWithChildren,
   ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SubmitResumeRoute: SubmitResumeRoute,

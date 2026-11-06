@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   Building2,
 } from "lucide-react";
+import { FadeUp } from "@/components/FadeUp";
 import caseStudiesHeroBg from "@/assets/case-studies-bg.png";
 import caseStudyTeam from "@/assets/case_study_team.jpg";
 

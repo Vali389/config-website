@@ -10,6 +10,7 @@ import {
   Phone,
   Check,
 } from "lucide-react";
+import { FadeUp } from "@/components/FadeUp";
 import whoWeAreMeeting from "@/assets/who_we_are_meeting.jpg";
 import aboutBg from "@/assets/about-bg.png";
 import aboutApproach from "@/assets/about-approach.jpg";
@@ -155,6 +156,7 @@ function AboutPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section id="who-we-are" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
+          <FadeUp>
           <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2.5 mb-3">
@@ -209,6 +211,7 @@ function AboutPage() {
               </div>
             </div>
           </div>
+                  </FadeUp>
         </div>
       </section>
 
@@ -217,6 +220,7 @@ function AboutPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">
+          <FadeUp>
           <div className="max-w-3xl mb-6">
             <div className="flex items-center gap-2.5 mb-3">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
@@ -249,6 +253,7 @@ function AboutPage() {
               </div>
             ))}
           </div>
+                  </FadeUp>
         </div>
       </section>
 
@@ -257,6 +262,7 @@ function AboutPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0]">
         <div className="container-enterprise">
+          <FadeUp>
           <div className="max-w-3xl mb-6">
             <div className="flex items-center gap-2.5 mb-3">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
@@ -274,6 +280,7 @@ function AboutPage() {
               Our leadership brings experience across technology services, enterprise delivery and talent solutions. We maintain active, senior-level involvement in client engagements to ensure delivery standards, transparent communication and rapid escalation resolution.
             </p>
           </div>
+                  </FadeUp>
         </div>
       </section>
 
@@ -282,6 +289,7 @@ function AboutPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0]">
         <div className="container-enterprise">
+          <FadeUp>
           <div className="max-w-3xl mb-6">
             <div className="flex items-center gap-2.5 mb-3">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
@@ -323,6 +331,7 @@ function AboutPage() {
               </div>
             ))}
           </div>
+                  </FadeUp>
         </div>
       </section>
 
@@ -331,6 +340,7 @@ function AboutPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">
+          <FadeUp>
           <div className="max-w-3xl mb-6">
             <div className="flex items-center gap-2.5 mb-3">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
@@ -363,6 +373,7 @@ function AboutPage() {
               </div>
             ))}
           </div>
+                  </FadeUp>
         </div>
       </section>
 
@@ -371,6 +382,7 @@ function AboutPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0]">
         <div className="container-enterprise">
+          <FadeUp>
           <div className="max-w-3xl">
             <div className="flex items-center gap-2.5 mb-3">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
@@ -385,6 +397,7 @@ function AboutPage() {
               We aim to build long-term client relationships through responsiveness, transparent communication and dependable execution.
             </p>
           </div>
+                  </FadeUp>
         </div>
       </section>
 
@@ -393,6 +406,7 @@ function AboutPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="bg-[#102B4E] text-white py-7 lg:py-9 border-t border-white/10">
         <div className="container-enterprise">
+          <FadeUp>
           <div className="grid lg:grid-cols-12 gap-6 items-center">
             <div className="lg:col-span-5">
               <h2 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-tight">
@@ -411,6 +425,7 @@ function AboutPage() {
               </Link>
             </div>
           </div>
+                  </FadeUp>
         </div>
       </section>
     </div>

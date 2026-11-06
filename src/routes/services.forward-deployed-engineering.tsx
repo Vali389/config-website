@@ -13,6 +13,7 @@ import {
   Layers,
   LineChart,
 } from "lucide-react";
+import { FadeUp } from "@/components/FadeUp";
 import fdeHeroBg from "@/assets/Forward-Deployed Engineering-bg.png";
 import fdeBesideBusiness from "@/assets/fde-beside-business.jpg";
 
@@ -164,6 +165,7 @@ function ForwardDeployedEngineeringPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section id="what-fde-means" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
+          <FadeUp>
           <div className="grid lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2.5 mb-3">
@@ -180,6 +182,7 @@ function ForwardDeployedEngineeringPage() {
               Forward-deployed engineers work within the client's operating context. They understand the problem, collaborate with users, connect to relevant systems and help turn requirements into working solutions.
             </div>
           </div>
+                  </FadeUp>
         </div>
       </section>
 
@@ -188,6 +191,7 @@ function ForwardDeployedEngineeringPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">
+          <FadeUp>
           <div className="max-w-3xl mb-6">
             <div className="flex items-center gap-2.5 mb-3">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
@@ -220,6 +224,7 @@ function ForwardDeployedEngineeringPage() {
               </div>
             ))}
           </div>
+                  </FadeUp>
         </div>
       </section>
 
@@ -228,6 +233,7 @@ function ForwardDeployedEngineeringPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0]">
         <div className="container-enterprise">
+          <FadeUp>
           <div className="max-w-3xl mb-6">
             <div className="flex items-center gap-2.5 mb-3">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
@@ -265,6 +271,7 @@ function ForwardDeployedEngineeringPage() {
               </div>
             ))}
           </div>
+                  </FadeUp>
         </div>
       </section>
 
@@ -273,6 +280,7 @@ function ForwardDeployedEngineeringPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">
+          <FadeUp>
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-6">
               <div>
@@ -314,6 +322,7 @@ function ForwardDeployedEngineeringPage() {
               </div>
             </div>
           </div>
+                  </FadeUp>
         </div>
       </section>
 
@@ -322,6 +331,7 @@ function ForwardDeployedEngineeringPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="bg-[#102B4E] text-white py-7 lg:py-9 border-t border-white/10">
         <div className="container-enterprise">
+          <FadeUp>
           <div className="grid lg:grid-cols-12 gap-6 items-center">
             <div className="lg:col-span-5">
               <h2 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-tight">
@@ -340,6 +350,7 @@ function ForwardDeployedEngineeringPage() {
               </Link>
             </div>
           </div>
+                  </FadeUp>
         </div>
       </section>
     </div>
