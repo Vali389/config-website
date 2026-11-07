@@ -10,3 +10,4 @@ export const Route = createFileRoute("/insights/$slug")({
   },
   component: () => null,
 });
+
