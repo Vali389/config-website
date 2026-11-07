@@ -51,7 +51,7 @@ export function HomeEvidence() {
                   <s.icon className="h-5 w-5 stroke-[1.75]" />
                 </span>
                 <div>
-                  <div className="font-display text-2xl sm:text-3xl font-bold text-[#102B4E] tracking-tight group-hover:text-[#245B91] transition-colors duration-200">
+                  <div className="text-2xl sm:text-3xl font-extrabold text-[#102B4E] tracking-tight group-hover:text-[#245B91] transition-colors duration-200">
                     {s.value}
                   </div>
                   <div className="text-xs font-bold text-slate-800 tracking-tight mt-0.5">

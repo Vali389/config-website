@@ -1,14 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeWhatWeDo } from "@/components/home/HomeWhatWeDo";
-import { HomeEcosystem } from "@/components/home/HomeEcosystem";
 import { HomeCoreCapabilities } from "@/components/home/HomeCoreCapabilities";
 import { HomeWhyUs } from "@/components/home/HomeWhyUs";
 import { HomeHowWeWork } from "@/components/home/HomeHowWeWork";
 import { HomeEvidence } from "@/components/home/HomeEvidence";
 import { HomeCaseStudy } from "@/components/home/HomeCaseStudy";
 import { HomeInsights } from "@/components/home/HomeInsights";
-import { HomeTestimonials } from "@/components/home/HomeTestimonials";
 import { HomeFinalCTA } from "@/components/home/HomeFinalCTA";
 
 export const Route = createFileRoute("/")({
@@ -45,31 +43,25 @@ function HomePage() {
       {/* 2. What We Do */}
       <HomeWhatWeDo />
 
-      {/* 3. Enterprise Platform Ecosystem */}
-      <HomeEcosystem />
-
-      {/* 4. Our Core Capabilities (3 Primary Offerings) */}
+      {/* 3. Our Core Capabilities (4 Cards) */}
       <HomeCoreCapabilities />
 
-      {/* 5. Why ConfigUSA + Direct Links to Engagement Models & Global Delivery */}
+      {/* 4. Why ConfigUSA */}
       <HomeWhyUs />
 
-      {/* 6. How We Work (5-Step Stepper Flow) */}
+      {/* 5. How We Work (5-Step Flow) */}
       <HomeHowWeWork />
 
-      {/* 7. Evidence of Delivery (4 Stat Tiles with Serif Numerals) */}
+      {/* 6. Evidence of Delivery (4 Stat Tiles) */}
       <HomeEvidence />
 
-      {/* 8. Featured Case Study (4-Pillar Delivery Flow) */}
+      {/* 7. Featured Case Study (3-Column Split Card) */}
       <HomeCaseStudy />
 
-      {/* 9. Insights & Perspectives */}
+      {/* 8. Insights (3 Cards) */}
       <HomeInsights />
 
-      {/* 10. Executive Client Testimonials */}
-      <HomeTestimonials />
-
-      {/* 11. Final CTA Strip */}
+      {/* 9. Final CTA Strip */}
       <HomeFinalCTA />
     </div>
   );

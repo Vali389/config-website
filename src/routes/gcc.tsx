@@ -265,8 +265,8 @@ function GCCSolutionsPage() {
             {GCC_LIFECYCLE_STAGES.map((s, idx) => (
               <div
                 key={s.step}
-                style={{ zIndex: 10 + (GCC_LIFECYCLE_STAGES.length - idx) }}
-                className="group relative rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] hover:z-30 transition-all duration-300 overflow-visible flex flex-col justify-between"
+                style={{ zIndex: 20 - idx }}
+                className="group relative rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 overflow-visible flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
