@@ -1,4 +1,5 @@
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import whoWeAreMeeting from "@/assets/who_we_are_reference_meeting.jpg";
 import { FadeUp } from "@/components/FadeUp";
 
@@ -42,6 +43,25 @@ export function HomeWhyUs() {
                   </p>
                 </div>
               ))}
+            </div>
+
+            {/* Quick Links to Flagship Delivery & Engagement Models */}
+            <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-bold border-t border-slate-100">
+              <Link
+                to="/engagement-models"
+                className="inline-flex items-center gap-1.5 text-[#C83B43] hover:text-[#102B4E] transition-colors"
+              >
+                <span>5 Engagement Models</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+              <span className="text-slate-300">•</span>
+              <Link
+                to="/global-delivery"
+                className="inline-flex items-center gap-1.5 text-[#245B91] hover:text-[#102B4E] transition-colors"
+              >
+                <span>Dual-Engine Global Delivery</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
             </div>
           </FadeUp>
 
