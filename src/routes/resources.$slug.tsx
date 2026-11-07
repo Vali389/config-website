@@ -248,8 +248,9 @@ function ArticleDetailPage() {
                   {otherArticles.map((item) => (
                     <Link
                       key={item.slug}
-                      to={`/resources/${item.slug}` as any}
-                      className="group block space-y-1.5 pb-3 border-b border-slate-100 last:border-0 last:pb-0"
+                      to="/resources/$slug"
+                      params={{ slug: item.slug }}
+                      className="group block space-y-1.5 pb-3 border-b border-slate-100 last:border-0 last:pb-0 cursor-pointer"
                     >
                       <div className="text-[10px] font-bold uppercase tracking-wider text-[#C83B43]">
                         {item.topic}

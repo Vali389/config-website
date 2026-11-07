@@ -25,7 +25,12 @@ export function HomeHowWeWork() {
         {/* 5-Step Interactive Flow with Responsive Cards and Clearly Visible Connecting Arrows */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 relative">
           {steps.map((step, idx) => (
-            <FadeUp key={step.text} delay={idx * 0.08} className="relative h-full">
+            <FadeUp
+              key={step.text}
+              delay={idx * 0.08}
+              style={{ zIndex: 10 + (steps.length - idx) }}
+              className="relative h-full hover:z-30 transition-all"
+            >
               <div className="group relative flex flex-col items-center text-center p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:-translate-y-1 hover:border-[#245B91] hover:shadow-lg transition-all duration-300 h-full before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:z-20">
                 <span className="absolute top-3 right-3 text-[11px] font-bold text-slate-400 group-hover:text-[#C83B43] transition-colors">
                   {step.step}
@@ -44,7 +49,7 @@ export function HomeHowWeWork() {
               {idx < steps.length - 1 && (
                 <div
                   aria-hidden="true"
-                  className="hidden lg:flex items-center justify-center absolute -right-[24px] top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-white border border-slate-300 shadow-md text-[#245B91] hover:text-[#C83B43] hover:border-[#C83B43] transition-colors"
+                  className="hidden lg:flex items-center justify-center absolute left-[calc(100%+10px)] top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-white border border-slate-300 shadow-md text-[#245B91] hover:text-[#C83B43] hover:border-[#C83B43] transition-colors pointer-events-none"
                 >
                   <ArrowRight className="h-3.5 w-3.5 stroke-[2.5]" />
                 </div>

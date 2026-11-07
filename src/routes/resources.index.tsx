@@ -186,8 +186,9 @@ function InsightsPage() {
             {ARTICLES.map((article, index) => (
               <FadeUp key={article.slug} delay={index * 0.1}>
                 <Link
-                  to={`/resources/${article.slug}` as any}
-                  className="group relative rounded-2xl border border-slate-200/80 bg-white overflow-hidden shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between h-full before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:z-20"
+                  to="/resources/$slug"
+                  params={{ slug: article.slug }}
+                  className="group relative rounded-2xl border border-slate-200/80 bg-white overflow-hidden shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 flex flex-col justify-between h-full before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:z-20 block cursor-pointer"
                 >
                   <div className="relative h-56 overflow-hidden bg-slate-100">
                     <img

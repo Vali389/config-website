@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { motion } from "motion/react";
 
 export interface FadeUpProps {
@@ -7,6 +7,7 @@ export interface FadeUpProps {
   delay?: number;
   y?: number;
   duration?: number;
+  style?: CSSProperties;
 }
 
 export function FadeUp({
@@ -15,6 +16,7 @@ export function FadeUp({
   delay = 0,
   y = 28,
   duration = 0.55,
+  style,
 }: FadeUpProps) {
   return (
     <motion.div
@@ -23,6 +25,7 @@ export function FadeUp({
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration, delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}
+      style={style}
     >
       {children}
     </motion.div>

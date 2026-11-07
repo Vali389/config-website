@@ -18,6 +18,7 @@ import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GccRouteImport } from './routes/gcc'
 import { Route as GlobalDeliveryRouteImport } from './routes/global-delivery'
 import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProcessRouteImport } from './routes/process'
 import { Route as RequestTalentRouteImport } from './routes/request-talent'
@@ -29,6 +30,8 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as CareersIndexRouteImport } from './routes/careers/index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as IndustriesIndustryIdRouteImport } from './routes/industries.$industryId'
+import { Route as InsightsIndexRouteImport } from './routes/insights.index'
+import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 import { Route as ResourcesIndexRouteImport } from './routes/resources.index'
 import { Route as ResourcesSlugRouteImport } from './routes/resources.$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -89,6 +92,11 @@ const IndustriesRoute = IndustriesRouteImport.update({
   path: '/industries',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -143,6 +151,16 @@ const IndustriesIndustryIdRoute = IndustriesIndustryIdRouteImport.update({
   id: '/$industryId',
   path: '/$industryId',
   getParentRoute: () => IndustriesRoute,
+} as any)
+const InsightsIndexRoute = InsightsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => InsightsRoute,
+} as any)
+const InsightsSlugRoute = InsightsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => InsightsRoute,
 } as any)
 const ResourcesIndexRoute = ResourcesIndexRouteImport.update({
   id: '/',
@@ -227,6 +245,7 @@ export interface FileRoutesByFullPath {
   '/gcc': typeof GccRoute
   '/global-delivery': typeof GlobalDeliveryRoute
   '/industries': typeof IndustriesRouteWithChildren
+  '/insights': typeof InsightsRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
@@ -236,6 +255,7 @@ export interface FileRoutesByFullPath {
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/services/ai': typeof ServicesAiRoute
   '/services/assessment': typeof ServicesAssessmentRoute
@@ -249,6 +269,7 @@ export interface FileRoutesByFullPath {
   '/services/staffing': typeof ServicesStaffingRoute
   '/careers/': typeof CareersIndexRoute
   '/industries/': typeof IndustriesIndexRoute
+  '/insights/': typeof InsightsIndexRoute
   '/resources/': typeof ResourcesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/careers/job/$jobId': typeof CareersJobJobIdRoute
@@ -269,6 +290,7 @@ export interface FileRoutesByTo {
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/services/ai': typeof ServicesAiRoute
   '/services/assessment': typeof ServicesAssessmentRoute
@@ -282,6 +304,7 @@ export interface FileRoutesByTo {
   '/services/staffing': typeof ServicesStaffingRoute
   '/careers': typeof CareersIndexRoute
   '/industries': typeof IndustriesIndexRoute
+  '/insights': typeof InsightsIndexRoute
   '/resources': typeof ResourcesIndexRoute
   '/services': typeof ServicesIndexRoute
   '/careers/job/$jobId': typeof CareersJobJobIdRoute
@@ -297,6 +320,7 @@ export interface FileRoutesById {
   '/gcc': typeof GccRoute
   '/global-delivery': typeof GlobalDeliveryRoute
   '/industries': typeof IndustriesRouteWithChildren
+  '/insights': typeof InsightsRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
@@ -306,6 +330,7 @@ export interface FileRoutesById {
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/services/ai': typeof ServicesAiRoute
   '/services/assessment': typeof ServicesAssessmentRoute
@@ -319,6 +344,7 @@ export interface FileRoutesById {
   '/services/staffing': typeof ServicesStaffingRoute
   '/careers/': typeof CareersIndexRoute
   '/industries/': typeof IndustriesIndexRoute
+  '/insights/': typeof InsightsIndexRoute
   '/resources/': typeof ResourcesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/careers/job/$jobId': typeof CareersJobJobIdRoute
@@ -335,6 +361,7 @@ export interface FileRouteTypes {
     | '/gcc'
     | '/global-delivery'
     | '/industries'
+    | '/insights'
     | '/privacy'
     | '/process'
     | '/request-talent'
@@ -344,6 +371,7 @@ export interface FileRouteTypes {
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
+    | '/insights/$slug'
     | '/resources/$slug'
     | '/services/ai'
     | '/services/assessment'
@@ -357,6 +385,7 @@ export interface FileRouteTypes {
     | '/services/staffing'
     | '/careers/'
     | '/industries/'
+    | '/insights/'
     | '/resources/'
     | '/services/'
     | '/careers/job/$jobId'
@@ -377,6 +406,7 @@ export interface FileRouteTypes {
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
+    | '/insights/$slug'
     | '/resources/$slug'
     | '/services/ai'
     | '/services/assessment'
@@ -390,6 +420,7 @@ export interface FileRouteTypes {
     | '/services/staffing'
     | '/careers'
     | '/industries'
+    | '/insights'
     | '/resources'
     | '/services'
     | '/careers/job/$jobId'
@@ -404,6 +435,7 @@ export interface FileRouteTypes {
     | '/gcc'
     | '/global-delivery'
     | '/industries'
+    | '/insights'
     | '/privacy'
     | '/process'
     | '/request-talent'
@@ -413,6 +445,7 @@ export interface FileRouteTypes {
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
+    | '/insights/$slug'
     | '/resources/$slug'
     | '/services/ai'
     | '/services/assessment'
@@ -426,6 +459,7 @@ export interface FileRouteTypes {
     | '/services/staffing'
     | '/careers/'
     | '/industries/'
+    | '/insights/'
     | '/resources/'
     | '/services/'
     | '/careers/job/$jobId'
@@ -441,6 +475,7 @@ export interface RootRouteChildren {
   GccRoute: typeof GccRoute
   GlobalDeliveryRoute: typeof GlobalDeliveryRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
+  InsightsRoute: typeof InsightsRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
   ProcessRoute: typeof ProcessRoute
   RequestTalentRoute: typeof RequestTalentRoute
@@ -516,6 +551,13 @@ declare module '@tanstack/react-router' {
       path: '/industries'
       fullPath: '/industries'
       preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -594,6 +636,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/industries/$industryId'
       preLoaderRoute: typeof IndustriesIndustryIdRouteImport
       parentRoute: typeof IndustriesRoute
+    }
+    '/insights/': {
+      id: '/insights/'
+      path: '/'
+      fullPath: '/insights/'
+      preLoaderRoute: typeof InsightsIndexRouteImport
+      parentRoute: typeof InsightsRoute
+    }
+    '/insights/$slug': {
+      id: '/insights/$slug'
+      path: '/$slug'
+      fullPath: '/insights/$slug'
+      preLoaderRoute: typeof InsightsSlugRouteImport
+      parentRoute: typeof InsightsRoute
     }
     '/resources/': {
       id: '/resources/'
@@ -710,6 +766,20 @@ const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
   IndustriesRouteChildren,
 )
 
+interface InsightsRouteChildren {
+  InsightsSlugRoute: typeof InsightsSlugRoute
+  InsightsIndexRoute: typeof InsightsIndexRoute
+}
+
+const InsightsRouteChildren: InsightsRouteChildren = {
+  InsightsSlugRoute: InsightsSlugRoute,
+  InsightsIndexRoute: InsightsIndexRoute,
+}
+
+const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
+  InsightsRouteChildren,
+)
+
 interface ResourcesRouteChildren {
   ResourcesSlugRoute: typeof ResourcesSlugRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
@@ -767,6 +837,7 @@ const rootRouteChildren: RootRouteChildren = {
   GccRoute: GccRoute,
   GlobalDeliveryRoute: GlobalDeliveryRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
+  InsightsRoute: InsightsRouteWithChildren,
   PrivacyRoute: PrivacyRoute,
   ProcessRoute: ProcessRoute,
   RequestTalentRoute: RequestTalentRoute,

@@ -30,8 +30,9 @@ export function HomeInsights() {
               {articles.map((item, index) => (
                 <FadeUp key={item.slug} delay={index * 0.1}>
                   <Link
-                    to={`/resources/${item.slug}` as any}
-                    className="group flex flex-col justify-between h-full rounded-2xl overflow-hidden bg-white border border-slate-200/90 shadow-xs hover:-translate-y-1.5 hover:border-[#245B91] hover:shadow-xl transition-all duration-300 before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:z-20 relative"
+                    to="/resources/$slug"
+                    params={{ slug: item.slug }}
+                    className="group flex flex-col justify-between h-full rounded-2xl overflow-hidden bg-white border border-slate-200/90 shadow-xs hover:-translate-y-1.5 hover:border-[#245B91] hover:shadow-xl transition-all duration-300 before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:z-20 relative block cursor-pointer"
                   >
                     <div>
                       <div className="relative h-36 overflow-hidden bg-slate-100">
