@@ -4,18 +4,13 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
-
-import appCss from "../styles.css?url";
+import { useEffect } from "react";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { ScrollToTop } from "../components/ScrollToTop";
-
 
 function NotFoundComponent() {
   return (
@@ -27,7 +22,10 @@ function NotFoundComponent() {
           The page you're looking for doesn't exist or has been moved.
         </p>
         <div className="mt-6">
-          <Link to="/" className="inline-flex items-center justify-center rounded-full bg-gradient-brand px-6 py-2.5 text-sm font-semibold text-white">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-full bg-gradient-brand px-6 py-2.5 text-sm font-semibold text-white"
+          >
             Go home
           </Link>
         </div>
@@ -50,12 +48,18 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
         <p className="mt-2 text-sm text-muted-foreground">Something went wrong on our end.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
-            onClick={() => { router.invalidate(); reset(); }}
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
             className="inline-flex items-center justify-center rounded-full bg-gradient-brand px-5 py-2 text-sm font-semibold text-white"
           >
             Try again
           </button>
-          <a href="/" className="inline-flex items-center justify-center rounded-full border border-input bg-background px-5 py-2 text-sm font-medium text-foreground hover:bg-accent">
+          <a
+            href="/"
+            className="inline-flex items-center justify-center rounded-full border border-input bg-background px-5 py-2 text-sm font-medium text-foreground hover:bg-accent"
+          >
             Go home
           </a>
         </div>
@@ -65,74 +69,10 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ConfigUSA — Your Intelligent IT Partner | Staffing & Solutions" },
-      { name: "description", content: "ConfigUSA delivers innovative IT solutions, staffing, SAP, and software development services to help businesses accelerate growth and build a future-ready workforce." },
-      { name: "author", content: "ConfigUSA" },
-      { property: "og:title", content: "ConfigUSA — Your Intelligent IT Partner" },
-      { property: "og:description", content: "Premium IT staffing, software, SAP, and digital assessment services worldwide." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-      { rel: "alternate icon", href: "/favicon.ico", type: "image/x-icon" },
-      { rel: "apple-touch-icon", href: "/favicon.svg" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: ReactNode }) {
-  const orgSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "ConfigUSA",
-    url: "https://config-website-ashen.vercel.app",
-    logo: "https://config-website-ashen.vercel.app/favicon.svg",
-    description:
-      "Technology expertise, engineering capability and specialist workforce needed to deliver critical business initiatives.",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "666 Plainsboro Road, Suite 1237",
-      addressLocality: "Plainsboro",
-      addressRegion: "NJ",
-      postalCode: "08536",
-      addressCountry: "US",
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+1-609-934-3184",
-      contactType: "customer service",
-    },
-  };
-
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-        />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();

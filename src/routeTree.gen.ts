@@ -24,7 +24,6 @@ import { Route as ProcessRouteImport } from './routes/process'
 import { Route as RequestTalentRouteImport } from './routes/request-talent'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ServicesRouteImport } from './routes/services'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SubmitResumeRouteImport } from './routes/submit-resume'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as CareersIndexRouteImport } from './routes/careers/index'
@@ -120,11 +119,6 @@ const ResourcesRoute = ResourcesRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SubmitResumeRoute = SubmitResumeRouteImport.update({
@@ -251,7 +245,6 @@ export interface FileRoutesByFullPath {
   '/request-talent': typeof RequestTalentRoute
   '/resources': typeof ResourcesRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
@@ -286,7 +279,6 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
@@ -326,7 +318,6 @@ export interface FileRoutesById {
   '/request-talent': typeof RequestTalentRoute
   '/resources': typeof ResourcesRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
@@ -367,7 +358,6 @@ export interface FileRouteTypes {
     | '/request-talent'
     | '/resources'
     | '/services'
-    | '/sitemap.xml'
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
@@ -402,7 +392,6 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/process'
     | '/request-talent'
-    | '/sitemap.xml'
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
@@ -441,7 +430,6 @@ export interface FileRouteTypes {
     | '/request-talent'
     | '/resources'
     | '/services'
-    | '/sitemap.xml'
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
@@ -481,7 +469,6 @@ export interface RootRouteChildren {
   RequestTalentRoute: typeof RequestTalentRoute
   ResourcesRoute: typeof ResourcesRouteWithChildren
   ServicesRoute: typeof ServicesRouteWithChildren
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SubmitResumeRoute: typeof SubmitResumeRoute
   TermsRoute: typeof TermsRoute
   CareersIndexRoute: typeof CareersIndexRoute
@@ -593,13 +580,6 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/submit-resume': {
@@ -843,7 +823,6 @@ const rootRouteChildren: RootRouteChildren = {
   RequestTalentRoute: RequestTalentRoute,
   ResourcesRoute: ResourcesRouteWithChildren,
   ServicesRoute: ServicesRouteWithChildren,
-  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SubmitResumeRoute: SubmitResumeRoute,
   TermsRoute: TermsRoute,
   CareersIndexRoute: CareersIndexRoute,
@@ -852,13 +831,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
