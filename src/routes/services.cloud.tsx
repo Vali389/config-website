@@ -21,7 +21,7 @@ import {
   RefreshCw,
   Search,
 } from "lucide-react";
-import cloudInfraHero from "@/assets/cloud-infrastructure-hero.jpg";
+import cloudInfraHero from "@/assets/Cloud & Infrastructure-bg.png";
 import storyCloud from "@/assets/story-cloud.jpg";
 import ctaHome from "@/assets/cta-home.jpg";
 

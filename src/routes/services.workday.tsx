@@ -9,6 +9,7 @@ import {
   Users,
 } from "lucide-react";
 import wdWorkforceImg from "@/assets/wd-workforce.jpg";
+import workdayHeroBg from "@/assets/workday-solutions-bg.png";
 import erpIntegrationImg from "@/assets/erp_integration_img.png";
 import { FadeUp } from "@/components/FadeUp";
 
@@ -59,9 +60,9 @@ function WorkdayPage() {
       <section className="relative overflow-hidden bg-[#102B4E] text-white pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 border-b border-white/10">
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <img
-            src={wdWorkforceImg}
+            src={workdayHeroBg}
             alt="Workday Enterprise Solutions"
-            className="h-full w-full object-cover object-center opacity-25 mix-blend-luminosity filter brightness-110"
+            className="h-full w-full object-cover object-center opacity-30 mix-blend-luminosity filter brightness-110"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 to-transparent pointer-events-none" />
         </div>
@@ -272,3 +273,4 @@ function WorkdayPage() {
     </div>
   );
 }
+

@@ -6,13 +6,9 @@ import {
   MapPin,
   Clock,
   ArrowRight,
-  Check,
-  ShieldCheck,
-  Send,
 } from "lucide-react";
 import { JOBS, DEPARTMENTS, LOCATIONS } from "@/data/jobs";
 import careersHeroBg from "@/assets/careers-bg.jpg";
-import whoWeAreMeeting from "@/assets/who_we_are_meeting.jpg";
 
 export const Route = createFileRoute("/careers/")({
   head: () => ({
@@ -38,15 +34,6 @@ export const Route = createFileRoute("/careers/")({
   }),
   component: CareersPage,
 });
-
-// Blueprint Section 15: Our process (5-step stepper)
-const PROCESS_STEPS = [
-  { step: "01", title: "Apply", desc: "Submit your profile and resume for a relevant open position." },
-  { step: "02", title: "Initial profile review", desc: "Our recruitment team evaluates technical skills and experience alignment." },
-  { step: "03", title: "Relevant discussion", desc: "A detailed discussion regarding role expectations, projects and compensation." },
-  { step: "04", title: "Client interview", desc: "Where applicable, connect directly with technical stakeholders." },
-  { step: "05", title: "Feedback & next steps", desc: "Transparent communication, offer facilitation and onboarding coordination." },
-];
 
 function CareersPage() {
   const [query, setQuery] = useState("");
@@ -106,76 +93,12 @@ function CareersPage() {
               >
                 View Open Positions <ArrowRight className="h-4 w-4" />
               </a>
-              <a
-                href="#candidate-commitment"
+              <Link
+                to="/submit-resume"
                 className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
               >
-                Our Process <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 1.5 Section: Why Join ConfigUSA & Working Culture                   */}
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="py-8 lg:py-10 bg-[#F8FAFC] border-b border-[#e2e8f0]">
-        <div className="container-enterprise">
-          <div className="max-w-3xl mb-8">
-            <div className="flex items-center gap-2.5 mb-3">
-              <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                WHY JOIN CONFIGUSA
-              </span>
-              <span className="w-10 h-[3px] bg-[#C83B43]" />
-            </div>
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
-              Work on mission-critical initiatives with industry-leading enterprise clients.
-            </h2>
-            <p className="mt-3 text-base text-slate-600 leading-relaxed">
-              We connect technical professionals with challenging projects across Palantir, Cloud, SAP, Workday and Enterprise AI. Our culture is founded on technical excellence, transparent compensation, and long-term career growth.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div className="p-6 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#245B91] hover:shadow-md transition-all">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-[#245B91] mb-4">
-                <Briefcase className="h-5 w-5" />
-              </div>
-              <h3 className="text-base font-bold text-[#102B4E] mb-1.5">High-Impact Projects</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Work directly on tier-1 digital transformation, cloud infrastructure, and operational AI programs.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#245B91] hover:shadow-md transition-all">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-50 text-[#C83B43] mb-4">
-                <ShieldCheck className="h-5 w-5" />
-              </div>
-              <h3 className="text-base font-bold text-[#102B4E] mb-1.5">Transparent Partnerships</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Clear contract terms, prompt compensation cycles, and honest communication from specialized technical recruiters.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#245B91] hover:shadow-md transition-all">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700 mb-4">
-                <Check className="h-5 w-5" />
-              </div>
-              <h3 className="text-base font-bold text-[#102B4E] mb-1.5">Continuous Learning</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Stay at the cutting edge of enterprise data platforms, ERP modernizations, and cloud engineering frameworks.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#245B91] hover:shadow-md transition-all">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-[#102B4E] mb-4">
-                <Send className="h-5 w-5" />
-              </div>
-              <h3 className="text-base font-bold text-[#102B4E] mb-1.5">Global Opportunities</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Collaborate with distributed enterprise engineering squads spanning the United States, Canada, and India.
-              </p>
+                Submit Your Resume <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>
@@ -184,7 +107,7 @@ function CareersPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 2. Section: Opportunities (Job Board with Filters)                  */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="openings" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
+      <section id="openings" className="py-12 sm:py-16 lg:py-20 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
           <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
             <div className="lg:col-span-7">
@@ -297,121 +220,9 @@ function CareersPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 3. Section: Our process (5-Step Stepper Flow)                       */}
+      {/* 3. Bottom CTA Strip (Matching Template)                            */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
-        <div className="container-enterprise">
-          <div className="max-w-3xl mb-6">
-            <div className="flex items-center gap-2.5 mb-3">
-              <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                OUR PROCESS
-              </span>
-              <span className="w-10 h-[3px] bg-[#C83B43]" />
-            </div>
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
-              A transparent candidate experience from application to placement.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5 relative">
-            {PROCESS_STEPS.map((s, idx) => (
-              <div
-                key={s.step}
-                style={{ zIndex: 20 - idx }}
-                className="group relative rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 overflow-visible flex flex-col justify-between"
-              >
-                <div>
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 font-bold text-xs mb-4">
-                    {s.step}
-                  </span>
-                  <h3 className="text-sm font-bold text-[#102B4E] tracking-tight mb-1.5">
-                    {s.title}
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {s.desc}
-                  </p>
-                </div>
-                {idx < PROCESS_STEPS.length - 1 && (
-                  <div
-                    aria-hidden="true"
-                    className="hidden lg:flex items-center justify-center absolute left-[calc(100%+10px)] top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-white border border-slate-300 shadow-md text-[#245B91] pointer-events-none"
-                  >
-                    <ArrowRight className="h-3.5 w-3.5 stroke-[2.5]" />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 4. Section: Candidate commitment & General application (Split 2-Col)*/}
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="candidate-commitment" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0]">
-        <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-7 space-y-6">
-              <div>
-                <div className="flex items-center gap-2.5 mb-3">
-                  <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                    CANDIDATE COMMITMENT
-                  </span>
-                  <span className="w-10 h-[3px] bg-[#C83B43]" />
-                </div>
-                <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight mb-4">
-                  Clear role expectations and responsible data handling.
-                </h2>
-                <p className="text-base text-slate-600 leading-relaxed mb-6">
-                  We aim to communicate role expectations clearly and handle candidate information responsibly. If no listed role matches, candidates may submit a profile for consideration against future relevant requirements.
-                </p>
-              </div>
-
-              <div className="space-y-3.5">
-                <div className="flex items-start gap-3">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#C83B43] text-white mt-0.5">
-                    <Check className="h-3 w-3 stroke-[3]" />
-                  </span>
-                  <span className="text-sm font-medium text-slate-700 leading-snug">
-                    Transparent briefing on technical environment, culture, and client expectations.
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#C83B43] text-white mt-0.5">
-                    <Check className="h-3 w-3 stroke-[3]" />
-                  </span>
-                  <span className="text-sm font-medium text-slate-700 leading-snug">
-                    Strict privacy governance for resume and contact information.
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#C83B43] text-white mt-0.5">
-                    <Check className="h-3 w-3 stroke-[3]" />
-                  </span>
-                  <span className="text-sm font-medium text-slate-700 leading-snug">
-                    Proactive alignment with upcoming enterprise technology programs.
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-lg">
-                <img
-                  src={whoWeAreMeeting}
-                  alt="Candidate Partnership"
-                  className="w-full h-80 object-cover object-center"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 5. Bottom CTA Strip (Matching Template)                            */}
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="bg-[#102B4E] text-white py-7 lg:py-9 border-t border-white/10">
+      <section className="bg-[#102B4E] text-white py-10 lg:py-12 border-t border-white/10">
         <div className="container-enterprise">
           <div className="grid lg:grid-cols-12 gap-6 items-center">
             <div className="lg:col-span-5">

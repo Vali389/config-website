@@ -19,7 +19,7 @@ import {
   Briefcase,
   Search,
 } from "lucide-react";
-import managedDeliveryHero from "@/assets/managed-delivery-hero.jpg";
+import managedDeliveryHero from "@/assets/Outcome-Driven Managed Delivery –BG.png";
 import whoWeAreImg from "@/assets/about-hero-new.png";
 import ctaHome from "@/assets/cta-home.jpg";
 

@@ -11,7 +11,7 @@ import {
   Check,
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
-import palantirHeroBg from "@/assets/palantir-bg.jpg";
+import palantirHeroBg from "@/assets/Palantir Foundry & AIP Services-bg.png";
 import heroData from "@/assets/hero-data.jpg";
 
 export const Route = createFileRoute("/services/palantir")({

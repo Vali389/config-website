@@ -1,11 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import homeBg from "@/assets/home-bg.jpg";
+import homeBg from "@/assets/home-bg.png";
 
 export function HomeHero() {
   return (
-    <section className="relative min-h-[460px] lg:min-h-[520px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-[#1b3a63]">
-      {/* Edge-to-Edge Hero Background provided by client */}
+    <section className="relative min-h-[580px] sm:min-h-[640px] lg:min-h-[680px] xl:min-h-[720px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24 border-b border-[#1b3a63]">
+      {/* Edge-to-Edge Hero Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <img
           src={homeBg}

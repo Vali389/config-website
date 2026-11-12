@@ -10,7 +10,7 @@ import {
   Layers,
   Workflow,
 } from "lucide-react";
-import serviceSapImg from "@/assets/service-sap.jpg";
+import serviceSapImg from "@/assets/SAP Solutions-bg.png";
 import erpImplementationImg from "@/assets/erp_implementation_img.png";
 import { FadeUp } from "@/components/FadeUp";
 

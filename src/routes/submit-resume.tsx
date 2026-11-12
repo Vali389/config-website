@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { Rocket, BellRing, Handshake, FileText, Upload, Send, CheckCircle2, Search } from "lucide-react";
-import { LightHero } from "@/components/LightHero";
-import heroSubmit from "@/assets/hero-submit.jpg";
+import { Rocket, BellRing, Handshake, FileText, Upload, Send, CheckCircle2, Search, ArrowRight } from "lucide-react";
+import careersHeroBg from "@/assets/careers-bg.jpg";
 
 export const Route = createFileRoute("/submit-resume")({
   head: () => ({
@@ -42,19 +41,53 @@ function Page() {
   const [file, setFile] = useState<string | null>(null);
 
   return (
-    <>
-      <LightHero
-        eyebrow="• SUBMIT YOUR RESUME"
-        image={heroSubmit}
-        title={<>Your Next Opportunity <span className="text-[#245B91]">Starts Here.</span></>}
-        subtitle="No perfect opening yet? Join our talent network and our recruiters will reach out when the right role appears."
-      >
-        <Link to="/careers" className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-semibold text-[#102B4E] shadow-sm hover:border-[#245B91] hover:text-[#245B91] transition-all">
-          <Search className="h-4 w-4 text-[#245B91]" /> Browse Open Roles
-        </Link>
-      </LightHero>
+    <div className="flex flex-col min-h-screen">
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* Hero Section (Edge-to-Edge Navy Hero matching Careers design)       */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section className="relative min-h-[460px] lg:min-h-[500px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-12 lg:pt-28 lg:pb-16 border-b border-white/10">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <img
+            src={careersHeroBg}
+            alt="ConfigUSA Talent Network"
+            className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105 opacity-40 lg:opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 to-transparent pointer-events-none" />
+        </div>
 
-      <section className="pb-24 -mt-8">
+        <div className="container-enterprise relative z-10 w-full">
+          <div className="max-w-xl lg:max-w-[540px] xl:max-w-[600px] space-y-6">
+            <div className="flex items-center gap-2.5">
+              <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#e2e8f0]">
+                SUBMIT YOUR RESUME
+              </span>
+              <span className="w-10 h-[3px] bg-[#C83B43]" />
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
+              Your Next Opportunity <span className="text-[#38bdf8]">Starts Here.</span>
+            </h1>
+
+            <p className="text-base sm:text-lg text-[#e2e8f0] leading-relaxed">
+              No perfect opening yet? Join our talent network and our specialist recruiters will connect when an aligned enterprise role emerges.
+            </p>
+
+            <div className="pt-2 flex flex-wrap gap-4 items-center">
+              <Link
+                to="/careers"
+                className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold bg-white/10 text-white hover:bg-white hover:text-[#102B4E] border-white/20"
+              >
+                <Search className="h-4 w-4" /> Browse Open Roles
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* Perks and Submission Form Section                                  */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section className="py-14 sm:py-18 bg-[#F8FAFC]">
         <div className="mx-auto max-w-5xl px-4 lg:px-8">
           {/* Perks strip */}
           <div className="grid sm:grid-cols-3 gap-5 mb-10">
@@ -86,7 +119,7 @@ function Page() {
             transition={{ duration: 0.6 }}
             className="rounded-3xl bg-white border border-border/60 shadow-elegant p-8 md:p-10 relative overflow-hidden"
           >
-            <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-brand" />
+            <div className="absolute top-0 inset-x-0 h-1.5 bg-[#102B4E]" />
             {sent ? (
               <div className="py-16 text-center">
                 <motion.div
@@ -97,14 +130,14 @@ function Page() {
                 >
                   <CheckCircle2 className="h-10 w-10" />
                 </motion.div>
-                <h3 className="text-2xl font-extrabold text-ink">You're in the network!</h3>
+                <h3 className="text-2xl font-extrabold text-[#102B4E]">You're in the network!</h3>
                 <p className="mt-2 text-muted-foreground max-w-sm mx-auto">
                   Thanks for submitting your profile. Our recruiters will be in touch about matching roles.
                 </p>
               </div>
             ) : (
               <form onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
-                <h3 className="text-2xl font-extrabold text-ink">Create your candidate profile</h3>
+                <h3 className="text-2xl font-extrabold text-[#102B4E]">Create your candidate profile</h3>
                 <p className="mt-1 text-sm text-muted-foreground">Fields marked * are required.</p>
 
                 <div className="mt-7 grid sm:grid-cols-2 gap-5">
@@ -130,10 +163,10 @@ function Page() {
 
                 <div className="mt-5">
                   <span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-ink/70">Upload Resume *</span>
-                  <label className="flex cursor-pointer items-center gap-3 rounded-xl border-2 border-dashed border-slate-200 bg-slate-50/60 px-4 py-6 hover:border-brand hover:bg-blue-50/40 transition-all">
-                    {file ? <FileText className="h-5 w-5 text-brand" /> : <Upload className="h-5 w-5 text-brand" />}
+                  <label className="flex cursor-pointer items-center gap-3 rounded-xl border-2 border-dashed border-slate-200 bg-slate-50/60 px-4 py-6 hover:border-[#102B4E] hover:bg-blue-50/40 transition-all">
+                    {file ? <FileText className="h-5 w-5 text-[#245B91]" /> : <Upload className="h-5 w-5 text-[#245B91]" />}
                     <span className="text-sm text-muted-foreground">
-                      {file ? <span className="font-semibold text-ink">{file}</span> : <>Drag & drop or <span className="font-semibold text-brand">browse</span> (PDF, DOC — max 5MB)</>}
+                      {file ? <span className="font-semibold text-ink">{file}</span> : <>Drag & drop or <span className="font-semibold text-[#245B91]">browse</span> (PDF, DOC — max 5MB)</>}
                     </span>
                     <input
                       type="file"
@@ -145,7 +178,7 @@ function Page() {
                   </label>
                 </div>
 
-                <button type="submit" className="mt-7 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-brand px-8 py-4 text-sm font-bold text-white shadow-glow hover:scale-[1.02] transition-transform">
+                <button type="submit" className="mt-7 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[#102B4E] px-8 py-4 text-sm font-bold text-white hover:bg-[#245B91] transition-all">
                   Submit Resume <Send className="h-4 w-4" />
                 </button>
               </form>
@@ -153,6 +186,6 @@ function Page() {
           </motion.div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
