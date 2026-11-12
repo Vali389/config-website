@@ -44,20 +44,20 @@ function Page() {
   return (
     <>
       <LightHero
-        eyebrow="Submit Your Resume"
+        eyebrow="• SUBMIT YOUR RESUME"
         image={heroSubmit}
-        title={<>Your Next Opportunity <span className="text-gradient-brand">Starts Here.</span></>}
+        title={<>Your Next Opportunity <span className="text-[#245B91]">Starts Here.</span></>}
         subtitle="No perfect opening yet? Join our talent network and our recruiters will reach out when the right role appears."
       >
-        <Link to="/careers" className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-white px-6 py-3 text-sm font-semibold text-brand shadow-sm hover:bg-blue-50 transition-colors">
-          <Search className="h-4 w-4" /> Browse Open Roles
+        <Link to="/careers" className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-semibold text-[#102B4E] shadow-sm hover:border-[#245B91] hover:text-[#245B91] transition-all">
+          <Search className="h-4 w-4 text-[#245B91]" /> Browse Open Roles
         </Link>
       </LightHero>
 
-      <section className="pb-24 -mt-6">
+      <section className="pb-24 -mt-8">
         <div className="mx-auto max-w-5xl px-4 lg:px-8">
           {/* Perks strip */}
-          <div className="grid sm:grid-cols-3 gap-4 mb-8">
+          <div className="grid sm:grid-cols-3 gap-5 mb-10">
             {PERKS.map((p, i) => (
               <motion.div
                 key={p.title}
@@ -65,14 +65,14 @@ function Page() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.1 }}
-                className="flex items-start gap-3 rounded-2xl bg-white border border-border/60 p-5 shadow-card"
+                className="flex items-center gap-3.5 rounded-2xl bg-white border border-slate-200/90 p-5 shadow-sm hover:shadow-md transition-shadow"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-brand">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50/90 text-[#245B91]">
                   <p.icon className="h-5 w-5" />
                 </span>
                 <div>
-                  <div className="font-bold text-ink text-sm">{p.title}</div>
-                  <div className="text-xs text-muted-foreground leading-relaxed text-justify">{p.text}</div>
+                  <div className="font-bold text-[#102B4E] text-sm">{p.title}</div>
+                  <div className="text-xs text-slate-500 leading-snug mt-0.5">{p.text}</div>
                 </div>
               </motion.div>
             ))}

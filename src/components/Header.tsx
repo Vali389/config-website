@@ -122,7 +122,7 @@ const NAV = [
         icon: Boxes,
       },
       {
-        to: "/services/enterprise-applications",
+        to: "/services/workday",
         label: "Workday Solutions",
         desc: "HCM, Financial Management, integrations and optimization.",
         icon: Database,
@@ -154,40 +154,46 @@ const NAV = [
     twoColumn: true,
     children: [
       {
-        to: "/industries/financial",
+        to: "/industries",
+        hash: "financial-services",
         label: "Banking & Financial Services",
-        desc: "Fintech, digital banking and core systems",
+        desc: "High-compliance, low-latency, and risk systems.",
         icon: Landmark,
       },
       {
-        to: "/industries/technology",
-        label: "Technology & IT Services",
-        desc: "Cloud, AI, SaaS and digital engineering",
+        to: "/industries",
+        hash: "technology-digital-services",
+        label: "Technology & Digital Services",
+        desc: "High-velocity full-stack, cloud & AI engineering.",
         icon: Cpu,
       },
       {
-        to: "/industries/manufacturing",
+        to: "/industries",
+        hash: "manufacturing-engineering",
         label: "Manufacturing & Industrial",
-        desc: "Smart factory, IoT and enterprise platforms",
+        desc: "Shop-floor IoT, smart factory & enterprise platforms.",
         icon: Factory,
       },
       {
-        to: "/industries/retail",
-        label: "Retail & Consumer",
-        desc: "Digital commerce, omnichannel and platforms",
+        to: "/industries",
+        hash: "retail-consumer-goods",
+        label: "Retail & Consumer Goods",
+        desc: "Omnichannel commerce and inventory transparency.",
         icon: ShoppingCart,
       },
       {
-        to: "/industries/healthcare",
+        to: "/industries",
+        hash: "healthcare-life-sciences",
         label: "Healthcare & Life Sciences",
-        desc: "Secure digital health and regulatory compliance",
+        desc: "HIPAA-compliant EHR and clinical platforms.",
         icon: Heart,
       },
       {
-        to: "/industries/government",
-        label: "Logistics & Supply Chain",
-        desc: "Digital visibility and digital operations",
-        icon: Truck,
+        to: "/industries",
+        hash: "government-public-sector",
+        label: "Government & Public Sector",
+        desc: "M/WBE, SBE, SAM.gov & E-Verify verified talent.",
+        icon: Building2,
       },
     ],
   },
@@ -240,6 +246,13 @@ export function Header() {
     if (isHome) return false;
     if (to === "/about") return pathname.startsWith("/about");
     if (to === "/services") {
+      const isExpertiseSubpage =
+        pathname === "/services/sap" ||
+        pathname === "/services/workday" ||
+        pathname === "/services/palantir" ||
+        pathname === "/services/cloud" ||
+        pathname === "/services/ai";
+      if (isExpertiseSubpage) return false;
       return (
         pathname.startsWith("/services") ||
         pathname === "/gcc" ||
@@ -247,7 +260,16 @@ export function Header() {
         pathname === "/solutions"
       );
     }
-    if (to === "/expertise") return pathname.startsWith("/expertise");
+    if (to === "/expertise") {
+      return (
+        pathname.startsWith("/expertise") ||
+        pathname === "/services/sap" ||
+        pathname === "/services/workday" ||
+        pathname === "/services/palantir" ||
+        pathname === "/services/cloud" ||
+        pathname === "/services/ai"
+      );
+    }
     if (to === "/industries") return pathname.startsWith("/industries");
     if (to === "/global-delivery") return pathname.startsWith("/global-delivery") || pathname.startsWith("/global-presence");
     if (to === "/careers") return pathname.startsWith("/careers") || pathname === "/submit-resume";

@@ -47,6 +47,7 @@ import { Route as ServicesPalantirRouteImport } from './routes/services.palantir
 import { Route as ServicesSapRouteImport } from './routes/services.sap'
 import { Route as ServicesSoftwareRouteImport } from './routes/services.software'
 import { Route as ServicesStaffingRouteImport } from './routes/services.staffing'
+import { Route as ServicesWorkdayRouteImport } from './routes/services.workday'
 import { Route as CareersJobJobIdRouteImport } from './routes/careers/job/$jobId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -241,6 +242,11 @@ const ServicesStaffingRoute = ServicesStaffingRouteImport.update({
   path: '/staffing',
   getParentRoute: () => ServicesRoute,
 } as any)
+const ServicesWorkdayRoute = ServicesWorkdayRouteImport.update({
+  id: '/workday',
+  path: '/workday',
+  getParentRoute: () => ServicesRoute,
+} as any)
 const CareersJobJobIdRoute = CareersJobJobIdRouteImport.update({
   id: '/careers/job/$jobId',
   path: '/careers/job/$jobId',
@@ -281,6 +287,7 @@ export interface FileRoutesByFullPath {
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
+  '/services/workday': typeof ServicesWorkdayRoute
   '/careers/': typeof CareersIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/insights/': typeof InsightsIndexRoute
@@ -318,6 +325,7 @@ export interface FileRoutesByTo {
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
+  '/services/workday': typeof ServicesWorkdayRoute
   '/careers': typeof CareersIndexRoute
   '/industries': typeof IndustriesIndexRoute
   '/insights': typeof InsightsIndexRoute
@@ -360,6 +368,7 @@ export interface FileRoutesById {
   '/services/sap': typeof ServicesSapRoute
   '/services/software': typeof ServicesSoftwareRoute
   '/services/staffing': typeof ServicesStaffingRoute
+  '/services/workday': typeof ServicesWorkdayRoute
   '/careers/': typeof CareersIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/insights/': typeof InsightsIndexRoute
@@ -403,6 +412,7 @@ export interface FileRouteTypes {
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
+    | '/services/workday'
     | '/careers/'
     | '/industries/'
     | '/insights/'
@@ -440,6 +450,7 @@ export interface FileRouteTypes {
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
+    | '/services/workday'
     | '/careers'
     | '/industries'
     | '/insights'
@@ -481,6 +492,7 @@ export interface FileRouteTypes {
     | '/services/sap'
     | '/services/software'
     | '/services/staffing'
+    | '/services/workday'
     | '/careers/'
     | '/industries/'
     | '/insights/'
@@ -782,6 +794,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesStaffingRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/services/workday': {
+      id: '/services/workday'
+      path: '/workday'
+      fullPath: '/services/workday'
+      preLoaderRoute: typeof ServicesWorkdayRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/careers/job/$jobId': {
       id: '/careers/job/$jobId'
       path: '/careers/job/$jobId'
@@ -845,6 +864,7 @@ interface ServicesRouteChildren {
   ServicesSapRoute: typeof ServicesSapRoute
   ServicesSoftwareRoute: typeof ServicesSoftwareRoute
   ServicesStaffingRoute: typeof ServicesStaffingRoute
+  ServicesWorkdayRoute: typeof ServicesWorkdayRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
@@ -860,6 +880,7 @@ const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesSapRoute: ServicesSapRoute,
   ServicesSoftwareRoute: ServicesSoftwareRoute,
   ServicesStaffingRoute: ServicesStaffingRoute,
+  ServicesWorkdayRoute: ServicesWorkdayRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
 

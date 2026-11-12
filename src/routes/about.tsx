@@ -219,7 +219,7 @@ function AboutPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 2.5 Section: Mission, Vision & Values (Gold Reference Integration)  */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="py-8 lg:py-10 bg-[#F8FAFC] border-b border-[#e2e8f0]">
+      <section id="why-configusa" className="py-8 lg:py-10 bg-[#F8FAFC] border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
           <FadeUp>
             <div className="max-w-3xl mb-8">
@@ -484,79 +484,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 7. Section: Why ConfigUSA (Enterprise Advantage & Delivery)        */}
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="why-configusa" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
-        <div className="container-enterprise">
-          <FadeUp>
-            <div className="max-w-3xl mb-8">
-              <div className="flex items-center gap-2.5 mb-3">
-                <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                  WHY CONFIGUSA
-                </span>
-                <span className="w-10 h-[3px] bg-[#C83B43]" />
-              </div>
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight mb-4">
-                Our enterprise advantage and delivery accountability.
-              </h2>
-              <p className="text-base text-slate-600 leading-relaxed">
-                We build long-term enterprise partnerships through rapid responsiveness, transparent communication, and dependable delivery execution that eliminates hiring risk.
-              </p>
-            </div>
-          </FadeUp>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <FadeUp delay={0.08}>
-              <div className="p-6 rounded-xl bg-[#F8FAFC] border border-slate-200/90 h-full flex flex-col justify-between hover:border-[#245B91] hover:shadow-md transition-all">
-                <div>
-                  <div className="text-2xl font-black text-[#C83B43] mb-2">48h</div>
-                  <h3 className="text-base font-bold text-[#102B4E] mb-1.5">Rapid Mobilisation</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Deploying pre-vetted specialists and targeted pods in 48 to 72 hours, cutting traditional time-to-productivity by over 40%.
-                  </p>
-                </div>
-              </div>
-            </FadeUp>
-
-            <FadeUp delay={0.16}>
-              <div className="p-6 rounded-xl bg-[#F8FAFC] border border-slate-200/90 h-full flex flex-col justify-between hover:border-[#245B91] hover:shadow-md transition-all">
-                <div>
-                  <div className="text-2xl font-black text-[#245B91] mb-2">100%</div>
-                  <h3 className="text-base font-bold text-[#102B4E] mb-1.5">Practitioner-Vetted</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Every candidate undergoes rigorous, domain-specific technical evaluation by senior architects prior to client presentation.
-                  </p>
-                </div>
-              </div>
-            </FadeUp>
-
-            <FadeUp delay={0.24}>
-              <div className="p-6 rounded-xl bg-[#F8FAFC] border border-slate-200/90 h-full flex flex-col justify-between hover:border-[#245B91] hover:shadow-md transition-all">
-                <div>
-                  <div className="text-2xl font-black text-[#102B4E] mb-2">Dual-Engine</div>
-                  <h3 className="text-base font-bold text-[#102B4E] mb-1.5">Global Delivery Scale</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    US & Canada onshore partnership paired with India offshore scale providing true 24-hour follow-the-sun operational coverage.
-                  </p>
-                </div>
-              </div>
-            </FadeUp>
-
-            <FadeUp delay={0.32}>
-              <div className="p-6 rounded-xl bg-[#F8FAFC] border border-slate-200/90 h-full flex flex-col justify-between hover:border-[#245B91] hover:shadow-md transition-all">
-                <div>
-                  <div className="text-2xl font-black text-emerald-600 mb-2">Certified</div>
-                  <h3 className="text-base font-bold text-[#102B4E] mb-1.5">Enterprise Compliance</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Certified MWBE, SBE, E-Verify, and SAM.gov active federal contractor ensuring complete institutional compliance and zero IP risk.
-                  </p>
-                </div>
-              </div>
-            </FadeUp>
-          </div>
-        </div>
-      </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 8. Bottom CTA Strip (Matching Template)                            */}
