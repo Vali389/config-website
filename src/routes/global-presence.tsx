@@ -6,3 +6,4 @@ export const Route = createFileRoute("/global-presence")({
   },
   component: () => null,
 });
+

@@ -28,8 +28,18 @@ import indTechnology from "@/assets/Collaborative Tech Team in Modern Office-2.p
 
 import ctaIndustries from "@/assets/cta-industries.jpg";
 
+const SLUG_MAP: Record<string, string> = {
+  "financial-services": "financial",
+  "healthcare-life-sciences": "healthcare",
+  "government-public-sector": "government",
+  "manufacturing-engineering": "manufacturing",
+  "technology-digital-services": "technology",
+  "retail-consumer-goods": "retail",
+};
+
 export const Route = createFileRoute("/industries/$industryId")({
   head: ({ params }) => {
+    const canonical = SLUG_MAP[params.industryId] ?? params.industryId;
     const names: Record<string, string> = {
       healthcare: "Healthcare & Life Sciences Solutions",
       financial: "Banking & Financial Services Solutions",
@@ -38,7 +48,7 @@ export const Route = createFileRoute("/industries/$industryId")({
       retail: "Retail & Consumer Solutions",
       technology: "Technology & IT Services Solutions",
     };
-    const title = `${names[params.industryId] ?? "Industry Solutions"} — ConfigUSA`;
+    const title = `${names[canonical] ?? "Industry Solutions"} — ConfigUSA`;
     return {
       meta: [
         { title },
@@ -47,11 +57,12 @@ export const Route = createFileRoute("/industries/$industryId")({
     };
   },
   loader: ({ params }) => {
+    const canonical = SLUG_MAP[params.industryId] ?? params.industryId;
     const valid = ["healthcare", "financial", "government", "manufacturing", "retail", "technology"];
-    if (!valid.includes(params.industryId)) {
+    if (!valid.includes(canonical)) {
       throw notFound();
     }
-    return { industryId: params.industryId };
+    return { industryId: canonical };
   },
   component: Page,
 });
