@@ -20,7 +20,7 @@ import {
   Database,
   Zap,
 } from "lucide-react";
-import digitalEngineeringHero from "@/assets/digital-engineering-hero.jpg";
+import digitalEngineeringHero from "@/assets/Technology Consulting & Resource Augmentation-bg.png";
 import serviceSoftware from "@/assets/service-software.jpg";
 import ctaHome from "@/assets/cta-home.jpg";
 
