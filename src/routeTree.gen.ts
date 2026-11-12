@@ -14,9 +14,11 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EngagementModelsRouteImport } from './routes/engagement-models'
+import { Route as ExpertiseRouteImport } from './routes/expertise'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GccRouteImport } from './routes/gcc'
 import { Route as GlobalDeliveryRouteImport } from './routes/global-delivery'
+import { Route as GlobalPresenceRouteImport } from './routes/global-presence'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -24,6 +26,7 @@ import { Route as ProcessRouteImport } from './routes/process'
 import { Route as RequestTalentRouteImport } from './routes/request-talent'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as SubmitResumeRouteImport } from './routes/submit-resume'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as CareersIndexRouteImport } from './routes/careers/index'
@@ -71,6 +74,11 @@ const EngagementModelsRoute = EngagementModelsRouteImport.update({
   path: '/engagement-models',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExpertiseRoute = ExpertiseRouteImport.update({
+  id: '/expertise',
+  path: '/expertise',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
@@ -84,6 +92,11 @@ const GccRoute = GccRouteImport.update({
 const GlobalDeliveryRoute = GlobalDeliveryRouteImport.update({
   id: '/global-delivery',
   path: '/global-delivery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlobalPresenceRoute = GlobalPresenceRouteImport.update({
+  id: '/global-presence',
+  path: '/global-presence',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriesRoute = IndustriesRouteImport.update({
@@ -119,6 +132,11 @@ const ResourcesRoute = ResourcesRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SubmitResumeRoute = SubmitResumeRouteImport.update({
@@ -235,9 +253,11 @@ export interface FileRoutesByFullPath {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/engagement-models': typeof EngagementModelsRoute
+  '/expertise': typeof ExpertiseRoute
   '/faq': typeof FaqRoute
   '/gcc': typeof GccRoute
   '/global-delivery': typeof GlobalDeliveryRoute
+  '/global-presence': typeof GlobalPresenceRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/insights': typeof InsightsRouteWithChildren
   '/privacy': typeof PrivacyRoute
@@ -245,6 +265,7 @@ export interface FileRoutesByFullPath {
   '/request-talent': typeof RequestTalentRoute
   '/resources': typeof ResourcesRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
+  '/solutions': typeof SolutionsRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
@@ -273,12 +294,15 @@ export interface FileRoutesByTo {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/engagement-models': typeof EngagementModelsRoute
+  '/expertise': typeof ExpertiseRoute
   '/faq': typeof FaqRoute
   '/gcc': typeof GccRoute
   '/global-delivery': typeof GlobalDeliveryRoute
+  '/global-presence': typeof GlobalPresenceRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
   '/request-talent': typeof RequestTalentRoute
+  '/solutions': typeof SolutionsRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
@@ -308,9 +332,11 @@ export interface FileRoutesById {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/engagement-models': typeof EngagementModelsRoute
+  '/expertise': typeof ExpertiseRoute
   '/faq': typeof FaqRoute
   '/gcc': typeof GccRoute
   '/global-delivery': typeof GlobalDeliveryRoute
+  '/global-presence': typeof GlobalPresenceRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/insights': typeof InsightsRouteWithChildren
   '/privacy': typeof PrivacyRoute
@@ -318,6 +344,7 @@ export interface FileRoutesById {
   '/request-talent': typeof RequestTalentRoute
   '/resources': typeof ResourcesRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
+  '/solutions': typeof SolutionsRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
@@ -348,9 +375,11 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/contact'
     | '/engagement-models'
+    | '/expertise'
     | '/faq'
     | '/gcc'
     | '/global-delivery'
+    | '/global-presence'
     | '/industries'
     | '/insights'
     | '/privacy'
@@ -358,6 +387,7 @@ export interface FileRouteTypes {
     | '/request-talent'
     | '/resources'
     | '/services'
+    | '/solutions'
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
@@ -386,12 +416,15 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/contact'
     | '/engagement-models'
+    | '/expertise'
     | '/faq'
     | '/gcc'
     | '/global-delivery'
+    | '/global-presence'
     | '/privacy'
     | '/process'
     | '/request-talent'
+    | '/solutions'
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
@@ -420,9 +453,11 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/contact'
     | '/engagement-models'
+    | '/expertise'
     | '/faq'
     | '/gcc'
     | '/global-delivery'
+    | '/global-presence'
     | '/industries'
     | '/insights'
     | '/privacy'
@@ -430,6 +465,7 @@ export interface FileRouteTypes {
     | '/request-talent'
     | '/resources'
     | '/services'
+    | '/solutions'
     | '/submit-resume'
     | '/terms'
     | '/industries/$industryId'
@@ -459,9 +495,11 @@ export interface RootRouteChildren {
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   EngagementModelsRoute: typeof EngagementModelsRoute
+  ExpertiseRoute: typeof ExpertiseRoute
   FaqRoute: typeof FaqRoute
   GccRoute: typeof GccRoute
   GlobalDeliveryRoute: typeof GlobalDeliveryRoute
+  GlobalPresenceRoute: typeof GlobalPresenceRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
   InsightsRoute: typeof InsightsRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
@@ -469,6 +507,7 @@ export interface RootRouteChildren {
   RequestTalentRoute: typeof RequestTalentRoute
   ResourcesRoute: typeof ResourcesRouteWithChildren
   ServicesRoute: typeof ServicesRouteWithChildren
+  SolutionsRoute: typeof SolutionsRoute
   SubmitResumeRoute: typeof SubmitResumeRoute
   TermsRoute: typeof TermsRoute
   CareersIndexRoute: typeof CareersIndexRoute
@@ -512,6 +551,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EngagementModelsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/expertise': {
+      id: '/expertise'
+      path: '/expertise'
+      fullPath: '/expertise'
+      preLoaderRoute: typeof ExpertiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/faq': {
       id: '/faq'
       path: '/faq'
@@ -531,6 +577,13 @@ declare module '@tanstack/react-router' {
       path: '/global-delivery'
       fullPath: '/global-delivery'
       preLoaderRoute: typeof GlobalDeliveryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/global-presence': {
+      id: '/global-presence'
+      path: '/global-presence'
+      fullPath: '/global-presence'
+      preLoaderRoute: typeof GlobalPresenceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/industries': {
@@ -580,6 +633,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/submit-resume': {
@@ -813,9 +873,11 @@ const rootRouteChildren: RootRouteChildren = {
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   EngagementModelsRoute: EngagementModelsRoute,
+  ExpertiseRoute: ExpertiseRoute,
   FaqRoute: FaqRoute,
   GccRoute: GccRoute,
   GlobalDeliveryRoute: GlobalDeliveryRoute,
+  GlobalPresenceRoute: GlobalPresenceRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
   InsightsRoute: InsightsRouteWithChildren,
   PrivacyRoute: PrivacyRoute,
@@ -823,6 +885,7 @@ const rootRouteChildren: RootRouteChildren = {
   RequestTalentRoute: RequestTalentRoute,
   ResourcesRoute: ResourcesRouteWithChildren,
   ServicesRoute: ServicesRouteWithChildren,
+  SolutionsRoute: SolutionsRoute,
   SubmitResumeRoute: SubmitResumeRoute,
   TermsRoute: TermsRoute,
   CareersIndexRoute: CareersIndexRoute,

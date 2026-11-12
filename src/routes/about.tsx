@@ -9,6 +9,7 @@ import {
   Building2,
   Phone,
   Check,
+  Users,
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
 import whoWeAreMeeting from "@/assets/who_we_are_meeting.jpg";
@@ -152,16 +153,16 @@ function AboutPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 2. Section: Who We Are (Split Intro Layout matching Template)       */}
+      {/* 2. Section: Our Company / Who We Are (Split Intro Layout)          */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="who-we-are" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
+      <section id="our-company" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
           <FadeUp>
           <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2.5 mb-3">
                 <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                  WHO WE ARE
+                  OUR COMPANY
                 </span>
                 <span className="w-10 h-[3px] bg-[#C83B43]" />
               </div>
@@ -170,7 +171,7 @@ function AboutPage() {
               </h2>
             </div>
             <div className="lg:col-span-5 text-slate-600 text-base leading-relaxed lg:border-l lg:border-slate-200 lg:pl-6 pt-1">
-              We are an enterprise technology and workforce solutions organisation focused on connecting business priorities with the expertise required to deliver them. Our work spans specialist talent, technology capabilities and workforce delivery models.
+              ConfigUSA is an enterprise technology and workforce solutions organisation built on trust, deep domain expertise and dependable global delivery. We bridge the gap between ambitious technology strategy and boots-on-the-ground engineering execution across North America and global delivery hubs.
             </div>
           </div>
 
@@ -323,29 +324,70 @@ function AboutPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 4. Section: Leadership and experience                              */}
+      {/* 4. Section: Leadership and Experience                              */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0]">
+      <section id="leadership" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
           <FadeUp>
-          <div className="max-w-3xl mb-6">
-            <div className="flex items-center gap-2.5 mb-3">
-              <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                LEADERSHIP & EXPERIENCE
-              </span>
-              <span className="w-10 h-[3px] bg-[#C83B43]" />
+            <div className="max-w-3xl mb-8">
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  LEADERSHIP & EXPERIENCE
+                </span>
+                <span className="w-10 h-[3px] bg-[#C83B43]" />
+              </div>
+              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
+                Executive leadership grounded in relationships and growth.
+              </h2>
+              <p className="mt-3 text-base text-slate-600 leading-relaxed">
+                Our leadership brings decades of collective experience across technology consulting, workforce delivery and global capability center scaling. We maintain active, senior-level involvement in client engagements to ensure delivery standards, transparent communication and rapid escalation resolution.
+              </p>
             </div>
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
-              Experienced practitioners guiding enterprise engagements.
-            </h2>
-          </div>
+          </FadeUp>
 
-          <div className="rounded-xl bg-[#F3F5F8] border border-slate-200/90 p-8 lg:p-10">
-            <p className="text-base text-slate-700 leading-relaxed max-w-3xl">
-              Our leadership brings experience across technology services, enterprise delivery and talent solutions. We maintain active, senior-level involvement in client engagements to ensure delivery standards, transparent communication and rapid escalation resolution.
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <FadeUp delay={0.08}>
+              <div className="p-7 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 h-full flex flex-col justify-between">
+                <div>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-[#245B91] border border-blue-100/70 mb-5">
+                    <Building2 className="h-6 w-6 stroke-[1.75]" />
+                  </span>
+                  <h3 className="text-lg font-bold text-[#102B4E] mb-2">Executive Strategy & Partnership</h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Direct executive sponsorship on every major enterprise account. Ensuring strategic alignment, milestone transparency and flexible commercial terms that adapt to your business velocity.
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.16}>
+              <div className="p-7 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 h-full flex flex-col justify-between">
+                <div>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/70 mb-5">
+                    <ShieldCheck className="h-6 w-6 stroke-[1.75]" />
+                  </span>
+                  <h3 className="text-lg font-bold text-[#102B4E] mb-2">Practitioner-Led Governance</h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Hands-on practice directors who evaluate technical skills, audit architecture and guarantee engineering quality before resources ever deploy to client environments.
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.24}>
+              <div className="p-7 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 h-full flex flex-col justify-between">
+                <div>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-100 text-[#102B4E] border border-slate-200/70 mb-5">
+                    <Users className="h-6 w-6 stroke-[1.75]" />
+                  </span>
+                  <h3 className="text-lg font-bold text-[#102B4E] mb-2">Global Operations & Scale</h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Dedicated talent sourcing engines across the US, Canada and India capable of mobilizing specialized pods and setting up offshore capability centers within weeks.
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
           </div>
-                  </FadeUp>
         </div>
       </section>
 
@@ -443,26 +485,76 @@ function AboutPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 7. Section: Our Commitment                                         */}
+      {/* 7. Section: Why ConfigUSA (Enterprise Advantage & Delivery)        */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0]">
+      <section id="why-configusa" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
           <FadeUp>
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-2.5 mb-3">
-              <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                OUR COMMITMENT
-              </span>
-              <span className="w-10 h-[3px] bg-[#C83B43]" />
+            <div className="max-w-3xl mb-8">
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  WHY CONFIGUSA
+                </span>
+                <span className="w-10 h-[3px] bg-[#C83B43]" />
+              </div>
+              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight mb-4">
+                Our enterprise advantage and delivery accountability.
+              </h2>
+              <p className="text-base text-slate-600 leading-relaxed">
+                We build long-term enterprise partnerships through rapid responsiveness, transparent communication, and dependable delivery execution that eliminates hiring risk.
+              </p>
             </div>
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight mb-4">
-              Building long-term client relationships through dependable execution.
-            </h2>
-            <p className="text-base text-slate-600 leading-relaxed">
-              We aim to build long-term client relationships through responsiveness, transparent communication and dependable execution.
-            </p>
+          </FadeUp>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <FadeUp delay={0.08}>
+              <div className="p-6 rounded-xl bg-[#F8FAFC] border border-slate-200/90 h-full flex flex-col justify-between hover:border-[#245B91] hover:shadow-md transition-all">
+                <div>
+                  <div className="text-2xl font-black text-[#C83B43] mb-2">48h</div>
+                  <h3 className="text-base font-bold text-[#102B4E] mb-1.5">Rapid Mobilisation</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Deploying pre-vetted specialists and targeted pods in 48 to 72 hours, cutting traditional time-to-productivity by over 40%.
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.16}>
+              <div className="p-6 rounded-xl bg-[#F8FAFC] border border-slate-200/90 h-full flex flex-col justify-between hover:border-[#245B91] hover:shadow-md transition-all">
+                <div>
+                  <div className="text-2xl font-black text-[#245B91] mb-2">100%</div>
+                  <h3 className="text-base font-bold text-[#102B4E] mb-1.5">Practitioner-Vetted</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Every candidate undergoes rigorous, domain-specific technical evaluation by senior architects prior to client presentation.
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.24}>
+              <div className="p-6 rounded-xl bg-[#F8FAFC] border border-slate-200/90 h-full flex flex-col justify-between hover:border-[#245B91] hover:shadow-md transition-all">
+                <div>
+                  <div className="text-2xl font-black text-[#102B4E] mb-2">Dual-Engine</div>
+                  <h3 className="text-base font-bold text-[#102B4E] mb-1.5">Global Delivery Scale</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    US & Canada onshore partnership paired with India offshore scale providing true 24-hour follow-the-sun operational coverage.
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.32}>
+              <div className="p-6 rounded-xl bg-[#F8FAFC] border border-slate-200/90 h-full flex flex-col justify-between hover:border-[#245B91] hover:shadow-md transition-all">
+                <div>
+                  <div className="text-2xl font-black text-emerald-600 mb-2">Certified</div>
+                  <h3 className="text-base font-bold text-[#102B4E] mb-1.5">Enterprise Compliance</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Certified MWBE, SBE, E-Verify, and SAM.gov active federal contractor ensuring complete institutional compliance and zero IP risk.
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
           </div>
-                  </FadeUp>
         </div>
       </section>
 

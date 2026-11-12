@@ -118,6 +118,70 @@ function CareersPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* 1.5 Section: Why Join ConfigUSA & Working Culture                   */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section className="py-8 lg:py-10 bg-[#F8FAFC] border-b border-[#e2e8f0]">
+        <div className="container-enterprise">
+          <div className="max-w-3xl mb-8">
+            <div className="flex items-center gap-2.5 mb-3">
+              <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                WHY JOIN CONFIGUSA
+              </span>
+              <span className="w-10 h-[3px] bg-[#C83B43]" />
+            </div>
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
+              Work on mission-critical initiatives with industry-leading enterprise clients.
+            </h2>
+            <p className="mt-3 text-base text-slate-600 leading-relaxed">
+              We connect technical professionals with challenging projects across Palantir, Cloud, SAP, Workday and Enterprise AI. Our culture is founded on technical excellence, transparent compensation, and long-term career growth.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="p-6 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#245B91] hover:shadow-md transition-all">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-[#245B91] mb-4">
+                <Briefcase className="h-5 w-5" />
+              </div>
+              <h3 className="text-base font-bold text-[#102B4E] mb-1.5">High-Impact Projects</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Work directly on tier-1 digital transformation, cloud infrastructure, and operational AI programs.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#245B91] hover:shadow-md transition-all">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-50 text-[#C83B43] mb-4">
+                <ShieldCheck className="h-5 w-5" />
+              </div>
+              <h3 className="text-base font-bold text-[#102B4E] mb-1.5">Transparent Partnerships</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Clear contract terms, prompt compensation cycles, and honest communication from specialized technical recruiters.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#245B91] hover:shadow-md transition-all">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700 mb-4">
+                <Check className="h-5 w-5" />
+              </div>
+              <h3 className="text-base font-bold text-[#102B4E] mb-1.5">Continuous Learning</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Stay at the cutting edge of enterprise data platforms, ERP modernizations, and cloud engineering frameworks.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#245B91] hover:shadow-md transition-all">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-[#102B4E] mb-4">
+                <Send className="h-5 w-5" />
+              </div>
+              <h3 className="text-base font-bold text-[#102B4E] mb-1.5">Global Opportunities</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Collaborate with distributed enterprise engineering squads spanning the United States, Canada, and India.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 2. Section: Opportunities (Job Board with Filters)                  */}
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section id="openings" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">

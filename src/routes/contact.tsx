@@ -93,6 +93,7 @@ const OFFICES = [
 const schema = z.object({
   name: z.string().min(2, "Please enter your name"),
   email: z.string().email("Please enter a valid work email"),
+  phone: z.string().min(7, "Please enter a valid phone number"),
   company: z.string().min(2, "Please enter your company name"),
   jobTitle: z.string().min(2, "Please enter your job title"),
   areaOfInterest: z.string().min(1, "Please select an area of interest"),
@@ -115,6 +116,7 @@ function ContactPage() {
   } = useForm<ContactFormData>({
     resolver: zodResolver(schema),
     defaultValues: {
+      phone: "",
       areaOfInterest: AREAS_OF_INTEREST[0],
       timeline: "Immediate / Within 1 month",
       honeypot: "",
@@ -260,6 +262,21 @@ function ContactPage() {
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        {...register("phone")}
+                        placeholder="+1 (555) 000-0000"
+                        className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E]"
+                      />
+                      {errors.phone && (
+                        <p className="mt-1 text-xs text-[#C83B43]">{errors.phone.message}</p>
+                      )}
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
                         Company *
                       </label>
                       <input
@@ -272,7 +289,7 @@ function ContactPage() {
                         <p className="mt-1 text-xs text-[#C83B43]">{errors.company.message}</p>
                       )}
                     </div>
-
+                  <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
                         Job Title / Role *
@@ -287,9 +304,7 @@ function ContactPage() {
                         <p className="mt-1 text-xs text-[#C83B43]">{errors.jobTitle.message}</p>
                       )}
                     </div>
-                  </div>
 
-                  <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
                         Area of Interest *
@@ -305,6 +320,7 @@ function ContactPage() {
                         ))}
                       </select>
                     </div>
+                  </div>
 
                     <div>
                       <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">

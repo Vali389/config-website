@@ -11,70 +11,112 @@ import {
   Sliders,
   UserCheck,
   LineChart,
+  ShieldCheck,
+  Award,
+  Cpu,
+  Building2,
+  CheckCircle2,
+  Check,
 } from "lucide-react";
 import servicesHeroBg from "@/assets/Engagement Models-bg.jpg";
+import { FadeUp } from "@/components/FadeUp";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "Capabilities — ConfigUSA" },
+      { title: "Solutions & Enterprise Capabilities — ConfigUSA" },
       {
         name: "description",
         content:
-          "Enterprise initiatives need more than a list of skills. They need the right expertise, a workable engagement model and disciplined execution. ConfigUSA brings these elements together across selected technology and workforce priorities.",
+          "ConfigUSA provides comprehensive enterprise solutions across three core pillars: Enterprise Talent, Workforce Solutions, and Technology Consulting. From targeted staffing to dedicated engineering pods and GCC enablement.",
       },
-      { property: "og:title", content: "Capabilities Built Around the Work That Matters | ConfigUSA" },
+      { property: "og:title", content: "Enterprise Solutions & Capabilities | ConfigUSA" },
       {
         property: "og:description",
         content:
-          "Technology & AI, Forward-Deployed Engineering, Enterprise Applications, Workforce Solutions, and GCC Solutions.",
+          "Enterprise Talent, Workforce Solutions, and Technology Consulting & Resource Augmentation.",
       },
     ],
   }),
   component: CapabilitiesOverviewPage,
 });
 
-// Blueprint Section 3: 5 Capabilities exactly as written
-const CAPABILITIES = [
+// The 3 Strategic Business Pillars
+const SOLUTION_PILLARS = [
   {
-    title: "Technology & AI",
-    description:
-      "Support for organisations exploring and delivering AI, data and digital engineering initiatives. Services should be described only to the extent ConfigUSA can demonstrate delivery capability.",
-    to: "/services/ai",
-    icon: BrainCircuit,
-    ctaLabel: "Explore AI & Intelligent Solutions",
-  },
-  {
-    title: "Forward-Deployed Engineering",
-    description:
-      "Embedded engineering talent that works alongside client teams to understand operational problems, build solutions and support adoption in real business environments.",
-    to: "/services/forward-deployed-engineering",
-    icon: Rocket,
-    ctaLabel: "Explore Forward-Deployed Engineering",
-  },
-  {
-    title: "Enterprise Applications",
-    description:
-      "Specialist talent and delivery support across selected enterprise platforms, aligned to client architecture, implementation and support needs.",
-    to: "/services/enterprise-applications",
-    icon: Boxes,
-    ctaLabel: "Explore Enterprise Applications",
-  },
-  {
-    title: "Workforce Solutions",
-    description:
-      "Contract staffing, contract-to-hire, permanent recruitment and managed workforce solutions for specialist and enterprise requirements.",
+    category: "PILLAR 1",
+    tag: "Enterprise Talent",
+    title: "IT Staffing & Specialist Recruitment",
+    summary:
+      "Rapid, practitioner-vetted technical talent acquisition connecting enterprises with specialized engineers, architects, and technical leaders.",
+    offerings: [
+      "Contract Staffing & Agile Augmentation",
+      "Direct Placement & Permanent Recruitment",
+      "Contract-to-Hire Evaluations",
+      "Executive & Technical Leadership Search",
+      "Niche Skill Sourcing (AI, Cloud, ERP)",
+    ],
+    challenges: [
+      "Prolonged technical hiring cycles delaying critical projects",
+      "High candidate fallout and lack of technical vetting by generic agencies",
+      "Specialist talent scarcity in emerging technologies",
+    ],
+    value:
+      "48–72 hour candidate shortlists, 94% retention rate, and practitioner-screened technical competence.",
+    cta: "Explore Talent Solutions",
     to: "/services/staffing",
     icon: Users,
-    ctaLabel: "Explore Workforce Solutions",
+    color: "border-blue-200 hover:border-[#245B91]",
   },
   {
-    title: "GCC Solutions",
-    description:
-      "Talent and workforce support for organisations establishing, expanding or transforming Global Capability Centres.",
-    to: "/gcc",
-    icon: Globe2,
-    ctaLabel: "Explore GCC Solutions",
+    category: "PILLAR 2",
+    tag: "Workforce Solutions",
+    title: "Workforce Programs, FDE & GCC Enablement",
+    summary:
+      "Tailored workforce management architectures, embedded frontline engineering squads, and Global Capability Center scaling in India.",
+    offerings: [
+      "Forward-Deployed Engineering (FDE) Squads",
+      "Global Capability Center (GCC) Setup & Scale",
+      "Managed Service Provider (MSP) Delivery",
+      "Vendor Management System (VMS) Programs",
+      "Flexible Commercial Engagement Models",
+    ],
+    challenges: [
+      "Operational bottlenecks and slow software adoption at the frontline",
+      "Complex cross-border compliance, entity setup, and hiring in offshore hubs",
+      "Fragmented contractor management and vendor cost escalation",
+    ],
+    value:
+      "Embedded operational impact, turnkey GCC scaling in weeks, and standardized enterprise governance.",
+    cta: "Explore Workforce Solutions",
+    to: "/engagement-models",
+    icon: Rocket,
+    color: "border-red-200 hover:border-[#C83B43]",
+  },
+  {
+    category: "PILLAR 3",
+    tag: "Technology Consulting",
+    title: "Specialist Consulting & Resource Augmentation",
+    summary:
+      "Targeted technical pods and senior subject-matter experts deployed directly into complex platforms, cloud modernisations, and AI initiatives.",
+    offerings: [
+      "Palantir Foundry & AIP Specialist Talent",
+      "SAP S/4HANA Consulting & Technical Pods",
+      "Workday HCM & Financials Integration",
+      "Enterprise AI, Machine Learning & Data Pipelines",
+      "Cloud Modernisation (AWS, Azure, GCP, DevOps)",
+    ],
+    challenges: [
+      "Legacy architectural debt and unproven ROI on enterprise platforms",
+      "Integration friction between enterprise ERPs and modern cloud systems",
+      "Severe shortages of certified Palantir, SAP, and Workday practitioners",
+    ],
+    value:
+      "Production-grade delivery velocity, hands-on knowledge transfer, and verifiable milestone SLAs.",
+    cta: "Explore Technology Consulting",
+    to: "/services/software",
+    icon: Cpu,
+    color: "border-slate-200 hover:border-[#102B4E]",
   },
 ];
 
@@ -93,39 +135,39 @@ function CapabilitiesOverviewPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 1. Hero Section (Edge-to-Edge Navy Hero with Photography on Right)  */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[440px] lg:min-h-[500px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-white/10">
+      <section className="relative min-h-[460px] lg:min-h-[520px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-white/10">
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <img
             src={servicesHeroBg}
-            alt="ConfigUSA Capabilities"
+            alt="ConfigUSA Enterprise Solutions"
             className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/80 via-transparent to-transparent lg:hidden pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/85 via-[#102B4E]/50 to-transparent lg:hidden pointer-events-none" />
         </div>
 
         <div className="container-enterprise relative z-10 w-full">
-          <div className="max-w-xl lg:max-w-[520px] xl:max-w-[580px] space-y-6">
+          <div className="max-w-xl lg:max-w-[540px] xl:max-w-[600px] space-y-6">
             <div className="flex items-center gap-2.5">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#e2e8f0]">
-                CORE CAPABILITIES
+                SOLUTIONS & CAPABILITIES
               </span>
               <span className="w-10 h-[3px] bg-[#C83B43]" />
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
-              Capabilities built around the work that matters.
+              Enterprise solutions built around the work that matters.
             </h1>
 
             <p className="text-base sm:text-lg text-[#e2e8f0] leading-relaxed">
-              Enterprise initiatives need more than a list of skills. They need the right expertise, a workable engagement model and disciplined execution. ConfigUSA brings these elements together across selected technology and workforce priorities.
+              ConfigUSA organizes its services across three primary offerings: Enterprise Talent, Workforce Solutions, and Technology Consulting. We bring together targeted skill access, structured delivery practices and flexible commercial models to help clients execute with certainty.
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4 items-center">
               <a
-                href="#capabilities-grid"
+                href="#solutions-pillars"
                 className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
               >
-                Explore Capabilities <ArrowRight className="h-4 w-4" />
+                Explore Offerings <ArrowRight className="h-4 w-4" />
               </a>
               <Link
                 to="/contact"
@@ -139,54 +181,103 @@ function CapabilitiesOverviewPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 2. Core Capabilities Grid (Template Card Style)                     */}
+      {/* 2. Core Solutions Pillars (3 Distinct Enterprise Offerings)         */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="capabilities-grid" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
+      <section id="solutions-pillars" className="py-8 lg:py-12 bg-white border-b border-[#e2e8f0] scroll-mt-24">
         <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
-            <div className="lg:col-span-7">
-              <div className="flex items-center gap-2.5 mb-3">
-                <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                  PRACTICAL DELIVERY
-                </span>
-                <span className="w-10 h-[3px] bg-[#C83B43]" />
-              </div>
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
-                Specialist technical capability aligned to enterprise priorities.
-              </h2>
-            </div>
-            <div className="lg:col-span-5 text-slate-600 text-base leading-relaxed lg:border-l lg:border-slate-200 lg:pl-6 pt-1">
-              From targeted talent solutions to dedicated delivery teams, we help clients move from requirement to execution with clarity and speed.
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {CAPABILITIES.map((cap) => (
-              <div
-                key={cap.title}
-                className="group relative rounded-2xl border border-slate-200/80 bg-white p-7 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 overflow-hidden flex flex-col justify-between"
-              >
-                <div>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/60 mb-5 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300">
-                    <cap.icon className="h-5 w-5 stroke-[1.75]" />
+          <FadeUp>
+            <div className="grid lg:grid-cols-12 gap-8 items-start mb-10">
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                    STRATEGIC OFFERINGS
                   </span>
-                  <h3 className="text-xl font-bold text-[#102B4E] tracking-tight mb-2.5">
-                    {cap.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {cap.description}
-                  </p>
+                  <span className="w-10 h-[3px] bg-[#C83B43]" />
                 </div>
-                <div className="mt-6 pt-4 border-t border-slate-100">
-                  <Link
-                    to={cap.to as any}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#C83B43] group-hover:text-[#a82e35] transition-colors"
-                  >
-                    <span>{cap.ctaLabel}</span>
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </div>
+                <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
+                  Clear differentiation across talent, workforce and technology.
+                </h2>
               </div>
+              <div className="lg:col-span-5 text-slate-600 text-base leading-relaxed lg:border-l lg:border-slate-200 lg:pl-6 pt-1">
+                Whether you need specialized contractors, managed engineering pods, or global capability center expansion, our three distinct business pillars are structured to align directly with your operational reality.
+              </div>
+            </div>
+          </FadeUp>
+
+          <div className="space-y-8">
+            {SOLUTION_PILLARS.map((pillar, idx) => (
+              <FadeUp key={pillar.title} delay={idx * 0.1}>
+                <div className={`rounded-2xl border ${pillar.color} bg-white p-7 lg:p-9 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col lg:flex-row gap-8 items-start justify-between`}>
+                  <div className="lg:max-w-md space-y-4">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100">
+                        <pillar.icon className="h-5 w-5 stroke-[2]" />
+                      </span>
+                      <div>
+                        <span className="text-xs font-bold text-[#C83B43] uppercase tracking-wider block">
+                          {pillar.category} • {pillar.tag}
+                        </span>
+                        <h3 className="text-xl lg:text-2xl font-extrabold text-[#102B4E] tracking-tight">
+                          {pillar.title}
+                        </h3>
+                      </div>
+                    </div>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      {pillar.summary}
+                    </p>
+                    <div className="pt-2">
+                      <Link
+                        to={pillar.to as any}
+                        className="btn-cta-primary inline-flex items-center gap-2 text-xs font-bold px-4 py-2.5 rounded-lg shadow-xs"
+                      >
+                        <span>{pillar.cta}</span>
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-6 flex-1 w-full lg:border-l lg:border-slate-100 lg:pl-8">
+                    <div>
+                      <h4 className="text-xs font-extrabold text-[#102B4E] uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                        <CheckCircle2 className="h-4 w-4 text-[#245B91]" />
+                        What We Offer
+                      </h4>
+                      <ul className="space-y-2 text-xs text-slate-700">
+                        {pillar.offerings.map((item) => (
+                          <li key={item} className="flex items-start gap-2">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#C83B43] mt-1.5 shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="text-xs font-extrabold text-[#102B4E] uppercase tracking-wider mb-2 text-slate-800">
+                          Challenges Solved
+                        </h4>
+                        <ul className="space-y-1.5 text-xs text-slate-600">
+                          {pillar.challenges.map((c) => (
+                            <li key={c} className="flex items-start gap-2">
+                              <span className="text-slate-400">•</span>
+                              <span>{c}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="rounded-lg bg-[#F8FAFC] border border-slate-200/80 p-3">
+                        <span className="text-[11px] font-bold text-[#245B91] uppercase tracking-wider block mb-1">
+                          Verified Business Value
+                        </span>
+                        <p className="text-xs text-slate-700 font-medium leading-relaxed">
+                          {pillar.value}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </FadeUp>
             ))}
           </div>
         </div>
@@ -197,17 +288,19 @@ function CapabilitiesOverviewPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">
-          <div className="max-w-3xl mb-6">
-            <div className="flex items-center gap-2.5 mb-3">
-              <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                HOW WE WORK
-              </span>
-              <span className="w-10 h-[3px] bg-[#C83B43]" />
+          <FadeUp>
+            <div className="max-w-3xl mb-6">
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  HOW WE WORK
+                </span>
+                <span className="w-10 h-[3px] bg-[#C83B43]" />
+              </div>
+              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
+                A structured, accountable path from requirement to execution.
+              </h2>
             </div>
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
-              A structured, accountable path from requirement to execution.
-            </h2>
-          </div>
+          </FadeUp>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5 relative">
             {HOW_WE_WORK_STEPS.map((s, idx) => (
@@ -245,27 +338,31 @@ function CapabilitiesOverviewPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 4. Bottom CTA Strip (Matching Template)                            */}
+      {/* 4. Bottom CTA Strip                                                 */}
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="bg-[#102B4E] text-white py-7 lg:py-9 border-t border-white/10">
-        <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-6 items-center">
-            <div className="lg:col-span-5">
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-tight">
-                Have a capability requirement?
-              </h2>
-            </div>
-            <div className="lg:col-span-4 text-slate-200 text-sm lg:text-base lg:border-l lg:border-white/20 lg:pl-6 leading-relaxed">
-              Let us understand the technical scope, timeline and engagement model needed to make progress.
-            </div>
-            <div className="lg:col-span-3 lg:text-right">
-              <Link
-                to="/contact"
-                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
-              >
-                Discuss Your Requirement <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
+        <div className="container-enterprise flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 className="text-xl sm:text-2xl font-bold tracking-tight mb-1">
+              Need assistance identifying the right solution model?
+            </h3>
+            <p className="text-slate-300 text-sm">
+              Speak directly with a ConfigUSA solutions director to map talent, delivery pods or GCC expansion.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3 shrink-0">
+            <Link
+              to="/contact"
+              className="btn-cta-primary text-sm font-semibold px-5 py-2.5 rounded-lg shadow-sm"
+            >
+              Discuss Your Requirement
+            </Link>
+            <Link
+              to="/engagement-models"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-white/40 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+            >
+              View Engagement Models
+            </Link>
           </div>
         </div>
       </section>
