@@ -279,15 +279,12 @@ function AboutPage() {
               {/* Right Column: Story Copy */}
               <div className="lg:col-span-7 space-y-5">
                 <div>
-                  <div className="flex items-center gap-2.5 mb-3">
-                    <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
-                      COMPANY BACKGROUND
-                    </span>
+                  <div className="flex items-center gap-3">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
+                      Our Story
+                    </h2>
                     <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
                   </div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
-                    Our Story
-                  </h2>
                 </div>
 
                 <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -384,91 +381,61 @@ function AboutPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 4 & 5. Our Mission & Our Vision (Prominent Executive Showcase)      */}
+      {/* 4 & 5. Our Mission & Our Vision (Gold Small Cards Layout)           */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="mission-vision" className="py-14 sm:py-16 lg:py-20 bg-white border-b border-slate-200 scroll-mt-24">
+      <section id="mission-vision" className="py-12 sm:py-14 lg:py-16 bg-white border-b border-slate-200 scroll-mt-24">
         <div className="container-enterprise">
           <FadeUp>
-            <div className="max-w-3xl mb-12">
-              <div className="flex items-center gap-2.5 mb-3">
-                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
-                  PURPOSE & DIRECTION
-                </span>
-                <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
-              </div>
+            <div className="flex items-center gap-3 mb-8">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#102B4E] tracking-tight">
                 Our Mission & Vision
               </h2>
-              <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
-                The strategic purpose and forward-looking commitment that guide our partnerships and workforce delivery.
-              </p>
+              <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
             </div>
           </FadeUp>
 
-          {/* 2 Executive Feature Cards */}
-          <div className="grid md:grid-cols-2 gap-8 items-stretch">
+          {/* Gold Small Cards Grid */}
+          <div className="grid sm:grid-cols-2 gap-6">
             {/* Mission Card */}
-            <FadeUp delay={0.08} className="h-full">
-              <div className="group relative overflow-hidden rounded-2xl bg-[#102B4E] text-white p-8 sm:p-10 shadow-lg border border-[#1b3a63] hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 h-full flex flex-col justify-between before:absolute before:top-0 before:inset-x-0 before:h-1.5 before:bg-[#C83B43]">
+            <FadeUp delay={0.06} className="h-full">
+              <div className="rounded-xl border border-slate-200 bg-[#F8FAFC] p-7 sm:p-8 shadow-xs flex flex-col justify-between border-t-4 border-t-[#102B4E] hover:border-t-[#C83B43] hover:-translate-y-1.5 hover:shadow-md hover:bg-white transition-all duration-300 h-full">
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-white border border-white/15 group-hover:scale-105 transition-transform">
-                      <Compass className="h-6 w-6 text-[#C83B43]" />
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#C83B43]">
+                      Strategic Mandate
                     </span>
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-300 bg-white/10 px-3 py-1 rounded-full">
-                      Our Mission
+                    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-50 text-[#C83B43] border border-red-100/70">
+                      <Compass className="h-5 w-5 stroke-[2]" />
                     </span>
                   </div>
-
-                  <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#C83B43] mb-3">
-                    STRATEGIC MANDATE
+                  <h3 className="text-xl font-bold text-[#102B4E] mb-2.5">
+                    Our Mission
                   </h3>
-
-                  <p className="text-xl sm:text-2xl lg:text-[1.65rem] font-bold text-white leading-snug tracking-tight mb-4">
+                  <p className="text-sm leading-relaxed text-slate-600">
                     Bridging critical enterprise technology talent gaps with high-velocity deployment and compliance.
                   </p>
-
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                    Ensuring enterprises secure the specialized technical capabilities needed to execute strategic digital initiatives with speed, precision, and complete regulatory adherence.
-                  </p>
-                </div>
-
-                <div className="mt-8 pt-4 border-t border-white/15 flex items-center gap-2 text-xs font-semibold text-slate-300">
-                  <CheckCircle2 className="h-4 w-4 text-[#C83B43]" />
-                  <span>Deployment Speed & Compliance Awareness</span>
                 </div>
               </div>
             </FadeUp>
 
             {/* Vision Card */}
-            <FadeUp delay={0.16} className="h-full">
-              <div className="group relative overflow-hidden rounded-2xl bg-[#F8FAFC] p-8 sm:p-10 shadow-xs border border-slate-200 hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between before:absolute before:top-0 before:inset-x-0 before:h-1.5 before:bg-[#245B91]">
+            <FadeUp delay={0.12} className="h-full">
+              <div className="rounded-xl border border-slate-200 bg-[#F8FAFC] p-7 sm:p-8 shadow-xs flex flex-col justify-between border-t-4 border-t-[#102B4E] hover:border-t-[#C83B43] hover:-translate-y-1.5 hover:shadow-md hover:bg-white transition-all duration-300 h-full">
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/70 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300 shadow-xs">
-                      <Eye className="h-6 w-6 stroke-[1.75]" />
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#245B91]">
+                      Future Horizon
                     </span>
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#245B91] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
-                      Our Vision
+                    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-[#245B91] border border-blue-100/70">
+                      <Eye className="h-5 w-5 stroke-[2]" />
                     </span>
                   </div>
-
-                  <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#245B91] mb-3">
-                    LONG-TERM ASPIRATION
+                  <h3 className="text-xl font-bold text-[#102B4E] mb-2.5">
+                    Our Vision
                   </h3>
-
-                  <p className="text-xl sm:text-2xl lg:text-[1.65rem] font-bold text-[#102B4E] leading-snug tracking-tight mb-4">
+                  <p className="text-sm leading-relaxed text-slate-600">
                     Enterprise technology and workforce partner of choice.
                   </p>
-
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    Recognized by enterprise leaders, MSP partners, and technology specialists as the most dependable, responsive, and accountable workforce and technology services partner.
-                  </p>
-                </div>
-
-                <div className="mt-8 pt-4 border-t border-slate-200 flex items-center gap-2 text-xs font-semibold text-[#102B4E]">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-                  <span>The Trusted Partner for High-Stakes Delivery</span>
                 </div>
               </div>
             </FadeUp>
@@ -577,15 +544,12 @@ function AboutPage() {
         <div className="container-enterprise">
           <FadeUp>
             <div className="max-w-3xl mb-12">
-              <div className="flex items-center gap-2.5 mb-3">
-                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
-                  LEADERSHIP & EXPERIENCE
-                </span>
+              <div className="flex items-center gap-3 mb-3">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#102B4E] tracking-tight">
+                  Leadership and Experience
+                </h2>
                 <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#102B4E] tracking-tight">
-                Leadership and Experience
-              </h2>
               <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
                 Our leadership brings experience across technology services, enterprise delivery and talent solutions.
               </p>
