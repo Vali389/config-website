@@ -52,14 +52,6 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-// Gold Stats Bar Data
-const STATS = [
-  { value: "20+", label: "Years Enterprise Experience" },
-  { value: "500+", label: "Specialists Deployed" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "Top 1%", label: "Practitioner Network" },
-];
-
 // Gold Approach (4 Steps)
 const APPROACH_STEPS = [
   {
@@ -151,68 +143,54 @@ function AboutPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 1. Hero Section (Gold Reference Headline & Ashen Visual Style)      */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#102B4E] text-white pt-24 pb-14 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 border-b border-white/10">
+      <section className="relative min-h-[500px] sm:min-h-[540px] lg:min-h-[580px] xl:min-h-[620px] flex items-center overflow-hidden bg-[#102B4E] text-white pt-24 pb-12 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16 border-b border-[#1b3a63]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <img
             src={aboutBg}
             alt="About ConfigUSA"
-            className="h-full w-full object-cover object-center opacity-30 mix-blend-luminosity filter brightness-110"
+            className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/80 via-transparent to-transparent lg:hidden pointer-events-none" />
         </div>
 
-        <div className="container-enterprise relative z-10 w-full">
-          <div className="max-w-3xl space-y-5">
+        <div className="container-enterprise relative z-10 w-full my-auto">
+          <div className="max-w-xl lg:max-w-[580px] xl:max-w-[640px] space-y-5 rounded-2xl bg-[#102B4E]/70 backdrop-blur-md p-6 sm:p-8 lg:p-9 border border-white/15 shadow-2xl -ml-1 sm:-ml-3 lg:-ml-5">
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-[#C83B43]" aria-hidden="true" />
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#C83B43]">
-                ABOUT US
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#38bdf8]">
+                ABOUT CONFIGUSA
               </p>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold leading-[1.16] tracking-tight text-white">
-              A Technology Growth Partner, <br className="hidden sm:inline" />
-              <span className="text-[#C83B43]">Not Just a Staffing Company.</span>
+            <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-[1.18] tracking-tight text-white">
+              Your Technology Growth Partner —{" "}
+              <span className="text-[#38bdf8]">
+                Connecting the Right Talent with the Right Expertise and the Confidence to Deliver.
+              </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
+            <p className="text-sm sm:text-base lg:text-[17px] text-[#e2e8f0] leading-relaxed">
               We connect organizations with the technology talent and specialized delivery teams that turn strategy into results.
             </p>
 
-            <div className="pt-3 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
-                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md px-6 py-3"
+                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md hover:-translate-y-0.5 transition-transform"
               >
                 Partner With Us <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/services"
-                className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold px-6 py-3"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/50 px-5 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/10 hover:border-white"
               >
                 Explore Capabilities <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 1.5 Stats Bar (Directly Under Hero)                                 */}
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="bg-white border-b border-slate-200 py-6">
-        <div className="container-enterprise">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-slate-100">
-            {STATS.map((stat) => (
-              <div key={stat.label} className="pt-3 md:pt-0">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#102B4E]">
-                  {stat.value}
-                </div>
-                <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+            <div className="pt-2 border-l-2 border-[#C83B43] pl-3.5 text-xs tracking-wide text-slate-300">
+              Enterprise Technology, Workforce & Managed Delivery Partner
+            </div>
           </div>
         </div>
       </section>
@@ -294,7 +272,7 @@ function AboutPage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <FadeUp delay={0.08}>
-              <div className="rounded-2xl bg-white p-7 sm:p-8 shadow-sm border border-slate-200 hover:border-[#245B91] hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between">
+              <div className="rounded-2xl bg-white p-7 sm:p-8 shadow-sm border border-slate-200 hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between cursor-pointer">
                 <div>
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100 mb-5">
                     <Compass className="h-6 w-6 stroke-[1.75]" />
@@ -308,7 +286,7 @@ function AboutPage() {
             </FadeUp>
 
             <FadeUp delay={0.16}>
-              <div className="rounded-2xl bg-white p-7 sm:p-8 shadow-sm border border-slate-200 hover:border-[#245B91] hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between">
+              <div className="rounded-2xl bg-white p-7 sm:p-8 shadow-sm border border-slate-200 hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between cursor-pointer">
                 <div>
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-[#245B91] border border-blue-100 mb-5">
                     <Eye className="h-6 w-6 stroke-[1.75]" />
@@ -322,7 +300,7 @@ function AboutPage() {
             </FadeUp>
 
             <FadeUp delay={0.24}>
-              <div className="rounded-2xl bg-white p-7 sm:p-8 shadow-sm border border-slate-200 hover:border-[#245B91] hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between">
+              <div className="rounded-2xl bg-white p-7 sm:p-8 shadow-sm border border-slate-200 hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between cursor-pointer">
                 <div>
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-100 mb-5">
                     <CheckCircle2 className="h-6 w-6 stroke-[1.75]" />
@@ -363,7 +341,7 @@ function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {APPROACH_STEPS.map((step, idx) => (
               <FadeUp key={step.title} delay={idx * 0.08}>
-                <div className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 shadow-xs hover:border-[#245B91] hover:shadow-md transition-all h-full flex flex-col justify-between">
+                <div className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 shadow-xs hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-lg hover:bg-white transition-all duration-300 h-full flex flex-col justify-between cursor-pointer">
                   <div>
                     <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-[#245B91] border border-slate-200 shadow-2xs mb-4">
                       <step.icon className="h-5 w-5" />
@@ -407,7 +385,7 @@ function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
             {CORE_VALUES.map((val, idx) => (
               <FadeUp key={val.title} delay={idx * 0.06}>
-                <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-[#245B91] hover:shadow-md text-center transition-all h-full flex flex-col justify-between">
+                <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-lg text-center transition-all duration-300 h-full flex flex-col justify-between cursor-pointer">
                   <div>
                     <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-[#245B91] border border-blue-100 mb-4">
                       <val.icon className="h-6 w-6 stroke-[1.75]" />
@@ -450,7 +428,7 @@ function AboutPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {OFFICES.map((off, idx) => (
               <FadeUp key={off.city} delay={idx * 0.1}>
-                <div className="rounded-2xl bg-[#0a1f3a] border border-white/10 p-7 hover:border-[#C83B43]/50 transition-all h-full flex flex-col justify-between shadow-lg">
+                <div className="rounded-2xl bg-[#0a1f3a] border border-white/10 p-7 hover:border-[#C83B43] hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 h-full flex flex-col justify-between shadow-lg cursor-pointer">
                   <div>
                     <div className="flex items-center gap-3.5 mb-5">
                       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-white">
@@ -481,12 +459,12 @@ function AboutPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 7. Section: Certifications & Verified Credentials                   */}
+      {/* 7. Section: Certifications & Verified Credentials (Auto-Scrolling)   */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="py-14 sm:py-16 lg:py-20 bg-white border-b border-slate-200">
+      <section className="py-14 sm:py-16 lg:py-20 bg-white border-b border-slate-200 overflow-hidden">
         <div className="container-enterprise">
           <FadeUp>
-            <div className="max-w-3xl mb-12">
+            <div className="max-w-3xl mb-10">
               <div className="flex items-center gap-2.5 mb-2">
                 <span className="h-px w-7 bg-[#C83B43]" />
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#245B91]">
@@ -501,29 +479,37 @@ function AboutPage() {
               </p>
             </div>
           </FadeUp>
+        </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {CERTIFICATIONS.map((cert, idx) => (
-              <FadeUp key={cert.name} delay={idx * 0.06}>
-                <div className="group flex flex-col items-center text-center rounded-2xl bg-[#F8FAFC] border border-slate-200 p-7 shadow-xs hover:border-[#245B91] hover:shadow-md transition-all h-full justify-between">
-                  <div className="flex h-20 w-full items-center justify-center mb-4">
-                    <img
-                      src={cert.image}
-                      alt={`${cert.name} certification`}
-                      loading="lazy"
-                      className="max-h-16 max-w-[80%] object-contain"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-base font-bold text-[#102B4E] group-hover:text-[#245B91] transition-colors">
-                      {cert.name}
-                    </h3>
-                    <p className="mt-1 text-xs text-slate-500 leading-relaxed">
-                      {cert.label}
-                    </p>
-                  </div>
+        {/* Auto-scrolling infinite marquee strip */}
+        <div className="relative flex overflow-hidden">
+          {/* Edge fade overlays */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-28 bg-gradient-to-r from-white via-white/80 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-28 bg-gradient-to-l from-white via-white/80 to-transparent z-10" />
+
+          <div className="flex gap-6 w-max items-center py-3 animate-marquee hover:[animation-play-state:paused]">
+            {[...CERTIFICATIONS, ...CERTIFICATIONS, ...CERTIFICATIONS, ...CERTIFICATIONS].map((cert, idx) => (
+              <div
+                key={`${cert.name}-${idx}`}
+                className="w-72 sm:w-80 shrink-0 flex items-center gap-4 rounded-2xl bg-[#F8FAFC] border border-slate-200 p-5 shadow-xs hover:border-[#245B91] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group cursor-pointer"
+              >
+                <div className="flex h-16 w-20 shrink-0 items-center justify-center rounded-xl bg-white p-2 border border-slate-100">
+                  <img
+                    src={cert.image}
+                    alt={`${cert.name} certification`}
+                    loading="lazy"
+                    className="max-h-12 max-w-full object-contain"
+                  />
                 </div>
-              </FadeUp>
+                <div className="min-w-0">
+                  <h3 className="text-base font-bold text-[#102B4E] group-hover:text-[#245B91] transition-colors leading-tight">
+                    {cert.name}
+                  </h3>
+                  <p className="mt-1 text-xs text-slate-500 leading-snug line-clamp-2">
+                    {cert.label}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </div>

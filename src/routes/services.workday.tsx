@@ -57,49 +57,49 @@ function WorkdayPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 1. Hero Section (Navy Blue Workday Presentation)                    */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#102B4E] text-white pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 border-b border-white/10">
+      <section className="relative min-h-[500px] sm:min-h-[540px] lg:min-h-[580px] xl:min-h-[620px] flex items-center overflow-hidden bg-[#102B4E] text-white pt-24 pb-12 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16 border-b border-[#1b3a63]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <img
             src={workdayHeroBg}
             alt="Workday Enterprise Solutions"
-            className="h-full w-full object-cover object-center opacity-30 mix-blend-luminosity filter brightness-110"
+            className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/80 via-transparent to-transparent lg:hidden pointer-events-none" />
         </div>
 
-        <div className="container-enterprise relative z-10 w-full">
-          <div className="max-w-3xl space-y-5">
+        <div className="container-enterprise relative z-10 w-full my-auto">
+          <div className="max-w-xl lg:max-w-[560px] xl:max-w-[620px] space-y-5 rounded-2xl bg-[#102B4E]/70 backdrop-blur-md p-6 sm:p-8 lg:p-9 border border-white/15 shadow-2xl -ml-1 sm:-ml-3 lg:-ml-5">
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-[#C83B43]" aria-hidden="true" />
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#C83B43]">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#38bdf8]">
                 WORKDAY TALENT SOLUTIONS
               </p>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold leading-[1.16] tracking-tight text-white">
-              Specialized Workday Expertise for Enterprise Transformation and Operational Excellence.
+            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold leading-[1.16] tracking-tight text-white">
+              Specialized Workday Expertise for Enterprise Transformation.
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
+            <p className="text-sm sm:text-base lg:text-[17px] text-[#e2e8f0] leading-relaxed">
               Workday environments require professionals who can navigate the intersection of technology, business processes, and evolving organizational needs.
             </p>
 
-            <div className="pt-3 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
-                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md px-6 py-3"
+                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md hover:-translate-y-0.5 transition-transform"
               >
                 Find Workday Specialists <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/services/sap"
-                className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold px-6 py-3"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/50 px-5 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/10 hover:border-white"
               >
                 SAP Solutions <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
-            <div className="pt-3 border-l-2 border-[#C83B43] pl-4 text-xs tracking-wide text-slate-300">
+            <div className="pt-2 border-l-2 border-[#C83B43] pl-3.5 text-xs tracking-wide text-slate-300">
               Enterprise Technology, Workforce & Managed Delivery Partner
             </div>
           </div>

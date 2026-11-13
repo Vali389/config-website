@@ -427,14 +427,8 @@ export function Header() {
         {/* Right Action CTAs */}
         <div className="hidden lg:flex items-center gap-2.5">
           <Link
-            to="/request-talent"
-            className="text-xs xl:text-sm font-semibold text-[#102B4E] hover:text-[#245B91] px-3 py-2 rounded-md border border-slate-200 hover:border-[#245B91] transition-all"
-          >
-            Request Talent
-          </Link>
-          <Link
             to="/contact"
-            className="btn-cta-primary text-xs xl:text-sm font-semibold px-4 py-2 rounded-md shadow-sm inline-flex items-center gap-1.5"
+            className="btn-cta-primary text-xs xl:text-sm font-semibold px-5 py-2.5 rounded-md shadow-sm inline-flex items-center gap-1.5"
           >
             Contact Us
           </Link>
@@ -511,14 +505,7 @@ export function Header() {
                   </div>
                 );
               })}
-              <div className="pt-3 space-y-2">
-                <Link
-                  to="/request-talent"
-                  onClick={() => setOpen(false)}
-                  className="w-full text-center text-sm font-semibold py-2.5 rounded-md block border border-slate-300 text-[#102B4E]"
-                >
-                  Request Talent
-                </Link>
+              <div className="pt-3">
                 <Link
                   to="/contact"
                   onClick={() => setOpen(false)}

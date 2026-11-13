@@ -47,14 +47,6 @@ export const Route = createFileRoute("/services/cloud")({
 
 /* ────────────────────────── DATA ────────────────────────── */
 
-// TODO: VERIFY: Metrics awaiting client confirmation.
-const CLOUD_METRICS = [
-  { value: "99.99%", label: "Platform Uptime SLA" },
-  { value: "40%", label: "Avg. FinOps Cloud Savings" },
-  { value: "10x", label: "Faster Deployment Cycles" },
-  { value: "24/7", label: "Global SRE Monitoring" },
-];
-
 const CLOUD_PILLARS = [
   {
     icon: Cloud,
@@ -175,26 +167,25 @@ function CloudInfrastructurePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* ────────────────────────── HERO SECTION ────────────────────────── */}
-      <section className="relative min-h-[64vh] flex items-center overflow-hidden pt-28 pb-16 bg-[#102B4E]">
+      <section className="relative min-h-[500px] sm:min-h-[540px] lg:min-h-[580px] xl:min-h-[620px] flex items-center overflow-hidden pt-24 pb-12 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16 bg-[#102B4E] border-b border-[#1b3a63]">
         {/* Background Photography with Navy Gradient */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <img
             src={cloudInfraHero}
-            alt="Cloud & Infrastructure"
-            className="h-full w-full object-cover object-center"
+            alt="Cloud & Infrastructure Modernization"
+            className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 via-45% to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#102B4E]/50 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/80 via-transparent to-transparent lg:hidden pointer-events-none" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full my-auto py-8">
-          <div className="max-w-3xl">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full my-auto">
+          <div className="max-w-xl lg:max-w-[560px] xl:max-w-[620px] space-y-5 rounded-2xl bg-[#102B4E]/70 backdrop-blur-md p-6 sm:p-8 lg:p-9 border border-white/15 shadow-2xl -ml-1 sm:-ml-3 lg:-ml-5">
             {/* Amber Eyebrow Badge */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#245B91]/15 border border-[#245B91]/30 text-[#245B91] text-xs font-bold uppercase tracking-wider mb-4"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#245B91]/15 border border-[#245B91]/30 text-[#38bdf8] text-xs font-bold uppercase tracking-wider"
             >
               <Cloud className="h-3.5 w-3.5" />
               <span>Cloud & Infrastructure Modernization</span>
@@ -205,10 +196,10 @@ function CloudInfrastructurePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.1 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight"
             >
               Cloud & Infrastructure{" "}
-              <span className="text-[#245B91]">Built for Resilient Scale.</span>
+              <span className="text-[#38bdf8]">Built for Resilient Scale.</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -216,7 +207,7 @@ function CloudInfrastructurePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.2 }}
-              className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl"
+              className="text-sm sm:text-base lg:text-[17px] text-[#e2e8f0] leading-relaxed font-normal"
             >
               Accelerate multi-cloud migration, automated DevOps CI/CD pipelines, Kubernetes container orchestration, and 24/7 SRE reliability across AWS, Azure, and Google Cloud.
             </motion.p>
@@ -226,41 +217,22 @@ function CloudInfrastructurePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.3 }}
-              className="mt-8 flex flex-wrap gap-4"
+              className="pt-2 flex flex-wrap gap-4 items-center"
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#C83B43] px-7 py-3.5 text-sm font-bold text-white hover:bg-[#b02f37] transition-colors shadow-sm"
+                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md hover:-translate-y-0.5 transition-transform"
               >
                 Talk to a Cloud Architect <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/5 backdrop-blur-sm px-7 py-3.5 text-sm font-medium text-white hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/50 px-5 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/10 hover:border-white"
               >
                 All Capabilities <ArrowRight className="h-4 w-4" />
               </Link>
             </motion.div>
           </div>
-
-          {/* Stats Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-12 pt-7 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-6"
-          >
-            {CLOUD_METRICS.map((metric) => (
-              <div key={metric.label}>
-                <p className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                  {metric.value}
-                </p>
-                <p className="text-xs sm:text-[13px] text-slate-400 font-medium mt-1">
-                  {metric.label}
-                </p>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
