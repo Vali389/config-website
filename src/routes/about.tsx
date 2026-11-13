@@ -19,6 +19,7 @@ import {
   ArrowRight,
   Globe2,
   Check,
+  Heart,
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
 import { TechTicker } from "@/components/TechTicker";
@@ -381,38 +382,42 @@ function AboutPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 4 & 5. Our Mission & Our Vision (Gold Small Cards Layout)           */}
+      {/* 4. Section: Mission, Vision, Values (Exact Match to Gold Reference)  */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="mission-vision" className="py-12 sm:py-14 lg:py-16 bg-white border-b border-slate-200 scroll-mt-24">
+      <section id="mission-vision" className="py-14 sm:py-16 lg:py-20 bg-white border-b border-slate-200 scroll-mt-24">
         <div className="container-enterprise">
           <FadeUp>
-            <div className="flex items-center gap-3 mb-8">
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <div className="flex items-center justify-center gap-2.5 mb-3">
+                <span className="w-8 h-[2px] bg-[#C83B43]" />
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  WHAT DRIVES US
+                </span>
+                <span className="w-8 h-[2px] bg-[#C83B43]" />
+              </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#102B4E] tracking-tight">
-                Our Mission & Vision
+                Mission, Vision, Values
               </h2>
-              <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
+              <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-500">
+                The principles and purpose behind everything we deliver for our clients and partners.
+              </p>
             </div>
           </FadeUp>
 
-          {/* Gold Small Cards Grid */}
-          <div className="grid sm:grid-cols-2 gap-6">
+          {/* 3 Clean Cards Matching Gold Screenshot */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {/* Mission Card */}
             <FadeUp delay={0.06} className="h-full">
-              <div className="rounded-xl border border-slate-200 bg-[#F8FAFC] p-7 sm:p-8 shadow-xs flex flex-col justify-between border-t-4 border-t-[#102B4E] hover:border-t-[#C83B43] hover:-translate-y-1.5 hover:shadow-md hover:bg-white transition-all duration-300 h-full">
+              <div className="group rounded-2xl border border-slate-200 bg-white p-7 sm:p-8 shadow-xs hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between cursor-pointer">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#C83B43]">
-                      Strategic Mandate
-                    </span>
-                    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-50 text-[#C83B43] border border-red-100/70">
-                      <Compass className="h-5 w-5 stroke-[2]" />
-                    </span>
+                  <div className="w-12 h-12 rounded-xl bg-blue-50/80 border border-blue-100 flex items-center justify-center text-[#245B91] mb-6 group-hover:scale-105 transition-transform">
+                    <Target className="h-6 w-6 stroke-[2]" />
                   </div>
-                  <h3 className="text-xl font-bold text-[#102B4E] mb-2.5">
-                    Our Mission
+                  <h3 className="text-xl font-bold text-[#102B4E] group-hover:text-[#245B91] transition-colors mb-3">
+                    Mission
                   </h3>
                   <p className="text-sm leading-relaxed text-slate-600">
-                    Bridging critical enterprise technology talent gaps with high-velocity deployment and compliance.
+                    Empowering organizations with the technology talent and expertise they need to drive transformation.
                   </p>
                 </div>
               </div>
@@ -420,21 +425,33 @@ function AboutPage() {
 
             {/* Vision Card */}
             <FadeUp delay={0.12} className="h-full">
-              <div className="rounded-xl border border-slate-200 bg-[#F8FAFC] p-7 sm:p-8 shadow-xs flex flex-col justify-between border-t-4 border-t-[#102B4E] hover:border-t-[#C83B43] hover:-translate-y-1.5 hover:shadow-md hover:bg-white transition-all duration-300 h-full">
+              <div className="group rounded-2xl border border-[#245B91] bg-white p-7 sm:p-8 shadow-sm hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between cursor-pointer">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#245B91]">
-                      Future Horizon
-                    </span>
-                    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-[#245B91] border border-blue-100/70">
-                      <Eye className="h-5 w-5 stroke-[2]" />
-                    </span>
+                  <div className="w-12 h-12 rounded-xl bg-[#102B4E] border border-[#1b3a63] flex items-center justify-center text-[#F3BA2F] mb-6 group-hover:scale-105 transition-transform shadow-xs">
+                    <Eye className="h-6 w-6 stroke-[2]" />
                   </div>
-                  <h3 className="text-xl font-bold text-[#102B4E] mb-2.5">
-                    Our Vision
+                  <h3 className="text-xl font-bold text-[#102B4E] group-hover:text-[#245B91] transition-colors mb-3">
+                    Vision
                   </h3>
                   <p className="text-sm leading-relaxed text-slate-600">
-                    Enterprise technology and workforce partner of choice.
+                    To be the most trusted technology growth partner for enterprises building the digital future.
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
+
+            {/* Values Card */}
+            <FadeUp delay={0.18} className="h-full">
+              <div className="group rounded-2xl border border-slate-200 bg-white p-7 sm:p-8 shadow-xs hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between cursor-pointer">
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-blue-50/80 border border-blue-100 flex items-center justify-center text-[#245B91] mb-6 group-hover:scale-105 transition-transform">
+                    <Heart className="h-6 w-6 stroke-[2]" />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#102B4E] group-hover:text-[#245B91] transition-colors mb-3">
+                    Values
+                  </h3>
+                  <p className="text-sm leading-relaxed text-slate-600">
+                    Integrity, excellence, partnership, and an unwavering commitment to client success.
                   </p>
                 </div>
               </div>
