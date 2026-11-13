@@ -175,19 +175,20 @@ function CloudInfrastructurePage() {
             alt="Cloud & Infrastructure Modernization"
             className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/80 via-transparent to-transparent lg:hidden pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 via-45% to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#102B4E]/50 to-transparent pointer-events-none" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full my-auto">
-          <div className="max-w-xl lg:max-w-[560px] xl:max-w-[620px] space-y-5 rounded-2xl bg-[#102B4E]/70 backdrop-blur-md p-6 sm:p-8 lg:p-9 border border-white/15 shadow-2xl -ml-1 sm:-ml-3 lg:-ml-5">
-            {/* Amber Eyebrow Badge */}
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full my-auto py-4">
+          <div className="max-w-xl lg:max-w-[560px] xl:max-w-[620px] space-y-6">
+            {/* Eyebrow Badge */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#245B91]/15 border border-[#245B91]/30 text-[#38bdf8] text-xs font-bold uppercase tracking-wider"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#245B91]/15 border border-[#245B91]/30 text-[#C83B43] text-xs font-bold uppercase tracking-wider"
             >
-              <Cloud className="h-3.5 w-3.5" />
+              <Cloud className="h-3.5 w-3.5 text-[#C83B43]" />
               <span>Cloud & Infrastructure Modernization</span>
             </motion.div>
 
@@ -199,7 +200,7 @@ function CloudInfrastructurePage() {
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight"
             >
               Cloud & Infrastructure{" "}
-              <span className="text-[#38bdf8]">Built for Resilient Scale.</span>
+              <span className="text-[#C83B43]">Built for Resilient Scale.</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -207,7 +208,7 @@ function CloudInfrastructurePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.2 }}
-              className="text-sm sm:text-base lg:text-[17px] text-[#e2e8f0] leading-relaxed font-normal"
+              className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal"
             >
               Accelerate multi-cloud migration, automated DevOps CI/CD pipelines, Kubernetes container orchestration, and 24/7 SRE reliability across AWS, Azure, and Google Cloud.
             </motion.p>

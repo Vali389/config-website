@@ -64,14 +64,15 @@ function WorkdayPage() {
             alt="Workday Enterprise Solutions"
             className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/80 via-transparent to-transparent lg:hidden pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 via-45% to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#102B4E]/50 to-transparent pointer-events-none" />
         </div>
 
-        <div className="container-enterprise relative z-10 w-full my-auto">
-          <div className="max-w-xl lg:max-w-[560px] xl:max-w-[620px] space-y-5 rounded-2xl bg-[#102B4E]/70 backdrop-blur-md p-6 sm:p-8 lg:p-9 border border-white/15 shadow-2xl -ml-1 sm:-ml-3 lg:-ml-5">
+        <div className="container-enterprise relative z-10 w-full my-auto py-4">
+          <div className="max-w-xl lg:max-w-[560px] xl:max-w-[620px] space-y-6">
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-[#C83B43]" aria-hidden="true" />
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#38bdf8]">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#C83B43]">
                 WORKDAY TALENT SOLUTIONS
               </p>
             </div>
@@ -80,7 +81,7 @@ function WorkdayPage() {
               Specialized Workday Expertise for Enterprise Transformation.
             </h1>
 
-            <p className="text-sm sm:text-base lg:text-[17px] text-[#e2e8f0] leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
               Workday environments require professionals who can navigate the intersection of technology, business processes, and evolving organizational needs.
             </p>
 

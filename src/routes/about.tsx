@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
 import whoWeAreMeeting from "@/assets/who_we_are_meeting.jpg";
-import aboutBg from "@/assets/about-bg.jpg";
+import aboutBg from "@/assets/aboutus-bg.png";
 import certMwbe from "@/assets/cert-mwbe.jpg";
 import certSbe from "@/assets/cert-sbe.jpg";
 import certSam from "@/assets/cert-sam.jpg";
@@ -150,26 +150,27 @@ function AboutPage() {
             alt="About ConfigUSA"
             className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/80 via-transparent to-transparent lg:hidden pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 via-45% to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#102B4E]/50 to-transparent pointer-events-none" />
         </div>
 
-        <div className="container-enterprise relative z-10 w-full my-auto">
-          <div className="max-w-xl lg:max-w-[580px] xl:max-w-[640px] space-y-5 rounded-2xl bg-[#102B4E]/70 backdrop-blur-md p-6 sm:p-8 lg:p-9 border border-white/15 shadow-2xl -ml-1 sm:-ml-3 lg:-ml-5">
+        <div className="container-enterprise relative z-10 w-full my-auto py-4">
+          <div className="max-w-xl lg:max-w-[580px] xl:max-w-[660px] space-y-6">
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-[#C83B43]" aria-hidden="true" />
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#38bdf8]">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#C83B43]">
                 ABOUT CONFIGUSA
               </p>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-[1.18] tracking-tight text-white">
-              Your Technology Growth Partner —{" "}
-              <span className="text-[#38bdf8]">
+            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold leading-[1.16] tracking-tight text-white">
+              Your Technology Growth Partner — <br className="hidden sm:inline" />
+              <span className="text-[#C83B43]">
                 Connecting the Right Talent with the Right Expertise and the Confidence to Deliver.
               </span>
             </h1>
 
-            <p className="text-sm sm:text-base lg:text-[17px] text-[#e2e8f0] leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
               We connect organizations with the technology talent and specialized delivery teams that turn strategy into results.
             </p>
 

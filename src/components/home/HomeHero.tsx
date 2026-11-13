@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import homeBg from "@/assets/home-page-bg.png";
+import homeBg from "@/assets/homepage-new-bg.png";
 
 export function HomeHero() {
   return (
@@ -15,17 +15,18 @@ export function HomeHero() {
           decoding="sync"
           className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
         />
-        {/* Subtle mobile overlay for ultra-crisp typography on smaller screens */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/80 via-transparent to-transparent lg:hidden pointer-events-none" />
+        {/* Natural gradient overlay protecting left text while showcasing right photography */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 via-45% to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#102B4E]/50 to-transparent pointer-events-none" />
       </div>
 
-      <div className="container-enterprise relative z-10 w-full">
-        <div className="max-w-xl lg:max-w-[540px] xl:max-w-[600px] space-y-5 rounded-2xl bg-[#102B4E]/70 backdrop-blur-md p-6 sm:p-8 lg:p-9 border border-white/15 shadow-2xl -ml-1 sm:-ml-3 lg:-ml-5">
+      <div className="container-enterprise relative z-10 w-full py-4">
+        <div className="max-w-xl lg:max-w-[540px] xl:max-w-[600px] space-y-6">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.14]">
             Technology. Talent. Transformation.
           </h1>
 
-          <p className="text-sm sm:text-base lg:text-[17px] text-[#e2e8f0] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#e2e8f0] leading-relaxed">
             ConfigUSA helps organisations access the technology expertise, engineering capability and specialist workforce needed to deliver critical business initiatives. From targeted talent solutions to dedicated delivery teams, we help clients move from requirement to execution with clarity and speed.
           </p>
 
