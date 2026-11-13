@@ -62,19 +62,19 @@ function WorkdayPage() {
           <img
             src={workdayHeroBg}
             alt="Workday Enterprise Solutions"
-            className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
+            className="h-full w-full object-cover object-[right_center] md:object-[88%_center] brightness-110 contrast-[1.04]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 via-45% to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#102B4E]/50 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/80 via-35% sm:via-40% to-transparent sm:to-58% pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#102B4E]/25 to-transparent pointer-events-none" />
         </div>
 
         <div className="container-enterprise relative z-10 w-full my-auto py-4">
           <div className="max-w-xl lg:max-w-[560px] xl:max-w-[620px] space-y-6">
-            <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-[#C83B43]" aria-hidden="true" />
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#C83B43]">
+            <div className="flex items-center gap-2.5">
+              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white">
                 WORKDAY TALENT SOLUTIONS
-              </p>
+              </span>
+              <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold leading-[1.16] tracking-tight text-white">
@@ -163,7 +163,7 @@ function WorkdayPage() {
                       key={cap}
                       className="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-[#F8FAFC] p-4 text-xs sm:text-sm font-semibold text-[#102B4E] shadow-2xs hover:border-[#245B91] hover:shadow-xs transition-all border-l-4 border-l-[#C83B43]"
                     >
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                      <CheckCircle2 className="h-4 w-4 text-[#C83B43] shrink-0" />
                       <span>{cap}</span>
                     </div>
                   ))}

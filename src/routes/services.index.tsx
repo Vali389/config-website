@@ -207,10 +207,10 @@ function CapabilitiesOverviewPage() {
           <div className="space-y-8">
             {SOLUTION_PILLARS.map((pillar, idx) => (
               <FadeUp key={pillar.title} delay={idx * 0.1}>
-                <div className={`rounded-2xl border ${pillar.color} bg-white p-7 lg:p-9 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col lg:flex-row gap-8 items-start justify-between`}>
+                <div className={`group rounded-2xl border ${pillar.color} bg-white p-7 lg:p-9 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col lg:flex-row gap-8 items-start justify-between`}>
                   <div className="lg:max-w-md space-y-4">
                     <div className="flex items-center gap-3">
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/70 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300 shadow-xs">
                         <pillar.icon className="h-5 w-5 stroke-[2]" />
                       </span>
                       <div>

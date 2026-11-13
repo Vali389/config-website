@@ -218,10 +218,10 @@ function IndustriesIndexPage() {
           <img
             src={industriesHeroBg}
             alt="ConfigUSA Industry Expertise"
-            className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
+            className="h-full w-full object-cover object-[right_center] md:object-[88%_center] brightness-110 contrast-[1.04]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 via-45% to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#102B4E]/50 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/80 via-35% sm:via-40% to-transparent sm:to-58% pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#102B4E]/25 to-transparent pointer-events-none" />
         </div>
 
         <div className="container-enterprise relative z-10 w-full my-auto py-4">

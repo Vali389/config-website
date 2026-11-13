@@ -1,27 +1,30 @@
-import React from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Compass,
   Eye,
-  ShieldCheck,
-  CheckCircle2,
-  ArrowRight,
-  Building2,
-  Phone,
-  Check,
   Award,
+  ShieldCheck,
+  Rocket,
+  Handshake,
+  CheckCircle2,
+  Target,
+  Layers,
+  Cpu,
   Users,
   Search,
-  Target,
-  Rocket,
-  TrendingUp,
-  Handshake,
+  Building2,
+  Laptop,
   MapPin,
-  Sparkles,
+  Phone,
+  ArrowRight,
+  Globe2,
+  Check,
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
+import { TechTicker } from "@/components/TechTicker";
 import whoWeAreMeeting from "@/assets/who_we_are_meeting.jpg";
 import aboutBg from "@/assets/aboutus-bg.png";
+import certNmsdc from "@/assets/cert-nmsdc.png";
 import certMwbe from "@/assets/cert-mwbe.jpg";
 import certSbe from "@/assets/cert-sbe.jpg";
 import certSam from "@/assets/cert-sam.jpg";
@@ -31,81 +34,116 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       {
-        title: "About ConfigUSA — A Technology Growth Partner",
+        title: "About ConfigUSA — Enterprise Technology & Workforce Solutions",
       },
       {
         name: "description",
         content:
-          "ConfigUSA connects organizations with the technology talent and specialized delivery teams that turn strategy into results. Enterprise technology, workforce solutions and managed delivery.",
+          "ConfigUSA is an enterprise technology and workforce solutions organisation connecting businesses with the talent, expertise and capabilities they need.",
       },
       {
         property: "og:title",
-        content: "About ConfigUSA — A Technology Growth Partner",
+        content: "About ConfigUSA — Enterprise Technology & Workforce Solutions",
       },
       {
         property: "og:description",
         content:
-          "Built Around Outcomes. Delivered Through People. Enterprise technology, talent access, and global delivery scale.",
+          "Bridging critical enterprise technology talent gaps with high-velocity deployment and compliance. Enterprise technology and workforce partner of choice.",
       },
     ],
   }),
   component: AboutPage,
 });
 
-// Gold Approach (4 Steps)
-const APPROACH_STEPS = [
+/* ────────────────────────── DATA ────────────────────────── */
+
+// 1. Who We Are - 6 Core Capabilities Highlighting IT Staffing & Workforce Solutions
+const WHO_WE_ARE_CAPABILITIES = [
   {
-    icon: Search,
-    title: "Understand",
-    text: "We start with your business objectives — not just a job description — to align talent and technology to real outcomes.",
+    icon: Users,
+    title: "IT Staffing and Talent Solutions",
+    text: "Flexible contract staffing, contract-to-hire, and direct placement connecting enterprises with qualified technology professionals across critical stacks.",
   },
   {
-    icon: Target,
-    title: "Match & Vet",
-    text: "Rigorous, quality-driven screening surfaces specialists who fit your technical needs and your culture.",
+    icon: Search,
+    title: "Specialist Technology Recruitment",
+    text: "Targeted sourcing and rigorous technical vetting for hard-to-find specialists, lead engineers, enterprise architects, and solution designers.",
+  },
+  {
+    icon: Layers,
+    title: "Workforce Solutions",
+    text: "Comprehensive contingent workforce strategies, dedicated talent pipelines, payroll management, and co-managed workforce structures.",
+  },
+  {
+    icon: Cpu,
+    title: "Technology Resource Augmentation",
+    text: "Seamless integration of skilled individual contributors and complete engineering pods directly into active client delivery cycles.",
+  },
+  {
+    icon: Building2,
+    title: "MSP and VMS Programs",
+    text: "Disciplined participation within enterprise Managed Service Provider programs and Vendor Management Systems with strict SLA adherence.",
+  },
+  {
+    icon: Laptop,
+    title: "Enterprise Technology Expertise",
+    text: "Deep supporting domain knowledge across cloud infrastructure, enterprise platforms (SAP, Workday), custom software, and modern data architectures.",
+  },
+];
+
+// 2. Client-Approved 4 Core Values
+const CORE_VALUES = [
+  {
+    icon: Award,
+    title: "Uncompromising Quality",
+    text: "Maintain high standards in talent selection, professional capabilities and workforce solutions.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Enterprise Integrity",
+    text: "Build trust through transparency, ethical practices, compliance and accountability.",
   },
   {
     icon: Rocket,
-    title: "Deliver",
-    text: "Fast onboarding and dedicated teams get people productive from day one, wherever you operate.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Grow",
-    text: "Ongoing communication, accountability, and long-term partnership keep initiatives moving forward.",
-  },
-];
-
-// Gold 5 Core Values
-const CORE_VALUES = [
-  {
-    icon: ShieldCheck,
-    title: "Integrity",
-    text: "We do the right thing — always — even when no one is watching.",
-  },
-  {
-    icon: Award,
-    title: "Excellence",
-    text: "We hold ourselves to the highest standards in everything we deliver.",
-  },
-  {
-    icon: Users,
-    title: "Collaboration",
-    text: "Our best work happens together — with clients and with each other.",
-  },
-  {
-    icon: Sparkles,
-    title: "Innovation",
-    text: "We embrace new ideas and technologies to solve tomorrow's challenges.",
+    title: "Agility",
+    text: "Adapt to changing business requirements and respond with flexible talent and workforce solutions.",
   },
   {
     icon: Handshake,
-    title: "Accountability",
-    text: "We own our commitments and deliver on our promises.",
+    title: "Client-Centric Alignment",
+    text: "Understand each client's business priorities and align talent and solutions with their requirements.",
   },
 ];
 
-// Confirmed Operating Offices
+// 3. What Guides Us - Operating Principles
+const OPERATING_PRINCIPLES = [
+  {
+    number: "01",
+    title: "Client Context First",
+    text: "Understand the business need before proposing a solution.",
+    icon: Compass,
+  },
+  {
+    number: "02",
+    title: "Capability with Evidence",
+    text: "Represent skills, experience and delivery credentials accurately.",
+    icon: CheckCircle2,
+  },
+  {
+    number: "03",
+    title: "Accountability",
+    text: "Set clear expectations, ownership and communication from the outset.",
+    icon: Target,
+  },
+  {
+    number: "04",
+    title: "Flexibility",
+    text: "Shape the engagement around the requirement, scale and delivery environment.",
+    icon: Layers,
+  },
+];
+
+// 4. Confirmed Operating Offices
 const OFFICES = [
   {
     city: "United States",
@@ -130,57 +168,67 @@ const OFFICES = [
   },
 ];
 
+// 5. Official Certifications & Registrations (With Valid NMSDC Asset)
 const CERTIFICATIONS = [
   { image: certMwbe, name: "M/WBE", label: "Minority/Woman-Owned Business Enterprise" },
   { image: certSbe, name: "SBE", label: "Small Business Enterprise Certified" },
   { image: certSam, name: "SAM", label: "SAM Registered — FedBiz Access" },
+  { image: certNmsdc, name: "NMSDC", label: "National Minority Supplier Development Council Certified" },
   { image: certEverify, name: "E-Verify", label: "E-Verify Employer" },
 ];
 
+/* ────────────────────────── COMPONENT ────────────────────────── */
+
 function AboutPage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-white">
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 1. Hero Section (Gold Reference Headline & Ashen Visual Style)      */}
+      {/* 1. Hero Section                                                     */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[500px] sm:min-h-[540px] lg:min-h-[580px] xl:min-h-[620px] flex items-center overflow-hidden bg-[#102B4E] text-white pt-24 pb-12 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16 border-b border-[#1b3a63]">
+      <section className="relative min-h-[460px] sm:min-h-[500px] lg:min-h-[540px] xl:min-h-[580px] flex items-center overflow-hidden bg-[#102B4E] text-white pt-20 pb-12 sm:pt-24 sm:pb-14 lg:pt-28 lg:pb-16 border-b border-[#1b3a63]">
+        {/* Edge-to-Edge Hero Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <img
             src={aboutBg}
             alt="About ConfigUSA"
-            className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
+            loading="eager"
+            fetchPriority="high"
+            decoding="sync"
+            className="h-full w-full object-cover object-[right_center] md:object-[88%_center] brightness-110 contrast-[1.04]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 via-45% to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#102B4E]/50 to-transparent pointer-events-none" />
+          {/* Natural gradient overlay protecting left text while showcasing right architectural skyline */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071d3a] via-[#071d3a]/80 via-40% sm:via-35% to-transparent sm:to-58% pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#071d3a]/25 to-transparent pointer-events-none" />
         </div>
 
-        <div className="container-enterprise relative z-10 w-full my-auto py-4">
-          <div className="max-w-xl lg:max-w-[580px] xl:max-w-[660px] space-y-6">
-            <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-[#C83B43]" aria-hidden="true" />
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#C83B43]">
+        <div className="container-enterprise relative z-10 w-full my-auto py-2">
+          <div className="max-w-xl lg:max-w-[620px] xl:max-w-[700px] space-y-5">
+            {/* Eyebrow */}
+            <div className="flex items-center gap-2.5">
+              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white">
                 ABOUT CONFIGUSA
-              </p>
+              </span>
+              <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold leading-[1.16] tracking-tight text-white">
-              Your Technology Growth Partner — <br className="hidden sm:inline" />
-              <span className="text-[#C83B43]">
-                Connecting the Right Talent with the Right Expertise and the Confidence to Deliver.
-              </span>
+            {/* Headline */}
+            <h1 className="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold leading-[1.16] tracking-tight text-white">
+              A Focused Partner for Enterprise Technology and Workforce Needs.
             </h1>
 
+            {/* Supporting Content */}
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
-              We connect organizations with the technology talent and specialized delivery teams that turn strategy into results.
+              ConfigUSA works with organisations to address specialised technology, engineering and workforce requirements. We bring together talent access, structured delivery practices and flexible engagement models to help clients execute with confidence.
             </p>
 
+            {/* CTAs */}
             <div className="pt-2 flex flex-wrap items-center gap-4">
-              <Link
-                to="/contact"
+              <a
+                href="#who-we-are"
                 className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md hover:-translate-y-0.5 transition-transform"
               >
-                Partner With Us <ArrowRight className="h-4 w-4" />
-              </Link>
+                Meet ConfigUSA <ArrowRight className="h-4 w-4" />
+              </a>
               <Link
                 to="/services"
                 className="inline-flex items-center gap-2 rounded-lg border border-white/50 px-5 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/10 hover:border-white"
@@ -189,6 +237,7 @@ function AboutPage() {
               </Link>
             </div>
 
+            {/* Tagline Badge */}
             <div className="pt-2 border-l-2 border-[#C83B43] pl-3.5 text-xs tracking-wide text-slate-300">
               Enterprise Technology, Workforce & Managed Delivery Partner
             </div>
@@ -197,45 +246,85 @@ function AboutPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 2. Section: Our Story (Gold Reference 2-Column Presentation)        */}
+      {/* 1.5 Client Logos Ticker                                             */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <TechTicker title="TRUSTED BY CLIENTS ACROSS DIVERSE INDUSTRIES" />
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* 2. Company Background – Our Story                                   */}
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section id="our-company" className="py-14 sm:py-16 lg:py-20 bg-white border-b border-slate-200 scroll-mt-24">
         <div className="container-enterprise">
           <FadeUp>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Left Column: Image */}
-              <div className="relative">
-                <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-slate-900 group">
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              {/* Left Column: Team Photography */}
+              <div className="lg:col-span-5 relative">
+                <div className="group relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-slate-900">
                   <img
                     src={whoWeAreMeeting}
                     alt="ConfigUSA Team Collaborating"
                     className="w-full object-cover aspect-[4/3] filter brightness-[1.05] contrast-[1.02] transition-transform duration-500 group-hover:scale-105"
                   />
+                  <div className="bg-[#102B4E]/95 text-white px-5 py-3.5 text-xs flex items-center justify-between border-t border-white/20">
+                    <span className="font-semibold text-white">
+                      ConfigUSA Enterprise Delivery Team
+                    </span>
+                    <span className="text-[#C83B43] font-mono font-bold">
+                      Outcome-Driven Execution
+                    </span>
+                  </div>
                 </div>
               </div>
 
               {/* Right Column: Story Copy */}
-              <div>
-                <div className="border-l-[3px] border-[#C83B43] pl-4 mb-4">
-                  <p className="text-xs font-bold uppercase tracking-widest text-[#C83B43] mb-1">
-                    OUR STORY
-                  </p>
-                  <h2 className="text-2xl sm:text-3xl lg:text-[2.35rem] font-extrabold text-[#102B4E] leading-tight tracking-tight">
-                    Built Around Outcomes. <br />
-                    <span className="text-[#245B91]">Delivered Through People.</span>
+              <div className="lg:col-span-7 space-y-5">
+                <div>
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
+                      COMPANY BACKGROUND
+                    </span>
+                    <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
+                    Our Story
                   </h2>
                 </div>
 
                 <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
                   <p>
-                    Technology transformation depends on people. At ConfigUSA, we connect organizations with exceptional technology professionals and specialized delivery teams who help turn strategic initiatives into measurable business results.
+                    ConfigUSA is an enterprise technology and workforce solutions organisation focused on connecting businesses with the talent, expertise and capabilities they need.
                   </p>
                   <p>
-                    Whether expanding engineering teams, implementing enterprise platforms, modernizing applications, or launching AI initiatives, we deliver the expertise organizations need to move forward with confidence.
+                    The company supports organisations in addressing specialised technology and workforce requirements through talent solutions, technology expertise and flexible workforce engagement models.
+                  </p>
+                  <p>
+                    Its approach is centred on understanding client requirements, identifying the right capabilities and building dependable professional relationships.
                   </p>
                 </div>
 
-                <div className="mt-8">
+                {/* Highlights Card */}
+                <div className="pt-2">
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {[
+                      "Understanding client requirements and strategic priorities",
+                      "Identifying the right technical capabilities and specialized talent",
+                      "Building dependable, long-term professional relationships",
+                      "Flexible workforce engagement models built for confidence",
+                    ].map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-start gap-2.5 p-3 rounded-xl bg-[#F8FAFC] border border-slate-200/80 text-xs sm:text-sm font-medium text-slate-700 hover:border-[#245B91] transition-colors"
+                      >
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#C83B43] text-white mt-0.5 shadow-2xs">
+                          <Check className="h-3 w-3 stroke-[3]" />
+                        </span>
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-2">
                   <Link
                     to="/contact"
                     className="btn-cta-primary inline-flex items-center gap-2 px-6 py-3 text-sm font-bold shadow-md"
@@ -250,108 +339,41 @@ function AboutPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 3. Section: Mission, Vision, Values (3 Elegant Clean Cards)         */}
+      {/* 3. Who We Are – 6 Capabilities Highlighting Staffing & Tech         */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="why-configusa" className="py-14 sm:py-16 lg:py-20 bg-[#F8FAFC] border-b border-slate-200 scroll-mt-24">
+      <section id="who-we-are" className="py-14 sm:py-16 lg:py-20 bg-[#F8FAFC] border-b border-slate-200 scroll-mt-24">
         <div className="container-enterprise">
           <FadeUp>
             <div className="max-w-3xl mb-12">
-              <div className="flex items-center gap-2.5 mb-2">
-                <span className="h-px w-7 bg-[#C83B43]" />
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#245B91]">
-                  WHAT DRIVES US
-                </p>
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  WHO WE ARE
+                </span>
+                <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#102B4E] tracking-tight">
-                Mission, Vision, Values
+                Connecting Business Priorities with the Expertise Required to Deliver
               </h2>
               <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
-                The principles and purpose behind everything we deliver for our clients and partners.
+                We are an enterprise technology and workforce solutions organisation focused on connecting business priorities with the expertise required to deliver them. Our work spans specialist talent, technology capabilities and workforce delivery models.
               </p>
             </div>
           </FadeUp>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <FadeUp delay={0.08}>
-              <div className="rounded-2xl bg-white p-7 sm:p-8 shadow-sm border border-slate-200 hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between cursor-pointer">
-                <div>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100 mb-5">
-                    <Compass className="h-6 w-6 stroke-[1.75]" />
-                  </span>
-                  <h3 className="text-xl font-bold text-[#102B4E]">Mission</h3>
-                  <p className="mt-2.5 text-sm text-slate-600 leading-relaxed">
-                    Empowering organizations with the technology talent and expertise they need to drive transformation.
-                  </p>
-                </div>
-              </div>
-            </FadeUp>
-
-            <FadeUp delay={0.16}>
-              <div className="rounded-2xl bg-white p-7 sm:p-8 shadow-sm border border-slate-200 hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between cursor-pointer">
-                <div>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-[#245B91] border border-blue-100 mb-5">
-                    <Eye className="h-6 w-6 stroke-[1.75]" />
-                  </span>
-                  <h3 className="text-xl font-bold text-[#102B4E]">Vision</h3>
-                  <p className="mt-2.5 text-sm text-slate-600 leading-relaxed">
-                    To be the most trusted technology growth partner for enterprises building the digital future.
-                  </p>
-                </div>
-              </div>
-            </FadeUp>
-
-            <FadeUp delay={0.24}>
-              <div className="rounded-2xl bg-white p-7 sm:p-8 shadow-sm border border-slate-200 hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between cursor-pointer">
-                <div>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-100 mb-5">
-                    <CheckCircle2 className="h-6 w-6 stroke-[1.75]" />
-                  </span>
-                  <h3 className="text-xl font-bold text-[#102B4E]">Values</h3>
-                  <p className="mt-2.5 text-sm text-slate-600 leading-relaxed">
-                    Integrity, excellence, partnership, and an unwavering commitment to client success.
-                  </p>
-                </div>
-              </div>
-            </FadeUp>
-          </div>
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 4. Section: How We Work / Our Approach (4 Step Progression)         */}
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="py-14 sm:py-16 lg:py-20 bg-white border-b border-slate-200">
-        <div className="container-enterprise">
-          <FadeUp>
-            <div className="max-w-3xl mb-12">
-              <div className="flex items-center gap-2.5 mb-2">
-                <span className="h-px w-7 bg-[#C83B43]" />
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#245B91]">
-                  OUR APPROACH
-                </p>
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#102B4E] tracking-tight">
-                How We Deliver Client Success
-              </h2>
-              <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
-                A disciplined, outcomes-focused engagement methodology from initial scoping to long-term growth.
-              </p>
-            </div>
-          </FadeUp>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {APPROACH_STEPS.map((step, idx) => (
-              <FadeUp key={step.title} delay={idx * 0.08}>
-                <div className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 shadow-xs hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-lg hover:bg-white transition-all duration-300 h-full flex flex-col justify-between cursor-pointer">
+          {/* 6 Capabilities Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {WHO_WE_ARE_CAPABILITIES.map((cap, idx) => (
+              <FadeUp key={cap.title} delay={idx * 0.06} className="h-full">
+                <div className="group relative overflow-hidden rounded-2xl bg-white p-7 shadow-xs border border-slate-200 hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between cursor-pointer before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity">
                   <div>
-                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-[#245B91] border border-slate-200 shadow-2xs mb-4">
-                      <step.icon className="h-5 w-5" />
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/70 mb-5 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300 shadow-xs">
+                      <cap.icon className="h-5 w-5 stroke-[1.75]" />
                     </span>
-                    <h3 className="text-lg font-bold text-[#102B4E] mb-2">
-                      {step.title}
+                    <h3 className="text-lg font-bold text-[#102B4E] group-hover:text-[#245B91] transition-colors leading-tight mb-2.5">
+                      {cap.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {step.text}
+                      {cap.text}
                     </p>
                   </div>
                 </div>
@@ -362,39 +384,132 @@ function AboutPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 5. Section: The Principles That Guide Us (5 Values from Gold)       */}
+      {/* 4 & 5. Our Mission & Our Vision (Prominent Executive Showcase)      */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="py-14 sm:py-16 lg:py-20 bg-[#F8FAFC] border-b border-slate-200">
+      <section id="mission-vision" className="py-14 sm:py-16 lg:py-20 bg-white border-b border-slate-200 scroll-mt-24">
         <div className="container-enterprise">
           <FadeUp>
             <div className="max-w-3xl mb-12">
-              <div className="flex items-center gap-2.5 mb-2">
-                <span className="h-px w-7 bg-[#C83B43]" />
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#245B91]">
-                  OUR VALUES
-                </p>
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  PURPOSE & DIRECTION
+                </span>
+                <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#102B4E] tracking-tight">
-                The Principles That Guide Us
+                Our Mission & Vision
               </h2>
               <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
-                Five values, one culture — the foundation of everything we build and every relationship we grow.
+                The strategic purpose and forward-looking commitment that guide our partnerships and workforce delivery.
               </p>
             </div>
           </FadeUp>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
+          {/* 2 Executive Feature Cards */}
+          <div className="grid md:grid-cols-2 gap-8 items-stretch">
+            {/* Mission Card */}
+            <FadeUp delay={0.08} className="h-full">
+              <div className="group relative overflow-hidden rounded-2xl bg-[#102B4E] text-white p-8 sm:p-10 shadow-lg border border-[#1b3a63] hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 h-full flex flex-col justify-between before:absolute before:top-0 before:inset-x-0 before:h-1.5 before:bg-[#C83B43]">
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-white border border-white/15 group-hover:scale-105 transition-transform">
+                      <Compass className="h-6 w-6 text-[#C83B43]" />
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-300 bg-white/10 px-3 py-1 rounded-full">
+                      Our Mission
+                    </span>
+                  </div>
+
+                  <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#C83B43] mb-3">
+                    STRATEGIC MANDATE
+                  </h3>
+
+                  <p className="text-xl sm:text-2xl lg:text-[1.65rem] font-bold text-white leading-snug tracking-tight mb-4">
+                    Bridging critical enterprise technology talent gaps with high-velocity deployment and compliance.
+                  </p>
+
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    Ensuring enterprises secure the specialized technical capabilities needed to execute strategic digital initiatives with speed, precision, and complete regulatory adherence.
+                  </p>
+                </div>
+
+                <div className="mt-8 pt-4 border-t border-white/15 flex items-center gap-2 text-xs font-semibold text-slate-300">
+                  <CheckCircle2 className="h-4 w-4 text-[#C83B43]" />
+                  <span>Deployment Speed & Compliance Awareness</span>
+                </div>
+              </div>
+            </FadeUp>
+
+            {/* Vision Card */}
+            <FadeUp delay={0.16} className="h-full">
+              <div className="group relative overflow-hidden rounded-2xl bg-[#F8FAFC] p-8 sm:p-10 shadow-xs border border-slate-200 hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between before:absolute before:top-0 before:inset-x-0 before:h-1.5 before:bg-[#245B91]">
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/70 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300 shadow-xs">
+                      <Eye className="h-6 w-6 stroke-[1.75]" />
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#245B91] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+                      Our Vision
+                    </span>
+                  </div>
+
+                  <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#245B91] mb-3">
+                    LONG-TERM ASPIRATION
+                  </h3>
+
+                  <p className="text-xl sm:text-2xl lg:text-[1.65rem] font-bold text-[#102B4E] leading-snug tracking-tight mb-4">
+                    Enterprise technology and workforce partner of choice.
+                  </p>
+
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Recognized by enterprise leaders, MSP partners, and technology specialists as the most dependable, responsive, and accountable workforce and technology services partner.
+                  </p>
+                </div>
+
+                <div className="mt-8 pt-4 border-t border-slate-200 flex items-center gap-2 text-xs font-semibold text-[#102B4E]">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                  <span>The Trusted Partner for High-Stakes Delivery</span>
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* 6. Our Core Values (4 Clean Premium Cards)                          */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section id="core-values" className="py-14 sm:py-16 lg:py-20 bg-[#F8FAFC] border-b border-slate-200 scroll-mt-24">
+        <div className="container-enterprise">
+          <FadeUp>
+            <div className="max-w-3xl mb-12">
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  OUR CORE VALUES
+                </span>
+                <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#102B4E] tracking-tight">
+                The Values That Define ConfigUSA
+              </h2>
+              <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
+                Four foundational values that govern every client engagement, candidate selection, and workforce solution.
+              </p>
+            </div>
+          </FadeUp>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {CORE_VALUES.map((val, idx) => (
-              <FadeUp key={val.title} delay={idx * 0.06}>
-                <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-lg text-center transition-all duration-300 h-full flex flex-col justify-between cursor-pointer">
+              <FadeUp key={val.title} delay={idx * 0.08} className="h-full">
+                <div className="group relative overflow-hidden p-6 sm:p-7 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-xl text-center transition-all duration-300 h-full flex flex-col justify-between cursor-pointer before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity">
                   <div>
-                    <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-[#245B91] border border-blue-100 mb-4">
+                    <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/70 mb-4 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300 shadow-xs">
                       <val.icon className="h-6 w-6 stroke-[1.75]" />
                     </span>
-                    <h3 className="font-bold text-sm sm:text-base text-[#102B4E]">
+                    <h3 className="font-bold text-base sm:text-lg text-[#102B4E] group-hover:text-[#245B91] transition-colors mb-2">
                       {val.title}
                     </h3>
-                    <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                       {val.text}
                     </p>
                   </div>
@@ -406,37 +521,175 @@ function AboutPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 6. Section: Global Presence (Executive Dark Section from Gold)      */}
+      {/* 7. What Guides Us – Operating Principles                            */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="leadership" className="relative py-14 sm:py-16 lg:py-20 bg-[#102B4E] text-white overflow-hidden scroll-mt-24">
+      <section id="what-guides-us" className="py-14 sm:py-16 lg:py-20 bg-white border-b border-slate-200 scroll-mt-24">
+        <div className="container-enterprise">
+          <FadeUp>
+            <div className="max-w-3xl mb-12">
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  OPERATING PRINCIPLES
+                </span>
+                <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#102B4E] tracking-tight">
+                What Guides Us
+              </h2>
+              <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
+                Four practical operating principles that ensure consistent execution, transparent alignment, and dependable partnership.
+              </p>
+            </div>
+          </FadeUp>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {OPERATING_PRINCIPLES.map((principle, idx) => (
+              <FadeUp key={principle.title} delay={idx * 0.08} className="h-full">
+                <div className="group relative overflow-hidden rounded-2xl bg-[#F8FAFC] p-6 sm:p-7 shadow-xs border border-slate-200 hover:border-[#245B91] hover:-translate-y-1.5 hover:shadow-xl hover:bg-white transition-all duration-300 h-full flex flex-col justify-between cursor-pointer before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/70 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300 shadow-xs">
+                        <principle.icon className="h-5 w-5 stroke-[1.75]" />
+                      </span>
+                      <span className="text-xs font-mono font-bold text-slate-400 group-hover:text-[#C83B43] transition-colors">
+                        {principle.number}
+                      </span>
+                    </div>
+
+                    <h3 className="text-base sm:text-lg font-bold text-[#102B4E] group-hover:text-[#245B91] transition-colors leading-tight mb-2">
+                      {principle.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {principle.text}
+                    </p>
+                  </div>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* 8. Leadership and Experience – Practitioner-Led Governance          */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section id="leadership" className="py-14 sm:py-16 lg:py-20 bg-[#F8FAFC] border-b border-slate-200 scroll-mt-24">
+        <div className="container-enterprise">
+          <FadeUp>
+            <div className="max-w-3xl mb-12">
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  LEADERSHIP & EXPERIENCE
+                </span>
+                <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#102B4E] tracking-tight">
+                Leadership and Experience
+              </h2>
+              <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
+                Our leadership brings experience across technology services, enterprise delivery and talent solutions.
+              </p>
+            </div>
+          </FadeUp>
+
+          {/* Clean Executive Governance Practice Cards */}
+          <div className="grid lg:grid-cols-3 gap-6">
+            <FadeUp delay={0.08} className="h-full">
+              <div className="rounded-2xl bg-white p-7 border border-slate-200 shadow-xs h-full flex flex-col justify-between hover:border-[#245B91] hover:shadow-md transition-all">
+                <div className="space-y-3">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/70 mb-4">
+                    <Cpu className="h-5 w-5 stroke-[2]" />
+                  </span>
+                  <h3 className="text-lg font-bold text-[#102B4E]">
+                    Enterprise Technology & Delivery Governance
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Practitioner leadership overseeing enterprise systems, cloud platforms, custom engineering, and mission-critical application lifecycles with verified delivery credentials.
+                  </p>
+                </div>
+                <div className="pt-5 border-t border-slate-100 mt-5 flex items-center gap-2 text-xs font-semibold text-[#245B91]">
+                  <CheckCircle2 className="h-4 w-4 text-[#C83B43]" />
+                  <span>Technical Governance & Delivery Assurance</span>
+                </div>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.16} className="h-full">
+              <div className="rounded-2xl bg-white p-7 border border-slate-200 shadow-xs h-full flex flex-col justify-between hover:border-[#245B91] hover:shadow-md transition-all">
+                <div className="space-y-3">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/70 mb-4">
+                    <Users className="h-5 w-5 stroke-[2]" />
+                  </span>
+                  <h3 className="text-lg font-bold text-[#102B4E]">
+                    Workforce Solutions & Talent Strategy
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Extensive experience in high-velocity technical recruitment, contingent workforce architecture, and MSP/VMS program integration across demanding enterprise accounts.
+                  </p>
+                </div>
+                <div className="pt-5 border-t border-slate-100 mt-5 flex items-center gap-2 text-xs font-semibold text-[#245B91]">
+                  <CheckCircle2 className="h-4 w-4 text-[#C83B43]" />
+                  <span>Talent Access & Program Discipline</span>
+                </div>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.24} className="h-full">
+              <div className="rounded-2xl bg-white p-7 border border-slate-200 shadow-xs h-full flex flex-col justify-between hover:border-[#245B91] hover:shadow-md transition-all">
+                <div className="space-y-3">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-[#C83B43] border border-red-100/70 mb-4">
+                    <Globe2 className="h-5 w-5 stroke-[2]" />
+                  </span>
+                  <h3 className="text-lg font-bold text-[#102B4E]">
+                    Global Operations & Compliance
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Proven operational leadership connecting onshore North American client management with scalable offshore delivery operations in India with strict compliance and security.
+                  </p>
+                </div>
+                <div className="pt-5 border-t border-slate-100 mt-5 flex items-center gap-2 text-xs font-semibold text-[#245B91]">
+                  <CheckCircle2 className="h-4 w-4 text-[#C83B43]" />
+                  <span>Dual-Engine Reach & Global Alignment</span>
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* 9. Our Global Footprint – Confirmed Locations                       */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section id="global-footprint" className="relative py-14 sm:py-16 lg:py-20 bg-[#102B4E] text-white overflow-hidden scroll-mt-24">
         <div className="container-enterprise relative z-10">
           <FadeUp>
             <div className="max-w-2xl mb-12">
-              <div className="border-l-[3px] border-[#C83B43] pl-4 mb-3">
-                <p className="text-xs font-bold uppercase tracking-widest text-[#C83B43] mb-1">
-                  GLOBAL PRESENCE
-                </p>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
-                  Local Partnership, <span className="text-slate-300">Global Scale</span>
-                </h2>
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white">
+                  OUR GLOBAL FOOTPRINT
+                </span>
+                <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
               </div>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                With teams across North America and India, we pair onshore client partnership with round-the-clock offshore delivery.
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                Active Operations & Delivery Presence
+              </h2>
+              <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+                ConfigUSA maintains active operations, delivery teams, and formal business presence across North America and India, connecting local strategic alignment with global execution capability.
               </p>
             </div>
           </FadeUp>
 
           <div className="grid md:grid-cols-3 gap-6">
             {OFFICES.map((off, idx) => (
-              <FadeUp key={off.city} delay={idx * 0.1}>
-                <div className="rounded-2xl bg-[#0a1f3a] border border-white/10 p-7 hover:border-[#C83B43] hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 h-full flex flex-col justify-between shadow-lg cursor-pointer">
+              <FadeUp key={off.city} delay={idx * 0.1} className="h-full">
+                <div className="group relative overflow-hidden rounded-2xl bg-[#0a1f3a] border border-white/10 p-7 hover:border-[#C83B43] hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 h-full flex flex-col justify-between shadow-lg cursor-pointer before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#C83B43] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity">
                   <div>
                     <div className="flex items-center gap-3.5 mb-5">
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-white">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-white group-hover:scale-110 transition-transform">
                         <MapPin className="h-5 w-5 text-[#C83B43]" />
                       </span>
                       <div>
-                        <h3 className="text-lg font-bold text-white">{off.city}</h3>
+                        <h3 className="text-lg font-bold text-white group-hover:text-white transition-colors">{off.city}</h3>
                         <p className="text-xs font-bold uppercase tracking-wider text-[#C83B43]">
                           {off.tag}
                         </p>
@@ -460,53 +713,53 @@ function AboutPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 7. Section: Certifications & Verified Credentials (Auto-Scrolling)   */}
+      {/* 10. Our Commitment & Official Certifications (Auto-Scrolling Marquee)*/}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="py-14 sm:py-16 lg:py-20 bg-white border-b border-slate-200 overflow-hidden">
+      <section id="commitment" className="py-14 sm:py-16 lg:py-20 bg-white border-b border-slate-200 overflow-hidden scroll-mt-24">
         <div className="container-enterprise">
           <FadeUp>
             <div className="max-w-3xl mb-10">
-              <div className="flex items-center gap-2.5 mb-2">
-                <span className="h-px w-7 bg-[#C83B43]" />
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#245B91]">
-                  CERTIFICATIONS & CREDENTIALS
-                </p>
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  OUR COMMITMENT
+                </span>
+                <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#102B4E] tracking-tight">
-                Certified, Compliant & Trusted
+                Built on Trust, Transparency & Dependable Execution
               </h2>
               <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
-                The certifications and registrations that let organizations engage us with confidence across commercial and public-sector programs.
+                We aim to build long-term client relationships through responsiveness, transparent communication and dependable execution.
               </p>
             </div>
           </FadeUp>
         </div>
 
-        {/* Auto-scrolling infinite marquee strip */}
-        <div className="relative flex overflow-hidden">
+        {/* Auto-scrolling infinite marquee strip with tall, elegant portrait cards matching reference UI */}
+        <div className="relative flex overflow-hidden py-4">
           {/* Edge fade overlays */}
           <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-28 bg-gradient-to-r from-white via-white/80 to-transparent z-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-28 bg-gradient-to-l from-white via-white/80 to-transparent z-10" />
 
-          <div className="flex gap-6 w-max items-center py-3 animate-marquee hover:[animation-play-state:paused]">
+          <div className="flex gap-6 w-max items-center py-4 animate-marquee hover:[animation-play-state:paused]">
             {[...CERTIFICATIONS, ...CERTIFICATIONS, ...CERTIFICATIONS, ...CERTIFICATIONS].map((cert, idx) => (
               <div
                 key={`${cert.name}-${idx}`}
-                className="w-72 sm:w-80 shrink-0 flex items-center gap-4 rounded-2xl bg-[#F8FAFC] border border-slate-200 p-5 shadow-xs hover:border-[#245B91] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group cursor-pointer"
+                className="group relative overflow-hidden w-64 sm:w-72 h-[270px] sm:h-[290px] shrink-0 flex flex-col items-center justify-center text-center p-6 sm:p-8 rounded-[24px] bg-white border border-slate-200/90 shadow-sm hover:border-[#245B91] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 cursor-pointer before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity"
               >
-                <div className="flex h-16 w-20 shrink-0 items-center justify-center rounded-xl bg-white p-2 border border-slate-100">
+                <div className="flex h-28 w-28 items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300">
                   <img
                     src={cert.image}
                     alt={`${cert.name} certification`}
                     loading="lazy"
-                    className="max-h-12 max-w-full object-contain"
+                    className="max-h-24 max-w-full object-contain"
                   />
                 </div>
-                <div className="min-w-0">
-                  <h3 className="text-base font-bold text-[#102B4E] group-hover:text-[#245B91] transition-colors leading-tight">
+                <div className="space-y-1.5 max-w-[210px]">
+                  <h3 className="text-lg sm:text-xl font-extrabold text-[#102B4E] group-hover:text-[#245B91] transition-colors leading-tight">
                     {cert.name}
                   </h3>
-                  <p className="mt-1 text-xs text-slate-500 leading-snug line-clamp-2">
+                  <p className="text-xs sm:text-sm text-slate-500 font-medium leading-snug line-clamp-2">
                     {cert.label}
                   </p>
                 </div>
@@ -517,27 +770,43 @@ function AboutPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 8. Bottom CTA Strip                                                 */}
+      {/* 11. Final Call to Action                                            */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="bg-[#102B4E] text-white py-10 lg:py-12 border-t border-white/10">
-        <div className="container-enterprise">
+      <section id="contact-cta" className="relative bg-[#102B4E] text-white py-14 sm:py-16 lg:py-20 overflow-hidden">
+        {/* Subtle decorative glow */}
+        <div className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[#245B91]/30 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-[#C83B43]/15 blur-3xl" />
+
+        <div className="container-enterprise relative z-10">
           <FadeUp>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div>
-                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-1">
-                  Ready to accelerate your technology or workforce roadmap?
-                </h3>
-                <p className="text-slate-300 text-sm">
-                  Connect with our team to discuss your project requirements and deployment timeline.
-                </p>
+            <div className="max-w-3xl mx-auto text-center space-y-6">
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-semibold text-slate-200">
+                <span>START A CONVERSATION</span>
+                <span className="w-6 h-[2px] bg-[#C83B43] rounded-full inline-block" />
               </div>
-              <div className="flex items-center gap-3 shrink-0">
+
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[2.75rem] font-extrabold text-white tracking-tight leading-tight">
+                Let's Build the Right Workforce for Your Business.
+              </h2>
+
+              <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+                Connect with ConfigUSA to discuss your enterprise technology, IT staffing and workforce requirements.
+              </p>
+
+              <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   to="/contact"
-                  className="btn-cta-primary text-sm font-semibold px-6 py-2.5 rounded-lg shadow-sm"
+                  className="btn-cta-primary inline-flex items-center gap-2 text-sm sm:text-base font-bold px-8 py-3.5 shadow-lg hover:-translate-y-0.5 transition-transform"
                 >
-                  Partner With Us
+                  Contact ConfigUSA <ArrowRight className="h-4 w-4" />
                 </Link>
+                <a
+                  href="tel:+16099343184"
+                  className="inline-flex items-center gap-2 rounded-lg border border-white/50 px-6 py-3.5 text-sm sm:text-base font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/10 hover:border-white"
+                >
+                  <Phone className="h-4 w-4 text-[#C83B43]" />
+                  <span>+1 (609) 934-3184</span>
+                </a>
               </div>
             </div>
           </FadeUp>

@@ -65,7 +65,7 @@ function Page() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
-              Your Next Opportunity <span className="text-[#38bdf8]">Starts Here.</span>
+              Your Next Opportunity Starts Here.
             </h1>
 
             <p className="text-base sm:text-lg text-[#e2e8f0] leading-relaxed">

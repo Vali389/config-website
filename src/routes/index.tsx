@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HomeHero } from "@/components/home/HomeHero";
+import { TechTicker } from "@/components/TechTicker";
 import { HomeWhatWeDo } from "@/components/home/HomeWhatWeDo";
 import { HomeCoreCapabilities } from "@/components/home/HomeCoreCapabilities";
 import { HomeWhyUs } from "@/components/home/HomeWhyUs";
@@ -39,6 +40,9 @@ function HomePage() {
     <div className="flex flex-col min-h-screen">
       {/* 1. Hero Section */}
       <HomeHero />
+
+      {/* 1.5 Client Logos Ticker */}
+      <TechTicker title="TRUSTED BY CLIENTS ACROSS DIVERSE INDUSTRIES" />
 
       {/* 2. What We Do */}
       <HomeWhatWeDo />

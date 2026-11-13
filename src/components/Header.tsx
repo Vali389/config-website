@@ -202,24 +202,6 @@ const NAV = [
   {
     to: "/careers",
     label: "Careers",
-    children: [
-      {
-        to: "/careers",
-        label: "Job Opportunities",
-        desc: "Search and apply for open positions.",
-        icon: Search,
-      },
-      {
-        to: "/submit-resume",
-        label: "Submit Resume",
-        desc: "Direct resume submission to the recruiting team.",
-        icon: FileUp,
-      },
-    ],
-  },
-  {
-    to: "/contact",
-    label: "Contact Us",
   },
 ] as const;
 
@@ -356,7 +338,7 @@ export function Header() {
                     className={`absolute top-full pt-1.5 transition-all duration-150 z-50 ${
                       item.label === "Expertise" || item.label === "Solutions"
                         ? "left-1/2 -translate-x-1/2"
-                        : item.label === "Industries" || item.label === "Careers"
+                        : (item.label as string) === "Industries"
                         ? "right-0"
                         : "left-0"
                     } ${
@@ -386,15 +368,15 @@ export function Header() {
                             onClick={() => handleDropdownItemClick(childHash)}
                             className={`group/item flex items-start gap-3 rounded-xl p-2.5 transition-all duration-150 ${
                               childActive
-                                ? "bg-blue-50/70 border border-blue-200/80 shadow-xs"
+                                ? "bg-red-50/70 border border-red-200/80 shadow-xs"
                                 : "hover:bg-slate-50/90 border border-transparent hover:border-slate-200/50"
                             }`}
                           >
                             <span
                               className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors ${
                                 childActive
-                                  ? "bg-[#102B4E] text-white shadow-xs"
-                                  : "bg-slate-100 text-[#245B91] group-hover/item:bg-[#102B4E] group-hover/item:text-white"
+                                  ? "bg-[#C83B43] text-white shadow-xs"
+                                  : "bg-red-50 text-[#C83B43] border border-red-100/70 group-hover/item:bg-[#102B4E] group-hover/item:text-white group-hover/item:border-[#102B4E]"
                               }`}
                             >
                               <c.icon className="h-4 w-4" />

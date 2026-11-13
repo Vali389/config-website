@@ -132,7 +132,7 @@ export function IndustryDetail(p: IndustryDetailProps) {
                 transition={{ duration: 0.5, delay: i * 0.07 }}
                 className="group rounded-2xl bg-white p-7 sm:p-8 border border-slate-200/90 shadow-xs hover:-translate-y-1.5 hover:shadow-xl hover:border-[#245B91] transition-all duration-300 relative overflow-hidden before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 border border-blue-100 text-blue-600 group-hover:bg-[#245B91] group-hover:text-white transition-colors duration-200">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 border border-red-100/70 text-[#C83B43] group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300">
                   <c.icon className="h-6 w-6 stroke-[1.75]" />
                 </span>
                 <h3 className="mt-5 text-base sm:text-[17px] font-bold text-[#102B4E] group-hover:text-blue-700 transition-colors leading-snug">{c.title}</h3>

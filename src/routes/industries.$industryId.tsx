@@ -70,7 +70,7 @@ export const Route = createFileRoute("/industries/$industryId")({
 const DATA: Record<string, any> = {
   healthcare: {
     eyebrow: "Healthcare & Life Sciences",
-    title: <>Digital Innovation in <span className="text-[#245B91]">Healthcare.</span></>,
+    title: "Digital Innovation in Healthcare.",
     subtitle: "Deliver patient-centered digital health services and secure interoperability under strict regulatory compliance.",
     heroImage: indHealthcare,
     stats: [
@@ -101,7 +101,7 @@ const DATA: Record<string, any> = {
   },
   financial: {
     eyebrow: "Financial Services",
-    title: <>Secure Technology for <span className="text-[#245B91]">Financial Services.</span></>,
+    title: "Secure Technology for Financial Services.",
     subtitle: "Scale your transaction engines, secure ledger APIs, and protect core assets with SOC 2 compliance.",
     heroImage: indFinancial,
     stats: [
@@ -132,7 +132,7 @@ const DATA: Record<string, any> = {
   },
   government: {
     eyebrow: "Logistics & Supply Chain",
-    title: <>Digital Visibility & Velocity for <span className="text-[#245B91]">Supply Chains.</span></>,
+    title: "Digital Visibility & Velocity for Supply Chains.",
     subtitle: "Technology talent supporting supply chain visibility, telemetry, analytics, warehouse management, and resilient distribution operations.",
     heroImage: indGovernment,
     stats: [
@@ -163,7 +163,7 @@ const DATA: Record<string, any> = {
   },
   manufacturing: {
     eyebrow: "Manufacturing & Industrial",
-    title: <>Smart Solutions for <span className="text-[#245B91]">Manufacturing & Industrial.</span></>,
+    title: "Smart Solutions for Manufacturing & Industrial.",
     subtitle: "Optimize industrial supply chains, implement certified ERP/SAP rollouts, and automate telemetry.",
     heroImage: indManufacturing,
     overviewImage: indManufacturing2,
@@ -195,7 +195,7 @@ const DATA: Record<string, any> = {
   },
   retail: {
     eyebrow: "Retail & E-commerce",
-    title: <>High-Scale Commerce for <span className="text-[#245B91]">Retailers.</span></>,
+    title: "High-Scale Commerce for Retailers.",
     subtitle: "Deploy fast headless storefronts, personalize experiences with AI search, and sync global stocks.",
     heroImage: indRetail,
     stats: [
@@ -226,7 +226,7 @@ const DATA: Record<string, any> = {
   },
   technology: {
     eyebrow: "Technology & SaaS",
-    title: <>Accelerated Scale for <span className="text-[#245B91]">Tech & SaaS.</span></>,
+    title: "Accelerated Scale for Tech & SaaS.",
     subtitle: "Scale your roadmap with elite full-stack developer squads and cloud-native infrastructure.",
     heroImage: indTechnology,
     stats: [
