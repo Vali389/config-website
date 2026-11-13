@@ -9,7 +9,7 @@ import {
   Check,
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
-import staffingHeroBg from "@/assets/Workforce Solutions-bg.jpg";
+import staffingHeroBg from "@/assets/Workforce Solutions-bg.png";
 import wdWorkforce from "@/assets/wd-workforce.jpg";
 
 export const Route = createFileRoute("/services/staffing")({

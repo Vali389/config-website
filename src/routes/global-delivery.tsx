@@ -15,7 +15,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
-import globalDeliveryHeroBg from "@/assets/global-delivery-bg.jpg";
+import globalDeliveryHeroBg from "@/assets/global-delivery-bg.png";
 import gccEnterpriseHub from "@/assets/gcc-enterprise-hub.jpg";
 
 export const Route = createFileRoute("/global-delivery")({

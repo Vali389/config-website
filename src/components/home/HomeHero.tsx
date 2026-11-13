@@ -4,7 +4,7 @@ import homeBg from "@/assets/home-page-bg.png";
 
 export function HomeHero() {
   return (
-    <section className="relative min-h-[580px] sm:min-h-[640px] lg:min-h-[680px] xl:min-h-[720px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24 border-b border-[#1b3a63]">
+    <section className="relative min-h-[500px] sm:min-h-[540px] lg:min-h-[580px] xl:min-h-[620px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-12 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16 border-b border-[#1b3a63]">
       {/* Edge-to-Edge Hero Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <img
@@ -20,12 +20,12 @@ export function HomeHero() {
       </div>
 
       <div className="container-enterprise relative z-10 w-full">
-        <div className="max-w-xl lg:max-w-[520px] xl:max-w-[580px] space-y-6">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.12]">
+        <div className="max-w-xl lg:max-w-[540px] xl:max-w-[600px] space-y-5 rounded-2xl bg-[#102B4E]/70 backdrop-blur-md p-6 sm:p-8 lg:p-9 border border-white/15 shadow-2xl -ml-1 sm:-ml-3 lg:-ml-5">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.14]">
             Technology. Talent. Transformation.
           </h1>
 
-          <p className="text-base sm:text-lg text-[#e2e8f0] leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-[17px] text-[#e2e8f0] leading-relaxed">
             ConfigUSA helps organisations access the technology expertise, engineering capability and specialist workforce needed to deliver critical business initiatives. From targeted talent solutions to dedicated delivery teams, we help clients move from requirement to execution with clarity and speed.
           </p>
 

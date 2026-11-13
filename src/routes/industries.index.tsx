@@ -18,7 +18,7 @@ import indGovernment from "@/assets/ind-government.jpg";
 import indManufacturing from "@/assets/ind-manufacturing.jpg";
 import indTechnology from "@/assets/ind-technology.jpg";
 import indRetail from "@/assets/ind-retail.jpg";
-import industriesHeroBg from "@/assets/industries-bg.jpg";
+import industriesHeroBg from "@/assets/Industry Solutions-bg.png";
 import { FadeUp } from "@/components/FadeUp";
 
 export const Route = createFileRoute("/industries/")({

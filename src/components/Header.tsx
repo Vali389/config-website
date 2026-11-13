@@ -63,18 +63,11 @@ const NAV = [
     label: "Solutions",
     twoColumn: true,
     children: [
-      // Column 1
       {
         to: "/services/staffing",
         label: "IT Staffing & Talent Solutions",
         desc: "Contract, contract-to-hire and direct-hire technology talent.",
         icon: Users,
-      },
-      {
-        to: "/services/managed-delivery",
-        label: "MSP & VMS Programs",
-        desc: "Enterprise delivery with discipline, compliance and speed.",
-        icon: ShieldCheck,
       },
       {
         to: "/services/forward-deployed-engineering",
@@ -83,29 +76,34 @@ const NAV = [
         icon: Rocket,
       },
       {
-        to: "/gcc",
-        label: "Global Capability Centers (GCC)",
-        desc: "Establish and scale offshore enterprise capability centers in India.",
-        icon: Building2,
-      },
-      // Column 2
-      {
         to: "/engagement-models",
         label: "Workforce Solutions",
         desc: "Tailored workforce programs aligned to enterprise business needs.",
         icon: Award,
       },
       {
-        to: "/services/software",
-        label: "Technology Consulting & Resource Augmentation",
-        desc: "Specialized resources for critical technology initiatives.",
-        icon: Cpu,
-      },
-      {
         to: "/services/palantir",
         label: "Palantir Talent & Specialist Workforce",
         desc: "Specialist talent for data-driven enterprise platforms and AI workflows.",
         icon: Boxes,
+      },
+      {
+        to: "/services/managed-delivery",
+        label: "MSP & VMS Programs",
+        desc: "Enterprise delivery with discipline, compliance and speed.",
+        icon: ShieldCheck,
+      },
+      {
+        to: "/gcc",
+        label: "Global Capability Centers (GCC)",
+        desc: "Establish and scale offshore enterprise capability centers in India.",
+        icon: Building2,
+      },
+      {
+        to: "/services/software",
+        label: "Technology Consulting & Resource Augmentation",
+        desc: "Specialized resources for critical technology initiatives.",
+        icon: Cpu,
       },
     ],
   },
@@ -368,11 +366,11 @@ export function Header() {
                     }`}
                   >
                     <div
-                      className={`rounded-2xl border border-slate-200/90 bg-white p-3 shadow-xl backdrop-blur-md ${
+                      className={`rounded-2xl border border-slate-200/90 bg-white p-3.5 shadow-2xl backdrop-blur-md ${
                         isTwoColumn
                           ? item.label === "Solutions"
-                            ? "w-[660px] grid grid-cols-2 gap-2"
-                            : "w-[600px] grid grid-cols-2 gap-2"
+                            ? "w-[680px] grid grid-cols-2 gap-2"
+                            : "w-[640px] grid grid-cols-2 gap-2"
                           : "w-[340px] space-y-1"
                       }`}
                     >
@@ -388,15 +386,15 @@ export function Header() {
                             onClick={() => handleDropdownItemClick(childHash)}
                             className={`group/item flex items-start gap-3 rounded-xl p-2.5 transition-all duration-150 ${
                               childActive
-                                ? "bg-red-50/70 border border-red-100"
-                                : "hover:bg-slate-50 border border-transparent"
+                                ? "bg-blue-50/70 border border-blue-200/80 shadow-xs"
+                                : "hover:bg-slate-50/90 border border-transparent hover:border-slate-200/50"
                             }`}
                           >
                             <span
                               className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors ${
                                 childActive
-                                  ? "bg-[#C83B43] text-white shadow-xs border border-red-100"
-                                  : "bg-slate-100 text-[#245B91] group-hover/item:bg-red-50 group-hover/item:text-[#C83B43]"
+                                  ? "bg-[#102B4E] text-white shadow-xs"
+                                  : "bg-slate-100 text-[#245B91] group-hover/item:bg-[#102B4E] group-hover/item:text-white"
                               }`}
                             >
                               <c.icon className="h-4 w-4" />
@@ -411,7 +409,7 @@ export function Header() {
                               >
                                 {c.label}
                               </span>
-                              <span className="text-[11.5px] leading-snug block mt-0.5 text-slate-500">
+                              <span className="text-[11.5px] leading-snug block mt-0.5 text-slate-500 group-hover/item:text-slate-600">
                                 {c.desc}
                               </span>
                             </div>

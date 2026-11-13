@@ -15,7 +15,7 @@ import {
   Scale,
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
-import engagementModelsHeroBg from "@/assets/Engagement Models-bg.jpg";
+import engagementModelsHeroBg from "@/assets/Engagement Models-bg.png";
 import whoWeAreMeeting from "@/assets/who_we_are_meeting.jpg";
 
 export const Route = createFileRoute("/engagement-models")({

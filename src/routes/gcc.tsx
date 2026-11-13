@@ -17,7 +17,7 @@ import {
   Info,
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
-import gccHeroBg from "@/assets/GCC Solutions-bg.jpg";
+import gccHeroBg from "@/assets/GCC Solutions-bg.png";
 import gccEnterpriseHub from "@/assets/gcc-enterprise-hub.jpg";
 
 export const Route = createFileRoute("/gcc")({

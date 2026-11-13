@@ -14,12 +14,13 @@ import {
   Code2,
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
-import expertiseHeroBg from "@/assets/Enterprise Applications-bg.jpg";
-import palantirHeroImg from "@/assets/palantir-foundry-aip-hero.jpg";
-import cloudHeroImg from "@/assets/cloud-infrastructure-hero.jpg";
-import digitalHeroImg from "@/assets/digital-engineering-hero.jpg";
-import aiHeroImg from "@/assets/ai-enterprise-hero.jpg";
-import erpHeroImg from "@/assets/erp_implementation_img.png";
+import expertiseHeroBg from "@/assets/Enterprise Applications-bg.png";
+import palantirHeroImg from "@/assets/Palantir Foundry & AIP Services-bg.png";
+import cloudHeroImg from "@/assets/Cloud & Infrastructure-bg.png";
+import digitalHeroImg from "@/assets/Technology Consulting & Resource Augmentation-bg.png";
+import aiHeroImg from "@/assets/AI, Data & Digital Engineering-bg.png";
+import sapHeroImg from "@/assets/SAP Solutions-bg.png";
+import workdayHeroImg from "@/assets/workday-solutions-bg.png";
 
 export const Route = createFileRoute("/expertise")({
   head: () => ({
@@ -79,7 +80,7 @@ const TECH_CAPABILITIES = [
     techStack: ["SAP S/4HANA", "SAP BTP", "ABAP", "SAP Fiori", "SAP SuccessFactors", "SAP Ariba"],
     value:
       "Minimizing operational downtime and risk during mission-critical ERP transitions with certified functional leads.",
-    image: erpHeroImg,
+    image: sapHeroImg,
     cta: "Explore SAP Solutions",
     to: "/services/sap",
     icon: Building2,
@@ -100,9 +101,9 @@ const TECH_CAPABILITIES = [
     techStack: ["Workday HCM", "Workday Financials", "Workday Studio", "Workday Prism", "Workday Extend"],
     value:
       "Streamlining human capital workflows and multi-entity financial consolidation with seasoned system architects.",
-    image: erpHeroImg,
+    image: workdayHeroImg,
     cta: "Explore Workday Solutions",
-    to: "/services/enterprise-applications",
+    to: "/services/workday",
     icon: Database,
   },
   {
