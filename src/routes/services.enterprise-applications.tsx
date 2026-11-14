@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
 import enterprisePlatformsMesh from "@/assets/enterprise-platforms-mesh.jpg";
-import erpHeroBg from "@/assets/Enterprise Applications-bg.jpg";
+import erpHeroBg from "@/assets/mutliclutural-enterprise-solutions-bg.png";
 import erpImplementationImg from "@/assets/erp_implementation_img.png";
 
 export const Route = createFileRoute("/services/enterprise-applications")({

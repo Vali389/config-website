@@ -14,7 +14,7 @@ import {
   LineChart,
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
-import fdeHeroBg from "@/assets/Forward-Deployed Engineering-bg.png";
+import fdeHeroBg from "@/assets/multi-culture-forwrad-deployed-engineering-bg.png";
 import fdeBesideBusiness from "@/assets/fde-beside-business.jpg";
 
 export const Route = createFileRoute("/services/forward-deployed-engineering")({

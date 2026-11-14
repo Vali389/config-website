@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import homeBg from "@/assets/homepage-new-bg.png";
+import homeBg from "@/assets/multi-culture-hero-bg.png";
 
 export function HomeHero() {
   return (

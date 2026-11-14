@@ -25,7 +25,7 @@ import { FadeUp } from "@/components/FadeUp";
 import { TechTicker } from "@/components/TechTicker";
 import whoWeAreMeeting from "@/assets/who_we_are_meeting.jpg";
 import aboutBg from "@/assets/aboutus-bg.png";
-import certNmsdc from "@/assets/cert-nmsdc.png";
+import certNmsdc from "@/assets/NMSDC-logo.jpeg";
 import certMwbe from "@/assets/cert-mwbe.jpg";
 import certSbe from "@/assets/cert-sbe.jpg";
 import certSam from "@/assets/cert-sam.jpg";

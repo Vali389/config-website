@@ -8,7 +8,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { JOBS, DEPARTMENTS, LOCATIONS } from "@/data/jobs";
-import careersHeroBg from "@/assets/careers-bg.jpg";
+import careersHeroBg from "@/assets/mutliclutural-careers-bg.png";
 
 export const Route = createFileRoute("/careers/")({
   head: () => ({

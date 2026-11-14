@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Rocket, BellRing, Handshake, FileText, Upload, Send, CheckCircle2, Search, ArrowRight } from "lucide-react";
-import careersHeroBg from "@/assets/careers-bg.jpg";
+import careersHeroBg from "@/assets/mutliclutural-careers-bg.png";
 
 export const Route = createFileRoute("/submit-resume")({
   head: () => ({

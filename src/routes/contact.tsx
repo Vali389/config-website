@@ -16,7 +16,7 @@ import {
   ArrowRight,
   Briefcase,
 } from "lucide-react";
-import contactHeroBg from "@/assets/contact-bg.jpg";
+import contactHeroBg from "@/assets/mutliclutural-contact-bg.png";
 import { InteractiveLeafletMap } from "@/components/InteractiveLeafletMap";
 
 export const Route = createFileRoute("/contact")({
