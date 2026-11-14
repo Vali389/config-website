@@ -595,9 +595,18 @@
 
 
 /* ── Accessibility & Focus States (WCAG 2.1 AA Compliant) ── */
-:focus-visible {
+:focus-visible:not(input):not(textarea):not(select) {
   outline: 2px solid #245B91 !important;
   outline-offset: 2px !important;
+}
+
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible,
+select:focus,
+select:focus-visible {
+  outline: none !important;
 }
 
 /* Skip to main content link for screen readers */

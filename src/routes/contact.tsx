@@ -189,10 +189,10 @@ function ContactPage() {
   };
 
   const inputClass = (hasError?: boolean) =>
-    `w-full rounded-lg border bg-white px-4 py-2.5 text-sm text-[#102B4E] transition-colors focus:outline-none ${
+    `w-full rounded-lg border bg-white px-4 py-2.5 text-sm text-[#102B4E] transition-all outline-none focus:outline-none ${
       hasError
-        ? "border-red-400 bg-red-50/20 focus:border-red-500 focus:ring-1 focus:ring-red-500/20"
-        : "border-slate-300 focus:border-[#102B4E] focus:ring-1 focus:ring-[#102B4E]/10"
+        ? "border-red-500 bg-white focus:border-red-600 shadow-[0_0_0_1px_rgba(239,68,68,0.25)]"
+        : "border-slate-300 hover:border-slate-400 focus:border-[#102B4E]"
     }`;
 
   return (
