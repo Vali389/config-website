@@ -213,19 +213,22 @@ function IndustriesIndexPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 1. Navy Blue Hero Section (Exact Navy Blue Messaging & Structure)  */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[500px] sm:min-h-[540px] lg:min-h-[580px] xl:min-h-[620px] flex items-center overflow-hidden bg-[#102B4E] text-white pt-24 pb-12 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16 border-b border-[#1b3a63]">
+      <section className="relative min-h-[500px] sm:min-h-[540px] lg:min-h-[580px] xl:min-h-[620px] flex items-center overflow-hidden bg-[#102B4E] text-white pt-20 pb-10 sm:pt-24 sm:pb-12 lg:pt-28 lg:pb-14 border-b border-[#1b3a63]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <img
             src={industriesHeroBg}
             alt="ConfigUSA Industry Expertise"
-            className="h-full w-full object-cover object-[right_center] md:object-[88%_center] brightness-110 contrast-[1.04]"
+            loading="eager"
+            fetchPriority="high"
+            decoding="sync"
+            className="h-full w-full object-cover object-[right_center] md:object-[90%_center] brightness-110 contrast-[1.04]"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/80 via-35% sm:via-40% to-transparent sm:to-58% pointer-events-none" />
           <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#102B4E]/25 to-transparent pointer-events-none" />
         </div>
 
-        <div className="container-enterprise relative z-10 w-full my-auto py-4">
-          <div className="max-w-xl lg:max-w-[560px] xl:max-w-[620px] space-y-6">
+        <div className="container-enterprise relative z-10 w-full my-auto py-2">
+          <div className="max-w-xl lg:max-w-[540px] xl:max-w-[600px] space-y-5">
             <div className="flex items-center gap-2.5">
               <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#e2e8f0]">
                 INDUSTRY SOLUTIONS
@@ -233,14 +236,13 @@ function IndustriesIndexPage() {
               <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold leading-[1.16] tracking-tight text-white">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.14]">
               Industry Understanding. <br className="hidden sm:inline" />
-              Technology Expertise. <br className="hidden sm:inline" />
-              Workforce Confidence.
+              Technology Expertise.
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
-              Every industry operates within its own business priorities, regulatory expectations, technology environments, and workforce challenges. ConfigUSA supports organizations across multiple sectors by aligning specialized technology talent with industry-specific requirements.
+            <p className="text-base sm:text-lg text-[#e2e8f0] leading-relaxed max-w-xl">
+              Every industry operates within its own business priorities, regulatory expectations, and technology environments. ConfigUSA supports organizations across multiple sectors by aligning specialized technology talent with industry-specific requirements.
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-4">
@@ -254,7 +256,7 @@ function IndustriesIndexPage() {
                 to="/services"
                 className="inline-flex items-center gap-2 rounded-lg border border-white/50 px-5 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/10 hover:border-white"
               >
-                Explore Solutions <ArrowRight className="h-4 w-4" />
+                Explore Capabilities <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
