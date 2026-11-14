@@ -308,12 +308,9 @@ function ContactPage() {
                     </div>
 
                     <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider">
-                          Business Email *
-                        </label>
-                        <span className="text-[11px] text-slate-500 font-normal">Either email or phone</span>
-                      </div>
+                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                        Business Email *
+                      </label>
                       <input
                         type="email"
                         {...register("email", {
@@ -335,12 +332,9 @@ function ContactPage() {
 
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider">
-                          Phone Number *
-                        </label>
-                        <span className="text-[11px] text-slate-500 font-normal">Either email or phone</span>
-                      </div>
+                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                        Phone Number *
+                      </label>
                       <input
                         type="tel"
                         {...register("phone", {

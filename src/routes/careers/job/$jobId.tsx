@@ -155,305 +155,313 @@ function JobDetailPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 2. Main Content: Apply Form & Role Overview                         */}
+      {/* 2. Role Details & Job Description (Shown First)                     */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="py-10 sm:py-14 lg:py-16">
+      <section className="py-12 sm:py-16 bg-white border-b border-slate-200">
         <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-            {/* Primary Column: Apply Form */}
-            <div className="lg:col-span-7 bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-xs">
-              <div className="mb-6 pb-5 border-b border-slate-100">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
-                    APPLICATION FORM
-                  </span>
-                  <span className="w-8 h-[2px] bg-[#C83B43]" />
-                </div>
-                <h2 className="text-2xl font-extrabold text-[#102B4E] tracking-tight">
-                  Apply for this position
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                  Complete this form to submit your profile directly to our talent acquisition team.
-                </p>
+          <div className="max-w-4xl mx-auto space-y-10">
+            {/* About the Role */}
+            <div>
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  ABOUT THE ROLE
+                </span>
+                <span className="w-8 h-[2px] bg-[#C83B43]" />
               </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#102B4E] tracking-tight mb-4">
+                Position Overview
+              </h2>
+              <p className="text-base text-slate-600 leading-relaxed">
+                {job.summary}
+              </p>
+            </div>
 
-              {submitted ? (
-                <div className="p-8 rounded-xl bg-slate-50 border border-slate-200 text-center space-y-4">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 mx-auto border border-emerald-100">
-                    <CheckCircle2 className="h-7 w-7" />
-                  </span>
-                  <h3 className="text-xl font-bold text-[#102B4E]">Application Received!</h3>
-                  <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                    Thank you, <span className="font-semibold text-[#102B4E]">{fullName}</span>. Your application for <span className="font-semibold text-[#102B4E]">{job.title}</span> has been submitted to our recruitment team. We will review your profile and reach out within 1–2 business days.
-                  </p>
-                  <button
-                    onClick={() => {
-                      setSubmitted(false);
-                      setFullName("");
-                      setEmail("");
-                      setPhone("");
-                      setLocation("");
-                      setExperience("");
-                      setLinkedIn("");
-                      setNotes("");
-                      setFileName(null);
-                    }}
-                    className="btn-cta-secondary inline-flex text-xs font-bold mt-2"
-                  >
-                    Submit Another Application
-                  </button>
+            {/* What You'll Do */}
+            <div className="pt-6 border-t border-slate-100">
+              <h3 className="text-lg sm:text-xl font-bold text-[#102B4E] tracking-tight mb-4 flex items-center gap-2.5">
+                <span className="h-2 w-2 rounded-full bg-[#C83B43]" />
+                What You'll Do
+              </h3>
+              <ul className="space-y-3">
+                {job.responsibilities.map((r) => (
+                  <li key={r} className="flex items-start gap-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[#245B91] mt-0.5" />
+                    <span>{r}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Requirements & Competencies */}
+            <div className="pt-6 border-t border-slate-100">
+              <h3 className="text-lg sm:text-xl font-bold text-[#102B4E] tracking-tight mb-4 flex items-center gap-2.5">
+                <span className="h-2 w-2 rounded-full bg-[#C83B43]" />
+                Requirements & Competencies
+              </h3>
+              <ul className="space-y-3">
+                {job.requirements.map((r) => (
+                  <li key={r} className="flex items-start gap-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[#245B91] mt-0.5" />
+                    <span>{r}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Nice to Have */}
+            {job.niceToHave && job.niceToHave.length > 0 && (
+              <div className="pt-6 border-t border-slate-100">
+                <h3 className="text-lg sm:text-xl font-bold text-[#102B4E] tracking-tight mb-4 flex items-center gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-[#C83B43]" />
+                  Nice to Have
+                </h3>
+                <div className="flex flex-wrap gap-2.5">
+                  {job.niceToHave.map((n) => (
+                    <span
+                      key={n}
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-blue-50 border border-blue-100 px-3.5 py-1.5 text-xs font-semibold text-blue-700"
+                    >
+                      <Sparkles className="h-3.5 w-3.5 text-[#245B91]" /> {n}
+                    </span>
+                  ))}
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        value={fullName}
-                        onChange={(e) => {
-                          setFullName(e.target.value);
-                          if (errors.fullName) setErrors((prev) => ({ ...prev, fullName: "" }));
-                        }}
-                        onBlur={() => {
-                          if (!fullName.trim()) {
-                            setErrors((prev) => ({ ...prev, fullName: "Full name is required" }));
-                          }
-                        }}
-                        placeholder="Enter full name"
-                        className={inputClass(Boolean(errors.fullName))}
-                      />
-                      {errors.fullName && (
-                        <p className="mt-1 text-xs text-[#C83B43]">{errors.fullName}</p>
-                      )}
-                    </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
 
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider">
-                          Email Address *
-                        </label>
-                        <span className="text-[11px] text-slate-500 font-normal">Either email or phone</span>
-                      </div>
-                      <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => {
-                          setEmail(e.target.value);
-                          if (errors.phone && e.target.value.trim()) {
-                            setErrors((prev) => ({ ...prev, phone: "", email: "" }));
-                          }
-                        }}
-                        onBlur={() => {
-                          if (!email.trim() && !phone.trim()) {
-                            setErrors((prev) => ({ ...prev, email: "Email or phone number is required" }));
-                          }
-                        }}
-                        placeholder="Enter email"
-                        className={inputClass(Boolean(errors.email))}
-                      />
-                      {errors.email && (
-                        <p className="mt-1 text-xs text-[#C83B43]">{errors.email}</p>
-                      )}
-                    </div>
-                  </div>
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* 3. Application Form (Shown Below Role Details)                      */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section id="apply-form" className="py-12 sm:py-16 bg-[#F3F5F8]">
+        <div className="container-enterprise">
+          <div className="max-w-4xl mx-auto bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-10 shadow-xs">
+            <div className="mb-8 pb-5 border-b border-slate-100">
+              <div className="flex items-center gap-2.5 mb-2">
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
+                  APPLICATION FORM
+                </span>
+                <span className="w-8 h-[2px] bg-[#C83B43]" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#102B4E] tracking-tight">
+                Apply for this position
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                Complete this form to submit your profile directly to our talent acquisition team for {job.title}.
+              </p>
+            </div>
 
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider">
-                          Phone Number *
-                        </label>
-                        <span className="text-[11px] text-slate-500 font-normal">Either email or phone</span>
-                      </div>
-                      <input
-                        type="tel"
-                        value={phone}
-                        onChange={(e) => {
-                          setPhone(e.target.value);
-                          if (errors.email && e.target.value.trim()) {
-                            setErrors((prev) => ({ ...prev, email: "", phone: "" }));
-                          }
-                        }}
-                        onBlur={() => {
-                          if (!phone.trim() && !email.trim()) {
-                            setErrors((prev) => ({ ...prev, phone: "Email or phone number is required" }));
-                          }
-                        }}
-                        placeholder="Enter phone number"
-                        className={inputClass(Boolean(errors.phone))}
-                      />
-                      {errors.phone && (
-                        <p className="mt-1 text-xs text-[#C83B43]">{errors.phone}</p>
-                      )}
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
-                        Current Location
-                      </label>
-                      <input
-                        type="text"
-                        value={location}
-                        onChange={(e) => setLocation(e.target.value)}
-                        placeholder="City, State / Country"
-                        className={inputClass()}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
-                        Total Experience
-                      </label>
-                      <input
-                        type="text"
-                        value={experience}
-                        onChange={(e) => setExperience(e.target.value)}
-                        placeholder="e.g. 5+ years"
-                        className={inputClass()}
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
-                        LinkedIn / Portfolio URL
-                      </label>
-                      <input
-                        type="url"
-                        value={linkedIn}
-                        onChange={(e) => setLinkedIn(e.target.value)}
-                        placeholder="https://linkedin.com/in/..."
-                        className={inputClass()}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Resume Upload Area */}
+            {submitted ? (
+              <div className="p-8 rounded-xl bg-slate-50 border border-slate-200 text-center space-y-4">
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 mx-auto border border-emerald-100">
+                  <CheckCircle2 className="h-7 w-7" />
+                </span>
+                <h3 className="text-xl font-bold text-[#102B4E]">Application Received!</h3>
+                <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+                  Thank you, <span className="font-semibold text-[#102B4E]">{fullName}</span>. Your application for <span className="font-semibold text-[#102B4E]">{job.title}</span> has been submitted to our recruitment team. We will review your profile and reach out within 1–2 business days.
+                </p>
+                <button
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFullName("");
+                    setEmail("");
+                    setPhone("");
+                    setLocation("");
+                    setExperience("");
+                    setLinkedIn("");
+                    setNotes("");
+                    setFileName(null);
+                  }}
+                  className="btn-cta-secondary inline-flex text-xs font-bold mt-2"
+                >
+                  Submit Another Application
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
-                      Upload Resume / CV (PDF, DOCX)
+                      Full Name *
                     </label>
                     <input
-                      ref={fileInputRef}
-                      type="file"
-                      accept=".pdf,.doc,.docx"
-                      onChange={handleFileChange}
-                      className="hidden"
+                      type="text"
+                      value={fullName}
+                      onChange={(e) => {
+                        setFullName(e.target.value);
+                        if (errors.fullName) setErrors((prev) => ({ ...prev, fullName: "" }));
+                      }}
+                      onBlur={() => {
+                        if (!fullName.trim()) {
+                          setErrors((prev) => ({ ...prev, fullName: "Full name is required" }));
+                        }
+                      }}
+                      placeholder="Enter full name"
+                      className={inputClass(Boolean(errors.fullName))}
                     />
-                    <div
-                      onClick={() => fileInputRef.current?.click()}
-                      className="flex flex-col items-center justify-center p-6 border-2 border-dashed border-slate-300 hover:border-[#245B91] hover:bg-blue-50/30 rounded-xl cursor-pointer transition-all bg-slate-50/50 text-center"
-                    >
-                      {fileName ? (
-                        <div className="flex items-center gap-2 text-sm font-semibold text-[#102B4E]">
-                          <FileText className="h-5 w-5 text-[#245B91]" />
-                          <span>{fileName}</span>
-                          <span className="text-xs text-slate-400 font-normal">(Click to replace)</span>
-                        </div>
-                      ) : (
-                        <>
-                          <Upload className="h-7 w-7 text-[#245B91] mb-2" />
-                          <p className="text-sm font-semibold text-[#102B4E]">
-                            Click to browse or drag & drop your resume
-                          </p>
-                          <p className="text-xs text-slate-400 mt-1">
-                            PDF, DOC, DOCX up to 10MB
-                          </p>
-                        </>
-                      )}
-                    </div>
+                    {errors.fullName && (
+                      <p className="mt-1 text-xs text-[#C83B43]">{errors.fullName}</p>
+                    )}
                   </div>
 
                   <div>
                     <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
-                      Cover Note / Relevant Qualifications
+                      Email Address *
                     </label>
-                    <textarea
-                      value={notes}
-                      onChange={(e) => setNotes(e.target.value)}
-                      rows={3}
-                      placeholder="Briefly highlight your key technical skills, certifications, and why you are interested in this position..."
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        if (errors.phone && e.target.value.trim()) {
+                          setErrors((prev) => ({ ...prev, phone: "", email: "" }));
+                        }
+                      }}
+                      onBlur={() => {
+                        if (!email.trim() && !phone.trim()) {
+                          setErrors((prev) => ({ ...prev, email: "Email or phone number is required" }));
+                        }
+                      }}
+                      placeholder="Enter email"
+                      className={inputClass(Boolean(errors.email))}
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-xs text-[#C83B43]">{errors.email}</p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      value={phone}
+                      onChange={(e) => {
+                        setPhone(e.target.value);
+                        if (errors.email && e.target.value.trim()) {
+                          setErrors((prev) => ({ ...prev, email: "", phone: "" }));
+                        }
+                      }}
+                      onBlur={() => {
+                        if (!phone.trim() && !email.trim()) {
+                          setErrors((prev) => ({ ...prev, phone: "Email or phone number is required" }));
+                        }
+                      }}
+                      placeholder="Enter phone number"
+                      className={inputClass(Boolean(errors.phone))}
+                    />
+                    {errors.phone && (
+                      <p className="mt-1 text-xs text-[#C83B43]">{errors.phone}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                      Current Location
+                    </label>
+                    <input
+                      type="text"
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                      placeholder="City, State / Country"
+                      className={inputClass()}
+                    />
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                      Total Experience
+                    </label>
+                    <input
+                      type="text"
+                      value={experience}
+                      onChange={(e) => setExperience(e.target.value)}
+                      placeholder="e.g. 5+ years"
                       className={inputClass()}
                     />
                   </div>
 
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      disabled={submitting}
-                      className="btn-cta-primary inline-flex items-center justify-center gap-2 text-sm font-bold shadow-md cursor-pointer disabled:opacity-70 w-full sm:w-auto"
-                    >
-                      {submitting ? "Submitting Application..." : `Submit Application for ${job.title}`}
-                      <Send className="h-4 w-4" />
-                    </button>
+                  <div>
+                    <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                      LinkedIn / Portfolio URL
+                    </label>
+                    <input
+                      type="url"
+                      value={linkedIn}
+                      onChange={(e) => setLinkedIn(e.target.value)}
+                      placeholder="https://linkedin.com/in/..."
+                      className={inputClass()}
+                    />
                   </div>
-                </form>
-              )}
-            </div>
-
-            {/* Secondary Column: Job Details & Requirements */}
-            <aside className="lg:col-span-5 space-y-6">
-              <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-xs">
-                <div className="border-l-[3px] border-[#C83B43] pl-3 mb-4">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#102B4E]">
-                    Role Details
-                  </h3>
-                </div>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {job.summary}
-                </p>
-
-                <div className="mt-6 pt-5 border-t border-slate-100">
-                  <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#102B4E] mb-3">
-                    What You'll Do
-                  </h4>
-                  <ul className="space-y-2.5">
-                    {job.responsibilities.map((r) => (
-                      <li key={r} className="flex items-start gap-2.5 text-xs text-slate-600 leading-relaxed">
-                        <CheckCircle2 className="h-4 w-4 shrink-0 text-[#245B91] mt-0.5" />
-                        <span>{r}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-slate-100">
-                  <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#102B4E] mb-3">
-                    Requirements & Competencies
-                  </h4>
-                  <ul className="space-y-2.5">
-                    {job.requirements.map((r) => (
-                      <li key={r} className="flex items-start gap-2.5 text-xs text-slate-600 leading-relaxed">
-                        <CheckCircle2 className="h-4 w-4 shrink-0 text-[#245B91] mt-0.5" />
-                        <span>{r}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {job.niceToHave && job.niceToHave.length > 0 && (
-                  <div className="mt-6 pt-5 border-t border-slate-100">
-                    <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#102B4E] mb-3">
-                      Nice to Have
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {job.niceToHave.map((n) => (
-                        <span
-                          key={n}
-                          className="inline-flex items-center gap-1.5 rounded-lg bg-blue-50 border border-blue-100 px-3 py-1 text-xs font-semibold text-blue-700"
-                        >
-                          <Sparkles className="h-3 w-3 text-[#245B91]" /> {n}
-                        </span>
-                      ))}
-                    </div>
+                {/* Resume Upload Area */}
+                <div>
+                  <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                    Upload Resume / CV (PDF, DOCX)
+                  </label>
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    onChange={handleFileChange}
+                    className="hidden"
+                  />
+                  <div
+                    onClick={() => fileInputRef.current?.click()}
+                    className="flex flex-col items-center justify-center p-6 border-2 border-dashed border-slate-300 hover:border-[#245B91] hover:bg-blue-50/30 rounded-xl cursor-pointer transition-all bg-slate-50/50 text-center"
+                  >
+                    {fileName ? (
+                      <div className="flex items-center gap-2 text-sm font-semibold text-[#102B4E]">
+                        <FileText className="h-5 w-5 text-[#245B91]" />
+                        <span>{fileName}</span>
+                        <span className="text-xs text-slate-400 font-normal">(Click to replace)</span>
+                      </div>
+                    ) : (
+                      <>
+                        <Upload className="h-7 w-7 text-[#245B91] mb-2" />
+                        <p className="text-sm font-semibold text-[#102B4E]">
+                          Click to browse or drag & drop your resume
+                        </p>
+                        <p className="text-xs text-slate-400 mt-1">
+                          PDF, DOC, DOCX up to 10MB
+                        </p>
+                      </>
+                    )}
                   </div>
-                )}
-              </div>
-            </aside>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                    Cover Note / Relevant Qualifications
+                  </label>
+                  <textarea
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                    rows={3}
+                    placeholder="Briefly highlight your key technical skills, certifications, and why you are interested in this position..."
+                    className={inputClass()}
+                  />
+                </div>
+
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="btn-cta-primary inline-flex items-center justify-center gap-2 text-sm font-bold shadow-md cursor-pointer disabled:opacity-70 w-full sm:w-auto"
+                  >
+                    {submitting ? "Submitting Application..." : `Submit Application for ${job.title}`}
+                    <Send className="h-4 w-4" />
+                  </button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </section>
