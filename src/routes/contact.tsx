@@ -15,6 +15,7 @@ import {
   Building2,
   ArrowRight,
   Briefcase,
+  ChevronDown,
 } from "lucide-react";
 import contactHeroBg from "@/assets/mutliclutural-contact-bg.png";
 import { InteractiveLeafletMap } from "@/components/InteractiveLeafletMap";
@@ -47,6 +48,13 @@ const AREAS_OF_INTEREST = [
   "Specialist Workforce & Staffing",
   "GCC Establishment & Scaling",
   "General Enterprise Enquiry",
+];
+
+const TIMELINE_OPTIONS = [
+  "Immediate / Within 1 month",
+  "1–3 months",
+  "3–6 months",
+  "Planning / Exploratory",
 ];
 
 // Blueprint Section 14: What to expect
@@ -90,17 +98,58 @@ const OFFICES = [
   },
 ];
 
-const schema = z.object({
-  name: z.string().min(2, "Please enter your name"),
-  email: z.string().email("Please enter a valid work email"),
-  phone: z.string().min(7, "Please enter a valid phone number"),
-  company: z.string().min(2, "Please enter your company name"),
-  jobTitle: z.string().min(2, "Please enter your job title"),
-  areaOfInterest: z.string().min(1, "Please select an area of interest"),
-  message: z.string().min(10, "Please describe your requirement"),
-  timeline: z.string().optional(),
-  honeypot: z.string().max(0, "Bot detected"),
-});
+const schema = z
+  .object({
+    name: z.string().trim().min(2, "Full name is required"),
+    email: z.string().trim().optional().or(z.literal("")),
+    phone: z.string().trim().optional().or(z.literal("")),
+    company: z.string().trim().min(2, "Company name is required"),
+    jobTitle: z.string().trim().min(2, "Job title is required"),
+    areaOfInterest: z.string().min(1, "Please select an area of interest"),
+    timeline: z.string().optional(),
+    message: z.string().trim().min(10, "Please describe your requirement (min 10 characters)"),
+    honeypot: z.string().max(0, "Bot detected"),
+  })
+  .superRefine((data, ctx) => {
+    const hasEmail = Boolean(data.email && data.email.trim().length > 0);
+    const hasPhone = Boolean(data.phone && data.phone.trim().length > 0);
+
+    // Either email or phone is required
+    if (!hasEmail && !hasPhone) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Email or phone number is required",
+        path: ["email"],
+      });
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Email or phone number is required",
+        path: ["phone"],
+      });
+    }
+
+    if (hasEmail) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(data.email!.trim())) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Please enter a valid work email",
+          path: ["email"],
+        });
+      }
+    }
+
+    if (hasPhone) {
+      const cleaned = data.phone!.replace(/[^0-9+]/g, "");
+      if (cleaned.length < 7) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Please enter a valid phone number",
+          path: ["phone"],
+        });
+      }
+    }
+  });
 
 type ContactFormData = z.infer<typeof schema>;
 
@@ -111,14 +160,22 @@ function ContactPage() {
   const {
     register,
     handleSubmit,
+    trigger,
     reset,
     formState: { errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(schema),
+    mode: "onBlur",
+    reValidateMode: "onChange",
     defaultValues: {
+      name: "",
+      email: "",
       phone: "",
+      company: "",
+      jobTitle: "",
       areaOfInterest: AREAS_OF_INTEREST[0],
-      timeline: "Immediate / Within 1 month",
+      timeline: TIMELINE_OPTIONS[0],
+      message: "",
       honeypot: "",
     },
   });
@@ -130,6 +187,13 @@ function ContactPage() {
     setSubmitted(true);
     reset();
   };
+
+  const inputClass = (hasError?: boolean) =>
+    `w-full rounded-lg border bg-white px-4 py-2.5 text-sm text-[#102B4E] transition-colors focus:outline-none ${
+      hasError
+        ? "border-red-400 bg-red-50/20 focus:border-red-500 focus:ring-1 focus:ring-red-500/20"
+        : "border-slate-300 focus:border-[#102B4E] focus:ring-1 focus:ring-[#102B4E]/10"
+    }`;
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -235,8 +299,8 @@ function ContactPage() {
                       <input
                         type="text"
                         {...register("name")}
-                        placeholder="John Doe"
-                        className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E]"
+                        placeholder="Enter your name"
+                        className={inputClass(Boolean(errors.name))}
                       />
                       {errors.name && (
                         <p className="mt-1 text-xs text-[#C83B43]">{errors.name.message}</p>
@@ -244,14 +308,24 @@ function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
-                        Business Email *
-                      </label>
+                      <div className="flex items-center justify-between mb-2">
+                        <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider">
+                          Business Email *
+                        </label>
+                        <span className="text-[11px] text-slate-500 font-normal">Either email or phone</span>
+                      </div>
                       <input
                         type="email"
-                        {...register("email")}
-                        placeholder="john@enterprise.com"
-                        className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E]"
+                        {...register("email", {
+                          onBlur: () => {
+                            trigger(["email", "phone"]);
+                          },
+                          onChange: () => {
+                            if (errors.phone) trigger("phone");
+                          },
+                        })}
+                        placeholder="Enter email"
+                        className={inputClass(Boolean(errors.email))}
                       />
                       {errors.email && (
                         <p className="mt-1 text-xs text-[#C83B43]">{errors.email.message}</p>
@@ -261,14 +335,24 @@ function ContactPage() {
 
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
-                        Phone Number *
-                      </label>
+                      <div className="flex items-center justify-between mb-2">
+                        <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider">
+                          Phone Number *
+                        </label>
+                        <span className="text-[11px] text-slate-500 font-normal">Either email or phone</span>
+                      </div>
                       <input
                         type="tel"
-                        {...register("phone")}
-                        placeholder="+1 (555) 000-0000"
-                        className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E]"
+                        {...register("phone", {
+                          onBlur: () => {
+                            trigger(["email", "phone"]);
+                          },
+                          onChange: () => {
+                            if (errors.email) trigger("email");
+                          },
+                        })}
+                        placeholder="Enter phone number"
+                        className={inputClass(Boolean(errors.phone))}
                       />
                       {errors.phone && (
                         <p className="mt-1 text-xs text-[#C83B43]">{errors.phone.message}</p>
@@ -282,59 +366,71 @@ function ContactPage() {
                       <input
                         type="text"
                         {...register("company")}
-                        placeholder="Enterprise Org"
-                        className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E]"
+                        placeholder="Enter company name"
+                        className={inputClass(Boolean(errors.company))}
                       />
                       {errors.company && (
                         <p className="mt-1 text-xs text-[#C83B43]">{errors.company.message}</p>
                       )}
                     </div>
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
-                        Job Title / Role *
-                      </label>
-                      <input
-                        type="text"
-                        {...register("jobTitle")}
-                        placeholder="VP Engineering / Director"
-                        className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E]"
-                      />
-                      {errors.jobTitle && (
-                        <p className="mt-1 text-xs text-[#C83B43]">{errors.jobTitle.message}</p>
-                      )}
-                    </div>
+                  </div>
 
+                  <div>
+                    <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
+                      Job Title / Role *
+                    </label>
+                    <input
+                      type="text"
+                      {...register("jobTitle")}
+                      placeholder="Enter job title / role"
+                      className={inputClass(Boolean(errors.jobTitle))}
+                    />
+                    {errors.jobTitle && (
+                      <p className="mt-1 text-xs text-[#C83B43]">{errors.jobTitle.message}</p>
+                    )}
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
                         Area of Interest *
                       </label>
-                      <select
-                        {...register("areaOfInterest")}
-                        className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E] bg-white"
-                      >
-                        {AREAS_OF_INTEREST.map((area) => (
-                          <option key={area} value={area}>
-                            {area}
-                          </option>
-                        ))}
-                      </select>
+                      <div className="relative">
+                        <select
+                          {...register("areaOfInterest")}
+                          className="w-full appearance-none rounded-lg border border-slate-300 bg-white px-4 py-2.5 pr-10 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E] cursor-pointer"
+                        >
+                          {AREAS_OF_INTEREST.map((area) => (
+                            <option key={area} value={area}>
+                              {area}
+                            </option>
+                          ))}
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-slate-500">
+                          <ChevronDown className="h-4 w-4" />
+                        </div>
+                      </div>
                     </div>
-                  </div>
 
                     <div>
                       <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
                         Expected Timeline (Optional)
                       </label>
-                      <select
-                        {...register("timeline")}
-                        className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E] bg-white"
-                      >
-                        <option value="Immediate / Within 1 month">Immediate / Within 1 month</option>
-                        <option value="1–3 months">1–3 months</option>
-                        <option value="3–6 months">3–6 months</option>
-                        <option value="Planning / Exploratory">Planning / Exploratory</option>
-                      </select>
+                      <div className="relative">
+                        <select
+                          {...register("timeline")}
+                          className="w-full appearance-none rounded-lg border border-slate-300 bg-white px-4 py-2.5 pr-10 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E] cursor-pointer"
+                        >
+                          {TIMELINE_OPTIONS.map((time) => (
+                            <option key={time} value={time}>
+                              {time}
+                            </option>
+                          ))}
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-slate-500">
+                          <ChevronDown className="h-4 w-4" />
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -345,8 +441,8 @@ function ContactPage() {
                     <textarea
                       {...register("message")}
                       rows={4}
-                      placeholder="Briefly describe the initiative, technical environment, desired skill profile or delivery challenge..."
-                      className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E]"
+                      placeholder="Describe your initiative, technical environment, desired skill profile or delivery challenge..."
+                      className={inputClass(Boolean(errors.message))}
                     />
                     {errors.message && (
                       <p className="mt-1 text-xs text-[#C83B43]">{errors.message.message}</p>

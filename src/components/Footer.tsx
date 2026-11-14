@@ -17,11 +17,11 @@ function FooterLink({
       <Link
         to={to}
         hash={hash}
-        className="relative inline-block text-slate-600 hover:text-[#102B4E] transition-colors duration-200 py-0.5 group text-xs leading-relaxed"
+        className="relative inline-block text-slate-600 hover:text-[#102B4E] transition-colors duration-200 py-1 group text-[13.5px] font-medium leading-relaxed"
       >
         <span>{children}</span>
-        {/* Animated expanding gold underline on hover */}
-        <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#f5a623] to-[#d98218] transition-all duration-300 ease-out group-hover:w-full pointer-events-none" />
+        {/* Animated expanding brand red underline on hover */}
+        <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#C83B43] transition-all duration-300 ease-out group-hover:w-full pointer-events-none" />
       </Link>
     </li>
   );
@@ -30,9 +30,6 @@ function FooterLink({
 export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-white text-slate-600 border-t border-slate-200">
-      {/* Subtle top gold gradient accent line */}
-      <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#f5a623] to-transparent opacity-80" />
-
       <div className="relative mx-auto max-w-7xl px-4 py-12 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           {/* Logo & Tagline */}
@@ -41,14 +38,14 @@ export function Footer() {
             <p className="mt-3.5 text-xs text-slate-500 leading-relaxed max-w-xs">
               The Right Talent. Faster. At Scale. Connecting enterprise priorities with specialist technology and workforce solutions.
             </p>
-            {/* Social Links with gold hover touch */}
+            {/* Social Links */}
             <div className="mt-5 flex items-center gap-2.5">
               <a
                 href="https://www.linkedin.com/company/configusa"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0A66C2] text-white hover:opacity-90 hover:ring-2 hover:ring-[#f5a623] transition-all"
+                className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0A66C2] text-white hover:opacity-90 hover:ring-2 hover:ring-[#102B4E] transition-all"
               >
                 <Linkedin className="h-4 w-4" />
               </a>
@@ -57,7 +54,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter / X"
-                className="flex h-8 w-8 items-center justify-center rounded-lg bg-black text-white hover:opacity-90 hover:ring-2 hover:ring-[#f5a623] transition-all"
+                className="flex h-8 w-8 items-center justify-center rounded-lg bg-black text-white hover:opacity-90 hover:ring-2 hover:ring-[#102B4E] transition-all"
               >
                 <Twitter className="h-4 w-4" />
               </a>
@@ -66,13 +63,10 @@ export function Footer() {
 
           {/* Capabilities Column */}
           <div>
-            <div className="flex items-center gap-2 mb-3.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#f5a623]" />
-              <h4 className="text-[#102B4E] font-extrabold text-xs uppercase tracking-wider">
-                Capabilities
-              </h4>
-            </div>
-            <ul className="space-y-1.5">
+            <h4 className="text-[#102B4E] font-extrabold text-xs uppercase tracking-wider mb-3.5">
+              Capabilities
+            </h4>
+            <ul className="space-y-1">
               <FooterLink to="/services/ai">AI & Intelligent Solutions</FooterLink>
               <FooterLink to="/services/forward-deployed-engineering">Forward-Deployed Engineering</FooterLink>
               <FooterLink to="/services/palantir">Palantir Talent & Workforce</FooterLink>
@@ -85,13 +79,10 @@ export function Footer() {
 
           {/* Industries Column */}
           <div>
-            <div className="flex items-center gap-2 mb-3.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#f5a623]" />
-              <h4 className="text-[#102B4E] font-extrabold text-xs uppercase tracking-wider">
-                Industries
-              </h4>
-            </div>
-            <ul className="space-y-1.5">
+            <h4 className="text-[#102B4E] font-extrabold text-xs uppercase tracking-wider mb-3.5">
+              Industries
+            </h4>
+            <ul className="space-y-1">
               <FooterLink to="/industries">Financial Services</FooterLink>
               <FooterLink to="/industries">Healthcare & Life Sciences</FooterLink>
               <FooterLink to="/industries">Manufacturing & Industrial</FooterLink>
@@ -102,13 +93,10 @@ export function Footer() {
 
           {/* Company Column */}
           <div>
-            <div className="flex items-center gap-2 mb-3.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#f5a623]" />
-              <h4 className="text-[#102B4E] font-extrabold text-xs uppercase tracking-wider">
-                Company
-              </h4>
-            </div>
-            <ul className="space-y-1.5">
+            <h4 className="text-[#102B4E] font-extrabold text-xs uppercase tracking-wider mb-3.5">
+              Company
+            </h4>
+            <ul className="space-y-1">
               <FooterLink to="/about">About Us</FooterLink>
               <FooterLink to="/global-delivery">Global Delivery</FooterLink>
               <FooterLink to="/careers">Careers</FooterLink>
@@ -119,13 +107,10 @@ export function Footer() {
 
           {/* Insights Column */}
           <div>
-            <div className="flex items-center gap-2 mb-3.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#f5a623]" />
-              <h4 className="text-[#102B4E] font-extrabold text-xs uppercase tracking-wider">
-                Insights
-              </h4>
-            </div>
-            <ul className="space-y-1.5">
+            <h4 className="text-[#102B4E] font-extrabold text-xs uppercase tracking-wider mb-3.5">
+              Insights
+            </h4>
+            <ul className="space-y-1">
               <FooterLink to="/resources" hash="perspectives">Perspectives</FooterLink>
               <FooterLink to="/case-studies">Case Studies</FooterLink>
               <FooterLink to="/resources" hash="articles">Articles & Reports</FooterLink>
@@ -133,24 +118,24 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Legal Bar with Animated Expanding Gold Underline & FAQ Removed */}
+        {/* Legal Bar with Animated Expanding Brand Underline & FAQ Removed */}
         <div className="mt-10 pt-6 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© 2026 ConfigUSA. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <Link
               to="/privacy"
-              className="relative inline-block text-slate-500 hover:text-[#102B4E] font-medium transition-colors py-0.5 group"
+              className="relative inline-block text-slate-600 hover:text-[#102B4E] font-medium transition-colors py-0.5 group"
             >
               <span>Privacy Policy</span>
-              <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#f5a623] to-[#d98218] transition-all duration-300 ease-out group-hover:w-full pointer-events-none" />
+              <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#C83B43] transition-all duration-300 ease-out group-hover:w-full pointer-events-none" />
             </Link>
             <span className="text-slate-300">|</span>
             <Link
               to="/terms"
-              className="relative inline-block text-slate-500 hover:text-[#102B4E] font-medium transition-colors py-0.5 group"
+              className="relative inline-block text-slate-600 hover:text-[#102B4E] font-medium transition-colors py-0.5 group"
             >
               <span>Terms of Use</span>
-              <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#f5a623] to-[#d98218] transition-all duration-300 ease-out group-hover:w-full pointer-events-none" />
+              <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#C83B43] transition-all duration-300 ease-out group-hover:w-full pointer-events-none" />
             </Link>
           </div>
         </div>

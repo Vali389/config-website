@@ -25,46 +25,32 @@ export function LegalPage({
   sections: LegalSection[];
 }) {
   return (
-    <div className="min-h-screen bg-slate-50/60">
+    <div className="min-h-screen bg-[#F3F5F8]/70">
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 1. Hero Section (Executive Navy & Gold Brand Theme)                 */}
+      {/* 1. Hero Section (Plain Executive Navy Brand Theme - No Gold)        */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[380px] sm:min-h-[420px] lg:min-h-[460px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-28 pb-14 lg:pt-36 lg:pb-16 border-b border-[#1b3a63]">
-        {/* Ambient subtle glow & pattern */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-[#f5a623]/10 blur-3xl" />
-          <div className="absolute -bottom-24 right-0 h-96 w-96 rounded-full bg-[#245B91]/30 blur-3xl" />
-          <div
-            className="absolute inset-0 opacity-[0.07]"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
-              backgroundSize: "40px 40px",
-            }}
-          />
-        </div>
-
+      <section className="relative min-h-[340px] sm:min-h-[380px] lg:min-h-[420px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-28 pb-12 lg:pt-32 lg:pb-14 border-b border-[#1b3a63]">
         <div className="container-enterprise relative z-10 w-full">
-          <div className="max-w-3xl">
-            {/* Eyebrow with Brand Gold Line */}
-            <div className="flex items-center gap-3 mb-3">
-              <span className="w-8 h-[2px] bg-[#f5a623]" aria-hidden="true" />
-              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-[#f5a623]">
-                Trust, Compliance & Governance
+          <div className="max-w-3xl space-y-4">
+            {/* Eyebrow with Brand Red Line */}
+            <div className="flex items-center gap-2.5">
+              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#e2e8f0]">
+                TRUST, COMPLIANCE & GOVERNANCE
               </span>
+              <span className="w-10 h-[3px] bg-[#C83B43]" aria-hidden="true" />
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
               {kind}
             </h1>
 
-            <p className="mt-4 text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-[#e2e8f0] leading-relaxed max-w-2xl">
               {intro}
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-300">
+            <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-300">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 backdrop-blur-xs text-white">
-                <Calendar className="h-3.5 w-3.5 text-[#f5a623]" />
+                <Calendar className="h-3.5 w-3.5 text-slate-300" />
                 Effective: {updated}
               </span>
               <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-emerald-300">
@@ -86,7 +72,7 @@ export function LegalPage({
             <aside className="hidden lg:block sticky top-28">
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
                 <div className="flex items-center gap-2.5 pb-3.5 mb-3 border-b border-slate-100">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#102B4E] text-[#f5a623] shadow-2xs">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#102B4E] text-white shadow-2xs">
                     <ShieldCheck className="h-4 w-4" />
                   </span>
                   <div>
@@ -103,9 +89,9 @@ export function LegalPage({
                       <li key={s.heading}>
                         <a
                           href={`#${slug(s.heading)}`}
-                          className="group flex items-start gap-2.5 px-3 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:text-[#102B4E] hover:bg-slate-50 transition-all border-l-2 border-transparent hover:border-[#f5a623]"
+                          className="group flex items-start gap-2.5 px-3 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:text-[#102B4E] hover:bg-slate-50 transition-all border-l-2 border-transparent hover:border-[#C83B43]"
                         >
-                          <span className="text-[11px] font-mono font-bold text-[#f5a623] pt-0.5 shrink-0">
+                          <span className="text-[11px] font-mono font-bold text-[#245B91] pt-0.5 shrink-0">
                             {String(i + 1).padStart(2, "0")}
                           </span>
                           <span className="leading-snug group-hover:translate-x-0.5 transition-transform">
@@ -135,13 +121,13 @@ export function LegalPage({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.35, delay: i * 0.02 }}
-                    className="scroll-mt-28 rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-xs hover:border-[#f5a623]/60 hover:shadow-md transition-all duration-300 relative overflow-hidden group"
+                    className="scroll-mt-28 rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-xs hover:border-[#245B91]/60 hover:shadow-md transition-all duration-300 relative overflow-hidden group"
                   >
-                    {/* Top subtle gold hover accent bar */}
-                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#102B4E] via-[#f5a623] to-[#102B4E] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {/* Top subtle red hover accent bar */}
+                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#102B4E] via-[#C83B43] to-[#102B4E] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#102B4E] text-[#f5a623] font-mono text-xs font-bold shadow-2xs shrink-0">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#102B4E] text-white font-mono text-xs font-bold shadow-2xs shrink-0">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <h2 className="text-lg sm:text-xl font-extrabold text-[#102B4E] tracking-tight">
@@ -159,12 +145,10 @@ export function LegalPage({
               </div>
 
               {/* Bottom Compliance Contact Banner */}
-              <div className="mt-10 rounded-2xl bg-gradient-to-br from-[#102B4E] via-[#102B4E] to-[#1b3a63] p-6 sm:p-8 text-white shadow-lg border border-[#f5a623]/30 relative overflow-hidden">
-                <div className="absolute -top-12 -right-12 h-44 w-44 rounded-full bg-[#f5a623]/15 blur-2xl pointer-events-none" />
-
+              <div className="mt-10 rounded-2xl bg-[#102B4E] p-6 sm:p-8 text-white shadow-lg border border-[#1b3a63] relative overflow-hidden">
                 <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                   <div className="flex items-center gap-4">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#f5a623] to-[#d98218] text-[#102B4E] shadow-md">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#245B91] text-white shadow-md">
                       <Mail className="h-6 w-6" />
                     </span>
                     <div>
@@ -178,9 +162,9 @@ export function LegalPage({
                   </div>
                   <a
                     href="mailto:info@configusa.com"
-                    className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-[#f5a623] px-6 py-3 text-xs sm:text-sm font-bold text-[#102B4E] hover:bg-[#d98218] transition-all shadow-md hover:-translate-y-0.5"
+                    className="btn-cta-primary inline-flex items-center gap-2 text-xs sm:text-sm font-bold shadow-md shrink-0"
                   >
-                    Contact Compliance <ArrowRight className="h-4 w-4" />
+                    Contact Legal Team <ArrowRight className="h-4 w-4" />
                   </a>
                 </div>
               </div>
