@@ -11,7 +11,7 @@ export const Route = createFileRoute("/privacy")({
   component: () => (
     <LegalPage
       kind="Privacy Policy"
-      updated="July 2026"
+      updated="November 2026"
       intro="Your privacy matters to us. This policy explains what information we collect, how we use it, and the choices you have."
       sections={SECTIONS}
     />

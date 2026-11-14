@@ -11,7 +11,7 @@ export const Route = createFileRoute("/terms")({
   component: () => (
     <LegalPage
       kind="Terms & Conditions"
-      updated="July 2026"
+      updated="November 2026"
       intro="These terms govern your use of the ConfigUSA website and services. By using our site, you agree to the terms below."
       sections={SECTIONS}
     />
