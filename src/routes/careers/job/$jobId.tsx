@@ -18,6 +18,7 @@ import {
   X,
 } from "lucide-react";
 import { getJob, JOBS } from "@/data/jobs";
+import { CorporateToast } from "@/components/CorporateToast";
 
 export const Route = createFileRoute("/careers/job/$jobId")({
   head: ({ params }) => {
@@ -69,32 +70,27 @@ function JobDetailPage() {
     );
   }
 
-  useEffect(() => {
-    if (submitted) {
-      const timer = setTimeout(() => setSubmitted(false), 8000);
-      return () => clearTimeout(timer);
-    }
-  }, [submitted]);
+  const isEmailValid = Boolean(
+    email.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
+  );
+  const isPhoneValid = !phone.trim() || phone.replace(/[^0-9+]/g, "").length >= 7;
 
-  const hasValidContact =
-    (Boolean(email.trim()) && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) ||
-    (Boolean(phone.trim()) && phone.replace(/[^0-9+]/g, "").length >= 7);
-
-  const isFormValid = Boolean(fullName.trim().length >= 2 && hasValidContact);
+  const isFormValid = Boolean(
+    fullName.trim().length >= 2 && isEmailValid && isPhoneValid
+  );
 
   const validate = () => {
     const errs: Record<string, string> = {};
-    if (!fullName.trim()) errs.fullName = "Full name is required";
-    if (!email.trim() && !phone.trim()) {
+    if (!fullName.trim() || fullName.trim().length < 2) {
+      errs.fullName = "Full name is required";
+    }
+    if (!email.trim()) {
       errs.email = "Email is required";
-      errs.phone = "Phone number is required";
-    } else {
-      if (email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-        errs.email = "Please enter a valid work email";
-      }
-      if (phone.trim() && phone.replace(/[^0-9+]/g, "").length < 7) {
-        errs.phone = "Please enter a valid phone number";
-      }
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      errs.email = "Please enter a valid work email";
+    }
+    if (phone.trim() && phone.replace(/[^0-9+]/g, "").length < 7) {
+      errs.phone = "Please enter a valid phone number";
     }
     setErrors(errs);
     return Object.keys(errs).length === 0;
@@ -124,32 +120,14 @@ function JobDetailPage() {
 
   return (
     <div className="min-h-screen bg-[#F3F5F8]/60">
-      {/* Top Success Toast */}
-      {submitted && (
-        <div className="fixed top-6 inset-x-4 max-w-xl mx-auto z-[9999] animate-in fade-in slide-in-from-top-4 duration-300">
-          <div className="rounded-2xl border border-emerald-200 bg-white p-5 shadow-2xl flex items-start justify-between gap-4">
-            <div className="flex items-start gap-3.5">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100">
-                <CheckCircle2 className="h-6 w-6" />
-              </span>
-              <div>
-                <h4 className="text-base font-bold text-[#102B4E]">Application Submitted Successfully!</h4>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-                  Thank you, <span className="font-semibold text-[#102B4E]">{fullName}</span>. Your application for <span className="font-semibold text-[#102B4E]">{job.title}</span> has been received. Our talent team will review your profile and reach out within 1–2 business days.
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              onClick={() => setSubmitted(false)}
-              className="text-slate-400 hover:text-slate-600 transition-colors p-1"
-              aria-label="Dismiss notification"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-        </div>
-      )}
+      {/* Top Animated Blue-Red Toast */}
+      <CorporateToast
+        show={submitted}
+        title="Application Submitted Successfully!"
+        message={`Thank you, ${fullName}. Your profile for ${job.title} has been forwarded to our talent acquisition team.`}
+        onDismiss={() => setSubmitted(false)}
+        durationMs={6500}
+      />
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 1. Hero Section (Plain Executive Navy Brand Theme - No Blobs)       */}
       {/* ─────────────────────────────────────────────────────────────────── */}
@@ -355,16 +333,19 @@ function JobDetailPage() {
                       onChange={(e) => {
                         const val = e.target.value;
                         setEmail(val);
-                        setErrors((prev) => {
-                          const next = { ...prev };
-                          delete next.email;
-                          if (val.trim()) delete next.phone;
-                          return next;
-                        });
+                        if (errors.email) {
+                          setErrors((prev) => {
+                            const next = { ...prev };
+                            delete next.email;
+                            return next;
+                          });
+                        }
                       }}
                       onBlur={() => {
-                        if (!email.trim() && !phone.trim()) {
+                        if (!email.trim()) {
                           setErrors((prev) => ({ ...prev, email: "Email is required" }));
+                        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+                          setErrors((prev) => ({ ...prev, email: "Please enter a valid work email" }));
                         }
                       }}
                       placeholder="Enter email"
@@ -379,7 +360,7 @@ function JobDetailPage() {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
-                      Phone Number *
+                      Phone Number (Optional)
                     </label>
                     <input
                       type="tel"
@@ -387,16 +368,17 @@ function JobDetailPage() {
                       onChange={(e) => {
                         const val = e.target.value;
                         setPhone(val);
-                        setErrors((prev) => {
-                          const next = { ...prev };
-                          delete next.phone;
-                          if (val.trim()) delete next.email;
-                          return next;
-                        });
+                        if (errors.phone) {
+                          setErrors((prev) => {
+                            const next = { ...prev };
+                            delete next.phone;
+                            return next;
+                          });
+                        }
                       }}
                       onBlur={() => {
-                        if (!phone.trim() && !email.trim()) {
-                          setErrors((prev) => ({ ...prev, phone: "Phone number is required" }));
+                        if (phone.trim() && phone.replace(/[^0-9+]/g, "").length < 7) {
+                          setErrors((prev) => ({ ...prev, phone: "Please enter a valid phone number" }));
                         }
                       }}
                       placeholder="Enter phone number"

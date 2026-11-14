@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/select";
 import contactHeroBg from "@/assets/mutliclutural-contact-bg.png";
 import { InteractiveLeafletMap } from "@/components/InteractiveLeafletMap";
+import { CorporateToast } from "@/components/CorporateToast";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -233,32 +234,14 @@ function ContactPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Top Success Toast */}
-      {submitted && (
-        <div className="fixed top-6 inset-x-4 max-w-xl mx-auto z-[9999] animate-in fade-in slide-in-from-top-4 duration-300">
-          <div className="rounded-2xl border border-emerald-200 bg-white p-5 shadow-2xl flex items-start justify-between gap-4">
-            <div className="flex items-start gap-3.5">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100">
-                <CheckCircle2 className="h-6 w-6" />
-              </span>
-              <div>
-                <h4 className="text-base font-bold text-[#102B4E]">Enquiry Submitted Successfully!</h4>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-                  Thank you for reaching out. A senior solutions partner has received your initiative details and will contact you within 1 business day.
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              onClick={() => setSubmitted(false)}
-              className="text-slate-400 hover:text-slate-600 transition-colors p-1"
-              aria-label="Dismiss notification"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-        </div>
-      )}
+      {/* Top Animated Blue-Red Toast */}
+      <CorporateToast
+        show={submitted}
+        title="Enquiry Submitted Successfully!"
+        message="Thank you for reaching out. A senior solutions partner has received your initiative details and will contact you within 1 business day."
+        onDismiss={() => setSubmitted(false)}
+        durationMs={6500}
+      />
 
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 1. Hero Section (Edge-to-Edge Navy Hero with Photography on Right)  */}

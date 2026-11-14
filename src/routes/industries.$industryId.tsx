@@ -18,6 +18,13 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { IndustryDetail } from "@/components/IndustryDetail";
+import heroHealthcare from "@/assets/Healthcare & Life Sciences-hero-bg.png";
+import heroFinancial from "@/assets/Banking & Financial Services-hero-bg.png";
+import heroGovernment from "@/assets/Government & Public Sector-hero-bg.png";
+import heroManufacturing from "@/assets/Manufacturing & Industrial-hero-bg.png";
+import heroRetail from "@/assets/Retail & Consumer Goods-hero-bg.png";
+import heroTechnology from "@/assets/Technology & Digital Services-hero-bg.png";
+
 import indHealthcare from "@/assets/High-Tech Medical Research Laboratory-5.png";
 import indFinancial from "@/assets/Financial Analytics Team at Work-1.png";
 import indGovernment from "@/assets/Warehouse Logistics Dashboard Team-6.png";
@@ -72,12 +79,8 @@ const DATA: Record<string, any> = {
     eyebrow: "Healthcare & Life Sciences",
     title: "Digital Innovation in Healthcare.",
     subtitle: "Deliver patient-centered digital health services and secure interoperability under strict regulatory compliance.",
-    heroImage: indHealthcare,
-    stats: [
-      { value: "HIPAA", label: "Security & Privacy" },
-      { value: "SOC 2 Type II", label: "Audit Standards" },
-      { value: "FHIR / HL7", label: "Interoperability Ready" },
-    ],
+    heroImage: heroHealthcare,
+    overviewImage: indHealthcare,
     overviewHeading: "Engineered for Clinical Trust and Security",
     overviewParas: [
       "We provide modern engineering and talent solutions for hospital networks, digital health apps, and life sciences companies.",
@@ -93,8 +96,7 @@ const DATA: Record<string, any> = {
     ],
     capabilitiesHeading: "Proven Healthcare Capabilities",
     capabilities: [
-      { icon: HeartPulse,
-  Truck, title: "EHR / EMR Interoperability", text: "Integrate clinical records systems smoothly across networks and portals." },
+      { icon: HeartPulse, title: "EHR / EMR Interoperability", text: "Integrate clinical records systems smoothly across networks and portals." },
       { icon: ShieldCheck, title: "Healthcare Compliance", text: "Enforce SOC 2, HIPAA, and patient data confidentiality controls." },
       { icon: Cpu, title: "Digital Health Apps", text: "Develop high-scale telemedicine platforms and remote monitoring tools." },
     ],
@@ -103,13 +105,8 @@ const DATA: Record<string, any> = {
     eyebrow: "Financial Services",
     title: "Secure Technology for Financial Services.",
     subtitle: "Scale your transaction engines, secure ledger APIs, and protect core assets with SOC 2 compliance.",
-    heroImage: indFinancial,
-    stats: [
-      { value: "99.99%", label: "System Uptime" },
-      { value: "PCI-DSS", label: "Readiness" },
-      
-      { value: "SOC 2", label: "Audit Standards" },
-    ],
+    heroImage: heroFinancial,
+    overviewImage: indFinancial,
     overviewHeading: "Modernizing Core Systems and Digital Banking",
     overviewParas: [
       "We help banks, fintechs, and asset managers innovate faster with scalable digital engineering services.",
@@ -134,13 +131,8 @@ const DATA: Record<string, any> = {
     eyebrow: "Logistics & Supply Chain",
     title: "Digital Visibility & Velocity for Supply Chains.",
     subtitle: "Technology talent supporting supply chain visibility, telemetry, analytics, warehouse management, and resilient distribution operations.",
-    heroImage: indGovernment,
-    stats: [
-      { value: "Real-Time", label: "Fleet & Asset Telemetry" },
-      { value: "WMS & ERP", label: "Integration Architecture" },
-      { value: "99.9%", label: "Platform Availability" },
-      { value: "End-to-End", label: "Logistics Visibility" },
-    ],
+    heroImage: heroGovernment,
+    overviewImage: indGovernment,
     overviewHeading: "Modernizing Supply Chain Technology and Operational Flow",
     overviewParas: [
       "ConfigUSA provides vetted technology squads to build connected distribution networks, warehouse telemetry, and predictive logistics.",
@@ -165,14 +157,8 @@ const DATA: Record<string, any> = {
     eyebrow: "Manufacturing & Industrial",
     title: "Smart Solutions for Manufacturing & Industrial.",
     subtitle: "Optimize industrial supply chains, implement certified ERP/SAP rollouts, and automate telemetry.",
-    heroImage: indManufacturing,
-    overviewImage: indManufacturing2,
-    stats: [
-      { value: "SAP ERP", label: "Certified Engineers" },
-      { value: "35%", label: "Operational Speedup" },
-      { value: "24/7", label: "Operations Support" },
-      { value: "Supply Chain", label: "End-to-End Visibility" },
-    ],
+    heroImage: heroManufacturing,
+    overviewImage: indManufacturing,
     overviewHeading: "Driving Factory Automation and Supply Chain Efficiency",
     overviewParas: [
       "We connect manufacturing giants and logistics operators with experienced technology specialists.",
@@ -197,13 +183,8 @@ const DATA: Record<string, any> = {
     eyebrow: "Retail & E-commerce",
     title: "High-Scale Commerce for Retailers.",
     subtitle: "Deploy fast headless storefronts, personalize experiences with AI search, and sync global stocks.",
-    heroImage: indRetail,
-    stats: [
-      { value: "10M+", label: "Daily Transactions" },
-      { value: "2x", label: "Load Speed Improvement" },
-      { value: "45%", label: "Conversion Lift" },
-      { value: "Omnichannel", label: "Real-time Sync" },
-    ],
+    heroImage: heroRetail,
+    overviewImage: indRetail,
     overviewHeading: "Modern Composable Commerce and Personalization",
     overviewParas: [
       "We build high-performance e-commerce setups that lower drop-offs and boost customer retention.",
@@ -228,13 +209,8 @@ const DATA: Record<string, any> = {
     eyebrow: "Technology & SaaS",
     title: "Accelerated Scale for Tech & SaaS.",
     subtitle: "Scale your roadmap with elite full-stack developer squads and cloud-native infrastructure.",
-    heroImage: indTechnology,
-    stats: [
-      { value: "48h", label: "Squad Deployment" },
-      { value: "100%", label: "Cloud-Native Builds" },
-      { value: "SOC 2", label: "Vulnerability Checks" },
-      { value: "React/Node", label: "Certified Panels" },
-    ],
+    heroImage: heroTechnology,
+    overviewImage: indTechnology,
     overviewHeading: "Elite Software Engineering Teams, Deployed Fast",
     overviewParas: [
       "We help software enterprises and fast-growing startups clear product features faster.",

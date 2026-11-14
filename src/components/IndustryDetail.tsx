@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import { motion } from "motion/react";
 import { Link } from "@tanstack/react-router";
 import { CheckCircle2, ArrowRight, type LucideIcon } from "lucide-react";
-import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { CTASection } from "@/components/CTASection";
 
@@ -43,42 +42,58 @@ export interface IndustryDetailProps {
 export function IndustryDetail(p: IndustryDetailProps) {
   return (
     <>
-      <PageHero eyebrow={p.eyebrow} title={p.title} subtitle={p.subtitle} image={p.heroImage} align="left" minHeight="min-h-[440px] lg:min-h-[500px]">
-        <div className="flex flex-wrap gap-4 pt-2">
-          <Link
-            to="/contact"
-            className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
-          >
-            Talk to an Expert <ArrowRight className="h-4 w-4" />
-          </Link>
-          <Link
-            to="/industries"
-            className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
-          >
-            All Industries
-          </Link>
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* 1. Navy Blue Hero Section (Exact Edge-to-Edge Right-Image Pattern)   */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section className="relative min-h-[500px] sm:min-h-[540px] lg:min-h-[580px] xl:min-h-[620px] flex items-center overflow-hidden bg-[#102B4E] text-white pt-24 pb-12 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16 border-b border-[#1b3a63]">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <img
+            src={p.heroImage}
+            alt={p.eyebrow}
+            className="h-full w-full object-cover object-[right_center] md:object-[88%_center] brightness-110 contrast-[1.04]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 via-35% sm:via-42% to-transparent sm:to-65% pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#102B4E]/25 to-transparent pointer-events-none" />
         </div>
-      </PageHero>
 
-      {/* Stats band */}
-      {p.stats && p.stats.length > 0 && (
-        <div className="relative -mt-16 z-20 mx-auto max-w-5xl px-4 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-2xl bg-white shadow-card border border-slate-200/90 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-slate-100 overflow-hidden max-w-4xl mx-auto"
-          >
-            {p.stats.map((s) => (
-              <div key={s.label} className="px-4 py-7 text-center">
-                <div className="text-2xl md:text-3xl font-extrabold text-[#102B4E] tracking-tight">{s.value}</div>
-                <div className="mt-1.5 text-xs font-semibold uppercase tracking-wider text-slate-500">{s.label}</div>
-              </div>
-            ))}
-          </motion.div>
+        <div className="container-enterprise relative z-10 w-full my-auto py-4">
+          <div className="max-w-xl lg:max-w-[560px] xl:max-w-[620px] space-y-6 text-left">
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 bg-[#C83B43]" aria-hidden="true" />
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#C83B43]">
+                {p.eyebrow}
+              </p>
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold leading-[1.16] tracking-tight text-white">
+              {p.title}
+            </h1>
+
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
+              {p.subtitle}
+            </p>
+
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <Link
+                to="/contact"
+                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md hover:-translate-y-0.5 transition-transform"
+              >
+                Discuss Industry Requirements <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/industries"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/50 px-5 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/10 hover:border-white"
+              >
+                All Industries <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            <div className="pt-2 border-l-2 border-[#C83B43] pl-3.5 text-xs tracking-wide text-slate-300">
+              Enterprise Technology, Workforce & Managed Delivery Partner
+            </div>
+          </div>
         </div>
-      )}
+      </section>
 
       {/* Overview */}
       <section className="py-8 lg:py-10 bg-white overflow-hidden border-b border-slate-200/60">
