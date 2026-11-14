@@ -226,11 +226,11 @@ function IndustriesIndexPage() {
 
         <div className="container-enterprise relative z-10 w-full my-auto py-4">
           <div className="max-w-xl lg:max-w-[560px] xl:max-w-[620px] space-y-6">
-            <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-[#C83B43]" aria-hidden="true" />
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#C83B43]">
+            <div className="flex items-center gap-2.5">
+              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#e2e8f0]">
                 INDUSTRY SOLUTIONS
-              </p>
+              </span>
+              <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold leading-[1.16] tracking-tight text-white">

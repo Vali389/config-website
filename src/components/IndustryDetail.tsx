@@ -58,14 +58,15 @@ export function IndustryDetail(p: IndustryDetailProps) {
 
         <div className="container-enterprise relative z-10 w-full my-auto py-4">
           <div className="max-w-xl lg:max-w-[560px] xl:max-w-[620px] space-y-6 text-left">
-            <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-[#C83B43]" aria-hidden="true" />
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#C83B43]">
+            {/* Eyebrow with small red line matching About & other core pages */}
+            <div className="flex items-center gap-2.5">
+              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#e2e8f0]">
                 {p.eyebrow}
-              </p>
+              </span>
+              <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold leading-[1.16] tracking-tight text-white">
+            <h1 className="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold leading-[1.16] tracking-tight text-white">
               {p.title}
             </h1>
 
@@ -174,12 +175,12 @@ export function IndustryDetail(p: IndustryDetailProps) {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="flex flex-col items-center text-center group"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white border-2 border-slate-200 text-blue-600 shadow-sm group-hover:bg-[#102B4E] group-hover:border-[#102B4E] group-hover:text-white transition-all duration-300 z-10">
-                    <h.icon className="h-6 w-6 stroke-[1.75]" />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-red-50 border border-red-100 text-[#C83B43] shadow-sm group-hover:bg-[#C83B43] group-hover:border-[#C83B43] group-hover:text-white group-hover:scale-105 transition-all duration-300 z-10">
+                    <h.icon className="h-6 w-6 stroke-[2]" />
                   </div>
                   <div className="mt-6 rounded-2xl bg-slate-50 p-6 border border-slate-200/80 hover:bg-white hover:border-[#245B91] hover:-translate-y-1 hover:shadow-md transition-all duration-300 w-full">
-                    <div className="text-xs font-bold text-[#245B91]">STEP {String(i + 1).padStart(2, "0")}</div>
-                    <h3 className="mt-1 text-base font-bold text-[#102B4E] group-hover:text-blue-700 transition-colors">{h.title}</h3>
+                    <div className="text-xs font-bold text-[#C83B43] uppercase tracking-wider">STEP {String(i + 1).padStart(2, "0")}</div>
+                    <h3 className="mt-1 text-base font-bold text-[#102B4E] group-hover:text-[#245B91] transition-colors">{h.title}</h3>
                     <p className="mt-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed">{h.text}</p>
                   </div>
                 </motion.div>

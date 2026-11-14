@@ -159,12 +159,12 @@ export function ServiceDetail(p: ServiceDetailProps) {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="flex flex-col items-center text-center group"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white border-2 border-slate-200 text-blue-600 shadow-sm group-hover:bg-[#102B4E] group-hover:border-[#102B4E] group-hover:text-white transition-all duration-300 z-10">
-                    <h.icon className="h-6 w-6 stroke-[1.75]" />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-red-50 border border-red-100 text-[#C83B43] shadow-sm group-hover:bg-[#C83B43] group-hover:border-[#C83B43] group-hover:text-white group-hover:scale-105 transition-all duration-300 z-10">
+                    <h.icon className="h-6 w-6 stroke-[2]" />
                   </div>
-                  <div className="mt-6 rounded-xl bg-slate-50 p-6 border border-slate-200/80 hover:bg-white hover:border-blue-400 hover:shadow-md transition-all duration-300 w-full">
-                    <div className="text-xs font-bold text-[#245B91]">STEP {String(i + 1).padStart(2, "0")}</div>
-                    <h3 className="mt-1 text-base font-bold text-[#102B4E] group-hover:text-white transition-colors">{h.title}</h3>
+                  <div className="mt-6 rounded-xl bg-slate-50 p-6 border border-slate-200/80 hover:bg-white hover:border-[#245B91] hover:shadow-md transition-all duration-300 w-full">
+                    <div className="text-xs font-bold text-[#C83B43] uppercase tracking-wider">STEP {String(i + 1).padStart(2, "0")}</div>
+                    <h3 className="mt-1 text-base font-bold text-[#102B4E] group-hover:text-[#245B91] transition-colors">{h.title}</h3>
                     <p className="mt-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed">{h.text}</p>
                   </div>
                 </motion.div>
