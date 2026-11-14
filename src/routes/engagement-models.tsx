@@ -228,12 +228,9 @@ function EngagementModelsPage() {
                   <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
                     {/* Left: Icon, Step, Title & Description */}
                     <div className="lg:col-span-5 space-y-4">
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center">
                         <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50 text-[#C83B43] border border-red-100/70 group-hover:bg-[#102B4E] group-hover:text-white group-hover:border-[#102B4E] group-hover:scale-105 transition-all duration-300 shadow-xs">
                           <model.icon className="h-6 w-6 stroke-[1.75]" />
-                        </span>
-                        <span className="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-500 group-hover:bg-[#245B91]/10 group-hover:text-[#245B91] transition-colors">
-                          Model {model.step}
                         </span>
                       </div>
 

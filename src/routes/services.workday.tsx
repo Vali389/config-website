@@ -12,6 +12,13 @@ import wdWorkforceImg from "@/assets/wd-workforce.jpg";
 import workdayHeroBg from "@/assets/workday-solutions-bg.png";
 import erpIntegrationImg from "@/assets/erp_integration_img.png";
 import { FadeUp } from "@/components/FadeUp";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const Route = createFileRoute("/services/workday")({
   head: () => ({
@@ -201,22 +208,23 @@ function WorkdayPage() {
                 </p>
 
                 <div className="mt-5 space-y-3">
-                  <label className="block">
+                  <div className="block">
                     <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                       Workday Capability Area
                     </span>
-                    <select
-                      value={selectedModule}
-                      onChange={(e) => setSelectedModule(e.target.value)}
-                      className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-[#102B4E] focus:outline-none focus:ring-2 focus:ring-[#245B91]"
-                    >
-                      <option value="Workday HCM">Workday HCM & Core HR</option>
-                      <option value="Financial Management">Workday Financial Management</option>
-                      <option value="Integrations">Integrations (Studio, EIB, Core Connector)</option>
-                      <option value="Prism/Reporting">Workday Reporting & Prism Analytics</option>
-                      <option value="Payroll/Compensation">Payroll & Advanced Compensation</option>
-                    </select>
-                  </label>
+                    <Select value={selectedModule} onValueChange={(val) => setSelectedModule(val)}>
+                      <SelectTrigger className="w-full h-10 bg-white border-slate-300">
+                        <SelectValue placeholder="Select Workday Area" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Workday HCM">Workday HCM & Core HR</SelectItem>
+                        <SelectItem value="Financial Management">Workday Financial Management</SelectItem>
+                        <SelectItem value="Integrations">Integrations (Studio, EIB, Core Connector)</SelectItem>
+                        <SelectItem value="Prism/Reporting">Workday Reporting & Prism Analytics</SelectItem>
+                        <SelectItem value="Payroll/Compensation">Payroll & Advanced Compensation</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
 
                   <div className="rounded-lg bg-white border border-slate-200 p-3.5 space-y-1.5 text-xs text-slate-600">
                     <div className="flex items-center justify-between font-semibold text-[#102B4E]">

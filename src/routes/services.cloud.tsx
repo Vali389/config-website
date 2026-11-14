@@ -13,6 +13,13 @@ import {
 import cloudInfraHero from "@/assets/Cloud & Infrastructure-bg.png";
 import storyCloud from "@/assets/story-cloud.jpg";
 import { TechTicker } from "@/components/TechTicker";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const Route = createFileRoute("/services/cloud")({
   head: () => ({
@@ -214,38 +221,40 @@ function CloudInfrastructurePage() {
                 </p>
 
                 <div className="mt-5 space-y-3.5">
-                  <label className="block">
+                  <div className="block">
                     <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                       Cloud & Infrastructure Focus
                     </span>
-                    <select
-                      value={platformFocus}
-                      onChange={(e) => setPlatformFocus(e.target.value)}
-                      className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-[#102B4E] focus:outline-none focus:ring-2 focus:ring-[#245B91]"
-                    >
-                      <option value="AWS & Multi-Cloud">Amazon Web Services (AWS)</option>
-                      <option value="Microsoft Azure">Microsoft Azure Cloud</option>
-                      <option value="Google Cloud Platform">Google Cloud Platform (GCP)</option>
-                      <option value="DevOps & Platform Engineering">DevOps, CI/CD & Kubernetes</option>
-                      <option value="Cybersecurity & SecOps">Cybersecurity & SecOps Defense</option>
-                      <option value="Systems & Network Admin">Enterprise Systems & Network Admin</option>
-                    </select>
-                  </label>
+                    <Select value={platformFocus} onValueChange={(val) => setPlatformFocus(val)}>
+                      <SelectTrigger className="w-full h-10 bg-white border-slate-300">
+                        <SelectValue placeholder="Select Platform Focus" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="AWS & Multi-Cloud">Amazon Web Services (AWS)</SelectItem>
+                        <SelectItem value="Microsoft Azure">Microsoft Azure Cloud</SelectItem>
+                        <SelectItem value="Google Cloud Platform">Google Cloud Platform (GCP)</SelectItem>
+                        <SelectItem value="DevOps & Platform Engineering">DevOps, CI/CD & Kubernetes</SelectItem>
+                        <SelectItem value="Cybersecurity & SecOps">Cybersecurity & SecOps Defense</SelectItem>
+                        <SelectItem value="Systems & Network Admin">Enterprise Systems & Network Admin</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
 
-                  <label className="block">
+                  <div className="block">
                     <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                       Deployment Timeline
                     </span>
-                    <select
-                      value={timeline}
-                      onChange={(e) => setTimeline(e.target.value)}
-                      className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-[#102B4E] focus:outline-none focus:ring-2 focus:ring-[#245B91]"
-                    >
-                      <option value="Immediate Requisition (Within 2 Weeks)">Immediate Requisitions (Within 2 Weeks)</option>
-                      <option value="Upcoming Project Spike (30–60 Days)">Upcoming Project Spike (30–60 Days)</option>
-                      <option value="Long-Term Dedicated Pod">Long-Term Dedicated Engineering Pod</option>
-                    </select>
-                  </label>
+                    <Select value={timeline} onValueChange={(val) => setTimeline(val)}>
+                      <SelectTrigger className="w-full h-10 bg-white border-slate-300">
+                        <SelectValue placeholder="Select Deployment Timeline" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Immediate Requisition (Within 2 Weeks)">Immediate Requisitions (Within 2 Weeks)</SelectItem>
+                        <SelectItem value="Upcoming Project Spike (30–60 Days)">Upcoming Project Spike (30–60 Days)</SelectItem>
+                        <SelectItem value="Long-Term Dedicated Pod">Long-Term Dedicated Engineering Pod</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
 
                   <div className="rounded-lg bg-white border border-slate-200 p-3.5 space-y-1.5 text-xs text-slate-600">
                     <div className="flex items-center justify-between font-semibold text-[#102B4E]">

@@ -13,6 +13,13 @@ import {
 import serviceSapImg from "@/assets/SAP Solutions-bg.png";
 import erpImplementationImg from "@/assets/erp_implementation_img.png";
 import { FadeUp } from "@/components/FadeUp";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const Route = createFileRoute("/services/sap")({
   head: () => ({
@@ -202,22 +209,23 @@ function SapPage() {
                 </p>
 
                 <div className="mt-5 space-y-3">
-                  <label className="block">
+                  <div className="block">
                     <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                       Target Module / Practice
                     </span>
-                    <select
-                      value={selectedModule}
-                      onChange={(e) => setSelectedModule(e.target.value)}
-                      className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-[#102B4E] focus:outline-none focus:ring-2 focus:ring-[#245B91]"
-                    >
-                      <option value="S/4HANA Migration">SAP S/4HANA Migration</option>
-                      <option value="FICO">SAP FICO Financial Accounting</option>
-                      <option value="MM/SD">SAP MM / SD Supply Chain</option>
-                      <option value="ABAP/Integration">SAP ABAP & BTP Integration</option>
-                      <option value="Basis/Security">SAP Basis & Security Architecture</option>
-                    </select>
-                  </label>
+                    <Select value={selectedModule} onValueChange={(val) => setSelectedModule(val)}>
+                      <SelectTrigger className="w-full h-10 bg-white border-slate-300">
+                        <SelectValue placeholder="Select SAP Module" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="S/4HANA Migration">SAP S/4HANA Migration</SelectItem>
+                        <SelectItem value="FICO">SAP FICO Financial Accounting</SelectItem>
+                        <SelectItem value="MM/SD">SAP MM / SD Supply Chain</SelectItem>
+                        <SelectItem value="ABAP/Integration">SAP ABAP & BTP Integration</SelectItem>
+                        <SelectItem value="Basis/Security">SAP Basis & Security Architecture</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
 
                   <div className="rounded-lg bg-white border border-slate-200 p-3.5 space-y-1.5 text-xs text-slate-600">
                     <div className="flex items-center justify-between font-semibold text-[#102B4E]">

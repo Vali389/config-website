@@ -728,12 +728,16 @@ function AboutPage() {
                 key={`${cert.name}-${idx}`}
                 className="group relative overflow-hidden w-64 sm:w-72 h-[270px] sm:h-[290px] shrink-0 flex flex-col items-center justify-center text-center p-6 sm:p-8 rounded-[24px] bg-white border border-slate-200/90 shadow-sm hover:border-[#245B91] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 cursor-pointer before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity"
               >
-                <div className="flex h-28 w-28 items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300">
+                <div className="flex h-32 w-44 items-center justify-center mb-3 group-hover:scale-105 transition-transform duration-300">
                   <img
                     src={cert.image}
                     alt={`${cert.name} certification`}
                     loading="lazy"
-                    className="max-h-24 max-w-full object-contain"
+                    className={
+                      cert.name === "NMSDC"
+                        ? "h-20 sm:h-24 w-auto max-w-full object-contain scale-115 drop-shadow-xs"
+                        : "max-h-24 max-w-full object-contain"
+                    }
                   />
                 </div>
                 <div className="space-y-1.5 max-w-[210px]">

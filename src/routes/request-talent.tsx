@@ -4,6 +4,13 @@ import { motion } from "motion/react";
 import { Clock, ShieldCheck, Users, BadgeCheck, Upload, Send, CheckCircle2, Sparkles } from "lucide-react";
 import { LightHero } from "@/components/LightHero";
 import heroRequest from "@/assets/hero-request.jpg";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const Route = createFileRoute("/request-talent")({
   head: () => ({
@@ -126,9 +133,18 @@ function Page() {
                   <Field label="Job Title *"><input required className={inputCls} placeholder="Senior React Developer" /></Field>
                   <Field label="Experience Required"><input className={inputCls} placeholder="e.g. 5+ years" /></Field>
                   <Field label="Hiring Type">
-                    <select className={inputCls}>
-                      {HIRING_TYPES.map((t) => <option key={t}>{t}</option>)}
-                    </select>
+                    <Select defaultValue={HIRING_TYPES[0]}>
+                      <SelectTrigger className="w-full h-10 bg-white border-slate-300">
+                        <SelectValue placeholder="Select Hiring Type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {HIRING_TYPES.map((t) => (
+                          <SelectItem key={t} value={t}>
+                            {t}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </Field>
                   <Field label="Number of Positions"><input type="number" min={1} className={inputCls} placeholder="1" /></Field>
                 </div>

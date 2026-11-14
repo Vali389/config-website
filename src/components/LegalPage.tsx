@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Calendar, ArrowRight, ShieldCheck } from "lucide-react";
+import { Mail, Calendar, ShieldCheck } from "lucide-react";
 
 export interface LegalSection {
   heading: string;
@@ -84,24 +84,6 @@ export function LegalPage({
                   </div>
                 </div>
               ))}
-            </div>
-
-            {/* Bottom Compliance Contact Banner */}
-            <div className="mt-12 rounded-xl bg-[#F3F5F8] border border-slate-200/90 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-              <div>
-                <h3 className="text-base sm:text-lg font-bold text-[#102B4E]">
-                  Questions regarding this {kind.toLowerCase()}?
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-                  Our compliance and legal team is dedicated to clear communication and prompt assistance.
-                </p>
-              </div>
-              <a
-                href="mailto:info@configusa.com"
-                className="btn-cta-primary inline-flex items-center gap-2 text-xs sm:text-sm font-bold shadow-md shrink-0"
-              >
-                Contact Legal Team <ArrowRight className="h-4 w-4" />
-              </a>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,7 +16,15 @@ import {
   ArrowRight,
   Briefcase,
   ChevronDown,
+  X,
 } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import contactHeroBg from "@/assets/mutliclutural-contact-bg.png";
 import { InteractiveLeafletMap } from "@/components/InteractiveLeafletMap";
 
@@ -118,12 +126,12 @@ const schema = z
     if (!hasEmail && !hasPhone) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
-        message: "Email or phone number is required",
+        message: "Email is required",
         path: ["email"],
       });
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
-        message: "Email or phone number is required",
+        message: "Phone number is required",
         path: ["phone"],
       });
     }
@@ -157,9 +165,18 @@ function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
+  useEffect(() => {
+    if (submitted) {
+      const timer = setTimeout(() => setSubmitted(false), 8000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitted]);
+
   const {
     register,
     handleSubmit,
+    setValue,
+    watch,
     trigger,
     reset,
     formState: { errors },
@@ -180,6 +197,25 @@ function ContactPage() {
     },
   });
 
+  const nameVal = watch("name");
+  const emailVal = watch("email");
+  const phoneVal = watch("phone");
+  const compVal = watch("company");
+  const titleVal = watch("jobTitle");
+  const msgVal = watch("message");
+
+  const hasValidContact =
+    (Boolean(emailVal?.trim()) && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal!.trim())) ||
+    (Boolean(phoneVal?.trim()) && phoneVal!.replace(/[^0-9+]/g, "").length >= 7);
+
+  const isFormValid = Boolean(
+    nameVal?.trim().length >= 2 &&
+    compVal?.trim().length >= 2 &&
+    titleVal?.trim().length >= 2 &&
+    msgVal?.trim().length >= 10 &&
+    hasValidContact
+  );
+
   const onSubmit = async (data: ContactFormData) => {
     setSubmitting(true);
     await new Promise((resolve) => setTimeout(resolve, 800));
@@ -197,6 +233,33 @@ function ContactPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Top Success Toast */}
+      {submitted && (
+        <div className="fixed top-6 inset-x-4 max-w-xl mx-auto z-[9999] animate-in fade-in slide-in-from-top-4 duration-300">
+          <div className="rounded-2xl border border-emerald-200 bg-white p-5 shadow-2xl flex items-start justify-between gap-4">
+            <div className="flex items-start gap-3.5">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100">
+                <CheckCircle2 className="h-6 w-6" />
+              </span>
+              <div>
+                <h4 className="text-base font-bold text-[#102B4E]">Enquiry Submitted Successfully!</h4>
+                <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  Thank you for reaching out. A senior solutions partner has received your initiative details and will contact you within 1 business day.
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setSubmitted(false)}
+              className="text-slate-400 hover:text-slate-600 transition-colors p-1"
+              aria-label="Dismiss notification"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 1. Hero Section (Edge-to-Edge Navy Hero with Photography on Right)  */}
       {/* ─────────────────────────────────────────────────────────────────── */}
@@ -389,42 +452,46 @@ function ContactPage() {
                       <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
                         Area of Interest *
                       </label>
-                      <div className="relative">
-                        <select
-                          {...register("areaOfInterest")}
-                          className="w-full appearance-none rounded-lg border border-slate-300 bg-white px-4 py-2.5 pr-10 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E] cursor-pointer"
-                        >
+                      <Select
+                        value={watch("areaOfInterest") || AREAS_OF_INTEREST[0]}
+                        onValueChange={(val) => {
+                          setValue("areaOfInterest", val, { shouldValidate: true, shouldDirty: true });
+                        }}
+                      >
+                        <SelectTrigger className="w-full h-11 bg-white border-slate-300">
+                          <SelectValue placeholder="Select Area of Interest" />
+                        </SelectTrigger>
+                        <SelectContent>
                           {AREAS_OF_INTEREST.map((area) => (
-                            <option key={area} value={area}>
+                            <SelectItem key={area} value={area}>
                               {area}
-                            </option>
+                            </SelectItem>
                           ))}
-                        </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-slate-500">
-                          <ChevronDown className="h-4 w-4" />
-                        </div>
-                      </div>
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     <div>
                       <label className="block text-xs font-bold text-[#102B4E] uppercase tracking-wider mb-2">
                         Expected Timeline (Optional)
                       </label>
-                      <div className="relative">
-                        <select
-                          {...register("timeline")}
-                          className="w-full appearance-none rounded-lg border border-slate-300 bg-white px-4 py-2.5 pr-10 text-sm text-[#102B4E] focus:outline-none focus:border-[#102B4E] cursor-pointer"
-                        >
+                      <Select
+                        value={watch("timeline") || TIMELINE_OPTIONS[0]}
+                        onValueChange={(val) => {
+                          setValue("timeline", val, { shouldValidate: true, shouldDirty: true });
+                        }}
+                      >
+                        <SelectTrigger className="w-full h-11 bg-white border-slate-300">
+                          <SelectValue placeholder="Select Expected Timeline" />
+                        </SelectTrigger>
+                        <SelectContent>
                           {TIMELINE_OPTIONS.map((time) => (
-                            <option key={time} value={time}>
+                            <SelectItem key={time} value={time}>
                               {time}
-                            </option>
+                            </SelectItem>
                           ))}
-                        </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-slate-500">
-                          <ChevronDown className="h-4 w-4" />
-                        </div>
-                      </div>
+                        </SelectContent>
+                      </Select>
                     </div>
                   </div>
 
@@ -446,8 +513,12 @@ function ContactPage() {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      disabled={submitting}
-                      className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md cursor-pointer disabled:opacity-70"
+                      disabled={!isFormValid || submitting}
+                      className={`inline-flex items-center justify-center gap-2 text-sm font-bold rounded-lg px-6 py-3 transition-all duration-200 shadow-sm w-full sm:w-auto ${
+                        !isFormValid || submitting
+                          ? "bg-slate-200 text-slate-400 cursor-not-allowed border border-slate-300 shadow-none"
+                          : "bg-[#C83B43] text-white hover:bg-[#b03037] active:scale-[0.99] cursor-pointer shadow-md hover:shadow-lg"
+                      }`}
                     >
                       {submitting ? "Submitting..." : "Submit Your Enquiry"}{" "}
                       <Send className="h-4 w-4" />

@@ -9,6 +9,13 @@ import {
 } from "lucide-react";
 import { JOBS, DEPARTMENTS, LOCATIONS } from "@/data/jobs";
 import careersHeroBg from "@/assets/mutliclutural-careers-bg.png";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const Route = createFileRoute("/careers/")({
   head: () => ({
@@ -140,32 +147,34 @@ function CareersPage() {
                 />
               </div>
 
-              <div>
-                <select
-                  value={dept}
-                  onChange={(e) => setDept(e.target.value)}
-                  className="w-full px-3.5 py-2 text-sm bg-white border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:border-[#102B4E]"
-                >
-                  {DEPARTMENTS.map((d) => (
-                    <option key={d} value={d}>
-                      {d}
-                    </option>
-                  ))}
-                </select>
+              <div className="w-full">
+                <Select value={dept} onValueChange={(val) => setDept(val)}>
+                  <SelectTrigger className="w-full h-11 bg-white border-slate-300">
+                    <SelectValue placeholder="All Departments" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {DEPARTMENTS.map((d) => (
+                      <SelectItem key={d} value={d}>
+                        {d}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
 
-              <div>
-                <select
-                  value={loc}
-                  onChange={(e) => setLoc(e.target.value)}
-                  className="w-full px-3.5 py-2 text-sm bg-white border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:border-[#102B4E]"
-                >
-                  {LOCATIONS.map((l) => (
-                    <option key={l} value={l}>
-                      {l}
-                    </option>
-                  ))}
-                </select>
+              <div className="w-full">
+                <Select value={loc} onValueChange={(val) => setLoc(val)}>
+                  <SelectTrigger className="w-full h-11 bg-white border-slate-300">
+                    <SelectValue placeholder="All Locations" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {LOCATIONS.map((l) => (
+                      <SelectItem key={l} value={l}>
+                        {l}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
             </div>
           </div>

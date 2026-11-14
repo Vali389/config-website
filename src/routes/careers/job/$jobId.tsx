@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { createFileRoute, Link, useParams } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import {
@@ -15,6 +15,7 @@ import {
   FileText,
   Send,
   Sparkles,
+  X,
 } from "lucide-react";
 import { getJob, JOBS } from "@/data/jobs";
 
@@ -68,12 +69,25 @@ function JobDetailPage() {
     );
   }
 
+  useEffect(() => {
+    if (submitted) {
+      const timer = setTimeout(() => setSubmitted(false), 8000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitted]);
+
+  const hasValidContact =
+    (Boolean(email.trim()) && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) ||
+    (Boolean(phone.trim()) && phone.replace(/[^0-9+]/g, "").length >= 7);
+
+  const isFormValid = Boolean(fullName.trim().length >= 2 && hasValidContact);
+
   const validate = () => {
     const errs: Record<string, string> = {};
     if (!fullName.trim()) errs.fullName = "Full name is required";
     if (!email.trim() && !phone.trim()) {
-      errs.email = "Email or phone number is required";
-      errs.phone = "Email or phone number is required";
+      errs.email = "Email is required";
+      errs.phone = "Phone number is required";
     } else {
       if (email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
         errs.email = "Please enter a valid work email";
@@ -110,6 +124,32 @@ function JobDetailPage() {
 
   return (
     <div className="min-h-screen bg-[#F3F5F8]/60">
+      {/* Top Success Toast */}
+      {submitted && (
+        <div className="fixed top-6 inset-x-4 max-w-xl mx-auto z-[9999] animate-in fade-in slide-in-from-top-4 duration-300">
+          <div className="rounded-2xl border border-emerald-200 bg-white p-5 shadow-2xl flex items-start justify-between gap-4">
+            <div className="flex items-start gap-3.5">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100">
+                <CheckCircle2 className="h-6 w-6" />
+              </span>
+              <div>
+                <h4 className="text-base font-bold text-[#102B4E]">Application Submitted Successfully!</h4>
+                <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  Thank you, <span className="font-semibold text-[#102B4E]">{fullName}</span>. Your application for <span className="font-semibold text-[#102B4E]">{job.title}</span> has been received. Our talent team will review your profile and reach out within 1–2 business days.
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setSubmitted(false)}
+              className="text-slate-400 hover:text-slate-600 transition-colors p-1"
+              aria-label="Dismiss notification"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+      )}
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 1. Hero Section (Plain Executive Navy Brand Theme - No Blobs)       */}
       {/* ─────────────────────────────────────────────────────────────────── */}
@@ -313,14 +353,18 @@ function JobDetailPage() {
                       type="email"
                       value={email}
                       onChange={(e) => {
-                        setEmail(e.target.value);
-                        if (errors.phone && e.target.value.trim()) {
-                          setErrors((prev) => ({ ...prev, phone: "", email: "" }));
-                        }
+                        const val = e.target.value;
+                        setEmail(val);
+                        setErrors((prev) => {
+                          const next = { ...prev };
+                          delete next.email;
+                          if (val.trim()) delete next.phone;
+                          return next;
+                        });
                       }}
                       onBlur={() => {
                         if (!email.trim() && !phone.trim()) {
-                          setErrors((prev) => ({ ...prev, email: "Email or phone number is required" }));
+                          setErrors((prev) => ({ ...prev, email: "Email is required" }));
                         }
                       }}
                       placeholder="Enter email"
@@ -341,14 +385,18 @@ function JobDetailPage() {
                       type="tel"
                       value={phone}
                       onChange={(e) => {
-                        setPhone(e.target.value);
-                        if (errors.email && e.target.value.trim()) {
-                          setErrors((prev) => ({ ...prev, email: "", phone: "" }));
-                        }
+                        const val = e.target.value;
+                        setPhone(val);
+                        setErrors((prev) => {
+                          const next = { ...prev };
+                          delete next.phone;
+                          if (val.trim()) delete next.email;
+                          return next;
+                        });
                       }}
                       onBlur={() => {
                         if (!phone.trim() && !email.trim()) {
-                          setErrors((prev) => ({ ...prev, phone: "Email or phone number is required" }));
+                          setErrors((prev) => ({ ...prev, phone: "Phone number is required" }));
                         }
                       }}
                       placeholder="Enter phone number"
@@ -453,8 +501,12 @@ function JobDetailPage() {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    disabled={submitting}
-                    className="btn-cta-primary inline-flex items-center justify-center gap-2 text-sm font-bold shadow-md cursor-pointer disabled:opacity-70 w-full sm:w-auto"
+                    disabled={!isFormValid || submitting}
+                    className={`inline-flex items-center justify-center gap-2 text-sm font-bold rounded-lg px-6 py-3 transition-all duration-200 shadow-sm w-full sm:w-auto ${
+                      !isFormValid || submitting
+                        ? "bg-slate-200 text-slate-400 cursor-not-allowed border border-slate-300 shadow-none"
+                        : "bg-[#C83B43] text-white hover:bg-[#b03037] active:scale-[0.99] cursor-pointer shadow-md hover:shadow-lg"
+                    }`}
                   >
                     {submitting ? "Submitting Application..." : `Submit Application for ${job.title}`}
                     <Send className="h-4 w-4" />

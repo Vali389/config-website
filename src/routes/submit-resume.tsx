@@ -3,6 +3,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Rocket, BellRing, Handshake, FileText, Upload, Send, CheckCircle2, Search, ArrowRight } from "lucide-react";
 import careersHeroBg from "@/assets/mutliclutural-careers-bg.png";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const Route = createFileRoute("/submit-resume")({
   head: () => ({
@@ -148,9 +155,18 @@ function Page() {
                   <Field label="Experience"><input className={inputCls} placeholder="e.g. 6 years" /></Field>
                   <Field label="Location"><input className={inputCls} placeholder="City / Remote" /></Field>
                   <Field label="Preferred Work Mode">
-                    <select className={inputCls}>
-                      {WORK_MODES.map((m) => <option key={m}>{m}</option>)}
-                    </select>
+                    <Select defaultValue={WORK_MODES[0]}>
+                      <SelectTrigger className="w-full h-10 bg-white border-slate-300">
+                        <SelectValue placeholder="Select Work Mode" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {WORK_MODES.map((m) => (
+                          <SelectItem key={m} value={m}>
+                            {m}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </Field>
                   <Field label="LinkedIn / Portfolio"><input className={inputCls} placeholder="https://" /></Field>
                 </div>

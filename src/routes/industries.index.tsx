@@ -412,10 +412,7 @@ function IndustriesIndexPage() {
                   {/* Header */}
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-5">
                     <div>
-                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#C83B43]">
-                        INDUSTRY 0{index + 1}
-                      </span>
-                      <h3 className="mt-1 text-2xl sm:text-3xl font-extrabold text-[#102B4E] tracking-tight flex items-center gap-2.5">
+                      <h3 className="text-2xl sm:text-3xl font-extrabold text-[#102B4E] tracking-tight flex items-center gap-2.5">
                         <Icon className="h-6 w-6 text-[#245B91]" />
                         <span>{sector.name}</span>
                       </h3>

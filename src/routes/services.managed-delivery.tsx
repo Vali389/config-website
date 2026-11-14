@@ -11,6 +11,13 @@ import {
 } from "lucide-react";
 import managedDeliveryHero from "@/assets/Outcome-Driven Managed Delivery-new-bg.png";
 import { TechTicker } from "@/components/TechTicker";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const Route = createFileRoute("/services/managed-delivery")({
   head: () => ({
@@ -210,37 +217,39 @@ function MSPVMSPage() {
                 </p>
 
                 <div className="mt-5 space-y-3.5">
-                  <label className="block">
+                  <div className="block">
                     <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                       Program / Engagement Scope
                     </span>
-                    <select
-                      value={programType}
-                      onChange={(e) => setProgramType(e.target.value)}
-                      className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-[#102B4E] focus:outline-none focus:ring-2 focus:ring-[#245B91]"
-                    >
-                      <option value="MSP Contingent Workforce">MSP Contingent Workforce Program</option>
-                      <option value="VMS Requisition Management">VMS Requisition Management</option>
-                      <option value="Direct Sourcing">Direct Sourcing & Talent Pooling</option>
-                      <option value="Compliance Coordination">Workforce Compliance & Onboarding</option>
-                      <option value="Dedicated Pod Delivery">Dedicated Project Pods / SOW</option>
-                    </select>
-                  </label>
+                    <Select value={programType} onValueChange={(val) => setProgramType(val)}>
+                      <SelectTrigger className="w-full h-10 bg-white border-slate-300">
+                        <SelectValue placeholder="Select Program Scope" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="MSP Contingent Workforce">MSP Contingent Workforce Program</SelectItem>
+                        <SelectItem value="VMS Requisition Management">VMS Requisition Management</SelectItem>
+                        <SelectItem value="Direct Sourcing">Direct Sourcing & Talent Pooling</SelectItem>
+                        <SelectItem value="Compliance Coordination">Workforce Compliance & Onboarding</SelectItem>
+                        <SelectItem value="Dedicated Pod Delivery">Dedicated Project Pods / SOW</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
 
-                  <label className="block">
+                  <div className="block">
                     <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                       Requisition Urgency
                     </span>
-                    <select
-                      value={timeline}
-                      onChange={(e) => setTimeline(e.target.value)}
-                      className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-[#102B4E] focus:outline-none focus:ring-2 focus:ring-[#245B91]"
-                    >
-                      <option value="Immediate Requisitions (Within 2 Weeks)">Immediate Requisitions (Within 2 Weeks)</option>
-                      <option value="Active VMS Program Participation">Active VMS Program Participation</option>
-                      <option value="Upcoming Quarter Program Review">Upcoming Quarter Program Review</option>
-                    </select>
-                  </label>
+                    <Select value={timeline} onValueChange={(val) => setTimeline(val)}>
+                      <SelectTrigger className="w-full h-10 bg-white border-slate-300">
+                        <SelectValue placeholder="Select Urgency" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Immediate Requisitions (Within 2 Weeks)">Immediate Requisitions (Within 2 Weeks)</SelectItem>
+                        <SelectItem value="Active VMS Program Participation">Active VMS Program Participation</SelectItem>
+                        <SelectItem value="Upcoming Quarter Program Review">Upcoming Quarter Program Review</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
 
                   <div className="rounded-lg bg-white border border-slate-200 p-3.5 space-y-1.5 text-xs text-slate-600">
                     <div className="flex items-center justify-between font-semibold text-[#102B4E]">
