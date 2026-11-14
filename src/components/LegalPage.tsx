@@ -89,12 +89,12 @@ export function LegalPage({
                       <li key={s.heading}>
                         <a
                           href={`#${slug(s.heading)}`}
-                          className="group flex items-start gap-2.5 px-3 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:text-[#102B4E] hover:bg-slate-50 transition-all border-l-2 border-transparent hover:border-[#C83B43]"
+                          className="flex items-start gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-600 hover:text-[#102B4E] hover:bg-slate-100/70 transition-colors"
                         >
                           <span className="text-[11px] font-mono font-bold text-[#245B91] pt-0.5 shrink-0">
                             {String(i + 1).padStart(2, "0")}
                           </span>
-                          <span className="leading-snug group-hover:translate-x-0.5 transition-transform">
+                          <span className="leading-snug">
                             {s.heading}
                           </span>
                         </a>
@@ -121,11 +121,8 @@ export function LegalPage({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.35, delay: i * 0.02 }}
-                    className="scroll-mt-28 rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-xs hover:border-[#245B91]/60 hover:shadow-md transition-all duration-300 relative overflow-hidden group"
+                    className="scroll-mt-28 rounded-xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs"
                   >
-                    {/* Top subtle red hover accent bar */}
-                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#102B4E] via-[#C83B43] to-[#102B4E] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
                     <div className="flex items-center gap-3 mb-4">
                       <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#102B4E] text-white font-mono text-xs font-bold shadow-2xs shrink-0">
                         {String(i + 1).padStart(2, "0")}
@@ -135,7 +132,7 @@ export function LegalPage({
                       </h2>
                     </div>
 
-                    <div className="space-y-3.5 text-sm sm:text-[0.95rem] text-slate-600 leading-relaxed">
+                    <div className="space-y-3.5 text-sm sm:text-[15px] text-slate-600 leading-relaxed">
                       {s.paras.map((p, j) => (
                         <p key={j}>{p}</p>
                       ))}
