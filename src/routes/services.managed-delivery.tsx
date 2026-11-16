@@ -108,6 +108,7 @@ function MSPVMSPage() {
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
+                hash="enquiry-form"
                 className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md hover:-translate-y-0.5 transition-transform"
               >
                 Discuss MSP Workforce Requirements <ArrowRight className="h-4 w-4" />
@@ -196,6 +197,7 @@ function MSPVMSPage() {
               <div className="mt-8">
                 <Link
                   to="/contact"
+                  hash="enquiry-form"
                   className="btn-cta-primary inline-flex items-center gap-2 px-6 py-3 text-sm font-bold shadow-sm"
                 >
                   Discuss MSP Workforce Requirements <ArrowRight className="h-4 w-4" />
@@ -268,6 +270,7 @@ function MSPVMSPage() {
 
                   <Link
                     to="/contact"
+                    hash="enquiry-form"
                     className="w-full btn-cta-primary text-center py-2.5 text-xs font-bold block shadow-xs mt-4"
                   >
                     Submit Partnership Inquiry
@@ -301,6 +304,7 @@ function MSPVMSPage() {
             <div className="flex items-center gap-3 shrink-0">
               <Link
                 to="/contact"
+                hash="enquiry-form"
                 className="btn-cta-primary text-sm font-semibold px-6 py-2.5 rounded-lg shadow-sm"
               >
                 Discuss MSP Requirements

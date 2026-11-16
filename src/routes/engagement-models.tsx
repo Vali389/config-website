@@ -182,6 +182,7 @@ function EngagementModelsPage() {
             <div className="pt-2 flex flex-wrap gap-4 items-center">
               <Link
                 to="/contact"
+                hash="enquiry-form"
                 className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
               >
                 Discuss an Engagement Model <ArrowRight className="h-4 w-4" />
@@ -278,6 +279,7 @@ function EngagementModelsPage() {
                         </span>
                         <Link
                           to="/contact"
+                          hash="enquiry-form"
                           className="btn-cta-primary text-xs font-bold px-4 py-2 rounded-md shadow-xs inline-flex items-center gap-1.5"
                         >
                           Select Model <ArrowRight className="h-3.5 w-3.5" />
@@ -411,6 +413,7 @@ function EngagementModelsPage() {
               <div className="lg:col-span-3 lg:text-right">
                 <Link
                   to="/contact"
+                  hash="enquiry-form"
                   className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
                 >
                   Schedule a Consultation <ArrowRight className="h-4 w-4" />

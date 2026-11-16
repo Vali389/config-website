@@ -135,6 +135,7 @@ function AISolutionsPage() {
             <div className="pt-2 flex flex-wrap gap-4 items-center">
               <Link
                 to="/contact"
+                hash="enquiry-form"
                 className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
               >
                 Discuss an AI Initiative <ArrowRight className="h-4 w-4" />
@@ -297,6 +298,7 @@ function AISolutionsPage() {
               <div className="mt-6">
                 <Link
                   to="/contact"
+                  hash="enquiry-form"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#C83B43] hover:text-[#a82e35]"
                 >
                   <span>Request a discovery discussion</span>
@@ -327,6 +329,7 @@ function AISolutionsPage() {
             <div className="lg:col-span-3 lg:text-right">
               <Link
                 to="/contact"
+                hash="enquiry-form"
                 className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
               >
                 Discuss an AI Initiative <ArrowRight className="h-4 w-4" />

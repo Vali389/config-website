@@ -173,6 +173,32 @@ function ContactPage() {
     }
   }, [submitted]);
 
+  // Smooth scroll to enquiry form when navigating with #enquiry-form hash
+  useEffect(() => {
+    const handleScrollToForm = () => {
+      const hash = window.location.hash;
+      if (hash === "#enquiry-form" || hash === "#contact-form" || hash === "#form") {
+        const el = document.getElementById("enquiry-form") || document.getElementById("contact-form");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    };
+
+    handleScrollToForm();
+    const t1 = setTimeout(handleScrollToForm, 80);
+    const t2 = setTimeout(handleScrollToForm, 250);
+    const t3 = setTimeout(handleScrollToForm, 500);
+
+    window.addEventListener("hashchange", handleScrollToForm);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      window.removeEventListener("hashchange", handleScrollToForm);
+    };
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -276,6 +302,12 @@ function ContactPage() {
             <div className="pt-2 flex flex-wrap gap-4 items-center">
               <a
                 href="#enquiry-form"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById("enquiry-form");
+                  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  window.history.replaceState(null, "", "#enquiry-form");
+                }}
                 className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
               >
                 Submit Your Enquiry <ArrowRight className="h-4 w-4" />

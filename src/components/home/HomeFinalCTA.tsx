@@ -21,6 +21,7 @@ export function HomeFinalCTA() {
             <div className="lg:col-span-3 lg:text-right">
               <Link
                 to="/contact"
+                hash="enquiry-form"
                 className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
               >
                 Discuss Your Requirement <ArrowRight className="h-4 w-4" />

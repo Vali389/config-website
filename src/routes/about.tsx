@@ -325,6 +325,7 @@ function AboutPage() {
                 <div className="pt-2">
                   <Link
                     to="/contact"
+                    hash="enquiry-form"
                     className="btn-cta-primary inline-flex items-center gap-2 px-6 py-3 text-sm font-bold shadow-md"
                   >
                     Partner With Us <ArrowRight className="h-4 w-4" />
@@ -781,6 +782,7 @@ function AboutPage() {
               <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   to="/contact"
+                  hash="enquiry-form"
                   className="btn-cta-primary inline-flex items-center gap-2 text-sm sm:text-base font-bold px-8 py-3.5 shadow-lg hover:-translate-y-0.5 transition-transform"
                 >
                   Contact ConfigUSA <ArrowRight className="h-4 w-4" />

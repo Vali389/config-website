@@ -110,6 +110,7 @@ function EnterpriseApplicationsPage() {
             <div className="pt-2 flex flex-wrap gap-4 items-center">
               <Link
                 to="/contact"
+                hash="enquiry-form"
                 className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
               >
                 Discuss Enterprise Platform Requirements <ArrowRight className="h-4 w-4" />
@@ -242,6 +243,7 @@ function EnterpriseApplicationsPage() {
             <div className="lg:col-span-3 lg:text-right">
               <Link
                 to="/contact"
+                hash="enquiry-form"
                 className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
               >
                 Discuss Platform Requirements <ArrowRight className="h-4 w-4" />

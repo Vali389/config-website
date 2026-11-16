@@ -130,7 +130,7 @@ function Page() {
             </span>
             <h3 className="mt-4 text-xl font-extrabold text-ink">Still have questions?</h3>
             <p className="mt-2 text-muted-foreground">Our team is happy to help — reach out any time.</p>
-            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-bold text-white shadow-glow hover:scale-105 transition-transform">
+            <Link to="/contact" hash="enquiry-form" className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-bold text-white shadow-glow hover:scale-105 transition-transform">
               Contact Us <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

@@ -232,6 +232,7 @@ function ArticleDetailPage() {
                 </p>
                 <Link
                   to="/contact"
+                  hash="enquiry-form"
                   className="btn-cta-primary w-full text-xs font-bold py-2.5 rounded-lg justify-center shadow-xs inline-flex items-center gap-2"
                 >
                   <span>Discuss Your Requirement</span>
@@ -285,6 +286,7 @@ function ArticleDetailPage() {
             <div className="lg:col-span-4 lg:text-right">
               <Link
                 to="/contact"
+                hash="enquiry-form"
                 className="btn-cta-primary text-sm font-semibold px-6 py-3 rounded-md shadow-sm inline-flex items-center gap-2"
               >
                 <span>Connect With an Enterprise Lead</span>

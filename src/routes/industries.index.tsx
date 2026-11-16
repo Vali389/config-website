@@ -248,6 +248,7 @@ function IndustriesIndexPage() {
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
+                hash="enquiry-form"
                 className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md hover:-translate-y-0.5 transition-transform"
               >
                 Discuss Your Requirements <ArrowRight className="h-4 w-4" />
@@ -426,6 +427,7 @@ function IndustriesIndexPage() {
                     <div className="flex items-center gap-3 shrink-0">
                       <Link
                         to="/contact"
+                        hash="enquiry-form"
                         className="inline-flex h-10 items-center justify-center gap-1.5 rounded-lg bg-[#102B4E] shadow-sm px-5 text-xs font-semibold text-white hover:bg-[#245B91] transition-colors"
                       >
                         Consult on {sector.name} <ArrowRight className="h-3.5 w-3.5" />
@@ -513,6 +515,7 @@ function IndustriesIndexPage() {
           <div className="mt-14 text-center">
             <Link
               to="/contact"
+              hash="enquiry-form"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#102B4E] shadow-md px-8 text-sm font-bold text-white hover:bg-[#245B91] transition-all"
             >
               Discuss Your Industry Requirements
@@ -539,6 +542,7 @@ function IndustriesIndexPage() {
             <div className="flex flex-wrap gap-3 shrink-0">
               <Link
                 to="/contact"
+                hash="enquiry-form"
                 className="btn-cta-primary text-sm font-semibold px-6 py-2.5 rounded-lg shadow-sm"
               >
                 Discuss Sector Requirements

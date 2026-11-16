@@ -410,6 +410,7 @@ export function Header() {
         <div className="hidden lg:flex items-center gap-2.5">
           <Link
             to="/contact"
+            hash="enquiry-form"
             className="btn-cta-primary text-xs xl:text-sm font-semibold px-5 py-2.5 rounded-md shadow-sm inline-flex items-center gap-1.5"
           >
             Contact Us
@@ -490,6 +491,7 @@ export function Header() {
               <div className="pt-3">
                 <Link
                   to="/contact"
+                  hash="enquiry-form"
                   onClick={() => setOpen(false)}
                   className="btn-cta-primary w-full text-center text-sm font-semibold py-2.5 rounded-md block shadow-sm"
                 >

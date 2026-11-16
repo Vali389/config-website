@@ -171,6 +171,7 @@ function CapabilitiesOverviewPage() {
               </a>
               <Link
                 to="/contact"
+                hash="enquiry-form"
                 className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
               >
                 Discuss Your Requirement <ArrowRight className="h-4 w-4" />
@@ -353,6 +354,7 @@ function CapabilitiesOverviewPage() {
           <div className="flex flex-wrap gap-3 shrink-0">
             <Link
               to="/contact"
+              hash="enquiry-form"
               className="btn-cta-primary text-sm font-semibold px-5 py-2.5 rounded-lg shadow-sm"
             >
               Discuss Your Requirement

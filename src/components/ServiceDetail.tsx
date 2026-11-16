@@ -47,6 +47,7 @@ export function ServiceDetail(p: ServiceDetailProps) {
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             to="/contact"
+            hash="enquiry-form"
             className="inline-flex items-center gap-2 rounded-lg bg-[#C83B43] px-7 py-3.5 text-sm font-bold text-white hover:bg-[#b33239] transition-colors shadow-sm"
           >
             Talk to an Expert <ArrowRight className="h-4 w-4" />

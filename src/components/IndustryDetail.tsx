@@ -77,6 +77,7 @@ export function IndustryDetail(p: IndustryDetailProps) {
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
+                hash="enquiry-form"
                 className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md hover:-translate-y-0.5 transition-transform"
               >
                 Discuss Industry Requirements <ArrowRight className="h-4 w-4" />
