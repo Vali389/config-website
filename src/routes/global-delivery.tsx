@@ -116,8 +116,8 @@ const OFFICES = [
     city: "India",
     tag: "Delivery & Engineering Center",
     lines: [
-      "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2",
-      "Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081",
+      "Ardent office one Tech park, Tower A - S 1220, 2nd floor",
+      "Hoodi Circle, ITPL Main Road, Hoodi, Mahadevapura, Bengaluru, Karnataka – 560048",
     ],
     phone: "+91 80746 83380",
   },

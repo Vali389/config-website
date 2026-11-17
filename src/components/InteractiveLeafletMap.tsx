@@ -69,17 +69,16 @@ export const THREE_LOCATIONS: OfficeLocation[] = [
     id: "india",
     name: "Global Delivery & Technology Center",
     country: "India",
-    city: "Hyderabad",
-    state: "Telangana",
-    tag: "Offshore Delivery & Tech Hub",
-    address: "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081",
+    city: "Bengaluru",
+    state: "Karnataka",
+    tag: "Delivery & Engineering Center",
+    address:
+      "Ardent office one Tech park, Tower A - S 1220, 2nd floor, Hoodi Circle, ITPL Main Road, Hoodi, Mahadevapura, Bengaluru, Karnataka – 560048",
     phone: "+91 80746 83380",
     email: "india@configusa.com",
-    coords: [17.4474, 78.3762],
-    zoomLevel: 12,
+    coords: [12.9916, 77.7169],
+    zoomLevel: 13,
     timeZone: "IST (UTC+5:30)",
-    // TODO: VERIFY (headcount): 350+ Global Engineers (hidden from visible UI)
-    // TODO: VERIFY: Address and phone number (needs client confirmation)
     teamSize: "350+ Global Engineers",
   },
 ];

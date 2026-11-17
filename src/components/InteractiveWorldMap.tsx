@@ -66,18 +66,16 @@ const LOCATIONS_DATA: LocationDetail[] = [
     id: "india",
     country: "India",
     region: "India (Global Delivery Center)",
-    badge: "Offshore Engineering Hub",
+    badge: "Delivery & Engineering Center",
     role: "Global Delivery & Innovation Center",
     address:
-      "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081, India",
+      "Ardent office one Tech park, Tower A - S 1220, 2nd floor, Hoodi Circle, ITPL Main Road, Hoodi, Mahadevapura, Bengaluru, Karnataka – 560048, India",
     phone: "+91 80746 83380",
     email: "india@configusa.com",
     embedUrl:
-      "https://maps.google.com/maps?q=Trendz+Sapphire,+Vittal+Rao+Nagar,+Madhapur,+Hitech+City,+Hyderabad+500081&t=&z=14&ie=UTF8&iwloc=&output=embed",
+      "https://maps.google.com/maps?q=Hoodi+Circle,+ITPL+Main+Road,+Mahadevapura,+Bengaluru+560048&t=&z=14&ie=UTF8&iwloc=&output=embed",
     mapUrl:
-      "https://maps.google.com/?q=Trendz+Sapphire,+Vittal+Rao+Nagar,+Madhapur,+Hitech+City,+Hyderabad+500081",
-    // TODO: VERIFY (headcount): 350+ Global Engineers (hidden from visible UI)
-    // TODO: VERIFY: Address and phone number (needs client confirmation)
+      "https://maps.google.com/?q=Hoodi+Circle,+ITPL+Main+Road,+Mahadevapura,+Bengaluru+560048",
     teamSize: "350+ Global Engineers",
     timeZone: "IST (UTC+5:30)",
   },
