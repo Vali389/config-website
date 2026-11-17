@@ -113,7 +113,16 @@ const OFFICES = [
     phone: "+1 (647) 557-6968",
   },
   {
-    city: "India",
+    city: "India – Hyderabad",
+    tag: "Delivery & Technology Center",
+    lines: [
+      "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2",
+      "Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081",
+    ],
+    phone: "+91 80746 83380",
+  },
+  {
+    city: "India – Bengaluru",
     tag: "Delivery & Engineering Center",
     lines: [
       "Ardent office one Tech park, Tower A - S 1220, 2nd floor",
@@ -267,7 +276,7 @@ function GlobalDeliveryPage() {
             </div>
           </FadeUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {OPERATING_CADENCE.map((cadence, idx) => (
               <FadeUp key={cadence.title} delay={idx * 0.08}>
                 <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs hover:-translate-y-1 hover:shadow-lg hover:border-[#245B91] transition-all duration-300 h-full flex flex-col justify-between">
@@ -311,7 +320,7 @@ function GlobalDeliveryPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {OFFICES.map((office) => (
               <div
                 key={office.city}

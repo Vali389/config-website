@@ -156,10 +156,19 @@ const OFFICES = [
     city: "Canada",
     tag: "North America Hub",
     lines: ["1585 Markham Road, Suite # 309", "Toronto, ON M1B 2W1"],
-    phone: "+1 (609) 934-3184",
+    phone: "+1 (647) 557-6968",
   },
   {
-    city: "India",
+    city: "India – Hyderabad",
+    tag: "Delivery & Technology Center",
+    lines: [
+      "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2",
+      "Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081",
+    ],
+    phone: "+91 80746 83380",
+  },
+  {
+    city: "India – Bengaluru",
     tag: "Delivery & Engineering Center",
     lines: [
       "Ardent office one Tech park, Tower A - S 1220, 2nd floor",
@@ -661,7 +670,7 @@ function AboutPage() {
             </div>
           </FadeUp>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {OFFICES.map((off, idx) => (
               <FadeUp key={off.city} delay={idx * 0.1} className="h-full">
                 <div className="group relative overflow-hidden rounded-2xl bg-[#0a1f3a] border border-white/10 p-7 hover:border-[#C83B43] hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 h-full flex flex-col justify-between shadow-lg cursor-pointer before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#C83B43] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity">
@@ -736,7 +745,7 @@ function AboutPage() {
                     loading="lazy"
                     className={
                       cert.name === "NMSDC"
-                        ? "h-20 sm:h-24 w-auto max-w-full object-contain scale-115 drop-shadow-xs"
+                        ? "h-24 sm:h-28 w-auto max-w-full object-contain scale-125 drop-shadow-xs"
                         : "max-h-24 max-w-full object-contain"
                     }
                   />

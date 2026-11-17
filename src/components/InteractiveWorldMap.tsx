@@ -63,11 +63,28 @@ const LOCATIONS_DATA: LocationDetail[] = [
     timeZone: "EST (UTC-5)",
   },
   {
-    id: "india",
+    id: "india-hyderabad",
     country: "India",
-    region: "India (Global Delivery Center)",
-    badge: "Delivery & Engineering Center",
+    region: "India (Hyderabad Center)",
+    badge: "Delivery & Technology Center",
     role: "Global Delivery & Innovation Center",
+    address:
+      "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081, India",
+    phone: "+91 80746 83380",
+    email: "india@configusa.com",
+    embedUrl:
+      "https://maps.google.com/maps?q=Trendz+Sapphire,+Vittal+Rao+Nagar,+Madhapur,+Hitech+City,+Hyderabad+500081&t=&z=14&ie=UTF8&iwloc=&output=embed",
+    mapUrl:
+      "https://maps.google.com/?q=Trendz+Sapphire,+Vittal+Rao+Nagar,+Madhapur,+Hitech+City,+Hyderabad+500081",
+    teamSize: "350+ Global Engineers",
+    timeZone: "IST (UTC+5:30)",
+  },
+  {
+    id: "india-bengaluru",
+    country: "India",
+    region: "India (Bengaluru Center)",
+    badge: "Delivery & Engineering Center",
+    role: "Global Delivery & Engineering Hub",
     address:
       "Ardent office one Tech park, Tower A - S 1220, 2nd floor, Hoodi Circle, ITPL Main Road, Hoodi, Mahadevapura, Bengaluru, Karnataka – 560048, India",
     phone: "+91 80746 83380",

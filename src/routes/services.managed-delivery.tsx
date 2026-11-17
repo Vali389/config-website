@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   CheckCircle2,
@@ -11,13 +10,6 @@ import {
 } from "lucide-react";
 import managedDeliveryHero from "@/assets/Outcome-Driven Managed Delivery-new-bg.png";
 import { TechTicker } from "@/components/TechTicker";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 export const Route = createFileRoute("/services/managed-delivery")({
   head: () => ({
@@ -60,9 +52,6 @@ const CAPABILITIES = [
 /* ────────────────────────── COMPONENT ────────────────────────── */
 
 function MSPVMSPage() {
-  const [programType, setProgramType] = useState("MSP Contingent Workforce");
-  const [timeline, setTimeline] = useState("Immediate Requisitions (Within 2 Weeks)");
-
   return (
     <div className="min-h-screen bg-white">
       {/* ─────────────────────────────────────────────────────────────────── */}
@@ -135,8 +124,8 @@ function MSPVMSPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-200">
         <div className="container-enterprise">
-          <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 items-start">
-            {/* Left Column: Program Discipline & Core Capabilities */}
+          <div className="max-w-4xl mx-auto">
+            {/* Main Content: Program Discipline & Core Capabilities */}
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <span className="h-px w-7 bg-[#C83B43]" aria-hidden="true" />
@@ -202,80 +191,6 @@ function MSPVMSPage() {
                 >
                   Discuss MSP Workforce Requirements <ArrowRight className="h-4 w-4" />
                 </Link>
-              </div>
-            </div>
-
-            {/* Right Column: Lead Card (Inquiry Form matching Ashen SAP/Workday pattern) */}
-            <div className="lg:pt-2 sticky top-28">
-              <div className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 sm:p-8 shadow-sm">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <ShieldCheck className="h-5 w-5 text-[#C83B43]" />
-                  <h3 className="text-lg font-bold text-[#102B4E]">
-                    Discuss an MSP Partnership
-                  </h3>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Explore how ConfigUSA integrates seamlessly into enterprise vendor management systems.
-                </p>
-
-                <div className="mt-5 space-y-3.5">
-                  <div className="block">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
-                      Program / Engagement Scope
-                    </span>
-                    <Select value={programType} onValueChange={(val) => setProgramType(val)}>
-                      <SelectTrigger className="w-full h-10 bg-white border-slate-300">
-                        <SelectValue placeholder="Select Program Scope" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="MSP Contingent Workforce">MSP Contingent Workforce Program</SelectItem>
-                        <SelectItem value="VMS Requisition Management">VMS Requisition Management</SelectItem>
-                        <SelectItem value="Direct Sourcing">Direct Sourcing & Talent Pooling</SelectItem>
-                        <SelectItem value="Compliance Coordination">Workforce Compliance & Onboarding</SelectItem>
-                        <SelectItem value="Dedicated Pod Delivery">Dedicated Project Pods / SOW</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="block">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
-                      Requisition Urgency
-                    </span>
-                    <Select value={timeline} onValueChange={(val) => setTimeline(val)}>
-                      <SelectTrigger className="w-full h-10 bg-white border-slate-300">
-                        <SelectValue placeholder="Select Urgency" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="Immediate Requisitions (Within 2 Weeks)">Immediate Requisitions (Within 2 Weeks)</SelectItem>
-                        <SelectItem value="Active VMS Program Participation">Active VMS Program Participation</SelectItem>
-                        <SelectItem value="Upcoming Quarter Program Review">Upcoming Quarter Program Review</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="rounded-lg bg-white border border-slate-200 p-3.5 space-y-1.5 text-xs text-slate-600">
-                    <div className="flex items-center justify-between font-semibold text-[#102B4E]">
-                      <span>Turnaround SLA:</span>
-                      <span className="text-[#C83B43]">24–48 Hours</span>
-                    </div>
-                    <div className="flex items-center justify-between font-semibold text-[#102B4E]">
-                      <span>Compliance:</span>
-                      <span className="text-emerald-700">100% Vetted & Verified</span>
-                    </div>
-                    <div className="flex items-center justify-between font-semibold text-[#102B4E]">
-                      <span>Diversity Certifications:</span>
-                      <span className="text-slate-800">NMSDC, M/WBE, SBE, SAM.gov</span>
-                    </div>
-                  </div>
-
-                  <Link
-                    to="/contact"
-                    hash="enquiry-form"
-                    className="w-full btn-cta-primary text-center py-2.5 text-xs font-bold block shadow-xs mt-4"
-                  >
-                    Submit Partnership Inquiry
-                  </Link>
-                </div>
               </div>
             </div>
           </div>

@@ -43,8 +43,6 @@ export const THREE_LOCATIONS: OfficeLocation[] = [
     coords: [40.3340, -74.5938],
     zoomLevel: 12,
     timeZone: "EST (UTC-5)",
-    // TODO: VERIFY (headcount): 150+ Onshore Experts (hidden from visible UI)
-    // TODO: VERIFY: Address and phone number (needs client confirmation)
     teamSize: "150+ Onshore Experts",
     isHQ: true,
   },
@@ -61,13 +59,26 @@ export const THREE_LOCATIONS: OfficeLocation[] = [
     coords: [43.7915, -79.2274],
     zoomLevel: 12,
     timeZone: "EST (UTC-5)",
-    // TODO: VERIFY (headcount): 50+ Technology Consultants (hidden from visible UI)
-    // TODO: VERIFY: Address and phone number (needs client confirmation)
     teamSize: "50+ Technology Consultants",
   },
   {
-    id: "india",
-    name: "Global Delivery & Technology Center",
+    id: "india-hyderabad",
+    name: "Hyderabad Delivery & Technology Center",
+    country: "India",
+    city: "Hyderabad",
+    state: "Telangana",
+    tag: "Delivery & Technology Center",
+    address: "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081",
+    phone: "+91 80746 83380",
+    email: "india@configusa.com",
+    coords: [17.4474, 78.3762],
+    zoomLevel: 12,
+    timeZone: "IST (UTC+5:30)",
+    teamSize: "350+ Global Engineers",
+  },
+  {
+    id: "india-bengaluru",
+    name: "Bengaluru Delivery & Engineering Center",
     country: "India",
     city: "Bengaluru",
     state: "Karnataka",
@@ -82,6 +93,8 @@ export const THREE_LOCATIONS: OfficeLocation[] = [
     teamSize: "350+ Global Engineers",
   },
 ];
+
+export const FOUR_LOCATIONS = THREE_LOCATIONS;
 
 export function InteractiveLeafletMap() {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
@@ -222,7 +235,7 @@ export function InteractiveLeafletMap() {
           <div className="flex items-center gap-3">
             <span className="h-3 w-3 rounded-full bg-blue-600 animate-pulse" />
             <span className="text-sm sm:text-base font-bold text-[#102B4E] tracking-tight">
-              3 Strategic Locations · Global Delivery Network
+              4 Strategic Locations · Global Delivery Network
             </span>
           </div>
 
@@ -237,7 +250,7 @@ export function InteractiveLeafletMap() {
               }`}
             >
               <Globe className="h-3.5 w-3.5 inline mr-1" />
-              All 3 Locations
+              All 4 Locations
             </button>
             {THREE_LOCATIONS.map((loc) => (
               <button
@@ -249,7 +262,7 @@ export function InteractiveLeafletMap() {
                     : "bg-white border border-slate-200 text-slate-600 hover:text-slate-900"
                 }`}
               >
-                {loc.country}
+                {loc.id === "united-states" ? "United States" : loc.id === "canada" ? "Canada" : loc.city}
               </button>
             ))}
           </div>
@@ -348,7 +361,12 @@ export function InteractiveLeafletMap() {
                   <ExternalLink className="h-3 w-3 opacity-60" />
                 </a>
                 <a
-                  href="#contact-form"
+                  href="#enquiry-form"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById("enquiry-form") || document.getElementById("contact-form");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }}
                   className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 hover:bg-slate-50 px-4 py-2.5 text-xs font-bold text-slate-800 transition-all"
                 >
                   <span>Inquire</span>

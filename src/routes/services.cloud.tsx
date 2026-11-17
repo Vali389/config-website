@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   CheckCircle2,
@@ -13,13 +12,6 @@ import {
 import cloudInfraHero from "@/assets/Cloud & Infrastructure-bg.png";
 import storyCloud from "@/assets/story-cloud.jpg";
 import { TechTicker } from "@/components/TechTicker";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 export const Route = createFileRoute("/services/cloud")({
   head: () => ({
@@ -65,9 +57,6 @@ const FOCUS_AREAS = [
 /* ────────────────────────── COMPONENT ────────────────────────── */
 
 function CloudInfrastructurePage() {
-  const [platformFocus, setPlatformFocus] = useState("AWS & Multi-Cloud");
-  const [timeline, setTimeline] = useState("Immediate Requisition (Within 2 Weeks)");
-
   return (
     <div className="min-h-screen bg-white">
       {/* ─────────────────────────────────────────────────────────────────── */}
@@ -139,8 +128,8 @@ function CloudInfrastructurePage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-200">
         <div className="container-enterprise">
-          <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 items-start">
-            {/* Left Column: Resilient IT Architecture & Focus Areas */}
+          <div className="max-w-4xl mx-auto">
+            {/* Main Content: Resilient IT Architecture & Focus Areas */}
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <span className="h-px w-7 bg-[#C83B43]" aria-hidden="true" />
@@ -167,7 +156,7 @@ function CloudInfrastructurePage() {
                 <img
                   src={storyCloud}
                   alt="ConfigUSA cloud architects configuring enterprise infrastructure"
-                  className="w-full h-56 sm:h-64 object-cover object-center filter brightness-[1.08] contrast-[1.02] transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-56 sm:h-72 object-cover object-center filter brightness-[1.08] contrast-[1.02] transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="bg-[#102B4E]/95 text-white px-4 py-2.5 text-xs flex items-center justify-between border-t border-white/20">
                   <span className="font-semibold text-white">
@@ -206,81 +195,6 @@ function CloudInfrastructurePage() {
                 >
                   Connect With Infrastructure Talent <ArrowRight className="h-4 w-4" />
                 </Link>
-              </div>
-            </div>
-
-            {/* Right Column: Lead Card (Inquiry Form matching Navy Blue) */}
-            <div className="lg:pt-2 sticky top-28">
-              <div className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 sm:p-8 shadow-sm">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <ShieldCheck className="h-5 w-5 text-[#C83B43]" />
-                  <h3 className="text-lg font-bold text-[#102B4E]">
-                    Source Cloud & Infrastructure Talent
-                  </h3>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Deploy pre-vetted engineers across AWS, Azure, GCP, Kubernetes, and Cyber Defense.
-                </p>
-
-                <div className="mt-5 space-y-3.5">
-                  <div className="block">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
-                      Cloud & Infrastructure Focus
-                    </span>
-                    <Select value={platformFocus} onValueChange={(val) => setPlatformFocus(val)}>
-                      <SelectTrigger className="w-full h-10 bg-white border-slate-300">
-                        <SelectValue placeholder="Select Platform Focus" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="AWS & Multi-Cloud">Amazon Web Services (AWS)</SelectItem>
-                        <SelectItem value="Microsoft Azure">Microsoft Azure Cloud</SelectItem>
-                        <SelectItem value="Google Cloud Platform">Google Cloud Platform (GCP)</SelectItem>
-                        <SelectItem value="DevOps & Platform Engineering">DevOps, CI/CD & Kubernetes</SelectItem>
-                        <SelectItem value="Cybersecurity & SecOps">Cybersecurity & SecOps Defense</SelectItem>
-                        <SelectItem value="Systems & Network Admin">Enterprise Systems & Network Admin</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="block">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
-                      Deployment Timeline
-                    </span>
-                    <Select value={timeline} onValueChange={(val) => setTimeline(val)}>
-                      <SelectTrigger className="w-full h-10 bg-white border-slate-300">
-                        <SelectValue placeholder="Select Deployment Timeline" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="Immediate Requisition (Within 2 Weeks)">Immediate Requisitions (Within 2 Weeks)</SelectItem>
-                        <SelectItem value="Upcoming Project Spike (30–60 Days)">Upcoming Project Spike (30–60 Days)</SelectItem>
-                        <SelectItem value="Long-Term Dedicated Pod">Long-Term Dedicated Engineering Pod</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="rounded-lg bg-white border border-slate-200 p-3.5 space-y-1.5 text-xs text-slate-600">
-                    <div className="flex items-center justify-between font-semibold text-[#102B4E]">
-                      <span>Turnaround SLA:</span>
-                      <span className="text-[#C83B43]">24–48 Hours</span>
-                    </div>
-                    <div className="flex items-center justify-between font-semibold text-[#102B4E]">
-                      <span>Vetting Standard:</span>
-                      <span className="text-emerald-700">Practitioner Screened & Certified</span>
-                    </div>
-                    <div className="flex items-center justify-between font-semibold text-[#102B4E]">
-                      <span>Compliance:</span>
-                      <span className="text-slate-800">100% Vetted, E-Verify & Insured</span>
-                    </div>
-                  </div>
-
-                  <Link
-                    to="/contact"
-                    hash="enquiry-form"
-                    className="w-full btn-cta-primary text-center py-2.5 text-xs font-bold block shadow-xs mt-4"
-                  >
-                    Submit Infrastructure Requisition
-                  </Link>
-                </div>
               </div>
             </div>
           </div>

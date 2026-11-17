@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Database,
@@ -12,13 +11,6 @@ import wdWorkforceImg from "@/assets/wd-workforce.jpg";
 import workdayHeroBg from "@/assets/workday-solutions-bg.png";
 import erpIntegrationImg from "@/assets/erp_integration_img.png";
 import { FadeUp } from "@/components/FadeUp";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 export const Route = createFileRoute("/services/workday")({
   head: () => ({
@@ -57,8 +49,6 @@ const WORKDAY_CAPABILITIES = [
 ];
 
 function WorkdayPage() {
-  const [selectedModule, setSelectedModule] = useState("Workday HCM");
-
   return (
     <div className="flex flex-col min-h-screen">
       {/* ─────────────────────────────────────────────────────────────────── */}
@@ -120,9 +110,9 @@ function WorkdayPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-200">
         <div className="container-enterprise">
-          <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 items-start">
-            {/* Left Content Column */}
-            <div>
+          <div className="max-w-4xl mx-auto">
+            {/* Main Content */}
+            <div className="space-y-6">
               <div className="flex items-center gap-3 mb-2">
                 <span className="h-px w-7 bg-[#C83B43]" aria-hidden="true" />
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#245B91]">
@@ -148,7 +138,7 @@ function WorkdayPage() {
                 <img
                   src={erpIntegrationImg}
                   alt="ConfigUSA Workday Integration Architecture"
-                  className="w-full h-56 sm:h-64 object-cover object-center filter brightness-[1.08] contrast-[1.02] transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-56 sm:h-72 object-cover object-center filter brightness-[1.08] contrast-[1.02] transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="bg-[#102B4E]/95 text-white px-4 py-2.5 text-xs flex items-center justify-between border-t border-white/20">
                   <span className="font-semibold text-white">
@@ -193,64 +183,6 @@ function WorkdayPage() {
                 >
                   Find Workday Specialists <ArrowRight className="h-4 w-4" />
                 </Link>
-              </div>
-            </div>
-
-            {/* Right Column: Lead Card (Navy Blue Sidecard) */}
-            <div className="lg:pt-2 sticky top-28">
-              <div className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 sm:p-8 shadow-sm">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <Database className="h-5 w-5 text-[#C83B43]" />
-                  <h3 className="text-lg font-bold text-[#102B4E]">
-                    Source Workday Talent
-                  </h3>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Tell us about your Workday HCM, Financials, Integration, or Support needs.
-                </p>
-
-                <div className="mt-5 space-y-3">
-                  <div className="block">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
-                      Workday Capability Area
-                    </span>
-                    <Select value={selectedModule} onValueChange={(val) => setSelectedModule(val)}>
-                      <SelectTrigger className="w-full h-10 bg-white border-slate-300">
-                        <SelectValue placeholder="Select Workday Area" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="Workday HCM">Workday HCM & Core HR</SelectItem>
-                        <SelectItem value="Financial Management">Workday Financial Management</SelectItem>
-                        <SelectItem value="Integrations">Integrations (Studio, EIB, Core Connector)</SelectItem>
-                        <SelectItem value="Prism/Reporting">Workday Reporting & Prism Analytics</SelectItem>
-                        <SelectItem value="Payroll/Compensation">Payroll & Advanced Compensation</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="rounded-lg bg-white border border-slate-200 p-3.5 space-y-1.5 text-xs text-slate-600">
-                    <div className="flex items-center justify-between font-semibold text-[#102B4E]">
-                      <span>Turnaround:</span>
-                      <span className="text-[#C83B43]">48–72 Hours</span>
-                    </div>
-                    <div className="flex items-center justify-between font-semibold text-[#102B4E]">
-                      <span>Vetting:</span>
-                      <span className="text-emerald-700">Certified Workday Leads</span>
-                    </div>
-                    <div className="flex items-center justify-between font-semibold text-[#102B4E]">
-                      <span>Engagement:</span>
-                      <span className="text-slate-800">Direct Hire / Contract / Advisory</span>
-                    </div>
-                  </div>
-
-                  <Link
-                    to="/contact"
-                    hash="enquiry-form"
-                    className="w-full btn-cta-primary text-center py-2.5 text-xs font-bold block shadow-xs mt-4"
-                  >
-                    Submit Workday Talent Request
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
