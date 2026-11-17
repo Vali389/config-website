@@ -8,7 +8,7 @@ import {
   Users,
 } from "lucide-react";
 import wdWorkforceImg from "@/assets/wd-workforce.jpg";
-import workdayHeroBg from "@/assets/workday-solutions-bg.png";
+import workdayHeroBg from "@/assets/multi-clutural-WORKDAY TALENT SOLUTIONS-bg.png";
 import erpIntegrationImg from "@/assets/erp_integration_img.png";
 import { FadeUp } from "@/components/FadeUp";
 
