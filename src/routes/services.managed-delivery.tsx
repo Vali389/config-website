@@ -8,7 +8,7 @@ import {
   Clock,
   FileCheck,
 } from "lucide-react";
-import managedDeliveryHero from "@/assets/Outcome-Driven Managed Delivery-new-bg.png";
+import managedDeliveryHero from "@/assets/multi-cultral-msp-vps-bg.png";
 import { TechTicker } from "@/components/TechTicker";
 
 export const Route = createFileRoute("/services/managed-delivery")({

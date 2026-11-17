@@ -14,7 +14,7 @@ import {
   LineChart,
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
-import aiHeroBg from "@/assets/AI, Data & Digital Engineering-bg.png";
+import aiHeroBg from "@/assets/muticultural-AI & INTELLIGENT SOLUTIONS-bg.png";
 
 export const Route = createFileRoute("/services/ai")({
   head: () => ({

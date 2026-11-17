@@ -9,7 +9,7 @@ import {
   Cpu,
   Lock,
 } from "lucide-react";
-import cloudInfraHero from "@/assets/Cloud & Infrastructure-bg.png";
+import cloudInfraHero from "@/assets/multicultural-CLOUD-bg.png";
 import storyCloud from "@/assets/story-cloud.jpg";
 import { TechTicker } from "@/components/TechTicker";
 

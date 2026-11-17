@@ -10,7 +10,7 @@ import {
   ShieldCheck,
   Building2,
 } from "lucide-react";
-import consultingHero from "@/assets/Digital Engineering & Custom Software – Background Image.png";
+import consultingHero from "@/assets/multicultural-TECHNOLOGY RESOURCE SOLUTIONS-bg.png";
 import techTeamImg from "@/assets/Collaborative Tech Team in Modern Office-2.png";
 import { TechTicker } from "@/components/TechTicker";
 
