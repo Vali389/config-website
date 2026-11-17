@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
 import fdeHeroBg from "@/assets/multi-culture-forwrad-deployed-engineering-bg.png";
-import fdeBesideBusiness from "@/assets/fde-beside-business.jpg";
+import muticulturalTeamFde from "@/assets/muticultural-team-fde.png";
 
 export const Route = createFileRoute("/services/forward-deployed-engineering")({
   head: () => ({
@@ -320,7 +320,7 @@ function ForwardDeployedEngineeringPage() {
               <div className="lg:col-span-5">
                 <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-lg">
                   <img
-                    src={fdeBesideBusiness}
+                    src={muticulturalTeamFde}
                     alt="Forward-Deployed Engineering Team"
                     className="w-full h-80 object-cover object-center"
                   />

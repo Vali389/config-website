@@ -12,7 +12,6 @@ import {
   Clock,
   UserCheck,
   Compass,
-  Building2,
   ArrowRight,
   Briefcase,
   ChevronDown,
@@ -82,34 +81,6 @@ const WHAT_TO_EXPECT = [
     icon: Compass,
     title: "Clear assessment & engagement plan",
     desc: "Transparent assessment of skill availability, timelines and recommended engagement models.",
-  },
-];
-
-// 4 Confirmed Operating Hubs (United States, Canada, Hyderabad, Bengaluru)
-const OFFICES = [
-  {
-    city: "United States",
-    tag: "Global Headquarters",
-    address: "666 Plainsboro Road, Suite 1237, Plainsboro, NJ 08536",
-    phone: "+1 (609) 934-3184",
-  },
-  {
-    city: "Canada",
-    tag: "North America Hub",
-    address: "1585 Markham Road, Suite # 309, Toronto, ON M1B 2W1",
-    phone: "+1 (647) 557-6968",
-  },
-  {
-    city: "India – Hyderabad",
-    tag: "Delivery & Tech Center",
-    address: "Trendz Sapphire, 3rd Floor, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081",
-    phone: "+91 80746 83380",
-  },
-  {
-    city: "India – Bengaluru",
-    tag: "Delivery & Engineering Center",
-    address: "Ardent office one Tech park, Tower A - S 1220, 2nd floor, Hoodi Circle, ITPL Main Road, Hoodi, Mahadevapura, Bengaluru, Karnataka – 560048",
-    phone: "+91 80746 83380",
   },
 ];
 
@@ -622,52 +593,7 @@ function ContactPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 3. Confirmed Office Locations (4 Global Hubs)                       */}
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
-        <div className="container-enterprise">
-          <div className="max-w-3xl mb-6">
-            <div className="flex items-center gap-2.5 mb-2">
-              <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                OFFICE LOCATIONS
-              </span>
-              <span className="w-10 h-[3px] bg-[#C83B43]" />
-            </div>
-            <h3 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
-              Confirmed operating offices and delivery centres.
-            </h3>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {OFFICES.map((o) => (
-              <div
-                key={o.city}
-                className="rounded-xl bg-white border border-slate-200/80 p-5 shadow-xs flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#C83B43] bg-red-50 border border-red-100 px-2 py-0.5 rounded">
-                      <Building2 className="h-3 w-3" />
-                      {o.tag}
-                    </span>
-                  </div>
-                  <h4 className="text-base font-bold text-[#102B4E] tracking-tight mb-1.5">{o.city}</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4">{o.address}</p>
-                </div>
-                <div className="pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-slate-700">
-                  <Phone className="h-3.5 w-3.5 text-[#245B91]" />
-                  <a href={`tel:${o.phone.replace(/[^+\d]/g, "")}`} className="hover:text-[#245B91]">
-                    {o.phone}
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 4. Interactive Map Section                                          */}
+      {/* 3. Interactive Map Section                                          */}
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="bg-white py-12 border-b border-[#e2e8f0]">
         <div className="container-enterprise">
