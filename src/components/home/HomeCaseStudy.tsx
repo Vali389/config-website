@@ -29,12 +29,16 @@ export function HomeCaseStudy() {
           <div className="rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#245B91] transition-all duration-300 overflow-hidden p-6 sm:p-8 lg:p-9 space-y-6 before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 hover:before:opacity-100 before:transition-opacity relative group">
             {/* Top Split: Attractive High-Res Image + Executive Context */}
             <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-              {/* Left: Attractive High-Res Team Photo */}
-              <div className="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs h-60 sm:h-64 bg-slate-100">
+              {/* Left: High-Res Team Photo (Clickable Link to Detail) */}
+              <Link
+                to="/case-studies/$slug"
+                params={{ slug: "specialist-workforce-mobilisation" }}
+                className="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs h-60 sm:h-64 bg-slate-100 block group/img"
+              >
                 <img
                   src={caseStudyTeam}
                   alt="Scaling a Technology Programme with Specialised Engineering Talent"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105"
                 />
                 <div className="absolute top-3 left-3">
                   <span className="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-bold bg-[#102B4E]/90 text-white backdrop-blur-xs shadow-xs">
@@ -45,7 +49,7 @@ export function HomeCaseStudy() {
                   <Sparkles className="h-3.5 w-3.5 text-[#C83B43] shrink-0" />
                   <span>40 Engineers in 6 Weeks • 30% Faster Time-to-Delivery</span>
                 </div>
-              </div>
+              </Link>
 
               {/* Right: Badges, Title & Summary */}
               <div className="lg:col-span-7 space-y-3">
@@ -57,18 +61,33 @@ export function HomeCaseStudy() {
                     Sector: Global Enterprise Technology
                   </span>
                 </div>
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight group-hover:text-[#245B91] transition-colors">
-                  Scaling a Technology Programme with Specialised Engineering Talent
-                </h3>
+                <Link
+                  to="/case-studies/$slug"
+                  params={{ slug: "specialist-workforce-mobilisation" }}
+                  className="block"
+                >
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight group-hover:text-[#245B91] transition-colors">
+                    Scaling a Technology Programme with Specialised Engineering Talent
+                  </h3>
+                </Link>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   How ConfigUSA helped a global enterprise technology organisation rapidly mobilise and integrate a 40-member engineering squad across distributed workflows without compromising technical quality, security or architectural consistency.
                 </p>
-                <div className="pt-1">
+                <div className="pt-1 flex flex-wrap items-center gap-3">
                   <Link
-                    to="/case-studies"
+                    to="/case-studies/$slug"
+                    params={{ slug: "specialist-workforce-mobilisation" }}
                     className="btn-cta-primary text-xs font-bold px-4 py-2 rounded-md shadow-xs inline-flex items-center gap-1.5"
                   >
-                    View All Case Studies <ArrowRight className="h-3.5 w-3.5" />
+                    <span>Read Full Case Study</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                  <Link
+                    to="/case-studies"
+                    className="text-xs font-bold text-slate-600 hover:text-[#102B4E] px-3 py-2 transition-colors inline-flex items-center gap-1"
+                  >
+                    <span>View All Case Studies</span>
+                    <ArrowRight className="h-3 w-3" />
                   </Link>
                 </div>
               </div>

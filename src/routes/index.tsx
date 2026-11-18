@@ -3,6 +3,7 @@ import { HomeHero } from "@/components/home/HomeHero";
 import { TechTicker } from "@/components/TechTicker";
 import { HomeWhatWeDo } from "@/components/home/HomeWhatWeDo";
 import { HomeCoreCapabilities } from "@/components/home/HomeCoreCapabilities";
+import { HomeCertifications } from "@/components/home/HomeCertifications";
 import { HomeWhyUs } from "@/components/home/HomeWhyUs";
 import { HomeHowWeWork } from "@/components/home/HomeHowWeWork";
 import { HomeEvidence } from "@/components/home/HomeEvidence";
@@ -49,6 +50,9 @@ function HomePage() {
 
       {/* 3. Our Core Capabilities (4 Cards) */}
       <HomeCoreCapabilities />
+
+      {/* 3.5 Official Certifications & Compliance */}
+      <HomeCertifications />
 
       {/* 4. Why ConfigUSA */}
       <HomeWhyUs />

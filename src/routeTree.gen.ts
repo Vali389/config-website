@@ -30,6 +30,8 @@ import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as SubmitResumeRouteImport } from './routes/submit-resume'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as CareersIndexRouteImport } from './routes/careers/index'
+import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
+import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as IndustriesIndustryIdRouteImport } from './routes/industries.$industryId'
 import { Route as InsightsIndexRouteImport } from './routes/insights.index'
@@ -155,6 +157,16 @@ const CareersIndexRoute = CareersIndexRouteImport.update({
   path: '/careers/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CaseStudiesRoute,
+} as any)
+const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CaseStudiesRoute,
+} as any)
 const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -256,7 +268,7 @@ const CareersJobJobIdRoute = CareersJobJobIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/case-studies': typeof CaseStudiesRoute
+  '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
   '/engagement-models': typeof EngagementModelsRoute
   '/expertise': typeof ExpertiseRoute
@@ -274,6 +286,7 @@ export interface FileRoutesByFullPath {
   '/solutions': typeof SolutionsRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
@@ -289,6 +302,7 @@ export interface FileRoutesByFullPath {
   '/services/staffing': typeof ServicesStaffingRoute
   '/services/workday': typeof ServicesWorkdayRoute
   '/careers/': typeof CareersIndexRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/resources/': typeof ResourcesIndexRoute
@@ -298,7 +312,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/engagement-models': typeof EngagementModelsRoute
   '/expertise': typeof ExpertiseRoute
@@ -312,6 +325,7 @@ export interface FileRoutesByTo {
   '/solutions': typeof SolutionsRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
@@ -327,6 +341,7 @@ export interface FileRoutesByTo {
   '/services/staffing': typeof ServicesStaffingRoute
   '/services/workday': typeof ServicesWorkdayRoute
   '/careers': typeof CareersIndexRoute
+  '/case-studies': typeof CaseStudiesIndexRoute
   '/industries': typeof IndustriesIndexRoute
   '/insights': typeof InsightsIndexRoute
   '/resources': typeof ResourcesIndexRoute
@@ -337,7 +352,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/case-studies': typeof CaseStudiesRoute
+  '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
   '/engagement-models': typeof EngagementModelsRoute
   '/expertise': typeof ExpertiseRoute
@@ -355,6 +370,7 @@ export interface FileRoutesById {
   '/solutions': typeof SolutionsRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
@@ -370,6 +386,7 @@ export interface FileRoutesById {
   '/services/staffing': typeof ServicesStaffingRoute
   '/services/workday': typeof ServicesWorkdayRoute
   '/careers/': typeof CareersIndexRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/resources/': typeof ResourcesIndexRoute
@@ -399,6 +416,7 @@ export interface FileRouteTypes {
     | '/solutions'
     | '/submit-resume'
     | '/terms'
+    | '/case-studies/$slug'
     | '/industries/$industryId'
     | '/insights/$slug'
     | '/resources/$slug'
@@ -414,6 +432,7 @@ export interface FileRouteTypes {
     | '/services/staffing'
     | '/services/workday'
     | '/careers/'
+    | '/case-studies/'
     | '/industries/'
     | '/insights/'
     | '/resources/'
@@ -423,7 +442,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
-    | '/case-studies'
     | '/contact'
     | '/engagement-models'
     | '/expertise'
@@ -437,6 +455,7 @@ export interface FileRouteTypes {
     | '/solutions'
     | '/submit-resume'
     | '/terms'
+    | '/case-studies/$slug'
     | '/industries/$industryId'
     | '/insights/$slug'
     | '/resources/$slug'
@@ -452,6 +471,7 @@ export interface FileRouteTypes {
     | '/services/staffing'
     | '/services/workday'
     | '/careers'
+    | '/case-studies'
     | '/industries'
     | '/insights'
     | '/resources'
@@ -479,6 +499,7 @@ export interface FileRouteTypes {
     | '/solutions'
     | '/submit-resume'
     | '/terms'
+    | '/case-studies/$slug'
     | '/industries/$industryId'
     | '/insights/$slug'
     | '/resources/$slug'
@@ -494,6 +515,7 @@ export interface FileRouteTypes {
     | '/services/staffing'
     | '/services/workday'
     | '/careers/'
+    | '/case-studies/'
     | '/industries/'
     | '/insights/'
     | '/resources/'
@@ -504,7 +526,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  CaseStudiesRoute: typeof CaseStudiesRoute
+  CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   ContactRoute: typeof ContactRoute
   EngagementModelsRoute: typeof EngagementModelsRoute
   ExpertiseRoute: typeof ExpertiseRoute
@@ -675,6 +697,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CareersIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/case-studies/': {
+      id: '/case-studies/'
+      path: '/'
+      fullPath: '/case-studies/'
+      preLoaderRoute: typeof CaseStudiesIndexRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
+    '/case-studies/$slug': {
+      id: '/case-studies/$slug'
+      path: '/$slug'
+      fullPath: '/case-studies/$slug'
+      preLoaderRoute: typeof CaseStudiesSlugRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
     '/industries/': {
       id: '/industries/'
       path: '/'
@@ -811,6 +847,20 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface CaseStudiesRouteChildren {
+  CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
+  CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
+}
+
+const CaseStudiesRouteChildren: CaseStudiesRouteChildren = {
+  CaseStudiesSlugRoute: CaseStudiesSlugRoute,
+  CaseStudiesIndexRoute: CaseStudiesIndexRoute,
+}
+
+const CaseStudiesRouteWithChildren = CaseStudiesRoute._addFileChildren(
+  CaseStudiesRouteChildren,
+)
+
 interface IndustriesRouteChildren {
   IndustriesIndustryIdRoute: typeof IndustriesIndustryIdRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
@@ -891,7 +941,7 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  CaseStudiesRoute: CaseStudiesRoute,
+  CaseStudiesRoute: CaseStudiesRouteWithChildren,
   ContactRoute: ContactRoute,
   EngagementModelsRoute: EngagementModelsRoute,
   ExpertiseRoute: ExpertiseRoute,

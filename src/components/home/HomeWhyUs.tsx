@@ -28,16 +28,16 @@ export function HomeWhyUs() {
               </h2>
             </div>
 
-            <div className="space-y-3 pt-1">
+            <div className="space-y-1.5 pt-1">
               {points.map((text, idx) => (
                 <div
                   key={idx}
-                  className="group/item flex items-start gap-3.5 p-2.5 -mx-2.5 rounded-xl hover:bg-slate-50/80 transition-colors duration-200"
+                  className="group/item flex items-start gap-3 py-1.5 px-2 -mx-2 rounded-lg hover:bg-slate-50/80 transition-colors duration-200"
                 >
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#C83B43] text-white mt-0.5 group-hover/item:scale-110 group-hover/item:bg-[#102B4E] transition-all duration-200 shadow-xs">
                     <Check className="h-3 w-3 stroke-[3]" />
                   </span>
-                  <p className="text-sm sm:text-base text-slate-700 font-medium leading-snug group-hover/item:text-[#102B4E] transition-colors duration-200">
+                  <p className="text-sm sm:text-base text-slate-700 font-medium leading-normal group-hover/item:text-[#102B4E] transition-colors duration-200">
                     {text}
                   </p>
                 </div>
