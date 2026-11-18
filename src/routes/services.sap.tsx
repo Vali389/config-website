@@ -10,8 +10,8 @@ import {
   Layers,
   Workflow,
 } from "lucide-react";
-import serviceSapImg from "@/assets/multicultural-SAP TALENT-bg.png";
-import erpImplementationImg from "@/assets/erp_implementation_img.png";
+import serviceSapImg from "@/assets/us-sap-solutions.png";
+import sapEnterpriseTeam from "@/assets/sap_western_team.jpg";
 import { FadeUp } from "@/components/FadeUp";
 
 export const Route = createFileRoute("/services/sap")({
@@ -56,31 +56,31 @@ function SapPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 1. Hero Section (Navy Blue Header Presentation)                     */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[500px] sm:min-h-[540px] lg:min-h-[580px] xl:min-h-[620px] flex items-center overflow-hidden bg-[#102B4E] text-white pt-24 pb-12 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16 border-b border-[#1b3a63]">
+      <section className="relative min-h-[460px] lg:min-h-[520px] flex items-center overflow-hidden bg-[#102B4E] text-white pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-white/10">
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <img
             src={serviceSapImg}
             alt="SAP Enterprise Solutions"
             className="h-full w-full object-cover object-[right_center] md:object-[88%_center] brightness-110 contrast-[1.04]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/80 via-35% sm:via-40% to-transparent sm:to-58% pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#102B4E]/25 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#012056] via-[#012056]/95 via-30% md:via-40% to-transparent to-62% pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#012056]/25 to-transparent pointer-events-none" />
         </div>
 
-        <div className="container-enterprise relative z-10 w-full my-auto py-4">
-          <div className="max-w-xl lg:max-w-[560px] xl:max-w-[620px] space-y-6">
+        <div className="container-enterprise relative z-10 w-full my-auto">
+          <div className="max-w-xl lg:max-w-[520px] xl:max-w-[580px] space-y-6">
             <div className="flex items-center gap-2.5">
-              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white">
+              <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-white">
                 SAP TALENT & ENTERPRISE APPLICATION EXPERTISE
               </span>
               <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold leading-[1.16] tracking-tight text-white">
+            <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-[1.16] tracking-tight text-white">
               Specialized SAP Talent for Complex Enterprise Environments.
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
               SAP systems support some of the most critical processes within modern organizations. Successful transformation, enhancement, and support initiatives depend on professionals who understand both enterprise technology and the business processes it enables.
             </p>
 
@@ -138,9 +138,9 @@ function SapPage() {
               {/* SAP Architecture Visual Image */}
               <div className="mt-7 relative overflow-hidden rounded-xl border border-slate-200 shadow-md bg-slate-900 group">
                 <img
-                  src={erpImplementationImg}
+                  src={sapEnterpriseTeam}
                   alt="ConfigUSA SAP S/4HANA Implementation Team"
-                  className="w-full h-56 sm:h-72 object-cover object-center filter brightness-[1.08] contrast-[1.02] transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-56 sm:h-72 object-cover object-center filter brightness-[1.05] contrast-[1.02] transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="bg-[#102B4E]/95 text-white px-4 py-2.5 text-xs flex items-center justify-between border-t border-white/20">
                   <span className="font-semibold text-white">

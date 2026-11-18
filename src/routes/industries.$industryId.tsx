@@ -25,13 +25,12 @@ import heroManufacturing from "@/assets/Manufacturing & Industrial-hero-bg.png";
 import heroRetail from "@/assets/Retail & Consumer Goods-hero-bg.png";
 import heroTechnology from "@/assets/Technology & Digital Services-hero-bg.png";
 
-import indHealthcare from "@/assets/High-Tech Medical Research Laboratory-5.png";
-import indFinancial from "@/assets/Financial Analytics Team at Work-1.png";
-import indGovernment from "@/assets/Warehouse Logistics Dashboard Team-6.png";
-import indManufacturing from "@/assets/Collaborative Engineers in a Smart Factory-3.png";
-import indManufacturing2 from "@/assets/Engineers Collaborating on Smart Factory Automation-7.png";
-import indRetail from "@/assets/Retail Team Reviewing Tablet in Showroom-4.png";
-import indTechnology from "@/assets/Collaborative Tech Team in Modern Office-2.png";
+import indHealthcare from "@/assets/ind-healthcare.jpg";
+import indFinancial from "@/assets/ind-financial.jpg";
+import indGovernment from "@/assets/ind-government.jpg";
+import indManufacturing from "@/assets/ind-manufacturing.jpg";
+import indRetail from "@/assets/ind-retail.jpg";
+import indTechnology from "@/assets/software-consulting-team.jpg";
 
 import ctaIndustries from "@/assets/cta-industries.jpg";
 

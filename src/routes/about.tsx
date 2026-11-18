@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
 import { TechTicker } from "@/components/TechTicker";
-import whoWeAreMeeting from "@/assets/who_we_are_meeting.jpg";
+import whoWeAreMeeting from "@/assets/who_we_are_western_meeting.jpg";
 import aboutBg from "@/assets/aboutus-bg.png";
 import certNmsdc from "@/assets/NMSDC-logo.jpeg";
 import certMwbe from "@/assets/cert-mwbe.jpg";

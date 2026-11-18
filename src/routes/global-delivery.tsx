@@ -102,7 +102,7 @@ function GlobalDeliveryPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 1. Hero Section (Edge-to-Edge Navy Hero with Photography on Right)  */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[440px] lg:min-h-[500px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-white/10">
+      <section className="relative min-h-[460px] lg:min-h-[520px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-white/10">
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <img
             src={globalDeliveryHeroBg}

@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
-import caseStudyTeam from "@/assets/case_study_team.jpg";
+import caseStudyTeam from "@/assets/case_study_western_team.jpg";
 import { FadeUp } from "@/components/FadeUp";
 
 export function HomeCaseStudy() {

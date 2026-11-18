@@ -8,7 +8,7 @@ import {
   Clock,
   FileCheck,
 } from "lucide-react";
-import managedDeliveryHero from "@/assets/multi-cultral-msp-vps-bg.png";
+import managedDeliveryHero from "@/assets/us-MSP & VMS Programs-bg.png";
 import { TechTicker } from "@/components/TechTicker";
 
 export const Route = createFileRoute("/services/managed-delivery")({
@@ -57,7 +57,7 @@ function MSPVMSPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 1. Hero Section (Strictly matching Ashen standard with bright right side) */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[500px] sm:min-h-[540px] lg:min-h-[580px] xl:min-h-[620px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-12 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16 border-b border-[#1b3a63]">
+      <section className="relative min-h-[460px] lg:min-h-[520px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-white/10">
         {/* Edge-to-Edge Hero Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <img
@@ -68,28 +68,28 @@ function MSPVMSPage() {
             decoding="sync"
             className="h-full w-full object-cover object-[right_center] md:object-[88%_center] brightness-110 contrast-[1.04]"
           />
-          {/* Natural gradient overlay protecting left text while showcasing right photography with zero tint */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/80 via-35% sm:via-40% to-transparent sm:to-58% pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#102B4E]/25 to-transparent pointer-events-none" />
+          {/* Gradient overlay protecting left text while showcasing right photography seamlessly */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#012056] via-[#012056]/95 via-30% md:via-40% to-transparent to-62% pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#012056]/25 to-transparent pointer-events-none" />
         </div>
 
-        <div className="container-enterprise relative z-10 w-full py-4">
-          <div className="max-w-xl lg:max-w-[580px] xl:max-w-[640px] space-y-6">
+        <div className="container-enterprise relative z-10 w-full">
+          <div className="max-w-xl lg:max-w-[520px] xl:max-w-[580px] space-y-6">
             {/* Eyebrow with Brand Red Accent Line */}
             <div className="flex items-center gap-2.5">
-              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white">
+              <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-white">
                 MANAGED WORKFORCE PROGRAMS
               </span>
               <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
             </div>
 
             {/* Headline - Pure White for maximum contrast and prestige */}
-            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold leading-[1.16] tracking-tight text-white">
+            <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-[1.16] tracking-tight text-white">
               Enterprise Workforce Delivery with Discipline, Responsiveness, and Accountability.
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
               Managing talent requirements within an MSP or VMS environment calls for precision, compliance awareness, timely communication, and consistent execution.
             </p>
 

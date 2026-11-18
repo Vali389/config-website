@@ -1,7 +1,7 @@
 import wdAi from "@/assets/wd-ai.jpg";
 import gccEnterpriseHub from "@/assets/gcc-enterprise-hub.jpg";
-import palantirFoundryAipHero from "@/assets/palantir-foundry-aip-hero.jpg";
-import insightsWorkforceTeam from "@/assets/insights_workforce_team.jpg";
+import palantirFoundryAipHero from "@/assets/palantir_western_team.jpg";
+import insightsWorkforceTeam from "@/assets/why_us_western_team.jpg";
 
 export interface ArticleSection {
   heading: string;

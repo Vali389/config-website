@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Rocket, BellRing, Handshake, FileText, Upload, Send, CheckCircle2, Search, ArrowRight } from "lucide-react";
-import careersHeroBg from "@/assets/mutliclutural-careers-bg.png";
+import careersHeroBg from "@/assets/us-carrer.png";
 import {
   Select,
   SelectContent,
@@ -52,18 +52,19 @@ function Page() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* Hero Section (Edge-to-Edge Navy Hero matching Careers design)       */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[460px] lg:min-h-[500px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-12 lg:pt-28 lg:pb-16 border-b border-white/10">
+      <section className="relative min-h-[460px] lg:min-h-[520px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-white/10">
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <img
             src={careersHeroBg}
             alt="ConfigUSA Talent Network"
             className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105 opacity-40 lg:opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E] via-[#102B4E]/85 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#012056] via-[#012056]/95 via-30% md:via-40% to-transparent to-62% pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#012056]/25 to-transparent pointer-events-none" />
         </div>
 
         <div className="container-enterprise relative z-10 w-full">
-          <div className="max-w-xl lg:max-w-[540px] xl:max-w-[600px] space-y-6">
+          <div className="max-w-xl lg:max-w-[520px] xl:max-w-[580px] space-y-6">
             <div className="flex items-center gap-2.5">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#e2e8f0]">
                 SUBMIT YOUR RESUME

@@ -25,7 +25,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import contactHeroBg from "@/assets/mutliclutural-contact-bg.png";
+import contactHeroBg from "@/assets/us-contact.png";
 import { InteractiveLeafletMap } from "@/components/InteractiveLeafletMap";
 import { CorporateToast } from "@/components/CorporateToast";
 
@@ -278,14 +278,15 @@ function ContactPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 1. Hero Section (Edge-to-Edge Navy Hero with Photography on Right)  */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[520px] lg:min-h-[580px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-white/10">
+      <section className="relative min-h-[460px] lg:min-h-[520px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-white/10">
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <img
             src={contactHeroBg}
             alt="Contact ConfigUSA"
             className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/80 via-transparent to-transparent lg:hidden pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#012056] via-[#012056]/95 via-30% md:via-40% to-transparent to-62% pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#012056]/25 to-transparent pointer-events-none" />
         </div>
 
         <div className="container-enterprise relative z-10 w-full">
@@ -639,16 +640,16 @@ function ContactPage() {
             {OFFICES.map((o) => (
               <div
                 key={o.city}
-                className="rounded-xl bg-white border border-slate-200/80 p-5 shadow-xs flex flex-col justify-between"
+                className="group rounded-xl bg-white border border-slate-200/80 p-5 shadow-xs flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-xl hover:border-amber-400 hover:ring-2 hover:ring-amber-400/25 hover:bg-slate-50/40"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#C83B43] bg-red-50 border border-red-100 px-2 py-0.5 rounded">
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#C83B43] bg-red-50 border border-red-100 px-2 py-0.5 rounded transition-colors duration-200 group-hover:bg-[#C83B43] group-hover:text-white group-hover:border-[#C83B43]">
                       <Building2 className="h-3 w-3" />
                       {o.tag}
                     </span>
                   </div>
-                  <h4 className="text-base font-bold text-[#102B4E] tracking-tight mb-1.5">{o.city}</h4>
+                  <h4 className="text-base font-bold text-[#102B4E] tracking-tight mb-1.5 transition-colors duration-200 group-hover:text-[#102B4E]">{o.city}</h4>
                   <p className="text-xs text-slate-600 leading-relaxed mb-4">{o.address}</p>
                 </div>
                 <div className="pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-slate-700">

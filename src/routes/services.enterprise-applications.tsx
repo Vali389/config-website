@@ -10,8 +10,8 @@ import {
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
 import enterprisePlatformsMesh from "@/assets/enterprise-platforms-mesh.jpg";
-import erpHeroBg from "@/assets/mutliclutural-enterprise-solutions-bg.png";
-import erpImplementationImg from "@/assets/erp_implementation_img.png";
+import erpHeroBg from "@/assets/Enterprise Applications-bg.png";
+import sapEnterpriseTeam from "@/assets/sap_western_team.jpg";
 
 export const Route = createFileRoute("/services/enterprise-applications")({
   head: () => ({
@@ -80,7 +80,7 @@ function EnterpriseApplicationsPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 1. Hero Section (Edge-to-Edge Navy Hero with Photography on Right)  */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[440px] lg:min-h-[500px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-white/10">
+      <section className="relative min-h-[460px] lg:min-h-[520px] flex items-center bg-[#102B4E] text-white overflow-hidden pt-24 pb-10 lg:pt-28 lg:pb-12 border-b border-white/10">
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <img
             src={erpHeroBg}
@@ -214,9 +214,9 @@ function EnterpriseApplicationsPage() {
             <div className="lg:col-span-5">
               <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-lg">
                 <img
-                  src={erpImplementationImg}
-                  alt="Enterprise Platform Implementation"
-                  className="w-full h-80 object-cover object-center"
+                  src={sapEnterpriseTeam}
+                  alt="ConfigUSA Enterprise Platform Implementation Team"
+                  className="w-full h-80 object-cover object-center filter brightness-[1.03] contrast-[1.02]"
                 />
               </div>
             </div>

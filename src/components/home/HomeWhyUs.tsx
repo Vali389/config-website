@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import whoWeAreMeeting from "@/assets/who_we_are_reference_meeting.jpg";
+import whoWeAreMeeting from "@/assets/why_us_western_team.jpg";
 import { FadeUp } from "@/components/FadeUp";
 
 export function HomeWhyUs() {

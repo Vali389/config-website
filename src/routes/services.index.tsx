@@ -142,11 +142,12 @@ function CapabilitiesOverviewPage() {
             alt="ConfigUSA Enterprise Solutions"
             className="h-full w-full object-cover object-[right_top] brightness-105 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#102B4E]/85 via-[#102B4E]/50 to-transparent lg:hidden pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#012056] via-[#012056]/95 via-30% md:via-40% to-transparent to-62% pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#012056]/25 to-transparent pointer-events-none" />
         </div>
 
         <div className="container-enterprise relative z-10 w-full">
-          <div className="max-w-xl lg:max-w-[540px] xl:max-w-[600px] space-y-6">
+          <div className="max-w-lg lg:max-w-[460px] xl:max-w-[500px] space-y-6">
             <div className="flex items-center gap-2.5">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#e2e8f0]">
                 SOLUTIONS & CAPABILITIES
