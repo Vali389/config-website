@@ -61,10 +61,10 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Capabilities Column */}
+          {/* Solutions Column */}
           <div>
             <h4 className="text-[#102B4E] font-extrabold text-xs uppercase tracking-wider mb-3.5">
-              Capabilities
+              Solutions
             </h4>
             <ul className="space-y-1">
               <FooterLink to="/services/ai">AI & Intelligent Solutions</FooterLink>

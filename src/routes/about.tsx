@@ -261,9 +261,9 @@ function AboutPage() {
       <TechTicker title="TRUSTED BY CLIENTS ACROSS DIVERSE INDUSTRIES" />
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 2. Company Background – Our Story                                   */}
+      {/* 2. Company Background – Who We Are                                  */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="our-company" className="py-14 sm:py-16 lg:py-20 bg-white border-b border-slate-200 scroll-mt-24">
+      <section id="who-we-are" className="py-14 sm:py-16 lg:py-20 bg-white border-b border-slate-200 scroll-mt-24">
         <div className="container-enterprise">
           <FadeUp>
             <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -291,7 +291,7 @@ function AboutPage() {
                 <div>
                   <div className="flex items-center gap-3">
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
-                      Our Story
+                      Who We Are
                     </h2>
                     <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
                   </div>
@@ -347,15 +347,15 @@ function AboutPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 3. Who We Are – 6 Capabilities Highlighting Staffing & Tech         */}
+      {/* 3. What We Deliver – 6 Capabilities Highlighting Staffing & Tech     */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="who-we-are" className="py-14 sm:py-16 lg:py-20 bg-[#F8FAFC] border-b border-slate-200 scroll-mt-24">
+      <section id="what-we-deliver" className="py-14 sm:py-16 lg:py-20 bg-[#F8FAFC] border-b border-slate-200 scroll-mt-24">
         <div className="container-enterprise">
           <FadeUp>
             <div className="max-w-3xl mb-12">
               <div className="flex items-center gap-2.5 mb-3">
                 <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
-                  WHO WE ARE
+                  WHAT WE DELIVER
                 </span>
                 <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
               </div>

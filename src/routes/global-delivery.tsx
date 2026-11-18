@@ -6,8 +6,6 @@ import {
   GitBranch,
   ShieldCheck,
   ArrowRight,
-  Building2,
-  Phone,
   Check,
   CheckCircle2,
   Clock,
@@ -96,40 +94,6 @@ const GOVERNANCE_POINTS = [
   "Regular status reporting and transparent milestone tracking.",
   "Rigorous onboarding controls, IP protection and secure data access.",
   "Periodic executive delivery reviews and performance benchmarking.",
-];
-
-// Verified Offices per Blueprint Section 2 & 10
-const OFFICES = [
-  {
-    city: "United States",
-    tag: "Global Headquarters",
-    lines: ["666 Plainsboro Road, Suite 1237", "Plainsboro, NJ 08536"],
-    phone: "+1 (609) 934-3184",
-  },
-  {
-    city: "Canada",
-    tag: "North America Hub",
-    lines: ["1585 Markham Road, Suite # 309", "Toronto, ON M1B 2W1"],
-    phone: "+1 (647) 557-6968",
-  },
-  {
-    city: "India – Hyderabad",
-    tag: "Delivery & Technology Center",
-    lines: [
-      "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2",
-      "Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081",
-    ],
-    phone: "+91 80746 83380",
-  },
-  {
-    city: "India – Bengaluru",
-    tag: "Delivery & Engineering Center",
-    lines: [
-      "Ardent office one Tech park, Tower A - S 1220, 2nd floor",
-      "Hoodi Circle, ITPL Main Road, Hoodi, Mahadevapura, Bengaluru, Karnataka – 560048",
-    ],
-    phone: "+91 80746 83380",
-  },
 ];
 
 function GlobalDeliveryPage() {
@@ -293,60 +257,6 @@ function GlobalDeliveryPage() {
                   </div>
                 </div>
               </FadeUp>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 4. Section: Operating footprint (Verified Locations Only)          */}
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      <section id="operating-footprint" className="py-8 lg:py-10 bg-white border-b border-[#e2e8f0] scroll-mt-24">
-        <div className="container-enterprise">
-          <div className="grid lg:grid-cols-12 gap-8 items-start mb-6">
-            <div className="lg:col-span-7">
-              <div className="flex items-center gap-2.5 mb-3">
-                <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
-                  OPERATING FOOTPRINT
-                </span>
-                <span className="w-10 h-[3px] bg-[#C83B43]" />
-              </div>
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
-                Confirmed corporate offices and delivery centres.
-              </h2>
-            </div>
-            <div className="lg:col-span-5 text-slate-600 text-base leading-relaxed lg:border-l lg:border-slate-200 lg:pl-6 pt-1">
-              Active operating presence across North America and India, with clearly defined roles and legal standing for each location.
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {OFFICES.map((office) => (
-              <div
-                key={office.city}
-                className="rounded-xl border border-slate-200/80 bg-white p-6 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#C83B43] bg-red-50 border border-red-100 px-2.5 py-1 rounded">
-                      <Building2 className="h-3.5 w-3.5" />
-                      {office.tag}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold text-[#102B4E] tracking-tight mb-2">
-                    {office.city}
-                  </h3>
-                  <div className="text-sm text-slate-600 space-y-1 mb-4">
-                    {office.lines.map((l) => (
-                      <p key={l}>{l}</p>
-                    ))}
-                  </div>
-                </div>
-                <div className="pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-slate-700">
-                  <Phone className="h-3.5 w-3.5 text-[#245B91]" />
-                  <span>{office.phone}</span>
-                </div>
-              </div>
             ))}
           </div>
         </div>
