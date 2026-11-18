@@ -627,15 +627,12 @@ function ContactPage() {
       <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">
           <div className="max-w-3xl mb-6">
-            <div className="flex items-center gap-2.5 mb-2">
-              <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#102B4E]">
+            <div className="flex items-center gap-2.5">
+              <h2 className="text-xl sm:text-2xl font-extrabold uppercase tracking-wider text-[#102B4E]">
                 OUR LOCATIONS
-              </span>
+              </h2>
               <span className="w-10 h-[3px] bg-[#C83B43]" />
             </div>
-            <h3 className="text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-tight">
-              Confirmed operating offices and delivery centres.
-            </h3>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">

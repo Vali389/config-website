@@ -31,33 +31,7 @@ import { Logo } from "./Logo";
 // Navy Blue Reference 8-Section Navigation Architecture
 const NAV = [
   { to: "/", label: "Home" },
-  {
-    to: "/about",
-    label: "About Us",
-    children: [
-      {
-        to: "/about",
-        hash: "our-company",
-        label: "Our Company",
-        desc: "Built on trust, expertise and dependable global delivery.",
-        icon: Building2,
-      },
-      {
-        to: "/about",
-        hash: "why-configusa",
-        label: "Why ConfigUSA",
-        desc: "Our enterprise advantage and delivery accountability.",
-        icon: ShieldCheck,
-      },
-      {
-        to: "/about",
-        hash: "leadership",
-        label: "Leadership",
-        desc: "Executive leadership grounded in relationships and growth.",
-        icon: Users,
-      },
-    ],
-  },
+  { to: "/about", label: "About Us" },
   {
     to: "/services",
     label: "Solutions",

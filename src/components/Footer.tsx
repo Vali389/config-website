@@ -12,11 +12,24 @@ function FooterLink({
   hash?: string;
   children: React.ReactNode;
 }) {
+  const handleClick = () => {
+    if (hash) {
+      setTimeout(() => {
+        const clean = hash.replace(/^#/, "").trim();
+        const el = document.getElementById(clean);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    }
+  };
+
   return (
     <li>
       <Link
         to={to}
         hash={hash}
+        onClick={handleClick}
         className="relative inline-block text-slate-600 hover:text-[#102B4E] transition-colors duration-200 py-1 group text-[13.5px] font-medium leading-relaxed"
       >
         <span>{children}</span>
@@ -83,11 +96,12 @@ export function Footer() {
               Industries
             </h4>
             <ul className="space-y-1">
-              <FooterLink to="/industries">Financial Services</FooterLink>
-              <FooterLink to="/industries">Healthcare & Life Sciences</FooterLink>
-              <FooterLink to="/industries">Manufacturing & Industrial</FooterLink>
-              <FooterLink to="/industries">Retail & Consumer</FooterLink>
-              <FooterLink to="/industries">Technology & IT Services</FooterLink>
+              <FooterLink to="/industries" hash="financial-services">Financial Services</FooterLink>
+              <FooterLink to="/industries" hash="healthcare-life-sciences">Healthcare & Life Sciences</FooterLink>
+              <FooterLink to="/industries" hash="manufacturing-engineering">Manufacturing & Industrial</FooterLink>
+              <FooterLink to="/industries" hash="retail-consumer-goods">Retail & Consumer</FooterLink>
+              <FooterLink to="/industries" hash="technology-digital-services">Technology & IT Services</FooterLink>
+              <FooterLink to="/industries" hash="government-public-sector">Government & Public Sector</FooterLink>
             </ul>
           </div>
 
