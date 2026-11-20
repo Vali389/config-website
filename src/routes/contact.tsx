@@ -92,24 +92,28 @@ const OFFICES = [
     tag: "Global Headquarters",
     address: "666 Plainsboro Road, Suite 1237, Plainsboro, NJ 08536",
     phone: "+1 (609) 934-3184",
+    email: "info@configusa.com",
   },
   {
     city: "Canada",
     tag: "North America Hub",
     address: "1585 Markham Road, Suite # 309, Toronto, ON M1B 2W1",
     phone: "+1 (647) 557-6968",
+    email: "canada@configusa.com",
   },
   {
     city: "India – Hyderabad",
     tag: "Delivery & Technology Center",
     address: "Trendz Sapphire, 3rd Floor, Flat No. 1-99/V/2, Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081",
     phone: "+91 80746 83380",
+    email: "india@configusa.com",
   },
   {
     city: "India – Bengaluru",
     tag: "Delivery & Engineering Center",
     address: "Ardent office one Tech park, Tower A - S 1220, 2nd floor, Hoodi Circle, ITPL Main Road, Hoodi, Mahadevapura, Bengaluru, Karnataka – 560048",
     phone: "+91 80746 83380",
+    email: "india@configusa.com",
   },
 ];
 
@@ -609,7 +613,7 @@ function ContactPage() {
                 <div className="space-y-2 text-xs text-slate-300">
                   <p className="flex items-center gap-2">
                     <Mail className="h-4 w-4 text-[#245B91]" />
-                    <span>Business Enquiries: <a href="mailto:contact@config-usa.com" className="text-white hover:underline font-semibold">contact@config-usa.com</a></span>
+                    <span>Business Enquiries: <a href="mailto:info@configusa.com" className="text-white hover:underline font-semibold">info@configusa.com</a></span>
                   </p>
                   <p className="flex items-center gap-2">
                     <Phone className="h-4 w-4 text-[#245B91]" />
@@ -652,11 +656,21 @@ function ContactPage() {
                   <h4 className="text-base font-bold text-[#102B4E] tracking-tight mb-1.5 transition-colors duration-200 group-hover:text-[#102B4E]">{o.city}</h4>
                   <p className="text-xs text-slate-600 leading-relaxed mb-4">{o.address}</p>
                 </div>
-                <div className="pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-slate-700">
-                  <Phone className="h-3.5 w-3.5 text-[#245B91]" />
-                  <a href={`tel:${o.phone.replace(/[^+\d]/g, "")}`} className="hover:text-[#245B91]">
-                    {o.phone}
-                  </a>
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2 text-xs font-semibold text-slate-700">
+                  <div className="flex items-center gap-1.5">
+                    <Phone className="h-3.5 w-3.5 text-[#245B91]" />
+                    <a href={`tel:${o.phone.replace(/[^+\d]/g, "")}`} className="hover:text-[#245B91]">
+                      {o.phone}
+                    </a>
+                  </div>
+                  {o.email && (
+                    <div className="flex items-center gap-1.5">
+                      <Mail className="h-3.5 w-3.5 text-[#245B91]" />
+                      <a href={`mailto:${o.email}`} className="text-slate-600 hover:text-[#245B91] hover:underline">
+                        {o.email}
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

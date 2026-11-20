@@ -16,6 +16,7 @@ import {
   Laptop,
   MapPin,
   Phone,
+  Mail,
   ArrowRight,
   Globe2,
   Check,
@@ -151,12 +152,14 @@ const OFFICES = [
     tag: "Global Headquarters",
     lines: ["666 Plainsboro Road, Suite 1237", "Plainsboro, NJ 08536"],
     phone: "+1 (609) 934-3184",
+    email: "info@configusa.com",
   },
   {
     city: "Canada",
     tag: "North America Hub",
     lines: ["1585 Markham Road, Suite # 309", "Toronto, ON M1B 2W1"],
     phone: "+1 (647) 557-6968",
+    email: "canada@configusa.com",
   },
   {
     city: "India – Hyderabad",
@@ -166,6 +169,7 @@ const OFFICES = [
       "Vittal Rao Nagar, Madhapur, Hitech City, Hyderabad – 500081",
     ],
     phone: "+91 80746 83380",
+    email: "india@configusa.com",
   },
   {
     city: "India – Bengaluru",
@@ -175,6 +179,7 @@ const OFFICES = [
       "Hoodi Circle, ITPL Main Road, Hoodi, Mahadevapura, Bengaluru, Karnataka – 560048",
     ],
     phone: "+91 80746 83380",
+    email: "india@configusa.com",
   },
 ];
 
@@ -686,9 +691,19 @@ function AboutPage() {
                     </div>
                   </div>
 
-                  <div className="mt-5 pt-4 border-t border-white/10 flex items-center gap-2 text-xs font-semibold text-slate-200">
-                    <Phone className="h-4 w-4 text-[#C83B43]" />
-                    <span>{off.phone}</span>
+                  <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between gap-2 text-xs font-semibold text-slate-200">
+                    <div className="flex items-center gap-2">
+                      <Phone className="h-4 w-4 text-[#C83B43]" />
+                      <span>{off.phone}</span>
+                    </div>
+                    {off.email && (
+                      <div className="flex items-center gap-1.5">
+                        <Mail className="h-4 w-4 text-[#C83B43]" />
+                        <a href={`mailto:${off.email}`} className="text-slate-300 hover:text-white transition-colors">
+                          {off.email}
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
               </FadeUp>

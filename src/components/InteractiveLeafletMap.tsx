@@ -39,7 +39,7 @@ export const THREE_LOCATIONS: OfficeLocation[] = [
     tag: "Global Headquarters",
     address: "666 Plainsboro Road, Suite 1237, Plainsboro, NJ 08536",
     phone: "+1 (609) 934-3184",
-    email: "usa@configusa.com",
+    email: "info@configusa.com",
     coords: [40.3340, -74.5938],
     zoomLevel: 12,
     timeZone: "EST (UTC-5)",

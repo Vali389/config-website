@@ -35,7 +35,7 @@ const LOCATIONS_DATA: LocationDetail[] = [
     role: "Client Partnership & Executive Delivery",
     address: "666 Plainsboro Road, Suite 1237, Plainsboro, NJ 08536, USA",
     phone: "+1 (609) 934-3184",
-    email: "usa@configusa.com",
+    email: "info@configusa.com",
     embedUrl:
       "https://maps.google.com/maps?q=666+Plainsboro+Road,+Suite+1237,+Plainsboro,+NJ+08536&t=&z=14&ie=UTF8&iwloc=&output=embed",
     mapUrl:
