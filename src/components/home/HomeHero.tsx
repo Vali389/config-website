@@ -21,16 +21,16 @@ export function HomeHero() {
       </div>
 
       <div className="container-enterprise relative z-10 w-full py-4">
-        <div className="max-w-xl lg:max-w-[540px] xl:max-w-[600px] space-y-6">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.14]">
+        <div className="max-w-xl lg:max-w-[540px] xl:max-w-[600px]">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.12] mb-3">
             Technology. Talent. Transformation.
           </h1>
 
-          <p className="text-base sm:text-lg text-[#e2e8f0] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#e2e8f0] leading-relaxed mb-6">
             ConfigUSA helps organisations access the technology expertise, engineering capability and specialist workforce needed to deliver critical business initiatives. From targeted talent solutions to dedicated delivery teams, we help clients move from requirement to execution with clarity and speed.
           </p>
 
-          <div className="pt-2 flex flex-wrap gap-4 items-center">
+          <div className="flex flex-wrap gap-4 items-center">
             <Link
               to="/contact"
               hash="enquiry-form"

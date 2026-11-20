@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
 import certMwbe from "@/assets/cert-mwbe.jpg";
 import certSbe from "@/assets/cert-sbe.jpg";
@@ -40,25 +39,16 @@ export function HomeCertifications() {
     <section className="py-8 lg:py-10 bg-white border-b border-slate-200/80 overflow-hidden">
       <div className="container-enterprise">
         <FadeUp>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
-            <div>
-              <div className="flex items-center gap-2.5 mb-2.5">
-                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
-                  OFFICIAL CERTIFICATIONS & COMPLIANCE
-                </span>
-                <span className="w-8 h-[3px] bg-[#C83B43] rounded-full inline-block" />
-              </div>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-snug">
-                Verified credentials built on compliance, trust and quality.
-              </h2>
+          <div className="mb-6">
+            <div className="flex items-center gap-2.5 mb-2.5">
+              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
+                OFFICIAL CERTIFICATIONS & COMPLIANCE
+              </span>
+              <span className="w-8 h-[3px] bg-[#C83B43] rounded-full inline-block" />
             </div>
-            <Link
-              to="/about"
-              hash="commitment"
-              className="text-xs sm:text-sm font-bold text-[#C83B43] hover:text-[#a82e35] inline-flex items-center gap-1.5 transition-colors shrink-0"
-            >
-              All Certifications & Standards <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#102B4E] tracking-tight leading-snug">
+              Verified credentials built on compliance, trust and quality.
+            </h2>
           </div>
         </FadeUp>
       </div>
