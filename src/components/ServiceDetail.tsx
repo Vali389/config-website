@@ -52,12 +52,6 @@ export function ServiceDetail(p: ServiceDetailProps) {
           >
             Talk to an Expert <ArrowRight className="h-4 w-4" />
           </Link>
-          <Link
-            to="/services"
-            className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/5 backdrop-blur px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
-          >
-            All Capabilities
-          </Link>
         </div>
       </PageHero>
 

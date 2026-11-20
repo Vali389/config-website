@@ -147,12 +147,6 @@ function PalantirTalentPage() {
               >
                 Discuss Specialist Talent Needs <ArrowRight className="h-4 w-4" />
               </Link>
-              <a
-                href="#talent-areas"
-                className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
-              >
-                Explore Talent Areas <ArrowRight className="h-4 w-4" />
-              </a>
             </div>
           </div>
         </div>

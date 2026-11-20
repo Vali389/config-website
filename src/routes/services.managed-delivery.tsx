@@ -102,13 +102,6 @@ function MSPVMSPage() {
               >
                 Discuss MSP Workforce Requirements <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                to="/about"
-                hash="why-configusa"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/50 px-5 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/10 hover:border-white"
-              >
-                Why ConfigUSA <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
 
             {/* Badge strip */}

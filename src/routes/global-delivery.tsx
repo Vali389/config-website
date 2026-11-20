@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
 import globalDeliveryHeroBg from "@/assets/global-delivery-bg.png";
-import gccEnterpriseHub from "@/assets/gcc-enterprise-hub.jpg";
+import deliveryGovernanceImg from "@/assets/global_delivery_governance_western.jpg";
 
 export const Route = createFileRoute("/global-delivery")({
   head: () => ({
@@ -137,12 +137,6 @@ function GlobalDeliveryPage() {
               >
                 Discuss Global Delivery <ArrowRight className="h-4 w-4" />
               </Link>
-              <a
-                href="#dual-engine"
-                className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
-              >
-                Dual-Engine Model <ArrowRight className="h-4 w-4" />
-              </a>
             </div>
           </div>
         </div>
@@ -301,8 +295,8 @@ function GlobalDeliveryPage() {
             <div className="lg:col-span-5">
               <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-lg">
                 <img
-                  src={gccEnterpriseHub}
-                  alt="Global Delivery Operations"
+                  src={deliveryGovernanceImg}
+                  alt="Delivery Governance & Cross-Border Delivery Operations"
                   className="w-full h-80 object-cover object-center"
                 />
               </div>

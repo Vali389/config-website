@@ -92,12 +92,6 @@ function SapPage() {
               >
                 Request SAP Professionals <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                to="/services/workday"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/50 px-5 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/10 hover:border-white"
-              >
-                Workday Solutions <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
 
             <div className="pt-2 border-l-2 border-[#C83B43] pl-3.5 text-xs tracking-wide text-slate-300">

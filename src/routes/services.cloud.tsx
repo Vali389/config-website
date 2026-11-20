@@ -107,12 +107,6 @@ function CloudInfrastructurePage() {
               >
                 Connect With Infrastructure Talent <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                to="/services/ai"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/50 px-5 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/10 hover:border-white"
-              >
-                AI & Digital Engineering <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
 
             {/* Tagline Badge */}

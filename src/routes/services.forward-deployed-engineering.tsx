@@ -151,12 +151,6 @@ function ForwardDeployedEngineeringPage() {
               >
                 Build an Engineering Team <ArrowRight className="h-4 w-4" />
               </Link>
-              <a
-                href="#what-fde-means"
-                className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
-              >
-                Learn What FDE Means <ArrowRight className="h-4 w-4" />
-              </a>
             </div>
           </div>
         </div>

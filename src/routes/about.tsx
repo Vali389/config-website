@@ -239,12 +239,6 @@ function AboutPage() {
               >
                 Meet ConfigUSA <ArrowRight className="h-4 w-4" />
               </a>
-              <Link
-                to="/services"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/50 px-5 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/10 hover:border-white"
-              >
-                Explore Capabilities <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
 
             {/* Tagline Badge */}
@@ -796,13 +790,6 @@ function AboutPage() {
                 >
                   Contact ConfigUSA <ArrowRight className="h-4 w-4" />
                 </Link>
-                <a
-                  href="tel:+16099343184"
-                  className="inline-flex items-center gap-2 rounded-lg border border-white/50 px-6 py-3.5 text-sm sm:text-base font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/10 hover:border-white"
-                >
-                  <Phone className="h-4 w-4 text-[#C83B43]" />
-                  <span>+1 (609) 934-3184</span>
-                </a>
               </div>
             </div>
           </FadeUp>

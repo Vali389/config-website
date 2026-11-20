@@ -108,12 +108,6 @@ function TechnologyConsultingPage() {
               >
                 Explore Technology Expertise <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                to="/services/sap"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/50 px-5 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/10 hover:border-white"
-              >
-                SAP Solutions <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
 
             {/* Badge strip */}

@@ -141,12 +141,6 @@ function AISolutionsPage() {
               >
                 Discuss an AI Initiative <ArrowRight className="h-4 w-4" />
               </Link>
-              <a
-                href="#where-ai-creates-value"
-                className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
-              >
-                Where AI Creates Value <ArrowRight className="h-4 w-4" />
-              </a>
             </div>
           </div>
         </div>

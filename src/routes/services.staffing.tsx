@@ -110,13 +110,6 @@ function WorkforceSolutionsPage() {
               >
                 Select an Engagement Model <ArrowRight className="h-4 w-4" />
               </a>
-              <Link
-                to="/contact"
-                hash="enquiry-form"
-                className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
-              >
-                Discuss Hiring Needs <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
           </div>
         </div>

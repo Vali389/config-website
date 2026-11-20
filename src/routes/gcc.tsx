@@ -187,12 +187,6 @@ function GCCSolutionsPage() {
               >
                 Discuss Your GCC Plans <ArrowRight className="h-4 w-4" />
               </Link>
-              <a
-                href="#how-we-support"
-                className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
-              >
-                How We Support GCCs <ArrowRight className="h-4 w-4" />
-              </a>
             </div>
           </div>
         </div>

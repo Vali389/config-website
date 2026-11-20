@@ -190,13 +190,6 @@ function ExpertisePage() {
               >
                 Explore Platforms <ArrowRight className="h-4 w-4" />
               </a>
-              <Link
-                to="/contact"
-                hash="enquiry-form"
-                className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
-              >
-                Discuss Technical Requirements <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
           </div>
         </div>
@@ -332,12 +325,6 @@ function ExpertisePage() {
               className="btn-cta-primary text-sm font-semibold px-5 py-2.5 rounded-lg shadow-sm"
             >
               Discuss Your Platform Needs
-            </Link>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-white/40 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
-            >
-              View All Solutions
             </Link>
           </div>
         </div>
