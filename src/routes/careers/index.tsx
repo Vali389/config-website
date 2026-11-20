@@ -101,13 +101,6 @@ function CareersPage() {
               >
                 View Open Positions <ArrowRight className="h-4 w-4" />
               </a>
-              <Link
-                to="/contact"
-                hash="enquiry-form"
-                className="btn-cta-secondary inline-flex items-center gap-2 text-sm font-semibold"
-              >
-                Contact Recruiting <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
           </div>
         </div>
@@ -236,22 +229,13 @@ function CareersPage() {
       <section className="bg-[#102B4E] text-white py-10 lg:py-12 border-t border-white/10">
         <div className="container-enterprise">
           <div className="grid lg:grid-cols-12 gap-6 items-center">
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 sm:col-span-6">
               <h2 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-tight">
                 Ready to take the next step in your career?
               </h2>
             </div>
-            <div className="lg:col-span-4 text-slate-200 text-sm lg:text-base lg:border-l lg:border-white/20 lg:pl-6 leading-relaxed">
+            <div className="lg:col-span-7 sm:col-span-6 text-slate-200 text-sm lg:text-base lg:border-l lg:border-white/20 lg:pl-6 leading-relaxed">
               Explore our current openings or connect directly with our talent team.
-            </div>
-            <div className="lg:col-span-3 lg:text-right">
-              <Link
-                to="/contact"
-                hash="enquiry-form"
-                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
-              >
-                Connect With Recruiting <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
           </div>
         </div>
