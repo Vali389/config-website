@@ -341,3 +341,4 @@ export function findCaseStudy(id?: string): CaseStudy {
   });
   return partial || VERIFIED_CASE_STUDIES[0];
 }
+
