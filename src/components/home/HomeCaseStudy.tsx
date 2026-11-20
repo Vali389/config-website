@@ -8,19 +8,11 @@ export function HomeCaseStudy() {
     <section className="py-8 lg:py-10 bg-[#F8FAFC] border-b border-slate-200/80">
       <div className="container-enterprise">
         <FadeUp>
-          <div className="flex items-center justify-between gap-4 mb-4">
-            <div className="flex items-center gap-2.5">
-              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
-                FEATURED CASE STUDY
-              </span>
-              <span className="w-8 h-[3px] bg-[#C83B43] rounded-full inline-block" />
-            </div>
-            <Link
-              to="/case-studies"
-              className="text-xs sm:text-sm font-bold text-[#C83B43] hover:text-[#a82e35] inline-flex items-center gap-1.5 transition-colors"
-            >
-              All Case Studies <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
+          <div className="flex items-center gap-2.5 mb-4">
+            <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#102B4E]">
+              FEATURED CASE STUDY
+            </span>
+            <span className="w-8 h-[3px] bg-[#C83B43] rounded-full inline-block" />
           </div>
         </FadeUp>
 
