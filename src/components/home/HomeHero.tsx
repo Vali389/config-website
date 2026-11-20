@@ -22,7 +22,7 @@ export function HomeHero() {
 
       <div className="container-enterprise relative z-10 w-full py-4">
         <div className="max-w-xl lg:max-w-[540px] xl:max-w-[600px]">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.12] mb-3">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.08] mb-1">
             Technology. Talent. Transformation.
           </h1>
 
