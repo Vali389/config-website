@@ -24,6 +24,7 @@ import {
   Award,
   Globe2,
   Compass,
+  Layers,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Logo } from "./Logo";
@@ -54,6 +55,12 @@ const NAV = [
         label: "Workforce Solutions",
         desc: "Tailored workforce programs aligned to enterprise business needs.",
         icon: Award,
+      },
+      {
+        to: "/services/enterprise-applications",
+        label: "Enterprise Applications",
+        desc: "Workday, SAP, MuleSoft and Salesforce talent and delivery support.",
+        icon: Layers,
       },
       {
         to: "/services/palantir",
