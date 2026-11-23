@@ -47,21 +47,6 @@ export const THREE_LOCATIONS: OfficeLocation[] = [
     isHQ: true,
   },
   {
-    id: "canada",
-    name: "Toronto Canadian Hub",
-    country: "Canada",
-    city: "Toronto",
-    state: "Ontario",
-    tag: "North America Hub",
-    address: "1585 Markham Road, Suite # 309, Toronto, ON M1B 2W1",
-    phone: "+1 (647) 557-6968",
-    email: "canada@configusa.com",
-    coords: [43.7915, -79.2274],
-    zoomLevel: 12,
-    timeZone: "EST (UTC-5)",
-    teamSize: "50+ Technology Consultants",
-  },
-  {
     id: "india-hyderabad",
     name: "Hyderabad Delivery & Technology Center",
     country: "India",
@@ -262,7 +247,7 @@ export function InteractiveLeafletMap() {
                     : "bg-white border border-slate-200 text-slate-600 hover:text-slate-900"
                 }`}
               >
-                {loc.id === "united-states" ? "United States" : loc.id === "canada" ? "Canada" : loc.city}
+                {loc.id === "united-states" ? "United States" : loc.city}
               </button>
             ))}
           </div>

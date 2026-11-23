@@ -12,7 +12,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 const REPLIES = [
-  { icon: UserSearch, label: "I want to hire talent", to: "/request-talent" as const },
+  { icon: UserSearch, label: "I want to hire talent", to: "/contact" as const },
   { icon: Briefcase, label: "I'm looking for a job", to: "/careers" as const },
   { icon: MessageSquare, label: "I have a question", to: "/contact" as const },
 ];

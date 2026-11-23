@@ -46,23 +46,6 @@ const LOCATIONS_DATA: LocationDetail[] = [
     timeZone: "EST (UTC-5)",
   },
   {
-    id: "canada",
-    country: "Canada",
-    region: "Canada (Toronto Hub)",
-    badge: "North America Hub",
-    role: "Regional Delivery & Technology Solutions",
-    address: "1585 Markham Road, Suite # 309, Toronto, ON M1B 2W1, Canada",
-    phone: "+1 (647) 557-6968",
-    embedUrl:
-      "https://maps.google.com/maps?q=1585+Markham+Road,+Suite+309,+Toronto,+ON+M1B+2W1&t=&z=14&ie=UTF8&iwloc=&output=embed",
-    mapUrl:
-      "https://maps.google.com/?q=1585+Markham+Road,+Suite+309,+Toronto,+ON+M1B+2W1",
-    // TODO: VERIFY (headcount): 50+ Technology Consultants (hidden from visible UI)
-    // TODO: VERIFY: Address and phone number (needs client confirmation)
-    teamSize: "50+ Technology Consultants",
-    timeZone: "EST (UTC-5)",
-  },
-  {
     id: "india-hyderabad",
     country: "India",
     region: "India (Hyderabad Center)",

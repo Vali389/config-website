@@ -155,13 +155,6 @@ const OFFICES = [
     email: "info@configusa.com",
   },
   {
-    city: "Canada",
-    tag: "North America Hub",
-    lines: ["1585 Markham Road, Suite # 309", "Toronto, ON M1B 2W1"],
-    phone: "+1 (647) 557-6968",
-    email: "canada@configusa.com",
-  },
-  {
     city: "India – Hyderabad",
     tag: "Delivery & Technology Center",
     lines: [
@@ -669,7 +662,7 @@ function AboutPage() {
             </div>
           </FadeUp>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {OFFICES.map((off, idx) => (
               <FadeUp key={off.city} delay={idx * 0.1} className="h-full">
                 <div className="group relative overflow-hidden rounded-2xl bg-[#0a1f3a] border border-white/10 p-7 hover:border-[#C83B43] hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 h-full flex flex-col justify-between shadow-lg cursor-pointer before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#C83B43] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity">

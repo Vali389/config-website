@@ -172,18 +172,12 @@ function ITStaffingSolutionsPage() {
               Accelerate your engineering, data, cloud, and enterprise technology initiatives with pre-vetted technology professionals. ConfigUSA provides agile contract staffing, contract-to-hire, and direct-hire technical talent tailored to your technical stack and delivery timelines.
             </p>
 
-            <div className="pt-2 flex flex-wrap gap-4 items-center">
-              <Link
-                to="/request-talent"
-                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
-              >
-                Request IT Talent <ArrowRight className="h-4 w-4" />
-              </Link>
+            <div className="pt-2">
               <a
                 href="#staffing-models"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-white/30 text-white font-bold text-sm hover:bg-white/10 transition-colors"
+                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
               >
-                Explore Staffing Models
+                Explore Staffing Models <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -345,15 +339,6 @@ function ITStaffingSolutionsPage() {
                     </div>
                   ))}
                 </div>
-
-                <div className="pt-2">
-                  <Link
-                    to="/request-talent"
-                    className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
-                  >
-                    Start Hiring IT Talent <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
               </div>
 
               <div className="lg:col-span-5">
@@ -386,7 +371,7 @@ function ITStaffingSolutionsPage() {
         <div className="container-enterprise">
           <FadeUp>
             <div className="grid lg:grid-cols-12 gap-6 items-center">
-              <div className="lg:col-span-6">
+              <div className="lg:col-span-5">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#C83B43] mb-1 block">
                   HAVE AN IMMEDIATE TALENT REQUIREMENT?
                 </span>
@@ -394,16 +379,8 @@ function ITStaffingSolutionsPage() {
                   Accelerate your technical hiring with ConfigUSA.
                 </h2>
               </div>
-              <div className="lg:col-span-6 flex flex-col sm:flex-row items-start sm:items-center justify-end gap-4 lg:border-l lg:border-white/20 lg:pl-8">
-                <p className="text-slate-200 text-sm leading-relaxed">
-                  Share your role requirements and our technical recruiting practice will deliver qualified candidates within 48 to 72 hours.
-                </p>
-                <Link
-                  to="/request-talent"
-                  className="btn-cta-primary shrink-0 inline-flex items-center gap-2 text-sm font-bold shadow-md"
-                >
-                  Request Talent <ArrowRight className="h-4 w-4" />
-                </Link>
+              <div className="lg:col-span-7 text-slate-200 text-sm lg:text-base lg:border-l lg:border-white/20 lg:pl-6 leading-relaxed">
+                Share your role requirements and our technical recruiting practice will deliver qualified candidates within 48 to 72 hours.
               </div>
             </div>
           </FadeUp>

@@ -71,7 +71,7 @@ export const JOBS: Job[] = [
     id: "cloud-devops-engineer",
     title: "Cloud DevOps Engineer",
     department: "Cloud & Infrastructure",
-    location: "Toronto, Canada",
+    location: "United States (Remote)",
     type: "Contract",
     workMode: "Remote",
     experience: "4+ years",

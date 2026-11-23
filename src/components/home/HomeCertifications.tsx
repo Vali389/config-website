@@ -36,7 +36,7 @@ const CERTIFICATIONS = [
 
 export function HomeCertifications() {
   return (
-    <section className="py-8 lg:py-10 bg-white border-b border-slate-200/80 overflow-hidden">
+    <section className="py-8 lg:py-10 bg-white border-b border-slate-200/80">
       <div className="container-enterprise">
         <FadeUp>
           <div className="mb-6">
@@ -50,46 +50,40 @@ export function HomeCertifications() {
               Verified credentials built on compliance, trust and quality.
             </h2>
           </div>
+
+          {/* Static, Non-Scrolling Grid of 5 Certifications */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5">
+            {CERTIFICATIONS.map((cert) => (
+              <Link
+                key={cert.name}
+                to="/about"
+                hash="commitment"
+                className="group relative overflow-hidden flex flex-col items-center justify-between text-center p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-[#245B91] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity"
+              >
+                <div className="flex h-24 sm:h-28 w-full items-center justify-center p-2 group-hover:scale-105 transition-transform duration-300">
+                  <img
+                    src={cert.image}
+                    alt={`${cert.name} certification`}
+                    loading="lazy"
+                    className={
+                      cert.name === "NMSDC"
+                        ? "h-16 sm:h-20 w-auto max-w-full object-contain scale-110 drop-shadow-xs"
+                        : "max-h-16 sm:max-h-20 max-w-full object-contain"
+                    }
+                  />
+                </div>
+                <div className="pt-2 border-t border-slate-100 w-full space-y-1">
+                  <h3 className="text-sm sm:text-base font-extrabold text-[#102B4E] group-hover:text-[#245B91] transition-colors leading-tight">
+                    {cert.name}
+                  </h3>
+                  <p className="text-[11px] sm:text-xs text-slate-500 font-medium leading-tight line-clamp-2">
+                    {cert.label}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </FadeUp>
-      </div>
-
-      {/* Auto-scrolling infinite marquee strip with edge fades */}
-      <div className="relative flex overflow-hidden py-2">
-        {/* Edge fade overlays */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-28 bg-gradient-to-r from-white via-white/80 to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-28 bg-gradient-to-l from-white via-white/80 to-transparent z-10" />
-
-        <div className="flex gap-4 sm:gap-6 w-max items-center py-2 animate-marquee hover:[animation-play-state:paused]">
-          {[...CERTIFICATIONS, ...CERTIFICATIONS, ...CERTIFICATIONS, ...CERTIFICATIONS].map((cert, idx) => (
-            <Link
-              key={`${cert.name}-${idx}`}
-              to="/about"
-              hash="commitment"
-              className="group relative overflow-hidden w-56 sm:w-64 h-[210px] sm:h-[230px] shrink-0 flex flex-col items-center justify-between text-center p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-[#245B91] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[#245B91] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity"
-            >
-              <div className="flex h-24 sm:h-28 w-full items-center justify-center p-2 group-hover:scale-105 transition-transform duration-300">
-                <img
-                  src={cert.image}
-                  alt={`${cert.name} certification`}
-                  loading="lazy"
-                  className={
-                    cert.name === "NMSDC"
-                      ? "h-16 sm:h-20 w-auto max-w-full object-contain scale-110 drop-shadow-xs"
-                      : "max-h-16 sm:max-h-20 max-w-full object-contain"
-                  }
-                />
-              </div>
-              <div className="pt-2 border-t border-slate-100 w-full space-y-1">
-                <h3 className="text-sm sm:text-base font-extrabold text-[#102B4E] group-hover:text-[#245B91] transition-colors leading-tight">
-                  {cert.name}
-                </h3>
-                <p className="text-[11px] sm:text-xs text-slate-500 font-medium leading-tight line-clamp-2">
-                  {cert.label}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
       </div>
     </section>
   );

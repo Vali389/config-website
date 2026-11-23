@@ -81,7 +81,7 @@ const ENGAGEMENT_APPROACHES = [
     desc: "Targeted executive and technical recruiting for permanent technology leadership, lead architects, and specialized individual contributors.",
     benefits: [
       "Rigorous practitioner-led technical vetting",
-      "Deep talent intelligence across US, Canada and India",
+      "Deep talent intelligence across North America and India",
       "Comprehensive candidate screening and reference checks",
       "Candidate replacement guarantee within trial window",
     ],

@@ -85,7 +85,7 @@ const WHAT_TO_EXPECT = [
   },
 ];
 
-// 4 Confirmed Operating Hubs (United States, Canada, Hyderabad, Bengaluru)
+// 3 Confirmed Operating Hubs (United States, Hyderabad, Bengaluru)
 const OFFICES = [
   {
     city: "United States",
@@ -93,13 +93,6 @@ const OFFICES = [
     address: "666 Plainsboro Road, Suite 1237, Plainsboro, NJ 08536",
     phone: "+1 (609) 934-3184",
     email: "info@configusa.com",
-  },
-  {
-    city: "Canada",
-    tag: "North America Hub",
-    address: "1585 Markham Road, Suite # 309, Toronto, ON M1B 2W1",
-    phone: "+1 (647) 557-6968",
-    email: "canada@configusa.com",
   },
   {
     city: "India – Hyderabad",
@@ -640,7 +633,7 @@ function ContactPage() {
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {OFFICES.map((o) => (
               <div
                 key={o.city}

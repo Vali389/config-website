@@ -53,8 +53,8 @@ function Page() {
         title={<>A Proven Path to <span className="text-gradient-brand">the Right Hire.</span></>}
         subtitle="Transparent, data-driven, and built around your goals — here's exactly how we deliver exceptional talent, every time."
       >
-        <Link to="/request-talent" className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-white shadow-glow hover:scale-105 transition-transform">
-          Start Hiring <ArrowRight className="h-4 w-4" />
+        <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-white shadow-glow hover:scale-105 transition-transform">
+          Contact Us <ArrowRight className="h-4 w-4" />
         </Link>
       </LightHero>
 
@@ -124,8 +124,8 @@ function Page() {
           </div>
 
           <div className="mt-12 text-center">
-            <Link to="/request-talent" className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-8 py-4 text-sm font-bold text-white shadow-glow hover:scale-105 transition-transform">
-              Request Talent <ArrowRight className="h-4 w-4" />
+            <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-8 py-4 text-sm font-bold text-white shadow-glow hover:scale-105 transition-transform">
+              Get in Touch <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
