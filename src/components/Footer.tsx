@@ -84,7 +84,7 @@ export function Footer() {
               <FooterLink to="/services/forward-deployed-engineering">Forward-Deployed Engineering</FooterLink>
               <FooterLink to="/services/palantir">Palantir Talent & Workforce</FooterLink>
               <FooterLink to="/services/enterprise-applications">Enterprise Applications</FooterLink>
-              <FooterLink to="/services/staffing">Workforce Solutions</FooterLink>
+              <FooterLink to="/services/staffing">IT Staffing & Talent Solutions</FooterLink>
               <FooterLink to="/gcc">GCC Solutions</FooterLink>
               <FooterLink to="/engagement-models">Engagement Models</FooterLink>
             </ul>
