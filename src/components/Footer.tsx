@@ -86,7 +86,7 @@ export function Footer() {
               <FooterLink to="/services/enterprise-applications">Enterprise Applications</FooterLink>
               <FooterLink to="/services/staffing">IT Staffing & Talent Solutions</FooterLink>
               <FooterLink to="/gcc">GCC Solutions</FooterLink>
-              <FooterLink to="/engagement-models">Engagement Models</FooterLink>
+              <FooterLink to="/engagement-models">Workforce Solutions</FooterLink>
             </ul>
           </div>
 

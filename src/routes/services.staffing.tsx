@@ -173,12 +173,12 @@ function ITStaffingSolutionsPage() {
             </p>
 
             <div className="pt-2">
-              <a
-                href="#staffing-models"
+              <Link
+                to="/contact"
                 className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
               >
-                Explore Staffing Models <ArrowRight className="h-4 w-4" />
-              </a>
+                Discuss Staffing Needs <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>
@@ -241,19 +241,6 @@ function ITStaffingSolutionsPage() {
                   </div>
                 </div>
               ))}
-            </div>
-
-            <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-100 mt-8">
-              <p className="text-xs sm:text-sm text-slate-600">
-                Looking for end-to-end outcome ownership or SLA-governed programs?
-              </p>
-              <Link
-                to="/engagement-models"
-                className="text-xs sm:text-sm font-bold text-[#C83B43] hover:text-[#a82e35] inline-flex items-center gap-1.5 transition-colors"
-              >
-                <span>Explore Managed Delivery & Workforce Engagement Models</span>
-                <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
           </FadeUp>
         </div>

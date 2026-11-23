@@ -22,16 +22,16 @@ export const Route = createFileRoute("/engagement-models")({
   head: () => ({
     meta: [
       {
-        title: "Engagement Models — Flexible Workforce & Delivery Structures | ConfigUSA",
+        title: "Workforce Solutions & Engagement Models — ConfigUSA",
       },
       {
         name: "description",
         content:
-          "Explore ConfigUSA's flexible engagement models: contract staffing, permanent recruitment, dedicated engineering pods, managed delivery, and custom hybrid models aligned to your business outcomes.",
+          "Explore ConfigUSA's flexible workforce solutions: contract staffing, permanent recruitment, dedicated engineering pods, managed delivery, and custom hybrid models aligned to your business outcomes.",
       },
       {
         property: "og:title",
-        content: "Engagement Models — ConfigUSA",
+        content: "Workforce Solutions & Engagement Models | ConfigUSA",
       },
       {
         property: "og:description",
@@ -167,17 +167,17 @@ function EngagementModelsPage() {
           <div className="max-w-xl lg:max-w-[520px] xl:max-w-[580px] space-y-6">
             <div className="flex items-center gap-2.5">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#e2e8f0]">
-                ENGAGEMENT MODELS
+                WORKFORCE SOLUTIONS
               </span>
               <span className="w-10 h-[3px] bg-[#C83B43]" />
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
-              Flexible Ways to Work With Us. Aligned to Your Outcomes.
+              Tailored Workforce Solutions Aligned to Your Business Outcomes.
             </h1>
 
             <p className="text-base sm:text-lg text-[#e2e8f0] leading-relaxed">
-              From targeted technology specialists to fully managed delivery teams, choose the engagement model that fits your operational goals, technical scope, and timeline.
+              From targeted technology specialists to fully managed delivery teams, choose the workforce solution and engagement structure that fits your operational goals, technical scope, and timeline.
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4 items-center">
@@ -186,7 +186,7 @@ function EngagementModelsPage() {
                 hash="enquiry-form"
                 className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
               >
-                Discuss an Engagement Model <ArrowRight className="h-4 w-4" />
+                Discuss Workforce Solutions <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
@@ -399,20 +399,11 @@ function EngagementModelsPage() {
             <div className="grid lg:grid-cols-12 gap-6 items-center">
               <div className="lg:col-span-5">
                 <h2 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-tight">
-                  Need help identifying the right engagement model?
+                  Need help identifying the right workforce model?
                 </h2>
               </div>
-              <div className="lg:col-span-4 text-slate-200 text-sm lg:text-base lg:border-l lg:border-white/20 lg:pl-6 leading-relaxed">
-                Our solutions team will evaluate your scope, timelines, and technical requirements to recommend the optimal commercial and delivery model.
-              </div>
-              <div className="lg:col-span-3 lg:text-right">
-                <Link
-                  to="/contact"
-                  hash="enquiry-form"
-                  className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
-                >
-                  Schedule a Consultation <ArrowRight className="h-4 w-4" />
-                </Link>
+              <div className="lg:col-span-7 text-slate-200 text-sm lg:text-base lg:border-l lg:border-white/20 lg:pl-6 leading-relaxed">
+                Our solutions team will evaluate your scope, timelines, and technical requirements to recommend the optimal workforce and delivery structure.
               </div>
             </div>
           </FadeUp>
