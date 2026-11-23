@@ -29,6 +29,7 @@ import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as SubmitResumeRouteImport } from './routes/submit-resume'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as WorkforceSolutionsRouteImport } from './routes/workforce-solutions'
 import { Route as CareersIndexRouteImport } from './routes/careers/index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
@@ -150,6 +151,11 @@ const SubmitResumeRoute = SubmitResumeRouteImport.update({
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkforceSolutionsRoute = WorkforceSolutionsRouteImport.update({
+  id: '/workforce-solutions',
+  path: '/workforce-solutions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CareersIndexRoute = CareersIndexRouteImport.update({
@@ -286,6 +292,7 @@ export interface FileRoutesByFullPath {
   '/solutions': typeof SolutionsRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
+  '/workforce-solutions': typeof WorkforceSolutionsRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/insights/$slug': typeof InsightsSlugRoute
@@ -325,6 +332,7 @@ export interface FileRoutesByTo {
   '/solutions': typeof SolutionsRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
+  '/workforce-solutions': typeof WorkforceSolutionsRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/insights/$slug': typeof InsightsSlugRoute
@@ -370,6 +378,7 @@ export interface FileRoutesById {
   '/solutions': typeof SolutionsRoute
   '/submit-resume': typeof SubmitResumeRoute
   '/terms': typeof TermsRoute
+  '/workforce-solutions': typeof WorkforceSolutionsRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/insights/$slug': typeof InsightsSlugRoute
@@ -416,6 +425,7 @@ export interface FileRouteTypes {
     | '/solutions'
     | '/submit-resume'
     | '/terms'
+    | '/workforce-solutions'
     | '/case-studies/$slug'
     | '/industries/$industryId'
     | '/insights/$slug'
@@ -455,6 +465,7 @@ export interface FileRouteTypes {
     | '/solutions'
     | '/submit-resume'
     | '/terms'
+    | '/workforce-solutions'
     | '/case-studies/$slug'
     | '/industries/$industryId'
     | '/insights/$slug'
@@ -499,6 +510,7 @@ export interface FileRouteTypes {
     | '/solutions'
     | '/submit-resume'
     | '/terms'
+    | '/workforce-solutions'
     | '/case-studies/$slug'
     | '/industries/$industryId'
     | '/insights/$slug'
@@ -544,6 +556,7 @@ export interface RootRouteChildren {
   SolutionsRoute: typeof SolutionsRoute
   SubmitResumeRoute: typeof SubmitResumeRoute
   TermsRoute: typeof TermsRoute
+  WorkforceSolutionsRoute: typeof WorkforceSolutionsRoute
   CareersIndexRoute: typeof CareersIndexRoute
   CareersJobJobIdRoute: typeof CareersJobJobIdRoute
 }
@@ -688,6 +701,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/workforce-solutions': {
+      id: '/workforce-solutions'
+      path: '/workforce-solutions'
+      fullPath: '/workforce-solutions'
+      preLoaderRoute: typeof WorkforceSolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/careers/': {
@@ -959,6 +979,7 @@ const rootRouteChildren: RootRouteChildren = {
   SolutionsRoute: SolutionsRoute,
   SubmitResumeRoute: SubmitResumeRoute,
   TermsRoute: TermsRoute,
+  WorkforceSolutionsRoute: WorkforceSolutionsRoute,
   CareersIndexRoute: CareersIndexRoute,
   CareersJobJobIdRoute: CareersJobJobIdRoute,
 }

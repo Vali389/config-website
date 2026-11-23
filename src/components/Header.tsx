@@ -51,7 +51,7 @@ const NAV = [
         icon: Rocket,
       },
       {
-        to: "/engagement-models",
+        to: "/workforce-solutions",
         label: "Workforce Solutions",
         desc: "Tailored workforce programs aligned to enterprise business needs.",
         icon: Award,
@@ -217,6 +217,7 @@ export function Header() {
       return (
         pathname.startsWith("/services") ||
         pathname === "/gcc" ||
+        pathname === "/workforce-solutions" ||
         pathname === "/engagement-models" ||
         pathname === "/solutions"
       );

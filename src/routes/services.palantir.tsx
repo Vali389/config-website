@@ -335,20 +335,11 @@ function PalantirTalentPage() {
                 Need specialist data or platform talent?
               </h2>
             </div>
-            <div className="lg:col-span-4 text-slate-200 text-sm lg:text-base lg:border-l lg:border-white/20 lg:pl-6 leading-relaxed">
+            <div className="lg:col-span-7 text-slate-200 text-sm lg:text-base lg:border-l lg:border-white/20 lg:pl-6 leading-relaxed">
               Let us know the technical environment, seniority and deployment timeline you require.
             </div>
-            <div className="lg:col-span-3 lg:text-right">
-              <Link
-                to="/contact"
-                hash="enquiry-form"
-                className="btn-cta-primary inline-flex items-center gap-2 text-sm font-bold shadow-md"
-              >
-                Discuss Specialist Talent Needs <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
           </div>
-                  </FadeUp>
+          </FadeUp>
         </div>
       </section>
     </div>

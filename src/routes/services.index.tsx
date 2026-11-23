@@ -89,7 +89,7 @@ const SOLUTION_PILLARS = [
     value:
       "Embedded operational impact, turnkey GCC scaling in weeks, and standardized enterprise governance.",
     cta: "Explore Workforce Solutions",
-    to: "/engagement-models",
+    to: "/workforce-solutions",
     icon: Rocket,
     color: "border-red-200 hover:border-[#C83B43]",
   },

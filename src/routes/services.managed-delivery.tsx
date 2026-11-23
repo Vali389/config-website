@@ -74,7 +74,7 @@ function MSPVMSPage() {
         </div>
 
         <div className="container-enterprise relative z-10 w-full">
-          <div className="max-w-xl lg:max-w-[520px] xl:max-w-[580px] space-y-6">
+          <div className="max-w-xl lg:max-w-[620px] xl:max-w-[680px] space-y-6">
             {/* Eyebrow with Brand Red Accent Line */}
             <div className="flex items-center gap-2.5">
               <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-white">
@@ -83,9 +83,9 @@ function MSPVMSPage() {
               <span className="w-10 h-[3px] bg-[#C83B43] rounded-full inline-block" />
             </div>
 
-            {/* Headline - Pure White for maximum contrast and prestige */}
-            <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-[1.16] tracking-tight text-white">
-              Enterprise Workforce Delivery with Discipline, Responsiveness, and Accountability.
+            {/* Headline - Exactly 2 lines */}
+            <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-[1.16] tracking-tight text-white max-w-2xl">
+              Enterprise Workforce Delivery with<br className="hidden sm:inline" /> Discipline, Responsiveness, and Accountability.
             </h1>
 
             {/* Subtitle */}
@@ -200,24 +200,13 @@ function MSPVMSPage() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="bg-[#102B4E] text-white py-10 border-t border-white/10">
         <div className="container-enterprise">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-1">
-                Ready to strengthen your MSP or VMS program delivery?
-              </h3>
-              <p className="text-slate-300 text-sm">
-                Connect with our enterprise workforce team to review requisition requirements and SLA expectations.
-              </p>
-            </div>
-            <div className="flex items-center gap-3 shrink-0">
-              <Link
-                to="/contact"
-                hash="enquiry-form"
-                className="btn-cta-primary text-sm font-semibold px-6 py-2.5 rounded-lg shadow-sm"
-              >
-                Discuss MSP Requirements
-              </Link>
-            </div>
+          <div className="max-w-3xl">
+            <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-1">
+              Ready to strengthen your MSP or VMS program delivery?
+            </h3>
+            <p className="text-slate-300 text-sm">
+              Connect with our enterprise workforce team to review requisition requirements and SLA expectations.
+            </p>
           </div>
         </div>
       </section>
