@@ -48,14 +48,14 @@ function HomePage() {
       {/* 2. What We Do */}
       <HomeWhatWeDo />
 
-      {/* 3. Our Core Capabilities (4 Cards) */}
+      {/* 3. Our Core Capabilities (3 Cards) */}
       <HomeCoreCapabilities />
-
-      {/* 3.5 Official Certifications & Compliance */}
-      <HomeCertifications />
 
       {/* 4. Why ConfigUSA */}
       <HomeWhyUs />
+
+      {/* 4.5 Official Certifications & Compliance */}
+      <HomeCertifications />
 
       {/* 5. How We Work (5-Step Flow) */}
       <HomeHowWeWork />
