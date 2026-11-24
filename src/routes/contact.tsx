@@ -620,7 +620,7 @@ function ContactPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* 3. Confirmed Office Locations (4 Global Hubs)                       */}
+      {/* 3. Confirmed Office Locations (3 Global Hubs)                       */}
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="py-8 lg:py-10 bg-[#F3F5F8] border-b border-[#e2e8f0]">
         <div className="container-enterprise">

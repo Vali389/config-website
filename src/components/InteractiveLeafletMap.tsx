@@ -220,7 +220,7 @@ export function InteractiveLeafletMap() {
           <div className="flex items-center gap-3">
             <span className="h-3 w-3 rounded-full bg-blue-600 animate-pulse" />
             <span className="text-sm sm:text-base font-bold text-[#102B4E] tracking-tight">
-              4 Strategic Locations · Global Delivery Network
+              {THREE_LOCATIONS.length} Strategic Locations · Global Delivery Network
             </span>
           </div>
 
@@ -235,7 +235,7 @@ export function InteractiveLeafletMap() {
               }`}
             >
               <Globe className="h-3.5 w-3.5 inline mr-1" />
-              All 4 Locations
+              All {THREE_LOCATIONS.length} Locations
             </button>
             {THREE_LOCATIONS.map((loc) => (
               <button
